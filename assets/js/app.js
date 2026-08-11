@@ -1,74 +1,83 @@
 "use strict";
 
-/*
+/**
  * ELECTRICAL.PRASUNBARUA.COM
- * Main JavaScript
+ * Main Application Script
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // =========================================================
+    // 1. SITE SEARCH SYSTEM
+    // =========================================================
+    const searchInput = document.getElementById("site-search");
+    const searchButton = document.getElementById("search-button");
+    const searchMessage = document.getElementById("search-message");
 
-    const searchInput =
-        document.getElementById("site-search");
+    if (searchInput && searchButton) {
+        
+        const performSearch = () => {
+            const query = searchInput.value.trim();
 
-    const searchButton =
-        document.getElementById("search-button");
-
-    const searchMessage =
-        document.getElementById("search-message");
-
-
-    function performSearch() {
-
-        const query =
-            searchInput.value.trim();
-
-        if (!query) {
-
-            searchMessage.textContent =
-                "Please enter a topic to search.";
-
-            searchInput.focus();
-
-            return;
-        }
-
-
-        /*
-         * Temporary search system.
-         *
-         * We will replace this with the site's
-         * real article search after the article
-         * structure is created.
-         */
-
-        const searchUrl =
-            "https://www.google.com/search?q=" +
-            encodeURIComponent(
-                "site:electrical.prasunbarua.com " +
-                query
-            );
-
-        window.location.href = searchUrl;
-    }
-
-
-    searchButton.addEventListener(
-        "click",
-        performSearch
-    );
-
-
-    searchInput.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (event.key === "Enter") {
-
-                performSearch();
-
+            if (!query) {
+                if (searchMessage) {
+                    searchMessage.textContent = "Please enter an engineering topic or formula to search.";
+                    searchMessage.style.display = "block";
+                }
+                searchInput.focus();
+                return;
             }
 
-        }
-    );
+            if (searchMessage) {
+                searchMessage.textContent = "";
+            }
 
+            // Fallback Google Site Search
+            const siteDomain = "electrical.prasunbarua.com";
+            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:${siteDomain} ${query}`)}`;
+
+            // Open search in a new tab so users stay on the site
+            window.open(searchUrl, "_blank", "noopener,noreferrer");
+        };
+
+        // Trigger on button click
+        searchButton.addEventListener("click", performSearch);
+
+        // Trigger on Enter key press
+        searchInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                performSearch();
+            }
+        });
+    }
+
+    // =========================================================
+    // 2. ACTIVE NAVIGATION LINK HIGHLIGHTER
+    // =========================================================
+    const highlightActiveNav = () => {
+        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll(".main-nav a");
+
+        navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            if (href === currentPath || (currentPath === "" && href === "index.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    };
+
+    highlightActiveNav();
+
+    // =========================================================
+    // 3. EXTERNAL LINK SECURITY
+    // =========================================================
+    // Automatically add security attributes to all external links
+    const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="' + window.location.hostname + '"])');
+    externalLinks.forEach((link) => {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+    });
 });
