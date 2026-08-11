@@ -2,1050 +2,471 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Contact | Electrical Engineering</title>
 
-    <title>
-        Contact | Electrical Engineering
-    </title>
+    <meta name="description" content="Contact Electrical Engineering by Prasun Barua for questions, technical feedback, article corrections, suggestions and engineering-related inquiries.">
+    <meta name="author" content="Prasun Barua">
+    <meta name="robots" content="index, follow">
 
-    <meta
-        name="description"
-        content="Contact Electrical Engineering by Prasun Barua for questions, technical feedback, article corrections, suggestions and engineering-related inquiries."
-    >
+    <link rel="canonical" href="https://electrical.prasunbarua.com/contact.html">
 
-    <meta
-        name="author"
-        content="Prasun Barua"
-    >
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact | Electrical Engineering">
+    <meta property="og:description" content="Get in touch with Prasun Barua for questions, feedback, or engineering inquiries.">
+    <meta property="og:url" content="https://electrical.prasunbarua.com/contact.html">
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
-    <link
-        rel="canonical"
-        href="https://electrical.prasunbarua.com/contact.html"
-    >
+    <!-- Font & Asset Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- =====================================================
-         BUILT-IN SVG FAVICON
-    ====================================================== -->
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
 
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
-    >
+    <!-- Embedded CSS for Contact Form Specific Components (Replaces Inline Styles) -->
+    <style>
+        .contact-intro {
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
 
+        .contact-form-card {
+            max-width: 760px;
+            margin: 0 auto;
+            background: var(--surface, #ffffff);
+            border: 1px solid var(--border, #e5e7eb);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+        }
 
-    <!-- =====================================================
-         GOOGLE MATERIAL SYMBOLS
-    ====================================================== -->
+        .form-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
 
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    >
+        .form-header-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: #e8f0fe;
+            color: #0b57d0;
+        }
 
+        .form-header h2 {
+            margin: 0 0 6px;
+        }
 
-    <!-- =====================================================
-         INTER FONT
-    ====================================================== -->
+        .form-header p {
+            margin: 0;
+            color: var(--text-muted, #64748b);
+        }
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+        .input-wrapper {
+            position: relative;
+        }
 
+        .input-wrapper .material-symbols-outlined {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            pointer-events: none;
+        }
 
-    <!-- =====================================================
-         MAIN STYLESHEET
-    ====================================================== -->
+        .input-wrapper.textarea-wrapper .material-symbols-outlined {
+            top: 16px;
+            transform: none;
+        }
 
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-     crossorigin="anonymous"></script>
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 16px 14px 46px;
+            border: 1px solid var(--border, #dbe1e8);
+            border-radius: 14px;
+            font: inherit;
+            background: var(--background, #ffffff);
+            color: var(--text, #111827);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #0b57d0;
+            box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 170px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .form-status {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 0.92rem;
+            font-weight: 600;
+            min-height: 22px;
+        }
+
+        .form-status.success {
+            color: #16a34a;
+        }
+
+        .form-status.error {
+            color: #dc2626;
+        }
+
+        /* Auxiliary Cards Grid */
+        .info-grid {
+            max-width: 760px;
+            margin: 28px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .info-card {
+            padding: 22px;
+            border: 1px solid var(--border, #e5e7eb);
+            border-radius: 18px;
+            background: var(--surface, #ffffff);
+        }
+
+        .info-card .material-symbols-outlined {
+            color: #0b57d0;
+            margin-bottom: 10px;
+        }
+
+        .info-card h3 {
+            margin: 0 0 8px;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--text-muted, #64748b);
+            line-height: 1.6;
+        }
+
+        /* Honeypot field (hidden visually and from screen readers) */
+        .hp-field {
+            position: absolute !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+    <header class="site-header">
+        <div class="container header-inner">
 
-<!-- =====================================================
-     HEADER
-====================================================== -->
-
-<header class="site-header">
-
-    <div class="container header-inner">
-
-
-        <!-- LOGO -->
-
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="Electrical Engineering home"
-        >
-
-            <span
-                class="logo-icon"
-                aria-hidden="true"
-            >
-
-                <span class="material-symbols-outlined">
-                    bolt
+            <!-- LOGO -->
+            <a href="index.html" class="logo" aria-label="Electrical Engineering home">
+                <span class="logo-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">bolt</span>
                 </span>
+                <span>
+                    <strong>Electrical Engineering</strong>
+                    <small>by Prasun Barua</small>
+                </span>
+            </a>
 
-            </span>
+            <!-- NAVIGATION -->
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#tutorials">Tutorials</a>
+                <a href="index.html#calculations">Calculations</a>
+                <a href="index.html#solar">Solar PV</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active" aria-current="page">Contact</a>
+            </nav>
 
+        </div>
+    </header>
 
-            <span>
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+    <main>
+        <section class="section">
+            <div class="container">
 
-                <strong>
+                <!-- PAGE INTRO -->
+                <div class="section-heading contact-intro">
+                    <span class="section-label">GET IN TOUCH</span>
+                    <h1>Contact Electrical Engineering</h1>
+                    <p>Have a technical question, found an error in an article, or have a suggestion? Send a message using the form below.</p>
+                </div>
+
+                <!-- CONTACT FORM CARD -->
+                <div class="contact-form-card">
+
+                    <!-- FORM HEADER -->
+                    <div class="form-header">
+                        <div class="form-header-icon">
+                            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                        </div>
+                        <div>
+                            <h2>Send a Message</h2>
+                            <p>Your message will be sent securely through our contact system.</p>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT FORM -->
+                    <form id="contactForm" novalidate>
+
+                        <!-- Honeypot spam protection -->
+                        <div class="hp-field" aria-hidden="true">
+                            <label for="_gotcha">Do not fill this out if you are human</label>
+                            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <!-- NAME -->
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <div class="input-wrapper">
+                                <span class="material-symbols-outlined" aria-hidden="true">person</span>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Your name" autocomplete="name" required>
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-wrapper">
+                                <span class="material-symbols-outlined" aria-hidden="true">alternate_email</span>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" autocomplete="email" required>
+                            </div>
+                        </div>
+
+                        <!-- SUBJECT -->
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <div class="input-wrapper">
+                                <span class="material-symbols-outlined" aria-hidden="true">subject</span>
+                                <input type="text" id="subject" name="subject" class="form-control" placeholder="What would you like to discuss?" required>
+                            </div>
+                        </div>
+
+                        <!-- MESSAGE -->
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                                <textarea id="message" name="message" class="form-control" rows="7" placeholder="Write your message here..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- SUBMIT BUTTON -->
+                        <button type="submit" id="submitBtn" class="primary-button btn-submit">
+                            <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                            <span>Send Message</span>
+                        </button>
+
+                        <!-- STATUS MESSAGE -->
+                        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+                    </form>
+                </div>
+
+                <!-- CORRECTIONS / INQUIRIES -->
+                <div class="info-grid">
+
+                    <div class="info-card">
+                        <span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
+                        <h3>Article Corrections</h3>
+                        <p>Found an incorrect formula, calculation or technical detail? Please let us know so the information can be reviewed.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="material-symbols-outlined" aria-hidden="true">lightbulb</span>
+                        <h3>Suggestions</h3>
+                        <p>Have an idea for a tutorial, calculator or engineering topic? Your suggestions are welcome.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
+            <div>
+                <div class="footer-logo">
+                    <span class="material-symbols-outlined" aria-hidden="true">bolt</span>
                     Electrical Engineering
-                </strong>
-
-                <small>
-                    by Prasun Barua
-                </small>
-
-            </span>
-
-        </a>
-
-
-        <!-- NAVIGATION -->
-
-        <nav
-            class="main-nav"
-            aria-label="Main navigation"
-        >
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="index.html#tutorials">
-                Tutorials
-            </a>
-
-            <a href="index.html#calculations">
-                Calculations
-            </a>
-
-            <a href="index.html#solar">
-                Solar PV
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a
-                href="contact.html"
-                class="active"
-            >
-                Contact
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     MAIN
-====================================================== -->
-
-<main>
-
-
-<section class="section">
-
-    <div class="container">
-
-
-        <!-- PAGE INTRO -->
-
-        <div
-            class="section-heading"
-            style="max-width: 760px; margin: 0 auto 40px;"
-        >
-
-            <span class="section-label">
-                GET IN TOUCH
-            </span>
-
-            <h1>
-                Contact Electrical Engineering
-            </h1>
-
-            <p>
-                Have a technical question, found an error in an
-                article, or have a suggestion? Send a message using
-                the form below.
-            </p>
-
-        </div>
-
-
-
-        <!-- =================================================
-             CONTACT FORM CARD
-        ================================================== -->
-
-        <div
-            class="contact-form-card"
-            style="
-                max-width: 760px;
-                margin: 0 auto;
-                background: var(--surface, #ffffff);
-                border: 1px solid var(--border, #e5e7eb);
-                border-radius: 24px;
-                padding: 32px;
-                box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
-            "
-        >
-
-
-            <!-- FORM HEADER -->
-
-            <div
-                style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 16px;
-                    margin-bottom: 28px;
-                "
-            >
-
-                <div
-                    style="
-                        width: 48px;
-                        height: 48px;
-                        min-width: 48px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border-radius: 14px;
-                        background: #e8f0fe;
-                        color: #0b57d0;
-                    "
-                >
-
-                    <span
-                        class="material-symbols-outlined"
-                        aria-hidden="true"
-                    >
-                        mail
-                    </span>
-
                 </div>
-
-
-                <div>
-
-                    <h2
-                        style="
-                            margin: 0 0 6px;
-                        "
-                    >
-                        Send a Message
-                    </h2>
-
-                    <p
-                        style="
-                            margin: 0;
-                            color: var(--text-muted, #64748b);
-                        "
-                    >
-                        Your message will be sent securely through
-                        our contact system.
-                    </p>
-
-                </div>
-
+                <p>Practical electrical engineering tutorials, calculations and guides.</p>
             </div>
 
-
-
-            <!-- =================================================
-                 CONTACT FORM
-            ================================================== -->
-
-            <form
-                id="contactForm"
-                novalidate
-            >
-
-
-                <!-- Honeypot spam protection -->
-
-                <input
-                    type="text"
-                    name="_gotcha"
-                    tabindex="-1"
-                    autocomplete="off"
-                    style="
-                        display: none !important;
-                    "
-                >
-
-
-                <!-- NAME -->
-
-                <div
-                    class="form-group"
-                    style="margin-bottom: 20px;"
-                >
-
-                    <label
-                        for="name"
-                        style="
-                            display: block;
-                            margin-bottom: 8px;
-                            font-weight: 600;
-                        "
-                    >
-                        Name
-                    </label>
-
-                    <div
-                        style="
-                            position: relative;
-                        "
-                    >
-
-                        <span
-                            class="material-symbols-outlined"
-                            aria-hidden="true"
-                            style="
-                                position: absolute;
-                                left: 15px;
-                                top: 50%;
-                                transform: translateY(-50%);
-                                color: #64748b;
-                                pointer-events: none;
-                            "
-                        >
-                            person
-                        </span>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Your name"
-                            autocomplete="name"
-                            required
-                            style="
-                                width: 100%;
-                                box-sizing: border-box;
-                                padding: 14px 16px 14px 46px;
-                                border: 1px solid var(--border, #dbe1e8);
-                                border-radius: 14px;
-                                font: inherit;
-                                background: var(--background, #ffffff);
-                                color: var(--text, #111827);
-                                outline: none;
-                            "
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- EMAIL -->
-
-                <div
-                    class="form-group"
-                    style="margin-bottom: 20px;"
-                >
-
-                    <label
-                        for="email"
-                        style="
-                            display: block;
-                            margin-bottom: 8px;
-                            font-weight: 600;
-                        "
-                    >
-                        Email
-                    </label>
-
-                    <div
-                        style="
-                            position: relative;
-                        "
-                    >
-
-                        <span
-                            class="material-symbols-outlined"
-                            aria-hidden="true"
-                            style="
-                                position: absolute;
-                                left: 15px;
-                                top: 50%;
-                                transform: translateY(-50%);
-                                color: #64748b;
-                                pointer-events: none;
-                            "
-                        >
-                            alternate_email
-                        </span>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="your@email.com"
-                            autocomplete="email"
-                            required
-                            style="
-                                width: 100%;
-                                box-sizing: border-box;
-                                padding: 14px 16px 14px 46px;
-                                border: 1px solid var(--border, #dbe1e8);
-                                border-radius: 14px;
-                                font: inherit;
-                                background: var(--background, #ffffff);
-                                color: var(--text, #111827);
-                                outline: none;
-                            "
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- SUBJECT -->
-
-                <div
-                    class="form-group"
-                    style="margin-bottom: 20px;"
-                >
-
-                    <label
-                        for="subject"
-                        style="
-                            display: block;
-                            margin-bottom: 8px;
-                            font-weight: 600;
-                        "
-                    >
-                        Subject
-                    </label>
-
-                    <div
-                        style="
-                            position: relative;
-                        "
-                    >
-
-                        <span
-                            class="material-symbols-outlined"
-                            aria-hidden="true"
-                            style="
-                                position: absolute;
-                                left: 15px;
-                                top: 50%;
-                                transform: translateY(-50%);
-                                color: #64748b;
-                                pointer-events: none;
-                            "
-                        >
-                            subject
-                        </span>
-
-                        <input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            placeholder="What would you like to discuss?"
-                            required
-                            style="
-                                width: 100%;
-                                box-sizing: border-box;
-                                padding: 14px 16px 14px 46px;
-                                border: 1px solid var(--border, #dbe1e8);
-                                border-radius: 14px;
-                                font: inherit;
-                                background: var(--background, #ffffff);
-                                color: var(--text, #111827);
-                                outline: none;
-                            "
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- MESSAGE -->
-
-                <div
-                    class="form-group"
-                    style="margin-bottom: 24px;"
-                >
-
-                    <label
-                        for="message"
-                        style="
-                            display: block;
-                            margin-bottom: 8px;
-                            font-weight: 600;
-                        "
-                    >
-                        Message
-                    </label>
-
-                    <div
-                        style="
-                            position: relative;
-                        "
-                    >
-
-                        <span
-                            class="material-symbols-outlined"
-                            aria-hidden="true"
-                            style="
-                                position: absolute;
-                                left: 15px;
-                                top: 16px;
-                                color: #64748b;
-                                pointer-events: none;
-                            "
-                        >
-                            chat
-                        </span>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="7"
-                            placeholder="Write your message here..."
-                            required
-                            style="
-                                width: 100%;
-                                box-sizing: border-box;
-                                padding: 14px 16px 14px 46px;
-                                border: 1px solid var(--border, #dbe1e8);
-                                border-radius: 14px;
-                                font: inherit;
-                                background: var(--background, #ffffff);
-                                color: var(--text, #111827);
-                                outline: none;
-                                resize: vertical;
-                                min-height: 170px;
-                            "
-                        ></textarea>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- SUBMIT -->
-
-                <button
-                    type="submit"
-                    id="submitBtn"
-                    class="primary-button"
-                    style="
-                        width: 100%;
-                        min-height: 52px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 9px;
-                        border: 0;
-                        cursor: pointer;
-                    "
-                >
-
-                    <span
-                        class="material-symbols-outlined"
-                        aria-hidden="true"
-                    >
-                        send
-                    </span>
-
-                    <span>
-                        Send Message
-                    </span>
-
-                </button>
-
-
-
-                <!-- STATUS -->
-
-                <div
-                    id="formStatus"
-                    role="status"
-                    aria-live="polite"
-                    style="
-                        margin-top: 16px;
-                        text-align: center;
-                        font-size: 0.92rem;
-                        font-weight: 600;
-                        min-height: 22px;
-                    "
-                ></div>
-
-
-            </form>
-
-        </div>
-
-
-
-        <!-- =================================================
-             CORRECTIONS / INQUIRIES
-        ================================================== -->
-
-        <div
-            style="
-                max-width: 760px;
-                margin: 28px auto 0;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 16px;
-            "
-        >
-
-
-            <div
-                style="
-                    padding: 22px;
-                    border: 1px solid var(--border, #e5e7eb);
-                    border-radius: 18px;
-                    background: var(--surface, #ffffff);
-                "
-            >
-
-                <span
-                    class="material-symbols-outlined"
-                    style="
-                        color: #0b57d0;
-                        margin-bottom: 10px;
-                    "
-                    aria-hidden="true"
-                >
-                    fact_check
-                </span>
-
-                <h3
-                    style="
-                        margin: 0 0 8px;
-                    "
-                >
-                    Article Corrections
-                </h3>
-
-                <p
-                    style="
-                        margin: 0;
-                        color: var(--text-muted, #64748b);
-                        line-height: 1.6;
-                    "
-                >
-                    Found an incorrect formula, calculation or
-                    technical detail? Please let us know so the
-                    information can be reviewed.
-                </p>
-
+            <div>
+                <h3>Explore</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#tutorials">Tutorials</a>
+                <a href="index.html#calculations">Calculations</a>
+                <a href="index.html#solar">Solar PV</a>
             </div>
 
-
-
-            <div
-                style="
-                    padding: 22px;
-                    border: 1px solid var(--border, #e5e7eb);
-                    border-radius: 18px;
-                    background: var(--surface, #ffffff);
-                "
-            >
-
-                <span
-                    class="material-symbols-outlined"
-                    style="
-                        color: #0b57d0;
-                        margin-bottom: 10px;
-                    "
-                    aria-hidden="true"
-                >
-                    lightbulb
-                </span>
-
-                <h3
-                    style="
-                        margin: 0 0 8px;
-                    "
-                >
-                    Suggestions
-                </h3>
-
-                <p
-                    style="
-                        margin: 0;
-                        color: var(--text-muted, #64748b);
-                        line-height: 1.6;
-                    "
-                >
-                    Have an idea for a tutorial, calculator or
-                    engineering topic? Your suggestions are welcome.
-                </p>
-
+            <div>
+                <h3>Information</h3>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="disclaimer.html">Disclaimer</a>
             </div>
 
-
         </div>
 
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
-<footer class="site-footer">
-
-    <div class="container footer-grid">
-
-
-        <div>
-
-            <div class="footer-logo">
-
-                <span
-                    class="material-symbols-outlined"
-                    aria-hidden="true"
-                >
-                    bolt
-                </span>
-
-                Electrical Engineering
-
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Prasun Barua. All rights reserved.</p>
             </div>
-
-            <p>
-                Practical electrical engineering tutorials,
-                calculations and guides.
-            </p>
-
         </div>
-
-
-        <div>
-
-            <h3>
-                Explore
-            </h3>
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="index.html#tutorials">
-                Tutorials
-            </a>
-
-            <a href="index.html#calculations">
-                Calculations
-            </a>
-
-            <a href="index.html#solar">
-                Solar PV
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Information
-            </h3>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a href="privacy-policy.html">
-                Privacy Policy
-            </a>
-
-            <a href="disclaimer.html">
-                Disclaimer
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <div class="container">
-
-            <p>
-                © 2026 Prasun Barua. All rights reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     CONTACT FORM JAVASCRIPT
-====================================================== -->
-
-<script>
-
-document
-    .getElementById("contactForm")
-    .addEventListener("submit", async function (e) {
-
-        e.preventDefault();
-
-
-        const form = document.getElementById("contactForm");
-
-        const btn = document.getElementById("submitBtn");
-
-        const status = document.getElementById("formStatus");
-
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const subject =
-            document.getElementById("subject").value.trim();
-
-        const message =
-            document.getElementById("message").value.trim();
-
-
-        /* Basic validation */
-
-        if (!name || !email || !subject || !message) {
-
-            status.style.color = "#dc2626";
-
-            status.textContent =
-                "Please complete all fields.";
-
-            return;
-
-        }
-
-
-        /* Loading state */
-
-        btn.disabled = true;
-
-        btn.style.opacity = "0.7";
-
-        btn.style.cursor = "wait";
-
-
-        btn.innerHTML = `
-
-            <span
-                class="material-symbols-outlined"
-                aria-hidden="true"
-            >
-                hourglass_top
-            </span>
-
-            <span>
-                Sending...
-            </span>
-
-        `;
-
-
-        status.textContent = "";
-
-
-
-        /* =================================================
-           PAYLOAD
-        ================================================== */
-
-        const payload = {
-
-            name: name,
-
-            email: email,
-
-            siteName: "Electrical Engineering",
-
-            message:
-                `Subject: ${subject}\n\n${message}`
-
-        };
-
-
-
-        try {
-
-
-            /* =================================================
-               CLOUDFLARE WORKER
-            ================================================== */
-
-            const workerUrl =
-                "https://multi-site-contact-backend.prasun301.workers.dev";
-
-
-            const response =
-                await fetch(workerUrl, {
-
-                    method: "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json"
-
-                    },
-
-                    body:
-                        JSON.stringify(payload)
-
-                });
-
-
-
-            const result =
-                await response.json();
-
-
-
-            /* SUCCESS */
-
-            if (
-                response.ok &&
-                result.success
-            ) {
-
-                status.style.color =
-                    "#16a34a";
-
-                status.textContent =
-                    "✓ Message sent successfully! Thank you for contacting us.";
-
+    </footer>
+
+    <!-- =====================================================
+         CONTACT FORM JAVASCRIPT
+    ====================================================== -->
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const btn = document.getElementById("submitBtn");
+            const status = document.getElementById("formStatus");
+
+            // Honeypot check
+            const honeypot = form.querySelector('[name="_gotcha"]').value;
+            if (honeypot) {
+                // Silently block bot submission
+                status.className = "form-status success";
+                status.textContent = "✓ Message sent successfully! Thank you for contacting us.";
                 form.reset();
-
-
-            } else {
-
-                throw new Error(
-                    result.error ||
-                    "Submission failed"
-                );
-
+                return;
             }
 
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-        } catch (error) {
+            /* Basic Email Format Validation */
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!name || !email || !subject || !message) {
+                status.className = "form-status error";
+                status.textContent = "Please complete all fields.";
+                return;
+            }
 
+            if (!emailPattern.test(email)) {
+                status.className = "form-status error";
+                status.textContent = "Please enter a valid email address.";
+                return;
+            }
 
-            console.error(
-                "Contact form error:",
-                error
-            );
+            /* Loading state */
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+            btn.style.cursor = "wait";
+            btn.innerHTML = `
+                <span class="material-symbols-outlined" aria-hidden="true">hourglass_top</span>
+                <span>Sending...</span>
+            `;
+            status.textContent = "";
 
+            /* Payload */
+            const payload = {
+                name: name,
+                email: email,
+                siteName: "Electrical Engineering",
+                message: `Subject: ${subject}\n\n${message}`
+            };
 
-            status.style.color =
-                "#dc2626";
+            try {
+                const workerUrl = "https://multi-site-contact-backend.prasun301.workers.dev";
+                const response = await fetch(workerUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
 
-            status.textContent =
-                "✕ Unable to send your message right now. Please try again later.";
+                const result = await response.json();
 
-        }
-
-
-        /* Restore button */
-
-        btn.disabled = false;
-
-        btn.style.opacity = "1";
-
-        btn.style.cursor = "pointer";
-
-
-        btn.innerHTML = `
-
-            <span
-                class="material-symbols-outlined"
-                aria-hidden="true"
-            >
-                send
-            </span>
-
-            <span>
-                Send Message
-            </span>
-
-        `;
-
-    });
-
-</script>
-
+                if (response.ok && result.success) {
+                    status.className = "form-status success";
+                    status.textContent = "✓ Message sent successfully! Thank you for contacting us.";
+                    form.reset();
+                } else {
+                    throw new Error(result.error || "Submission failed");
+                }
+            } catch (error) {
+                console.error("Contact form error:", error);
+                status.className = "form-status error";
+                status.textContent = "✕ Unable to send your message right now. Please try again later.";
+            } finally {
+                /* Restore button state */
+                btn.disabled = false;
+                btn.style.opacity = "1";
+                btn.style.cursor = "pointer";
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                    <span>Send Message</span>
+                `;
+            }
+        });
+    </script>
 
 </body>
 
