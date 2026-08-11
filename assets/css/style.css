@@ -1,0 +1,29 @@
+/* =========================================================
+   ELECTRICAL.PRASUNBARUA.COM
+   Main Stylesheet
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background: #f8fafc;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
