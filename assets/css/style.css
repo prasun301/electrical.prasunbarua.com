@@ -375,7 +375,7 @@ ol {
 
 
 /* =========================================================
-   11. SEARCH
+   11. SEARCH SYSTEM & FEEDBACK
    ========================================================= */
 
 .search-box {
@@ -432,6 +432,15 @@ ol {
 .search-box button:hover {
     background: var(--primary-dark);
     transform: translateY(-1px);
+}
+
+/* Dynamic JS Search Feedback Message */
+#search-message {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--danger);
+    text-align: center;
 }
 
 
@@ -614,7 +623,7 @@ ol {
 
 
 /* =========================================================
-   15. ARTICLE READING SYSTEM & TYPOGRAPHY
+   15. ARTICLE READING SYSTEM & LEGAL CONTAINERS
    ========================================================= */
 
 .article-container {
@@ -653,10 +662,6 @@ ol {
     margin-bottom: 1.5em;
     color: #1e293b;
     text-wrap: pretty;
-}
-
-.article-content p + p {
-    margin-top: -0.5em;
 }
 
 .article-content h2 {
@@ -717,6 +722,22 @@ ol {
     color: var(--primary-dark);
 }
 
+/* Legal Sections & Notice Callouts */
+.legal-section {
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.notice-box {
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: var(--radius-md);
+    background: var(--background-soft);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+}
+
 
 /* =========================================================
    16. MEDIA QUERIES & RESPONSIVENESS
@@ -728,7 +749,14 @@ ol {
     }
 
     .main-nav {
-        display: none; /* Add JS menu toggle target here */
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .main-nav::-webkit-scrollbar {
+        display: none;
     }
 
     .container {
