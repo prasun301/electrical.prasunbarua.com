@@ -144,7 +144,9 @@ a {
 
 ul,
 ol {
-    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 
@@ -268,10 +270,24 @@ ol {
     line-height: 1;
 }
 
+/* Main Navigation Container */
 .main-nav {
     display: flex;
     align-items: center;
+}
+
+/* Horizontal List Layout & Bullet Removal */
+.main-nav ul {
+    display: flex;
+    align-items: center;
     gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline-flex;
 }
 
 .main-nav a {
@@ -452,7 +468,7 @@ ol {
 
 
 /* =========================================================
-   8. ARTICLE METADATA & HEADER FIX (IMAGE 2 ALIGNMENT)
+   8. ARTICLE METADATA & HEADER FIX
    ========================================================= */
 
 .article-header {
