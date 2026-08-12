@@ -3,835 +3,1084 @@
 
 <head>
 
-    <!-- =====================================================
-         BASIC
-         ===================================================== -->
+    <!-- =========================================================
+         BASIC SEO
+    ========================================================== -->
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Electrical Fundamentals | Electrical Engineering by Prasun Barua</title>
+    <title>
+        Electrical Fundamentals | Electrical Engineering by Prasun Barua
+    </title>
 
-    <meta name="description"
-          content="Learn electrical fundamentals including voltage, current, resistance, power, energy, Ohm's law, AC and DC with simple practical explanations and engineering examples.">
+    <meta
+        name="description"
+        content="Learn electrical engineering fundamentals including voltage, current, resistance, Ohm's Law, electrical power, energy, AC, DC and basic circuit principles."
+    >
 
-    <meta name="author"
-          content="Prasun Barua">
+    <meta
+        name="author"
+        content="Prasun Barua"
+    >
 
-    <meta name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large"
+    >
+
+    <link
+        rel="canonical"
+        href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+    >
 
 
-    <!-- =====================================================
-         CANONICAL
-         ===================================================== -->
-
-    <link rel="canonical"
-          href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
-
-
-    <!-- =====================================================
+    <!-- =========================================================
          OPEN GRAPH
-         ===================================================== -->
+    ========================================================== -->
 
-    <meta property="og:type"
-          content="website">
+    <meta
+        property="og:type"
+        content="website"
+    >
 
-    <meta property="og:url"
-          content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+    >
 
-    <meta property="og:title"
-          content="Electrical Fundamentals">
+    <meta
+        property="og:title"
+        content="Electrical Fundamentals | Electrical Engineering"
+    >
 
-    <meta property="og:description"
-          content="Simple and practical electrical engineering fundamentals covering voltage, current, resistance, power, energy, Ohm's law, AC and DC.">
+    <meta
+        property="og:description"
+        content="Understand the basic principles of electrical engineering with practical explanations and examples."
+    >
 
-    <meta property="og:site_name"
-          content="Electrical Engineering by Prasun Barua">
-
-    <meta property="og:image"
-          content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
-
-    <meta property="og:image:alt"
-          content="Electrical Fundamentals">
+    <meta
+        property="og:site_name"
+        content="Electrical Engineering by Prasun Barua"
+    >
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          TWITTER / X
-         ===================================================== -->
+    ========================================================== -->
 
-    <meta name="twitter:card"
-          content="summary_large_image">
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
 
-    <meta name="twitter:title"
-          content="Electrical Fundamentals">
+    <meta
+        name="twitter:title"
+        content="Electrical Fundamentals"
+    >
 
-    <meta name="twitter:description"
-          content="Learn electrical engineering fundamentals through simple practical explanations and examples.">
+    <meta
+        name="twitter:description"
+        content="Learn the fundamentals of electrical engineering including voltage, current, resistance, power and circuits."
+    >
 
-    <meta name="twitter:image"
-          content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          FAVICON
-         ===================================================== -->
+    ========================================================== -->
 
-    <link rel="icon"
-          type="image/svg+xml"
-          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-
-
-    <!-- =====================================================
-         GOOGLE / APPLE STYLE FONT
-         ===================================================== -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
 
 
-    <!-- =====================================================
+    <!-- =========================================================
+         FONTS
+    ========================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+    >
+
+
+    <!-- =========================================================
+         GOOGLE ADSENSE
+    ========================================================== -->
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =========================================================
          GOOGLE ANALYTICS
-         ===================================================== -->
+    ========================================================== -->
 
-    <script async
-            src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ">
-    </script>
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+    ></script>
 
     <script>
 
-        window.dataLayer =
-            window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
         }
 
-        gtag(
-            'js',
-            new Date()
-        );
+        gtag("js", new Date());
 
         gtag(
-            'config',
-            'G-XY335VGVGJ'
+            "config",
+            "G-XY335VGVGJ"
         );
 
     </script>
 
 
-    <!-- =====================================================
-         GOOGLE ADSENSE
-         ===================================================== -->
+    <!-- =========================================================
+         MAIN CSS
+    ========================================================== -->
 
-    <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-            crossorigin="anonymous">
-    </script>
-
-
-    <!-- =====================================================
-         MAIN STYLESHEET
-         ===================================================== -->
-
-    <link rel="stylesheet"
-          href="/assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="/assets/css/style.css"
+    >
 
 
-    <!-- =====================================================
-         CATEGORY PAGE SPECIFIC CSS
-         ===================================================== -->
+    <!-- =========================================================
+         PAGE-SPECIFIC CSS
+         
+         These styles are deliberately scoped to this page.
+         They also prevent old navigation styles from affecting
+         this page.
+    ========================================================== -->
 
     <style>
 
-        /* =================================================
-           CATEGORY LAYOUT
-           ================================================= */
+        /* =====================================================
+           RESET FOR THIS PAGE
+        ====================================================== */
 
-        .category-layout {
-
-            display: grid;
-
-            grid-template-columns:
-                220px minmax(0, 1fr);
-
-            gap: 48px;
-
-            align-items: start;
-
+        .fundamentals-page,
+        .fundamentals-page * {
+            box-sizing: border-box;
         }
 
 
-        /* =================================================
-           SIDEBAR
-           ================================================= */
+        .fundamentals-page {
+            width: 100%;
+            background: #ffffff;
+            color: #1d1d1f;
+        }
 
-        .category-sidebar {
 
+        .fundamentals-page a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ====================================================== */
+
+        .fundamentals-container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .fundamentals-header {
             position: sticky;
-
-            top: 90px;
-
-        }
-
-
-        .sidebar-title {
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            letter-spacing: 0.06em;
-
-            text-transform: uppercase;
-
-            color: var(--text-muted);
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .category-nav {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 3px;
-
-        }
-
-
-        .category-nav a {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-
-            padding: 9px 10px;
-
-            border-radius: 8px;
-
-            color: var(--text-secondary);
-
-            font-size: 14px;
-
-            line-height: 1.35;
-
-            transition:
-                background 0.15s ease,
-                color 0.15s ease;
-
-        }
-
-
-        .category-nav a:hover {
-
-            background: #f2f2f7;
-
-            color: var(--text-primary);
-
-            text-decoration: none;
-
-        }
-
-
-        .category-nav a.active {
-
-            background: #eef5ff;
-
-            color: var(--accent-color);
-
-            font-weight: 600;
-
-        }
-
-
-        .category-nav .material-symbols-rounded {
-
-            font-size: 19px;
-
-            flex-shrink: 0;
-
-        }
-
-
-        /* =================================================
-           CATEGORY HEADER
-           ================================================= */
-
-        .category-header {
-
-            margin-bottom: 38px;
-
-        }
-
-
-        .breadcrumb {
-
-            display: flex;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 6px;
-
-            margin-bottom: 22px;
-
-            font-size: 13px;
-
-            color: var(--text-muted);
-
-        }
-
-
-        .breadcrumb a {
-
-            color: var(--text-secondary);
-
-        }
-
-
-        .breadcrumb a:hover {
-
-            color: var(--accent-color);
-
-        }
-
-
-        .breadcrumb .material-symbols-rounded {
-
-            font-size: 16px;
-
-            color: #b0b0b5;
-
-        }
-
-
-        .category-title-row {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 18px;
-
-        }
-
-
-        .category-main-icon {
-
-            width: 52px;
-
-            height: 52px;
-
-            flex-shrink: 0;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: #f2f7ff;
-
-            color: var(--accent-color);
-
-            border-radius: 12px;
-
-        }
-
-
-        .category-main-icon
-        .material-symbols-rounded {
-
-            font-size: 27px;
-
-        }
-
-
-        .category-header h1 {
-
-            margin: 0 0 10px;
-
-            font-size:
-                clamp(30px, 4vw, 42px);
-
-            line-height: 1.15;
-
-            letter-spacing: -0.03em;
-
-            font-weight: 700;
-
-            color: var(--text-primary);
-
-        }
-
-
-        .category-description {
-
-            margin: 0;
-
-            max-width: 720px;
-
-            color: var(--text-secondary);
-
-            font-size: 16px;
-
-            line-height: 1.7;
-
-        }
-
-
-        /* =================================================
-           SEARCH
-           ================================================= */
-
-        .category-search {
-
-            display: flex;
-
-            align-items: center;
-
-            max-width: 620px;
-
-            margin-top: 26px;
-
-            padding: 5px 5px 5px 14px;
-
-            background: var(--surface-color);
-
-            border: 1px solid var(--border-color);
-
-            border-radius: 10px;
-
-            transition:
-                border-color 0.15s ease,
-                box-shadow 0.15s ease;
-
-        }
-
-
-        .category-search:focus-within {
-
-            border-color:
-                var(--accent-color);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(0, 102, 204, 0.10);
-
-        }
-
-
-        .category-search
-        .material-symbols-rounded {
-
-            color: var(--text-muted);
-
-            font-size: 20px;
-
-            margin-right: 9px;
-
-        }
-
-
-        .category-search input {
-
-            flex: 1;
-
-            min-width: 0;
-
-            border: 0;
-
-            outline: 0;
-
-            background: transparent;
-
-            color: var(--text-primary);
-
-            font: inherit;
-
-            font-size: 14px;
-
-        }
-
-
-        .category-search input::placeholder {
-
-            color: var(--text-muted);
-
-        }
-
-
-        /* =================================================
-           ARTICLE LIST
-           ================================================= */
-
-        .article-list {
-
-            border-top:
-                1px solid var(--border-light);
-
-        }
-
-
-        .article-item {
-
-            display: block;
-
-            padding: 27px 0 28px;
-
-            border-bottom:
-                1px solid var(--border-light);
-
-            color: inherit;
-
-            transition:
-                padding-left 0.15s ease;
-
-        }
-
-
-        .article-item:hover {
-
-            text-decoration: none;
-
-            padding-left: 5px;
-
-        }
-
-
-        .article-meta {
-
-            display: flex;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-            margin-bottom: 9px;
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            letter-spacing: 0.05em;
-
-            text-transform: uppercase;
-
-        }
-
-
-        .article-category-label {
-
-            color: var(--accent-color);
-
-        }
-
-
-        .article-meta-separator {
-
-            color: #c7c7cc;
-
-        }
-
-
-        .article-date,
-        .article-reading-time {
-
-            color: var(--text-muted);
-
-            font-weight: 500;
-
-            letter-spacing: 0;
-
-            text-transform: none;
-
-        }
-
-
-        .article-item h2 {
-
-            margin: 0 0 8px;
-
-            color: var(--text-primary);
-
-            font-size: 21px;
-
-            line-height: 1.35;
-
-            letter-spacing: -0.015em;
-
-            font-weight: 600;
-
-        }
-
-
-        .article-item:hover h2 {
-
-            color: var(--accent-color);
-
-        }
-
-
-        .article-excerpt {
-
-            margin: 0;
-
-            max-width: 760px;
-
-            color: var(--text-secondary);
-
-            font-size: 14px;
-
-            line-height: 1.65;
-
-        }
-
-
-        .article-read {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 5px;
-
-            margin-top: 12px;
-
-            color: var(--accent-color);
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-        }
-
-
-        .article-read
-        .material-symbols-rounded {
-
-            font-size: 17px;
-
-            transition:
-                transform 0.15s ease;
-
-        }
-
-
-        .article-item:hover
-        .article-read
-        .material-symbols-rounded {
-
-            transform:
-                translateX(3px);
-
-        }
-
-
-        /* =================================================
-           EMPTY SEARCH
-           ================================================= */
-
-        .no-results {
-
-            display: none;
-
-            padding: 40px 0;
-
-            color: var(--text-secondary);
-
-            font-size: 14px;
-
-        }
-
-
-        .no-results strong {
-
-            color: var(--text-primary);
-
-        }
-
-
-        /* =================================================
-           SIMPLE INFO BOX
-           ================================================= */
-
-        .category-note {
-
-            margin-top: 40px;
-
-            padding: 20px;
-
-            background: #f7f7f9;
-
-            border: 1px solid var(--border-light);
-
-            border-radius: 12px;
-
-            color: var(--text-secondary);
-
-            font-size: 13px;
-
-            line-height: 1.6;
-
-        }
-
-
-        .category-note strong {
-
-            color: var(--text-primary);
-
-        }
-
-
-        /* =================================================
-           MOBILE CATEGORY BAR
-           ================================================= */
-
-        .mobile-category-select {
-
-            display: none;
+            top: 0;
+            z-index: 1000;
 
             width: 100%;
 
-            padding: 11px 13px;
+            background: rgba(255, 255, 255, 0.94);
 
-            margin-bottom: 30px;
+            border-bottom: 1px solid #e8e8ed;
 
-            border: 1px solid var(--border-color);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
 
-            border-radius: 9px;
 
-            background: white;
+        .fundamentals-header-inner {
+            width: min(1180px, calc(100% - 40px));
+            min-height: 78px;
+            margin: 0 auto;
 
-            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            font: inherit;
+            gap: 30px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .fundamentals-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+
+            flex-shrink: 0;
+
+            color: #1d1d1f;
+        }
+
+
+        .fundamentals-logo:hover {
+            text-decoration: none;
+        }
+
+
+        .fundamentals-logo-icon {
+            width: 54px;
+            height: 54px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background: #0066cc;
+            color: #ffffff;
+
+            box-shadow:
+                0 8px 20px rgba(0, 102, 204, 0.18);
+        }
+
+
+        .fundamentals-logo-icon .material-symbols-rounded {
+            font-size: 29px;
+        }
+
+
+        .fundamentals-logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+
+        .fundamentals-logo-title {
+            font-size: 20px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+
+        .fundamentals-logo-subtitle {
+            font-size: 13px;
+            line-height: 1.2;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           MAIN NAVIGATION
+        ====================================================== */
+
+        .fundamentals-nav {
+            display: flex;
+            align-items: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .fundamentals-nav-list {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+
+        .fundamentals-nav-list li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .fundamentals-nav-list a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 46px;
+            padding: 0 16px;
+
+            border-radius: 12px;
+
+            color: #515154;
+
+            font-size: 15px;
+            line-height: 1;
+            font-weight: 500;
+
+            white-space: nowrap;
+
+            transition:
+                background 0.18s ease,
+                color 0.18s ease;
+        }
+
+
+        .fundamentals-nav-list a:hover {
+            background: #f5f5f7;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+
+        .fundamentals-nav-list a.active {
+            background: #eaf3ff;
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           BREADCRUMB
+        ====================================================== */
+
+        .fundamentals-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            padding: 26px 0 18px;
+
+            color: #86868b;
 
             font-size: 14px;
-
+            line-height: 1.5;
         }
 
 
-        /* =================================================
-           RESPONSIVE
-           ================================================= */
-
-        @media (max-width: 850px) {
-
-            .category-layout {
-
-                grid-template-columns: 1fr;
-
-                gap: 0;
-
-            }
-
-
-            .category-sidebar {
-
-                display: none;
-
-            }
-
-
-            .mobile-category-select {
-
-                display: block;
-
-            }
-
+        .fundamentals-breadcrumb a {
+            color: #0066cc;
         }
 
 
-        @media (max-width: 600px) {
+        .fundamentals-breadcrumb a:hover {
+            text-decoration: underline;
+        }
 
-            .category-title-row {
 
-                gap: 13px;
+        .fundamentals-breadcrumb .material-symbols-rounded {
+            font-size: 18px;
+            color: #c7c7cc;
+        }
 
+
+        /* =====================================================
+           MAIN GRID
+        ====================================================== */
+
+        .fundamentals-layout {
+            display: grid;
+
+            grid-template-columns: 250px minmax(0, 1fr);
+
+            gap: 64px;
+
+            align-items: start;
+
+            padding-bottom: 80px;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ====================================================== */
+
+        .fundamentals-sidebar {
+            position: sticky;
+            top: 105px;
+
+            min-width: 0;
+        }
+
+
+        .fundamentals-sidebar-title {
+            margin: 0 0 14px;
+
+            color: #86868b;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+
+        .fundamentals-sidebar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+
+        .fundamentals-sidebar-list li {
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+
+        .fundamentals-sidebar-list a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            min-height: 48px;
+
+            padding: 8px 12px;
+
+            border-radius: 11px;
+
+            color: #515154;
+
+            font-size: 15px;
+            font-weight: 500;
+
+            transition:
+                background 0.18s ease,
+                color 0.18s ease;
+        }
+
+
+        .fundamentals-sidebar-list a:hover {
+            background: #f5f5f7;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+
+        .fundamentals-sidebar-list a.active {
+            background: #eaf3ff;
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+
+        .fundamentals-sidebar-icon {
+            width: 24px;
+            height: 24px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .fundamentals-sidebar-icon .material-symbols-rounded {
+            font-size: 21px;
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ====================================================== */
+
+        .fundamentals-content {
+            min-width: 0;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .fundamentals-hero {
+            display: grid;
+
+            grid-template-columns: 76px minmax(0, 1fr);
+
+            gap: 24px;
+
+            align-items: start;
+
+            margin-bottom: 46px;
+        }
+
+
+        .fundamentals-hero-icon {
+            width: 76px;
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: #f1f6fc;
+
+            color: #1d1d1f;
+        }
+
+
+        .fundamentals-hero-icon .material-symbols-rounded {
+            font-size: 38px;
+        }
+
+
+        .fundamentals-eyebrow {
+            margin: 3px 0 10px;
+
+            color: #0066cc;
+
+            font-size: 13px;
+            line-height: 1.2;
+            font-weight: 700;
+
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+
+        .fundamentals-title {
+            margin: 0;
+
+            color: #1d1d1f;
+
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.06;
+
+            font-weight: 800;
+
+            letter-spacing: -0.045em;
+        }
+
+
+        .fundamentals-description {
+            max-width: 780px;
+
+            margin: 20px 0 0;
+
+            color: #515154;
+
+            font-size: 19px;
+            line-height: 1.7;
+
+            font-weight: 400;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        .fundamentals-search {
+            position: relative;
+
+            width: 100%;
+
+            margin: 0 0 44px;
+        }
+
+
+        .fundamentals-search-icon {
+            position: absolute;
+
+            left: 19px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #86868b;
+
+            pointer-events: none;
+        }
+
+
+        .fundamentals-search-icon .material-symbols-rounded {
+            font-size: 24px;
+        }
+
+
+        #fundamentals-search-input {
+            width: 100%;
+            height: 58px;
+
+            padding: 0 22px 0 54px;
+
+            border: 1px solid #d2d2d7;
+            border-radius: 16px;
+
+            outline: none;
+
+            background: #ffffff;
+
+            color: #1d1d1f;
+
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+
+            font-size: 16px;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.04);
+
+            transition:
+                border-color 0.18s ease,
+                box-shadow 0.18s ease;
+        }
+
+
+        #fundamentals-search-input::placeholder {
+            color: #9a9aa0;
+        }
+
+
+        #fundamentals-search-input:focus {
+            border-color: #0066cc;
+
+            box-shadow:
+                0 0 0 4px rgba(0, 102, 204, 0.10);
+        }
+
+
+        /* =====================================================
+           ARTICLE SECTION
+        ====================================================== */
+
+        .fundamentals-section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .fundamentals-section-heading h2 {
+            margin: 0;
+
+            color: #1d1d1f;
+
+            font-size: 18px;
+            line-height: 1.3;
+
+            font-weight: 700;
+
+            letter-spacing: -0.015em;
+        }
+
+
+        .fundamentals-results-count {
+            color: #86868b;
+
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           ARTICLE CARDS
+        ====================================================== */
+
+        .fundamentals-articles {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+        }
+
+
+        .fundamentals-card {
+            display: block;
+
+            min-width: 0;
+
+            padding: 24px;
+
+            border: 1px solid #e5e5ea;
+            border-radius: 16px;
+
+            background: #ffffff;
+
+            color: #1d1d1f;
+
+            transition:
+                transform 0.18s ease,
+                border-color 0.18s ease,
+                box-shadow 0.18s ease;
+        }
+
+
+        .fundamentals-card:hover {
+            border-color: #c7d9ef;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.06);
+
+            text-decoration: none;
+        }
+
+
+        .fundamentals-card-category {
+            margin-bottom: 10px;
+
+            color: #0066cc;
+
+            font-size: 11px;
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+
+        .fundamentals-card h3 {
+            margin: 0 0 10px;
+
+            color: #1d1d1f;
+
+            font-size: 19px;
+            line-height: 1.35;
+
+            font-weight: 700;
+
+            letter-spacing: -0.02em;
+        }
+
+
+        .fundamentals-card p {
+            margin: 0;
+
+            color: #68686d;
+
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+
+        .fundamentals-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 18px;
+
+            color: #86868b;
+
+            font-size: 12px;
+        }
+
+
+        .fundamentals-card-meta .material-symbols-rounded {
+            font-size: 16px;
+        }
+
+
+        /* =====================================================
+           EMPTY SEARCH
+        ====================================================== */
+
+        .fundamentals-no-results {
+            display: none;
+
+            padding: 40px 20px;
+
+            border: 1px dashed #d2d2d7;
+            border-radius: 16px;
+
+            text-align: center;
+
+            color: #68686d;
+        }
+
+
+        .fundamentals-no-results.show {
+            display: block;
+        }
+
+
+        .fundamentals-no-results strong {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #1d1d1f;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ====================================================== */
+
+        .fundamentals-mobile-button {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+
+            border: 0;
+            border-radius: 12px;
+
+            background: #f5f5f7;
+
+            color: #1d1d1f;
+
+            cursor: pointer;
+        }
+
+
+        .fundamentals-mobile-button .material-symbols-rounded {
+            font-size: 24px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .fundamentals-footer {
+            border-top: 1px solid #e5e5ea;
+
+            padding: 28px 0 34px;
+
+            background: #ffffff;
+        }
+
+
+        .fundamentals-footer p {
+            margin: 0;
+
+            color: #86868b;
+
+            font-size: 13px;
+            line-height: 1.6;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 1050px) {
+
+            .fundamentals-header-inner {
+                gap: 16px;
             }
 
 
-            .category-main-icon {
-
-                width: 44px;
-
-                height: 44px;
-
-                border-radius: 10px;
-
-            }
-
-
-            .category-main-icon
-            .material-symbols-rounded {
-
-                font-size: 23px;
-
-            }
-
-
-            .category-header {
-
-                margin-bottom: 30px;
-
-            }
-
-
-            .category-description {
-
-                font-size: 15px;
-
-            }
-
-
-            .article-item {
-
-                padding:
-                    22px 0 23px;
-
-            }
-
-
-            .article-item h2 {
-
-                font-size: 19px;
-
-            }
-
-
-            .article-excerpt {
-
+            .fundamentals-nav-list a {
+                padding: 0 10px;
                 font-size: 14px;
+            }
 
+
+            .fundamentals-layout {
+                grid-template-columns: 220px minmax(0, 1fr);
+                gap: 40px;
             }
 
         }
+
+
+        @media (max-width: 900px) {
+
+            .fundamentals-nav {
+                display: none;
+            }
+
+
+            .fundamentals-mobile-button {
+                display: inline-flex;
+            }
+
+
+            .fundamentals-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+
+            .fundamentals-sidebar {
+                position: static;
+            }
+
+
+            .fundamentals-sidebar-list {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 5px;
+            }
+
+
+            .fundamentals-hero {
+                margin-bottom: 36px;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .fundamentals-container,
+            .fundamentals-header-inner {
+                width: min(100% - 28px, 1180px);
+            }
+
+
+            .fundamentals-header-inner {
+                min-height: 68px;
+            }
+
+
+            .fundamentals-logo-icon {
+                width: 46px;
+                height: 46px;
+
+                border-radius: 13px;
+            }
+
+
+            .fundamentals-logo-icon .material-symbols-rounded {
+                font-size: 25px;
+            }
+
+
+            .fundamentals-logo-title {
+                font-size: 17px;
+            }
+
+
+            .fundamentals-logo-subtitle {
+                font-size: 11px;
+            }
+
+
+            .fundamentals-breadcrumb {
+                padding-top: 20px;
+            }
+
+
+            .fundamentals-sidebar-list {
+                grid-template-columns: 1fr;
+            }
+
+
+            .fundamentals-hero {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+
+            .fundamentals-hero-icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 16px;
+            }
+
+
+            .fundamentals-hero-icon .material-symbols-rounded {
+                font-size: 30px;
+            }
+
+
+            .fundamentals-title {
+                font-size: 39px;
+            }
+
+
+            .fundamentals-description {
+                font-size: 17px;
+                line-height: 1.65;
+            }
+
+
+            .fundamentals-articles {
+                grid-template-columns: 1fr;
+            }
+
+
+            .fundamentals-card {
+                padding: 21px;
+            }
+
+        }
+
 
     </style>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          STRUCTURED DATA
-         ===================================================== -->
+    ========================================================== -->
 
     <script type="application/ld+json">
 
@@ -839,29 +1088,62 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
 
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/#page",
-
-        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/#collection",
 
         "name": "Electrical Fundamentals",
 
-        "description": "Electrical engineering fundamentals including voltage, current, resistance, power, energy, Ohm's law, AC and DC.",
+        "description": "Electrical engineering fundamentals including voltage, current, resistance, Ohm's Law, power and basic circuit principles.",
+
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/",
 
         "isPartOf": {
             "@type": "WebSite",
-            "@id": "https://electrical.prasunbarua.com/#website"
-        },
-
-        "about": {
-            "@type": "Thing",
-            "name": "Electrical Engineering"
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/"
         },
 
         "author": {
             "@type": "Person",
             "name": "Prasun Barua",
             "url": "https://electrical.prasunbarua.com/about.html"
-        }
+        },
+
+        "inLanguage": "en"
+
+    }
+
+    </script>
+
+
+    <!-- =========================================================
+         BREADCRUMB STRUCTURED DATA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+
+        "@type": "BreadcrumbList",
+
+        "itemListElement": [
+
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Electrical Fundamentals",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+            }
+
+        ]
+
     }
 
     </script>
@@ -872,20 +1154,38 @@
 <body>
 
 
-    <!-- =====================================================
+<!-- =============================================================
+     PAGE
+============================================================== -->
+
+<div class="fundamentals-page">
+
+
+    <!-- =========================================================
          HEADER
-         ===================================================== -->
+         
+         IMPORTANT:
+         THIS IS THE ONLY NAVIGATION ON THIS PAGE.
+         DO NOT ADD ANOTHER NAVIGATION BELOW IT.
+    ========================================================== -->
 
-    <header class="site-header">
+    <header class="fundamentals-header">
 
-        <div class="container header-inner">
+        <div class="fundamentals-header-inner">
 
-            <a href="/"
-               class="logo"
-               aria-label="Electrical Engineering home">
 
-                <span class="logo-icon"
-                      aria-hidden="true">
+            <!-- LOGO -->
+
+            <a
+                href="/"
+                class="fundamentals-logo"
+                aria-label="Electrical Engineering home"
+            >
+
+                <span
+                    class="fundamentals-logo-icon"
+                    aria-hidden="true"
+                >
 
                     <span class="material-symbols-rounded">
                         bolt
@@ -893,27 +1193,30 @@
 
                 </span>
 
-                <span>
 
-                    <strong>
+                <span class="fundamentals-logo-text">
+
+                    <span class="fundamentals-logo-title">
                         Electrical Engineering
-                    </strong>
+                    </span>
 
-                    <small>
+                    <span class="fundamentals-logo-subtitle">
                         by Prasun Barua
-                    </small>
+                    </span>
 
                 </span>
 
             </a>
 
 
-            <!-- Desktop navigation -->
+            <!-- DESKTOP NAVIGATION -->
 
-            <nav class="main-nav"
-                 aria-label="Main navigation">
+            <nav
+                class="fundamentals-nav"
+                aria-label="Main navigation"
+            >
 
-                <ul>
+                <ul class="fundamentals-nav-list">
 
                     <li>
                         <a href="/">
@@ -922,9 +1225,11 @@
                     </li>
 
                     <li>
-                        <a href="/articles/electrical-fundamentals/"
-                           class="active"
-                           aria-current="page">
+                        <a
+                            href="/articles/electrical-fundamentals/"
+                            class="active"
+                            aria-current="page"
+                        >
                             Fundamentals
                         </a>
                     </li>
@@ -958,13 +1263,15 @@
             </nav>
 
 
-            <!-- Mobile menu button -->
+            <!-- MOBILE BUTTON -->
 
-            <button type="button"
-                    class="mobile-menu-button"
-                    data-menu-toggle
-                    aria-label="Open navigation"
-                    aria-expanded="false">
+            <button
+                type="button"
+                class="fundamentals-mobile-button"
+                id="fundamentals-mobile-button"
+                aria-label="Show navigation"
+                aria-expanded="false"
+            >
 
                 <span class="material-symbols-rounded">
                     menu
@@ -974,71 +1281,36 @@
 
         </div>
 
-
-        <!-- Mobile navigation -->
-
-        <nav class="mobile-nav"
-             data-mobile-nav
-             aria-label="Mobile navigation">
-
-            <a href="/">
-                Home
-            </a>
-
-            <a href="/articles/electrical-fundamentals/"
-               class="active">
-                Electrical Fundamentals
-            </a>
-
-            <a href="/articles/electrical-calculations/">
-                Electrical Calculations
-            </a>
-
-            <a href="/articles/electrical-design/">
-                Electrical Design
-            </a>
-
-            <a href="/articles/power-systems/">
-                Power Systems
-            </a>
-
-            <a href="/articles/solar-pv/">
-                Solar PV
-            </a>
-
-            <a href="/articles/testing-commissioning/">
-                Testing &amp; Commissioning
-            </a>
-
-            <a href="/about.html">
-                About
-            </a>
-
-        </nav>
-
     </header>
 
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          MAIN
-         ===================================================== -->
+    ========================================================== -->
 
     <main>
 
-        <div class="container">
 
-            <!-- Breadcrumb -->
+        <div class="fundamentals-container">
 
-            <div class="breadcrumb"
-                 aria-label="Breadcrumb">
+
+            <!-- =================================================
+                 BREADCRUMB
+            ================================================== -->
+
+            <nav
+                class="fundamentals-breadcrumb"
+                aria-label="Breadcrumb"
+            >
 
                 <a href="/">
                     Home
                 </a>
 
-                <span class="material-symbols-rounded"
-                      aria-hidden="true">
+                <span
+                    class="material-symbols-rounded"
+                    aria-hidden="true"
+                >
                     chevron_right
                 </span>
 
@@ -1046,424 +1318,394 @@
                     Electrical Fundamentals
                 </span>
 
-            </div>
-
-
-            <!-- Mobile category selector -->
-
-            <select class="mobile-category-select"
-                    aria-label="Choose article category"
-                    onchange="if(this.value) window.location.href=this.value">
-
-                <option value="/articles/electrical-fundamentals/"
-                        selected>
-                    Electrical Fundamentals
-                </option>
-
-                <option value="/articles/electrical-calculations/">
-                    Electrical Calculations
-                </option>
-
-                <option value="/articles/electrical-design/">
-                    Electrical Design
-                </option>
-
-                <option value="/articles/power-systems/">
-                    Power Systems
-                </option>
-
-                <option value="/articles/solar-pv/">
-                    Solar PV
-                </option>
-
-                <option value="/articles/testing-commissioning/">
-                    Testing &amp; Commissioning
-                </option>
-
-            </select>
-
+            </nav>
 
 
             <!-- =================================================
-                 CATEGORY LAYOUT
-                 ================================================= -->
+                 MAIN LAYOUT
+            ================================================== -->
 
-            <div class="category-layout">
+            <div class="fundamentals-layout">
 
 
                 <!-- =================================================
-                     LEFT CATEGORY SIDEBAR
-                     ================================================= -->
+                     SIDEBAR
+                ================================================== -->
 
-                <aside class="category-sidebar">
+                <aside class="fundamentals-sidebar">
 
-                    <div class="sidebar-title">
+                    <div class="fundamentals-sidebar-title">
                         Categories
                     </div>
 
 
-                    <nav class="category-nav"
-                         aria-label="Article categories">
-
-                        <a href="/articles/electrical-fundamentals/"
-                           class="active">
-
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                electrical_services
-                            </span>
-
-                            <span>
-                                Fundamentals
-                            </span>
-
-                        </a>
+                    <ul class="fundamentals-sidebar-list">
 
 
-                        <a href="/articles/electrical-calculations/">
+                        <li>
 
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                calculate
-                            </span>
+                            <a
+                                href="/articles/electrical-fundamentals/"
+                                class="active"
+                                aria-current="page"
+                            >
 
-                            <span>
-                                Calculations
-                            </span>
+                                <span
+                                    class="fundamentals-sidebar-icon"
+                                    aria-hidden="true"
+                                >
+                                    <span class="material-symbols-rounded">
+                                        electrical_services
+                                    </span>
+                                </span>
 
-                        </a>
+                                <span>
+                                    Fundamentals
+                                </span>
 
+                            </a>
 
-                        <a href="/articles/electrical-design/">
-
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                architecture
-                            </span>
-
-                            <span>
-                                Electrical Design
-                            </span>
-
-                        </a>
+                        </li>
 
 
-                        <a href="/articles/power-systems/">
+                        <li>
 
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                electric_bolt
-                            </span>
+                            <a href="/articles/electrical-calculations/">
 
-                            <span>
-                                Power Systems
-                            </span>
+                                <span
+                                    class="fundamentals-sidebar-icon"
+                                    aria-hidden="true"
+                                >
+                                    <span class="material-symbols-rounded">
+                                        calculate
+                                    </span>
+                                </span>
 
-                        </a>
+                                <span>
+                                    Calculations
+                                </span>
 
+                            </a>
 
-                        <a href="/articles/solar-pv/">
-
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                solar_power
-                            </span>
-
-                            <span>
-                                Solar PV
-                            </span>
-
-                        </a>
+                        </li>
 
 
-                        <a href="/articles/testing-commissioning/">
+                        <li>
 
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                engineering
-                            </span>
+                            <a href="/articles/electrical-design/">
 
-                            <span>
-                                Testing &amp; Commissioning
-                            </span>
+                                <span
+                                    class="fundamentals-sidebar-icon"
+                                    aria-hidden="true"
+                                >
+                                    <span class="material-symbols-rounded">
+                                        architecture
+                                    </span>
+                                </span>
 
-                        </a>
+                                <span>
+                                    Electrical Design
+                                </span>
 
-                    </nav>
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="/articles/power-systems/">
+
+                                <span
+                                    class="fundamentals-sidebar-icon"
+                                    aria-hidden="true"
+                                >
+                                    <span class="material-symbols-rounded">
+                                        bolt
+                                    </span>
+                                </span>
+
+                                <span>
+                                    Power Systems
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="/articles/solar-pv/">
+
+                                <span
+                                    class="fundamentals-sidebar-icon"
+                                    aria-hidden="true"
+                                >
+                                    <span class="material-symbols-rounded">
+                                        solar_power
+                                    </span>
+                                </span>
+
+                                <span>
+                                    Solar PV
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="/articles/testing-commissioning/">
+
+                                <span
+                                    class="fundamentals-sidebar-icon"
+                                    aria-hidden="true"
+                                >
+                                    <span class="material-symbols-rounded">
+                                        engineering
+                                    </span>
+                                </span>
+
+                                <span>
+                                    Testing &amp; Commissioning
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                    </ul>
 
                 </aside>
 
 
-
                 <!-- =================================================
-                     ARTICLE CONTENT
-                     ================================================= -->
+                     CONTENT
+                ================================================== -->
 
-                <section>
-
-                    <header class="category-header">
+                <section class="fundamentals-content">
 
 
-                        <div class="category-title-row">
+                    <!-- =================================================
+                         HERO
+                    ================================================== -->
 
-                            <div class="category-main-icon">
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    electrical_services
-                                </span>
-
-                            </div>
+                    <header class="fundamentals-hero">
 
 
-                            <div>
+                        <div
+                            class="fundamentals-hero-icon"
+                            aria-hidden="true"
+                        >
 
-                                <h1>
-                                    Electrical Fundamentals
-                                </h1>
-
-                                <p class="category-description">
-
-                                    Understand the basic principles of
-                                    electrical engineering, including
-                                    voltage, current, resistance, power,
-                                    energy, AC, DC, and fundamental
-                                    electrical relationships.
-
-                                </p>
-
-                            </div>
+                            <span class="material-symbols-rounded">
+                                electrical_services
+                            </span>
 
                         </div>
 
 
-                        <!-- Category search -->
+                        <div>
 
-                        <form class="category-search"
-                              id="category-search"
-                              role="search">
+                            <div class="fundamentals-eyebrow">
+                                Electrical Engineering
+                            </div>
 
-                            <span class="material-symbols-rounded"
-                                  aria-hidden="true">
-                                search
-                            </span>
 
-                            <input
-                                type="search"
-                                id="category-search-input"
-                                placeholder="Search fundamentals..."
-                                autocomplete="off"
-                                aria-label="Search electrical fundamentals">
+                            <h1 class="fundamentals-title">
+                                Electrical Fundamentals
+                            </h1>
 
-                        </form>
+
+                            <p class="fundamentals-description">
+                                Understand the basic principles of electrical
+                                engineering, including voltage, current,
+                                resistance, power, energy, AC, DC, and
+                                fundamental electrical relationships.
+                            </p>
+
+                        </div>
 
                     </header>
 
 
+                    <!-- =================================================
+                         SEARCH
+                    ================================================== -->
+
+                    <div class="fundamentals-search">
+
+                        <span
+                            class="fundamentals-search-icon"
+                            aria-hidden="true"
+                        >
+
+                            <span class="material-symbols-rounded">
+                                search
+                            </span>
+
+                        </span>
+
+
+                        <input
+                            type="search"
+                            id="fundamentals-search-input"
+                            placeholder="Search fundamentals..."
+                            autocomplete="off"
+                            aria-label="Search electrical fundamentals"
+                        >
+
+                    </div>
+
 
                     <!-- =================================================
-                         ARTICLE LIST
-                         ================================================= -->
+                         ARTICLE HEADING
+                    ================================================== -->
 
-                    <div class="article-list"
-                         id="article-list">
+                    <div class="fundamentals-section-heading">
+
+                        <h2>
+                            Fundamentals Articles
+                        </h2>
+
+                        <span
+                            class="fundamentals-results-count"
+                            id="fundamentals-results-count"
+                        >
+                            2 articles
+                        </span>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ARTICLE CARDS
+                    ================================================== -->
+
+                    <div
+                        class="fundamentals-articles"
+                        id="fundamentals-articles"
+                    >
 
 
                         <!-- =================================================
                              ARTICLE 1
-                             ================================================= -->
+                        ================================================== -->
 
-                        <article class="article-item"
-                                 data-title="What Is Ohm's Law?"
-                                 data-search="ohm's law ohms law voltage current resistance electrical fundamentals">
+                        <a
+                            href="/articles/electrical-fundamentals/ohms-law/"
+                            class="fundamentals-card"
+                            data-search="ohms law ohm law voltage current resistance electrical fundamentals formula examples practical guide"
+                        >
+
+                            <div class="fundamentals-card-category">
+                                Fundamentals
+                            </div>
 
 
-                            <div class="article-meta">
+                            <h3>
+                                What Is Ohm's Law?
+                            </h3>
 
-                                <span class="article-category-label">
-                                    Fundamentals
+
+                            <p>
+                                Learn the relationship between voltage,
+                                current, and resistance using Ohm's Law,
+                                with simple explanations and practical
+                                electrical engineering examples.
+                            </p>
+
+
+                            <div class="fundamentals-card-meta">
+
+                                <span
+                                    class="material-symbols-rounded"
+                                    aria-hidden="true"
+                                >
+                                    schedule
                                 </span>
 
-                                <span class="article-meta-separator">
-                                    ·
-                                </span>
-
-                                <span class="article-reading-time">
+                                <span>
                                     7 min read
                                 </span>
 
                             </div>
 
-
-                            <h2>
-                                <a href="/articles/electrical-fundamentals/ohms-law/">
-                                    What Is Ohm's Law?
-                                </a>
-                            </h2>
-
-
-                            <p class="article-excerpt">
-
-                                Learn the relationship between voltage,
-                                current, and resistance using Ohm's law,
-                                with simple explanations and practical
-                                electrical examples.
-
-                            </p>
-
-
-                            <span class="article-read">
-
-                                Read article
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    arrow_forward
-                                </span>
-
-                            </span>
-
-                        </article>
-
+                        </a>
 
 
                         <!-- =================================================
                              ARTICLE 2
-                             ================================================= -->
+                        ================================================== -->
 
-                        <article class="article-item"
-                                 data-title="What Is Voltage, Current and Resistance?"
-                                 data-search="voltage current resistance electrical fundamentals electricity">
+                        <a
+                            href="/articles/electrical-fundamentals/ohms-law/what-is-voltage-current-resistance.html"
+                            class="fundamentals-card"
+                            data-search="voltage current resistance what is voltage current resistance electrical basics fundamentals circuit"
+                        >
+
+                            <div class="fundamentals-card-category">
+                                Fundamentals
+                            </div>
 
 
-                            <div class="article-meta">
+                            <h3>
+                                What Is Voltage, Current and Resistance?
+                            </h3>
 
-                                <span class="article-category-label">
-                                    Fundamentals
+
+                            <p>
+                                Understand voltage, current and resistance
+                                with simple explanations, practical examples,
+                                and the basic concepts used in electrical
+                                circuits.
+                            </p>
+
+
+                            <div class="fundamentals-card-meta">
+
+                                <span
+                                    class="material-symbols-rounded"
+                                    aria-hidden="true"
+                                >
+                                    schedule
                                 </span>
 
-                                <span class="article-meta-separator">
-                                    ·
-                                </span>
-
-                                <span class="article-reading-time">
-                                    8 min read
+                                <span>
+                                    6 min read
                                 </span>
 
                             </div>
 
-
-                            <h2>
-
-                                <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html">
-
-                                    What Is Voltage, Current and Resistance?
-
-                                </a>
-
-                            </h2>
-
-
-                            <p class="article-excerpt">
-
-                                A beginner-friendly explanation of voltage,
-                                current, and resistance, including how these
-                                three fundamental electrical quantities are
-                                related.
-
-                            </p>
-
-
-                            <span class="article-read">
-
-                                Read article
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    arrow_forward
-                                </span>
-
-                            </span>
-
-                        </article>
-
-
-
-                        <!-- =================================================
-                             FUTURE ARTICLES
-                             =================================================
-
-                             Add new articles here using the same structure.
-
-                             Example:
-
-                             <article class="article-item"
-                                      data-title="Article Title"
-                                      data-search="keywords">
-
-                                 <div class="article-meta">
-                                     <span class="article-category-label">
-                                         Fundamentals
-                                     </span>
-
-                                     <span class="article-meta-separator">
-                                         ·
-                                     </span>
-
-                                     <span class="article-reading-time">
-                                         6 min read
-                                     </span>
-                                 </div>
-
-                                 <h2>
-                                     <a href="/articles/.../">
-                                         Article Title
-                                     </a>
-                                 </h2>
-
-                                 <p class="article-excerpt">
-                                     Article description.
-                                 </p>
-
-                                 <span class="article-read">
-                                     Read article
-                                     <span class="material-symbols-rounded">
-                                         arrow_forward
-                                     </span>
-                                 </span>
-
-                             </article>
-
-                        -->
+                        </a>
 
 
                     </div>
 
 
-                    <!-- No results -->
+                    <!-- =================================================
+                         NO RESULTS
+                    ================================================== -->
 
-                    <div class="no-results"
-                         id="no-results">
+                    <div
+                        class="fundamentals-no-results"
+                        id="fundamentals-no-results"
+                    >
 
-                        No articles found for
-                        <strong id="no-results-query"></strong>.
+                        <strong>
+                            No articles found
+                        </strong>
 
-                    </div>
-
-
-                    <!-- Small informational note -->
-
-                    <div class="category-note">
-
-                        <strong>About this section:</strong>
-
-                        This section introduces the core concepts used
-                        throughout electrical engineering. The explanations
-                        are intended to make fundamental electrical concepts
-                        easier to understand before moving into calculations,
-                        design, and practical applications.
+                        <span>
+                            Try another search term.
+                        </span>
 
                     </div>
+
 
                 </section>
 
@@ -1474,272 +1716,250 @@
     </main>
 
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          FOOTER
-         ===================================================== -->
+    ========================================================== -->
 
-    <footer class="site-footer">
+    <footer class="fundamentals-footer">
 
-        <div class="container footer-grid">
+        <div class="fundamentals-container">
 
-
-            <div>
-
-                <div class="footer-logo">
-
-                    <span class="material-symbols-rounded"
-                          aria-hidden="true">
-                        bolt
-                    </span>
-
-                    Electrical Engineering
-
-                </div>
-
-
-                <p>
-
-                    Practical electrical engineering
-                    tutorials, calculations, design guides,
-                    and renewable energy resources.
-
-                </p>
-
-            </div>
-
-
-
-            <div>
-
-                <h3>
-                    Categories
-                </h3>
-
-                <a href="/articles/electrical-fundamentals/">
-                    Fundamentals
-                </a>
-
-                <a href="/articles/electrical-calculations/">
-                    Calculations
-                </a>
-
-                <a href="/articles/electrical-design/">
-                    Electrical Design
-                </a>
-
-                <a href="/articles/power-systems/">
-                    Power Systems
-                </a>
-
-                <a href="/articles/solar-pv/">
-                    Solar PV
-                </a>
-
-            </div>
-
-
-
-            <div>
-
-                <h3>
-                    Information
-                </h3>
-
-                <a href="/about.html">
-                    About
-                </a>
-
-                <a href="/contact.html">
-                    Contact
-                </a>
-
-                <a href="/privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="/disclaimer.html">
-                    Disclaimer
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <div class="container">
-
-                <p>
-
-                    &copy;
-                    <span data-current-year>
-                        2026
-                    </span>
-                    Prasun Barua.
-                    All rights reserved.
-
-                </p>
-
-            </div>
+            <p>
+                © 2026 Prasun Barua. All rights reserved.
+            </p>
 
         </div>
 
     </footer>
 
 
-
-    <!-- =====================================================
-         CATEGORY SEARCH JAVASCRIPT
-         ===================================================== -->
-
-    <script>
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-                const input =
-                    document.getElementById(
-                        "category-search-input"
-                    );
-
-                const form =
-                    document.getElementById(
-                        "category-search"
-                    );
-
-                const articles =
-                    document.querySelectorAll(
-                        ".article-item"
-                    );
-
-                const noResults =
-                    document.getElementById(
-                        "no-results"
-                    );
-
-                const noResultsQuery =
-                    document.getElementById(
-                        "no-results-query"
-                    );
+</div>
 
 
-                function filterArticles() {
+<!-- =============================================================
+     PAGE JAVASCRIPT
+============================================================== -->
 
-                    const query =
-                        input.value
-                            .toLowerCase()
-                            .trim();
+<script>
 
-
-                    let visibleCount = 0;
-
-
-                    articles.forEach(
-                        function (article) {
-
-                            const title =
-                                (
-                                    article.dataset.title ||
-                                    ""
-                                ).toLowerCase();
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
 
-                            const searchText =
-                                (
-                                    article.dataset.search ||
-                                    ""
-                                ).toLowerCase();
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        const searchInput =
+            document.getElementById(
+                "fundamentals-search-input"
+            );
 
 
-                            const matches =
-                                !query ||
-                                title.includes(query) ||
-                                searchText.includes(query);
+        const articleCards =
+            Array.from(
+                document.querySelectorAll(
+                    ".fundamentals-card"
+                )
+            );
 
 
-                            if (matches) {
-
-                                article.style.display =
-                                    "";
-
-                                visibleCount++;
-
-                            } else {
-
-                                article.style.display =
-                                    "none";
-
-                            }
-
-                        }
-                    );
+        const resultCount =
+            document.getElementById(
+                "fundamentals-results-count"
+            );
 
 
-                    if (
-                        noResults
-                    ) {
-
-                        noResults.style.display =
-                            visibleCount === 0
-                                ? "block"
-                                : "none";
-
-                    }
+        const noResults =
+            document.getElementById(
+                "fundamentals-no-results"
+            );
 
 
-                    if (
-                        noResultsQuery
-                    ) {
+        function performSearch() {
 
-                        noResultsQuery.textContent =
-                            `"${query}"`;
+            const query =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            let visibleCount = 0;
+
+
+            articleCards.forEach(
+                function (card) {
+
+                    const searchableText =
+                        (
+                            card.dataset.search ||
+                            card.innerText ||
+                            ""
+                        ).toLowerCase();
+
+
+                    const matches =
+                        query === "" ||
+                        searchableText.includes(query);
+
+
+                    if (matches) {
+
+                        card.style.display =
+                            "block";
+
+                        visibleCount++;
+
+                    } else {
+
+                        card.style.display =
+                            "none";
 
                     }
 
                 }
+            );
 
 
-                if (input) {
+            if (query === "") {
 
-                    input.addEventListener(
-                        "input",
-                        filterArticles
+                resultCount.textContent =
+                    articleCards.length +
+                    (
+                        articleCards.length === 1
+                            ? " article"
+                            : " articles"
                     );
 
-                }
+            } else {
 
-
-                if (form) {
-
-                    form.addEventListener(
-                        "submit",
-                        function (event) {
-
-                            event.preventDefault();
-
-                            filterArticles();
-
-                        }
+                resultCount.textContent =
+                    visibleCount +
+                    (
+                        visibleCount === 1
+                            ? " result"
+                            : " results"
                     );
-
-                }
 
             }
+
+
+            if (visibleCount === 0) {
+
+                noResults.classList.add(
+                    "show"
+                );
+
+            } else {
+
+                noResults.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            performSearch
         );
 
-    </script>
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ====================================================== */
+
+        const mobileButton =
+            document.getElementById(
+                "fundamentals-mobile-button"
+            );
 
 
-    <!-- =====================================================
-         MAIN SITE JAVASCRIPT
-         ===================================================== -->
+        const desktopNav =
+            document.querySelector(
+                ".fundamentals-nav"
+            );
 
-    <script src="/assets/js/app.js"
-            defer>
-    </script>
+
+        if (
+            mobileButton &&
+            desktopNav
+        ) {
+
+            mobileButton.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        mobileButton.getAttribute(
+                            "aria-expanded"
+                        ) === "true";
+
+
+                    mobileButton.setAttribute(
+                        "aria-expanded",
+                        String(!isOpen)
+                    );
+
+
+                    if (!isOpen) {
+
+                        desktopNav.style.display =
+                            "block";
+
+                        desktopNav.style.position =
+                            "absolute";
+
+                        desktopNav.style.top =
+                            "68px";
+
+                        desktopNav.style.left =
+                            "14px";
+
+                        desktopNav.style.right =
+                            "14px";
+
+                        desktopNav.style.padding =
+                            "10px";
+
+                        desktopNav.style.background =
+                            "#ffffff";
+
+                        desktopNav.style.border =
+                            "1px solid #e5e5ea";
+
+                        desktopNav.style.borderRadius =
+                            "16px";
+
+                        desktopNav.style.boxShadow =
+                            "0 12px 30px rgba(0,0,0,.08)";
+
+                        desktopNav.style.zIndex =
+                            "1001";
+
+
+                    } else {
+
+                        desktopNav.removeAttribute(
+                            "style"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+    }
+);
+
+</script>
+
 
 </body>
 
