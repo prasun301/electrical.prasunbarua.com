@@ -1,20 +1,46 @@
 /* =========================================================
-   ELECTRICAL ENGINEERING
-   SITE JAVASCRIPT
-   Prasun Barua
+   ELECTRICAL ENGINEERING — SITE APP
+   electrical.prasunbarua.com
+
+   Purpose:
+   - Load articles from articles.json
+   - Build category navigation
+   - Display article lists
+   - Search articles
+   - Filter by category
+   - Support mobile navigation
+   - Keep the interface lightweight
    ========================================================= */
 
 "use strict";
 
-
 /* =========================================================
-   GLOBAL CONFIGURATION
+   CONFIGURATION
    ========================================================= */
 
 const SITE_CONFIG = {
-    articlesJSON: "/articles.json",
-    articlesPage: "/articles/"
+    articlesFile: "/articles.json",
+
+    selectors: {
+        categoryList: "#category-list",
+        articleList: "#article-list",
+        searchInput: "#site-search",
+        searchForm: "#site-search-form",
+        searchMessage: "#search-message",
+        mobileMenuButton: "#mobile-menu-button",
+        sidebar: ".site-sidebar",
+        sidebarOverlay: "#sidebar-overlay"
+    }
 };
+
+
+/* =========================================================
+   GLOBAL STATE
+   ========================================================= */
+
+let allArticles = [];
+let currentCategory = "all";
+let currentSearch = "";
 
 
 /* =========================================================
@@ -22,510 +48,144 @@ const SITE_CONFIG = {
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    initializeMobileMenu();
-
-    initializeSearch();
-
-    initializeArticleArchive();
-
-    initializeCategoryPage();
-
-    initializeCurrentYear();
-
+    initializeSite();
 });
 
 
 /* =========================================================
-   MOBILE SIDEBAR MENU
+   INITIALIZE SITE
    ========================================================= */
 
-function initializeMobileMenu() {
-
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.getElementById("site-sidebar");
-    const sidebarClose = document.getElementById("sidebar-close");
-    const overlay = document.getElementById("sidebar-overlay");
-
-    if (!menuToggle || !sidebar) {
-        return;
-    }
-
-
-    function openSidebar() {
-
-        sidebar.classList.add("is-open");
-
-        if (overlay) {
-            overlay.classList.add("is-visible");
-            overlay.setAttribute("aria-hidden", "false");
-        }
-
-        menuToggle.setAttribute("aria-expanded", "true");
-
-        document.body.classList.add("sidebar-open");
-
-    }
-
-
-    function closeSidebar() {
-
-        sidebar.classList.remove("is-open");
-
-        if (overlay) {
-            overlay.classList.remove("is-visible");
-            overlay.setAttribute("aria-hidden", "true");
-        }
-
-        menuToggle.setAttribute("aria-expanded", "false");
-
-        document.body.classList.remove("sidebar-open");
-
-    }
-
-
-    menuToggle.addEventListener("click", () => {
-
-        const isOpen =
-            sidebar.classList.contains("is-open");
-
-        if (isOpen) {
-            closeSidebar();
-        } else {
-            openSidebar();
-        }
-
-    });
-
-
-    if (sidebarClose) {
-
-        sidebarClose.addEventListener(
-            "click",
-            closeSidebar
-        );
-
-    }
-
-
-    if (overlay) {
-
-        overlay.addEventListener(
-            "click",
-            closeSidebar
-        );
-
-    }
-
-
-    /*
-       Close sidebar after selecting
-       a navigation link on mobile.
-    */
-
-    const sidebarLinks =
-        sidebar.querySelectorAll("a");
-
-    sidebarLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            if (window.innerWidth <= 900) {
-                closeSidebar();
-            }
-
-        });
-
-    });
-
-
-    /*
-       Escape key closes sidebar.
-    */
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-            closeSidebar();
-        }
-
-    });
-
-
-    /*
-       If browser becomes desktop size,
-       reset mobile menu state.
-    */
-
-    window.addEventListener("resize", () => {
-
-        if (window.innerWidth > 900) {
-            closeSidebar();
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-function initializeSearch() {
-
-    const searchForms =
-        document.querySelectorAll(
-            "#site-search-form"
-        );
-
-    if (!searchForms.length) {
-        return;
-    }
-
-
-    searchForms.forEach(form => {
-
-        form.addEventListener(
-            "submit",
-            event => {
-
-                event.preventDefault();
-
-                const input =
-                    form.querySelector(
-                        "input[name='q']"
-                    );
-
-                if (!input) {
-                    return;
-                }
-
-
-                const query =
-                    input.value.trim();
-
-
-                /*
-                   Empty search:
-                   return to article archive.
-                */
-
-                if (!query) {
-
-                    window.location.href =
-                        SITE_CONFIG.articlesPage;
-
-                    return;
-
-                }
-
-
-                /*
-                   Send search to:
-                   /articles/?q=...
-                */
-
-                const searchURL =
-                    SITE_CONFIG.articlesPage +
-                    "?q=" +
-                    encodeURIComponent(query);
-
-
-                window.location.href =
-                    searchURL;
-
-            }
-        );
-
-    });
-
-
-    /*
-       If the page already contains ?q=,
-       display the query inside search fields.
-    */
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const query =
-        params.get("q");
-
-
-    if (query) {
-
-        searchForms.forEach(form => {
-
-            const input =
-                form.querySelector(
-                    "input[name='q']"
-                );
-
-            if (input) {
-                input.value = query;
-            }
-
-        });
-
+async function initializeSite() {
+
+    setupMobileNavigation();
+    setupSearch();
+
+    try {
+        await loadArticles();
+    } catch (error) {
+        console.error("Unable to initialize article system:", error);
+        showArticleError();
     }
 
 }
 
 
 /* =========================================================
-   LOAD ARTICLES JSON
+   LOAD ARTICLES.JSON
    ========================================================= */
 
 async function loadArticles() {
 
-    try {
+    const response = await fetch(SITE_CONFIG.articlesFile, {
+        cache: "no-cache"
+    });
 
-        const response =
-            await fetch(
-                SITE_CONFIG.articlesJSON,
-                {
-                    cache: "no-cache"
-                }
-            );
-
-
-        if (!response.ok) {
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (!data || !Array.isArray(data.articles)) {
-
-            throw new Error(
-                "Invalid articles.json format."
-            );
-
-        }
-
-
-        return data;
-
-    } catch (error) {
-
-        console.error(
-            "Unable to load articles.json:",
-            error
+    if (!response.ok) {
+        throw new Error(
+            `Unable to load articles.json (${response.status})`
         );
-
-        return null;
-
     }
 
-}
-
-
-/* =========================================================
-   ARTICLE ARCHIVE
-   /articles/
-   ========================================================= */
-
-async function initializeArticleArchive() {
+    const data = await response.json();
 
     /*
-       Only run on the main article archive.
-    */
+     * Support both:
+     *
+     * [
+     *   {...},
+     *   {...}
+     * ]
+     *
+     * and:
+     *
+     * {
+     *   "articles": [...]
+     * }
+     */
 
-    const articleList =
-        document.querySelector(
-            ".article-list"
-        );
-
-
-    if (!articleList) {
-        return;
-    }
-
-
-    /*
-       Do not interfere with pages
-       that don't use the article archive.
-    */
-
-    const isArchivePage =
-        window.location.pathname === "/articles/" ||
-        window.location.pathname === "/articles/index.html";
-
-
-    if (!isArchivePage) {
-        return;
-    }
-
-
-    const data =
-        await loadArticles();
-
-
-    if (!data) {
-        showArticleLoadError();
-        return;
-    }
-
-
-    const articles =
-        data.articles.filter(
-            article =>
-                article.status === "published"
-        );
-
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const searchQuery =
-        (params.get("q") || "")
-            .trim()
-            .toLowerCase();
-
-
-    if (searchQuery) {
-
-        const filteredArticles =
-            searchArticles(
-                articles,
-                searchQuery
-            );
-
-
-        renderArticleArchive(
-            filteredArticles
-        );
-
-
-        updateSearchMessage(
-            searchQuery,
-            filteredArticles.length
-        );
-
+    if (Array.isArray(data)) {
+        allArticles = data;
+    } else if (Array.isArray(data.articles)) {
+        allArticles = data.articles;
     } else {
-
-        renderArticleArchive(
-            sortArticles(articles)
-        );
-
-        clearSearchMessage();
-
+        throw new Error("Invalid articles.json format.");
     }
 
+    normalizeArticles();
 
-    /*
-       Search box:
-       update results while typing.
-    */
+    renderCategories();
+    renderArticles();
 
-    const searchInput =
-        document.getElementById(
-            "site-search"
-        );
-
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            debounce(() => {
-
-                const query =
-                    searchInput.value
-                        .trim()
-                        .toLowerCase();
-
-
-                if (!query) {
-
-                    renderArticleArchive(
-                        sortArticles(articles)
-                    );
-
-                    clearSearchMessage();
-
-                    return;
-
-                }
-
-
-                const results =
-                    searchArticles(
-                        articles,
-                        query
-                    );
-
-
-                renderArticleArchive(
-                    results
-                );
-
-
-                updateSearchMessage(
-                    query,
-                    results.length
-                );
-
-            }, 180)
-        );
-
-    }
+    updateArticleCount();
 
 }
 
 
 /* =========================================================
-   SEARCH ARTICLES
+   NORMALIZE ARTICLE DATA
    ========================================================= */
 
-function searchArticles(
-    articles,
-    query
-) {
+function normalizeArticles() {
 
-    const terms =
-        query
-            .split(/\s+/)
-            .filter(Boolean);
+    allArticles = allArticles.map((article, index) => {
 
+        const normalized = {
+            id:
+                article.id ||
+                article.slug ||
+                `article-${index + 1}`,
 
-    return articles.filter(article => {
+            title:
+                article.title ||
+                "Untitled Article",
 
-        const searchableText = [
+            description:
+                article.description ||
+                article.excerpt ||
+                "",
 
-            article.title,
+            category:
+                article.category ||
+                "Uncategorized",
 
-            article.description,
+            categorySlug:
+                article.categorySlug ||
+                slugify(article.category || "uncategorized"),
 
-            article.excerpt,
+            url:
+                article.url ||
+                article.path ||
+                "#",
 
-            article.category,
+            date:
+                article.date ||
+                article.published ||
+                "",
 
-            article.categoryName,
+            updated:
+                article.updated ||
+                "",
 
-            ...(article.tags || [])
+            author:
+                article.author ||
+                "Prasun Barua",
 
-        ]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase();
+            image:
+                article.image ||
+                "",
 
+            tags:
+                Array.isArray(article.tags)
+                    ? article.tags
+                    : [],
 
-        return terms.every(
-            term =>
-                searchableText.includes(term)
-        );
+            featured:
+                article.featured === true
+
+        };
+
+        return normalized;
 
     });
 
@@ -533,88 +193,371 @@ function searchArticles(
 
 
 /* =========================================================
-   SORT ARTICLES
+   CREATE CATEGORY LIST
    ========================================================= */
 
-function sortArticles(articles) {
+function renderCategories() {
 
-    return [...articles].sort(
-        (a, b) => {
+    const categoryContainer =
+        document.querySelector(
+            SITE_CONFIG.selectors.categoryList
+        );
 
-            const dateA =
-                a.datePublished
-                    ? new Date(a.datePublished)
-                    : new Date(0);
+    if (!categoryContainer) {
+        return;
+    }
 
-            const dateB =
-                b.datePublished
-                    ? new Date(b.datePublished)
-                    : new Date(0);
+    /*
+     * Build category map.
+     */
 
+    const categories = {};
 
-            return dateB - dateA;
+    allArticles.forEach(article => {
+
+        const name = article.category || "Uncategorized";
+        const slug = article.categorySlug || slugify(name);
+
+        if (!categories[slug]) {
+
+            categories[slug] = {
+                name: name,
+                slug: slug,
+                count: 0
+            };
 
         }
+
+        categories[slug].count++;
+
+    });
+
+
+    /*
+     * Sort categories alphabetically.
+     */
+
+    const sortedCategories =
+        Object.values(categories).sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+
+
+    /*
+     * Clear existing content.
+     */
+
+    categoryContainer.innerHTML = "";
+
+
+    /*
+     * ALL ARTICLES
+     */
+
+    const allItem =
+        document.createElement("li");
+
+    allItem.className =
+        currentCategory === "all"
+            ? "active"
+            : "";
+
+    allItem.innerHTML = `
+        <button
+            type="button"
+            class="category-link"
+            data-category="all"
+            aria-current="${currentCategory === "all" ? "page" : "false"}"
+        >
+            <span class="category-name">
+                All Articles
+            </span>
+
+            <span class="category-count">
+                ${allArticles.length}
+            </span>
+        </button>
+    `;
+
+    categoryContainer.appendChild(allItem);
+
+
+    /*
+     * CATEGORY ITEMS
+     */
+
+    sortedCategories.forEach(category => {
+
+        const li =
+            document.createElement("li");
+
+        li.className =
+            currentCategory === category.slug
+                ? "active"
+                : "";
+
+        li.innerHTML = `
+            <button
+                type="button"
+                class="category-link"
+                data-category="${escapeAttribute(category.slug)}"
+                aria-current="${
+                    currentCategory === category.slug
+                        ? "page"
+                        : "false"
+                }"
+            >
+                <span class="category-name">
+                    ${escapeHTML(category.name)}
+                </span>
+
+                <span class="category-count">
+                    ${category.count}
+                </span>
+            </button>
+        `;
+
+        categoryContainer.appendChild(li);
+
+    });
+
+
+    /*
+     * CATEGORY CLICK EVENTS
+     */
+
+    categoryContainer
+        .querySelectorAll(".category-link")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const category =
+                    button.dataset.category;
+
+                setCategory(category);
+
+                closeMobileSidebar();
+
+            });
+
+        });
+
+}
+
+
+/* =========================================================
+   SET CATEGORY
+   ========================================================= */
+
+function setCategory(category) {
+
+    currentCategory =
+        category || "all";
+
+    renderCategories();
+    renderArticles();
+
+    updateArticleCount();
+
+    /*
+     * Update URL without page reload.
+     */
+
+    const url =
+        new URL(window.location.href);
+
+    if (currentCategory === "all") {
+        url.searchParams.delete("category");
+    } else {
+        url.searchParams.set(
+            "category",
+            currentCategory
+        );
+    }
+
+    if (currentSearch) {
+        url.searchParams.set(
+            "q",
+            currentSearch
+        );
+    }
+
+    window.history.pushState(
+        {},
+        "",
+        url
     );
 
 }
 
 
 /* =========================================================
-   RENDER ARTICLE ARCHIVE
+   RENDER ARTICLES
    ========================================================= */
 
-function renderArticleArchive(
-    articles
-) {
+function renderArticles() {
 
-    const articleList =
+    const articleContainer =
         document.querySelector(
-            ".article-list"
+            SITE_CONFIG.selectors.articleList
         );
 
-
-    const noResults =
-        document.getElementById(
-            "no-results"
-        );
-
-
-    if (!articleList) {
+    if (!articleContainer) {
         return;
     }
 
 
-    articleList.innerHTML = "";
+    /*
+     * Filter articles.
+     */
+
+    let filtered =
+        [...allArticles];
 
 
-    if (!articles.length) {
+    /*
+     * Category filtering.
+     */
 
-        if (noResults) {
-            noResults.hidden = false;
+    if (currentCategory !== "all") {
+
+        filtered =
+            filtered.filter(article =>
+                article.categorySlug === currentCategory
+            );
+
+    }
+
+
+    /*
+     * Search filtering.
+     */
+
+    if (currentSearch.trim() !== "") {
+
+        const query =
+            currentSearch
+                .trim()
+                .toLowerCase();
+
+        filtered =
+            filtered.filter(article => {
+
+                const searchableText = [
+
+                    article.title,
+
+                    article.description,
+
+                    article.category,
+
+                    article.author,
+
+                    ...(article.tags || [])
+
+                ]
+                    .join(" ")
+                    .toLowerCase();
+
+                return searchableText.includes(query);
+
+            });
+
+    }
+
+
+    /*
+     * Sort newest first when dates exist.
+     */
+
+    filtered.sort((a, b) => {
+
+        const dateA =
+            parseArticleDate(a.date);
+
+        const dateB =
+            parseArticleDate(b.date);
+
+        return dateB - dateA;
+
+    });
+
+
+    /*
+     * Empty state.
+     */
+
+    if (filtered.length === 0) {
+
+        articleContainer.innerHTML = `
+            <div class="article-empty">
+
+                <span
+                    class="material-symbols-rounded"
+                    aria-hidden="true"
+                >
+                    search_off
+                </span>
+
+                <h2>
+                    No articles found
+                </h2>
+
+                <p>
+                    Try another search term or choose
+                    a different category.
+                </p>
+
+                <button
+                    type="button"
+                    class="reset-search"
+                    id="reset-search"
+                >
+                    Show all articles
+                </button>
+
+            </div>
+        `;
+
+
+        const resetButton =
+            document.querySelector(
+                "#reset-search"
+            );
+
+        if (resetButton) {
+
+            resetButton.addEventListener(
+                "click",
+                resetFilters
+            );
+
         }
 
         return;
-
     }
 
 
-    if (noResults) {
-        noResults.hidden = true;
-    }
+    /*
+     * Build article cards.
+     */
+
+    articleContainer.innerHTML =
+        filtered
+            .map(article =>
+                createArticleCard(article)
+            )
+            .join("");
 
 
-    articles.forEach(article => {
+    /*
+     * Update result message.
+     */
 
-        const element =
-            createArticleCard(article);
-
-
-        articleList.appendChild(
-            element
-        );
-
-    });
+    updateSearchMessage(
+        filtered.length
+    );
 
 }
 
@@ -625,240 +568,356 @@ function renderArticleArchive(
 
 function createArticleCard(article) {
 
-    const articleElement =
-        document.createElement(
-            "article"
-        );
+    const dateHTML =
+        article.date
+            ? `
+                <time datetime="${escapeAttribute(article.date)}">
+                    ${formatDate(article.date)}
+                </time>
+              `
+            : "";
 
 
-    articleElement.className =
-        "article-list-item";
+    const categoryHTML =
+        article.category
+            ? `
+                <span class="article-card-category">
+                    ${escapeHTML(article.category)}
+                </span>
+              `
+            : "";
 
 
-    const icon =
-        escapeHTML(
-            article.icon ||
-            "article"
-        );
+    const descriptionHTML =
+        article.description
+            ? `
+                <p class="article-card-description">
+                    ${escapeHTML(article.description)}
+                </p>
+              `
+            : "";
 
 
-    const category =
-        escapeHTML(
-            article.categoryName ||
-            article.category ||
-            "Article"
-        );
+    return `
+        <article
+            class="article-list-item"
+            data-category="${escapeAttribute(article.categorySlug)}"
+        >
 
+            <div class="article-list-content">
 
-    const title =
-        escapeHTML(
-            article.title ||
-            "Untitled Article"
-        );
+                ${categoryHTML}
 
+                <h2 class="article-card-title">
+                    <a href="${escapeAttribute(article.url)}">
+                        ${escapeHTML(article.title)}
+                    </a>
+                </h2>
 
-    const description =
-        escapeHTML(
-            article.description ||
-            article.excerpt ||
-            ""
-        );
+                ${descriptionHTML}
 
+                <div class="article-card-meta">
 
-    const readingTime =
-        escapeHTML(
-            article.readingTime ||
-            ""
-        );
+                    ${dateHTML}
 
+                    ${
+                        article.date && article.author
+                            ? `<span aria-hidden="true">·</span>`
+                            : ""
+                    }
 
-    const date =
-        formatArticleDate(
-            article.datePublished
-        );
+                    ${
+                        article.author
+                            ? `
+                                <span>
+                                    ${escapeHTML(article.author)}
+                                </span>
+                              `
+                            : ""
+                    }
 
-
-    const articleURL =
-        safeURL(
-            article.url
-        );
-
-
-    articleElement.innerHTML = `
-
-        <div class="article-list-icon">
-
-            <span class="material-symbols-rounded"
-                  aria-hidden="true">
-                ${icon}
-            </span>
-
-        </div>
-
-
-        <div class="article-list-content">
-
-            <div class="article-category">
-                ${category}
-            </div>
-
-
-            <h2>
-
-                <a href="${articleURL}">
-                    ${title}
-                </a>
-
-            </h2>
-
-
-            <p>
-                ${description}
-            </p>
-
-
-            <div class="article-meta">
-
-                ${
-                    date
-                        ? `<time datetime="${escapeHTML(article.datePublished)}">
-                               ${date}
-                           </time>`
-                        : ""
-                }
-
-                ${
-                    readingTime
-                        ? `<span>•</span>
-                           <span>
-                               ${readingTime}
-                           </span>`
-                        : ""
-                }
+                </div>
 
             </div>
 
-
-            <a class="article-read-link"
-               href="${articleURL}">
-
-                Read article
-
-                <span class="material-symbols-rounded"
-                      aria-hidden="true">
+            <a
+                class="article-read-link"
+                href="${escapeAttribute(article.url)}"
+                aria-label="Read ${escapeAttribute(article.title)}"
+            >
+                <span class="material-symbols-rounded" aria-hidden="true">
                     arrow_forward
                 </span>
-
             </a>
 
-        </div>
-
+        </article>
     `;
-
-
-    return articleElement;
 
 }
 
 
 /* =========================================================
-   CATEGORY PAGE
+   SEARCH
    ========================================================= */
 
-async function initializeCategoryPage() {
+function setupSearch() {
 
-    const categoryContainer =
+    const form =
         document.querySelector(
-            "[data-category]"
+            SITE_CONFIG.selectors.searchForm
+        );
+
+    const input =
+        document.querySelector(
+            SITE_CONFIG.selectors.searchInput
         );
 
 
-    if (!categoryContainer) {
+    if (!form || !input) {
         return;
     }
-
-
-    const categoryID =
-        categoryContainer.dataset.category;
-
-
-    if (!categoryID) {
-        return;
-    }
-
-
-    const data =
-        await loadArticles();
-
-
-    if (!data) {
-        return;
-    }
-
-
-    const articles =
-        data.articles.filter(
-            article =>
-                article.status === "published" &&
-                article.category === categoryID
-        );
 
 
     /*
-       If the category page has an
-       article-list, populate it.
-    */
+     * Search submit.
+     */
 
-    const articleList =
-        categoryContainer.querySelector(
-            ".article-list"
+    form.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+            currentSearch =
+                input.value.trim();
+
+            renderArticles();
+
+            updateArticleCount();
+
+            updateURL();
+
+        }
+    );
+
+
+    /*
+     * Live search.
+     */
+
+    let searchTimer;
+
+    input.addEventListener(
+        "input",
+        () => {
+
+            clearTimeout(searchTimer);
+
+            searchTimer =
+                setTimeout(() => {
+
+                    currentSearch =
+                        input.value.trim();
+
+                    renderArticles();
+
+                    updateArticleCount();
+
+                }, 180);
+
+        }
+    );
+
+
+    /*
+     * Escape key clears search.
+     */
+
+    input.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+
+                input.value = "";
+
+                currentSearch = "";
+
+                renderArticles();
+
+                updateArticleCount();
+
+                updateURL();
+
+            }
+
+        }
+    );
+
+
+    /*
+     * Load search query from URL.
+     */
+
+    const params =
+        new URLSearchParams(
+            window.location.search
         );
 
+    const query =
+        params.get("q");
 
-    if (!articleList) {
-        return;
-    }
+    if (query) {
 
+        currentSearch = query;
 
-    articleList.innerHTML = "";
-
-
-    if (!articles.length) {
-
-        articleList.innerHTML = `
-
-            <div class="no-results">
-
-                <span class="material-symbols-rounded">
-                    article
-                </span>
-
-                <h2>
-                    No articles yet
-                </h2>
-
-                <p>
-                    Articles in this category
-                    will be published soon.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
+        input.value = query;
 
     }
 
+}
 
-    sortArticles(articles)
-        .forEach(article => {
 
-            articleList.appendChild(
-                createArticleCard(article)
-            );
+/* =========================================================
+   UPDATE URL
+   ========================================================= */
 
-        });
+function updateURL() {
+
+    const url =
+        new URL(window.location.href);
+
+
+    if (currentSearch) {
+
+        url.searchParams.set(
+            "q",
+            currentSearch
+        );
+
+    } else {
+
+        url.searchParams.delete("q");
+
+    }
+
+
+    if (currentCategory !== "all") {
+
+        url.searchParams.set(
+            "category",
+            currentCategory
+        );
+
+    } else {
+
+        url.searchParams.delete(
+            "category"
+        );
+
+    }
+
+
+    window.history.replaceState(
+        {},
+        "",
+        url
+    );
+
+}
+
+
+/* =========================================================
+   READ CATEGORY FROM URL
+   ========================================================= */
+
+function loadCategoryFromURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const category =
+        params.get("category");
+
+    if (category) {
+
+        currentCategory =
+            category;
+
+    }
+
+}
+
+
+/* =========================================================
+   ARTICLE COUNT
+   ========================================================= */
+
+function updateArticleCount() {
+
+    const countElements =
+        document.querySelectorAll(
+            "[data-article-count]"
+        );
+
+    let count =
+        allArticles.length;
+
+
+    if (currentCategory !== "all") {
+
+        count =
+            allArticles.filter(article =>
+                article.categorySlug === currentCategory
+            ).length;
+
+    }
+
+
+    if (currentSearch) {
+
+        const query =
+            currentSearch
+                .toLowerCase()
+                .trim();
+
+        count =
+            allArticles.filter(article => {
+
+                const categoryMatch =
+                    currentCategory === "all" ||
+                    article.categorySlug === currentCategory;
+
+                if (!categoryMatch) {
+                    return false;
+                }
+
+                const text = [
+
+                    article.title,
+                    article.description,
+                    article.category,
+                    ...(article.tags || [])
+
+                ]
+                    .join(" ")
+                    .toLowerCase();
+
+                return text.includes(query);
+
+            }).length;
+
+    }
+
+
+    countElements.forEach(element => {
+
+        element.textContent =
+            count;
+
+    });
 
 }
 
@@ -867,131 +926,157 @@ async function initializeCategoryPage() {
    SEARCH MESSAGE
    ========================================================= */
 
-function updateSearchMessage(
-    query,
-    resultCount
-) {
+function updateSearchMessage(count) {
 
     const message =
-        document.getElementById(
-            "search-message"
+        document.querySelector(
+            SITE_CONFIG.selectors.searchMessage
         );
-
 
     if (!message) {
         return;
     }
 
 
-    if (resultCount === 0) {
+    if (!currentSearch) {
 
-        message.textContent =
-            `No articles found for "${query}".`;
+        message.textContent = "";
 
         return;
 
     }
-
-
-    const articleWord =
-        resultCount === 1
-            ? "article"
-            : "articles";
 
 
     message.textContent =
-        `${resultCount} ${articleWord} found for "${query}".`;
+        `${count} ${
+            count === 1
+                ? "article"
+                : "articles"
+        } found for “${currentSearch}”`;
 
 }
 
 
 /* =========================================================
-   CLEAR SEARCH MESSAGE
+   RESET FILTERS
    ========================================================= */
 
-function clearSearchMessage() {
+function resetFilters() {
 
-    const message =
-        document.getElementById(
-            "search-message"
+    currentCategory = "all";
+    currentSearch = "";
+
+
+    const input =
+        document.querySelector(
+            SITE_CONFIG.selectors.searchInput
         );
 
-
-    if (message) {
-        message.textContent = "";
+    if (input) {
+        input.value = "";
     }
 
+
+    renderCategories();
+    renderArticles();
+
+    updateArticleCount();
+    updateURL();
+
 }
 
 
 /* =========================================================
-   ARTICLE LOAD ERROR
+   MOBILE NAVIGATION
    ========================================================= */
 
-function showArticleLoadError() {
+function setupMobileNavigation() {
 
-    const articleList =
+    const menuButton =
         document.querySelector(
-            ".article-list"
+            SITE_CONFIG.selectors.mobileMenuButton
+        );
+
+    const sidebar =
+        document.querySelector(
+            SITE_CONFIG.selectors.sidebar
+        );
+
+    const overlay =
+        document.querySelector(
+            SITE_CONFIG.selectors.sidebarOverlay
         );
 
 
-    if (!articleList) {
+    if (!menuButton || !sidebar) {
         return;
     }
 
 
-    articleList.innerHTML = `
+    menuButton.addEventListener(
+        "click",
+        () => {
 
-        <div class="no-results">
+            const isOpen =
+                sidebar.classList.contains(
+                    "is-open"
+                );
 
-            <span class="material-symbols-rounded">
-                error_outline
-            </span>
+            if (isOpen) {
+                closeMobileSidebar();
+            } else {
+                openMobileSidebar();
+            }
 
-            <h2>
-                Articles are temporarily unavailable
-            </h2>
-
-            <p>
-                Please try again later.
-            </p>
-
-        </div>
-
-    `;
-
-}
+        }
+    );
 
 
-/* =========================================================
-   FORMAT ARTICLE DATE
-   ========================================================= */
+    if (overlay) {
 
-function formatArticleDate(
-    dateString
-) {
+        overlay.addEventListener(
+            "click",
+            closeMobileSidebar
+        );
 
-    if (!dateString) {
-        return "";
     }
 
 
-    const date =
-        new Date(dateString);
+    /*
+     * Close sidebar when clicking a normal link.
+     */
+
+    sidebar
+        .querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+                    closeMobileSidebar();
+                }
+            );
+
+        });
 
 
-    if (Number.isNaN(date.getTime())) {
-        return "";
-    }
+    /*
+     * Escape key.
+     */
 
+    document.addEventListener(
+        "keydown",
+        event => {
 
-    return date.toLocaleDateString(
-        "en-US",
-        {
-            year: "numeric",
-            month: "short",
-            day: "numeric"
+            if (
+                event.key === "Escape" &&
+                sidebar.classList.contains("is-open")
+            ) {
+
+                closeMobileSidebar();
+
+            }
+
         }
     );
 
@@ -999,69 +1084,193 @@ function formatArticleDate(
 
 
 /* =========================================================
-   CURRENT YEAR
+   OPEN MOBILE SIDEBAR
    ========================================================= */
 
-function initializeCurrentYear() {
+function openMobileSidebar() {
 
-    const currentYear =
-        new Date().getFullYear();
-
-
-    document
-        .querySelectorAll(
-            "[data-current-year]"
-        )
-        .forEach(element => {
-
-            element.textContent =
-                currentYear;
-
-        });
-
-}
-
-
-/* =========================================================
-   DEBOUNCE
-   ========================================================= */
-
-function debounce(
-    callback,
-    delay = 200
-) {
-
-    let timeout;
-
-
-    return (...args) => {
-
-        clearTimeout(timeout);
-
-
-        timeout = setTimeout(
-            () => callback(...args),
-            delay
+    const sidebar =
+        document.querySelector(
+            SITE_CONFIG.selectors.sidebar
         );
 
-    };
+    const overlay =
+        document.querySelector(
+            SITE_CONFIG.selectors.sidebarOverlay
+        );
 
-}
+    const menuButton =
+        document.querySelector(
+            SITE_CONFIG.selectors.mobileMenuButton
+        );
 
 
-/* =========================================================
-   HTML ESCAPE
-   ========================================================= */
+    if (sidebar) {
 
-function escapeHTML(value) {
-
-    if (value === null ||
-        value === undefined) {
-
-        return "";
+        sidebar.classList.add(
+            "is-open"
+        );
 
     }
 
+
+    if (overlay) {
+
+        overlay.classList.add(
+            "is-visible"
+        );
+
+    }
+
+
+    if (menuButton) {
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+
+    document.body.classList.add(
+        "menu-open"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE SIDEBAR
+   ========================================================= */
+
+function closeMobileSidebar() {
+
+    const sidebar =
+        document.querySelector(
+            SITE_CONFIG.selectors.sidebar
+        );
+
+    const overlay =
+        document.querySelector(
+            SITE_CONFIG.selectors.sidebarOverlay
+        );
+
+    const menuButton =
+        document.querySelector(
+            SITE_CONFIG.selectors.mobileMenuButton
+        );
+
+
+    if (sidebar) {
+
+        sidebar.classList.remove(
+            "is-open"
+        );
+
+    }
+
+
+    if (overlay) {
+
+        overlay.classList.remove(
+            "is-visible"
+        );
+
+    }
+
+
+    if (menuButton) {
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+
+}
+
+
+/* =========================================================
+   DATE HELPERS
+   ========================================================= */
+
+function parseArticleDate(dateString) {
+
+    if (!dateString) {
+        return 0;
+    }
+
+    const timestamp =
+        Date.parse(dateString);
+
+    return Number.isNaN(timestamp)
+        ? 0
+        : timestamp;
+
+}
+
+
+function formatDate(dateString) {
+
+    const timestamp =
+        parseArticleDate(dateString);
+
+    if (!timestamp) {
+        return dateString;
+    }
+
+
+    return new Intl.DateTimeFormat(
+        "en",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    ).format(
+        new Date(timestamp)
+    );
+
+}
+
+
+/* =========================================================
+   SLUGIFY
+   ========================================================= */
+
+function slugify(value) {
+
+    return String(value)
+        .toLowerCase()
+        .trim()
+        .replace(
+            /[^\w\s-]/g,
+            ""
+        )
+        .replace(
+            /\s+/g,
+            "-"
+        )
+        .replace(
+            /--+/g,
+            "-"
+        );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPING
+   ========================================================= */
+
+function escapeHTML(value) {
 
     return String(value)
         .replace(/&/g, "&amp;")
@@ -1073,115 +1282,127 @@ function escapeHTML(value) {
 }
 
 
-/* =========================================================
-   SAFE INTERNAL URL
-   ========================================================= */
+function escapeAttribute(value) {
 
-function safeURL(url) {
-
-    if (!url) {
-        return "#";
-    }
-
-
-    const value =
-        String(url).trim();
-
-
-    /*
-       Only allow internal paths.
-       This prevents accidental
-       unsafe javascript: URLs.
-    */
-
-    if (
-        value.startsWith("/") &&
-        !value.startsWith("//")
-    ) {
-
-        return value;
-
-    }
-
-
-    return "#";
+    return escapeHTML(value);
 
 }
 
 
 /* =========================================================
-   ACTIVE SIDEBAR LINK
+   ARTICLE ERROR
    ========================================================= */
 
-(function initializeActiveSidebar() {
+function showArticleError() {
 
-    const currentPath =
-        window.location.pathname
-            .replace(/\/+$/, "/");
+    const articleContainer =
+        document.querySelector(
+            SITE_CONFIG.selectors.articleList
+        );
 
-
-    document
-        .querySelectorAll(
-            ".sidebar-link"
-        )
-        .forEach(link => {
-
-            const href =
-                link.getAttribute("href");
+    if (!articleContainer) {
+        return;
+    }
 
 
-            if (!href) {
-                return;
-            }
+    articleContainer.innerHTML = `
+        <div class="article-empty article-error">
 
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                error_outline
+            </span>
 
-            const linkPath =
-                href
-                    .replace(/\/+$/, "/");
+            <h2>
+                Articles could not be loaded
+            </h2>
 
+            <p>
+                Please try refreshing the page.
+            </p>
 
-            if (
-                linkPath === currentPath
-            ) {
+            <button
+                type="button"
+                class="reset-search"
+                onclick="window.location.reload()"
+            >
+                Refresh page
+            </button>
 
-                link.classList.add(
-                    "active"
-                );
+        </div>
+    `;
 
-            }
-
-        });
-
-})();
+}
 
 
 /* =========================================================
-   EXTERNAL LINK SAFETY
+   BROWSER BACK / FORWARD
    ========================================================= */
 
-document
-    .querySelectorAll(
-        'a[target="_blank"]'
-    )
-    .forEach(link => {
+window.addEventListener(
+    "popstate",
+    () => {
 
-        const rel =
-            link.getAttribute("rel") || "";
-
-
-        if (!rel.includes("noopener")) {
-
-            link.setAttribute(
-                "rel",
-                `${rel} noopener noreferrer`
-                    .trim()
+        const params =
+            new URLSearchParams(
+                window.location.search
             );
 
+        currentCategory =
+            params.get("category") || "all";
+
+        currentSearch =
+            params.get("q") || "";
+
+
+        const input =
+            document.querySelector(
+                SITE_CONFIG.selectors.searchInput
+            );
+
+        if (input) {
+            input.value =
+                currentSearch;
         }
 
-    });
+
+        renderCategories();
+        renderArticles();
+        updateArticleCount();
+
+    }
+);
 
 
 /* =========================================================
-   END
+   INITIAL URL STATE
    ========================================================= */
+
+loadCategoryFromURL();
+
+
+/* =========================================================
+   EXPOSE OPTIONAL FUNCTIONS
+   ========================================================= */
+
+window.ElectricalSite = {
+
+    getArticles: () => [...allArticles],
+
+    getCurrentCategory: () =>
+        currentCategory,
+
+    getCurrentSearch: () =>
+        currentSearch,
+
+    setCategory,
+
+    resetFilters,
+
+    openMobileSidebar,
+
+    closeMobileSidebar
+
+};
