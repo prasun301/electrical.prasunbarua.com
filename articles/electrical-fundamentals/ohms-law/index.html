@@ -4,7 +4,7 @@
 <head>
 
     <!-- =========================================================
-         BASIC
+         BASIC SEO
     ========================================================== -->
 
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     >
 
     <title>
-        What Is Ohm's Law? Formula, Examples &amp; Practical Guide | Electrical Engineering
+        What Is Ohm's Law? Formula, Examples & Practical Guide | Electrical Engineering
     </title>
 
     <meta
@@ -55,12 +55,12 @@
 
     <meta
         property="og:title"
-        content="What Is Ohm's Law? Formula, Examples &amp; Practical Guide"
+        content="What Is Ohm's Law? Formula, Examples & Practical Guide"
     >
 
     <meta
         property="og:description"
-        content="Learn the relationship between voltage, current and resistance using Ohm's Law with practical electrical engineering examples."
+        content="Understand the relationship between voltage, current and resistance using Ohm's Law with practical electrical engineering examples."
     >
 
     <meta
@@ -75,18 +75,13 @@
 
     <meta
         property="og:image:alt"
-        content="Ohm's Law and electrical power relationship diagram"
+        content="Ohm's Law voltage, current, resistance and power relationship diagram"
     >
 
     <meta
         property="og:locale"
         content="en_US"
     >
-
-
-    <!-- =========================================================
-         ARTICLE META
-    ========================================================== -->
 
     <meta
         property="article:author"
@@ -103,9 +98,14 @@
         content="2026-08-12"
     >
 
+    <meta
+        property="article:modified_time"
+        content="2026-08-12"
+    >
+
 
     <!-- =========================================================
-         TWITTER / X
+         X / TWITTER
     ========================================================== -->
 
     <meta
@@ -115,7 +115,7 @@
 
     <meta
         name="twitter:title"
-        content="What Is Ohm's Law? Formula, Examples &amp; Practical Guide"
+        content="What Is Ohm's Law? Formula, Examples & Practical Guide"
     >
 
     <meta
@@ -141,7 +141,7 @@
 
 
     <!-- =========================================================
-         GOOGLE / APPLE STYLE FONT
+         PERFORMANCE
     ========================================================== -->
 
     <link
@@ -154,6 +154,11 @@
         href="https://fonts.gstatic.com"
         crossorigin
     >
+
+
+    <!-- =========================================================
+         FONT
+    ========================================================== -->
 
     <link
         rel="stylesheet"
@@ -182,28 +187,20 @@
     ></script>
 
     <script>
-
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
         }
 
-        gtag(
-            'js',
-            new Date()
-        );
+        gtag("js", new Date());
 
-        gtag(
-            'config',
-            'G-XY335VGVGJ'
-        );
-
+        gtag("config", "G-XY335VGVGJ");
     </script>
 
 
     <!-- =========================================================
-         MAIN STYLESHEET
+         MAIN WEBSITE CSS
     ========================================================== -->
 
     <link
@@ -213,24 +210,18 @@
 
 
     <!-- =========================================================
-         ARTICLE-SPECIFIC CSS
+         ARTICLE PAGE CSS
     ========================================================== -->
 
     <style>
 
-        /*
-         The main design comes from style.css.
-
-         These rules only provide a few article-specific
-         elements in case the global stylesheet does not
-         already contain them.
-        */
-
+        /* =====================================================
+           ARTICLE LAYOUT
+        ====================================================== */
 
         .article-page {
             padding: 32px 0 80px;
         }
-
 
         .article-layout {
             display: grid;
@@ -239,12 +230,10 @@
             align-items: start;
         }
 
-
         .article-sidebar {
             position: sticky;
             top: 90px;
         }
-
 
         .article-sidebar-title {
             margin: 0 0 14px;
@@ -255,7 +244,6 @@
             color: #86868b;
         }
 
-
         .article-sidebar nav a {
             display: block;
             padding: 7px 0;
@@ -264,12 +252,10 @@
             line-height: 1.4;
         }
 
-
         .article-sidebar nav a:hover {
             color: #0066cc;
             text-decoration: none;
         }
-
 
         .article-sidebar .back-link {
             margin-bottom: 24px;
@@ -278,10 +264,9 @@
         }
 
 
-        .article-main {
-            min-width: 0;
-        }
-
+        /* =====================================================
+           BREADCRUMBS
+        ====================================================== */
 
         .breadcrumbs {
             display: flex;
@@ -293,16 +278,18 @@
             color: #86868b;
         }
 
-
         .breadcrumbs a {
             color: #0066cc;
         }
 
 
+        /* =====================================================
+           ARTICLE HEADER
+        ====================================================== */
+
         .article-header {
             margin-bottom: 32px;
         }
-
 
         .article-category-label {
             display: inline-block;
@@ -314,7 +301,6 @@
             text-transform: uppercase;
         }
 
-
         .article-title {
             margin: 0 0 16px;
             font-size: clamp(34px, 5vw, 52px);
@@ -324,7 +310,6 @@
             color: #1d1d1f;
         }
 
-
         .article-intro {
             margin: 0 0 18px;
             max-width: 720px;
@@ -332,7 +317,6 @@
             line-height: 1.65;
             color: #515154;
         }
-
 
         .article-meta {
             display: flex;
@@ -343,17 +327,19 @@
             font-size: 13px;
         }
 
-
         .article-meta-separator {
             color: #d2d2d7;
         }
 
 
+        /* =====================================================
+           FEATURE IMAGE
+        ====================================================== */
+
         .article-feature-image {
             width: 100%;
             margin: 32px 0 40px;
         }
-
 
         .article-feature-image img {
             display: block;
@@ -363,12 +349,15 @@
         }
 
 
+        /* =====================================================
+           ARTICLE CONTENT
+        ====================================================== */
+
         .article-content {
             font-size: 17px;
             line-height: 1.8;
             color: #2c2c2e;
         }
-
 
         .article-content h2 {
             margin: 48px 0 16px;
@@ -376,8 +365,8 @@
             line-height: 1.25;
             letter-spacing: -.025em;
             color: #1d1d1f;
+            scroll-margin-top: 100px;
         }
-
 
         .article-content h3 {
             margin: 36px 0 12px;
@@ -386,11 +375,9 @@
             color: #1d1d1f;
         }
 
-
         .article-content p {
             margin: 0 0 22px;
         }
-
 
         .article-content ul,
         .article-content ol {
@@ -398,16 +385,18 @@
             padding-left: 28px;
         }
 
-
         .article-content li {
             margin-bottom: 8px;
         }
-
 
         .article-content strong {
             color: #1d1d1f;
         }
 
+
+        /* =====================================================
+           FORMULA BOX
+        ====================================================== */
 
         .formula-box {
             margin: 28px 0;
@@ -418,7 +407,6 @@
             text-align: center;
         }
 
-
         .formula {
             font-size: clamp(24px, 4vw, 34px);
             font-weight: 600;
@@ -426,13 +414,16 @@
             color: #1d1d1f;
         }
 
-
         .formula-description {
             margin-top: 8px;
             font-size: 14px;
             color: #68686d;
         }
 
+
+        /* =====================================================
+           EXAMPLE BOX
+        ====================================================== */
 
         .example-box {
             margin: 28px 0;
@@ -442,11 +433,14 @@
             border-radius: 0 10px 10px 0;
         }
 
-
         .example-box h3 {
             margin-top: 0;
         }
 
+
+        /* =====================================================
+           CALCULATION
+        ====================================================== */
 
         .calculation {
             margin: 18px 0;
@@ -467,19 +461,21 @@
         }
 
 
+        /* =====================================================
+           TABLE
+        ====================================================== */
+
         .article-table-wrapper {
             overflow-x: auto;
             margin: 28px 0;
         }
 
-
         .article-table {
             width: 100%;
-            border-collapse: collapse;
             min-width: 500px;
+            border-collapse: collapse;
             font-size: 15px;
         }
-
 
         .article-table th,
         .article-table td {
@@ -488,7 +484,6 @@
             text-align: left;
         }
 
-
         .article-table th {
             background: #f5f5f7;
             font-weight: 600;
@@ -496,12 +491,15 @@
         }
 
 
+        /* =====================================================
+           ARTICLE IMAGES
+        ====================================================== */
+
         .article-content img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
         }
-
 
         .image-caption {
             margin-top: 8px;
@@ -510,6 +508,10 @@
             text-align: center;
         }
 
+
+        /* =====================================================
+           ENGINEERING NOTE
+        ====================================================== */
 
         .article-note {
             margin: 28px 0;
@@ -521,6 +523,10 @@
         }
 
 
+        /* =====================================================
+           SHARE
+        ====================================================== */
+
         .article-share {
             display: flex;
             flex-wrap: wrap;
@@ -531,14 +537,12 @@
             border-top: 1px solid #e5e5ea;
         }
 
-
         .article-share-label {
             margin-right: 6px;
             font-size: 13px;
             font-weight: 600;
             color: #515154;
         }
-
 
         .share-button {
             display: inline-flex;
@@ -555,20 +559,26 @@
             font-weight: 500;
             cursor: pointer;
             font-family: inherit;
+            transition:
+                color .2s ease,
+                border-color .2s ease,
+                background .2s ease;
         }
-
 
         .share-button:hover {
             color: #0066cc;
             border-color: #0066cc;
-            text-decoration: none;
+            background: #f5f9ff;
         }
-
 
         .share-button .material-symbols-rounded {
             font-size: 18px;
         }
 
+
+        /* =====================================================
+           AUTHOR
+        ====================================================== */
 
         .article-footer {
             margin-top: 48px;
@@ -576,13 +586,11 @@
             border-top: 1px solid #e5e5ea;
         }
 
-
         .article-author {
             display: flex;
             gap: 16px;
             align-items: flex-start;
         }
-
 
         .author-mini-avatar {
             display: flex;
@@ -597,12 +605,10 @@
             font-weight: 700;
         }
 
-
         .article-author h3 {
             margin: 0 0 4px;
             font-size: 16px;
         }
-
 
         .article-author p {
             margin: 0;
@@ -612,19 +618,21 @@
         }
 
 
+        /* =====================================================
+           RELATED ARTICLES
+        ====================================================== */
+
         .related-section {
             margin-top: 64px;
             padding-top: 40px;
             border-top: 1px solid #e5e5ea;
         }
 
-
         .related-section h2 {
             margin: 0 0 24px;
             font-size: 26px;
             letter-spacing: -.02em;
         }
-
 
         .related-grid {
             display: grid;
@@ -636,21 +644,24 @@
             gap: 16px;
         }
 
-
         .related-card {
             display: block;
             padding: 20px;
             border: 1px solid #e5e5ea;
             border-radius: 10px;
             background: #fff;
+            transition:
+                border-color .2s ease,
+                transform .2s ease,
+                box-shadow .2s ease;
         }
-
 
         .related-card:hover {
             border-color: #d2d2d7;
             text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
         }
-
 
         .related-card-category {
             margin-bottom: 8px;
@@ -661,7 +672,6 @@
             letter-spacing: .05em;
         }
 
-
         .related-card h3 {
             margin: 0;
             font-size: 16px;
@@ -669,6 +679,19 @@
             color: #1d1d1f;
         }
 
+
+        /* =====================================================
+           MOBILE SIDEBAR
+        ====================================================== */
+
+        .sidebar-overlay {
+            display: none;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
 
         @media (max-width: 900px) {
 
@@ -678,12 +701,52 @@
             }
 
             .article-sidebar {
-                position: static;
-                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                width: min(320px, 86vw);
+                height: 100vh;
+                padding: 90px 24px 30px;
+                overflow-y: auto;
+                background: #fff;
+                box-shadow: 12px 0 40px rgba(0, 0, 0, .12);
+                transform: translateX(-105%);
+                transition: transform .25s ease;
+            }
+
+            .article-sidebar.is-open {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 999;
+                display: block;
+                background: rgba(0, 0, 0, .35);
+                opacity: 0;
+                visibility: hidden;
+                transition:
+                    opacity .25s ease,
+                    visibility .25s ease;
+            }
+
+            .sidebar-overlay.is-visible {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            body.sidebar-open {
+                overflow: hidden;
             }
 
         }
 
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
 
         @media (max-width: 600px) {
 
@@ -693,17 +756,21 @@
 
             .article-title {
                 font-size: 34px;
+                line-height: 1.12;
             }
 
             .article-intro {
                 font-size: 17px;
+                line-height: 1.6;
             }
 
             .article-content {
                 font-size: 16px;
+                line-height: 1.75;
             }
 
             .article-content h2 {
+                margin-top: 40px;
                 font-size: 26px;
             }
 
@@ -711,9 +778,29 @@
                 font-size: 20px;
             }
 
+            .formula-box {
+                padding: 20px 16px;
+            }
+
+            .formula {
+                font-size: 26px;
+            }
+
+            .example-box {
+                padding: 20px;
+            }
+
             .article-share {
-                align-items: flex-start;
+                align-items: stretch;
                 flex-direction: column;
+            }
+
+            .share-button {
+                width: 100%;
+            }
+
+            .article-author {
+                gap: 12px;
             }
 
         }
@@ -722,51 +809,38 @@
 
 
     <!-- =========================================================
-         STRUCTURED DATA — ARTICLE
+         ARTICLE STRUCTURED DATA
     ========================================================== -->
 
     <script type="application/ld+json">
-
     {
         "@context": "https://schema.org",
         "@type": "Article",
         "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#article",
-
         "headline": "What Is Ohm's Law? Formula, Examples & Practical Guide",
-
         "description": "Learn what Ohm's Law is, understand the relationship between voltage, current and resistance, and see practical electrical engineering examples and calculations.",
-
         "image": [
             "https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
         ],
-
         "datePublished": "2026-08-12",
-
         "dateModified": "2026-08-12",
-
         "author": {
             "@type": "Person",
             "name": "Prasun Barua",
             "url": "https://electrical.prasunbarua.com/about.html"
         },
-
         "publisher": {
             "@type": "Organization",
             "name": "Electrical Engineering by Prasun Barua",
             "url": "https://electrical.prasunbarua.com/"
         },
-
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
         },
-
         "articleSection": "Electrical Fundamentals",
-
         "inLanguage": "en"
-
     }
-
     </script>
 
 
@@ -775,38 +849,30 @@
     ========================================================== -->
 
     <script type="application/ld+json">
-
     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-
         "itemListElement": [
-
             {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
                 "item": "https://electrical.prasunbarua.com/"
             },
-
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Electrical Fundamentals",
                 "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
             },
-
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Ohm's Law",
                 "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
             }
-
         ]
-
     }
-
     </script>
 
 </head>
@@ -839,7 +905,6 @@
                 </span>
 
                 <span>
-
                     <strong>
                         Electrical Engineering
                     </strong>
@@ -847,7 +912,6 @@
                     <small>
                         by Prasun Barua
                     </small>
-
                 </span>
 
             </a>
@@ -857,18 +921,16 @@
                 type="button"
                 id="mobile-menu-button"
                 class="mobile-menu-button"
-                aria-label="Open navigation menu"
+                aria-label="Open article navigation"
                 aria-expanded="false"
                 aria-controls="article-sidebar"
             >
-
                 <span
                     class="material-symbols-rounded"
                     aria-hidden="true"
                 >
                     menu
                 </span>
-
             </button>
 
 
@@ -921,7 +983,7 @@
 
 
     <!-- =========================================================
-         ARTICLE PAGE
+         MAIN ARTICLE
     ========================================================== -->
 
     <main class="article-page">
@@ -932,7 +994,7 @@
 
 
                 <!-- =================================================
-                     LEFT ARTICLE NAVIGATION
+                     ARTICLE SIDEBAR
                 ================================================== -->
 
                 <aside
@@ -955,7 +1017,6 @@
                             ← All Articles
                         </a>
 
-
                         <a href="/articles/electrical-fundamentals/">
                             Electrical Fundamentals
                         </a>
@@ -977,7 +1038,7 @@
                         </a>
 
                         <a href="/articles/testing-commissioning/">
-                            Testing &amp; Commissioning
+                            Testing & Commissioning
                         </a>
 
                     </nav>
@@ -986,13 +1047,15 @@
 
 
                 <!-- =================================================
-                     ARTICLE CONTENT
+                     ARTICLE
                 ================================================== -->
 
                 <article class="article-main">
 
 
-                    <!-- BREADCRUMBS -->
+                    <!-- =================================================
+                         BREADCRUMBS
+                    ================================================== -->
 
                     <nav
                         class="breadcrumbs"
@@ -1015,14 +1078,16 @@
                             /
                         </span>
 
-                        <span>
+                        <span aria-current="page">
                             Ohm's Law
                         </span>
 
                     </nav>
 
 
-                    <!-- ARTICLE HEADER -->
+                    <!-- =================================================
+                         ARTICLE HEADER
+                    ================================================== -->
 
                     <header class="article-header">
 
@@ -1033,16 +1098,15 @@
 
                         <h1 class="article-title">
                             What Is Ohm's Law?
-                            Formula, Examples &amp; Practical Guide
+                            Formula, Examples & Practical Guide
                         </h1>
 
 
                         <p class="article-intro">
                             Ohm's Law describes the relationship between
-                            voltage, current, and resistance in an
-                            electrical circuit. It is one of the most
-                            fundamental relationships used in electrical
-                            engineering.
+                            voltage, current, and resistance in an electrical
+                            circuit. It is one of the most fundamental
+                            relationships used in electrical engineering.
                         </p>
 
 
@@ -1079,17 +1143,23 @@
                     </header>
 
 
-                    <!-- FEATURE IMAGE -->
+                    <!-- =================================================
+                         FEATURE IMAGE
+                    ================================================== -->
 
                     <figure class="article-feature-image">
 
                         <img
                             src="/assets/images/ohms-law-power-triangle.jpeg"
-                            alt="Ohm's Law voltage current and resistance relationship"
+                            alt="Ohm's Law voltage, current, resistance and power relationship diagram"
                             width="1200"
                             height="675"
                             fetchpriority="high"
                         >
+
+                        <figcaption class="image-caption">
+                            Ohm's Law and its relationship with electrical power.
+                        </figcaption>
 
                     </figure>
 
@@ -1291,7 +1361,7 @@
                         <div class="example-box">
 
                             <h3>
-                                Given:
+                                Given
                             </h3>
 
                             <ul>
@@ -1305,7 +1375,6 @@
                                 </li>
 
                             </ul>
-
 
                             <p>
                                 We need to calculate the current.
@@ -1372,6 +1441,7 @@
                                 <thead>
 
                                     <tr>
+
                                         <th>
                                             Known Values
                                         </th>
@@ -1383,6 +1453,7 @@
                                         <th>
                                             Quantity Calculated
                                         </th>
+
                                     </tr>
 
                                 </thead>
@@ -1470,7 +1541,7 @@
 
                         <p>
                             By substituting the Ohm's Law relationships,
-                            additional power formulas can be obtained:
+                            additional power formulas can be obtained.
                         </p>
 
 
@@ -1616,15 +1687,17 @@
                             practicing engineers should understand.
                         </p>
 
-
                     </div>
 
 
                     <!-- =================================================
-                         SHARE
+                         SOCIAL SHARING
                     ================================================== -->
 
-                    <div class="article-share">
+                    <div
+                        class="article-share"
+                        aria-label="Share this article"
+                    >
 
                         <span class="article-share-label">
                             Share this article
@@ -1725,6 +1798,7 @@
 
                     <!-- =================================================
                          RELATED ARTICLES
+                         POPULATED BY related-articles.js
                     ================================================== -->
 
                     <section
@@ -1741,59 +1815,7 @@
                             class="related-grid"
                             id="related-articles"
                         >
-
-                            <!--
-                                related-articles.js will populate
-                                this section automatically.
-                            -->
-
-                            <a
-                                href="/articles/electrical-fundamentals/ohms-law/what-is-voltage-current-resistance.html"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Fundamentals
-                                </div>
-
-                                <h3>
-                                    What Is Voltage, Current and Resistance?
-                                </h3>
-
-                            </a>
-
-
-                            <a
-                                href="/articles/electrical-calculations/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Calculations
-                                </div>
-
-                                <h3>
-                                    Explore Electrical Calculations
-                                </h3>
-
-                            </a>
-
-
-                            <a
-                                href="/articles/electrical-fundamentals/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Fundamentals
-                                </div>
-
-                                <h3>
-                                    More Electrical Fundamentals
-                                </h3>
-
-                            </a>
-
+                            <!-- related-articles.js populates this area -->
                         </div>
 
                     </section>
@@ -1830,161 +1852,148 @@
 
 
     <!-- =========================================================
-         SHARE SCRIPT
+         ARTICLE SHARE SCRIPT
     ========================================================== -->
 
     <script>
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
-                const pageURL =
-                    window.location.href;
-
-                const pageTitle =
-                    document.title;
+            const pageURL = window.location.href;
+            const pageTitle = document.title;
 
 
-                document
-                    .querySelectorAll(
-                        "[data-share]"
-                    )
-                    .forEach(
-                        function (button) {
+            document
+                .querySelectorAll("[data-share]")
+                .forEach(function (button) {
 
-                            button.addEventListener(
-                                "click",
-                                async function () {
+                    button.addEventListener("click", async function () {
 
-                                    const type =
-                                        button.dataset.share;
+                        const type = button.dataset.share;
 
 
-                                    if (
-                                        type === "copy"
-                                    ) {
+                        /* ==========================================
+                           COPY LINK
+                        ========================================== */
 
-                                        try {
+                        if (type === "copy") {
 
-                                            await navigator.clipboard.writeText(
-                                                pageURL
-                                            );
+                            try {
 
-                                            const original =
-                                                button.innerText;
+                                await navigator.clipboard.writeText(pageURL);
 
-                                            button.innerText =
-                                                "Copied!";
+                                const originalText =
+                                    button.innerHTML;
 
-                                            setTimeout(
-                                                function () {
+                                button.innerHTML =
+                                    '<span class="material-symbols-rounded" aria-hidden="true">check</span> Copied!';
 
-                                                    button.innerText =
-                                                        original;
+                                setTimeout(function () {
 
-                                                },
-                                                1500
-                                            );
+                                    button.innerHTML =
+                                        originalText;
 
-                                        } catch (error) {
+                                }, 1500);
 
-                                            window.prompt(
-                                                "Copy this link:",
-                                                pageURL
-                                            );
-                                        }
+                            } catch (error) {
 
-                                        return;
-                                    }
+                                window.prompt(
+                                    "Copy this link:",
+                                    pageURL
+                                );
+
+                            }
+
+                            return;
+                        }
 
 
-                                    let shareURL =
-                                        "";
+                        let shareURL = "";
 
 
-                                    if (
-                                        type === "facebook"
-                                    ) {
+                        /* ==========================================
+                           FACEBOOK
+                        ========================================== */
 
-                                        shareURL =
-                                            "https://www.facebook.com/sharer/sharer.php?u=" +
-                                            encodeURIComponent(
-                                                pageURL
-                                            );
+                        if (type === "facebook") {
 
-                                    }
+                            shareURL =
+                                "https://www.facebook.com/sharer/sharer.php?u=" +
+                                encodeURIComponent(pageURL);
 
-
-                                    if (
-                                        type === "linkedin"
-                                    ) {
-
-                                        shareURL =
-                                            "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                            encodeURIComponent(
-                                                pageURL
-                                            );
-
-                                    }
+                        }
 
 
-                                    if (
-                                        type === "x"
-                                    ) {
+                        /* ==========================================
+                           LINKEDIN
+                        ========================================== */
 
-                                        shareURL =
-                                            "https://twitter.com/intent/tweet?url=" +
-                                            encodeURIComponent(
-                                                pageURL
-                                            ) +
-                                            "&text=" +
-                                            encodeURIComponent(
-                                                pageTitle
-                                            );
+                        if (type === "linkedin") {
 
-                                    }
+                            shareURL =
+                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
+                                encodeURIComponent(pageURL);
+
+                        }
 
 
-                                    if (
-                                        type === "whatsapp"
-                                    ) {
+                        /* ==========================================
+                           X / TWITTER
+                        ========================================== */
 
-                                        shareURL =
-                                            "https://api.whatsapp.com/send?text=" +
-                                            encodeURIComponent(
-                                                pageTitle +
-                                                " " +
-                                                pageURL
-                                            );
+                        if (type === "x") {
 
-                                    }
+                            shareURL =
+                                "https://twitter.com/intent/tweet?url=" +
+                                encodeURIComponent(pageURL) +
+                                "&text=" +
+                                encodeURIComponent(pageTitle);
+
+                        }
 
 
-                                    if (shareURL) {
+                        /* ==========================================
+                           WHATSAPP
+                        ========================================== */
 
-                                        window.open(
-                                            shareURL,
-                                            "_blank",
-                                            "noopener,noreferrer,width=700,height=600"
-                                        );
+                        if (type === "whatsapp") {
 
-                                    }
+                            shareURL =
+                                "https://api.whatsapp.com/send?text=" +
+                                encodeURIComponent(
+                                    pageTitle +
+                                    " " +
+                                    pageURL
+                                );
 
-                                }
+                        }
+
+
+                        /* ==========================================
+                           OPEN SHARE WINDOW
+                        ========================================== */
+
+                        if (shareURL) {
+
+                            window.open(
+                                shareURL,
+                                "_blank",
+                                "noopener,noreferrer,width=700,height=600"
                             );
 
                         }
-                    );
 
-            }
-        );
+                    });
+
+                });
+
+        });
 
     </script>
 
 
     <!-- =========================================================
-         RELATED ARTICLES
+         AUTOMATIC RELATED ARTICLES
     ========================================================== -->
 
     <script
@@ -1994,7 +2003,7 @@
 
 
     <!-- =========================================================
-         MAIN SITE JS
+         MAIN WEBSITE JAVASCRIPT
     ========================================================== -->
 
     <script
