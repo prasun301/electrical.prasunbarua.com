@@ -16,7 +16,7 @@
 
     <title>Disclaimer | Electrical Engineering by Prasun Barua</title>
 
-    <meta name="description" content="Professional disclaimer detailing the scope, limitations, and liabilities of educational electrical engineering tutorials, calculations, solar PV resources, and tools published by Prasun Barua.">
+    <meta name="description" content="Professional disclaimer detailing the scope, limitations, and liabilities of educational electrical engineering tutorials, calculations, and tools published by Prasun Barua.">
     <meta name="author" content="Prasun Barua">
     <meta name="robots" content="index, follow">
 
@@ -38,11 +38,82 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
+
+    <!-- Apple & Google Minimalist UI Enhancements -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #fafafa;
+            color: #111827;
+            letter-spacing: -0.01em;
+        }
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        .legal-section {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .legal-section:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .legal-intro {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+        .notice-box {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .hero {
+            padding: 4rem 0 2rem 0;
+            background: transparent;
+        }
+        .hero h1 {
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+        .article-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -155,11 +226,11 @@
                         <p>Information published on this website should therefore not be treated as a replacement for project-specific engineering analysis or professional review.</p>
 
                         <div class="notice-box" role="note">
-                            <div class="quick-answer-title">
-                                <span class="material-symbols-rounded" aria-hidden="true">warning</span>
+                            <div class="quick-answer-title" style="display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 8px;">
+                                <span class="material-symbols-rounded" aria-hidden="true" style="color: #f59e0b;">warning</span>
                                 Important Safety Notice
                             </div>
-                            <p>Before using any calculation, design method, or technical information on an actual project, verify it against the applicable standards, manufacturer documentation, project specifications, and requirements of the relevant authority or qualified professional.</p>
+                            <p style="margin: 0;">Before using any calculation, design method, or technical information on an actual project, verify it against the applicable standards, manufacturer documentation, project specifications, and requirements of the relevant authority or qualified professional.</p>
                         </div>
                     </section>
 
