@@ -1,7 +1,7 @@
 /* =========================================================
    ELECTRICAL ENGINEERING — PRODUCTION UI SYSTEM
    Prasun Barua
-   Modern 2026 High-Performance Edition (Polished Fixes)
+   Modern 2026 High-Performance Edition
    ========================================================= */
 
 /* =========================================================
@@ -53,7 +53,7 @@
     --radius-2xl: 24px;
     --radius-pill: 9999px;
 
-    /* Ultra-Clean Apple/Google Shadows */
+    /* Shadows */
     --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
@@ -73,10 +73,9 @@
     /* Dimensional Tokens */
     --header-height: 72px;
 
-    /* Apple/Google System Font Stack */
-    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
-                 "Inter", "Google Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    /* System Font Stack */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 
@@ -107,7 +106,6 @@ body {
     background-color: var(--background);
     line-height: 1.6;
     letter-spacing: -0.011em;
-    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -142,7 +140,6 @@ a {
     text-decoration: none;
 }
 
-/* Nav & component list resets */
 .main-nav ul,
 .article-meta,
 .unstyled-list {
@@ -153,7 +150,7 @@ a {
 
 
 /* =========================================================
-   3. SELECTION & FOCUS
+   3. SELECTION, FOCUS & ACCESSIBILITY
    ========================================================= */
 
 ::selection {
@@ -167,11 +164,6 @@ a {
     border-radius: var(--radius-xs);
 }
 
-
-/* =========================================================
-   4. ACCESSIBILITY & MATERIAL SYMBOLS ALIGNMENT FIX
-   ========================================================= */
-
 .sr-only {
     position: absolute;
     width: 1px;
@@ -184,7 +176,7 @@ a {
     border: 0;
 }
 
-/* Alignment for Google Material Symbols */
+/* Material Symbols Icon Alignment */
 .material-symbols-rounded {
     font-family: "Material Symbols Rounded", sans-serif;
     font-weight: normal;
@@ -198,16 +190,14 @@ a {
     justify-content: center;
     vertical-align: middle;
     white-space: nowrap;
-    word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 
 /* =========================================================
-   5. CONTAINER & HEADER
+   4. LAYOUT & HEADER
    ========================================================= */
 
 .container {
@@ -272,13 +262,11 @@ a {
     line-height: 1;
 }
 
-/* Main Navigation Container */
 .main-nav {
     display: flex;
     align-items: center;
 }
 
-/* Horizontal List Layout & Bullet Removal */
 .main-nav ul {
     display: flex;
     align-items: center;
@@ -316,7 +304,7 @@ a {
 
 
 /* =========================================================
-   6. HERO SECTION
+   5. HERO & SEARCH
    ========================================================= */
 
 .hero {
@@ -372,11 +360,6 @@ a {
     text-wrap: pretty;
 }
 
-
-/* =========================================================
-   7. GOOGLE-STYLE SEARCH BAR
-   ========================================================= */
-
 .search-box {
     width: min(640px, 100%);
     height: 52px;
@@ -417,14 +400,12 @@ a {
     background: transparent;
     color: var(--text-strong);
     font-size: 15px;
-    line-height: 1;
 }
 
 .search-box input::placeholder {
     color: var(--text-subtle);
 }
 
-/* Precision Flex-aligned Search Button */
 .search-box button {
     height: 42px;
     padding: 0 20px;
@@ -437,19 +418,8 @@ a {
     background: var(--primary);
     font-size: 14px;
     font-weight: 600;
-    letter-spacing: -0.01em;
     transition: all var(--transition-fast);
     flex-shrink: 0;
-}
-
-.search-box button .material-symbols-rounded {
-    font-size: 18px;
-    line-height: 1;
-}
-
-.search-box button span:not(.material-symbols-rounded) {
-    display: inline-block;
-    line-height: 1;
 }
 
 .search-box button:hover {
@@ -458,32 +428,77 @@ a {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
-#search-message {
-    margin-top: 10px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--danger);
-    text-align: center;
-}
-
 
 /* =========================================================
-   8. ARTICLE METADATA & HEADER
+   6. TECHNICAL ARTICLE STYLING & READABILITY
    ========================================================= */
 
-.article-header {
-    text-align: center;
-    margin-bottom: 48px;
+.article-content {
+    max-width: var(--reading-width);
+    margin-inline: auto;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text);
 }
 
-.article-header h1 {
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content h2,
+.article-content h3,
+.article-content h4 {
     color: var(--text-strong);
-    font-size: clamp(32px, 4.5vw, 52px);
-    line-height: 1.1;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
     font-weight: 700;
 }
 
+.article-content h2 {
+    font-size: 1.75rem;
+    margin: 2.5rem 0 1rem;
+    line-height: 1.25;
+}
+
+.article-content h3 {
+    font-size: 1.35rem;
+    margin: 2rem 0 0.75rem;
+    line-height: 1.3;
+}
+
+.article-content ul,
+.article-content ol {
+    margin: 0 0 1.5rem 1.5rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+.article-section {
+    margin-bottom: 3.5rem;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+}
+
+.legal-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 8px;
+}
+
+.legal-heading h2 {
+    margin: 0;
+}
+
+.legal-heading .material-symbols-rounded {
+    color: var(--primary);
+    font-size: 28px;
+}
+
+/* Metadata */
 .article-meta {
     display: flex;
     align-items: center;
@@ -500,17 +515,106 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    line-height: 1;
 }
 
-.meta-item .material-symbols-rounded {
-    font-size: 18px;
+/* Callout & Notice Box */
+.notice-box {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    margin: 2rem 0;
+    border-radius: var(--radius-md);
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    color: var(--text);
+}
+
+.notice-box .material-symbols-rounded {
+    color: var(--primary);
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+/* Table of Contents */
+.article-toc {
+    padding: 24px;
+    margin: 2.5rem 0;
+    background: var(--background-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.article-toc ol {
+    margin: 12px 0 0 20px;
+}
+
+.article-toc a {
+    color: var(--primary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.article-toc a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Formula & Math Display Boxes */
+.formula-box {
+    padding: 24px;
+    margin: 1.75rem 0;
+    background: var(--background-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.formula-box.featured {
+    background: var(--primary-light);
+    border-color: var(--primary-soft);
+}
+
+.formula-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.formula {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-strong);
+    margin: 6px 0;
+}
+
+.formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 1.75rem 0;
+}
+
+.calculation-box {
+    font-family: var(--font-mono);
+    padding: 20px;
+    margin: 1.5rem 0;
+    background: var(--dark);
+    color: var(--dark-text);
+    border-radius: var(--radius-md);
+    line-height: 1.8;
+}
+
+.calculation-box strong {
+    color: #60a5fa;
 }
 
 
 /* =========================================================
-   9. CARDS & SECTIONS
+   7. SECTIONS & CARDS GRID
    ========================================================= */
 
 .section {
@@ -521,24 +625,6 @@ a {
     background: var(--background-soft);
 }
 
-.section-heading {
-    max-width: 680px;
-    margin-bottom: 40px;
-}
-
-.section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--primary);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-/* Fluid responsive grid fix for smaller mobile displays */
 .category-grid,
 .calculator-grid,
 .article-grid {
@@ -557,7 +643,8 @@ a {
     border-radius: var(--radius-lg);
     background: var(--surface-elevated);
     box-shadow: var(--shadow-xs);
-    transition: all var(--transition);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    will-change: transform;
 }
 
 .category-card:hover,
@@ -568,23 +655,64 @@ a {
     box-shadow: var(--shadow-lg);
 }
 
-.category-icon,
-.tool-icon,
-.icon-box {
-    width: 44px;
-    height: 44px;
-    display: flex;
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+
+.site-footer {
+    background: var(--dark);
+    color: var(--dark-secondary);
+    padding: 64px 0 32px;
+    border-top: 1px solid var(--dark-soft);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.footer-logo {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-md);
-    color: var(--primary);
-    background: var(--primary-light);
-    margin-bottom: 20px;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 12px;
+}
+
+.footer-grid h3 {
+    color: var(--dark-text);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.footer-grid a {
+    display: block;
+    color: var(--dark-secondary);
+    margin-bottom: 8px;
+    font-size: 14px;
+    transition: color var(--transition-fast);
+}
+
+.footer-grid a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    padding-top: 24px;
+    border-top: 1px solid var(--dark-soft);
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
 }
 
 
 /* =========================================================
-   10. MEDIA QUERIES
+   9. MEDIA QUERIES
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -612,8 +740,7 @@ a {
         display: none;
     }
 
-    .article-meta {
-        gap: 12px;
-        font-size: 13px;
+    .formula-grid {
+        grid-template-columns: 1fr;
     }
 }
