@@ -50,6 +50,7 @@
     <script src="../../assets/js/app.js" defer></script>
 
     <!-- Essential Layout Safety Styles & Component Styles -->
+      <!-- Essential Layout Safety Styles -->
     <style>
         :root {
             --primary: #0b57d0;
@@ -59,17 +60,20 @@
             --border: #e2e8f0;
             --radius: 8px;
         }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             color: var(--text-dark);
             margin: 0;
             line-height: 1.6;
         }
+
         .container, .article-container {
             max-width: 1080px;
             margin: 0 auto;
             padding: 0 1.25rem;
         }
+
         /* Article Layout Grid */
         .article-layout {
             display: grid;
@@ -77,11 +81,13 @@
             gap: 2.5rem;
             margin-top: 2rem;
         }
+
         @media (max-width: 768px) {
             .article-layout {
                 grid-template-columns: 1fr;
             }
         }
+
         /* Sidebar TOC Styling */
         .toc {
             position: sticky;
@@ -94,6 +100,7 @@
             flex-direction: column;
             gap: 0.5rem;
         }
+
         .toc h3 {
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -101,15 +108,18 @@
             color: var(--text-muted);
             margin-bottom: 0.5rem;
         }
+
         .toc a {
             color: var(--primary);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
         }
+
         .toc a:hover {
             text-decoration: underline;
         }
+
         /* Quick Answer & Formula Styling */
         .quick-answer {
             background: #eff6ff;
@@ -118,6 +128,7 @@
             border-radius: 0 var(--radius) var(--radius) 0;
             margin-bottom: 2rem;
         }
+
         .formula-box {
             background: var(--text-dark);
             color: #fff;
@@ -128,12 +139,14 @@
             border-radius: var(--radius);
             margin: 1.5rem 0;
         }
+
         .formula-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1rem;
             margin: 1.5rem 0;
         }
+
         .formula-card {
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -141,102 +154,30 @@
             text-align: center;
             background: var(--bg-light);
         }
+
         .formula-card strong {
             display: block;
             margin-bottom: 0.25rem;
         }
+
         /* Engineering Tables */
         .engineering-table {
             width: 100%;
             border-collapse: collapse;
             margin: 1.5rem 0;
         }
+
         .engineering-table th, .engineering-table td {
             border: 1px solid var(--border);
             padding: 0.75rem 1rem;
             text-align: left;
         }
+
         .engineering-table th {
             background: var(--bg-light);
         }
-        /* Embedded Figure Styles */
-        .article-figure {
-            margin: 2rem 0;
-            text-align: center;
-            background-color: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.25rem;
-        }
-        .article-figure img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto 0.75rem auto;
-            border-radius: 4px;
-        }
-        .article-figure figcaption {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-        .article-figure figcaption strong {
-            color: var(--primary);
-        }
-        .calculation-box {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1rem 1.25rem;
-            margin: 1rem 0;
-            font-family: monospace;
-        }
-        .breadcrumbs {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 1.5rem 0 1rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .breadcrumbs a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .breadcrumbs a:hover {
-            text-decoration: underline;
-        }
-        .article-header {
-            margin-bottom: 2rem;
-        }
-        .article-category {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-        .article-header h1 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        .article-intro {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
     </style>
-
+    
     <!-- Article Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     [
