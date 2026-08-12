@@ -1,439 +1,350 @@
 /* =========================================================
-   ELECTRICAL ENGINEERING
+   ELECTRICAL ENGINEERING BY PRASUN BARUA
    MAIN SITE JAVASCRIPT
-   ---------------------------------------------------------
-   Site-wide functionality:
-   - Mobile navigation
-   - Sidebar / overlay
-   - Escape-key handling
-   - Active navigation
-   - Smooth anchor scrolling
-   - Header scroll state
-   - External link handling
-   - Copy buttons
-   - Back-to-top button
-   - Reading progress
-   - Accessible interactions
-   ========================================================= */
+
+   File:
+   /assets/js/app.js
+
+   Purpose:
+   - Load articles.json
+   - Display category articles
+   - Search articles
+   - Generate reliable article links
+   - Handle category navigation
+   - Handle mobile navigation
+   - Work with GitHub Pages + Cloudflare
+========================================================= */
 
 "use strict";
 
 
 /* =========================================================
+   GLOBAL CONFIGURATION
+========================================================= */
+
+const SITE_CONFIG = {
+
+    articlesFile: "/articles.json",
+
+    homeURL: "/",
+
+    categories: {
+        fundamentals: {
+            name: "Electrical Fundamentals",
+            shortName: "Fundamentals",
+            path: "/articles/electrical-fundamentals/",
+            icon: "electrical_services"
+        },
+
+        calculations: {
+            name: "Electrical Calculations",
+            shortName: "Calculations",
+            path: "/articles/electrical-calculations/",
+            icon: "calculate"
+        },
+
+        design: {
+            name: "Electrical Design",
+            shortName: "Design",
+            path: "/articles/electrical-design/",
+            icon: "architecture"
+        },
+
+        "power-systems": {
+            name: "Power Systems",
+            shortName: "Power Systems",
+            path: "/articles/power-systems/",
+            icon: "bolt"
+        },
+
+        "solar-pv": {
+            name: "Solar PV",
+            shortName: "Solar PV",
+            path: "/articles/solar-pv/",
+            icon: "solar_power"
+        },
+
+        "testing-commissioning": {
+            name: "Testing & Commissioning",
+            shortName: "Testing & Commissioning",
+            path: "/articles/testing-commissioning/",
+            icon: "engineering"
+        }
+    }
+
+};
+
+
+/* =========================================================
    DOM READY
-   ========================================================= */
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    initMobileNavigation();
-
-    initActiveNavigation();
-
-    initSmoothScrolling();
-
-    initHeaderScroll();
-
-    initExternalLinks();
-
-    initCopyButtons();
-
-    initBackToTop();
-
-    initReadingProgress();
+    initializeSite();
 
 });
 
 
 /* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
+   INITIALIZE SITE
+========================================================= */
 
-function initMobileNavigation() {
+async function initializeSite() {
 
-    const menuButton =
-        document.getElementById(
-            "mobile-menu-button"
+    try {
+
+        setupMobileMenu();
+
+        setupNavigation();
+
+        setupSearch();
+
+        await loadArticles();
+
+    } catch (error) {
+
+        console.error(
+            "Electrical Engineering site initialization error:",
+            error
         );
 
-    const sidebar =
-        document.getElementById(
-            "article-sidebar"
+    }
+
+}
+
+
+/* =========================================================
+   LOAD ARTICLES.JSON
+========================================================= */
+
+async function loadArticles() {
+
+    const articleContainer =
+        document.querySelector(
+            "#articles-list"
+        ) ||
+        document.querySelector(
+            "#article-list"
+        ) ||
+        document.querySelector(
+            ".articles-grid"
+        ) ||
+        document.querySelector(
+            ".article-grid"
         );
 
-    const overlay =
-        document.getElementById(
-            "sidebar-overlay"
-        );
+    /*
+       If this is an article page and there is no
+       article listing container, there is nothing
+       to render from articles.json.
+    */
 
-
-    if (
-        !menuButton ||
-        !sidebar
-    ) {
+    if (!articleContainer) {
 
         return;
 
     }
 
 
-    /*
-     * Open sidebar.
-     */
-    function openMenu() {
+    try {
 
-        document.body.classList.add(
-            "menu-open"
-        );
-
-        sidebar.classList.add(
-            "is-open"
-        );
-
-
-        if (overlay) {
-
-            overlay.classList.add(
-                "is-visible"
-            );
-
-            overlay.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-        }
-
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-
-        menuButton.setAttribute(
-            "aria-label",
-            "Close navigation menu"
-        );
-
-
-        /*
-         * Prevent page scrolling while
-         * mobile navigation is open.
-         */
-        document.body.style.overflow =
-            "hidden";
-
-    }
-
-
-    /*
-     * Close sidebar.
-     */
-    function closeMenu() {
-
-        document.body.classList.remove(
-            "menu-open"
-        );
-
-        sidebar.classList.remove(
-            "is-open"
-        );
-
-
-        if (overlay) {
-
-            overlay.classList.remove(
-                "is-visible"
-            );
-
-            overlay.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-        }
-
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-
-        menuButton.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
-
-
-        document.body.style.overflow =
-            "";
-
-    }
-
-
-    /*
-     * Toggle.
-     */
-    menuButton.addEventListener(
-        "click",
-        () => {
-
-            const isOpen =
-                document.body.classList.contains(
-                    "menu-open"
-                );
-
-
-            if (isOpen) {
-
-                closeMenu();
-
-            } else {
-
-                openMenu();
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Overlay closes menu.
-     */
-    if (overlay) {
-
-        overlay.addEventListener(
-            "click",
-            closeMenu
-        );
-
-    }
-
-
-    /*
-     * Clicking a sidebar link closes
-     * the mobile menu.
-     */
-    sidebar
-        .querySelectorAll("a")
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    closeMenu();
-
+        const response =
+            await fetch(
+                SITE_CONFIG.articlesFile,
+                {
+                    cache: "no-cache"
                 }
             );
 
-        });
 
+        if (!response.ok) {
 
-    /*
-     * Escape closes menu.
-     */
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                document.body.classList.contains(
-                    "menu-open"
-                )
-            ) {
-
-                closeMenu();
-
-                menuButton.focus();
-
-            }
+            throw new Error(
+                "Unable to load articles.json. HTTP status: " +
+                response.status
+            );
 
         }
-    );
 
 
-    /*
-     * If screen becomes desktop size,
-     * reset mobile menu state.
-     */
-    window.addEventListener(
-        "resize",
-        () => {
+        const data =
+            await response.json();
 
-            if (
-                window.innerWidth > 900
-            ) {
 
-                closeMenu();
+        const articles =
+            normalizeArticles(data);
 
-            }
+
+        if (!articles.length) {
+
+            showEmptyState(
+                articleContainer,
+                "No articles available yet."
+            );
+
+            return;
 
         }
-    );
+
+
+        window.ElectricalArticles =
+            articles;
+
+
+        renderCurrentPageArticles(
+            articles
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading articles.json:",
+            error
+        );
+
+
+        showEmptyState(
+            articleContainer,
+            "Articles could not be loaded. Please refresh the page."
+        );
+
+    }
 
 }
 
 
 /* =========================================================
-   ACTIVE NAVIGATION
-   ========================================================= */
+   NORMALIZE ARTICLES
+========================================================= */
 
-function initActiveNavigation() {
+function normalizeArticles(data) {
 
-    const currentPath =
-        normalizePath(
-            window.location.pathname
-        );
+    let articles = [];
 
 
     /*
-     * Main navigation.
-     */
-    document
-        .querySelectorAll(
-            ".main-nav a"
-        )
-        .forEach(link => {
+       Support these formats:
 
-            const linkPath =
-                normalizePath(
-                    new URL(
-                        link.href,
-                        window.location.origin
-                    ).pathname
-                );
+       1. [
+            {...},
+            {...}
+          ]
 
+       2. {
+            "articles": [...]
+          }
 
-            if (
-                linkPath === currentPath
-            ) {
+       3. {
+            "items": [...]
+          }
+    */
 
-                link.classList.add(
-                    "active"
-                );
+    if (Array.isArray(data)) {
 
-                link.setAttribute(
-                    "aria-current",
-                    "page"
-                );
+        articles = data;
 
-            } else {
-
-                link.classList.remove(
-                    "active"
-                );
-
-                link.removeAttribute(
-                    "aria-current"
-                );
-
-            }
-
-        });
-
-
-    /*
-     * Article sidebar.
-     *
-     * Do not mark the generic
-     * "All Articles" link active
-     * when inside an individual article.
-     */
-    document
-        .querySelectorAll(
-            ".article-sidebar nav a"
-        )
-        .forEach(link => {
-
-            const href =
-                link.getAttribute(
-                    "href"
-                );
-
-
-            if (!href) {
-                return;
-            }
-
-
-            const linkPath =
-                normalizePath(
-                    new URL(
-                        href,
-                        window.location.origin
-                    ).pathname
-                );
-
-
-            if (
-                linkPath !== "/" &&
-                linkPath === currentPath
-            ) {
-
-                link.classList.add(
-                    "active"
-                );
-
-                link.setAttribute(
-                    "aria-current",
-                    "page"
-                );
-
-            }
-
-        });
-
-}
-
-
-/* =========================================================
-   PATH NORMALIZATION
-   ========================================================= */
-
-function normalizePath(path) {
-
-    if (!path) {
-        return "/";
-    }
-
-
-    let normalized =
-        path.split("?")[0];
-
-
-    normalized =
-        normalized.split("#")[0];
-
-
-    normalized =
-        normalized.replace(
-            /\/+/g,
-            "/"
-        );
-
-
-    /*
-     * Root stays "/".
-     */
-    if (normalized === "/") {
-        return "/";
-    }
-
-
-    /*
-     * Add trailing slash for
-     * directory-style URLs.
-     */
-    if (
-        !normalized.endsWith("/") &&
-        !normalized.includes(".")
+    } else if (
+        data &&
+        Array.isArray(data.articles)
     ) {
 
-        normalized += "/";
+        articles = data.articles;
+
+    } else if (
+        data &&
+        Array.isArray(data.items)
+    ) {
+
+        articles = data.items;
+
+    }
+
+
+    return articles
+        .filter(
+            article =>
+                article &&
+                typeof article === "object"
+        )
+        .map(
+            normalizeArticle
+        );
+
+}
+
+
+/* =========================================================
+   NORMALIZE ONE ARTICLE
+========================================================= */
+
+function normalizeArticle(article) {
+
+    const normalized =
+        Object.assign(
+            {},
+            article
+        );
+
+
+    normalized.title =
+        article.title ||
+        article.name ||
+        "Untitled Article";
+
+
+    normalized.description =
+        article.description ||
+        article.excerpt ||
+        "";
+
+
+    normalized.category =
+        article.category ||
+        article.categoryName ||
+        "Electrical Engineering";
+
+
+    normalized.categorySlug =
+        article.categorySlug ||
+        article.category_slug ||
+        getCategorySlug(
+            article.category
+        );
+
+
+    normalized.readTime =
+        article.readTime ||
+        article.read_time ||
+        "";
+
+
+    /*
+       IMPORTANT:
+       Keep the URL from articles.json if it exists.
+
+       This prevents app.js from accidentally
+       constructing the wrong URL.
+    */
+
+    normalized.url =
+        article.url ||
+        article.href ||
+        article.link ||
+        "";
+
+
+    /*
+       If no URL exists, attempt to build one.
+    */
+
+    if (!normalized.url) {
+
+        normalized.url =
+            buildArticleURL(
+                normalized
+            );
 
     }
 
@@ -444,1079 +355,1282 @@ function normalizePath(path) {
 
 
 /* =========================================================
-   SMOOTH ANCHOR SCROLLING
-   ========================================================= */
-
-function initSmoothScrolling() {
-
-    document
-        .querySelectorAll(
-            'a[href*="#"]'
-        )
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                event => {
-
-                    const href =
-                        link.getAttribute(
-                            "href"
-                        );
-
-
-                    if (
-                        !href ||
-                        href === "#"
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    let url;
-
-
-                    try {
-
-                        url =
-                            new URL(
-                                href,
-                                window.location.href
-                            );
-
-                    } catch {
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * Only smooth-scroll when
-                     * the link points to this page.
-                     */
-                    if (
-                        url.pathname !==
-                        window.location.pathname
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    const targetID =
-                        url.hash.substring(1);
-
-
-                    if (!targetID) {
-                        return;
-                    }
-
-
-                    const target =
-                        document.getElementById(
-                            decodeURIComponent(
-                                targetID
-                            )
-                        );
-
-
-                    if (!target) {
-                        return;
-                    }
-
-
-                    event.preventDefault();
-
-
-                    const header =
-                        document.querySelector(
-                            ".site-header"
-                        );
-
-
-                    const headerHeight =
-                        header
-                            ? header.offsetHeight
-                            : 0;
-
-
-                    const targetPosition =
-                        target.getBoundingClientRect()
-                            .top +
-                        window.scrollY -
-                        headerHeight -
-                        20;
-
-
-                    window.scrollTo({
-                        top:
-                            Math.max(
-                                0,
-                                targetPosition
-                            ),
-                        behavior:
-                            "smooth"
-                    });
-
-
-                    /*
-                     * Update URL without
-                     * forcing browser jump.
-                     */
-                    history.pushState(
-                        null,
-                        "",
-                        "#" + targetID
-                    );
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   HEADER SCROLL EFFECT
-   ========================================================= */
-
-function initHeaderScroll() {
-
-    const header =
-        document.querySelector(
-            ".site-header"
-        );
-
-
-    if (!header) {
-        return;
-    }
-
-
-    let ticking = false;
-
-
-    function updateHeader() {
-
-        const scrollY =
-            window.scrollY ||
-            window.pageYOffset;
-
-
-        if (scrollY > 10) {
-
-            header.classList.add(
-                "is-scrolled"
-            );
-
-        } else {
-
-            header.classList.remove(
-                "is-scrolled"
-            );
-
-        }
-
-
-        ticking = false;
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!ticking) {
-
-                window.requestAnimationFrame(
-                    updateHeader
-                );
-
-                ticking = true;
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    updateHeader();
-
-}
-
-
-/* =========================================================
-   EXTERNAL LINKS
-   ========================================================= */
-
-function initExternalLinks() {
-
-    document
-        .querySelectorAll(
-            'a[href^="http://"], a[href^="https://"]'
-        )
-        .forEach(link => {
-
-            let url;
-
-
-            try {
-
-                url =
-                    new URL(
-                        link.href
-                    );
-
-            } catch {
-
-                return;
-
-            }
-
-
-            /*
-             * Ignore links pointing to
-             * our own website.
-             */
-            if (
-                url.hostname ===
-                window.location.hostname
-            ) {
-
-                return;
-
-            }
-
-
-            /*
-             * Security for links opened
-             * in a new tab.
-             */
-            if (
-                link.target === "_blank"
-            ) {
-
-                const currentRel =
-                    link.getAttribute(
-                        "rel"
-                    ) || "";
-
-
-                const relValues =
-                    new Set(
-                        currentRel
-                            .split(/\s+/)
-                            .filter(Boolean)
-                    );
-
-
-                relValues.add(
-                    "noopener"
-                );
-
-                relValues.add(
-                    "noreferrer"
-                );
-
-
-                link.setAttribute(
-                    "rel",
-                    Array.from(
-                        relValues
-                    ).join(" ")
-                );
-
-            }
-
-        });
-
-}
-
-
-/* =========================================================
-   COPY BUTTONS
-   ========================================================= */
-
-function initCopyButtons() {
-
-    document
-        .querySelectorAll(
-            "[data-copy]"
-        )
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                async () => {
-
-                    const value =
-                        button.dataset.copy;
-
-
-                    if (!value) {
-                        return;
-                    }
-
-
-                    try {
-
-                        await copyText(
-                            value
-                        );
-
-
-                        showTemporaryButtonText(
-                            button,
-                            "Copied!"
-                        );
-
-
-                    } catch {
-
-                        showTemporaryButtonText(
-                            button,
-                            "Copy failed"
-                        );
-
-                    }
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   COPY TEXT
-   ========================================================= */
-
-async function copyText(text) {
-
-    /*
-     * Modern Clipboard API.
-     */
-    if (
-        navigator.clipboard &&
-        window.isSecureContext
-    ) {
-
-        await navigator.clipboard.writeText(
-            text
-        );
-
-        return;
-
-    }
-
-
-    /*
-     * Fallback for older browsers.
-     */
-    const textarea =
-        document.createElement(
-            "textarea"
-        );
-
-
-    textarea.value =
-        text;
-
-
-    textarea.setAttribute(
-        "readonly",
-        ""
-    );
-
-
-    textarea.style.position =
-        "fixed";
-
-    textarea.style.opacity =
-        "0";
-
-    textarea.style.pointerEvents =
-        "none";
-
-
-    document.body.appendChild(
-        textarea
-    );
-
-
-    textarea.select();
-
-
-    const successful =
-        document.execCommand(
-            "copy"
-        );
-
-
-    textarea.remove();
-
-
-    if (!successful) {
-
-        throw new Error(
-            "Copy operation failed."
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   TEMPORARY BUTTON MESSAGE
-   ========================================================= */
-
-function showTemporaryButtonText(
-    button,
-    message
+   GET CATEGORY SLUG
+========================================================= */
+
+function getCategorySlug(
+    category
 ) {
 
-    if (!button) {
-        return;
+    if (!category) {
+
+        return "";
+
     }
 
 
-    const originalText =
-        button.dataset.originalText ||
-        button.textContent;
+    const text =
+        String(category)
+            .trim()
+            .toLowerCase();
+
+
+    const mappings = {
+
+        "electrical fundamentals":
+            "electrical-fundamentals",
+
+        "fundamentals":
+            "electrical-fundamentals",
+
+        "electrical calculations":
+            "electrical-calculations",
+
+        "calculations":
+            "electrical-calculations",
+
+        "electrical design":
+            "electrical-design",
+
+        "design":
+            "electrical-design",
+
+        "power systems":
+            "power-systems",
+
+        "power system":
+            "power-systems",
+
+        "solar pv":
+            "solar-pv",
+
+        "solar pv engineering":
+            "solar-pv",
+
+        "testing & commissioning":
+            "testing-commissioning",
+
+        "testing and commissioning":
+            "testing-commissioning",
+
+        "testing commissioning":
+            "testing-commissioning"
+
+    };
+
+
+    return mappings[text] ||
+        slugify(text);
+
+}
+
+
+/* =========================================================
+   BUILD ARTICLE URL
+========================================================= */
+
+function buildArticleURL(
+    article
+) {
+
+    /*
+       First try explicit slug.
+    */
+
+    const categorySlug =
+        article.categorySlug ||
+        getCategorySlug(
+            article.category
+        );
+
+
+    let slug =
+        article.slug ||
+        article.articleSlug ||
+        "";
+
+
+    /*
+       If slug is missing, create it from title.
+    */
+
+    if (!slug) {
+
+        slug =
+            slugify(
+                article.title
+            );
+
+    }
+
+
+    /*
+       IMPORTANT SPECIAL CASE FOR YOUR CURRENT
+       ELECTRICAL FUNDAMENTALS STRUCTURE.
+
+       Your files are:
+
+       /articles/electrical-fundamentals/
+       /ohms-law/
+       /what-is-voltage-current-resistance.html
+
+       Therefore, if an article has its own
+       explicit URL in articles.json, that URL
+       should always be used.
+
+       This function is only a fallback.
+    */
 
 
     if (
-        !button.dataset.originalText
+        categorySlug ===
+        "electrical-fundamentals"
     ) {
 
-        button.dataset.originalText =
-            originalText;
+        if (
+            slug ===
+            "what-is-voltage-current-resistance"
+        ) {
+
+            return (
+                "/articles/electrical-fundamentals/" +
+                "ohms-law/" +
+                "what-is-voltage-current-resistance.html"
+            );
+
+        }
+
+
+        if (
+            slug ===
+            "ohms-law"
+        ) {
+
+            return (
+                "/articles/electrical-fundamentals/" +
+                "ohms-law/"
+            );
+
+        }
 
     }
 
 
-    button.textContent =
-        message;
-
-
-    button.classList.add(
-        "is-success"
-    );
-
-
-    window.setTimeout(
-        () => {
-
-            button.textContent =
-                originalText;
-
-
-            button.classList.remove(
-                "is-success"
-            );
-
-        },
-        1600
+    return (
+        "/articles/" +
+        encodeURIComponent(
+            categorySlug
+        ) +
+        "/" +
+        encodeURIComponent(
+            slug
+        ) +
+        "/"
     );
 
 }
 
 
 /* =========================================================
-   BACK TO TOP
-   ---------------------------------------------------------
-   Automatically creates a button if one does not
-   already exist in the HTML.
-   ========================================================= */
+   SLUGIFY
+========================================================= */
 
-function initBackToTop() {
+function slugify(
+    value
+) {
 
-    let button =
-        document.getElementById(
-            "back-to-top"
-        );
+    return String(
+        value || ""
+    )
+        .toLowerCase()
+        .trim()
+        .replace(
+            /['’]/g,
+            ""
+        )
+        .replace(
+            /[^a-z0-9]+/g,
+            "-"
+        )
+        .replace(
+            /^-+|-+$/g,
+            "");
+
+}
 
 
-    /*
-     * Create button automatically.
-     */
-    if (!button) {
+/* =========================================================
+   DETERMINE CURRENT CATEGORY
+========================================================= */
 
-        button =
-            document.createElement(
-                "button"
+function getCurrentCategory() {
+
+    const path =
+        window.location.pathname
+            .replace(
+                /\/+$/,
+                ""
             );
 
 
-        button.id =
-            "back-to-top";
-
-
-        button.type =
-            "button";
-
-
-        button.className =
-            "back-to-top";
-
-
-        button.setAttribute(
-            "aria-label",
-            "Back to top"
+    const categoryMatch =
+        path.match(
+            /\/articles\/([^/]+)/
         );
 
 
-        button.innerHTML =
-            '<span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>';
+    if (
+        !categoryMatch
+    ) {
+
+        return "";
+
+    }
 
 
-        document.body.appendChild(
-            button
+    return categoryMatch[1];
+
+}
+
+
+/* =========================================================
+   RENDER CURRENT PAGE ARTICLES
+========================================================= */
+
+function renderCurrentPageArticles(
+    articles
+) {
+
+    const currentCategory =
+        getCurrentCategory();
+
+
+    /*
+       If we're on the home page, display
+       all articles unless the page has a
+       specific data-category attribute.
+    */
+
+    let filtered =
+        articles;
+
+
+    const listing =
+        document.querySelector(
+            "#articles-list"
+        ) ||
+        document.querySelector(
+            "#article-list"
+        ) ||
+        document.querySelector(
+            ".articles-grid"
+        ) ||
+        document.querySelector(
+            ".article-grid"
         );
+
+
+    if (!listing) {
+
+        return;
 
     }
 
 
     /*
-     * Click behavior.
-     */
-    button.addEventListener(
-        "click",
-        () => {
+       Look for explicit category information
+       in HTML.
+    */
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    const pageCategory =
+        listing.dataset.category ||
+        document.body.dataset.category ||
+        currentCategory;
+
+
+    if (
+        pageCategory
+    ) {
+
+        filtered =
+            articles.filter(
+                article => {
+
+                    const slug =
+                        article.categorySlug ||
+                        getCategorySlug(
+                            article.category
+                        );
+
+
+                    return (
+                        slug ===
+                        pageCategory
+                    );
+
+                }
+            );
+
+    }
+
+
+    renderArticles(
+        filtered,
+        listing
+    );
+
+
+    updateArticleCount(
+        filtered
+    );
+
+}
+
+
+/* =========================================================
+   RENDER ARTICLES
+========================================================= */
+
+function renderArticles(
+    articles,
+    container
+) {
+
+    container.innerHTML = "";
+
+
+    if (!articles.length) {
+
+        showEmptyState(
+            container,
+            "No articles found in this category."
+        );
+
+        return;
+
+    }
+
+
+    articles.forEach(
+        function (article) {
+
+            const card =
+                createArticleCard(
+                    article
+                );
+
+
+            container.appendChild(
+                card
+            );
 
         }
     );
 
+}
+
+
+/* =========================================================
+   CREATE ARTICLE CARD
+========================================================= */
+
+function createArticleCard(
+    article
+) {
+
+    const card =
+        document.createElement(
+            "a"
+        );
+
 
     /*
-     * Visibility.
-     */
-    let ticking = false;
+       CRITICAL:
+       Use the exact URL stored in articles.json.
+    */
+
+    const articleURL =
+        normalizeArticleURL(
+            article.url
+        );
 
 
-    function updateButton() {
+    card.href =
+        articleURL;
 
-        if (
-            window.scrollY > 500
-        ) {
 
-            button.classList.add(
-                "is-visible"
-            );
+    card.className =
+        "article-card";
 
-        } else {
 
-            button.classList.remove(
-                "is-visible"
-            );
+    card.setAttribute(
+        "aria-label",
+        article.title
+    );
 
+
+    const category =
+        escapeHTML(
+            article.category ||
+            "Electrical Engineering"
+        );
+
+
+    const title =
+        escapeHTML(
+            article.title
+        );
+
+
+    const description =
+        escapeHTML(
+            article.description ||
+            ""
+        );
+
+
+    const readTime =
+        escapeHTML(
+            article.readTime ||
+            ""
+        );
+
+
+    card.innerHTML = `
+
+        <div class="article-card-category">
+            ${category}
+        </div>
+
+        <h2 class="article-card-title">
+            ${title}
+        </h2>
+
+        ${
+            description
+                ? `
+                    <p class="article-card-description">
+                        ${description}
+                    </p>
+                  `
+                : ""
         }
 
+        ${
+            readTime
+                ? `
+                    <div class="article-card-meta">
 
-        ticking = false;
+                        <span
+                            class="material-symbols-rounded"
+                            aria-hidden="true"
+                        >
+                            schedule
+                        </span>
 
-    }
+                        <span>
+                            ${readTime}
+                        </span>
+
+                    </div>
+                  `
+                : ""
+        }
+
+    `;
 
 
-    window.addEventListener(
-        "scroll",
-        () => {
+    /*
+       Make sure normal click navigation works.
+    */
 
-            if (!ticking) {
+    card.addEventListener(
+        "click",
+        function (event) {
 
-                window.requestAnimationFrame(
-                    updateButton
-                );
+            /*
+               Don't interfere with modified clicks
+               such as Ctrl/Cmd click or middle click.
+            */
 
-                ticking = true;
+            if (
+                event.ctrlKey ||
+                event.metaKey ||
+                event.shiftKey ||
+                event.altKey ||
+                event.button !== 0
+            ) {
+
+                return;
 
             }
 
-        },
-        {
-            passive: true
+
+            event.preventDefault();
+
+
+            window.location.href =
+                articleURL;
+
         }
     );
 
 
-    updateButton();
+    return card;
 
 }
 
 
 /* =========================================================
-   ARTICLE READING PROGRESS
-   ---------------------------------------------------------
-   Automatically creates a thin progress bar on
-   article pages.
-   ========================================================= */
+   NORMALIZE ARTICLE URL
+========================================================= */
 
-function initReadingProgress() {
+function normalizeArticleURL(
+    url
+) {
 
-    const article =
-        document.querySelector(
-            ".article-content"
-        );
+    if (!url) {
 
+        return "/";
 
-    if (!article) {
-        return;
     }
 
 
-    let progress =
-        document.getElementById(
-            "reading-progress"
+    let finalURL =
+        String(url).trim();
+
+
+    /*
+       If it's already an absolute URL,
+       keep it.
+    */
+
+    if (
+        /^https?:\/\//i.test(
+            finalURL
+        )
+    ) {
+
+        return finalURL;
+
+    }
+
+
+    /*
+       Remove accidental whitespace.
+    */
+
+    finalURL =
+        finalURL.replace(
+            /\s+/g,
+            ""
         );
 
 
-    if (!progress) {
+    /*
+       Ensure leading slash.
+    */
 
-        progress =
-            document.createElement(
-                "div"
+    if (
+        !finalURL.startsWith("/")
+    ) {
+
+        finalURL =
+            "/" +
+            finalURL;
+
+    }
+
+
+    /*
+       Fix accidental HTML path variations.
+    */
+
+    finalURL =
+        finalURL.replace(
+            /\/{2,}/g,
+            "/"
+        );
+
+
+    /*
+       Preserve root slash.
+    */
+
+    if (
+        finalURL === ""
+    ) {
+
+        finalURL = "/";
+
+    }
+
+
+    return finalURL;
+
+}
+
+
+/* =========================================================
+   UPDATE ARTICLE COUNT
+========================================================= */
+
+function updateArticleCount(
+    articles
+) {
+
+    const countElements =
+        document.querySelectorAll(
+            "[data-article-count]"
+        );
+
+
+    countElements.forEach(
+        function (element) {
+
+            const count =
+                articles.length;
+
+
+            element.textContent =
+                count +
+                (
+                    count === 1
+                        ? " article"
+                        : " articles"
+                );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function setupSearch() {
+
+    const searchInputs =
+        document.querySelectorAll(
+            'input[type="search"], .search-input, #search'
+        );
+
+
+    if (!searchInputs.length) {
+
+        return;
+
+    }
+
+
+    searchInputs.forEach(
+        function (input) {
+
+            let timer;
+
+
+            input.addEventListener(
+                "input",
+                function () {
+
+                    clearTimeout(
+                        timer
+                    );
+
+
+                    timer =
+                        setTimeout(
+                            function () {
+
+                                performSearch(
+                                    input.value
+                                );
+
+                            },
+                            120
+                        );
+
+                }
             );
 
 
-        progress.id =
-            "reading-progress";
+            input.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key ===
+                        "Escape"
+                    ) {
+
+                        input.value =
+                            "";
+
+                        performSearch(
+                            ""
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
 
 
-        progress.className =
-            "reading-progress";
+/* =========================================================
+   PERFORM SEARCH
+========================================================= */
+
+function performSearch(
+    query
+) {
+
+    const container =
+        document.querySelector(
+            "#articles-list"
+        ) ||
+        document.querySelector(
+            "#article-list"
+        ) ||
+        document.querySelector(
+            ".articles-grid"
+        ) ||
+        document.querySelector(
+            ".article-grid"
+        );
 
 
-        progress.setAttribute(
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const articles =
+        window.ElectricalArticles ||
+        [];
+
+
+    if (!articles.length) {
+
+        return;
+
+    }
+
+
+    const searchText =
+        String(
+            query || ""
+        )
+            .toLowerCase()
+            .trim();
+
+
+    const currentCategory =
+        getCurrentCategory();
+
+
+    let filtered =
+        articles;
+
+
+    /*
+       First restrict to current category.
+    */
+
+    if (
+        currentCategory
+    ) {
+
+        filtered =
+            filtered.filter(
+                article => {
+
+                    const category =
+                        article.categorySlug ||
+                        getCategorySlug(
+                            article.category
+                        );
+
+
+                    return (
+                        category ===
+                        currentCategory
+                    );
+
+                }
+            );
+
+    }
+
+
+    /*
+       If search is empty, show category articles.
+    */
+
+    if (!searchText) {
+
+        renderArticles(
+            filtered,
+            container
+        );
+
+        updateArticleCount(
+            filtered
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Search title, description,
+       category and keywords.
+    */
+
+    filtered =
+        filtered.filter(
+            function (article) {
+
+                const searchableText =
+                    [
+
+                        article.title,
+
+                        article.description,
+
+                        article.category,
+
+                        article.categorySlug,
+
+                        article.keywords,
+
+                        article.tags
+
+                    ]
+                        .flat()
+                        .filter(Boolean)
+                        .join(" ")
+                        .toLowerCase();
+
+
+                return searchableText.includes(
+                    searchText
+                );
+
+            }
+        );
+
+
+    renderArticles(
+        filtered,
+        container
+    );
+
+
+    updateArticleCount(
+        filtered
+    );
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function setupNavigation() {
+
+    /*
+       Automatically fix category links that
+       have data-category attributes.
+    */
+
+    document
+        .querySelectorAll(
+            "[data-category]"
+        )
+        .forEach(
+            function (element) {
+
+                const category =
+                    element.dataset.category;
+
+
+                if (
+                    SITE_CONFIG.categories[
+                        category
+                    ]
+                ) {
+
+                    const path =
+                        SITE_CONFIG
+                            .categories[
+                                category
+                            ]
+                            .path;
+
+
+                    if (
+                        element.tagName
+                        .toLowerCase() ===
+                        "a"
+                    ) {
+
+                        element.href =
+                            path;
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    /*
+       Make sure article category navigation
+       behaves normally.
+    */
+
+    document
+        .querySelectorAll(
+            'a[href*="/articles/"]'
+        )
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        closeMobileMenu();
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function setupMobileMenu() {
+
+    const button =
+        document.querySelector(
+            "#mobile-menu-button"
+        );
+
+
+    const sidebar =
+        document.querySelector(
+            "#article-sidebar"
+        );
+
+
+    const overlay =
+        document.querySelector(
+            "#sidebar-overlay"
+        );
+
+
+    if (
+        !button ||
+        !sidebar
+    ) {
+
+        return;
+
+    }
+
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                sidebar.classList.contains(
+                    "is-open"
+                );
+
+
+            if (isOpen) {
+
+                closeMobileMenu();
+
+            } else {
+
+                openMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            closeMobileMenu
+        );
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key ===
+                "Escape"
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN MOBILE MENU
+========================================================= */
+
+function openMobileMenu() {
+
+    const button =
+        document.querySelector(
+            "#mobile-menu-button"
+        );
+
+
+    const sidebar =
+        document.querySelector(
+            "#article-sidebar"
+        );
+
+
+    const overlay =
+        document.querySelector(
+            "#sidebar-overlay"
+        );
+
+
+    if (sidebar) {
+
+        sidebar.classList.add(
+            "is-open"
+        );
+
+    }
+
+
+    if (overlay) {
+
+        overlay.classList.add(
+            "is-visible"
+        );
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+    }
+
+
+    if (button) {
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+
+    document.body.classList.add(
+        "menu-open"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
+
+function closeMobileMenu() {
+
+    const button =
+        document.querySelector(
+            "#mobile-menu-button"
+        );
+
+
+    const sidebar =
+        document.querySelector(
+            "#article-sidebar"
+        );
+
+
+    const overlay =
+        document.querySelector(
+            "#sidebar-overlay"
+        );
+
+
+    if (sidebar) {
+
+        sidebar.classList.remove(
+            "is-open"
+        );
+
+    }
+
+
+    if (overlay) {
+
+        overlay.classList.remove(
+            "is-visible"
+        );
+
+        overlay.setAttribute(
             "aria-hidden",
             "true"
         );
 
+    }
 
-        document.body.appendChild(
-            progress
+
+    if (button) {
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
         );
 
     }
 
 
-    let ticking = false;
-
-
-    function updateProgress() {
-
-        const articleTop =
-            article.getBoundingClientRect()
-                .top +
-            window.scrollY;
-
-
-        const articleHeight =
-            article.offsetHeight;
-
-
-        const viewportHeight =
-            window.innerHeight;
-
-
-        const scrollable =
-            articleHeight -
-            viewportHeight;
-
-
-        if (
-            scrollable <= 0
-        ) {
-
-            progress.style.transform =
-                "scaleX(1)";
-
-            ticking = false;
-
-            return;
-
-        }
-
-
-        const current =
-            window.scrollY -
-            articleTop;
-
-
-        const percentage =
-            Math.min(
-                1,
-                Math.max(
-                    0,
-                    current /
-                    scrollable
-                )
-            );
-
-
-        progress.style.transform =
-            `scaleX(${percentage})`;
-
-
-        ticking = false;
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!ticking) {
-
-                window.requestAnimationFrame(
-                    updateProgress
-                );
-
-                ticking = true;
-
-            }
-
-        },
-        {
-            passive: true
-        }
+    document.body.classList.remove(
+        "menu-open"
     );
 
-
-    window.addEventListener(
-        "resize",
-        updateProgress
-    );
-
-
-    updateProgress();
-
 }
 
 
 /* =========================================================
-   ARTICLE EXTERNAL SHARE LINKS
-   ---------------------------------------------------------
-   Supports any element using:
-   data-share-url="..."
-   ========================================================= */
-
-document.addEventListener(
-    "click",
-    event => {
-
-        const button =
-            event.target.closest(
-                "[data-share-url]"
-            );
-
-
-        if (!button) {
-            return;
-        }
-
-
-        const shareURL =
-            button.dataset.shareUrl;
-
-
-        if (!shareURL) {
-            return;
-        }
-
-
-        event.preventDefault();
-
-
-        window.open(
-            shareURL,
-            "_blank",
-            "noopener,noreferrer,width=700,height=600"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   IMAGE ERROR HANDLING
-   ---------------------------------------------------------
-   Prevents broken images from producing ugly
-   browser placeholders.
-   ========================================================= */
-
-document
-    .querySelectorAll("img")
-    .forEach(image => {
-
-        image.addEventListener(
-            "error",
-            () => {
-
-                image.classList.add(
-                    "image-error"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   LAZY IMAGE LOADING
-   ---------------------------------------------------------
-   Images without an explicit loading attribute become
-   lazy-loaded, except important hero images.
-   ========================================================= */
-
-function initLazyImages() {
-
-    document
-        .querySelectorAll(
-            "img"
-        )
-        .forEach(image => {
-
-            /*
-             * Do not alter images that explicitly
-             * request eager/high-priority loading.
-             */
-            if (
-                image.hasAttribute(
-                    "fetchpriority"
-                ) ||
-                image.loading === "eager"
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                !image.hasAttribute(
-                    "loading"
-                )
-            ) {
-
-                image.loading =
-                    "lazy";
-
-            }
-
-
-            if (
-                !image.hasAttribute(
-                    "decoding"
-                )
-            ) {
-
-                image.decoding =
-                    "async";
-
-            }
-
-        });
-
-}
-
-
-initLazyImages();
-
-
-/* =========================================================
-   TABLE RESPONSIVENESS
-   ---------------------------------------------------------
-   Adds a wrapper around tables that do not already
-   have one.
-   ========================================================= */
-
-function initResponsiveTables() {
-
-    document
-        .querySelectorAll(
-            ".article-content table"
-        )
-        .forEach(table => {
-
-            /*
-             * Already wrapped.
-             */
-            if (
-                table.parentElement.classList.contains(
-                    "article-table-wrapper"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            const wrapper =
-                document.createElement(
-                    "div"
-                );
-
-
-            wrapper.className =
-                "article-table-wrapper";
-
-
-            table.parentNode.insertBefore(
-                wrapper,
-                table
-            );
-
-
-            wrapper.appendChild(
-                table
-            );
-
-        });
-
-}
-
-
-initResponsiveTables();
-
-
-/* =========================================================
-   CURRENT YEAR
-   ---------------------------------------------------------
-   Allows footer text to use:
-   <span data-current-year></span>
-   ========================================================= */
-
-function initCurrentYear() {
-
-    const year =
-        new Date().getFullYear();
-
-
-    document
-        .querySelectorAll(
-            "[data-current-year]"
-        )
-        .forEach(element => {
-
-            element.textContent =
-                year;
-
-        });
-
-}
-
-
-initCurrentYear();
-
-
-/* =========================================================
-   PAGE VISIBILITY
-   ---------------------------------------------------------
-   Helps restore scroll/update state when a user returns
-   to a tab.
-   ========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    () => {
-
-        if (
-            document.visibilityState ===
-            "visible"
-        ) {
-
-            document
-                .querySelectorAll(
-                    ".site-header"
-                )
-                .forEach(header => {
-
-                    if (
-                        window.scrollY > 10
-                    ) {
-
-                        header.classList.add(
-                            "is-scrolled"
-                        );
-
-                    }
-
-                });
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   REDUCED MOTION SUPPORT
-   ========================================================= */
-
-const prefersReducedMotion =
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    );
-
-
-if (
-    prefersReducedMotion.matches
+   EMPTY STATE
+========================================================= */
+
+function showEmptyState(
+    container,
+    message
 ) {
 
-    document.documentElement.classList.add(
-        "reduce-motion"
-    );
+    container.innerHTML = `
+
+        <div class="articles-empty">
+
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                article
+            </span>
+
+            <p>
+                ${escapeHTML(message)}
+            </p>
+
+        </div>
+
+    `;
 
 }
-
-
-prefersReducedMotion.addEventListener(
-    "change",
-    event => {
-
-        document.documentElement.classList.toggle(
-            "reduce-motion",
-            event.matches
-        );
-
-    }
-);
 
 
 /* =========================================================
-   CONSOLE BRANDING
-   ========================================================= */
+   HTML ESCAPE
+========================================================= */
 
-if (
-    typeof console !== "undefined"
+function escapeHTML(
+    value
 ) {
 
-    console.log(
-        "%cElectrical Engineering by Prasun Barua",
-        "font-weight:600;font-size:14px;"
-    );
-
-    console.log(
-        "Site JavaScript loaded successfully."
-    );
+    return String(
+        value || ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
+
+
+/* =========================================================
+   EXPOSE PUBLIC FUNCTIONS
+
+   Useful if another script needs to trigger
+   a search or reload.
+========================================================= */
+
+window.ElectricalSite = {
+
+    loadArticles:
+        loadArticles,
+
+    search:
+        performSearch,
+
+    closeMobileMenu:
+        closeMobileMenu,
+
+    openMobileMenu:
+        openMobileMenu,
+
+    buildArticleURL:
+        buildArticleURL
+
+};
+
+
+/* =========================================================
+   END OF APP.JS
+========================================================= */
