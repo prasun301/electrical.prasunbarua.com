@@ -3,14 +3,13 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XY335VGVGJ');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XY335VGVGJ');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,10 +27,9 @@
     <meta property="og:description" content="A practical introduction to four fundamental electrical quantities: voltage, current, resistance and power.">
     <meta property="og:url" content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html">
     <meta property="og:site_name" content="Electrical Engineering">
-    <!-- Added: Social Sharing Preview Image -->
     <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-voltage-current-power.jpg">
 
-    <!-- Twitter / X -->
+    <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Voltage, Current, Resistance and Power">
     <meta name="twitter:description" content="A practical guide to understanding voltage, current, resistance and electrical power.">
@@ -51,7 +49,8 @@
 
     <!-- Article Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
+    [
+      {
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "Voltage, Current, Resistance and Power: A Practical Guide to the Fundamentals of Electricity",
@@ -85,7 +84,28 @@
             "Ohm's law",
             "electrical engineering fundamentals"
         ]
-    }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://electrical.prasunbarua.com/"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Electrical Fundamentals",
+          "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+        },{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Voltage, Current, Resistance and Power",
+          "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html"
+        }]
+      }
+    ]
     </script>
 
     <!-- Async Third-Party Scripts -->
@@ -108,12 +128,14 @@
             </a>
 
             <nav class="main-nav" aria-label="Main navigation">
-                <a href="../../../index.html">Home</a>
-                <a href="../../../index.html#tutorials">Tutorials</a>
-                <a href="../../../index.html#calculations">Calculations</a>
-                <a href="../../../index.html#solar">Solar PV</a>
-                <a href="../../../about.html">About</a>
-                <a href="../../../contact.html">Contact</a>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../index.html#tutorials">Tutorials</a></li>
+                    <li><a href="../../../index.html#calculations">Calculations</a></li>
+                    <li><a href="../../../index.html#solar">Solar PV</a></li>
+                    <li><a href="../../../about.html">About</a></li>
+                    <li><a href="../../../contact.html">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -131,20 +153,20 @@
                         A practical guide to four of the most important electrical quantities — what they mean, how they are related, and why they matter in real-world electrical systems.
                     </p>
 
-                   <div class="article-meta">
-  <span class="meta-item">
-    <span class="material-symbols-rounded">person</span>
-    Prasun Barua
-  </span>
-  <span class="meta-item">
-    <span class="material-symbols-rounded">calendar_today</span>
-    August 11, 2026
-  </span>
-  <span class="meta-item">
-    <span class="material-symbols-rounded">schedule</span>
-    9 min read
-  </span>
-</div>
+                    <div class="article-meta">
+                        <span class="meta-item">
+                            <span class="material-symbols-rounded" aria-hidden="true">person</span>
+                            Prasun Barua
+                        </span>
+                        <span class="meta-item">
+                            <span class="material-symbols-rounded" aria-hidden="true">calendar_today</span>
+                            August 11, 2026
+                        </span>
+                        <span class="meta-item">
+                            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
+                            9 min read
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -428,7 +450,7 @@
                         <p>Reading these ratings correctly is an important practical skill for anyone working with electrical systems.</p>
                     </section>
 
-                    <!-- Section 8: Common Mistakes & Summary -->
+                    <!-- Section 8: Key Takeaways -->
                     <section id="summary" class="article-section">
                         <div class="legal-heading">
                             <span class="material-symbols-rounded" aria-hidden="true">verified</span>
@@ -438,7 +460,7 @@
                             <li><strong>Voltage (V):</strong> The potential difference driving charge flow.</li>
                             <li><strong>Current (I):</strong> The rate of flow of electric charge.</li>
                             <li><strong>Resistance (R):</strong> The opposition to current flow.</li>
-                            <li><strong>Power (P):</strong> The rate at which energy is converted or transferred ($P = V \times I$).</li>
+                            <li><strong>Power (P):</strong> The rate at which energy is converted or transferred (P = V × I).</li>
                         </ul>
                     </section>
 
@@ -447,6 +469,41 @@
         </section>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
+                    Electrical Engineering
+                </div>
+                <p>Practical electrical engineering tutorials, calculations, design guides and renewable energy resources.</p>
+            </div>
+
+            <div>
+                <h3>Explore</h3>
+                <a href="../../../index.html">Home</a>
+                <a href="../">Electrical Fundamentals</a>
+                <a href="../../electrical-calculations/">Calculations</a>
+                <a href="../../solar-pv/">Solar PV</a>
+            </div>
+
+            <div>
+                <h3>Information</h3>
+                <a href="../../../about.html">About</a>
+                <a href="../../../contact.html">Contact</a>
+                <a href="../../../privacy-policy.html">Privacy Policy</a>
+                <a href="../../../disclaimer.html">Disclaimer</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
