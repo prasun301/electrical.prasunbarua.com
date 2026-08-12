@@ -3,14 +3,14 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-XY335VGVGJ');
-</script>
+      gtag('config', 'G-XY335VGVGJ');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +32,8 @@
     <!-- =====================================================
          FAVICON
          ===================================================== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
     <!-- Font & Asset Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,19 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
 
-    <!-- Embedded CSS for Contact Form Specific Components (Replaces Inline Styles) -->
+    <!-- Embedded CSS for Contact Form Specific Components -->
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #0b0f19;
+            --text-muted: #475569;
+            --accent-blue: #2563eb;
+            --accent-blue-hover: #1d4ed8;
+            --border-color: #cbd5e1;
+            --border-light: #f1f5f9;
+            --surface-subtle: #f8fafc;
+        }
+
         .contact-intro {
             max-width: 760px;
             margin: 0 auto 40px;
@@ -57,7 +68,7 @@
             max-width: 760px;
             margin: 0 auto;
             background: var(--surface, #ffffff);
-            border: 1px solid var(--border, #e5e7eb);
+            border: 1px solid var(--border-color, #e5e7eb);
             border-radius: 24px;
             padding: 32px;
             box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
@@ -78,17 +89,18 @@
             align-items: center;
             justify-content: center;
             border-radius: 14px;
-            background: #e8f0fe;
-            color: #0b57d0;
+            background: #eff6ff;
+            color: var(--accent-blue);
         }
 
         .form-header h2 {
             margin: 0 0 6px;
+            color: var(--text-main);
         }
 
         .form-header p {
             margin: 0;
-            color: var(--text-muted, #64748b);
+            color: var(--text-muted);
         }
 
         /* Form Controls */
@@ -100,6 +112,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--text-main);
         }
 
         .input-wrapper {
@@ -124,18 +137,18 @@
             width: 100%;
             box-sizing: border-box;
             padding: 14px 16px 14px 46px;
-            border: 1px solid var(--border, #dbe1e8);
+            border: 1px solid var(--border-color, #dbe1e8);
             border-radius: 14px;
             font: inherit;
             background: var(--background, #ffffff);
-            color: var(--text, #111827);
+            color: var(--text-main, #111827);
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .form-control:focus {
-            border-color: #0b57d0;
-            box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.15);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
         }
 
         textarea.form-control {
@@ -152,6 +165,15 @@
             gap: 9px;
             border: 0;
             cursor: pointer;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            border-radius: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-blue-hover);
         }
 
         .form-status {
@@ -168,37 +190,6 @@
 
         .form-status.error {
             color: #dc2626;
-        }
-
-        /* Auxiliary Cards Grid */
-        .info-grid {
-            max-width: 760px;
-            margin: 28px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-        }
-
-        .info-card {
-            padding: 22px;
-            border: 1px solid var(--border, #e5e7eb);
-            border-radius: 18px;
-            background: var(--surface, #ffffff);
-        }
-
-        .info-card .material-symbols-outlined {
-            color: #0b57d0;
-            margin-bottom: 10px;
-        }
-
-        .info-card h3 {
-            margin: 0 0 8px;
-        }
-
-        .info-card p {
-            margin: 0;
-            color: var(--text-muted, #64748b);
-            line-height: 1.6;
         }
 
         /* Honeypot field (hidden visually and from screen readers) */
@@ -326,23 +317,6 @@
                         <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
 
                     </form>
-                </div>
-
-                <!-- CORRECTIONS / INQUIRIES -->
-                <div class="info-grid">
-
-                    <div class="info-card">
-                        <span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
-                        <h3>Article Corrections</h3>
-                        <p>Found an incorrect formula, calculation or technical detail? Please let us know so the information can be reviewed.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <span class="material-symbols-outlined" aria-hidden="true">lightbulb</span>
-                        <h3>Suggestions</h3>
-                        <p>Have an idea for a tutorial, calculator or engineering topic? Your suggestions are welcome.</p>
-                    </div>
-
                 </div>
 
             </div>
