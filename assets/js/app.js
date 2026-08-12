@@ -1,82 +1,34 @@
 /* =========================================================
    ELECTRICAL ENGINEERING BY PRASUN BARUA
-   MAIN SITE JAVASCRIPT
+   ARTICLE APPLICATION JAVASCRIPT
 
-   File:
-   /assets/js/app.js
-
-   Purpose:
-   - Load articles.json
-   - Display category articles
-   - Search articles
-   - Use exact article URLs from articles.json
-   - Handle category navigation
-   - Handle mobile navigation
-   - Work with GitHub Pages + Cloudflare
-
-   IMPORTANT:
-   articles.json is the SOURCE OF TRUTH for article URLs.
+   Features:
+   - Mobile navigation
+   - Article sidebar
+   - Search
+   - Dynamic article loading
+   - Related articles
+   - Social sharing
+   - Copy article URL
+   - Native Web Share
+   - Reading progress
+   - Automatic active navigation
    ========================================================= */
 
 "use strict";
-
 
 /* =========================================================
    GLOBAL CONFIGURATION
    ========================================================= */
 
 const SITE_CONFIG = {
+    siteName: "Electrical Engineering by Prasun Barua",
+
+    siteUrl: window.location.origin,
 
     articlesFile: "/articles.json",
 
-    homeURL: "/",
-
-    categories: {
-
-        fundamentals: {
-            name: "Electrical Fundamentals",
-            shortName: "Fundamentals",
-            path: "/articles/electrical-fundamentals/",
-            icon: "electrical_services"
-        },
-
-        calculations: {
-            name: "Electrical Calculations",
-            shortName: "Calculations",
-            path: "/articles/electrical-calculations/",
-            icon: "calculate"
-        },
-
-        design: {
-            name: "Electrical Design",
-            shortName: "Design",
-            path: "/articles/electrical-design/",
-            icon: "architecture"
-        },
-
-        "power-systems": {
-            name: "Power Systems",
-            shortName: "Power Systems",
-            path: "/articles/power-systems/",
-            icon: "bolt"
-        },
-
-        "solar-pv": {
-            name: "Solar PV",
-            shortName: "Solar PV",
-            path: "/articles/solar-pv/",
-            icon: "solar_power"
-        },
-
-        "testing-commissioning": {
-            name: "Testing & Commissioning",
-            shortName: "Testing & Commissioning",
-            path: "/articles/testing-commissioning/",
-            icon: "engineering"
-        }
-
-    }
-
+    maxRelatedArticles: 4
 };
 
 
@@ -84,931 +36,201 @@ const SITE_CONFIG = {
    DOM READY
    ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-        initializeSite();
+    initializeMobileMenu();
 
-    }
-);
+    initializeSidebar();
 
+    initializeSearch();
 
-/* =========================================================
-   INITIALIZE SITE
-   ========================================================= */
+    initializeSocialSharing();
 
-async function initializeSite() {
+    initializeCopyLink();
 
-    try {
+    initializeNativeShare();
 
-        setupMobileMenu();
+    initializeReadingProgress();
 
-        setupNavigation();
+    initializeSmoothAnchors();
 
-        setupSearch();
-
-        await loadArticles();
-
-    } catch (error) {
-
-        console.error(
-            "Electrical Engineering site initialization error:",
-            error
-        );
-
-    }
-
-}
+});
 
 
 /* =========================================================
-   LOAD ARTICLES.JSON
+   MOBILE MENU
    ========================================================= */
 
-async function loadArticles() {
+function initializeMobileMenu() {
 
-    const articleContainer =
-        document.querySelector("#articles-list") ||
-        document.querySelector("#article-list") ||
-        document.querySelector(".articles-grid") ||
-        document.querySelector(".article-grid");
+    const menuButton =
+        document.querySelector(".mobile-menu-button");
 
+    const sidebar =
+        document.querySelector(".article-sidebar");
 
-    /*
-       Article detail pages normally do not have
-       an article listing container.
+    const overlay =
+        document.querySelector(".sidebar-overlay");
 
-       Therefore, do nothing on those pages.
-    */
-
-    if (!articleContainer) {
-
+    if (!menuButton || !sidebar) {
         return;
+    }
+
+    function openMenu() {
+
+        sidebar.classList.add("active");
+
+        if (overlay) {
+            overlay.classList.add("active");
+        }
+
+        menuButton.setAttribute("aria-expanded", "true");
+
+        document.body.classList.add("sidebar-open");
+    }
+
+    function closeMenu() {
+
+        sidebar.classList.remove("active");
+
+        if (overlay) {
+            overlay.classList.remove("active");
+        }
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        document.body.classList.remove("sidebar-open");
+    }
+
+    menuButton.addEventListener("click", () => {
+
+        const isOpen =
+            sidebar.classList.contains("active");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+
+    });
+
+    if (overlay) {
+
+        overlay.addEventListener("click", closeMenu);
 
     }
 
+    sidebar
+        .querySelectorAll("a")
+        .forEach(link => {
 
-    try {
+            link.addEventListener("click", () => {
 
-        const response =
-            await fetch(
-                SITE_CONFIG.articlesFile,
-                {
-                    cache: "no-cache"
+                if (window.innerWidth <= 900) {
+                    closeMenu();
                 }
-            );
 
+            });
 
-        if (!response.ok) {
+        });
 
-            throw new Error(
-                "Unable to load articles.json. HTTP status: " +
-                response.status
-            );
+    document.addEventListener("keydown", event => {
 
+        if (event.key === "Escape") {
+            closeMenu();
         }
 
-
-        const data =
-            await response.json();
-
-
-        const articles =
-            normalizeArticles(data);
-
-
-        if (!articles.length) {
-
-            showEmptyState(
-                articleContainer,
-                "No articles available yet."
-            );
-
-            return;
-
-        }
-
-
-        /*
-           Make articles available globally
-           for search and other scripts.
-        */
-
-        window.ElectricalArticles =
-            articles;
-
-
-        renderCurrentPageArticles(
-            articles
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Error loading articles.json:",
-            error
-        );
-
-
-        showEmptyState(
-            articleContainer,
-            "Articles could not be loaded. Please refresh the page."
-        );
-
-    }
+    });
 
 }
 
 
 /* =========================================================
-   NORMALIZE ARTICLES
+   SIDEBAR
    ========================================================= */
 
-function normalizeArticles(data) {
+function initializeSidebar() {
 
-    let articles = [];
+    const sidebar =
+        document.querySelector(".article-sidebar");
 
-
-    /*
-       Supported formats:
-
-       1. [
-            {...},
-            {...}
-          ]
-
-       2. {
-            "articles": [...]
-          }
-
-       3. {
-            "items": [...]
-          }
-    */
-
-    if (Array.isArray(data)) {
-
-        articles = data;
-
-    } else if (
-        data &&
-        Array.isArray(data.articles)
-    ) {
-
-        articles = data.articles;
-
-    } else if (
-        data &&
-        Array.isArray(data.items)
-    ) {
-
-        articles = data.items;
-
+    if (!sidebar) {
+        return;
     }
 
+    const currentPath =
+        normalizePath(window.location.pathname);
 
-    return articles
-        .filter(
-            function (article) {
+    sidebar
+        .querySelectorAll("a")
+        .forEach(link => {
 
-                return (
-                    article &&
-                    typeof article === "object"
+            const href =
+                link.getAttribute("href");
+
+            if (!href) {
+                return;
+            }
+
+            const linkPath =
+                normalizePath(href);
+
+            if (
+                linkPath === currentPath &&
+                !link.classList.contains("back-link")
+            ) {
+
+                link.classList.add("active");
+
+                link.setAttribute(
+                    "aria-current",
+                    "page"
                 );
 
             }
-        )
-        .map(
-            normalizeArticle
-        );
+
+        });
 
 }
 
 
 /* =========================================================
-   NORMALIZE ONE ARTICLE
+   NORMALIZE URL PATH
    ========================================================= */
 
-function normalizeArticle(article) {
+function normalizePath(path) {
 
-    const normalized =
-        Object.assign(
-            {},
-            article
-        );
-
-
-    normalized.title =
-        article.title ||
-        article.name ||
-        "Untitled Article";
-
-
-    normalized.description =
-        article.description ||
-        article.excerpt ||
-        "";
-
-
-    normalized.category =
-        article.category ||
-        article.categoryName ||
-        "Electrical Engineering";
-
-
-    normalized.categorySlug =
-        article.categorySlug ||
-        article.category_slug ||
-        getCategorySlug(
-            article.category
-        );
-
-
-    normalized.readTime =
-        article.readTime ||
-        article.read_time ||
-        article.readingTime ||
-        "";
-
-
-    /*
-       IMPORTANT:
-
-       Use the exact URL supplied by articles.json.
-
-       Do NOT modify it.
-
-       Example:
-
-       /articles/electrical-fundamentals/ohms-law/
-
-       remains exactly that.
-
-       And:
-
-       /articles/electrical-fundamentals/what-is-voltage-current-resistance.html
-
-       remains exactly that.
-    */
-
-    normalized.url =
-        article.url ||
-        article.href ||
-        article.link ||
-        "";
-
-
-    /*
-       Only create a URL if articles.json
-       does not provide one.
-    */
-
-    if (!normalized.url) {
-
-        normalized.url =
-            buildArticleURL(
-                normalized
-            );
-
-    } else {
-
-        normalized.url =
-            normalizeArticleURL(
-                normalized.url
-            );
-
+    if (!path) {
+        return "/";
     }
 
+    try {
 
-    return normalized;
+        const url =
+            new URL(path, window.location.origin);
 
-}
+        let cleanPath =
+            url.pathname.replace(/\/+/g, "/");
 
+        if (
+            cleanPath.length > 1 &&
+            cleanPath.endsWith("/")
+        ) {
+            cleanPath =
+                cleanPath.slice(0, -1);
+        }
 
-/* =========================================================
-   GET CATEGORY SLUG
-   ========================================================= */
+        return cleanPath.toLowerCase();
 
-function getCategorySlug(category) {
+    } catch (error) {
 
-    if (!category) {
-
-        return "";
-
-    }
-
-
-    const text =
-        String(category)
-            .trim()
+        return path
+            .replace(/\/+/g, "/")
+            .replace(/\/$/, "")
             .toLowerCase();
 
-
-    const mappings = {
-
-        "electrical fundamentals":
-            "electrical-fundamentals",
-
-        "fundamentals":
-            "electrical-fundamentals",
-
-        "electrical calculations":
-            "electrical-calculations",
-
-        "calculations":
-            "electrical-calculations",
-
-        "electrical design":
-            "electrical-design",
-
-        "design":
-            "electrical-design",
-
-        "power systems":
-            "power-systems",
-
-        "power system":
-            "power-systems",
-
-        "solar pv":
-            "solar-pv",
-
-        "solar pv engineering":
-            "solar-pv",
-
-        "testing & commissioning":
-            "testing-commissioning",
-
-        "testing and commissioning":
-            "testing-commissioning",
-
-        "testing commissioning":
-            "testing-commissioning"
-
-    };
-
-
-    return (
-        mappings[text] ||
-        slugify(text)
-    );
-
-}
-
-
-/* =========================================================
-   BUILD ARTICLE URL
-   =========================================================
-
-   IMPORTANT:
-
-   This is ONLY a fallback.
-
-   If articles.json contains:
-
-   "url": "/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
-
-   that exact URL is used.
-
-   This function never adds an "ohms-law" directory
-   automatically.
-   ========================================================= */
-
-function buildArticleURL(article) {
-
-    /*
-       If an explicit URL exists,
-       ALWAYS use it.
-    */
-
-    if (
-        article &&
-        article.url
-    ) {
-
-        return normalizeArticleURL(
-            article.url
-        );
-
     }
-
-
-    const categorySlug =
-        article.categorySlug ||
-        getCategorySlug(
-            article.category
-        );
-
-
-    let slug =
-        article.slug ||
-        article.articleSlug ||
-        "";
-
-
-    /*
-       If slug is missing,
-       create it from title.
-    */
-
-    if (!slug) {
-
-        slug =
-            slugify(
-                article.title
-            );
-
-    }
-
-
-    /*
-       Standard fallback structure:
-
-       /articles/category/article/
-
-       Example:
-
-       /articles/electrical-fundamentals/ohms-law/
-
-       or
-
-       /articles/electrical-fundamentals/
-       what-is-voltage-current-resistance/
-    */
-
-    return (
-        "/articles/" +
-        encodeURIComponent(
-            categorySlug
-        ) +
-        "/" +
-        encodeURIComponent(
-            slug
-        ) +
-        "/"
-    );
-
-}
-
-
-/* =========================================================
-   SLUGIFY
-   ========================================================= */
-
-function slugify(value) {
-
-    return String(
-        value || ""
-    )
-        .toLowerCase()
-        .trim()
-        .replace(
-            /['’]/g,
-            ""
-        )
-        .replace(
-            /[^a-z0-9]+/g,
-            "-"
-        )
-        .replace(
-            /^-+|-+$/g,
-            ""
-        );
-
-}
-
-
-/* =========================================================
-   DETERMINE CURRENT CATEGORY
-   ========================================================= */
-
-function getCurrentCategory() {
-
-    const path =
-        window.location.pathname
-            .replace(
-                /\/+$/,
-                ""
-            );
-
-
-    const categoryMatch =
-        path.match(
-            /\/articles\/([^/]+)/
-        );
-
-
-    if (!categoryMatch) {
-
-        return "";
-
-    }
-
-
-    return categoryMatch[1];
-
-}
-
-
-/* =========================================================
-   RENDER CURRENT PAGE ARTICLES
-   ========================================================= */
-
-function renderCurrentPageArticles(
-    articles
-) {
-
-    const currentCategory =
-        getCurrentCategory();
-
-
-    let filtered =
-        articles;
-
-
-    const listing =
-        document.querySelector("#articles-list") ||
-        document.querySelector("#article-list") ||
-        document.querySelector(".articles-grid") ||
-        document.querySelector(".article-grid");
-
-
-    if (!listing) {
-
-        return;
-
-    }
-
-
-    /*
-       Check whether the page explicitly
-       specifies a category.
-    */
-
-    const pageCategory =
-        listing.dataset.category ||
-        document.body.dataset.category ||
-        currentCategory;
-
-
-    if (pageCategory) {
-
-        filtered =
-            articles.filter(
-                function (article) {
-
-                    const slug =
-                        article.categorySlug ||
-                        getCategorySlug(
-                            article.category
-                        );
-
-
-                    return (
-                        slug ===
-                        pageCategory
-                    );
-
-                }
-            );
-
-    }
-
-
-    renderArticles(
-        filtered,
-        listing
-    );
-
-
-    updateArticleCount(
-        filtered
-    );
-
-}
-
-
-/* =========================================================
-   RENDER ARTICLES
-   ========================================================= */
-
-function renderArticles(
-    articles,
-    container
-) {
-
-    container.innerHTML = "";
-
-
-    if (!articles.length) {
-
-        showEmptyState(
-            container,
-            "No articles found in this category."
-        );
-
-        return;
-
-    }
-
-
-    articles.forEach(
-        function (article) {
-
-            const card =
-                createArticleCard(
-                    article
-                );
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CREATE ARTICLE CARD
-   ========================================================= */
-
-function createArticleCard(
-    article
-) {
-
-    /*
-       Use an anchor element so normal browser
-       navigation works automatically.
-
-       This is safer than forcing navigation
-       with JavaScript.
-    */
-
-    const card =
-        document.createElement(
-            "a"
-        );
-
-
-    /*
-       CRITICAL:
-
-       Use the EXACT normalized URL
-       from articles.json.
-    */
-
-    const articleURL =
-        normalizeArticleURL(
-            article.url
-        );
-
-
-    card.href =
-        articleURL;
-
-
-    card.className =
-        "article-card";
-
-
-    card.setAttribute(
-        "aria-label",
-        article.title
-    );
-
-
-    const category =
-        escapeHTML(
-            article.category ||
-            "Electrical Engineering"
-        );
-
-
-    const title =
-        escapeHTML(
-            article.title
-        );
-
-
-    const description =
-        escapeHTML(
-            article.description ||
-            article.excerpt ||
-            ""
-        );
-
-
-    const readTime =
-        escapeHTML(
-            article.readTime ||
-            ""
-        );
-
-
-    card.innerHTML = `
-
-        <div class="article-card-category">
-            ${category}
-        </div>
-
-        <h2 class="article-card-title">
-            ${title}
-        </h2>
-
-        ${
-            description
-                ? `
-                    <p class="article-card-description">
-                        ${description}
-                    </p>
-                  `
-                : ""
-        }
-
-        ${
-            readTime
-                ? `
-                    <div class="article-card-meta">
-
-                        <span
-                            class="material-symbols-rounded"
-                            aria-hidden="true"
-                        >
-                            schedule
-                        </span>
-
-                        <span>
-                            ${readTime}
-                        </span>
-
-                    </div>
-                  `
-                : ""
-        }
-
-    `;
-
-
-    /*
-       We intentionally DO NOT call:
-
-       event.preventDefault()
-
-       Normal browser link behavior is preferable.
-
-       This allows:
-
-       - Normal click
-       - Ctrl + click
-       - Cmd + click
-       - Middle click
-       - Open in new tab
-       - Open in new window
-       - Browser accessibility
-
-       to work correctly.
-    */
-
-    return card;
-
-}
-
-
-/* =========================================================
-   NORMALIZE ARTICLE URL
-   ========================================================= */
-
-function normalizeArticleURL(url) {
-
-    if (!url) {
-
-        return "/";
-
-    }
-
-
-    let finalURL =
-        String(url).trim();
-
-
-    /*
-       Absolute URL:
-
-       https://example.com/article/
-
-       Keep unchanged.
-    */
-
-    if (
-        /^https?:\/\//i.test(
-            finalURL
-        )
-    ) {
-
-        return finalURL;
-
-    }
-
-
-    /*
-       Remove accidental whitespace.
-    */
-
-    finalURL =
-        finalURL.replace(
-            /\s+/g,
-            ""
-        );
-
-
-    /*
-       Ensure leading slash.
-    */
-
-    if (
-        !finalURL.startsWith("/")
-    ) {
-
-        finalURL =
-            "/" +
-            finalURL;
-
-    }
-
-
-    /*
-       Remove accidental duplicate slashes.
-
-       Example:
-
-       //articles///test/
-
-       becomes:
-
-       /articles/test/
-    */
-
-    finalURL =
-        finalURL.replace(
-            /\/{2,}/g,
-            "/"
-        );
-
-
-    /*
-       Preserve root URL.
-    */
-
-    if (
-        finalURL === ""
-    ) {
-
-        finalURL = "/";
-
-    }
-
-
-    return finalURL;
-
-}
-
-
-/* =========================================================
-   UPDATE ARTICLE COUNT
-   ========================================================= */
-
-function updateArticleCount(
-    articles
-) {
-
-    const countElements =
-        document.querySelectorAll(
-            "[data-article-count]"
-        );
-
-
-    countElements.forEach(
-        function (element) {
-
-            const count =
-                articles.length;
-
-
-            element.textContent =
-                count +
-                (
-                    count === 1
-                        ? " article"
-                        : " articles"
-                );
-
-        }
-    );
 
 }
 
@@ -1017,411 +239,691 @@ function updateArticleCount(
    SEARCH
    ========================================================= */
 
-function setupSearch() {
+function initializeSearch() {
 
     const searchInputs =
         document.querySelectorAll(
-            'input[type="search"], .search-input, #search'
+            ".article-search input, " +
+            ".search-box input, " +
+            ".search-container input"
         );
 
-
     if (!searchInputs.length) {
+        return;
+    }
+
+    searchInputs.forEach(input => {
+
+        input.addEventListener("input", () => {
+
+            const query =
+                input.value.trim().toLowerCase();
+
+            filterArticleCards(query);
+
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   FILTER ARTICLE CARDS
+   ========================================================= */
+
+function filterArticleCards(query) {
+
+    const cards =
+        document.querySelectorAll(
+            ".article-card, " +
+            ".related-card"
+        );
+
+    if (!cards.length) {
+        return;
+    }
+
+    cards.forEach(card => {
+
+        if (!query) {
+
+            card.hidden = false;
+
+            return;
+        }
+
+        const text =
+            card.textContent
+                .toLowerCase();
+
+        card.hidden =
+            !text.includes(query);
+
+    });
+
+}
+
+
+/* =========================================================
+   SOCIAL SHARING
+   ========================================================= */
+
+function initializeSocialSharing() {
+
+    const buttons =
+        document.querySelectorAll(
+            ".share-icon[data-share]"
+        );
+
+    if (!buttons.length) {
+        return;
+    }
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            const network =
+                button.dataset.share;
+
+            shareArticle(network);
+
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   ARTICLE INFORMATION
+   ========================================================= */
+
+function getArticleInfo() {
+
+    const canonical =
+        document.querySelector(
+            'link[rel="canonical"]'
+        );
+
+    let url =
+        canonical
+            ? canonical.href
+            : window.location.href;
+
+    /*
+     * Remove unnecessary URL fragments.
+     */
+    url =
+        url.split("#")[0];
+
+    const titleElement =
+        document.querySelector(
+            ".article-title"
+        );
+
+    const title =
+        titleElement
+            ? titleElement.textContent.trim()
+            : document.title;
+
+    const descriptionElement =
+        document.querySelector(
+            ".article-intro"
+        );
+
+    const description =
+        descriptionElement
+            ? descriptionElement.textContent.trim()
+            : "";
+
+    const imageElement =
+        document.querySelector(
+            ".article-feature-image img"
+        );
+
+    let image = "";
+
+    if (imageElement) {
+
+        image =
+            new URL(
+                imageElement.getAttribute("src"),
+                window.location.origin
+            ).href;
+
+    }
+
+    return {
+        url,
+        title,
+        description,
+        image
+    };
+
+}
+
+
+/* =========================================================
+   SHARE ARTICLE
+   ========================================================= */
+
+function shareArticle(network) {
+
+    const article =
+        getArticleInfo();
+
+    const encodedUrl =
+        encodeURIComponent(article.url);
+
+    const encodedTitle =
+        encodeURIComponent(article.title);
+
+    const encodedDescription =
+        encodeURIComponent(
+            article.description
+        );
+
+    let shareUrl = "";
+
+    switch (network) {
+
+        case "facebook":
+
+            shareUrl =
+                "https://www.facebook.com/sharer/sharer.php" +
+                "?u=" +
+                encodedUrl;
+
+            break;
+
+
+        case "x":
+
+            shareUrl =
+                "https://twitter.com/intent/tweet" +
+                "?url=" +
+                encodedUrl +
+                "&text=" +
+                encodedTitle;
+
+            break;
+
+
+        case "linkedin":
+
+            shareUrl =
+                "https://www.linkedin.com/sharing/share-offsite/" +
+                "?url=" +
+                encodedUrl;
+
+            break;
+
+
+        case "pinterest":
+
+            shareUrl =
+                "https://pinterest.com/pin/create/button/" +
+                "?url=" +
+                encodedUrl +
+                "&description=" +
+                encodedTitle;
+
+            if (article.image) {
+
+                shareUrl +=
+                    "&media=" +
+                    encodeURIComponent(
+                        article.image
+                    );
+
+            }
+
+            break;
+
+
+        case "whatsapp":
+
+            shareUrl =
+                "https://wa.me/?" +
+                "text=" +
+                encodeURIComponent(
+                    article.title +
+                    "\n\n" +
+                    article.url
+                );
+
+            break;
+
+
+        case "telegram":
+
+            shareUrl =
+                "https://t.me/share/url" +
+                "?url=" +
+                encodedUrl +
+                "&text=" +
+                encodedTitle;
+
+            break;
+
+
+        case "reddit":
+
+            shareUrl =
+                "https://www.reddit.com/submit" +
+                "?url=" +
+                encodedUrl +
+                "&title=" +
+                encodedTitle;
+
+            break;
+
+
+        case "email":
+
+            shareUrl =
+                "mailto:" +
+                "?subject=" +
+                encodedTitle +
+                "&body=" +
+                encodeURIComponent(
+                    article.title +
+                    "\n\n" +
+                    article.description +
+                    "\n\n" +
+                    article.url
+                );
+
+            break;
+
+
+        default:
+
+            return;
+
+    }
+
+
+    if (!shareUrl) {
+        return;
+    }
+
+
+    /*
+     * Email should use the browser's
+     * normal mail handler.
+     */
+
+    if (network === "email") {
+
+        window.location.href =
+            shareUrl;
 
         return;
 
     }
 
 
-    searchInputs.forEach(
-        function (input) {
+    /*
+     * Open social sharing popup.
+     */
 
-            let timer;
+    openSharePopup(
+        shareUrl,
+        network
+    );
 
-
-            input.addEventListener(
-                "input",
-                function () {
-
-                    clearTimeout(
-                        timer
-                    );
+}
 
 
-                    timer =
-                        setTimeout(
-                            function () {
+/* =========================================================
+   SOCIAL SHARE POPUP
+   ========================================================= */
 
-                                performSearch(
-                                    input.value
-                                );
+function openSharePopup(url, network) {
 
-                            },
-                            120
-                        );
+    const width = 640;
 
-                }
+    const height = 620;
+
+    const left =
+        Math.max(
+            0,
+            (window.screen.width - width) / 2
+        );
+
+    const top =
+        Math.max(
+            0,
+            (window.screen.height - height) / 2
+        );
+
+    const popup =
+        window.open(
+            url,
+            "share_" + network,
+            [
+                "width=" + width,
+                "height=" + height,
+                "left=" + left,
+                "top=" + top,
+                "toolbar=no",
+                "menubar=no",
+                "location=yes",
+                "status=no",
+                "resizable=yes",
+                "scrollbars=yes"
+            ].join(",")
+        );
+
+    /*
+     * Some browsers block popup windows.
+     * If blocked, open the URL normally.
+     */
+
+    if (!popup) {
+
+        window.location.href =
+            url;
+
+    } else {
+
+        try {
+            popup.focus();
+        } catch (error) {
+            /* Ignore focus errors. */
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   COPY ARTICLE LINK
+   ========================================================= */
+
+function initializeCopyLink() {
+
+    const buttons =
+        document.querySelectorAll(
+            '[data-share="copy"]'
+        );
+
+    if (!buttons.length) {
+        return;
+    }
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            async event => {
+
+                event.preventDefault();
+
+                await copyArticleLink(button);
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   COPY LINK
+   ========================================================= */
+
+async function copyArticleLink(button) {
+
+    const article =
+        getArticleInfo();
+
+    const originalLabel =
+        button.getAttribute(
+            "aria-label"
+        ) || "Copy article link";
+
+    try {
+
+        if (
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
+
+            await navigator.clipboard.writeText(
+                article.url
             );
 
+        } else {
 
-            input.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (
-                        event.key ===
-                        "Escape"
-                    ) {
-
-                        input.value =
-                            "";
-
-                        performSearch(
-                            ""
-                        );
-
-                    }
-
-                }
+            fallbackCopyText(
+                article.url
             );
 
         }
-    );
 
-}
+        button.setAttribute(
+            "aria-label",
+            "Link copied"
+        );
 
+        button.classList.add(
+            "copied"
+        );
 
-/* =========================================================
-   PERFORM SEARCH
-   ========================================================= */
+        showShareToast(
+            "Article link copied"
+        );
 
-function performSearch(query) {
+        setTimeout(() => {
 
-    const container =
-        document.querySelector("#articles-list") ||
-        document.querySelector("#article-list") ||
-        document.querySelector(".articles-grid") ||
-        document.querySelector(".article-grid");
-
-
-    if (!container) {
-
-        return;
-
-    }
-
-
-    const articles =
-        window.ElectricalArticles ||
-        [];
-
-
-    if (!articles.length) {
-
-        return;
-
-    }
-
-
-    const searchText =
-        String(
-            query || ""
-        )
-            .toLowerCase()
-            .trim();
-
-
-    const currentCategory =
-        getCurrentCategory();
-
-
-    let filtered =
-        articles;
-
-
-    /*
-       Restrict search to current category
-       when viewing a category page.
-    */
-
-    if (currentCategory) {
-
-        filtered =
-            filtered.filter(
-                function (article) {
-
-                    const category =
-                        article.categorySlug ||
-                        getCategorySlug(
-                            article.category
-                        );
-
-
-                    return (
-                        category ===
-                        currentCategory
-                    );
-
-                }
+            button.setAttribute(
+                "aria-label",
+                originalLabel
             );
 
-    }
+            button.classList.remove(
+                "copied"
+            );
 
+        }, 1800);
 
-    /*
-       Empty search:
+    } catch (error) {
 
-       Restore all articles for the
-       current category.
-    */
-
-    if (!searchText) {
-
-        renderArticles(
-            filtered,
-            container
+        showShareToast(
+            "Unable to copy link"
         );
-
-
-        updateArticleCount(
-            filtered
-        );
-
-
-        return;
 
     }
-
-
-    /*
-       Search across:
-
-       - title
-       - description
-       - excerpt
-       - category
-       - category slug
-       - keywords
-       - tags
-       - slug
-    */
-
-    filtered =
-        filtered.filter(
-            function (article) {
-
-                const searchableText =
-                    [
-
-                        article.title,
-
-                        article.description,
-
-                        article.excerpt,
-
-                        article.category,
-
-                        article.categorySlug,
-
-                        article.keywords,
-
-                        article.tags,
-
-                        article.slug
-
-                    ]
-                        .flat()
-                        .filter(Boolean)
-                        .join(" ")
-                        .toLowerCase();
-
-
-                return searchableText.includes(
-                    searchText
-                );
-
-            }
-        );
-
-
-    renderArticles(
-        filtered,
-        container
-    );
-
-
-    updateArticleCount(
-        filtered
-    );
 
 }
 
 
 /* =========================================================
-   NAVIGATION
+   FALLBACK COPY
    ========================================================= */
 
-function setupNavigation() {
+function fallbackCopyText(text) {
 
-    /*
-       Automatically set category links
-       using data-category.
-
-       Example:
-
-       <a data-category="fundamentals">
-
-       becomes:
-
-       /articles/electrical-fundamentals/
-    */
-
-    document
-        .querySelectorAll(
-            "[data-category]"
-        )
-        .forEach(
-            function (element) {
-
-                const category =
-                    element.dataset.category;
-
-
-                if (
-                    SITE_CONFIG.categories[
-                        category
-                    ]
-                ) {
-
-                    const path =
-                        SITE_CONFIG
-                            .categories[
-                                category
-                            ]
-                            .path;
-
-
-                    if (
-                        element.tagName
-                            .toLowerCase() ===
-                        "a"
-                    ) {
-
-                        element.href =
-                            path;
-
-                    }
-
-                }
-
-            }
+    const textarea =
+        document.createElement(
+            "textarea"
         );
 
+    textarea.value = text;
 
-    /*
-       Close mobile navigation when
-       an article/category link is clicked.
-    */
+    textarea.style.position =
+        "fixed";
 
-    document
-        .querySelectorAll(
-            'a[href*="/articles/"]'
-        )
-        .forEach(
-            function (link) {
+    textarea.style.left =
+        "-9999px";
 
-                link.addEventListener(
-                    "click",
-                    function () {
+    textarea.style.top =
+        "0";
 
-                        closeMobileMenu();
+    textarea.setAttribute(
+        "readonly",
+        ""
+    );
 
-                    }
-                );
+    document.body.appendChild(
+        textarea
+    );
 
-            }
+    textarea.select();
+
+    textarea.setSelectionRange(
+        0,
+        textarea.value.length
+    );
+
+    const successful =
+        document.execCommand(
+            "copy"
         );
+
+    document.body.removeChild(
+        textarea
+    );
+
+    if (!successful) {
+        throw new Error(
+            "Copy failed"
+        );
+    }
 
 }
 
 
 /* =========================================================
-   MOBILE MENU
+   TOAST MESSAGE
    ========================================================= */
 
-function setupMobileMenu() {
+function showShareToast(message) {
+
+    let toast =
+        document.querySelector(
+            ".share-toast"
+        );
+
+    if (!toast) {
+
+        toast =
+            document.createElement(
+                "div"
+            );
+
+        toast.className =
+            "share-toast";
+
+        document.body.appendChild(
+            toast
+        );
+
+    }
+
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        toast._timer
+    );
+
+    toast._timer =
+        setTimeout(() => {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        }, 1800);
+
+}
+
+
+/* =========================================================
+   NATIVE WEB SHARE
+   ========================================================= */
+
+function initializeNativeShare() {
 
     const button =
         document.querySelector(
-            "#mobile-menu-button"
+            '[data-share="native"]'
         );
 
+    if (!button) {
+        return;
+    }
 
-    const sidebar =
-        document.querySelector(
-            "#article-sidebar"
-        );
-
-
-    const overlay =
-        document.querySelector(
-            "#sidebar-overlay"
-        );
-
+    /*
+     * Hide native-share button if unsupported.
+     */
 
     if (
-        !button ||
-        !sidebar
+        typeof navigator.share !==
+        "function"
     ) {
+
+        button.style.display =
+            "none";
 
         return;
 
     }
-
 
     button.addEventListener(
         "click",
-        function () {
+        async event => {
 
-            const isOpen =
-                sidebar.classList.contains(
-                    "is-open"
-                );
+            event.preventDefault();
 
+            const article =
+                getArticleInfo();
 
-            if (isOpen) {
+            try {
 
-                closeMobileMenu();
+                await navigator.share({
 
-            } else {
+                    title:
+                        article.title,
 
-                openMobileMenu();
+                    text:
+                        article.description,
 
-            }
+                    url:
+                        article.url
 
-        }
-    );
+                });
 
+            } catch (error) {
 
-    if (overlay) {
+                /*
+                 * User cancellation is normal.
+                 */
 
-        overlay.addEventListener(
-            "click",
-            closeMobileMenu
-        );
+                if (
+                    error &&
+                    error.name !==
+                    "AbortError"
+                ) {
 
-    }
+                    showShareToast(
+                        "Sharing was cancelled"
+                    );
 
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key ===
-                "Escape"
-            ) {
-
-                closeMobileMenu();
+                }
 
             }
 
@@ -1432,236 +934,163 @@ function setupMobileMenu() {
 
 
 /* =========================================================
-   OPEN MOBILE MENU
+   READING PROGRESS
    ========================================================= */
 
-function openMobileMenu() {
+function initializeReadingProgress() {
 
-    const button =
+    const article =
         document.querySelector(
-            "#mobile-menu-button"
+            ".article-content"
         );
 
+    if (!article) {
+        return;
+    }
 
-    const sidebar =
+    let progressBar =
         document.querySelector(
-            "#article-sidebar"
+            ".reading-progress"
         );
 
+    if (!progressBar) {
 
-    const overlay =
-        document.querySelector(
-            "#sidebar-overlay"
-        );
+        progressBar =
+            document.createElement(
+                "div"
+            );
 
+        progressBar.className =
+            "reading-progress";
 
-    if (sidebar) {
-
-        sidebar.classList.add(
-            "is-open"
+        document.body.appendChild(
+            progressBar
         );
 
     }
 
+    function updateProgress() {
 
-    if (overlay) {
+        const rect =
+            article.getBoundingClientRect();
 
-        overlay.classList.add(
-            "is-visible"
-        );
+        const articleTop =
+            window.scrollY +
+            rect.top;
 
+        const articleHeight =
+            article.offsetHeight;
 
-        overlay.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+        const viewportHeight =
+            window.innerHeight;
+
+        const current =
+            window.scrollY -
+            articleTop;
+
+        const total =
+            articleHeight -
+            viewportHeight;
+
+        let percentage = 0;
+
+        if (total > 0) {
+
+            percentage =
+                (current / total) * 100;
+
+        }
+
+        percentage =
+            Math.max(
+                0,
+                Math.min(
+                    100,
+                    percentage
+                )
+            );
+
+        progressBar.style.width =
+            percentage + "%";
 
     }
 
-
-    if (button) {
-
-        button.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
-
-
-    document.body.classList.add(
-        "menu-open"
+    window.addEventListener(
+        "scroll",
+        updateProgress,
+        {
+            passive: true
+        }
     );
 
-}
-
-
-/* =========================================================
-   CLOSE MOBILE MENU
-   ========================================================= */
-
-function closeMobileMenu() {
-
-    const button =
-        document.querySelector(
-            "#mobile-menu-button"
-        );
-
-
-    const sidebar =
-        document.querySelector(
-            "#article-sidebar"
-        );
-
-
-    const overlay =
-        document.querySelector(
-            "#sidebar-overlay"
-        );
-
-
-    if (sidebar) {
-
-        sidebar.classList.remove(
-            "is-open"
-        );
-
-    }
-
-
-    if (overlay) {
-
-        overlay.classList.remove(
-            "is-visible"
-        );
-
-
-        overlay.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-    }
-
-
-    if (button) {
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-
-    document.body.classList.remove(
-        "menu-open"
+    window.addEventListener(
+        "resize",
+        updateProgress
     );
 
-}
-
-
-/* =========================================================
-   EMPTY STATE
-   ========================================================= */
-
-function showEmptyState(
-    container,
-    message
-) {
-
-    container.innerHTML = `
-
-        <div class="articles-empty">
-
-            <span
-                class="material-symbols-rounded"
-                aria-hidden="true"
-            >
-                article
-            </span>
-
-            <p>
-                ${escapeHTML(message)}
-            </p>
-
-        </div>
-
-    `;
+    updateProgress();
 
 }
 
 
 /* =========================================================
-   HTML ESCAPE
+   SMOOTH ANCHOR LINKS
    ========================================================= */
 
-function escapeHTML(value) {
+function initializeSmoothAnchors() {
 
-    return String(
-        value || ""
-    )
-        .replace(
-            /&/g,
-            "&amp;"
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
         )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+                    if (!target) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                    history.replaceState(
+                        null,
+                        "",
+                        targetId
+                    );
+
+                }
+            );
+
+        });
 
 }
 
 
 /* =========================================================
-   PUBLIC API
-   =========================================================
-
-   Other scripts can use:
-
-   ElectricalSite.loadArticles()
-
-   ElectricalSite.search("voltage")
-
-   ElectricalSite.openMobileMenu()
-
-   ElectricalSite.closeMobileMenu()
-
-   ElectricalSite.buildArticleURL(article)
-   ========================================================= */
-
-window.ElectricalSite = {
-
-    loadArticles:
-        loadArticles,
-
-    search:
-        performSearch,
-
-    closeMobileMenu:
-        closeMobileMenu,
-
-    openMobileMenu:
-        openMobileMenu,
-
-    buildArticleURL:
-        buildArticleURL
-
-};
-
-
-/* =========================================================
-   END OF APP.JS
+   END OF APPLICATION
    ========================================================= */
