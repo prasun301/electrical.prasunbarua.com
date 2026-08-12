@@ -1,1 +1,29 @@
-
+[
+    {
+        "title": "Voltage, Current, Resistance & Electrical Power Explained",
+        "url": "/articles/electrical-fundamentals/what-is-voltage-current-resistance.html",
+        "category": "Electrical Fundamentals",
+        "tags": [
+            "voltage",
+            "current",
+            "resistance",
+            "electrical power",
+            "ohms law",
+            "electricity",
+            "electrical engineering"
+        ]
+    },
+    {
+        "title": "Ohm's Law Explained",
+        "url": "/articles/electrical-fundamentals/ohms-law/",
+        "category": "Electrical Fundamentals",
+        "tags": [
+            "ohms law",
+            "voltage",
+            "current",
+            "resistance",
+            "electrical fundamentals",
+            "electrical engineering"
+        ]
+    }
+]
