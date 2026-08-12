@@ -3,7 +3,7 @@
    Prasun Barua
    Production Edition — 2026
 
-   Designed for:
+   Global design system for:
    - Homepage
    - Tutorial/category pages
    - Technical articles
@@ -27,8 +27,10 @@
     --primary: #2563eb;
     --primary-dark: #1d4ed8;
     --primary-darker: #1e40af;
+
     --primary-light: #eff6ff;
     --primary-soft: #dbeafe;
+
 
     /* -----------------------------------------------------
        Text
@@ -40,6 +42,7 @@
     --text-muted: #64748b;
     --text-subtle: #94a3b8;
 
+
     /* -----------------------------------------------------
        Backgrounds
        ----------------------------------------------------- */
@@ -47,7 +50,9 @@
     --background: #ffffff;
     --background-soft: #f8fafc;
     --background-alt: #f1f5f9;
+
     --surface-elevated: #ffffff;
+
 
     /* -----------------------------------------------------
        Borders
@@ -57,16 +62,20 @@
     --border-light: #f1f5f9;
     --border-strong: #cbd5e1;
 
+
     /* -----------------------------------------------------
        Status
        ----------------------------------------------------- */
 
     --success: #16a34a;
     --success-light: #f0fdf4;
+
     --warning: #d97706;
     --warning-light: #fffbeb;
+
     --danger: #dc2626;
     --danger-light: #fef2f2;
+
 
     /* -----------------------------------------------------
        Dark surfaces
@@ -74,8 +83,10 @@
 
     --dark: #0f172a;
     --dark-soft: #1e293b;
+
     --dark-text: #f8fafc;
     --dark-secondary: #cbd5e1;
+
 
     /* -----------------------------------------------------
        Radius
@@ -88,6 +99,7 @@
     --radius-xl: 20px;
     --radius-2xl: 24px;
     --radius-pill: 9999px;
+
 
     /* -----------------------------------------------------
        Shadows
@@ -111,13 +123,22 @@
     --shadow-xl:
         0 24px 48px rgba(15, 23, 42, 0.12);
 
+
     /* -----------------------------------------------------
        Layout
        ----------------------------------------------------- */
 
     --container: 1200px;
-    --reading-width: 70ch;
+    --reading-width: 72ch;
+
     --header-height: 72px;
+
+    /*
+       Space between sticky header and sticky TOC.
+       This is important for the left sidebar.
+    */
+    --sticky-offset: 92px;
+
 
     /* -----------------------------------------------------
        Spacing
@@ -136,6 +157,7 @@
     --space-80: 80px;
     --space-96: 96px;
 
+
     /* -----------------------------------------------------
        Motion
        ----------------------------------------------------- */
@@ -151,16 +173,23 @@
     --transition-slow:
         350ms var(--ease-standard);
 
+
     /* -----------------------------------------------------
        Fonts
        ----------------------------------------------------- */
 
+    /*
+       Inter is the primary site font.
+       It gives the site the clean technical/editorial
+       appearance used throughout the newer pages.
+    */
+
     --font-sans:
+        "Inter",
         -apple-system,
         BlinkMacSystemFont,
         "SF Pro Text",
         "SF Pro Display",
-        "Inter",
         "Segoe UI",
         Roboto,
         Helvetica,
@@ -194,8 +223,11 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+
     font-size: 16px;
     font-synthesis: none;
 }
@@ -207,10 +239,12 @@ body {
     flex-direction: column;
 
     font-family: var(--font-sans);
+
     color: var(--text);
     background: var(--background);
 
     line-height: 1.6;
+
     letter-spacing: -0.011em;
 
     -webkit-font-smoothing: antialiased;
@@ -251,6 +285,7 @@ button {
 a {
     color: var(--primary);
     text-decoration: none;
+
     transition:
         color var(--transition-fast),
         background-color var(--transition-fast),
@@ -322,12 +357,13 @@ table {
     text-transform: none;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
     vertical-align: middle;
-    white-space: nowrap;
 
+    white-space: nowrap;
     direction: ltr;
 
     -webkit-font-smoothing: antialiased;
@@ -366,19 +402,26 @@ table {
 
     height: var(--header-height);
 
-    background: rgba(255, 255, 255, 0.92);
+    background:
+        rgba(255, 255, 255, 0.94);
 
-    backdrop-filter: blur(18px) saturate(160%);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter:
+        blur(18px)
+        saturate(160%);
+
+    -webkit-backdrop-filter:
+        blur(18px)
+        saturate(160%);
 
     border-bottom:
-        1px solid rgba(226, 232, 240, 0.85);
+        1px solid rgba(226, 232, 240, 0.9);
 }
 
 .header-inner {
     height: 100%;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
@@ -387,6 +430,7 @@ table {
 
 .logo {
     display: inline-flex;
+
     align-items: center;
 
     gap: 12px;
@@ -406,6 +450,7 @@ table {
     height: 38px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -439,6 +484,7 @@ table {
     font-weight: 700;
 
     line-height: 1.2;
+
     letter-spacing: -0.02em;
 }
 
@@ -462,6 +508,7 @@ table {
 
 .main-nav {
     display: flex;
+
     align-items: center;
 
     min-width: 0;
@@ -469,6 +516,7 @@ table {
 
 .main-nav ul {
     display: flex;
+
     align-items: center;
 
     gap: 4px;
@@ -481,11 +529,13 @@ table {
 
 .main-nav li {
     display: inline-flex;
+
     flex-shrink: 0;
 }
 
 .main-nav a {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -604,6 +654,7 @@ table {
 
 .eyebrow {
     display: inline-flex;
+
     align-items: center;
 
     min-height: 30px;
@@ -677,9 +728,11 @@ table {
 
 .search-box {
     width: min(660px, 100%);
+
     height: 54px;
 
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -751,6 +804,7 @@ table {
     height: 42px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -827,6 +881,7 @@ table {
 
 .section-label {
     display: inline-flex;
+
     align-items: center;
 
     gap: 7px;
@@ -894,6 +949,7 @@ table {
     position: relative;
 
     display: flex;
+
     flex-direction: column;
 
     min-height: 260px;
@@ -910,6 +966,11 @@ table {
     box-shadow: var(--shadow-xs);
 
     overflow: hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .category-card::after {
@@ -955,6 +1016,7 @@ table {
     height: 50px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -978,6 +1040,7 @@ table {
     color: var(--text-strong);
 
     font-size: 19px;
+
     line-height: 1.3;
 
     letter-spacing: -0.025em;
@@ -997,16 +1060,19 @@ table {
 
 .card-link {
     display: inline-flex;
+
     align-items: center;
 
     gap: 6px;
 
     margin-top: auto;
+
     padding-top: 22px;
 
     color: var(--primary);
 
     font-size: 13px;
+
     font-weight: 700;
 }
 
@@ -1044,6 +1110,7 @@ table {
 
 .calculator-card {
     display: flex;
+
     align-items: flex-start;
 
     gap: 18px;
@@ -1060,6 +1127,11 @@ table {
     background: var(--surface-elevated);
 
     box-shadow: var(--shadow-xs);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .calculator-card:hover {
@@ -1079,6 +1151,7 @@ table {
     height: 48px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1102,6 +1175,7 @@ table {
     color: var(--text-strong);
 
     font-size: 17px;
+
     line-height: 1.35;
 
     font-weight: 750;
@@ -1139,6 +1213,7 @@ table {
 
 .article-card {
     display: flex;
+
     flex-direction: column;
 
     min-height: 300px;
@@ -1153,6 +1228,11 @@ table {
     background: var(--surface-elevated);
 
     box-shadow: var(--shadow-xs);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
 .article-card:hover {
@@ -1165,11 +1245,13 @@ table {
 
 .article-category {
     display: inline-flex;
+
     align-self: flex-start;
 
     color: var(--primary);
 
     font-size: 10px;
+
     font-weight: 800;
 
     letter-spacing: 0.09em;
@@ -1180,6 +1262,7 @@ table {
     height: 46px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1224,16 +1307,19 @@ table {
 
 .article-card > a {
     display: inline-flex;
+
     align-items: center;
 
     gap: 6px;
 
     margin-top: auto;
+
     padding-top: 24px;
 
     color: var(--primary);
 
     font-size: 13px;
+
     font-weight: 700;
 }
 
@@ -1361,6 +1447,7 @@ table {
 
 .primary-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1381,6 +1468,7 @@ table {
     background: var(--primary);
 
     font-size: 13px;
+
     font-weight: 700;
 
     box-shadow:
@@ -1415,6 +1503,7 @@ table {
     min-height: 330px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1434,6 +1523,7 @@ table {
     position: relative;
 
     width: min(100%, 390px);
+
     height: 290px;
 }
 
@@ -1447,6 +1537,7 @@ table {
     height: 62px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1476,8 +1567,11 @@ table {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    grid-template-rows:
+        repeat(3, 1fr);
 
     gap: 2px;
 
@@ -1560,7 +1654,9 @@ table {
     height: 125px;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
@@ -1586,6 +1682,7 @@ table {
     color: var(--text-muted);
 
     font-size: 9px;
+
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -1629,6 +1726,7 @@ table {
     height: 84px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1646,6 +1744,7 @@ table {
         );
 
     font-size: 24px;
+
     font-weight: 800;
 
     letter-spacing: -0.04em;
@@ -1683,6 +1782,7 @@ table {
 
 .text-link {
     display: inline-flex;
+
     align-items: center;
 
     gap: 5px;
@@ -1692,6 +1792,7 @@ table {
     color: var(--primary);
 
     font-size: 14px;
+
     font-weight: 700;
 }
 
@@ -1740,7 +1841,9 @@ table {
 
     font-size: 17px;
 
-    line-height: 1.8;
+    line-height: 1.82;
+
+    letter-spacing: -0.008em;
 }
 
 .article-content p {
@@ -1798,6 +1901,7 @@ table {
 
 .article-content a {
     color: var(--primary);
+
     font-weight: 600;
 }
 
@@ -1917,6 +2021,7 @@ table {
 
 .article-category {
     display: inline-flex;
+
     align-items: center;
 
     padding:
@@ -1932,6 +2037,7 @@ table {
     background: var(--primary-light);
 
     font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -1977,8 +2083,22 @@ table {
 
 
 /* =========================================================
-   20. ARTICLE LAYOUT / SIDEBAR / TOC
+   20. ARTICLE LAYOUT / STICKY SIDEBAR / TOC
    ========================================================= */
+
+/*
+   IMPORTANT
+
+   Desktop:
+   ┌──────────────┬─────────────────────────────┐
+   │  STICKY TOC  │       ARTICLE CONTENT       │
+   │              │                             │
+   │              │                             │
+   │              │                             │
+   └──────────────┴─────────────────────────────┘
+
+   The TOC remains visible while the article scrolls.
+*/
 
 .article-layout {
     display: grid;
@@ -1994,12 +2114,30 @@ table {
 
 .article-sidebar {
     position: relative;
+
+    /*
+       Necessary for sticky positioning.
+    */
+    align-self: start;
+
+    min-width: 0;
 }
 
 .toc {
+    position: -webkit-sticky;
     position: sticky;
 
-    top: 96px;
+    /*
+       Keep TOC below the sticky site header.
+    */
+    top: var(--sticky-offset);
+
+    z-index: 50;
+
+    max-height:
+        calc(100vh - var(--sticky-offset) - 24px);
+
+    overflow-y: auto;
 
     padding: 20px;
 
@@ -2008,9 +2146,33 @@ table {
 
     border-radius: var(--radius-lg);
 
-    background: var(--background-soft);
+    background:
+        rgba(248, 250, 252, 0.96);
 
     box-shadow: var(--shadow-xs);
+
+    /*
+       Smooth scrollbar behavior.
+    */
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--border-strong)
+        transparent;
+}
+
+.toc::-webkit-scrollbar {
+    width: 5px;
+}
+
+.toc::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.toc::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+
+    background: var(--border-strong);
 }
 
 .toc-title {
@@ -2019,6 +2181,7 @@ table {
     color: var(--text-strong);
 
     font-size: 12px;
+
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -2040,6 +2203,7 @@ table {
     color: var(--text-secondary);
 
     font-size: 13px;
+
     font-weight: 500;
 
     line-height: 1.4;
@@ -2051,6 +2215,19 @@ table {
     background: var(--primary-light);
 
     text-decoration: none;
+}
+
+/*
+   Optional active TOC link.
+   This also works if JavaScript adds .active.
+*/
+.toc a.active,
+.toc a[aria-current="true"] {
+    color: var(--primary);
+
+    background: var(--primary-light);
+
+    font-weight: 700;
 }
 
 .article-content section {
@@ -2107,6 +2284,7 @@ table {
     color: var(--primary);
 
     font-size: 13px;
+
     font-weight: 800;
 
     letter-spacing: 0.06em;
@@ -2194,6 +2372,7 @@ table {
     color: var(--text-muted);
 
     font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -2369,6 +2548,8 @@ table {
         1px solid var(--border);
 
     border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-xs);
 }
 
 .engineering-table {
@@ -2406,6 +2587,10 @@ table {
     color: var(--text-secondary);
 
     font-size: 15px;
+}
+
+.engineering-table tbody tr:hover {
+    background: #fafcff;
 }
 
 .engineering-table tr:last-child td {
@@ -2722,28 +2907,30 @@ table {
    31. RESPONSIVE — TABLET
    ========================================================= */
 
+/*
+   IMPORTANT:
+
+   The TOC remains sticky down to 769px.
+
+   The previous CSS disabled sticky behavior at 1000px.
+   That has been intentionally removed.
+*/
+
 @media (max-width: 1000px) {
 
     .article-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            200px
+            minmax(0, 1fr);
 
-        gap: 28px;
-    }
-
-    .article-sidebar {
-        order: 0;
+        gap: 32px;
     }
 
     .toc {
-        position: relative;
+        top: 88px;
 
-        top: auto;
-    }
-
-    .toc a {
-        display: inline-block;
-
-        margin: 3px;
+        max-height:
+            calc(100vh - 112px);
     }
 
     .feature-panel {
@@ -2767,14 +2954,18 @@ table {
 
 
 /* =========================================================
-   32. RESPONSIVE — MOBILE
+   32. RESPONSIVE — MOBILE / SMALL TABLET
    ========================================================= */
 
 @media (max-width: 768px) {
 
     :root {
         --header-height: 64px;
+        --sticky-offset: 78px;
     }
+
+
+    /* Container */
 
     .container,
     .article-container,
@@ -2785,6 +2976,7 @@ table {
                 var(--container)
             );
     }
+
 
     /* Header */
 
@@ -2838,6 +3030,7 @@ table {
         font-size: 12px;
     }
 
+
     /* Hero */
 
     .hero {
@@ -2858,6 +3051,7 @@ table {
     .hero p {
         font-size: 16px;
     }
+
 
     /* Search */
 
@@ -2883,6 +3077,7 @@ table {
         display: none;
     }
 
+
     /* Sections */
 
     .section {
@@ -2898,6 +3093,7 @@ table {
         font-size: 30px;
     }
 
+
     /* Cards */
 
     .category-card,
@@ -2905,6 +3101,7 @@ table {
     .article-card {
         padding: 24px;
     }
+
 
     /* Feature */
 
@@ -2922,6 +3119,7 @@ table {
         min-height: 270px;
     }
 
+
     /* Author */
 
     .author-section {
@@ -2935,6 +3133,7 @@ table {
     .author-section p {
         margin-inline: auto;
     }
+
 
     /* Article */
 
@@ -2974,9 +3173,45 @@ table {
         font-size: 20px;
     }
 
+
+    /*
+       MOBILE TOC
+
+       Sticky left sidebar is no longer practical on
+       narrow screens, so it becomes a normal full-width
+       block.
+    */
+
     .article-layout {
-        grid-template-columns: 1fr;
+        display: block;
     }
+
+    .article-sidebar {
+        position: relative;
+
+        width: 100%;
+
+        margin-bottom: 30px;
+    }
+
+    .toc {
+        position: relative;
+
+        top: auto;
+
+        max-height: none;
+
+        overflow: visible;
+
+        padding: 18px;
+    }
+
+    .toc a {
+        display: inline-block;
+
+        margin: 3px;
+    }
+
 
     /* Formula */
 
@@ -2993,6 +3228,7 @@ table {
         font-size: 20px;
     }
 
+
     /* Related */
 
     .related-grid {
@@ -3002,6 +3238,7 @@ table {
     .article-cta {
         padding: 24px;
     }
+
 
     /* Footer */
 
@@ -3052,6 +3289,9 @@ table {
         font-size: 11px;
     }
 
+
+    /* Hero */
+
     .hero {
         padding:
             48px 0
@@ -3075,6 +3315,9 @@ table {
         font-size: 15px;
     }
 
+
+    /* Search */
+
     .search-box {
         gap: 6px;
     }
@@ -3089,6 +3332,9 @@ table {
         padding: 0;
     }
 
+
+    /* Cards */
+
     .category-card,
     .calculator-card,
     .article-card {
@@ -3098,6 +3344,9 @@ table {
     .calculator-card {
         gap: 14px;
     }
+
+
+    /* Feature */
 
     .feature-panel {
         padding: 24px 18px;
@@ -3111,6 +3360,9 @@ table {
     .feature-visual {
         min-height: 235px;
     }
+
+
+    /* Article */
 
     .article-meta {
         gap:
@@ -3130,6 +3382,9 @@ table {
         min-width: 460px;
     }
 
+
+    /* TOC */
+
     .toc {
         padding: 16px;
     }
@@ -3137,6 +3392,9 @@ table {
     .toc a {
         font-size: 12px;
     }
+
+
+    /* CTA */
 
     .article-cta {
         padding: 22px;
@@ -3197,10 +3455,17 @@ table {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
     }
 }
 
@@ -3230,6 +3495,7 @@ table {
     .article-container,
     .content-container {
         width: 100%;
+
         max-width: none;
     }
 
