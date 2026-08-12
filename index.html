@@ -2,481 +2,1340 @@
 <html lang="en">
 
 <head>
-    <!-- Google Tag Manager (gtag.js) -->
+
+    <!-- =====================================================
+         GOOGLE ANALYTICS
+         ===================================================== -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
         gtag('config', 'G-XY335VGVGJ');
     </script>
 
+
+    <!-- =====================================================
+         BASIC META
+         ===================================================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical Engineering Tutorials, Calculations & Guides | Prasun Barua</title>
-    
-    <meta name="description" content="Learn electrical engineering through practical tutorials, calculations, solar PV guides, power systems, electrical design, testing and commissioning.">
-    <meta name="author" content="Prasun Barua">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://electrical.prasunbarua.com/">
-    <meta property="og:title" content="Electrical Engineering Tutorials, Calculations & Guides">
-    <meta property="og:description" content="Practical electrical engineering tutorials, calculations, solar PV guides, and electrical design methods by Prasun Barua.">
-    <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Electrical Engineering Tutorials & Calculations">
-    <meta name="twitter:description" content="Practical electrical engineering tutorials, calculations, and guides.">
+    <meta name="theme-color"
+        content="#0b57d0">
 
-    <link rel="canonical" href="https://electrical.prasunbarua.com/">
+    <title>
+        Electrical Engineering Tutorials, Calculations &amp; Guides | Prasun Barua
+    </title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <meta name="description"
+        content="Learn electrical engineering through practical tutorials, calculations, solar PV guides, power systems, electrical design, testing, commissioning, and real-world engineering examples.">
 
-    <!-- Preconnect for External Resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="author"
+        content="Prasun Barua">
 
-    <!-- Google Fonts & Material Symbols -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+    <meta name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
+    <!-- =====================================================
+         CANONICAL
+         ===================================================== -->
 
-    <!-- Structured Data (Schema.org) for SEO -->
+    <link rel="canonical"
+        href="https://electrical.prasunbarua.com/">
+
+
+    <!-- =====================================================
+         OPEN GRAPH
+         ===================================================== -->
+
+    <meta property="og:type"
+        content="website">
+
+    <meta property="og:url"
+        content="https://electrical.prasunbarua.com/">
+
+    <meta property="og:title"
+        content="Electrical Engineering Tutorials, Calculations &amp; Guides">
+
+    <meta property="og:description"
+        content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design methods, and engineering resources by Prasun Barua.">
+
+    <meta property="og:site_name"
+        content="Electrical Engineering by Prasun Barua">
+
+    <meta property="og:image"
+        content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+
+    <meta property="og:image:alt"
+        content="Electrical Engineering by Prasun Barua">
+
+    <meta property="og:locale"
+        content="en_US">
+
+
+    <!-- =====================================================
+         TWITTER / X CARD
+         ===================================================== -->
+
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:title"
+        content="Electrical Engineering Tutorials &amp; Calculations">
+
+    <meta name="twitter:description"
+        content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design, and engineering resources.">
+
+    <meta name="twitter:image"
+        content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+
+    <meta name="twitter:image:alt"
+        content="Electrical Engineering by Prasun Barua">
+
+
+    <!-- =====================================================
+         FAVICON
+         ===================================================== -->
+
+    <link rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+
+    <link rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+
+
+    <!-- =====================================================
+         PERFORMANCE / EXTERNAL RESOURCES
+         ===================================================== -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS + MATERIAL SYMBOLS
+         ===================================================== -->
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+
+
+    <!-- =====================================================
+         MAIN STYLESHEET
+         ===================================================== -->
+
+    <link rel="stylesheet"
+        href="/assets/css/style.css">
+
+
+    <!-- =====================================================
+         GOOGLE ADSENSE
+         ===================================================== -->
+
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous">
+    </script>
+
+
+    <!-- =====================================================
+         STRUCTURED DATA — WEBSITE
+         ===================================================== -->
+
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Electrical Engineering Knowledge Hub",
-      "url": "https://electrical.prasunbarua.com/",
-      "author": {
-        "@type": "Person",
-        "name": "Prasun Barua"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://electrical.prasunbarua.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://electrical.prasunbarua.com/#website",
+        "name": "Electrical Engineering by Prasun Barua",
+        "alternateName": "Electrical Engineering Knowledge Hub",
+        "url": "https://electrical.prasunbarua.com/",
+        "description": "Practical electrical engineering tutorials, calculations, solar PV guides, electrical design resources, testing procedures, and engineering examples.",
+        "inLanguage": "en",
+        "publisher": {
+            "@id": "https://electrical.prasunbarua.com/#person"
+        }
     }
     </script>
+
+
+    <!-- =====================================================
+         STRUCTURED DATA — PERSON
+         ===================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://electrical.prasunbarua.com/#person",
+        "name": "Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/about.html",
+        "jobTitle": "Senior Electrical Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/"
+        }
+    }
+    </script>
+
+
+    <!-- =====================================================
+         STRUCTURED DATA — ORGANIZATION
+         ===================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://electrical.prasunbarua.com/#organization",
+        "name": "Electrical Engineering by Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://electrical.prasunbarua.com/assets/images/og-cover.png"
+        }
+    }
+    </script>
+
 </head>
+
 
 <body>
 
-<!-- =====================================================
-     HEADER
-====================================================== -->
-<header class="site-header">
-    <div class="container header-inner">
-        <a href="index.html" class="logo" aria-label="Electrical Engineering Home Page">
-            <span class="logo-icon">
-                <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-            </span>
-            <span>
-                <strong>Electrical Engineering</strong>
-                <small>by Prasun Barua</small>
-            </span>
-        </a>
 
-        <nav class="main-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-                <li><a href="#tutorials">Tutorials</a></li>
-                <li><a href="#calculations">Calculations</a></li>
-                <li><a href="#solar">Solar PV</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <!-- Logo -->
+
+            <a href="/"
+                class="logo"
+                aria-label="Electrical Engineering home page">
+
+                <span class="logo-icon"
+                    aria-hidden="true">
+
+                    <span class="material-symbols-rounded">
+                        bolt
+                    </span>
+
+                </span>
+
+                <span>
+
+                    <strong>
+                        Electrical Engineering
+                    </strong>
+
+                    <small>
+                        by Prasun Barua
+                    </small>
+
+                </span>
+
+            </a>
 
 
-<!-- =====================================================
-     HERO
-====================================================== -->
-<section class="hero" aria-label="Hero Section">
-    <div class="container hero-content">
-        <div class="hero-text">
-            <span class="eyebrow">ELECTRICAL ENGINEERING KNOWLEDGE HUB</span>
-            <h1>
-                Learn Electrical Engineering.
-                <span>Understand. Calculate. Design.</span>
-            </h1>
-            <p>
-                Practical electrical engineering tutorials, calculations, solar PV guides, 
-                power system concepts, design methods, testing procedures, and real-world engineering examples.
+            <!-- Main Navigation -->
+
+            <nav class="main-nav"
+                aria-label="Main navigation">
+
+                <ul>
+
+                    <li>
+                        <a href="/"
+                            class="active"
+                            aria-current="page">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#tutorials">
+                            Tutorials
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#calculations">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#solar">
+                            Solar PV
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#about">
+                            About
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero"
+        aria-labelledby="hero-title">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <span class="eyebrow">
+                    ELECTRICAL ENGINEERING KNOWLEDGE HUB
+                </span>
+
+                <h1 id="hero-title">
+
+                    Learn Electrical Engineering.
+
+                    <span>
+                        Understand. Calculate. Design.
+                    </span>
+
+                </h1>
+
+                <p>
+                    Practical electrical engineering tutorials, calculations,
+                    solar PV guides, power system concepts, design methods,
+                    testing procedures, and real-world engineering examples.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 SEARCH
+                 ================================================= -->
+
+            <form class="search-box"
+                id="site-search-form"
+                role="search">
+
+                <label for="site-search"
+                    class="sr-only">
+                    Search electrical engineering topics
+                </label>
+
+                <span class="material-symbols-rounded"
+                    aria-hidden="true">
+                    search
+                </span>
+
+                <input
+                    type="search"
+                    id="site-search"
+                    name="q"
+                    placeholder="Search electrical engineering topics..."
+                    autocomplete="off"
+                    enterkeyhint="search">
+
+                <button
+                    id="search-button"
+                    type="submit">
+
+                    <span class="material-symbols-rounded"
+                        aria-hidden="true">
+                        search
+                    </span>
+
+                    <span>
+                        Search
+                    </span>
+
+                </button>
+
+            </form>
+
+            <p id="search-message"
+                class="search-message"
+                aria-live="polite">
             </p>
+
         </div>
 
-        <!-- SEARCH FORM -->
-        <form class="search-box" role="search" action="javascript:void(0);">
-            <label for="site-search" class="sr-only">Search electrical engineering tutorials</label>
-            <span class="material-symbols-rounded" aria-hidden="true">search</span>
-            <input 
-                type="search" 
-                id="site-search" 
-                placeholder="Search electrical engineering topics..." 
-                autocomplete="off"
-            >
-            <button id="search-button" type="submit" aria-label="Search topics">
-                <span class="material-symbols-rounded" aria-hidden="true">search</span>
-                <span>Search</span>
-            </button>
-        </form>
-
-        <p id="search-message" class="search-message" aria-live="polite"></p>
-    </div>
-</section>
-
-
-<!-- =====================================================
-     MAIN CONTENT
-====================================================== -->
-<main>
-
-    <!-- CATEGORIES / TUTORIALS -->
-    <section class="section" id="tutorials">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">
-                    <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
-                    LEARN
-                </span>
-                <h2>Explore Electrical Engineering</h2>
-                <p>Build your knowledge from electrical fundamentals to practical engineering applications.</p>
-            </div>
-
-            <div class="category-grid">
-
-                <!-- Electrical Fundamentals -->
-                <a href="articles/electrical-fundamentals/" class="category-card">
-                    <div class="category-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">electrical_services</span>
-                    </div>
-                    <h3>Electrical Fundamentals</h3>
-                    <p>Voltage, current, resistance, power, energy, AC, DC, and essential electrical concepts.</p>
-                    <span class="card-link">
-                        Explore
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </span>
-                </a>
-
-                <!-- Electrical Calculations -->
-                <a href="articles/electrical-calculations/" class="category-card">
-                    <div class="category-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                    </div>
-                    <h3>Electrical Calculations</h3>
-                    <p>Practical formulas, worked examples, sizing calculations, and engineering methods.</p>
-                    <span class="card-link">
-                        Explore
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </span>
-                </a>
-
-                <!-- Power Systems -->
-                <a href="articles/power-systems/" class="category-card">
-                    <div class="category-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">electric_bolt</span>
-                    </div>
-                    <h3>Power Systems</h3>
-                    <p>Transformers, distribution systems, power factor, protection, and grid concepts.</p>
-                    <span class="card-link">
-                        Explore
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </span>
-                </a>
-
-                <!-- Solar PV -->
-                <a href="articles/solar-pv/" class="category-card">
-                    <div class="category-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
-                    </div>
-                    <h3>Solar PV Engineering</h3>
-                    <p>Solar PV design, string sizing, inverters, performance, losses, and system calculations.</p>
-                    <span class="card-link">
-                        Explore
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </span>
-                </a>
-
-                <!-- Electrical Design -->
-                <a href="articles/electrical-design/" class="category-card">
-                    <div class="category-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">architecture</span>
-                    </div>
-                    <h3>Electrical Design</h3>
-                    <p>Cable selection, protection, distribution, earthing, and practical electrical design.</p>
-                    <span class="card-link">
-                        Explore
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </span>
-                </a>
-
-                <!-- Testing & Commissioning -->
-                <a href="articles/testing-commissioning/" class="category-card">
-                    <div class="category-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">engineering</span>
-                    </div>
-                    <h3>Testing &amp; Commissioning</h3>
-                    <p>Electrical testing procedures, commissioning methods, inspection, and troubleshooting.</p>
-                    <span class="card-link">
-                        Explore
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </span>
-                </a>
-
-            </div>
-        </div>
     </section>
 
 
-    <!-- CALCULATIONS / TOOLS -->
-    <section class="section section-alt" id="calculations">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">
-                    <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                    ENGINEERING TOOLS
-                </span>
-                <h2>Electrical Calculations</h2>
-                <p>Turn electrical engineering formulas into practical calculations.</p>
-            </div>
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
 
-            <div class="calculator-grid">
-
-                <a href="https://calculator.prasunbarua.com/" class="calculator-card" target="_blank" rel="noopener">
-                    <div class="tool-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                    </div>
-                    <div>
-                        <h3>Electrical Calculators</h3>
-                        <p>Explore practical electrical and engineering calculation tools.</p>
-                        <span class="card-link">
-                            Open Calculator
-                            <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://calculator.prasunbarua.com/calculators/cable-size/" class="calculator-card" target="_blank" rel="noopener">
-                    <div class="tool-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">cable</span>
-                    </div>
-                    <div>
-                        <h3>Cable Size Calculator</h3>
-                        <p>Estimate cable size using practical electrical design parameters.</p>
-                        <span class="card-link">
-                            Calculate
-                            <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
-                        </span>
-                    </div>
-                </a>
-
-                <a href="https://calculator.prasunbarua.com/calculators/voltage-drop/" class="calculator-card" target="_blank" rel="noopener">
-                    <div class="tool-icon">
-                        <span class="material-symbols-rounded" aria-hidden="true">monitoring</span>
-                    </div>
-                    <div>
-                        <h3>Voltage Drop Calculator</h3>
-                        <p>Calculate voltage drop for electrical cable installations.</p>
-                        <span class="card-link">
-                            Calculate
-                            <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </section>
+    <main>
 
 
-    <!-- SOLAR PV FEATURE -->
-    <section class="section" id="solar">
-        <div class="container">
-            <div class="feature-panel">
-                <div class="feature-content">
+        <!-- =================================================
+             TUTORIAL CATEGORIES
+             ================================================= -->
+
+        <section class="section"
+            id="tutorials"
+            aria-labelledby="tutorials-title">
+
+            <div class="container">
+
+                <div class="section-heading">
+
                     <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
-                        RENEWABLE ENERGY
+
+                        <span class="material-symbols-rounded"
+                            aria-hidden="true">
+                            menu_book
+                        </span>
+
+                        LEARN
+
                     </span>
-                    <h2>Solar PV Engineering</h2>
-                    <p>Learn how solar photovoltaic systems are designed, calculated, installed, tested, and commissioned.</p>
-                    
-                    <ul>
-                        <li>Solar PV system fundamentals</li>
-                        <li>PV string and inverter sizing</li>
-                        <li>Cable and voltage-drop calculations</li>
-                        <li>Solar PV losses and performance ratio</li>
-                        <li>Testing and commissioning</li>
-                    </ul>
 
-                    <a href="articles/solar-pv/" class="primary-button">
-                        <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
-                        Explore Solar PV
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </div>
+                    <h2 id="tutorials-title">
+                        Explore Electrical Engineering
+                    </h2>
 
-                <div class="feature-visual" aria-hidden="true">
-                    <div class="solar-illustration">
-                        <div class="sun">
-                            <span class="material-symbols-rounded">light_mode</span>
-                        </div>
-                        <div class="solar-panel">
-                            <span></span><span></span><span></span>
-                            <span></span><span></span><span></span>
-                            <span></span><span></span><span></span>
-                        </div>
-                        <div class="energy-line">
-                            <span class="material-symbols-rounded">bolt</span>
-                        </div>
-                        <div class="inverter">
-                            <span class="material-symbols-rounded">electrical_services</span>
-                            <span>INVERTER</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- LATEST TUTORIALS -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">
-                    <span class="material-symbols-rounded" aria-hidden="true">school</span>
-                    ENGINEERING TUTORIALS
-                </span>
-                <h2>Latest Tutorials</h2>
-                <p>Practical explanations designed to make complex electrical concepts easier to understand.</p>
-            </div>
-
-            <div class="article-grid">
-
-                <article class="article-card">
-                    <div class="article-category">FUNDAMENTALS</div>
-                    <div class="icon-box">
-                        <span class="material-symbols-rounded" aria-hidden="true">electrical_services</span>
-                    </div>
-                    <h3>What Is Ohm's Law?</h3>
-                    <p>Learn the relationship between voltage, current, and resistance with practical examples.</p>
-                    <a href="articles/electrical-fundamentals/ohms-law/">
-                        Read Tutorial
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="article-card">
-                    <div class="article-category">CALCULATIONS</div>
-                    <div class="icon-box">
-                        <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                    </div>
-                    <h3>How to Calculate Electrical Power</h3>
-                    <p>Understand electrical power calculations for single-phase and three-phase systems.</p>
-                    <a href="articles/electrical-calculations/power-calculation/">
-                        Read Tutorial
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-                <article class="article-card">
-                    <div class="article-category">SOLAR PV</div>
-                    <div class="icon-box">
-                        <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
-                    </div>
-                    <h3>How Does a Solar PV System Work?</h3>
-                    <p>Understand how sunlight is converted into usable electrical energy.</p>
-                    <a href="articles/solar-pv/how-solar-pv-works/">
-                        Read Tutorial
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </a>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- AUTHOR -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="author-section">
-                <div class="author-avatar" aria-hidden="true">PB</div>
-                <div>
-                    <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">person</span>
-                        ABOUT THE AUTHOR
-                    </span>
-                    <h2>Practical Engineering Knowledge</h2>
                     <p>
-                        Electrical Engineering is an educational resource created by Prasun Barua, 
-                        a Senior Electrical Engineer with professional experience in renewable energy, 
-                        solar PV projects, electrical design, testing, and commissioning.
+                        Build your knowledge from electrical fundamentals
+                        to practical engineering applications.
                     </p>
-                    <a href="about.html" class="text-link">
-                        Learn more about the author
-                        <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                    </a>
+
                 </div>
+
+
+                <div class="category-grid">
+
+
+                    <!-- Electrical Fundamentals -->
+
+                    <a href="/articles/electrical-fundamentals/"
+                        class="category-card">
+
+                        <div class="category-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                electrical_services
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Electrical Fundamentals
+                        </h3>
+
+                        <p>
+                            Voltage, current, resistance, power, energy,
+                            AC, DC, and essential electrical concepts.
+                        </p>
+
+                        <span class="card-link">
+
+                            Explore
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Electrical Calculations -->
+
+                    <a href="/articles/electrical-calculations/"
+                        class="category-card">
+
+                        <div class="category-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                calculate
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Electrical Calculations
+                        </h3>
+
+                        <p>
+                            Practical formulas, worked examples,
+                            sizing calculations, and engineering methods.
+                        </p>
+
+                        <span class="card-link">
+
+                            Explore
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Power Systems -->
+
+                    <a href="/articles/power-systems/"
+                        class="category-card">
+
+                        <div class="category-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                electric_bolt
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Power Systems
+                        </h3>
+
+                        <p>
+                            Transformers, distribution systems,
+                            power factor, protection, and grid concepts.
+                        </p>
+
+                        <span class="card-link">
+
+                            Explore
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Solar PV -->
+
+                    <a href="/articles/solar-pv/"
+                        class="category-card">
+
+                        <div class="category-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                solar_power
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Solar PV Engineering
+                        </h3>
+
+                        <p>
+                            Solar PV design, string sizing, inverters,
+                            performance, losses, and system calculations.
+                        </p>
+
+                        <span class="card-link">
+
+                            Explore
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Electrical Design -->
+
+                    <a href="/articles/electrical-design/"
+                        class="category-card">
+
+                        <div class="category-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                architecture
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Electrical Design
+                        </h3>
+
+                        <p>
+                            Cable selection, protection, distribution,
+                            earthing, and practical electrical design.
+                        </p>
+
+                        <span class="card-link">
+
+                            Explore
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </span>
+
+                    </a>
+
+
+                    <!-- Testing & Commissioning -->
+
+                    <a href="/articles/testing-commissioning/"
+                        class="category-card">
+
+                        <div class="category-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                engineering
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Testing &amp; Commissioning
+                        </h3>
+
+                        <p>
+                            Electrical testing procedures, commissioning
+                            methods, inspection, and troubleshooting.
+                        </p>
+
+                        <span class="card-link">
+
+                            Explore
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </span>
+
+                    </a>
+
+                </div>
+
             </div>
-        </div>
-    </section>
 
-</main>
+        </section>
 
 
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-<footer class="site-footer">
-    <div class="container footer-grid">
+        <!-- =================================================
+             ENGINEERING CALCULATIONS
+             ================================================= -->
 
-        <div>
-            <div class="footer-logo">
-                <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                Electrical Engineering
+        <section class="section section-alt"
+            id="calculations"
+            aria-labelledby="calculations-title">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+
+                        <span class="material-symbols-rounded"
+                            aria-hidden="true">
+                            calculate
+                        </span>
+
+                        ENGINEERING TOOLS
+
+                    </span>
+
+                    <h2 id="calculations-title">
+                        Electrical Calculations
+                    </h2>
+
+                    <p>
+                        Turn electrical engineering formulas
+                        into practical calculations.
+                    </p>
+
+                </div>
+
+
+                <div class="calculator-grid">
+
+
+                    <!-- Main Calculator -->
+
+                    <a href="https://calculator.prasunbarua.com/"
+                        class="calculator-card"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="tool-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                calculate
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Electrical Calculators
+                            </h3>
+
+                            <p>
+                                Explore practical electrical and
+                                engineering calculation tools.
+                            </p>
+
+                            <span class="card-link">
+
+                                Open Calculator
+
+                                <span class="material-symbols-rounded"
+                                    aria-hidden="true">
+                                    open_in_new
+                                </span>
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- Cable Size -->
+
+                    <a href="https://calculator.prasunbarua.com/calculators/cable-size/"
+                        class="calculator-card"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="tool-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                cable
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Cable Size Calculator
+                            </h3>
+
+                            <p>
+                                Estimate cable size using practical
+                                electrical design parameters.
+                            </p>
+
+                            <span class="card-link">
+
+                                Calculate
+
+                                <span class="material-symbols-rounded"
+                                    aria-hidden="true">
+                                    open_in_new
+                                </span>
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- Voltage Drop -->
+
+                    <a href="https://calculator.prasunbarua.com/calculators/voltage-drop/"
+                        class="calculator-card"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="tool-icon">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                monitoring
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Voltage Drop Calculator
+                            </h3>
+
+                            <p>
+                                Calculate voltage drop for electrical
+                                cable installations.
+                            </p>
+
+                            <span class="card-link">
+
+                                Calculate
+
+                                <span class="material-symbols-rounded"
+                                    aria-hidden="true">
+                                    open_in_new
+                                </span>
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
             </div>
-            <p>Practical electrical engineering tutorials, calculations, and guides.</p>
+
+        </section>
+
+
+        <!-- =================================================
+             SOLAR PV FEATURE
+             ================================================= -->
+
+        <section class="section"
+            id="solar"
+            aria-labelledby="solar-title">
+
+            <div class="container">
+
+                <div class="feature-panel">
+
+
+                    <div class="feature-content">
+
+                        <span class="section-label">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                solar_power
+                            </span>
+
+                            RENEWABLE ENERGY
+
+                        </span>
+
+                        <h2 id="solar-title">
+                            Solar PV Engineering
+                        </h2>
+
+                        <p>
+                            Learn how solar photovoltaic systems are
+                            designed, calculated, installed, tested,
+                            and commissioned.
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                Solar PV system fundamentals
+                            </li>
+
+                            <li>
+                                PV string and inverter sizing
+                            </li>
+
+                            <li>
+                                Cable and voltage-drop calculations
+                            </li>
+
+                            <li>
+                                Solar PV losses and performance ratio
+                            </li>
+
+                            <li>
+                                Testing and commissioning
+                            </li>
+
+                        </ul>
+
+
+                        <a href="/articles/solar-pv/"
+                            class="primary-button">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                solar_power
+                            </span>
+
+                            Explore Solar PV
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- Decorative Solar Illustration -->
+
+                    <div class="feature-visual"
+                        aria-hidden="true">
+
+                        <div class="solar-illustration">
+
+
+                            <div class="sun">
+
+                                <span class="material-symbols-rounded">
+                                    light_mode
+                                </span>
+
+                            </div>
+
+
+                            <div class="solar-panel">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                            <div class="energy-line">
+
+                                <span class="material-symbols-rounded">
+                                    bolt
+                                </span>
+
+                            </div>
+
+
+                            <div class="inverter">
+
+                                <span class="material-symbols-rounded">
+                                    electrical_services
+                                </span>
+
+                                <span>
+                                    INVERTER
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LATEST TUTORIALS
+             ================================================= -->
+
+        <section class="section section-alt"
+            aria-labelledby="latest-tutorials-title">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+
+                        <span class="material-symbols-rounded"
+                            aria-hidden="true">
+                            school
+                        </span>
+
+                        ENGINEERING TUTORIALS
+
+                    </span>
+
+                    <h2 id="latest-tutorials-title">
+                        Latest Tutorials
+                    </h2>
+
+                    <p>
+                        Practical explanations designed to make
+                        complex electrical concepts easier to understand.
+                    </p>
+
+                </div>
+
+
+                <div class="article-grid">
+
+
+                    <!-- Ohm's Law -->
+
+                    <article class="article-card">
+
+                        <div class="article-category">
+                            FUNDAMENTALS
+                        </div>
+
+                        <div class="icon-box">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                electrical_services
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            What Is Ohm's Law?
+                        </h3>
+
+                        <p>
+                            Learn the relationship between voltage,
+                            current, and resistance with practical examples.
+                        </p>
+
+                        <a href="/articles/electrical-fundamentals/ohms-law/">
+
+                            Read Tutorial
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- Electrical Power -->
+
+                    <article class="article-card">
+
+                        <div class="article-category">
+                            CALCULATIONS
+                        </div>
+
+                        <div class="icon-box">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                bolt
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            How to Calculate Electrical Power
+                        </h3>
+
+                        <p>
+                            Understand electrical power calculations
+                            for single-phase and three-phase systems.
+                        </p>
+
+                        <a href="/articles/electrical-calculations/power-calculation/">
+
+                            Read Tutorial
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- Solar PV -->
+
+                    <article class="article-card">
+
+                        <div class="article-category">
+                            SOLAR PV
+                        </div>
+
+                        <div class="icon-box">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                solar_power
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            How Does a Solar PV System Work?
+                        </h3>
+
+                        <p>
+                            Understand how sunlight is converted
+                            into usable electrical energy.
+                        </p>
+
+                        <a href="/articles/solar-pv/how-solar-pv-works/">
+
+                            Read Tutorial
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AUTHOR
+             ================================================= -->
+
+        <section class="section"
+            id="about"
+            aria-labelledby="about-title">
+
+            <div class="container">
+
+                <div class="author-section">
+
+
+                    <div class="author-avatar"
+                        aria-hidden="true">
+                        PB
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-label">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                person
+                            </span>
+
+                            ABOUT THE AUTHOR
+
+                        </span>
+
+
+                        <h2 id="about-title">
+                            Practical Engineering Knowledge
+                        </h2>
+
+
+                        <p>
+                            Electrical Engineering is an educational
+                            resource created by Prasun Barua, a Senior
+                            Electrical Engineer with professional
+                            experience in renewable energy, solar PV
+                            projects, electrical design, testing,
+                            and commissioning.
+                        </p>
+
+
+                        <a href="/about.html"
+                            class="text-link">
+
+                            Learn more about the author
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+
+            <!-- Footer Brand -->
+
+            <div>
+
+                <div class="footer-logo">
+
+                    <span class="material-symbols-rounded"
+                        aria-hidden="true">
+                        bolt
+                    </span>
+
+                    Electrical Engineering
+
+                </div>
+
+                <p>
+                    Practical electrical engineering tutorials,
+                    calculations, design guides, and renewable
+                    energy resources.
+                </p>
+
+            </div>
+
+
+            <!-- Explore -->
+
+            <div>
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="#tutorials">
+                    Tutorials
+                </a>
+
+                <a href="#calculations">
+                    Calculations
+                </a>
+
+                <a href="#solar">
+                    Solar PV
+                </a>
+
+                <a href="/articles/electrical-fundamentals/">
+                    Electrical Fundamentals
+                </a>
+
+            </div>
+
+
+            <!-- Information -->
+
+            <div>
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="/about.html">
+                    About
+                </a>
+
+                <a href="/contact.html">
+                    Contact
+                </a>
+
+                <a href="/privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="/disclaimer.html">
+                    Disclaimer
+                </a>
+
+            </div>
+
         </div>
 
-        <div>
-            <h3>Explore</h3>
-            <a href="#tutorials">Tutorials</a>
-            <a href="#calculations">Calculations</a>
-            <a href="#solar">Solar PV</a>
+
+        <!-- Footer Bottom -->
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    &copy; 2026 Prasun Barua.
+                    All rights reserved.
+                </p>
+
+            </div>
+
         </div>
 
-        <div>
-            <h3>Information</h3>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="disclaimer.html">Disclaimer</a>
-        </div>
+    </footer>
 
-    </div>
 
-    <div class="footer-bottom">
-        <div class="container">
-            <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    <!-- =====================================================
+         SITE JAVASCRIPT
+         ===================================================== -->
 
-<!-- JavaScript -->
-<script src="assets/js/app.js"></script>
+    <script src="/assets/js/app.js"
+        defer>
+    </script>
+
 
 </body>
+
 </html>
