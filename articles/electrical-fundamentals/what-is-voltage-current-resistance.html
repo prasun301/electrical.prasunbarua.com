@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
     <script>
@@ -15,1168 +16,1904 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Voltage, Current, Resistance and Power | Electrical Engineering</title>
-    <meta name="description" content="Learn the fundamentals of voltage, current, resistance and electrical power with practical explanations, formulas and real-world examples for students, technicians and engineers.">
+
+    <meta name="description" content="Learn the fundamentals of voltage, current, resistance and electrical power with simple explanations, formulas, practical examples and real-world engineering applications.">
+
     <meta name="author" content="Prasun Barua">
+
     <meta name="robots" content="index, follow, max-image-preview:large">
 
     <link rel="canonical" href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html">
 
+
     <!-- Open Graph / Social Media Meta Tags -->
+
     <meta property="og:type" content="article">
+
     <meta property="og:title" content="Voltage, Current, Resistance and Power: A Practical Guide">
-    <meta property="og:description" content="A practical introduction to four fundamental electrical quantities: voltage, current, resistance and power.">
+
+    <meta property="og:description" content="A practical introduction to voltage, current, resistance and electrical power with formulas, examples and real-world engineering applications.">
+
     <meta property="og:url" content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html">
+
     <meta property="og:site_name" content="Electrical Engineering">
+
     <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-voltage-current-power.jpg">
-    <meta property="og:updated_time" content="2026-08-11T00:00:00+00:00">
+
+    <meta property="og:updated_time" content="2026-08-12T00:00:00+00:00">
+
 
     <!-- Twitter / X Cards -->
+
     <meta name="twitter:card" content="summary_large_image">
+
     <meta name="twitter:title" content="Voltage, Current, Resistance and Power">
+
     <meta name="twitter:description" content="A practical guide to understanding voltage, current, resistance and electrical power.">
+
     <meta name="twitter:image" content="https://electrical.prasunbarua.com/assets/images/og-voltage-current-power.jpg">
 
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
+
 
     <!-- Performance: Preconnects and Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- Main Stylesheet & App Script -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <script src="../../assets/js/app.js" defer></script>
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+    >
 
-    <!-- Essential Layout Safety Styles & Component Styles -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    >
+
+
+    <!-- Main Stylesheet -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="/assets/js/app.js" defer></script>
+
+
+    <!-- Essential Layout Safety Styles -->
+
     <style>
-/* =========================================================
-   ARTICLE PAGE — WORDPRESS-STYLE LAYOUT
-   ========================================================= */
-
-:root {
-    --primary: #0b57d0;
-    --text-dark: #1e293b;
-    --text-heading: #0f172a;
-    --text-muted: #64748b;
-    --bg-light: #f8fafc;
-    --border: #e2e8f0;
-    --formula-bg: #1e293b;
-    --formula-text: #ffffff;
-    --formula-muted: #cbd5e1;
-    --radius: 8px;
-}
-
-/* =========================================================
-   BASE
-   ========================================================= */
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text-dark);
-    margin: 0;
-    line-height: 1.7;
-    background: #ffffff;
-}
-
-/* Prevent fixed header from covering article */
-main {
-    display: block;
-}
-
-/* =========================================================
-   CONTAINER
-   ========================================================= */
-
-.container,
-.article-container {
-    width: 100%;
-    max-width: 1120px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-    box-sizing: border-box;
-}
-
-/* =========================================================
-   ARTICLE PAGE TOP SPACING
-   IMPORTANT:
-   Only the MAIN article wrapper gets this padding.
-   Do NOT apply it to every .article-section because
-   .article-section is also used for individual sections.
-   ========================================================= */
-
-main > .article-section {
-    padding-top: 96px;
-    padding-bottom: 72px;
-}
-
-/* =========================================================
-   BREADCRUMBS
-   ========================================================= */
-
-.breadcrumbs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-
-    font-size: 14px;
-    line-height: 1.5;
-
-    color: var(--text-muted);
-
-    margin-bottom: 28px;
-}
-
-.breadcrumbs a {
-    color: var(--text-muted);
-    text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-    color: var(--primary);
-    text-decoration: underline;
-}
-
-/* =========================================================
-   ARTICLE HEADER
-   ========================================================= */
 
-.article-header {
-    max-width: 850px;
-    margin: 0 auto 56px;
-}
+        :root {
+            --primary: #0b57d0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
 
-.article-category {
-    display: inline-block;
+            --formula-bg: #1e293b;
+            --formula-text: #ffffff;
+            --formula-muted: #cbd5e1;
 
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+            --radius: 8px;
+        }
 
-    color: var(--primary);
 
-    margin-bottom: 14px;
-}
+        /* ---------------------------------------------------------
+           BASE
+        --------------------------------------------------------- */
 
-.article-header h1 {
-    margin: 0 0 20px;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    color: var(--text-heading);
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.7;
+            background: #ffffff;
+        }
 
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    line-height: 1.1;
-    letter-spacing: -0.035em;
-    font-weight: 800;
-}
 
-.article-intro {
-    margin: 0 0 20px;
+        /* ---------------------------------------------------------
+           GLOBAL CONTAINER
+        --------------------------------------------------------- */
 
-    font-size: 1.2rem;
-    line-height: 1.7;
+        .container,
+        .article-container {
+            width: 100%;
+            max-width: 1080px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
 
-    color: var(--text-muted);
-}
 
-.article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+        /* ---------------------------------------------------------
+           ARTICLE MAIN AREA
+        --------------------------------------------------------- */
 
-    font-size: 14px;
-    color: var(--text-muted);
-}
+        .article-section {
+            padding: 32px 0 80px;
+        }
 
-/* =========================================================
-   ARTICLE GRID
-   ========================================================= */
+        .article-container {
+            margin-top: 0;
+        }
 
-.article-layout {
-    display: grid;
 
-    grid-template-columns: 240px minmax(0, 1fr);
+        /* ---------------------------------------------------------
+           BREADCRUMBS
+        --------------------------------------------------------- */
 
-    gap: 48px;
+        .breadcrumbs {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
 
-    align-items: start;
+            margin: 0 0 28px;
 
-    max-width: 1120px;
-    margin: 0 auto;
-}
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
 
-/* =========================================================
-   SIDEBAR / TABLE OF CONTENTS
-   ========================================================= */
+        .breadcrumbs a {
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-.article-sidebar {
-    min-width: 0;
-}
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
 
-.toc {
-    position: sticky;
 
-    /* Header is approximately 70px high */
-    top: 92px;
+        /* ---------------------------------------------------------
+           ARTICLE HEADER
+        --------------------------------------------------------- */
 
-    background: #f8fafc;
+        .article-header {
+            max-width: 900px;
+            margin: 0 0 48px;
+        }
 
-    border: 1px solid var(--border);
+        .article-category {
+            display: inline-block;
 
-    padding: 20px;
+            margin-bottom: 14px;
 
-    border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.4;
+            font-weight: 700;
 
-    display: flex;
-    flex-direction: column;
+            letter-spacing: 0.08em;
 
-    gap: 10px;
+            color: var(--primary);
+        }
 
-    box-sizing: border-box;
-}
+        .article-header h1 {
+            margin: 0 0 20px;
 
-.toc h3 {
-    margin: 0 0 8px;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
 
-    font-size: 12px;
-    line-height: 1.4;
+            color: #0f172a;
+        }
 
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+        .article-intro {
+            max-width: 820px;
 
-    color: var(--text-muted);
-}
+            margin: 0 0 20px;
 
-.toc a {
-    color: var(--primary);
+            font-size: 1.15rem;
+            line-height: 1.75;
 
-    text-decoration: none;
+            color: #475569;
+        }
 
-    font-size: 14px;
-    line-height: 1.5;
-    font-weight: 500;
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
 
-    padding: 2px 0;
-}
+            font-size: 14px;
+            color: var(--text-muted);
+        }
 
-.toc a:hover {
-    color: #0842a0;
-    text-decoration: underline;
-}
 
-/* =========================================================
-   ARTICLE CONTENT
-   ========================================================= */
+        /* ---------------------------------------------------------
+           ARTICLE LAYOUT
+        --------------------------------------------------------- */
 
-.article-content {
-    min-width: 0;
+        .article-layout {
+            display: grid;
 
-    max-width: 800px;
-}
+            grid-template-columns: 240px minmax(0, 1fr);
 
-/* =========================================================
-   PARAGRAPHS
-   ========================================================= */
+            gap: 48px;
 
-.article-content p {
-    margin-top: 0;
-    margin-bottom: 22px;
+            align-items: start;
 
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
+            margin-top: 0;
+        }
 
-.article-content .lead {
-    font-size: 1.2rem;
-    line-height: 1.75;
 
-    color: var(--text-heading);
+        /* ---------------------------------------------------------
+           TABLE OF CONTENTS
+        --------------------------------------------------------- */
 
-    margin-bottom: 24px;
-}
+        .article-sidebar {
+            min-width: 0;
+        }
 
-/* =========================================================
-   HEADINGS
-   ========================================================= */
+        .toc {
+            position: sticky;
+            top: 90px;
 
-.article-content h2 {
-    margin-top: 0;
-    margin-bottom: 18px;
+            background: var(--bg-light);
 
-    color: var(--text-heading);
+            border: 1px solid var(--border);
 
-    font-size: clamp(1.8rem, 3vw, 2.3rem);
-    line-height: 1.2;
+            padding: 20px;
 
-    letter-spacing: -0.025em;
+            border-radius: var(--radius);
 
-    font-weight: 800;
-}
+            display: flex;
+            flex-direction: column;
 
-.article-content h3 {
-    margin-top: 36px;
-    margin-bottom: 12px;
+            gap: 10px;
+        }
 
-    color: var(--text-heading);
+        .toc h3 {
+            margin: 0 0 8px;
 
-    font-size: 1.35rem;
-    line-height: 1.3;
+            font-size: 13px;
+            line-height: 1.4;
 
-    font-weight: 700;
-}
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
 
-/* =========================================================
-   ARTICLE SECTIONS
-   ========================================================= */
+            color: var(--text-muted);
+        }
 
-/*
-   Individual article sections.
-   This gives a WordPress-like vertical rhythm.
-*/
+        .toc a {
+            color: var(--primary);
 
-.article-content > .article-section {
-    margin-top: 64px;
-    padding-top: 0;
-    padding-bottom: 0;
-}
+            text-decoration: none;
 
-/* First section should not have unnecessary huge gap */
-.article-content > .article-section:first-of-type {
-    margin-top: 48px;
-}
+            font-size: 14px;
+            line-height: 1.5;
 
-/* Anchor positioning when clicking TOC */
-.article-content > .article-section {
-    scroll-margin-top: 100px;
-}
+            font-weight: 500;
+        }
 
-/* =========================================================
-   LISTS
-   ========================================================= */
+        .toc a:hover {
+            text-decoration: underline;
+        }
 
-.article-content ul,
-.article-content ol {
-    margin-top: 0;
-    margin-bottom: 24px;
 
-    padding-left: 28px;
-}
+        /* ---------------------------------------------------------
+           ARTICLE CONTENT
+        --------------------------------------------------------- */
 
-.article-content li {
-    margin-bottom: 9px;
+        .article-content {
+            min-width: 0;
 
-    font-size: 1.05rem;
-    line-height: 1.7;
-}
+            max-width: 760px;
 
-/* =========================================================
-   QUICK ANSWER
-   ========================================================= */
+            font-size: 17px;
+            line-height: 1.75;
+        }
 
-.quick-answer {
-    background: #eff6ff;
+        .article-content section {
+            scroll-margin-top: 100px;
 
-    border-left: 4px solid var(--primary);
+            margin: 0 0 64px;
+        }
 
-    padding: 20px 24px;
+        .article-content section:last-child {
+            margin-bottom: 0;
+        }
 
-    border-radius: 0 8px 8px 0;
+        .article-content p {
+            margin: 0 0 20px;
+        }
 
-    margin: 0 0 36px;
-}
+        .article-content ul,
+        .article-content ol {
+            margin: 0 0 24px;
 
-.quick-answer strong {
-    color: var(--text-heading);
-}
+            padding-left: 1.5rem;
+        }
 
-.quick-answer p {
-    margin: 8px 0 0;
+        .article-content li {
+            margin-bottom: 8px;
+        }
 
-    font-size: 1rem;
-    line-height: 1.7;
-}
+        .article-content h2 {
+            margin: 0 0 18px;
 
-/* =========================================================
-   FORMULA BOX
-   ========================================================= */
+            font-size: clamp(1.8rem, 3vw, 2.35rem);
+            line-height: 1.2;
 
-.formula-box {
-    width: 100%;
-    box-sizing: border-box;
+            letter-spacing: -0.025em;
 
-    background: var(--formula-bg);
+            color: #0f172a;
+        }
 
-    color: var(--formula-text) !important;
+        .article-content h3 {
+            margin: 32px 0 12px;
 
-    text-align: center;
+            font-size: 1.25rem;
+            line-height: 1.35;
 
-    padding: 28px 24px;
+            color: #0f172a;
+        }
 
-    border-radius: 8px;
+        .article-content strong {
+            color: #0f172a;
+        }
 
-    margin: 28px 0 32px;
+        .article-content code {
+            background: #f1f5f9;
 
-    overflow-x: auto;
-}
+            color: #0f172a;
 
-/*
-   IMPORTANT:
-   Force formula text to white.
-   Your external style.css appears to be
-   overriding .formula color.
-*/
+            padding: 2px 6px;
 
-.formula-box .formula {
-    color: #ffffff !important;
+            border-radius: 4px;
 
-    font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: 0.9em;
+        }
 
-    font-weight: 700;
 
-    line-height: 1.4;
+        /* ---------------------------------------------------------
+           QUICK ANSWER
+        --------------------------------------------------------- */
 
-    letter-spacing: 0.02em;
+        .quick-answer {
+            background: #eff6ff;
 
-    margin: 0;
-}
+            border-left: 4px solid var(--primary);
 
-/* Formula heading such as RESISTANCE / OHM'S LAW */
+            padding: 20px 24px;
 
-.formula-box > div:first-child {
-    color: #cbd5e1 !important;
+            border-radius: 0 var(--radius) var(--radius) 0;
 
-    font-size: 0.8rem !important;
+            margin: 0 0 40px;
+        }
 
-    font-weight: 700;
+        .quick-answer > strong {
+            display: block;
 
-    margin-bottom: 12px !important;
+            margin-bottom: 8px;
 
-    text-transform: uppercase;
+            color: #0f172a;
+        }
 
-    letter-spacing: 0.08em;
-}
+        .quick-answer p {
+            margin-bottom: 0;
+        }
 
-/* Formula description */
 
-.formula-box p {
-    color: #cbd5e1 !important;
+        /* ---------------------------------------------------------
+           FORMULA BOX
+           IMPORTANT: ALL FORMULA TEXT IS LIGHT
+        --------------------------------------------------------- */
 
-    font-size: 1rem !important;
+        .formula-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-    font-weight: 400 !important;
+            width: 100%;
+            box-sizing: border-box;
 
-    line-height: 1.6;
+            background: var(--formula-bg);
 
-    margin: 14px 0 0 !important;
-}
+            color: var(--formula-text) !important;
 
-.formula-box p strong {
-    color: #ffffff !important;
-}
+            text-align: center;
 
-/* =========================================================
-   FORMULA GRID
-   ========================================================= */
+            padding: 26px 24px;
 
-.formula-grid {
-    display: grid;
+            margin: 28px 0;
 
-    grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
+            border-radius: var(--radius);
 
-    gap: 16px;
+            font-size: 1.45rem;
+            font-weight: 700;
 
-    margin: 28px 0 32px;
-}
+            line-height: 1.5;
+        }
 
-.formula-card {
-    border: 1px solid var(--border);
+        /* Prevent style.css from making formula text dark */
 
-    border-radius: 8px;
+        .formula-box,
+        .formula-box *,
+        .formula-box .formula,
+        .formula-box strong,
+        .formula-box p,
+        .formula-box div {
+            color: var(--formula-text) !important;
+        }
 
-    padding: 20px;
+        .formula-box .formula {
+            font-size: clamp(1.7rem, 4vw, 2.1rem);
 
-    text-align: center;
+            font-weight: 800;
 
-    background: #ffffff;
+            letter-spacing: 0.02em;
 
-    box-sizing: border-box;
-}
+            color: #ffffff !important;
 
-.formula-card strong {
-    display: block;
+            margin: 4px 0;
+        }
 
-    color: var(--text-heading);
+        .formula-box p {
+            font-size: 1rem;
 
-    margin-bottom: 8px;
+            font-weight: 400;
 
-    font-size: 0.95rem;
-}
+            color: var(--formula-muted) !important;
 
-.formula-card span {
-    display: block;
+            margin: 10px 0 0;
 
-    color: var(--text-heading);
+            line-height: 1.6;
+        }
 
-    font-size: 1.2rem;
+        .formula-box .formula-label {
+            font-size: 0.78rem;
 
-    font-weight: 700;
-}
+            font-weight: 700;
 
-/* =========================================================
-   CALCULATION BOX
-   ========================================================= */
+            text-transform: uppercase;
 
-.calculation-box {
-    background: #f8fafc;
+            letter-spacing: 0.08em;
 
-    border: 1px solid var(--border);
+            color: #cbd5e1 !important;
 
-    border-radius: 8px;
+            margin-bottom: 4px;
+        }
 
-    padding: 20px 24px;
 
-    margin: 24px 0 28px;
+        /* ---------------------------------------------------------
+           FORMULA GRID
+        --------------------------------------------------------- */
 
-    font-family:
-        "SFMono-Regular",
-        Consolas,
-        "Liberation Mono",
-        monospace;
+        .formula-grid {
+            display: grid;
 
-    font-size: 1.05rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    line-height: 1.8;
-}
+            gap: 16px;
 
-.calculation-box strong {
-    color: var(--primary) !important;
-}
+            margin: 28px 0;
+        }
 
-/* =========================================================
-   FIGURES / IMAGES
-   ========================================================= */
+        .formula-card {
+            border: 1px solid var(--border);
 
-.article-figure {
-    margin: 32px 0 40px;
+            border-radius: var(--radius);
 
-    padding: 0;
-}
+            padding: 20px 16px;
 
-.article-figure img {
-    display: block;
+            text-align: center;
 
-    width: 100%;
-    height: auto;
+            background: var(--bg-light);
+        }
 
-    max-width: 800px;
+        .formula-card strong {
+            display: block;
 
-    margin: 0 auto;
+            margin-bottom: 8px;
 
-    border-radius: 8px;
+            color: #0f172a;
+        }
 
-    border: 1px solid var(--border);
-}
+        .formula-card span {
+            display: block;
 
-.article-figure figcaption {
-    margin-top: 12px;
+            font-size: 1.05rem;
 
-    color: var(--text-muted);
+            font-weight: 700;
 
-    font-size: 14px;
+            color: #0f172a;
+        }
 
-    line-height: 1.6;
 
-    text-align: left;
-}
+        /* ---------------------------------------------------------
+           CALCULATION BOX
+        --------------------------------------------------------- */
 
-.article-figure figcaption strong {
-    color: var(--text-dark);
-}
+        .calculation-box {
+            background: #f8fafc;
 
-/* =========================================================
-   TABLES
-   ========================================================= */
+            border: 1px solid var(--border);
 
-.engineering-table {
-    width: 100%;
+            border-radius: var(--radius);
 
-    border-collapse: collapse;
+            padding: 20px 24px;
 
-    margin: 28px 0 32px;
+            margin: 24px 0;
 
-    font-size: 0.95rem;
-}
+            font-size: 1.05rem;
+        }
 
-.engineering-table th,
-.engineering-table td {
-    border: 1px solid var(--border);
+        .calculation-box p {
+            margin: 4px 0;
+        }
 
-    padding: 12px 16px;
 
-    text-align: left;
-}
+        /* ---------------------------------------------------------
+           RESULT BOX
+        --------------------------------------------------------- */
 
-.engineering-table th {
-    background: var(--bg-light);
+        .result-box {
+            background: #eff6ff;
 
-    color: var(--text-heading);
+            border: 1px solid #bfdbfe;
 
-    font-weight: 700;
-}
+            border-radius: var(--radius);
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+            padding: 20px 24px;
 
-@media (max-width: 900px) {
+            margin: 24px 0;
 
-    .article-layout {
-        grid-template-columns: 1fr;
+            text-align: center;
 
-        gap: 32px;
-    }
+            font-size: 1.4rem;
 
-    .article-sidebar {
-        order: -1;
-    }
+            color: var(--primary);
+        }
 
-    .toc {
-        position: relative;
+        .result-box strong {
+            color: var(--primary) !important;
+        }
 
-        top: auto;
-    }
 
-    .article-content {
-        max-width: none;
-    }
-}
+        /* ---------------------------------------------------------
+           ARTICLE FIGURES
+        --------------------------------------------------------- */
 
-@media (max-width: 768px) {
+        .article-figure {
+            margin: 36px 0;
+        }
 
-    .container,
-    .article-container {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
+        .article-figure img {
+            display: block;
 
-    main > .article-section {
-        padding-top: 80px;
-        padding-bottom: 48px;
-    }
+            width: 100%;
+            height: auto;
 
-    .article-header {
-        margin-bottom: 40px;
-    }
+            border-radius: var(--radius);
 
-    .article-header h1 {
-        font-size: 2.15rem;
-    }
+            border: 1px solid var(--border);
+        }
 
-    .article-intro {
-        font-size: 1.05rem;
-    }
+        .article-figure figcaption {
+            margin-top: 12px;
 
-    .article-content p,
-    .article-content li {
-        font-size: 1rem;
-    }
+            font-size: 14px;
 
-    .article-content > .article-section {
-        margin-top: 52px;
-    }
+            line-height: 1.6;
 
-    .formula-box {
-        padding: 24px 16px;
-    }
+            color: var(--text-muted);
+        }
 
-    .formula-box .formula {
-        font-size: 1.45rem;
-    }
 
-    .formula-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        /* ---------------------------------------------------------
+           ENGINEERING TABLE
+        --------------------------------------------------------- */
 
-@media (max-width: 480px) {
+        .engineering-table {
+            width: 100%;
 
-    .article-header h1 {
-        font-size: 1.9rem;
-    }
+            border-collapse: collapse;
 
-    .article-meta {
-        font-size: 13px;
-    }
+            margin: 28px 0;
 
-    .toc {
-        padding: 16px;
-    }
+            font-size: 15px;
+        }
 
-    .formula-box {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-</style>
-    
-    <!-- Article Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "TechArticle",
-        "headline": "Voltage, Current, Resistance and Power: A Practical Guide to the Fundamentals of Electricity",
-        "description": "A practical introduction to voltage, current, resistance and electrical power, including formulas, examples and real-world applications.",
-        "author": {
-            "@type": "Person",
-            "name": "Prasun Barua",
-            "url": "https://prasunbarua.com/"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Electrical Engineering",
-            "url": "https://electrical.prasunbarua.com/",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://electrical.prasunbarua.com/assets/images/logo.png"
+        .engineering-table th,
+        .engineering-table td {
+            border: 1px solid var(--border);
+
+            padding: 12px 14px;
+
+            text-align: left;
+        }
+
+        .engineering-table th {
+            background: var(--bg-light);
+
+            color: #0f172a;
+
+            font-weight: 700;
+        }
+
+        .engineering-table td {
+            background: #ffffff;
+        }
+
+
+        /* ---------------------------------------------------------
+           CTA
+        --------------------------------------------------------- */
+
+        .article-cta {
+            margin: 48px 0;
+
+            padding: 32px;
+
+            background: #f8fafc;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            text-align: center;
+        }
+
+        .article-cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .article-cta p {
+            max-width: 600px;
+
+            margin: 0 auto 24px;
+
+            color: var(--text-muted);
+        }
+
+
+        /* ---------------------------------------------------------
+           RELATED ARTICLES
+        --------------------------------------------------------- */
+
+        .related-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin-top: 24px;
+        }
+
+        .related-grid a {
+            display: block;
+
+            padding: 16px 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background: #ffffff;
+
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        .related-grid a:hover {
+            background: var(--bg-light);
+        }
+
+
+        /* ---------------------------------------------------------
+           MOBILE
+        --------------------------------------------------------- */
+
+        @media (max-width: 900px) {
+
+            .article-layout {
+                grid-template-columns: 1fr;
+
+                gap: 32px;
             }
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html"
-        },
-        "datePublished": "2026-08-11",
-        "dateModified": "2026-08-11",
-        "articleSection": "Electrical Fundamentals",
-        "keywords": [
-            "voltage",
-            "current",
-            "resistance",
-            "electrical power",
-            "Ohm's law",
-            "electrical engineering fundamentals"
-        ]
+
+            .article-sidebar {
+                order: 0;
+            }
+
+            .article-content {
+                order: 1;
+
+                max-width: none;
+            }
+
+            .toc {
+                position: relative;
+
+                top: auto;
+            }
+
+            .article-header {
+                margin-bottom: 36px;
+            }
+
+        }
+
+
+        @media (max-width: 640px) {
+
+            .container,
+            .article-container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .article-section {
+                padding-top: 24px;
+                padding-bottom: 56px;
+            }
+
+            .article-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .article-intro {
+                font-size: 1.05rem;
+            }
+
+            .article-content {
+                font-size: 16px;
+            }
+
+            .formula-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .formula-box {
+                padding: 22px 16px;
+            }
+
+            .article-cta {
+                padding: 24px 18px;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- Structured Data: TechArticle -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Voltage, Current, Resistance and Power: A Practical Guide to the Fundamentals of Electricity",
+      "description": "A practical introduction to voltage, current, resistance and electrical power, including formulas, examples and real-world applications.",
+      "author": {
+        "@type": "Person",
+        "name": "Prasun Barua",
+        "url": "https://prasunbarua.com/"
       },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
+      "publisher": {
+        "@type": "Organization",
+        "name": "Electrical Engineering by Prasun Barua",
+        "url": "https://electrical.prasunbarua.com"
+      },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-12",
+      "articleSection": "Electrical Fundamentals",
+      "keywords": [
+        "voltage",
+        "current",
+        "resistance",
+        "electrical power",
+        "Ohm's law",
+        "electrical engineering fundamentals"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html"
+      }
+    }
+    </script>
+
+
+    <!-- Structured Data: Breadcrumbs -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
           "item": "https://electrical.prasunbarua.com/"
-        },{
+        },
+        {
           "@type": "ListItem",
           "position": 2,
           "name": "Electrical Fundamentals",
           "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-        },{
+        },
+        {
           "@type": "ListItem",
           "position": 3,
-          "name": "Voltage, Current, Resistance and Power",
-          "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/voltage-current-resistance-power.html"
-        }]
-      }
-    ]
+          "name": "Voltage, Current, Resistance and Power"
+        }
+      ]
+    }
     </script>
 
-    <!-- Async Third-Party Scripts -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
+
+    <!-- Google AdSense -->
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous">
+    </script>
+
 </head>
+
 
 <body>
 
+
     <!-- Header -->
+
     <header class="site-header">
+
         <div class="container header-inner">
-            <a href="../../index.html" class="logo" aria-label="Electrical Engineering home">
+
+            <a href="/" class="logo" aria-label="Electrical Engineering home">
+
                 <span class="logo-icon" aria-hidden="true">
                     <span class="material-symbols-rounded">bolt</span>
                 </span>
+
                 <span>
                     <strong>Electrical Engineering</strong>
                     <small>by Prasun Barua</small>
                 </span>
+
             </a>
 
+
             <nav class="main-nav" aria-label="Main navigation">
+
                 <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../electrical-fundamentals/" class="active">Tutorials</a></li>
-                    <li><a href="../electrical-calculations/">Calculations</a></li>
-                    <li><a href="../solar-pv/">Solar PV</a></li>
-                    <li><a href="../../about.html">About</a></li>
-                    <li><a href="../../contact.html">Contact</a></li>
+
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-fundamentals/" class="active">
+                            Tutorials
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-calculations/">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/solar-pv/">
+                            Solar PV
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
 
-    <!-- Main Content Area -->
+
+    <!-- Main -->
+
     <main>
+
         <section class="article-section">
+
             <div class="article-container">
+
+
                 <!-- Breadcrumb Navigation -->
+
                 <nav class="breadcrumbs" aria-label="Breadcrumb">
-                    <a href="../../index.html">Home</a>
+
+                    <a href="/">
+                        Home
+                    </a>
+
                     <span aria-hidden="true">›</span>
-                    <a href="../electrical-fundamentals/">Electrical Fundamentals</a>
+
+                    <a href="/articles/electrical-fundamentals/">
+                        Electrical Fundamentals
+                    </a>
+
                     <span aria-hidden="true">›</span>
-                    <span aria-current="page">Voltage, Current, Resistance and Power</span>
+
+                    <span aria-current="page">
+                        Voltage, Current, Resistance and Power
+                    </span>
+
                 </nav>
 
+
                 <!-- Article Header -->
+
                 <header class="article-header">
-                    <div class="article-category">ELECTRICAL FUNDAMENTALS</div>
-                    <h1>Voltage, Current, Resistance and Power</h1>
+
+                    <div class="article-category">
+                        ELECTRICAL FUNDAMENTALS
+                    </div>
+
+                    <h1>
+                        Voltage, Current, Resistance and Power
+                    </h1>
+
                     <p class="article-intro">
                         A practical guide to four of the most important electrical quantities — what they mean, how they are related, and why they matter in real-world electrical systems.
                     </p>
+
                     <div class="article-meta">
-                        <span>By <strong>Prasun Barua</strong></span>
+
+                        <span>
+                            By <strong>Prasun Barua</strong>
+                        </span>
+
                         <span aria-hidden="true">•</span>
-                        <span>August 11, 2026</span>
+
+                        <span>
+                            Electrical Engineering
+                        </span>
+
                         <span aria-hidden="true">•</span>
-                        <span>9 min read</span>
+
+                        <span>
+                            Updated August 2026
+                        </span>
+
                     </div>
+
                 </header>
 
-                <!-- Article Layout Grid -->
+
+                <!-- Article Main Content Layout -->
+
                 <div class="article-layout">
-                    <!-- Sticky Sidebar Table of Contents -->
-                    <aside class="article-sidebar" aria-label="Article Navigation">
-                        <nav class="toc" aria-label="Table of Contents">
-                            <h3>On This Page</h3>
-                            <a href="#voltage">What Is Voltage?</a>
-                            <a href="#current">What Is Current?</a>
-                            <a href="#resistance">What Is Resistance?</a>
-                            <a href="#ohms-law">Understanding Ohm's Law</a>
-                            <a href="#power">What Is Electrical Power?</a>
-                            <a href="#worked-example">Worked Example</a>
-                            <a href="#real-world">Real-World Applications</a>
-                            <a href="#summary">Key Takeaways</a>
+
+
+                    <!-- Sticky Sidebar -->
+
+                    <aside
+                        class="article-sidebar"
+                        aria-label="Article Navigation"
+                    >
+
+                        <nav
+                            class="toc"
+                            aria-label="Table of Contents"
+                        >
+
+                            <h3>
+                                On This Page
+                            </h3>
+
+                            <a href="#voltage">
+                                What Is Voltage?
+                            </a>
+
+                            <a href="#current">
+                                What Is Current?
+                            </a>
+
+                            <a href="#resistance">
+                                What Is Resistance?
+                            </a>
+
+                            <a href="#ohms-law">
+                                Understanding Ohm's Law
+                            </a>
+
+                            <a href="#power">
+                                What Is Electrical Power?
+                            </a>
+
+                            <a href="#worked-example">
+                                Worked Example
+                            </a>
+
+                            <a href="#real-world">
+                                Real-World Applications
+                            </a>
+
+                            <a href="#summary">
+                                Key Takeaways
+                            </a>
+
                         </nav>
+
                     </aside>
 
+
                     <!-- Article Content -->
+
                     <article class="article-content">
 
-                        <!-- Quick Overview / Notice -->
+
+                        <!-- Quick Answer -->
+
                         <div class="quick-answer">
-                            <strong>The basic relationship</strong>
+
+                            <strong>
+                                Quick Answer
+                            </strong>
+
                             <p>
-                                In a simple resistive circuit, voltage drives current through resistance, while electrical power describes the rate at which electrical energy is transferred or converted.
+                                Voltage provides the electrical potential difference that can drive current through a circuit. Resistance opposes current flow, while electrical power describes the rate at which electrical energy is transferred or converted.
                             </p>
+
+                            <div class="formula-box">
+
+                                <div class="formula-label">
+                                    Fundamental Relationship
+                                </div>
+
+                                <div class="formula">
+                                    V = I × R
+                                </div>
+
+                            </div>
+
                         </div>
 
+
                         <!-- Introduction -->
-                        <div class="article-introduction">
-                            <p class="lead">
-                                If you are beginning your journey in electrical engineering, four quantities appear almost everywhere: <strong>voltage, current, resistance and power</strong>.
+
+                        <section>
+
+                            <h2>
+                                Electrical Fundamentals
+                            </h2>
+
+                            <p>
+                                If you are beginning your journey in electrical engineering, four quantities appear almost everywhere:
+                                <strong>voltage, current, resistance and power</strong>.
                             </p>
+
                             <p>
                                 These concepts are simple individually, but understanding how they work together is one of the most important steps toward understanding electrical circuits.
                             </p>
-                            <p>
-                                Whether you are studying electrical engineering, working with electrical installations, designing solar PV systems or simply trying to understand how electrical equipment works, these four quantities provide the foundation for much of what comes later.
-                            </p>
-                        </div>
 
-                        <!-- Section 1: Voltage -->
-                        <section id="voltage" class="article-section">
-                            <h2>1. What Is Voltage?</h2>
-                            <p><strong>Voltage</strong> is the electrical potential difference between two points.</p>
+                            <p>
+                                Whether you are studying electrical engineering, working with electrical installations, designing solar PV systems, or simply trying to understand how electrical equipment works, these four quantities provide the foundation for much of what comes later.
+                            </p>
+
+                        </section>
+
+
+                        <!-- Voltage -->
+
+                        <section id="voltage">
+
+                            <h2>
+                                1. What Is Voltage?
+                            </h2>
+
+                            <p>
+                                <strong>Voltage</strong> is the electrical potential difference between two points.
+                            </p>
+
                             <p>
                                 A useful way to think about voltage is to compare it with pressure in a water system. Water pressure provides the force that can push water through a pipe. Similarly, voltage provides the potential difference that can drive electric charge through a circuit.
                             </p>
-                            <p>Voltage is measured in <strong>volts (V)</strong>.</p>
 
-                            <h3>Common examples</h3>
+                            <p>
+                                Voltage is measured in <strong>volts (V)</strong>.
+                            </p>
+
+                            <h3>
+                                Common examples
+                            </h3>
+
                             <ul>
-                                <li>A typical household supply may be around 230 V in many countries.</li>
-                                <li>A USB supply commonly provides about 5 V.</li>
-                                <li>A 12 V battery has a nominal voltage of approximately 12 V.</li>
-                                <li>Solar PV modules may have operating voltages in the tens of volts.</li>
+
+                                <li>
+                                    A typical household supply may be around 230 V in many countries.
+                                </li>
+
+                                <li>
+                                    A USB supply commonly provides about 5 V.
+                                </li>
+
+                                <li>
+                                    A 12 V battery has a nominal voltage of approximately 12 V.
+                                </li>
+
+                                <li>
+                                    Solar PV modules may have operating voltages in the tens of volts.
+                                </li>
+
                             </ul>
+
                             <p>
                                 Voltage by itself does not tell us how much current is flowing. A voltage can exist across a component even when the circuit is open and current is essentially zero.
                             </p>
+
                         </section>
 
-                        <!-- Section 2: Current -->
-                        <section id="current" class="article-section">
-                            <h2>2. What Is Current?</h2>
-                            <p><strong>Electric current</strong> is the rate at which electric charge flows through a conductor or circuit.</p>
-                            <p>Current is measured in <strong>amperes (A)</strong>, commonly shortened to amps.</p>
+
+                        <!-- Current -->
+
+                        <section id="current">
+
+                            <h2>
+                                2. What Is Current?
+                            </h2>
+
+                            <p>
+                                <strong>Electric current</strong> is the rate at which electric charge flows through a conductor or circuit.
+                            </p>
+
+                            <p>
+                                Current is measured in <strong>amperes (A)</strong>, commonly shortened to amps.
+                            </p>
+
                             <p>
                                 Using the water analogy, if voltage is similar to pressure, current can be thought of as the amount of water flowing through a pipe per unit of time.
                             </p>
-                            <p>In electrical circuits, current depends on the applied voltage and the characteristics of the circuit.</p>
 
-                            <h3>Why current matters</h3>
+                            <p>
+                                In electrical circuits, current depends on the applied voltage and the characteristics of the circuit.
+                            </p>
+
+                            <h3>
+                                Why current matters
+                            </h3>
+
                             <p>
                                 Current is particularly important when selecting electrical conductors and protective devices. As current increases, conductor heating also becomes an important consideration.
                             </p>
+
                             <p>
                                 This is why cable sizing is not simply a matter of knowing the system voltage. The expected load current, installation conditions, ambient temperature, grouping, voltage drop and applicable standards must also be considered.
                             </p>
+
                         </section>
 
-                        <!-- Section 3: Resistance -->
-                        <section id="resistance" class="article-section">
-                            <h2>3. What Is Resistance?</h2>
-                            <p><strong>Resistance</strong> is the opposition that a material or electrical component presents to the flow of electric current.</p>
-                            <p>Resistance is measured in <strong>ohms (Ω)</strong>.</p>
+
+                        <!-- Resistance -->
+
+                        <section id="resistance">
+
+                            <h2>
+                                3. What Is Resistance?
+                            </h2>
+
+                            <p>
+                                <strong>Resistance</strong> is the opposition that a material or electrical component presents to the flow of electric current.
+                            </p>
+
+                            <p>
+                                Resistance is measured in <strong>ohms (Ω)</strong>.
+                            </p>
+
                             <p>
                                 In the water analogy, resistance can be compared with a restriction in a pipe. A smaller pipe or obstruction makes it more difficult for water to flow. In an electrical circuit, greater resistance makes it more difficult for current to flow for a given voltage.
                             </p>
 
-                            <!-- Figure 1: Water Analogy -->
+
+                            <!-- Figure 1 -->
+
                             <figure class="article-figure">
-                                <img src="../../assets/images/water-analogy-voltage-current-resistance.jpeg" 
-                                     alt="Water analogy diagram comparing voltage to pressure, current to flow rate, and resistance to pipe restriction" 
-                                     width="800" 
-                                     height="450" 
-                                     loading="lazy">
+
+                                <img
+                                    src="/assets/images/water-analogy-voltage-current-resistance.jpeg"
+                                    alt="Water analogy diagram comparing voltage to pressure, current to flow rate, and resistance to pipe restriction"
+                                    width="800"
+                                    height="450"
+                                    loading="lazy"
+                                >
+
                                 <figcaption>
-                                    <strong>Figure 1:</strong> The hydraulic (water) analogy illustrating how voltage (pressure), current (flow rate), and resistance (restriction) interact.
+                                    <strong>Figure 1:</strong>
+                                    The hydraulic (water) analogy illustrating how voltage (pressure), current (flow rate), and resistance (restriction) interact.
                                 </figcaption>
+
                             </figure>
 
-                            <h3>What determines resistance?</h3>
-                            <p>For a uniform conductor, resistance is related to its material, length and cross-sectional area.</p>
+
+                            <h3>
+                                What determines resistance?
+                            </h3>
+
+                            <p>
+                                For a uniform conductor, resistance is related to its material, length and cross-sectional area.
+                            </p>
+
+
+                            <!-- Resistance Formula -->
 
                             <div class="formula-box">
-                                <div style="font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8;">Resistance</div>
-                                <div class="formula">R = ρL / A</div>
-                                <p style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; color: #cbd5e1;">Where <strong>R</strong> is resistance, <strong>ρ</strong> is resistivity, <strong>L</strong> is conductor length and <strong>A</strong> is cross-sectional area.</p>
+
+                                <div class="formula-label">
+                                    Resistance
+                                </div>
+
+                                <div class="formula">
+                                    R = ρL / A
+                                </div>
+
+                                <p>
+                                    Where R is resistance, ρ is resistivity, L is conductor length and A is cross-sectional area.
+                                </p>
+
                             </div>
+
+
                             <p>
                                 This relationship helps explain why longer conductors generally have greater resistance, while increasing conductor cross-sectional area generally reduces resistance.
                             </p>
+
                         </section>
 
-                        <!-- Section 4: Ohm's Law -->
-                        <section id="ohms-law" class="article-section">
-                            <h2>4. Understanding Ohm's Law</h2>
-                            <p>One of the most important relationships in basic electrical engineering is <strong>Ohm's Law</strong>.</p>
+
+                        <!-- Ohm's Law -->
+
+                        <section id="ohms-law">
+
+                            <h2>
+                                4. Understanding Ohm's Law
+                            </h2>
+
+                            <p>
+                                One of the most important relationships in basic electrical engineering is <strong>Ohm's Law</strong>.
+                            </p>
+
+
+                            <!-- Ohm's Law Formula -->
 
                             <div class="formula-box">
-                                <div style="font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8;">Ohm's Law</div>
-                                <div class="formula">V = I × R</div>
-                                <p style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; color: #cbd5e1;">Voltage equals current multiplied by resistance.</p>
+
+                                <div class="formula-label">
+                                    Ohm's Law
+                                </div>
+
+                                <div class="formula">
+                                    V = I × R
+                                </div>
+
+                                <p>
+                                    Voltage equals current multiplied by resistance.
+                                </p>
+
                             </div>
 
-                            <!-- Figure 2: Simple Electrical Circuit Schematic -->
+
+                            <!-- Figure 2 -->
+
                             <figure class="article-figure">
-                                <img src="../../assets/images/simple-circuit-diagram.jpeg" 
-                                     alt="Simple electrical circuit schematic showing a DC voltage source driving current through a resistor" 
-                                     width="800" 
-                                     height="450" 
-                                     loading="lazy">
+
+                                <img
+                                    src="/assets/images/simple-circuit-diagram.jpeg"
+                                    alt="Simple electrical circuit schematic showing a DC voltage source driving current through a resistor"
+                                    width="800"
+                                    height="450"
+                                    loading="lazy"
+                                >
+
                                 <figcaption>
-                                    <strong>Figure 2:</strong> A basic closed-loop electrical circuit schematic showing a DC voltage source (V), current flow (I), and resistor load (R).
+                                    <strong>Figure 2:</strong>
+                                    A basic closed-loop electrical circuit schematic showing a DC voltage source (V), current flow (I), and resistor load (R).
                                 </figcaption>
+
                             </figure>
 
-                            <p>The same relationship can be rearranged to find current or resistance:</p>
+
+                            <p>
+                                The same relationship can be rearranged to find current or resistance:
+                            </p>
+
 
                             <div class="formula-grid">
+
                                 <div class="formula-card">
-                                    <strong>Voltage</strong>
-                                    <span>V = I × R</span>
+
+                                    <strong>
+                                        Voltage
+                                    </strong>
+
+                                    <span>
+                                        V = I × R
+                                    </span>
+
                                 </div>
+
+
                                 <div class="formula-card">
-                                    <strong>Current</strong>
-                                    <span>I = V / R</span>
+
+                                    <strong>
+                                        Current
+                                    </strong>
+
+                                    <span>
+                                        I = V ÷ R
+                                    </span>
+
                                 </div>
+
+
                                 <div class="formula-card">
-                                    <strong>Resistance</strong>
-                                    <span>R = V / I</span>
+
+                                    <strong>
+                                        Resistance
+                                    </strong>
+
+                                    <span>
+                                        R = V ÷ I
+                                    </span>
+
                                 </div>
+
                             </div>
 
-                            <p>As illustrated in <strong>Figure 2</strong>, the practical value of Ohm's Law is that if two of these quantities are known, the third can be calculated.</p>
-                            <p>For example, if a 24 V source is connected across a 12 Ω resistive load:</p>
+
+                            <p>
+                                As illustrated in <strong>Figure 2</strong>, the practical value of Ohm's Law is that if two of these quantities are known, the third can be calculated.
+                            </p>
+
+
+                            <h3>
+                                Example
+                            </h3>
+
+                            <p>
+                                If a 24 V source is connected across a 12 Ω resistive load:
+                            </p>
+
 
                             <div class="calculation-box">
-                                <div>I = V / R</div>
-                                <div>I = 24 / 12</div>
-                                <strong style="color: var(--primary);">I = 2 A</strong>
+
+                                <p>
+                                    <strong>I = V ÷ R</strong>
+                                </p>
+
+                                <p>
+                                    I = 24 ÷ 12
+                                </p>
+
                             </div>
 
-                            <p>Therefore, the circuit current is 2 A, assuming the load behaves as a simple resistive load.</p>
+
+                            <div class="result-box">
+
+                                <strong>
+                                    I = 2 A
+                                </strong>
+
+                            </div>
+
+
+                            <p>
+                                Therefore, the circuit current is 2 A, assuming the load behaves as a simple resistive load.
+                            </p>
+
                         </section>
 
-                        <!-- Section 5: Electrical Power -->
-                        <section id="power" class="article-section">
-                            <h2>5. What Is Electrical Power?</h2>
-                            <p><strong>Electrical power</strong> describes the rate at which electrical energy is transferred or converted.</p>
-                            <p>Power is measured in <strong>watts (W)</strong>.</p>
-                            <p>The basic relationship between voltage, current and power is:</p>
+
+                        <!-- Electrical Power -->
+
+                        <section id="power">
+
+                            <h2>
+                                5. What Is Electrical Power?
+                            </h2>
+
+                            <p>
+                                <strong>Electrical power</strong> describes the rate at which electrical energy is transferred or converted.
+                            </p>
+
+                            <p>
+                                Power is measured in <strong>watts (W)</strong>.
+                            </p>
+
+                            <p>
+                                The basic relationship between voltage, current and power is:
+                            </p>
+
+
+                            <!-- Power Formula -->
 
                             <div class="formula-box">
-                                <div style="font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8;">Electrical Power</div>
-                                <div class="formula">P = V × I</div>
-                                <p style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; color: #cbd5e1;">Power equals voltage multiplied by current.</p>
+
+                                <div class="formula-label">
+                                    Electrical Power
+                                </div>
+
+                                <div class="formula">
+                                    P = V × I
+                                </div>
+
+                                <p>
+                                    Power equals voltage multiplied by current.
+                                </p>
+
                             </div>
 
-                            <!-- Figure 3: Formula Triangle -->
+
+                            <!-- Figure 3 -->
+
                             <figure class="article-figure">
-                                <img src="../../assets/images/ohms-law-power-triangle.jpeg" 
-                                     alt="Ohm's Law and Electrical Power formula reference triangles" 
-                                     width="800" 
-                                     height="450" 
-                                     loading="lazy">
+
+                                <img
+                                    src="/assets/images/ohms-law-power-triangle.jpeg"
+                                    alt="Ohm's Law and Electrical Power formula reference triangles"
+                                    width="800"
+                                    height="450"
+                                    loading="lazy"
+                                >
+
                                 <figcaption>
-                                    <strong>Figure 3:</strong> The Ohm's Law and Power formula triangles used as a quick visual reference for circuit calculations.
+                                    <strong>Figure 3:</strong>
+                                    The Ohm's Law and Power formula triangles used as a quick visual reference for circuit calculations.
                                 </figcaption>
+
                             </figure>
+
 
                             <p>
                                 This equation is extremely useful in electrical engineering. It appears in load calculations, equipment specifications, power supplies, solar PV systems, batteries and many other applications.
                             </p>
 
-                            <h3>Other useful power equations</h3>
-                            <p>By combining the power equation with Ohm's Law (refer to the reference triangles in <strong>Figure 3</strong>), two additional forms can be obtained:</p>
+
+                            <h3>
+                                Other useful power equations
+                            </h3>
+
+                            <p>
+                                By combining the power equation with Ohm's Law, two additional forms can be obtained:
+                            </p>
+
 
                             <div class="formula-grid">
+
                                 <div class="formula-card">
-                                    <strong>Using Voltage &amp; Resistance</strong>
-                                    <span>P = V² / R</span>
+
+                                    <strong>
+                                        Using Voltage &amp; Resistance
+                                    </strong>
+
+                                    <span>
+                                        P = V² / R
+                                    </span>
+
                                 </div>
+
+
                                 <div class="formula-card">
-                                    <strong>Using Current &amp; Resistance</strong>
-                                    <span>P = I²R</span>
+
+                                    <strong>
+                                        Using Current &amp; Resistance
+                                    </strong>
+
+                                    <span>
+                                        P = I²R
+                                    </span>
+
                                 </div>
+
+                                <div class="formula-card">
+
+                                    <strong>
+                                        Using Voltage &amp; Current
+                                    </strong>
+
+                                    <span>
+                                        P = V × I
+                                    </span>
+
+                                </div>
+
                             </div>
 
-                            <p>These equations are particularly useful when different circuit quantities are known.</p>
+
+                            <p>
+                                These equations are particularly useful when different circuit quantities are known.
+                            </p>
+
                         </section>
 
-                        <!-- Section 6: Worked Example -->
-                        <section id="worked-example" class="article-section">
-                            <h2>6. Worked Example: Finding Power</h2>
-                            <p>Suppose a resistive electrical load operates at 230 V and draws 5 A.</p>
 
-                            <h3>Step 1 — Identify the known values</h3>
-                            <ul>
-                                <li>Voltage = 230 V</li>
-                                <li>Current = 5 A</li>
-                            </ul>
+                        <!-- Worked Example -->
 
-                            <h3>Step 2 — Apply the power equation</h3>
+                        <section id="worked-example">
+
+                            <h2>
+                                6. Worked Example: Finding Power
+                            </h2>
+
+                            <p>
+                                Suppose a resistive electrical load operates at 230 V and draws 5 A.
+                            </p>
+
+
+                            <h3>
+                                Step 1 — Identify the known values
+                            </h3>
+
                             <div class="calculation-box">
-                                <div>P = V × I</div>
-                                <div>P = 230 × 5</div>
-                                <strong style="color: var(--primary);">P = 1,150 W</strong>
+
+                                <p>
+                                    Voltage = 230 V
+                                </p>
+
+                                <p>
+                                    Current = 5 A
+                                </p>
+
                             </div>
 
-                            <h3>Step 3 — Convert to kilowatts</h3>
-                            <div class="calculation-box">
-                                <div>1 kW = 1,000 W</div>
-                                <strong style="color: var(--primary);">P = 1.15 kW</strong>
+
+                            <h3>
+                                Step 2 — Apply the power equation
+                            </h3>
+
+                            <div class="formula-box">
+                                P = V × I
                             </div>
 
-                            <p>Under the simplified assumptions of this example, the load has an electrical power of approximately <strong>1.15 kW</strong>.</p>
+
+                            <div class="formula-box">
+                                P = 230 × 5
+                            </div>
+
+
+                            <div class="result-box">
+
+                                <strong>
+                                    P = 1,150 W
+                                </strong>
+
+                            </div>
+
+
+                            <h3>
+                                Step 3 — Convert to kilowatts
+                            </h3>
+
+                            <div class="calculation-box">
+
+                                <p>
+                                    1 kW = 1,000 W
+                                </p>
+
+                                <p>
+                                    <strong>
+                                        P = 1.15 kW
+                                    </strong>
+                                </p>
+
+                            </div>
+
+
+                            <p>
+                                Under the simplified assumptions of this example, the load has an electrical power of approximately <strong>1.15 kW</strong>.
+                            </p>
+
                             <p>
                                 In a real AC installation, however, the correct power equation depends on the type of system and load. For example, AC loads may involve power factor, while three-phase systems require the appropriate three-phase relationship.
                             </p>
+
                         </section>
 
-                        <!-- Section 7: Real World -->
-                        <section id="real-world" class="article-section">
-                            <h2>7. How These Concepts Appear in Real Engineering</h2>
+
+                        <!-- Real World Applications -->
+
+                        <section id="real-world">
+
+                            <h2>
+                                7. How These Concepts Appear in Real Engineering
+                            </h2>
+
                             <p>
                                 Voltage, current, resistance and power are not just textbook quantities. They are used constantly when designing, operating and troubleshooting electrical systems.
                             </p>
 
-                            <h3>Cable selection</h3>
+
+                            <h3>
+                                Cable selection
+                            </h3>
+
                             <p>
                                 Current is one of the key considerations when selecting conductors. A cable must be capable of carrying the expected load current under the actual installation conditions.
                             </p>
 
-                            <h3>Voltage drop</h3>
+
+                            <h3>
+                                Voltage drop
+                            </h3>
+
                             <p>
                                 Conductor resistance causes voltage drop when current flows. For long cable runs, voltage drop can become an important design consideration.
                             </p>
 
-                            <h3>Heating and losses</h3>
-                            <p>Electrical resistance can result in power being dissipated as heat. A commonly used relationship for resistive losses is:</p>
+
+                            <h3>
+                                Heating and losses
+                            </h3>
+
+                            <p>
+                                Electrical resistance can result in power being dissipated as heat. A commonly used relationship for resistive losses is:
+                            </p>
+
 
                             <div class="formula-box">
-                                <div style="font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8;">Resistive Loss</div>
-                                <div class="formula">P<sub>loss</sub> = I²R</div>
+
+                                <div class="formula-label">
+                                    Resistive Loss
+                                </div>
+
+                                <div class="formula">
+                                    P<sub>loss</sub> = I²R
+                                </div>
+
                             </div>
 
-                            <p>This is one reason why reducing unnecessary resistance and selecting appropriate conductor sizes is critical in efficient electrical system design.</p>
+
+                            <p>
+                                This is one reason why reducing unnecessary resistance and selecting appropriate conductor sizes is critical in efficient electrical system design.
+                            </p>
+
                         </section>
 
-                        <!-- Section 8: Summary -->
-                        <section id="summary" class="article-section">
-                            <h2>8. Key Takeaways</h2>
+
+                        <!-- Key Takeaways -->
+
+                        <section id="summary">
+
+                            <h2>
+                                8. Key Takeaways
+                            </h2>
+
                             <ul>
-                                <li><strong>Voltage (V):</strong> The electrical potential difference that drives current.</li>
-                                <li><strong>Current (I):</strong> The rate of flow of electric charge, measured in amperes.</li>
-                                <li><strong>Resistance (R):</strong> The opposition to current flow, measured in ohms.</li>
-                                <li><strong>Power (P):</strong> The rate of energy transfer, calculated as $P = V \times I$.</li>
-                                <li><strong>Ohm's Law:</strong> The fundamental relationship $V = I \times R$ connects these core quantities.</li>
+
+                                <li>
+                                    <strong>Voltage (V):</strong>
+                                    The electrical potential difference that can drive current.
+                                </li>
+
+                                <li>
+                                    <strong>Current (I):</strong>
+                                    The rate of flow of electric charge, measured in amperes.
+                                </li>
+
+                                <li>
+                                    <strong>Resistance (R):</strong>
+                                    The opposition to current flow, measured in ohms.
+                                </li>
+
+                                <li>
+                                    <strong>Power (P):</strong>
+                                    The rate of electrical energy transfer, commonly calculated as P = V × I.
+                                </li>
+
+                                <li>
+                                    <strong>Ohm's Law:</strong>
+                                    The fundamental relationship V = I × R connects voltage, current and resistance.
+                                </li>
+
                             </ul>
+
                         </section>
+
+
+                        <!-- Related Tutorials -->
+
+                        <section>
+
+                            <h2>
+                                Related Tutorials
+                            </h2>
+
+                            <div class="related-grid">
+
+                                <a href="/articles/electrical-fundamentals/ohms-law/">
+                                    Ohm's Law Explained
+                                </a>
+
+                                <a href="/articles/electrical-fundamentals/voltage/">
+                                    What Is Voltage?
+                                </a>
+
+                                <a href="/articles/electrical-fundamentals/electric-current/">
+                                    What Is Electric Current?
+                                </a>
+
+                                <a href="/articles/electrical-fundamentals/resistance/">
+                                    What Is Resistance?
+                                </a>
+
+                                <a href="/articles/electrical-fundamentals/electrical-power/">
+                                    Electrical Power Explained
+                                </a>
+
+                            </div>
+
+                        </section>
+
 
                     </article>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
-     <!-- Footer -->
+
+    <!-- Footer -->
+
     <footer class="site-footer">
+
         <div class="container footer-grid">
+
+
             <div>
+
                 <div class="footer-logo">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
+
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >
+                        bolt
+                    </span>
+
                     Electrical Engineering
+
                 </div>
-                <p>Practical electrical engineering tutorials, calculations, design guides, and renewable energy resources.</p>
+
+                <p>
+                    Practical electrical engineering tutorials, calculations, design guides, and renewable energy resources.
+                </p>
+
             </div>
 
-            <div>
-                <h3>Explore</h3>
-                <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/articles/electrical-fundamentals/">Electrical Fundamentals</a></li>
-                    <li><a href="/articles/electrical-calculations/">Calculations</a></li>
-                    <li><a href="/articles/solar-pv/">Solar PV</a></li>
-                </ul>
-            </div>
 
             <div>
-                <h3>Information</h3>
+
+                <h3>
+                    Explore
+                </h3>
+
                 <ul class="footer-links">
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="/disclaimer.html">Disclaimer</a></li>
+
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-fundamentals/">
+                            Electrical Fundamentals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-calculations/">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/solar-pv/">
+                            Solar PV
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
+
+
+            <div>
+
+                <h3>
+                    Information
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/privacy-policy.html">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/disclaimer.html">
+                            Disclaimer
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
         </div>
+
 
         <div class="footer-bottom">
+
             <div class="container">
-                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
+
+                <p>
+                    &copy; 2026 Prasun Barua. All rights reserved.
+                </p>
+
             </div>
+
         </div>
+
     </footer>
+
 
 </body>
 
