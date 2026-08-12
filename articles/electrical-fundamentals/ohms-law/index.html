@@ -27,6 +27,12 @@
     <meta property="og:description" content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
     <meta property="og:url" content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
     <meta property="og:site_name" content="Electrical Engineering">
+    <meta property="og:updated_time" content="2026-08-01T00:00:00+00:00">
+
+    <!-- Twitter Card Data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
+    <meta name="twitter:description" content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
@@ -40,6 +46,49 @@
     <!-- Main Stylesheet & App Script -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/app.js" defer></script>
+
+    <!-- Structured Data: TechArticle & Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Ohm's Law Explained: Formula, Examples & Calculations",
+      "description": "Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.",
+      "author": {
+        "@type": "Person",
+        "name": "Prasun Barua"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Electrical Engineering by Prasun Barua",
+        "url": "https://electrical.prasunbarua.com"
+      },
+      "datePublished": "2026-08-01",
+      "dateModified": "2026-08-12",
+      "mainEntityOfPage": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electrical.prasunbarua.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Electrical Fundamentals",
+        "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Ohm's Law"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -104,8 +153,8 @@
                 <div class="article-layout">
 
                     <!-- Sticky Sidebar Table of Contents -->
-                    <aside class="article-sidebar">
-                        <div class="toc">
+                    <aside class="article-sidebar" aria-label="Article Navigation">
+                        <nav class="toc" aria-label="Table of Contents">
                             <h3>On This Page</h3>
                             <a href="#what-is-ohms-law">What Is Ohm's Law?</a>
                             <a href="#formula">Ohm's Law Formula</a>
@@ -113,7 +162,7 @@
                             <a href="#example">Worked Example</a>
                             <a href="#engineering">Engineering Notes</a>
                             <a href="#faq">FAQ</a>
-                        </div>
+                        </nav>
                     </aside>
 
                     <!-- Core Content Section -->
@@ -123,7 +172,7 @@
                         <div class="quick-answer">
                             <strong>Quick Answer</strong>
                             <p>
-                                Ohm's Law states that the current ($I$) flowing through a conductor between two points is directly proportional to the voltage ($V$) across the two points and inversely proportional to the resistance ($R$).
+                                Ohm's Law states that the current (<code>I</code>) flowing through a conductor between two points is directly proportional to the voltage (<code>V</code>) across the two points and inversely proportional to the resistance (<code>R</code>).
                             </p>
                             <div class="formula">V = I × R</div>
                         </div>
@@ -157,9 +206,9 @@
                             <table class="engineering-table">
                                 <thead>
                                     <tr>
-                                        <th>Symbol</th>
-                                        <th>Quantity</th>
-                                        <th>Unit</th>
+                                        <th scope="col">Symbol</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Unit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -212,8 +261,8 @@
 
                             <h3>Step 1 — Identify the known values</h3>
                             <div class="calculation-box">
-                                <p>Voltage ($V$) = 24 V</p>
-                                <p>Resistance ($R$) = 12 Ω</p>
+                                <p>Voltage (<code>V</code>) = 24 V</p>
+                                <p>Resistance (<code>R</code>) = 12 Ω</p>
                             </div>
 
                             <h3>Step 2 — Apply Ohm's Law for current</h3>
@@ -238,7 +287,7 @@
                                 While Ohm's Law is the baseline for simple linear DC circuits, practical AC power networks involve frequency-dependent components like inductors and capacitors.
                             </p>
                             <p>
-                                In AC circuits, pure resistance ($R$) is expanded to total <strong>impedance ($Z$)</strong>, modifying the relationship to $V = I \times Z$. Furthermore, Ohm's Law is frequently combined with Joule's Law to determine electrical power dissipation:
+                                In AC circuits, pure resistance (<code>R</code>) is expanded to total <strong>impedance (<code>Z</code>)</strong>, modifying the relationship to <code>V = I × Z</code>. Furthermore, Ohm's Law is frequently combined with Joule's Law to determine electrical power dissipation:
                             </p>
 
                             <div class="formula-box">P = V × I = I² × R</div>
@@ -264,13 +313,13 @@
                             <h2>Frequently Asked Questions</h2>
 
                             <h3>What is the basic formula of Ohm's Law?</h3>
-                            <p>The basic formula is $V = I \times R$, where $V$ is voltage in volts, $I$ is current in amperes, and $R$ is resistance in ohms.</p>
+                            <p>The basic formula is <code>V = I × R</code>, where <code>V</code> is voltage in volts, <code>I</code> is current in amperes, and <code>R</code> is resistance in ohms.</p>
 
                             <h3>What happens when resistance increases?</h3>
-                            <p>If voltage remains constant, increasing the circuit resistance reduces current flow proportionally according to $I = V \div R$.</p>
+                            <p>If voltage remains constant, increasing the circuit resistance reduces current flow proportionally according to <code>I = V ÷ R</code>.</p>
 
                             <h3>Is Ohm's Law applicable to AC circuits?</h3>
-                            <p>Ohm's Law applies directly to resistive AC loads. However, for loads with inductive or capacitive components, total impedance ($Z$) must be used instead of simple resistance ($R$).</p>
+                            <p>Ohm's Law applies directly to resistive AC loads. However, for loads with inductive or capacitive components, total impedance (<code>Z</code>) must be used instead of simple resistance (<code>R</code>).</p>
                         </section>
 
                         <!-- Section: Related Tutorials -->
@@ -303,18 +352,22 @@
 
             <div>
                 <h3>Explore</h3>
-                <a href="/">Home</a>
-                <a href="/articles/electrical-fundamentals/">Electrical Fundamentals</a>
-                <a href="/articles/electrical-calculations/">Calculations</a>
-                <a href="/articles/solar-pv/">Solar PV</a>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/articles/electrical-fundamentals/">Electrical Fundamentals</a></li>
+                    <li><a href="/articles/electrical-calculations/">Calculations</a></li>
+                    <li><a href="/articles/solar-pv/">Solar PV</a></li>
+                </ul>
             </div>
 
             <div>
                 <h3>Information</h3>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/privacy-policy.html">Privacy Policy</a>
-                <a href="/disclaimer.html">Disclaimer</a>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/disclaimer.html">Disclaimer</a></li>
+                </ul>
             </div>
         </div>
 
