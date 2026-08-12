@@ -246,6 +246,19 @@
         .privacy-sidebar {
             position: sticky;
             top: 84px;
+            max-height: calc(100vh - 110px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .privacy-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .privacy-sidebar::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 4px;
         }
 
         .privacy-toc {
@@ -392,6 +405,81 @@
             margin-top: 12px;
         }
 
+        /* Beautified Footer */
+        .site-footer {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            font-size: 14px;
+            padding-top: 64px;
+        }
+
+        .site-footer .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .material-symbols-rounded {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+
+        .site-footer p {
+            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.5;
+            max-width: 320px;
+            font-size: 14px;
+        }
+
+        .site-footer h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin: 0 0 16px;
+        }
+
+        .site-footer a {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            padding: 24px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
         /* Responsive Design */
         @media (max-width: 900px) {
             .privacy-layout {
@@ -401,9 +489,18 @@
             .privacy-sidebar {
                 position: relative;
                 top: auto;
+                max-height: none;
+                overflow-y: visible;
             }
             .main-nav {
                 display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
             }
         }
 
@@ -670,7 +767,8 @@
             </div>
         </section>
     </main>
-<!-- =====================================================
+
+    <!-- =====================================================
          FOOTER
     ====================================================== -->
     <footer class="site-footer">
@@ -678,10 +776,10 @@
 
             <div>
                 <div class="footer-logo">
-                    <span class="material-symbols-outlined" aria-hidden="true">bolt</span>
+                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
                     Electrical Engineering
                 </div>
-                <p>Practical electrical engineering tutorials, calculations and guides.</p>
+                <p>Practical electrical engineering tutorials, calculations and guides designed for modern professionals and students.</p>
             </div>
 
             <div>
