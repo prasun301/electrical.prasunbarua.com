@@ -1,985 +1,1235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <!-- =====================================================
          GOOGLE ANALYTICS
          ===================================================== -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
         gtag('config', 'G-XY335VGVGJ');
     </script>
+
+
     <!-- =====================================================
          BASIC META
          ===================================================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical Engineering Tutorials, Calculations &amp; Guides | Prasun Barua</title>
-    <meta name="description" content="Learn electrical engineering through practical tutorials, calculations, solar PV guides, power systems, electrical design, testing, commissioning, and real-world engineering examples.">
-    <meta name="author" content="Prasun Barua">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <!-- =====================================================
-         CANONICAL
-         ===================================================== -->
-    <link rel="canonical" href="https://electrical.prasunbarua.com/">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#0b57d0">
+
+    <title>
+        Electrical Fundamentals | Electrical Engineering by Prasun Barua
+    </title>
+
+    <meta name="description"
+        content="Learn electrical engineering fundamentals including voltage, current, resistance, electrical power, Ohm's Law, formulas, units, calculations, and practical engineering examples.">
+
+    <meta name="author"
+        content="Prasun Barua">
+
+    <meta name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta name="googlebot"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <link rel="canonical"
+        href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
+
+
     <!-- =====================================================
          OPEN GRAPH
          ===================================================== -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://electrical.prasunbarua.com/">
-    <meta property="og:title" content="Electrical Engineering Tutorials, Calculations &amp; Guides">
-    <meta property="og:description" content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design methods, and engineering resources by Prasun Barua.">
-    <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
-    <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
-    <meta property="og:image:alt" content="Electrical Engineering by Prasun Barua">
-    <meta property="og:locale" content="en_US">
+
+    <meta property="og:type"
+        content="website">
+
+    <meta property="og:title"
+        content="Electrical Fundamentals | Electrical Engineering by Prasun Barua">
+
+    <meta property="og:description"
+        content="Learn practical electrical engineering fundamentals including voltage, current, resistance, electrical power, Ohm's Law, formulas, units, and engineering examples.">
+
+    <meta property="og:url"
+        content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
+
+    <meta property="og:site_name"
+        content="Electrical Engineering by Prasun Barua">
+
+    <meta property="og:locale"
+        content="en_US">
+
+
     <!-- =====================================================
-         TWITTER / X CARD
+         TWITTER / X
          ===================================================== -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Electrical Engineering Tutorials &amp; Calculations">
-    <meta name="twitter:description" content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design, and engineering resources.">
-    <meta name="twitter:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
-    <meta name="twitter:image:alt" content="Electrical Engineering by Prasun Barua">
+
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:title"
+        content="Electrical Fundamentals | Electrical Engineering by Prasun Barua">
+
+    <meta name="twitter:description"
+        content="Practical electrical engineering fundamentals, formulas, calculations, and engineering examples by Prasun Barua.">
+
+
     <!-- =====================================================
          FAVICON
          ===================================================== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+
+    <link rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+
+
     <!-- =====================================================
-         FONTS & ICONS
+         GOOGLE FONTS
          ===================================================== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+
+
     <!-- =====================================================
-         GOOGLE ADSENSE
+         MAIN STYLESHEET
          ===================================================== -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet"
+        href="/assets/css/style.css">
+
+
     <!-- =====================================================
-         STYLESHEET (APPLE / GOOGLE LITE CLEAN DESIGN SYSTEM)
+         PAGE-SPECIFIC CSS
          ===================================================== -->
+
     <style>
-        :root {
-            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --bg-color: #fbfbfd;
-            --surface-color: #ffffff;
-            --text-primary: #1d1d1f;
-            --text-secondary: #515154;
-            --text-muted: #86868b;
-            --accent-color: #0066cc;
-            --accent-light: #f5f5f7;
-            --border-color: #d2d2d7;
-            --border-light: #e5e5ea;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 18px;
-            --max-width: 1140px;
+
+        /* =====================================================
+           FUNDAMENTALS PAGE
+           ===================================================== */
+
+        .fundamentals-container {
+            width: min(calc(100% - 48px), 1280px);
+            margin-inline: auto;
         }
-        *, *::before, *::after {
-            box-sizing: border-box;
+
+        .fundamentals-section {
+            padding: 28px 0 80px;
         }
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        body {
-            font-family: var(--font-stack);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        /* Header / Navigation */
-        .site-header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-light);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 14px 0;
-        }
-        .header-inner {
+
+
+        /* =====================================================
+           BREADCRUMBS
+           ===================================================== */
+
+        .breadcrumbs {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .logo-icon {
-            color: var(--accent-color);
-            display: flex;
-            align-items: center;
-        }
-        .logo strong {
-            display: block;
-            font-size: 15px;
-            letter-spacing: -0.01em;
-        }
-        .logo small {
-            display: block;
-            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 42px;
+
             color: var(--text-muted);
-            font-weight: 400;
-        }
-        .main-nav ul {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .main-nav a {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-        .main-nav a:hover, .main-nav a.active {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        /* Hero Section */
-        .hero {
-            padding: 64px 0 48px;
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 780px;
-            margin: 0 auto;
-        }
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: var(--accent-light);
-            color: var(--accent-color);
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-        .hero h1 {
-            margin: 0 0 16px;
-            font-size: clamp(36px, 5vw, 52px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            line-height: 1.15;
-        }
-        .hero h1 span {
-            display: block;
-            color: var(--accent-color);
-            font-size: clamp(24px, 3.5vw, 38px);
-            margin-top: 8px;
-        }
-        .hero p {
-            margin: 0 auto 32px;
-            color: var(--text-secondary);
-            font-size: 17px;
-            line-height: 1.6;
-            max-width: 640px;
-        }
-        /* Search Box */
-        .search-box {
-            display: flex;
-            align-items: center;
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 6px 6px 6px 16px;
-            max-width: 580px;
-            margin: 0 auto 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .search-box:focus-within {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.12);
-        }
-        .search-box .material-symbols-rounded {
-            color: var(--text-muted);
-            font-size: 20px;
-            margin-right: 10px;
-        }
-        .search-box input {
-            flex: 1;
-            border: none;
-            outline: none;
-            background: transparent;
-            font-size: 15px;
-            font-family: var(--font-stack);
-            color: var(--text-primary);
-        }
-        .search-box input::placeholder {
-            color: var(--text-muted);
-        }
-        .search-box button {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            padding: 10px 18px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: var(--font-stack);
-            transition: background 0.15s;
-        }
-        .search-box button:hover {
-            background: #0051a8;
-        }
-        .search-box button .material-symbols-rounded {
-            color: white;
-            font-size: 18px;
-            margin: 0;
-        }
-        .search-message {
             font-size: 13px;
-            color: var(--text-muted);
-            min-height: 20px;
         }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+
+        .breadcrumbs a {
+            color: var(--text-secondary);
+            text-decoration: none;
         }
-        /* Sections */
-        .section {
-            padding: 64px 0;
+
+        .breadcrumbs a:hover {
+            color: var(--primary);
+            text-decoration: underline;
         }
-        .section-alt {
-            background: #f2f2f7;
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
+
+        .breadcrumbs .separator {
+            color: var(--border-strong);
         }
-        .section-heading {
-            text-align: center;
-            max-width: 640px;
-            margin: 0 auto 48px;
+
+
+        /* =====================================================
+           PAGE INTRO
+           ===================================================== */
+
+        .fundamentals-intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+
+            gap: 72px;
+
+            align-items: end;
+
+            margin-bottom: 54px;
         }
-        .section-label {
+
+        .fundamentals-heading {
+            max-width: 760px;
+        }
+
+        .page-category {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: var(--accent-light);
-            color: var(--accent-color);
-            border-radius: 100px;
+            gap: 7px;
+
+            padding: 7px 13px;
+
+            border-radius: var(--radius-pill);
+
+            background: var(--primary-light);
+
+            border: 1px solid var(--primary-soft);
+
+            color: var(--primary);
+
             font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.06em;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+
             text-transform: uppercase;
-            margin-bottom: 12px;
         }
-        .section-heading h2 {
-            font-size: clamp(28px, 4vw, 36px);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
-            margin: 0 0 12px;
+
+        .fundamentals-heading h1 {
+            margin: 18px 0 0;
+
+            color: var(--text-strong);
+
+            font-size: clamp(38px, 5vw, 60px);
+
+            line-height: 1.05;
+
+            letter-spacing: -0.05em;
+
+            font-weight: 800;
+
+            text-wrap: balance;
         }
-        .section-heading p {
-            color: var(--text-secondary);
-            font-size: 16px;
+
+        .fundamentals-description {
+            max-width: 700px;
+
             margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: clamp(17px, 2vw, 20px);
+
+            line-height: 1.65;
+
+            text-wrap: pretty;
         }
-        /* Grids */
-        .category-grid, .calculator-grid, .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-        /* Cards */
-        .category-card, .calculator-card, .article-card {
-            background: var(--surface-color);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            padding: 28px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            display: flex;
-            flex-direction: column;
+
+
+        /* =====================================================
+           OVERVIEW BOX
+           ===================================================== */
+
+        .fundamentals-overview {
             position: relative;
+
+            padding: 26px 28px;
+
+            margin-bottom: 68px;
+
+            border: 1px solid var(--primary-soft);
+
+            border-left: 4px solid var(--primary);
+
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary-light),
+                #ffffff
+            );
+
+            box-shadow: var(--shadow-sm);
         }
-        .category-card:hover, .calculator-card:hover, .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            border-color: var(--border-color);
-            text-decoration: none;
-        }
-        .category-icon, .icon-box, .tool-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-sm);
-            background: var(--accent-light);
-            color: var(--accent-color);
+
+        .fundamentals-overview-title {
             display: flex;
+
             align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .category-icon .material-symbols-rounded,
-        .icon-box .material-symbols-rounded,
-        .tool-icon .material-symbols-rounded {
-            font-size: 24px;
-        }
-        .category-card h3, .calculator-card h3, .article-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 0 0 8px;
-            letter-spacing: -0.01em;
-        }
-        .category-card p, .calculator-card p, .article-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin: 0 0 20px;
-            flex: 1;
-        }
-        .card-link, .article-card a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-top: auto;
-        }
-        .card-link .material-symbols-rounded, .article-card a .material-symbols-rounded {
-            font-size: 18px;
-            transition: transform 0.15s ease;
-        }
-        .category-card:hover .card-link .material-symbols-rounded,
-        .calculator-card:hover .card-link .material-symbols-rounded,
-        .article-card:hover a .material-symbols-rounded {
-            transform: translateX(4px);
-        }
-        /* Calculator card specific layout */
-        .calculator-card {
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 24px;
-        }
-        .calculator-card .tool-icon {
-            margin-bottom: 0;
-            flex-shrink: 0;
-        }
-        /* Solar PV Feature Panel */
-        .feature-panel {
-            background: var(--surface-color);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
-        .feature-content h2 {
-            font-size: clamp(26px, 3.5vw, 36px);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
-            margin: 12px 0 16px;
-        }
-        .feature-content p {
-            color: var(--text-secondary);
-            font-size: 16px;
-            margin: 0 0 20px;
-        }
-        .feature-content ul {
-            margin: 0 0 28px;
-            padding-left: 20px;
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
-        .feature-content li {
-            margin-bottom: 8px;
-        }
-        .primary-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 15px;
-            transition: background 0.15s ease;
-        }
-        .primary-button:hover {
-            background: #0051a8;
-            color: white;
-            text-decoration: none;
-        }
-        .primary-button .material-symbols-rounded {
-            font-size: 20px;
-        }
-        /* Feature Visual Illustration */
-        .feature-visual {
-            background: var(--accent-light);
-            border-radius: var(--radius-md);
-            padding: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 280px;
-        }
-        .solar-illustration {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            text-align: center;
-        }
-        .sun {
-            color: #f59e0b;
-        }
-        .sun .material-symbols-rounded {
-            font-size: 48px;
-        }
-        .solar-panel {
-            display: grid;
-            grid-template-columns: repeat(3, 40px);
-            grid-template-rows: repeat(3, 24px);
-            gap: 4px;
-            background: #1e3a8a;
-            padding: 8px;
-            border-radius: 6px;
-            border: 2px solid #3b82f6;
-        }
-        .solar-panel span {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-        }
-        .energy-line {
-            color: var(--accent-color);
-        }
-        .energy-line .material-symbols-rounded {
-            font-size: 28px;
-        }
-        .inverter {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--surface-color);
-            padding: 10px 16px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-color);
-            font-weight: 600;
+
+            gap: 9px;
+
+            margin-bottom: 10px;
+
+            color: var(--primary);
+
             font-size: 13px;
-            color: var(--text-primary);
-        }
-        .inverter .material-symbols-rounded {
-            color: var(--accent-color);
-            font-size: 20px;
-        }
-        /* Author Section */
-        .author-section {
-            background: var(--surface-color);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
-        .author-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--accent-light);
-            color: var(--accent-color);
-            font-size: 28px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .author-section h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 8px 0 12px;
-            letter-spacing: -0.02em;
-        }
-        .author-section p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin: 0 0 16px;
-        }
-        .text-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent-color);
-        }
-        .text-link .material-symbols-rounded {
-            font-size: 18px;
-        }
-        /* Footer */
-        .site-footer {
-            background: #1d1d1f;
-            color: #fbfbfd;
-            padding: 64px 0 32px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 16px;
-        }
-        .footer-logo .material-symbols-rounded {
-            color: var(--accent-color);
-        }
-        .site-footer p {
-            color: #86868b;
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 0;
-            max-width: 360px;
-        }
-        .site-footer h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: white;
-            margin: 0 0 16px;
-            letter-spacing: 0.02em;
+
+            font-weight: 800;
+
+            letter-spacing: 0.06em;
+
             text-transform: uppercase;
         }
-        .site-footer a {
-            display: block;
-            color: #86868b;
-            font-size: 14px;
-            margin-bottom: 10px;
-            transition: color 0.15s ease;
+
+        .fundamentals-overview-title .material-symbols-rounded {
+            font-size: 20px;
         }
-        .site-footer a:hover {
-            color: white;
+
+        .fundamentals-overview p {
+            max-width: 900px;
+
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           ARTICLES HEADER
+           ===================================================== */
+
+        .articles-heading {
+            display: grid;
+
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+
+            gap: 72px;
+
+            align-items: end;
+
+            margin-bottom: 34px;
+        }
+
+        .articles-heading h2 {
+            margin: 0;
+
+            color: var(--text-strong);
+
+            font-size: clamp(30px, 4vw, 46px);
+
+            line-height: 1.1;
+
+            letter-spacing: -0.045em;
+
+            font-weight: 800;
+        }
+
+        .articles-heading p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           ARTICLE GRID
+           ===================================================== */
+
+        .article-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        /* =====================================================
+           ARTICLE CARD
+           ===================================================== */
+
+        .article-card {
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 430px;
+
+            padding: 34px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-xl);
+
+            background: var(--surface-elevated);
+
+            box-shadow: var(--shadow-xs);
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+
+            border-color: var(--primary-soft);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+
+        /* =====================================================
+           CARD ICON
+           ===================================================== */
+
+        .article-card-icon {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 66px;
+            height: 66px;
+
+            margin-bottom: 28px;
+
+            border-radius: 18px;
+
+            background: var(--primary-light);
+
+            color: var(--primary);
+        }
+
+        .article-card-icon .material-symbols-rounded {
+            font-size: 32px;
+        }
+
+
+        /* =====================================================
+           CARD CATEGORY
+           ===================================================== */
+
+        .article-card-category {
+            margin-bottom: 14px;
+
+            color: var(--primary);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           CARD TITLE
+           ===================================================== */
+
+        .article-card h3 {
+            margin: 0 0 16px;
+
+            color: var(--text-strong);
+
+            font-size: clamp(22px, 2.5vw, 29px);
+
+            line-height: 1.25;
+
+            letter-spacing: -0.035em;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           CARD DESCRIPTION
+           ===================================================== */
+
+        .article-card p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 15px;
+
+            line-height: 1.75;
+        }
+
+
+        /* =====================================================
+           CARD LINK
+           ===================================================== */
+
+        .article-card-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            width: fit-content;
+
+            margin-top: auto;
+
+            padding-top: 34px;
+
+            color: var(--primary);
+
+            font-size: 15px;
+
+            font-weight: 800;
+
             text-decoration: none;
         }
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 24px;
+
+        .article-card-link .material-symbols-rounded {
+            font-size: 20px;
+
+            transition:
+                transform var(--transition-fast);
+        }
+
+        .article-card:hover .article-card-link {
+            color: var(--primary-dark);
+
+            text-decoration: none;
+        }
+
+        .article-card:hover .article-card-link .material-symbols-rounded {
+            transform: translateX(5px);
+        }
+
+
+        /* =====================================================
+           MORE ARTICLES
+           ===================================================== */
+
+        .more-articles {
+            padding: 24px 28px;
+
+            margin-top: 28px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-lg);
+
+            background: var(--background-soft);
+
+            color: var(--text-secondary);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
             text-align: center;
         }
-        .footer-bottom p {
-            color: #86868b;
-            font-size: 13px;
-            margin: 0;
-            max-width: none;
+
+        .more-articles strong {
+            color: var(--text);
         }
-        /* Responsive Media Queries */
-        @media (max-width: 900px) {
-            .feature-panel {
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .fundamentals-intro,
+            .articles-heading {
                 grid-template-columns: 1fr;
-                padding: 32px;
+                gap: 24px;
             }
-            .author-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 32px;
-            }
-            .footer-grid {
+
+            .article-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .main-nav {
-                display: none;
             }
         }
+
+
+        @media (max-width: 768px) {
+
+            .fundamentals-container {
+                width: min(calc(100% - 32px), 1280px);
+            }
+
+            .fundamentals-section {
+                padding-top: 20px;
+            }
+
+            .breadcrumbs {
+                margin-bottom: 30px;
+            }
+
+            .fundamentals-intro {
+                margin-bottom: 38px;
+            }
+
+            .fundamentals-heading h1 {
+                font-size: clamp(36px, 10vw, 50px);
+            }
+
+            .fundamentals-description {
+                font-size: 16px;
+            }
+
+            .fundamentals-overview {
+                padding: 22px;
+                margin-bottom: 48px;
+            }
+
+            .articles-heading {
+                margin-bottom: 26px;
+            }
+
+            .article-card {
+                min-height: 400px;
+                padding: 26px;
+            }
+        }
+
+
+        @media (max-width: 520px) {
+
+            .fundamentals-container {
+                width: min(calc(100% - 28px), 1280px);
+            }
+
+            .article-card {
+                min-height: 380px;
+                padding: 22px;
+            }
+
+            .article-card-icon {
+                width: 58px;
+                height: 58px;
+                margin-bottom: 22px;
+            }
+
+            .article-card-icon .material-symbols-rounded {
+                font-size: 28px;
+            }
+
+            .more-articles {
+                padding: 20px;
+            }
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
     </style>
+
+
     <!-- =====================================================
-         STRUCTURED DATA — WEBSITE
+         STRUCTURED DATA: COLLECTION PAGE
          ===================================================== -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://electrical.prasunbarua.com/#website",
-        "name": "Electrical Engineering by Prasun Barua",
-        "alternateName": "Electrical Engineering Knowledge Hub",
-        "url": "https://electrical.prasunbarua.com/",
-        "description": "Practical electrical engineering tutorials, calculations, solar PV guides, electrical design resources, testing procedures, and engineering examples.",
+        "@type": "CollectionPage",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/#collection",
+        "name": "Electrical Fundamentals",
+        "headline": "Electrical Fundamentals Articles",
+        "description": "Practical electrical engineering fundamentals covering voltage, current, resistance, electrical power, Ohm's Law, formulas, units, and engineering examples.",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/",
         "inLanguage": "en",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/about.html"
+        },
         "publisher": {
-            "@id": "https://electrical.prasunbarua.com/#person"
-        }
-    }
-    </script>
-    <!-- =====================================================
-         STRUCTURED DATA — PERSON
-         ===================================================== -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://electrical.prasunbarua.com/#person",
-        "name": "Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/about.html",
-        "jobTitle": "Senior Electrical Engineer",
-        "worksFor": {
             "@type": "Organization",
             "name": "Electrical Engineering by Prasun Barua",
             "url": "https://electrical.prasunbarua.com/"
         }
     }
     </script>
+
+
     <!-- =====================================================
-         STRUCTURED DATA — ORGANIZATION
+         STRUCTURED DATA: BREADCRUMBS
          ===================================================== -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://electrical.prasunbarua.com/#organization",
-        "name": "Electrical Engineering by Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://electrical.prasunbarua.com/assets/images/og-cover.png"
-        }
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Electrical Fundamentals",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+            }
+        ]
     }
     </script>
+
+
+    <!-- =====================================================
+         STRUCTURED DATA: ARTICLE LIST
+         ===================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Electrical Fundamentals Articles",
+        "description": "Electrical engineering fundamentals articles by Prasun Barua.",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/",
+        "numberOfItems": 2,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Voltage, Current, Resistance & Electrical Power Explained",
+                "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Ohm's Law Explained",
+                "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+            }
+        ]
+    }
+    </script>
+
 </head>
+
+
 <body>
+
+
     <!-- =====================================================
          HEADER
          ===================================================== -->
+
     <header class="site-header">
+
         <div class="container header-inner">
-            <a href="/" class="logo" aria-label="Electrical Engineering home page">
-                <span class="logo-icon" aria-hidden="true">
-                    <span class="material-symbols-rounded">bolt</span>
+
+            <a href="/"
+                class="logo"
+                aria-label="Electrical Engineering home">
+
+                <span class="logo-icon"
+                    aria-hidden="true">
+
+                    <span class="material-symbols-rounded">
+                        bolt
+                    </span>
+
                 </span>
+
                 <span>
-                    <strong>Electrical Engineering</strong>
-                    <small>by Prasun Barua</small>
+
+                    <strong>
+                        Electrical Engineering
+                    </strong>
+
+                    <small>
+                        by Prasun Barua
+                    </small>
+
                 </span>
+
             </a>
-            <nav class="main-nav" aria-label="Main navigation">
+
+
+            <nav class="main-nav"
+                aria-label="Main navigation">
+
                 <ul>
-                    <li><a href="/" class="active" aria-current="page">Home</a></li>
-                    <li><a href="#tutorials">Tutorials</a></li>
-                    <li><a href="#calculations">Calculations</a></li>
-                    <li><a href="#solar">Solar PV</a></li>
-                    <li><a href="#about">About</a></li>
+
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-fundamentals/"
+                            class="active"
+                            aria-current="page">
+                            Tutorials
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-calculations/">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/solar-pv/">
+                            Solar PV
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-    <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-content">
-            <span class="eyebrow">
-                ELECTRICAL ENGINEERING KNOWLEDGE HUB
-            </span>
-            <h1 id="hero-title">
-                Learn Electrical Engineering.
-                <span>Understand. Calculate. Design.</span>
-            </h1>
-            <p>
-                Practical electrical engineering tutorials, calculations, solar PV guides, power system concepts, design methods, testing procedures, and real-world engineering examples.
-            </p>
-            <!-- Search Form -->
-            <form class="search-box" id="site-search-form" role="search">
-                <label for="site-search" class="sr-only">Search electrical engineering topics</label>
-                <span class="material-symbols-rounded" aria-hidden="true">search</span>
-                <input type="search" id="site-search" name="q" placeholder="Search electrical engineering topics..." autocomplete="off" enterkeyhint="search">
-                <button id="search-button" type="submit">
-                    <span class="material-symbols-rounded" aria-hidden="true">search</span>
-                    <span>Search</span>
-                </button>
-            </form>
-            <p id="search-message" class="search-message" aria-live="polite"></p>
-        </div>
-    </section>
+
+
     <!-- =====================================================
          MAIN CONTENT
          ===================================================== -->
+
     <main>
-        <!-- TUTORIAL CATEGORIES -->
-        <section class="section" id="tutorials" aria-labelledby="tutorials-title">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
-                        LEARN
+
+        <section class="fundamentals-section">
+
+            <div class="fundamentals-container">
+
+
+                <!-- =================================================
+                     BREADCRUMBS
+                     ================================================= -->
+
+                <nav class="breadcrumbs"
+                    aria-label="Breadcrumb">
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <span class="separator"
+                        aria-hidden="true">
+                        ›
                     </span>
-                    <h2 id="tutorials-title">Explore Electrical Engineering</h2>
-                    <p>Build your knowledge from electrical fundamentals to practical engineering applications.</p>
-                </div>
-                <div class="category-grid">
-                    <!-- Electrical Fundamentals -->
-                    <a href="/articles/electrical-fundamentals/" class="category-card">
-                        <div class="category-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">electrical_services</span>
-                        </div>
-                        <h3>Electrical Fundamentals</h3>
-                        <p>Voltage, current, resistance, power, energy, AC, DC, and essential electrical concepts.</p>
-                        <span class="card-link">
-                            Explore
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </span>
-                    </a>
-                    <!-- Electrical Calculations -->
-                    <a href="/articles/electrical-calculations/" class="category-card">
-                        <div class="category-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                        </div>
-                        <h3>Electrical Calculations</h3>
-                        <p>Practical formulas, worked examples, sizing calculations, and engineering methods.</p>
-                        <span class="card-link">
-                            Explore
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </span>
-                    </a>
-                    <!-- Power Systems -->
-                    <a href="/articles/power-systems/" class="category-card">
-                        <div class="category-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">electric_bolt</span>
-                        </div>
-                        <h3>Power Systems</h3>
-                        <p>Transformers, distribution systems, power factor, protection, and grid concepts.</p>
-                        <span class="card-link">
-                            Explore
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </span>
-                    </a>
-                    <!-- Solar PV -->
-                    <a href="/articles/solar-pv/" class="category-card">
-                        <div class="category-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
-                        </div>
-                        <h3>Solar PV Engineering</h3>
-                        <p>Solar PV design, string sizing, inverters, performance, losses, and system calculations.</p>
-                        <span class="card-link">
-                            Explore
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </span>
-                    </a>
-                    <!-- Electrical Design -->
-                    <a href="/articles/electrical-design/" class="category-card">
-                        <div class="category-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">architecture</span>
-                        </div>
-                        <h3>Electrical Design</h3>
-                        <p>Cable selection, protection, distribution, earthing, and practical electrical design.</p>
-                        <span class="card-link">
-                            Explore
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </span>
-                    </a>
-                    <!-- Testing & Commissioning -->
-                    <a href="/articles/testing-commissioning/" class="category-card">
-                        <div class="category-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">science</span>
-                        </div>
-                        <h3>Testing &amp; Commissioning</h3>
-                        <p>Electrical testing procedures, commissioning steps, safety checks, and standards.</p>
-                        <span class="card-link">
-                            Explore
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </section>
 
-        <!-- CALCULATORS & TOOLS -->
-        <section class="section section-alt" id="calculations" aria-labelledby="calculations-title">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                        TOOLS
+                    <span aria-current="page">
+                        Electrical Fundamentals
                     </span>
-                    <h2 id="calculations-title">Electrical Engineering Calculations</h2>
-                    <p>Interactive tools and calculators designed for quick and accurate engineering design.</p>
-                </div>
-                <div class="calculator-grid">
-                    <a href="/calculators/cable-sizing/" class="calculator-card">
-                        <div class="tool-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">cable</span>
-                        </div>
-                        <div>
-                            <h3>Cable Sizing Calculator</h3>
-                            <p>Calculate minimum cable size based on current-carrying capacity and voltage drop.</p>
-                            <span class="card-link">
-                                Open Tool <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+
+                </nav>
+
+
+                <!-- =================================================
+                     PAGE INTRO
+                     ================================================= -->
+
+                <header class="fundamentals-intro">
+
+                    <div class="fundamentals-heading">
+
+                        <div class="page-category">
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                electrical_services
                             </span>
+
+                            Electrical Engineering
+
                         </div>
-                    </a>
-                    <a href="/calculators/voltage-drop/" class="calculator-card">
-                        <div class="tool-icon">
-                            <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                        </div>
-                        <div>
-                            <h3>Voltage Drop Calculator</h3>
-                            <p>Determine voltage drop across single-phase and three-phase AC circuits.</p>
-                            <span class="card-link">
-                                Open Tool <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                            </span>
-                        </div>
-                    </a>
+
+                        <h1>
+                            Electrical Fundamentals Articles
+                        </h1>
+
+                    </div>
+
+
+                    <p class="fundamentals-description">
+
+                        Explore practical electrical engineering fundamentals.
+                        Learn important concepts through clear explanations,
+                        formulas, units, calculations, practical examples,
+                        and real-world engineering applications.
+
+                    </p>
+
+                </header>
+
+
+                <!-- =================================================
+                     OVERVIEW
+                     ================================================= -->
+
+                <div class="fundamentals-overview">
+
+                    <div class="fundamentals-overview-title">
+
+                        <span class="material-symbols-rounded"
+                            aria-hidden="true">
+                            bolt
+                        </span>
+
+                        Electrical Fundamentals
+
+                    </div>
+
+                    <p>
+
+                        Electrical engineering starts with a strong
+                        understanding of fundamental electrical quantities
+                        and their relationships. This section covers
+                        voltage, electric current, resistance, electrical
+                        power, and Ohm's Law — concepts used throughout
+                        electrical engineering, electrical design, and
+                        power systems.
+
+                    </p>
+
                 </div>
+
+
+                <!-- =================================================
+                     ARTICLES HEADER
+                     ================================================= -->
+
+                <div class="articles-heading">
+
+                    <h2>
+                        Available Tutorials
+                    </h2>
+
+                    <p>
+
+                        Start with the fundamentals article to understand
+                        voltage, current, resistance, and electrical power.
+                        Then continue with Ohm's Law to learn how these
+                        quantities are mathematically related.
+
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     ARTICLE GRID
+                     ================================================= -->
+
+                <div class="article-grid">
+
+
+                    <!-- =================================================
+                         ARTICLE 1
+                         ================================================= -->
+
+                    <article class="article-card">
+
+                        <div class="article-card-icon"
+                            aria-hidden="true">
+
+                            <span class="material-symbols-rounded">
+                                bolt
+                            </span>
+
+                        </div>
+
+                        <div class="article-card-category">
+                            Electrical Fundamentals
+                        </div>
+
+                        <h3>
+                            Voltage, Current, Resistance &amp; Electrical Power Explained
+                        </h3>
+
+                        <p>
+
+                            Learn the fundamental electrical quantities:
+                            voltage, electric current, resistance, and
+                            electrical power. Includes formulas, units,
+                            Ohm's Law, and a practical engineering example.
+
+                        </p>
+
+                        <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+                            class="article-card-link"
+                            aria-label="Read Voltage, Current, Resistance and Electrical Power Explained">
+
+                            Read Article
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         ARTICLE 2
+                         ================================================= -->
+
+                    <article class="article-card">
+
+                        <div class="article-card-icon"
+                            aria-hidden="true">
+
+                            <span class="material-symbols-rounded">
+                                calculate
+                            </span>
+
+                        </div>
+
+                        <div class="article-card-category">
+                            Electrical Fundamentals
+                        </div>
+
+                        <h3>
+                            Ohm's Law Explained
+                        </h3>
+
+                        <p>
+
+                            Understand the relationship between voltage,
+                            current, and resistance using Ohm's Law.
+                            Includes formulas, practical calculations,
+                            examples, and engineering applications.
+
+                        </p>
+
+                        <a href="/articles/electrical-fundamentals/ohms-law/"
+                            class="article-card-link"
+                            aria-label="Read Ohm's Law Explained">
+
+                            Read Article
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     MORE ARTICLES
+                     ================================================= -->
+
+                <div class="more-articles">
+
+                    <strong>
+                        More electrical engineering fundamentals
+                    </strong>
+
+                    will be added to this section as new tutorials
+                    are published.
+
+                </div>
+
+
             </div>
+
         </section>
 
-        <!-- SOLAR PV FEATURE -->
-        <section class="section" id="solar" aria-labelledby="solar-title">
-            <div class="container">
-                <div class="feature-panel">
-                    <div class="feature-content">
-                        <span class="section-label">
-                            <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
-                            FEATURED GUIDE
-                        </span>
-                        <h2 id="solar-title">Complete Solar PV System Design Guide</h2>
-                        <p>Learn how to design commercial and residential solar photovoltaic systems from scratch, covering string sizing, inverter matching, and yield calculations.</p>
-                        <ul>
-                            <li>DC and AC side sizing calculations</li>
-                            <li>Inverter MPPT voltage range compliance</li>
-                            <li>Cable and protection device selection</li>
-                        </ul>
-                        <a href="/articles/solar-pv/complete-guide/" class="primary-button">
-                            <span>Read the Guide</span>
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </a>
-                    </div>
-                    <div class="feature-visual" aria-hidden="true">
-                        <div class="solar-illustration">
-                            <div class="sun">
-                                <span class="material-symbols-rounded">wb_sunny</span>
-                            </div>
-                            <div class="energy-line">
-                                <span class="material-symbols-rounded">south</span>
-                            </div>
-                            <div class="solar-panel">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                            </div>
-                            <div class="energy-line">
-                                <span class="material-symbols-rounded">south</span>
-                            </div>
-                            <div class="inverter">
-                                <span class="material-symbols-rounded">settings_power</span>
-                                Inverter / Grid
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT SECTION -->
-        <section class="section section-alt" id="about">
-            <div class="container">
-                <div class="author-section">
-                    <div class="author-avatar" aria-hidden="true">PB</div>
-                    <div>
-                        <span class="section-label">
-                            <span class="material-symbols-rounded" aria-hidden="true">person</span>
-                            MEET THE AUTHOR
-                        </span>
-                        <h2>Prasun Barua</h2>
-                        <p>Senior Electrical Engineer sharing practical guides, real-world calculations, and professional engineering insights to help students and working professionals master electrical system design.</p>
-                        <a href="/about.html" class="text-link">
-                            <span>Learn more about my background</span>
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
+
     <!-- =====================================================
          FOOTER
          ===================================================== -->
+
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-              <div>
+
+        <div class="container footer-grid">
+
+
+            <div>
+
                 <div class="footer-logo">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                    <span>Electrical Engineering by Prasun Barua</span>
+
+                    <span class="material-symbols-rounded"
+                        aria-hidden="true">
+                        bolt
+                    </span>
+
+                    Electrical Engineering
+
                 </div>
-                <p>Practical electrical engineering tutorials, calculations, and resources for professionals and students.</p>
-              </div>
-              <div>
-                <h3>Quick Links</h3>
-                <a href="#tutorials">Tutorials</a>
-                <a href="#calculations">Calculations</a>
-                <a href="#solar">Solar PV</a>
-                <a href="#about">About</a>
-              </div>
-              <div>
-                <h3>Legal</h3>
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/terms.html">Terms of Use</a>
-              </div>
+
+                <p>
+
+                    Practical electrical engineering tutorials,
+                    calculations, design guides, and renewable
+                    energy resources.
+
+                </p>
+
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
+
+
+            <div>
+
+                <h3>
+                    Explore
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-fundamentals/">
+                            Electrical Fundamentals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-calculations/">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/solar-pv/">
+                            Solar PV
+                        </a>
+                    </li>
+
+                </ul>
+
             </div>
+
+
+            <div>
+
+                <h3>
+                    Information
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/privacy-policy.html">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/disclaimer.html">
+                            Disclaimer
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
         </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    &copy; 2026 Prasun Barua. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
     </footer>
+
+
+    <!-- =====================================================
+         SITE JAVASCRIPT
+         ===================================================== -->
+
+    <script src="/assets/js/app.js" defer></script>
+
 </body>
+
 </html>
