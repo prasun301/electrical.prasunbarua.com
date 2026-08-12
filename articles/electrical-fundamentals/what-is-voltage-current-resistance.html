@@ -31,12 +31,11 @@
         content="width=device-width, initial-scale=1.0">
 
     <title>
-        Voltage, Current, Resistance &amp; Electrical Power Explained
-        | Electrical Engineering
+        Voltage, Current, Resistance &amp; Electrical Power Explained | Electrical Engineering
     </title>
 
     <meta name="description"
-        content="Learn what voltage, electric current, resistance, and electrical power are with simple explanations, formulas, units, Ohm's Law, practical examples, and engineering applications.">
+        content="Learn voltage, electric current, resistance, and electrical power with simple explanations, formulas, units, Ohm's Law, practical calculations, and engineering examples.">
 
     <meta name="author"
         content="Prasun Barua">
@@ -59,7 +58,7 @@
         content="Voltage, Current, Resistance &amp; Electrical Power Explained">
 
     <meta property="og:description"
-        content="Understand voltage, electric current, resistance, and electrical power with simple engineering explanations, formulas, units, and examples.">
+        content="Understand voltage, electric current, resistance, and electrical power with practical formulas, units, calculations, and engineering examples.">
 
     <meta property="og:url"
         content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html">
@@ -149,7 +148,9 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 32px;
+
+            margin-bottom: 34px;
+
             color: var(--text-muted);
             font-size: 13px;
         }
@@ -173,42 +174,59 @@
            ===================================================== */
 
         .article-header {
-            max-width: 900px;
-            margin: 0 auto 48px;
+            max-width: 920px;
+            margin: 0 auto 52px;
             text-align: center;
         }
 
         .article-category {
             display: inline-flex;
             align-items: center;
+            gap: 7px;
+
             padding: 7px 13px;
+
             border-radius: var(--radius-pill);
+
             background: var(--primary-light);
             border: 1px solid var(--primary-soft);
+
             color: var(--primary);
+
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
+
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         .article-header h1 {
             margin: 20px auto 0;
-            max-width: 900px;
+
+            max-width: 920px;
+
             color: var(--text-strong);
+
             font-size: clamp(34px, 5vw, 58px);
-            line-height: 1.08;
-            letter-spacing: -0.045em;
+            line-height: 1.06;
+
+            letter-spacing: -0.05em;
+
             font-weight: 800;
+
             text-wrap: balance;
         }
 
         .article-intro {
-            max-width: 760px;
+            max-width: 780px;
+
             margin: 22px auto 0;
+
             color: var(--text-secondary);
+
             font-size: clamp(17px, 2vw, 20px);
             line-height: 1.65;
+
             text-wrap: pretty;
         }
 
@@ -217,9 +235,13 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+
+            gap: 9px;
+
             margin-top: 24px;
+
             color: var(--text-muted);
+
             font-size: 13px;
         }
 
@@ -234,8 +256,11 @@
 
         .article-layout {
             display: grid;
+
             grid-template-columns: 230px minmax(0, 1fr);
+
             gap: 48px;
+
             align-items: start;
         }
 
@@ -251,36 +276,57 @@
         .toc {
             position: sticky;
             top: 96px;
+
             padding: 20px;
+
             border: 1px solid var(--border);
+
             border-radius: var(--radius-lg);
+
             background: var(--background-soft);
+
             box-shadow: var(--shadow-xs);
         }
 
         .toc-title {
             margin-bottom: 14px;
+
             color: var(--text-strong);
+
             font-size: 12px;
             font-weight: 800;
+
             letter-spacing: 0.08em;
+
             text-transform: uppercase;
         }
 
         .toc a {
             display: block;
+
             padding: 7px 10px;
+
             margin: 2px 0;
+
             border-radius: var(--radius-sm);
+
             color: var(--text-secondary);
+
             font-size: 13px;
             font-weight: 500;
+
             line-height: 1.4;
+
+            transition:
+                color var(--transition-fast),
+                background var(--transition-fast);
         }
 
         .toc a:hover {
             color: var(--primary);
+
             background: var(--primary-light);
+
             text-decoration: none;
         }
 
@@ -291,37 +337,53 @@
 
         .article-content {
             max-width: 760px;
-            padding: 0;
+
             margin: 0;
+
             font-size: 17px;
+
             line-height: 1.8;
         }
 
         .article-content section {
             scroll-margin-top: 100px;
+
             margin-bottom: 64px;
         }
 
         .article-content h2 {
             position: relative;
+
             margin: 0 0 18px;
+
             padding-top: 8px;
+
             color: var(--text-strong);
+
             font-size: clamp(25px, 3vw, 34px);
+
             line-height: 1.25;
+
             letter-spacing: -0.035em;
+
+            font-weight: 800;
         }
 
         .article-content h3 {
             margin: 32px 0 12px;
+
             color: var(--text-strong);
+
             font-size: 20px;
+
             line-height: 1.35;
+
             letter-spacing: -0.02em;
         }
 
         .article-content p {
             margin: 0 0 20px;
+
             color: var(--text-secondary);
         }
 
@@ -332,7 +394,9 @@
         .article-content ul,
         .article-content ol {
             margin: 0 0 24px;
+
             padding-left: 24px;
+
             color: var(--text-secondary);
         }
 
@@ -340,11 +404,24 @@
             margin-bottom: 9px;
         }
 
+        .article-content a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--primary-dark);
+        }
+
         .article-content code {
             padding: 3px 6px;
+
             border-radius: 6px;
+
             background: var(--background-alt);
+
             color: var(--text-strong);
+
             font-size: 0.9em;
         }
 
@@ -355,33 +432,49 @@
 
         .quick-answer {
             position: relative;
+
             padding: 24px;
-            margin-bottom: 48px;
+
+            margin-bottom: 52px;
+
             border: 1px solid var(--primary-soft);
+
             border-left: 4px solid var(--primary);
+
             border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
             background: linear-gradient(
                 135deg,
                 var(--primary-light),
                 #ffffff
             );
+
             box-shadow: var(--shadow-sm);
         }
 
         .quick-answer-title {
             display: flex;
+
             align-items: center;
+
             gap: 8px;
+
             margin-bottom: 10px;
+
             color: var(--primary);
+
             font-size: 13px;
+
             font-weight: 800;
+
             text-transform: uppercase;
+
             letter-spacing: 0.06em;
         }
 
         .quick-answer p {
             margin-bottom: 18px;
+
             color: var(--text);
         }
 
@@ -392,47 +485,72 @@
 
         .formula-box {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             min-height: 82px;
+
             padding: 18px 24px;
+
             margin: 24px 0;
+
             border: 1px solid #1e293b;
+
             border-radius: var(--radius-md);
+
             background: linear-gradient(
                 135deg,
                 #0f172a,
                 #1e293b
             );
+
             color: #ffffff;
+
             text-align: center;
+
             font-family: var(--font-mono);
+
             font-size: clamp(20px, 3vw, 28px);
+
             font-weight: 700;
+
             letter-spacing: -0.02em;
+
             box-shadow: var(--shadow-md);
+
             overflow-x: auto;
         }
 
 
         /* =====================================================
-           FORMULA CARDS
+           FORMULA GRID
            ===================================================== */
 
         .formula-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 16px;
+
             margin: 28px 0;
         }
 
         .formula-card {
             padding: 22px 18px;
+
             border: 1px solid var(--border);
+
             border-radius: var(--radius-md);
+
             background: var(--surface-elevated);
+
             text-align: center;
+
             box-shadow: var(--shadow-xs);
+
             transition:
                 transform var(--transition),
                 border-color var(--transition),
@@ -441,21 +559,29 @@
 
         .formula-card:hover {
             transform: translateY(-3px);
+
             border-color: var(--primary-soft);
+
             box-shadow: var(--shadow-md);
         }
 
         .formula-card strong {
             display: block;
+
             margin-bottom: 8px;
+
             color: var(--text-strong);
+
             font-size: 14px;
         }
 
         .formula-card span {
             color: var(--primary);
+
             font-family: var(--font-mono);
+
             font-size: 16px;
+
             font-weight: 700;
         }
 
@@ -466,35 +592,50 @@
 
         .table-wrapper {
             width: 100%;
+
             overflow-x: auto;
+
             margin: 28px 0;
+
             border: 1px solid var(--border);
+
             border-radius: var(--radius-md);
+
+            box-shadow: var(--shadow-xs);
         }
 
         .engineering-table {
             width: 100%;
+
             min-width: 480px;
+
             border-collapse: collapse;
+
             background: #ffffff;
         }
 
         .engineering-table th,
         .engineering-table td {
             padding: 14px 16px;
+
             border-bottom: 1px solid var(--border);
+
             text-align: left;
         }
 
         .engineering-table th {
             background: var(--background-soft);
+
             color: var(--text-strong);
+
             font-size: 13px;
+
             font-weight: 700;
         }
 
         .engineering-table td {
             color: var(--text-secondary);
+
             font-size: 15px;
         }
 
@@ -504,20 +645,26 @@
 
 
         /* =====================================================
-           CALCULATION
+           CALCULATION BOX
            ===================================================== */
 
         .calculation-box {
             padding: 20px 22px;
+
             margin: 20px 0;
+
             border: 1px solid var(--border);
+
             border-radius: var(--radius-md);
+
             background: var(--background-soft);
+
             font-family: var(--font-mono);
         }
 
         .calculation-box p {
             margin-bottom: 8px;
+
             color: var(--text);
         }
 
@@ -525,77 +672,125 @@
             margin-bottom: 0;
         }
 
+
+        /* =====================================================
+           RESULT BOX
+           ===================================================== */
+
         .result-box {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             padding: 22px;
+
             margin: 24px 0;
+
             border: 1px solid #bbf7d0;
+
             border-radius: var(--radius-md);
+
             background: #f0fdf4;
+
             color: var(--success);
+
             font-family: var(--font-mono);
+
             font-size: 25px;
+
+            font-weight: 700;
+
             text-align: center;
         }
 
 
         /* =====================================================
-           CTA
+           CALCULATOR CTA
            ===================================================== */
 
         .article-cta {
             position: relative;
+
             overflow: hidden;
+
             padding: 32px;
+
             margin: 56px 0;
+
             border-radius: var(--radius-xl);
+
             background: linear-gradient(
                 135deg,
                 #eff6ff 0%,
                 #dbeafe 100%
             );
+
             border: 1px solid var(--primary-soft);
         }
 
         .article-cta::after {
             content: "";
+
             position: absolute;
+
             width: 180px;
             height: 180px;
+
             right: -70px;
             top: -70px;
+
             border-radius: 50%;
+
             background: rgba(37, 99, 235, 0.08);
+
+            pointer-events: none;
         }
 
         .article-cta h2 {
             margin: 0 0 10px;
+
             padding: 0;
+
             font-size: 25px;
         }
 
         .article-cta p {
             max-width: 600px;
+
             margin-bottom: 22px;
         }
 
         .primary-button {
             position: relative;
+
             z-index: 2;
+
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
+
             gap: 8px;
+
             min-height: 46px;
+
             padding: 10px 18px;
+
             border-radius: var(--radius-pill);
+
             background: var(--primary);
+
             color: #ffffff !important;
+
             font-size: 14px;
+
             font-weight: 700;
+
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+
             transition:
                 transform var(--transition-fast),
                 background var(--transition-fast),
@@ -604,9 +799,13 @@
 
         .primary-button:hover {
             background: var(--primary-dark);
+
             color: #ffffff !important;
+
             transform: translateY(-2px);
+
             box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
+
             text-decoration: none;
         }
 
@@ -617,23 +816,37 @@
 
         .related-grid {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 12px;
+
             margin-top: 24px;
         }
 
         .related-grid a {
             display: flex;
+
             align-items: center;
+
             min-height: 60px;
+
             padding: 16px 18px;
+
             border: 1px solid var(--border);
+
             border-radius: var(--radius-md);
+
             background: #ffffff;
+
             color: var(--text);
+
             font-size: 14px;
+
             font-weight: 600;
+
             box-shadow: var(--shadow-xs);
+
             transition:
                 transform var(--transition),
                 border-color var(--transition),
@@ -643,17 +856,25 @@
 
         .related-grid a::after {
             content: "→";
+
             margin-left: auto;
+
             color: var(--primary);
+
             font-size: 18px;
+
             transition: transform var(--transition-fast);
         }
 
         .related-grid a:hover {
             color: var(--primary);
+
             border-color: var(--primary-soft);
+
             box-shadow: var(--shadow-md);
+
             transform: translateY(-2px);
+
             text-decoration: none;
         }
 
@@ -668,6 +889,7 @@
 
         #faq h3 {
             padding-bottom: 8px;
+
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -680,6 +902,7 @@
 
             .article-layout {
                 grid-template-columns: 1fr;
+
                 gap: 24px;
             }
 
@@ -689,17 +912,20 @@
 
             .toc {
                 position: relative;
+
                 top: auto;
             }
 
             .toc a {
                 display: inline-block;
+
                 margin: 3px;
             }
 
             .formula-grid {
                 grid-template-columns: 1fr;
             }
+
         }
 
 
@@ -714,7 +940,7 @@
             }
 
             .article-header {
-                margin-bottom: 36px;
+                margin-bottom: 38px;
             }
 
             .article-header h1 {
@@ -727,6 +953,7 @@
 
             .article-content {
                 font-size: 16px;
+
                 line-height: 1.75;
             }
 
@@ -737,10 +964,15 @@
             .article-cta {
                 padding: 24px;
             }
+
         }
 
 
         @media (max-width: 520px) {
+
+            .article-container {
+                width: min(calc(100% - 28px), 1120px);
+            }
 
             .article-meta {
                 gap: 6px 10px;
@@ -752,7 +984,9 @@
 
             .formula-box {
                 min-height: 70px;
+
                 padding: 15px;
+
                 font-size: 20px;
             }
 
@@ -763,6 +997,7 @@
             .toc {
                 padding: 16px;
             }
+
         }
 
 
@@ -780,9 +1015,12 @@
             *::before,
             *::after {
                 transition-duration: 0.01ms !important;
+
                 animation-duration: 0.01ms !important;
+
                 animation-iteration-count: 1 !important;
             }
+
         }
 
     </style>
@@ -797,7 +1035,8 @@
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "Voltage, Current, Resistance & Electrical Power Explained",
-        "description": "Learn the fundamentals of voltage, electric current, resistance, and electrical power with simple explanations, formulas, units, and engineering examples.",
+        "description": "Learn voltage, electric current, resistance, and electrical power with simple explanations, formulas, units, Ohm's Law, practical calculations, and engineering examples.",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html",
         "author": {
             "@type": "Person",
             "name": "Prasun Barua"
@@ -805,7 +1044,7 @@
         "publisher": {
             "@type": "Organization",
             "name": "Electrical Engineering by Prasun Barua",
-            "url": "https://electrical.prasunbarua.com"
+            "url": "https://electrical.prasunbarua.com/"
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -847,7 +1086,7 @@
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Voltage, Current & Resistance",
+                "name": "Voltage, Current, Resistance & Electrical Power",
                 "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
             }
         ]
@@ -893,7 +1132,15 @@
                 "name": "What is electrical power?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Electrical power represents the rate at which electrical energy is transferred or consumed. It is measured in watts (W)."
+                    "text": "Electrical power is the rate at which electrical energy is transferred, converted, or consumed. It is measured in watts (W)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Ohm's Law?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ohm's Law describes the relationship between voltage, current, and resistance. It can be written as V = I × R."
                 }
             }
         ]
@@ -1030,7 +1277,7 @@
                     </span>
 
                     <span aria-current="page">
-                        Voltage, Current &amp; Resistance
+                        Voltage, Current, Resistance &amp; Electrical Power
                     </span>
 
                 </nav>
@@ -1043,19 +1290,31 @@
                 <header class="article-header">
 
                     <div class="article-category">
-                        ELECTRICAL FUNDAMENTALS
+
+                        <span class="material-symbols-rounded"
+                            aria-hidden="true">
+                            bolt
+                        </span>
+
+                        Electrical Fundamentals
+
                     </div>
+
 
                     <h1>
                         Voltage, Current, Resistance &amp; Electrical Power Explained
                     </h1>
 
+
                     <p class="article-intro">
+
                         Understand the four fundamental electrical quantities —
                         voltage, electric current, resistance, and electrical power —
                         with simple explanations, formulas, units, and practical
                         engineering concepts.
+
                     </p>
+
 
                     <div class="article-meta">
 
@@ -1075,9 +1334,9 @@
                             •
                         </span>
 
-                        <span>
+                        <time datetime="2026-08">
                             Updated August 2026
-                        </span>
+                        </time>
 
                     </div>
 
@@ -1096,7 +1355,7 @@
                          ================================================= -->
 
                     <aside class="article-sidebar"
-                        aria-label="Article Navigation">
+                        aria-label="Article navigation">
 
                         <nav class="toc"
                             aria-label="Table of Contents">
@@ -1131,6 +1390,10 @@
 
                             <a href="#faq">
                                 FAQ
+                            </a>
+
+                            <a href="#related">
+                                Related Tutorials
                             </a>
 
                         </nav>
@@ -1173,7 +1436,9 @@
 
                             <div class="formula-box"
                                 aria-label="Electrical power equals voltage multiplied by current">
+
                                 P = V × I
+
                             </div>
 
                         </div>
@@ -1456,19 +1721,19 @@
 
                                         <tr>
 
-                                            <th>
+                                            <th scope="col">
                                                 Quantity
                                             </th>
 
-                                            <th>
+                                            <th scope="col">
                                                 Symbol
                                             </th>
 
-                                            <th>
+                                            <th scope="col">
                                                 Unit
                                             </th>
 
-                                            <th>
+                                            <th scope="col">
                                                 Common Formula
                                             </th>
 
@@ -1568,7 +1833,7 @@
 
 
                         <!-- =================================================
-                             EXAMPLE
+                             WORKED EXAMPLE
                              ================================================= -->
 
                         <section id="example">
@@ -1611,7 +1876,7 @@
 
 
                             <h3>
-                                Step 3 — Calculate
+                                Step 3 — Calculate Current
                             </h3>
 
                             <div class="formula-box">
@@ -1645,14 +1910,14 @@
 
 
                         <!-- =================================================
-                             CTA
+                             CALCULATOR CTA
                              ================================================= -->
 
-                        <section>
+                        <section aria-labelledby="calculator-heading">
 
                             <div class="article-cta">
 
-                                <h2>
+                                <h2 id="calculator-heading">
                                     Need an Electrical Calculation?
                                 </h2>
 
@@ -1730,8 +1995,8 @@
 
                             <p>
                                 Electrical power represents the rate at which
-                                electrical energy is transferred or consumed.
-                                It is measured in watts (W).
+                                electrical energy is transferred, converted,
+                                or consumed. It is measured in watts (W).
                             </p>
 
 
@@ -1753,16 +2018,33 @@
                              RELATED TUTORIALS
                              ================================================= -->
 
-                        <section>
+                        <section id="related">
 
                             <h2>
                                 Related Tutorials
                             </h2>
 
+                            <p>
+                                Continue learning electrical engineering
+                                fundamentals with these related tutorials.
+                            </p>
+
                             <div class="related-grid">
 
                                 <a href="/articles/electrical-fundamentals/ohms-law/">
                                     Ohm's Law Explained
+                                </a>
+
+                                <a href="/articles/electrical-fundamentals/">
+                                    All Electrical Fundamentals
+                                </a>
+
+                                <a href="/articles/electrical-calculations/">
+                                    Electrical Calculations
+                                </a>
+
+                                <a href="/articles/solar-pv/">
+                                    Solar PV Engineering
                                 </a>
 
                             </div>
@@ -1884,6 +2166,7 @@
                 </ul>
 
             </div>
+
 
         </div>
 
