@@ -2,1755 +2,2409 @@
 <html lang="en">
 
 <head>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
         gtag('config', 'G-XY335VGVGJ');
     </script>
 
+    <!-- =========================================================
+         BASIC META
+    ========================================================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ohm's Law Explained: Formula, Examples &amp; Calculations | Electrical Engineering</title>
-    <meta name="description" content="Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.">
-    <meta name="author" content="Prasun Barua">
-    <meta name="robots" content="index, follow, max-image-preview:large">
 
-    <link rel="canonical" href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
-    <meta property="og:description" content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
-    <meta property="og:url" content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
-    <meta property="og:site_name" content="Electrical Engineering">
-    <meta property="og:updated_time" content="2026-08-01T00:00:00+00:00">
+    <title>
+        Ohm's Law Explained: Formula, Examples &amp; Calculations | Electrical Engineering
+    </title>
 
-    <!-- Twitter Card Data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
-    <meta name="twitter:description" content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-
-    <!-- Performance: Preconnects and Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <meta name="description"
+          content="Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.">
 
-    <!-- Main Stylesheet (Root Relative) -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="/assets/js/app.js" defer></script>
-
-   <!-- Essential Layout Safety Styles -->
-<style>
-
-    /* =========================================================
-       DESIGN SYSTEM
-    ========================================================= */
-
-    :root {
-        --primary: #0b57d0;
-        --primary-dark: #084298;
-        --primary-light: #eff6ff;
+    <meta name="author"
+          content="Prasun Barua">
 
-        --text-dark: #0f172a;
-        --text-body: #334155;
-        --text-muted: #64748b;
+    <meta name="robots"
+          content="index, follow, max-image-preview:large">
 
-        --bg-page: #ffffff;
-        --bg-light: #f8fafc;
-        --bg-soft: #f1f5f9;
+    <link rel="canonical"
+          href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
 
-        --border: #e2e8f0;
-        --border-strong: #cbd5e1;
 
-        --formula-bg: #0f172a;
-        --formula-text: #ffffff;
-        --formula-muted: #cbd5e1;
+    <!-- =========================================================
+         OPEN GRAPH
+    ========================================================== -->
 
-        --success-bg: #f0fdf4;
-        --success-border: #bbf7d0;
-        --success-text: #166534;
+    <meta property="og:type"
+          content="article">
 
-        --radius-sm: 6px;
-        --radius: 10px;
-        --radius-lg: 14px;
+    <meta property="og:title"
+          content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
 
-        --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
-        --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.08);
-    }
+    <meta property="og:description"
+          content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
 
+    <meta property="og:url"
+          content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
 
-    /* =========================================================
-       GLOBAL RESET / BASE
-    ========================================================= */
+    <meta property="og:site_name"
+          content="Electrical Engineering">
 
-    html {
-        scroll-behavior: smooth;
-    }
+    <meta property="og:updated_time"
+          content="2026-08-12T00:00:00+00:00">
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
 
-    body {
-        margin: 0;
+    <!-- =========================================================
+         TWITTER CARD
+    ========================================================== -->
 
-        font-family:
-            'Inter',
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            sans-serif;
+    <meta name="twitter:card"
+          content="summary_large_image">
 
-        color: var(--text-body);
+    <meta name="twitter:title"
+          content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
 
-        background: var(--bg-page);
+    <meta name="twitter:description"
+          content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
 
-        line-height: 1.7;
 
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-    }
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
 
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+    <link rel="icon"
+          type="image/svg+xml"
+          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
-    a {
-        color: var(--primary);
-    }
 
-    button,
-    input,
-    textarea,
-    select {
-        font: inherit;
-    }
+    <!-- =========================================================
+         PERFORMANCE / FONTS
+    ========================================================== -->
 
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    /* =========================================================
-       GLOBAL CONTAINER
-    ========================================================= */
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-    .container,
-    .article-container {
-        width: 100%;
-        max-width: 1080px;
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
 
-        margin-left: auto;
-        margin-right: auto;
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
-        padding-left: 20px;
-        padding-right: 20px;
-    }
 
+    <!-- =========================================================
+         MAIN STYLESHEET
+    ========================================================== -->
 
-    /* =========================================================
-       ARTICLE SECTION
-    ========================================================= */
+    <link rel="stylesheet"
+          href="/assets/css/style.css">
 
-    .article-section {
-        padding: 34px 0 80px;
-    }
+    <script src="/assets/js/app.js"
+            defer></script>
 
-    .article-container {
-        margin-top: 0;
-    }
 
+    <!-- =========================================================
+         ARTICLE STYLES
+    ========================================================== -->
 
-    /* =========================================================
-       BREADCRUMBS
-    ========================================================= */
+    <style>
 
-    .breadcrumbs {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
+        /* =========================================================
+           DESIGN SYSTEM
+        ========================================================== */
 
-        gap: 8px;
+        :root {
+            --primary: #0b57d0;
+            --primary-dark: #084298;
+            --primary-light: #eff6ff;
 
-        margin: 0 0 30px;
+            --text-dark: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
 
-        font-size: 14px;
-        line-height: 1.5;
+            --bg-page: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-soft: #f1f5f9;
 
-        color: var(--text-muted);
-    }
+            --border: #e2e8f0;
+            --border-strong: #cbd5e1;
 
-    .breadcrumbs a {
-        color: var(--primary);
+            --formula-bg: #0f172a;
+            --formula-text: #ffffff;
+            --formula-muted: #cbd5e1;
 
-        text-decoration: none;
+            --success-bg: #f0fdf4;
+            --success-border: #bbf7d0;
+            --success-text: #166534;
 
-        font-weight: 500;
-    }
+            --radius-sm: 6px;
+            --radius: 10px;
+            --radius-lg: 14px;
 
-    .breadcrumbs a:hover {
-        text-decoration: underline;
-    }
-
-    .breadcrumbs span {
-        color: #94a3b8;
-    }
-
-
-    /* =========================================================
-       ARTICLE HEADER
-    ========================================================= */
-
-    .article-header {
-        max-width: 920px;
-
-        margin: 0 0 52px;
-    }
-
-    .article-category {
-        display: inline-block;
-
-        margin-bottom: 14px;
-
-        color: var(--primary);
-
-        font-size: 12px;
-        line-height: 1.4;
-
-        font-weight: 800;
-
-        letter-spacing: 0.09em;
-
-        text-transform: uppercase;
-    }
-
-    .article-header h1 {
-        margin: 0 0 20px;
-
-        color: var(--text-dark);
-
-        font-size: clamp(2.3rem, 5vw, 3.65rem);
-
-        line-height: 1.08;
-
-        letter-spacing: -0.045em;
-
-        font-weight: 800;
-    }
-
-    .article-intro {
-        max-width: 830px;
-
-        margin: 0 0 22px;
-
-        color: #475569;
-
-        font-size: 1.15rem;
-
-        line-height: 1.75;
-    }
-
-    .article-meta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-
-        gap: 9px;
-
-        color: var(--text-muted);
-
-        font-size: 14px;
-
-        line-height: 1.5;
-    }
-
-    .article-meta strong {
-        color: var(--text-dark);
-    }
-
-
-    /* =========================================================
-       ARTICLE MAIN LAYOUT
-    ========================================================= */
-
-    .article-layout {
-        display: grid;
-
-        grid-template-columns:
-            240px
-            minmax(0, 1fr);
-
-        gap: 48px;
-
-        align-items: start;
-
-        margin-top: 0;
-    }
-
-    .article-sidebar {
-        min-width: 0;
-    }
-
-
-    /* =========================================================
-       TABLE OF CONTENTS
-    ========================================================= */
-
-    .toc {
-        position: sticky;
-
-        top: 90px;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 9px;
-
-        padding: 20px;
-
-        background: var(--bg-light);
-
-        border: 1px solid var(--border);
-
-        border-radius: var(--radius);
-
-        box-shadow: var(--shadow-sm);
-    }
-
-    .toc h3 {
-        margin: 0 0 8px;
-
-        color: var(--text-muted);
-
-        font-size: 12px;
-
-        line-height: 1.4;
-
-        font-weight: 800;
-
-        text-transform: uppercase;
-
-        letter-spacing: 0.08em;
-    }
-
-    .toc a {
-        display: block;
-
-        padding: 3px 0;
-
-        color: var(--primary);
-
-        text-decoration: none;
-
-        font-size: 14px;
-
-        line-height: 1.5;
-
-        font-weight: 500;
-
-        transition:
-            color 0.15s ease,
-            padding-left 0.15s ease;
-    }
-
-    .toc a:hover {
-        color: var(--primary-dark);
-
-        text-decoration: none;
-
-        padding-left: 3px;
-    }
-
-
-    /* =========================================================
-       ARTICLE CONTENT
-    ========================================================= */
-
-    .article-content {
-        min-width: 0;
-
-        width: 100%;
-
-        max-width: 760px;
-
-        color: var(--text-body);
-
-        font-size: 17px;
-
-        line-height: 1.78;
-    }
-
-    .article-content section {
-        margin: 0 0 68px;
-
-        scroll-margin-top: 100px;
-    }
-
-    .article-content section:last-child {
-        margin-bottom: 0;
-    }
-
-    .article-content p {
-        margin: 0 0 20px;
-
-        color: var(--text-body);
-    }
-
-    .article-content ul,
-    .article-content ol {
-        margin: 0 0 25px;
-
-        padding-left: 1.5rem;
-    }
-
-    .article-content li {
-        margin-bottom: 8px;
-    }
-
-    .article-content h2 {
-        margin: 0 0 18px;
-
-        color: var(--text-dark);
-
-        font-size: clamp(1.8rem, 3vw, 2.35rem);
-
-        line-height: 1.2;
-
-        font-weight: 800;
-
-        letter-spacing: -0.03em;
-    }
-
-    .article-content h3 {
-        margin: 34px 0 13px;
-
-        color: var(--text-dark);
-
-        font-size: 1.25rem;
-
-        line-height: 1.4;
-
-        font-weight: 700;
-
-        letter-spacing: -0.015em;
-    }
-
-    .article-content strong {
-        color: var(--text-dark);
-
-        font-weight: 700;
-    }
-
-
-    /* =========================================================
-       INLINE CODE
-    ========================================================= */
-
-    .article-content code {
-        display: inline-block;
-
-        padding: 2px 6px;
-
-        background: #f1f5f9;
-
-        border: 1px solid #e2e8f0;
-
-        border-radius: 5px;
-
-        color: #0f172a;
-
-        font-family:
-            ui-monospace,
-            SFMono-Regular,
-            Menlo,
-            Monaco,
-            Consolas,
-            monospace;
-
-        font-size: 0.88em;
-
-        line-height: 1.4;
-    }
-
-
-    /* =========================================================
-       QUICK ANSWER
-    ========================================================= */
-
-    .quick-answer {
-        margin: 0 0 44px;
-
-        padding: 22px 24px;
-
-        background: var(--primary-light);
-
-        border: 1px solid #dbeafe;
-
-        border-left: 4px solid var(--primary);
-
-        border-radius:
-            0
-            var(--radius)
-            var(--radius)
-            0;
-    }
-
-    .quick-answer > strong {
-        display: block;
-
-        margin-bottom: 8px;
-
-        color: var(--text-dark);
-
-        font-size: 15px;
-
-        font-weight: 800;
-    }
-
-    .quick-answer p {
-        margin: 0;
-
-        color: var(--text-body);
-    }
-
-    .quick-answer .formula-box {
-        margin-top: 18px;
-    }
-
-
-    /* =========================================================
-       FORMULA BOX
-    ========================================================= */
-
-    .formula-box {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: center;
-
-        width: 100%;
-
-        min-height: 72px;
-
-        margin: 28px 0;
-
-        padding: 20px 24px;
-
-        background: var(--formula-bg);
-
-        border: 1px solid #1e293b;
-
-        border-radius: var(--radius);
-
-        color: var(--formula-text) !important;
-
-        text-align: center;
-
-        font-size: 1.45rem;
-
-        font-weight: 700;
-
-        line-height: 1.5;
-
-        box-shadow: var(--shadow-sm);
-
-        overflow: hidden;
-    }
-
-    /*
-       IMPORTANT:
-       Protect formula text from rules in style.css.
-    */
-
-    .article-content .formula-box,
-    .article-content .formula-box *,
-    .article-content .formula-box strong,
-    .article-content .formula-box span,
-    .article-content .formula-box p,
-    .article-content .formula-box div {
-        color: #ffffff !important;
-    }
-
-    .formula-box .formula {
-        display: block;
-
-        margin: 0;
-
-        color: #ffffff !important;
-
-        font-size: clamp(1.7rem, 4vw, 2.15rem);
-
-        line-height: 1.35;
-
-        font-weight: 800;
-
-        letter-spacing: 0.015em;
-    }
-
-    .formula-box p {
-        margin: 8px 0 0;
-
-        color: var(--formula-muted) !important;
-
-        font-size: 1rem;
-
-        font-weight: 400;
-
-        line-height: 1.6;
-    }
-
-    .formula-box .formula-label {
-        display: block;
-
-        margin-bottom: 5px;
-
-        color: #cbd5e1 !important;
-
-        font-size: 0.76rem;
-
-        font-weight: 800;
-
-        line-height: 1.4;
-
-        letter-spacing: 0.08em;
-
-        text-transform: uppercase;
-    }
-
-
-    /* =========================================================
-       FORMULA GRID
-    ========================================================= */
-
-    .formula-grid {
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-
-        gap: 16px;
-
-        margin: 28px 0;
-    }
-
-    .formula-card {
-        min-width: 0;
-
-        padding: 20px 16px;
-
-        background: var(--bg-light);
-
-        border: 1px solid var(--border);
-
-        border-radius: var(--radius);
-
-        text-align: center;
-
-        box-shadow: var(--shadow-sm);
-
-        transition:
-            border-color 0.15s ease,
-            transform 0.15s ease,
-            box-shadow 0.15s ease;
-    }
-
-    .formula-card:hover {
-        border-color: #bfdbfe;
-
-        box-shadow: var(--shadow-md);
-
-        transform: translateY(-1px);
-    }
-
-    .formula-card strong {
-        display: block;
-
-        margin-bottom: 8px;
-
-        color: var(--text-dark);
-
-        font-size: 14px;
-
-        font-weight: 700;
-    }
-
-    .formula-card span {
-        display: block;
-
-        color: var(--text-dark);
-
-        font-size: 1.05rem;
-
-        line-height: 1.5;
-
-        font-weight: 800;
-    }
-
-
-    /* =========================================================
-       CALCULATION BOX
-       
-       This is specifically designed to prevent the
-       "empty white box" problem shown in your screenshot.
-    ========================================================= */
-
-    .calculation-box {
-        display: block !important;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        min-height: 0 !important;
-
-        max-height: none !important;
-
-        margin: 22px 0 !important;
-
-        padding: 18px 22px !important;
-
-        background: var(--bg-light) !important;
-
-        border: 1px solid var(--border) !important;
-
-        border-radius: var(--radius) !important;
-
-        color: var(--text-body) !important;
-
-        font-size: 1.05rem !important;
-
-        line-height: 1.7 !important;
-
-        overflow: visible !important;
-
-        visibility: visible !important;
-
-        opacity: 1 !important;
-
-        box-shadow: none;
-    }
-
-    /*
-       Force every common child element inside the
-       calculation box to remain visible.
-    */
-
-    .calculation-box,
-    .calculation-box *,
-    .article-content .calculation-box,
-    .article-content .calculation-box * {
-        visibility: visible !important;
-
-        opacity: 1 !important;
-    }
-
-    .calculation-box p {
-        display: block !important;
-
-        margin: 5px 0 !important;
-
-        padding: 0 !important;
-
-        color: var(--text-body) !important;
-
-        font-size: 1.05rem !important;
-
-        line-height: 1.7 !important;
-
-        font-weight: 400;
-    }
-
-    .calculation-box p:first-child {
-        margin-top: 0 !important;
-    }
-
-    .calculation-box p:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    .calculation-box div {
-        display: block !important;
-
-        margin: 5px 0 !important;
-
-        padding: 0 !important;
-
-        color: var(--text-body) !important;
-
-        font-size: 1.05rem !important;
-
-        line-height: 1.7 !important;
-    }
-
-    .calculation-box strong {
-        color: var(--primary) !important;
-
-        font-weight: 700 !important;
-    }
-
-    .calculation-box code {
-        color: #0f172a !important;
-
-        background: #ffffff !important;
-
-        border: 1px solid var(--border) !important;
-    }
-
-
-    /* =========================================================
-       CALCULATION ROW
-       Optional class for cleaner calculations
-    ========================================================= */
-
-    .calculation-row {
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        gap: 20px;
-
-        padding: 10px 0;
-
-        border-bottom: 1px solid var(--border);
-    }
-
-    .calculation-row:last-child {
-        border-bottom: none;
-    }
-
-    .calculation-row strong {
-        color: var(--text-dark);
-    }
-
-
-    /* =========================================================
-       RESULT BOX
-    ========================================================= */
-
-    .result-box {
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        min-height: 72px;
-
-        margin: 26px 0;
-
-        padding: 18px 24px;
-
-        background: var(--primary-light);
-
-        border: 1px solid #bfdbfe;
-
-        border-radius: var(--radius);
-
-        color: var(--primary);
-
-        text-align: center;
-
-        font-size: 1.45rem;
-
-        line-height: 1.4;
-
-        box-shadow: var(--shadow-sm);
-    }
-
-    .result-box strong {
-        color: var(--primary) !important;
-
-        font-weight: 800;
-    }
-
-
-    /* =========================================================
-       ENGINEERING TABLE
-    ========================================================= */
-
-    .engineering-table {
-        width: 100%;
-
-        margin: 28px 0;
-
-        border-collapse: separate;
-
-        border-spacing: 0;
-
-        overflow: hidden;
-
-        border: 1px solid var(--border);
-
-        border-radius: var(--radius);
-
-        font-size: 15px;
-
-        background: #ffffff;
-    }
-
-    .engineering-table th,
-    .engineering-table td {
-        padding: 13px 15px;
-
-        border-right: 1px solid var(--border);
-
-        border-bottom: 1px solid var(--border);
-
-        text-align: left;
-
-        vertical-align: middle;
-    }
-
-    .engineering-table th:last-child,
-    .engineering-table td:last-child {
-        border-right: none;
-    }
-
-    .engineering-table tr:last-child td {
-        border-bottom: none;
-    }
-
-    .engineering-table th {
-        background: var(--bg-light);
-
-        color: var(--text-dark);
-
-        font-weight: 800;
-    }
-
-    .engineering-table td {
-        background: #ffffff;
-
-        color: var(--text-body);
-    }
-
-    .engineering-table td strong {
-        color: var(--text-dark);
-    }
-
-    .engineering-table tbody tr:hover td {
-        background: #f8fafc;
-    }
-
-
-    /* =========================================================
-       ARTICLE FIGURES / IMAGES
-    ========================================================= */
-
-    .article-figure {
-        margin: 36px 0;
-    }
-
-    .article-figure img {
-        display: block;
-
-        width: 100%;
-
-        height: auto;
-
-        border: 1px solid var(--border);
-
-        border-radius: var(--radius);
-
-        box-shadow: var(--shadow-sm);
-    }
-
-    .article-figure figcaption {
-        margin-top: 12px;
-
-        color: var(--text-muted);
-
-        font-size: 14px;
-
-        line-height: 1.6;
-
-        text-align: left;
-    }
-
-
-    /* =========================================================
-       CTA
-    ========================================================= */
-
-    .article-cta {
-        margin: 52px 0;
-
-        padding: 32px 28px;
-
-        background: var(--bg-light);
-
-        border: 1px solid var(--border);
-
-        border-radius: var(--radius-lg);
-
-        text-align: center;
-
-        box-shadow: var(--shadow-sm);
-    }
-
-    .article-cta h2 {
-        margin: 0 0 12px;
-
-        color: var(--text-dark);
-    }
-
-    .article-cta p {
-        max-width: 620px;
-
-        margin: 0 auto 24px;
-
-        color: var(--text-muted);
-    }
-
-    .article-cta .primary-button {
-        display: inline-flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 8px;
-
-        min-height: 46px;
-
-        padding: 11px 18px;
-
-        background: var(--primary);
-
-        border: 1px solid var(--primary);
-
-        border-radius: var(--radius);
-
-        color: #ffffff !important;
-
-        text-decoration: none;
-
-        font-size: 15px;
-
-        font-weight: 700;
-
-        transition:
-            background 0.15s ease,
-            transform 0.15s ease,
-            box-shadow 0.15s ease;
-    }
-
-    .article-cta .primary-button:hover {
-        background: var(--primary-dark);
-
-        border-color: var(--primary-dark);
-
-        color: #ffffff !important;
-
-        text-decoration: none;
-
-        transform: translateY(-1px);
-
-        box-shadow: var(--shadow-md);
-    }
-
-    .article-cta .primary-button .material-symbols-rounded {
-        color: #ffffff !important;
-
-        font-size: 20px;
-    }
-
-
-    /* =========================================================
-       FAQ
-    ========================================================= */
-
-    #faq h3 {
-        margin-top: 30px;
-
-        padding-top: 4px;
-
-        color: var(--text-dark);
-    }
-
-    #faq h3:first-of-type {
-        margin-top: 22px;
-    }
-
-    #faq p {
-        color: var(--text-body);
-    }
-
-
-    /* =========================================================
-       RELATED ARTICLES
-    ========================================================= */
-
-    .related-grid {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 12px;
-
-        margin-top: 24px;
-    }
-
-    .related-grid a {
-        display: block;
-
-        padding: 17px 18px;
-
-        background: #ffffff;
-
-        border: 1px solid var(--border);
-
-        border-radius: var(--radius);
-
-        color: var(--primary);
-
-        text-decoration: none;
-
-        font-size: 15px;
-
-        font-weight: 600;
-
-        line-height: 1.5;
-
-        transition:
-            border-color 0.15s ease,
-            background 0.15s ease,
-            transform 0.15s ease;
-    }
-
-    .related-grid a:hover {
-        background: var(--bg-light);
-
-        border-color: #bfdbfe;
-
-        text-decoration: none;
-
-        transform: translateY(-1px);
-    }
-
-
-    /* =========================================================
-       OPTIONAL INFO / NOTE BOX
-    ========================================================= */
-
-    .engineering-note {
-        margin: 28px 0;
-
-        padding: 20px 22px;
-
-        background: #f8fafc;
-
-        border: 1px solid var(--border);
-
-        border-left: 4px solid #94a3b8;
-
-        border-radius:
-            0
-            var(--radius)
-            var(--radius)
-            0;
-    }
-
-    .engineering-note strong {
-        color: var(--text-dark);
-    }
-
-
-    /* =========================================================
-       MOBILE — TABLET
-    ========================================================= */
-
-    @media (max-width: 900px) {
-
-        .article-layout {
-            grid-template-columns: 1fr;
-
-            gap: 32px;
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.08);
         }
 
-        .article-sidebar {
-            order: 0;
-        }
 
-        .article-content {
-            order: 1;
-
-            max-width: none;
-        }
-
-        .toc {
-            position: relative;
-
-            top: auto;
-        }
-
-        .article-header {
-            margin-bottom: 40px;
-        }
-
-    }
-
-
-    /* =========================================================
-       MOBILE — PHONE
-    ========================================================= */
-
-    @media (max-width: 640px) {
-
-        .container,
-        .article-container {
-            padding-left: 16px;
-            padding-right: 16px;
-        }
-
-        .article-section {
-            padding-top: 24px;
-
-            padding-bottom: 56px;
-        }
-
-        .breadcrumbs {
-            margin-bottom: 24px;
-
-            font-size: 13px;
-
-            gap: 6px;
-        }
-
-        .article-category {
-            margin-bottom: 12px;
-
-            font-size: 11px;
-        }
-
-        .article-header {
-            margin-bottom: 34px;
-        }
-
-        .article-header h1 {
-            margin-bottom: 16px;
-
-            font-size: 2.2rem;
-
-            line-height: 1.1;
-        }
-
-        .article-intro {
-            font-size: 1.05rem;
-
-            line-height: 1.7;
-        }
-
-        .article-meta {
-            font-size: 13px;
-
-            gap: 7px;
-        }
-
-        .article-content {
-            font-size: 16px;
-
-            line-height: 1.72;
-        }
-
-        .article-content section {
-            margin-bottom: 54px;
-        }
-
-        .article-content h2 {
-            font-size: 1.8rem;
-        }
-
-        .article-content h3 {
-            font-size: 1.18rem;
-        }
-
-        .toc {
-            padding: 17px;
-        }
-
-        .quick-answer {
-            padding: 18px;
-
-            margin-bottom: 34px;
-        }
-
-        .formula-box {
-            min-height: 66px;
-
-            margin: 22px 0;
-
-            padding: 18px 15px;
-
-            font-size: 1.25rem;
-        }
-
-        .formula-box .formula {
-            font-size: 1.55rem;
-        }
-
-        .formula-grid {
-            grid-template-columns: 1fr;
-
-            gap: 12px;
-        }
-
-        .formula-card {
-            padding: 18px 15px;
-        }
-
-        .calculation-box {
-            padding: 16px 18px !important;
-
-            font-size: 1rem !important;
-        }
-
-        .calculation-box p,
-        .calculation-box div {
-            font-size: 1rem !important;
-        }
-
-        .result-box {
-            min-height: 64px;
-
-            padding: 16px 18px;
-
-            font-size: 1.3rem;
-        }
-
-        .engineering-table {
-            display: block;
-
-            overflow-x: auto;
-
-            white-space: nowrap;
-
-            border-radius: var(--radius);
-        }
-
-        .engineering-table th,
-        .engineering-table td {
-            padding: 11px 12px;
-        }
-
-        .article-cta {
-            margin: 40px 0;
-
-            padding: 25px 18px;
-        }
-
-        .related-grid {
-            grid-template-columns: 1fr;
-        }
-
-    }
-
-
-    /* =========================================================
-       VERY SMALL PHONES
-    ========================================================= */
-
-    @media (max-width: 400px) {
-
-        .article-header h1 {
-            font-size: 2rem;
-        }
-
-        .article-intro {
-            font-size: 1rem;
-        }
-
-        .article-content {
-            font-size: 15.8px;
-        }
-
-        .formula-box .formula {
-            font-size: 1.4rem;
-        }
-
-    }
-
-
-    /* =========================================================
-       REDUCED MOTION
-    ========================================================= */
-
-    @media (prefers-reduced-motion: reduce) {
+        /* =========================================================
+           GLOBAL RESET
+        ========================================================== */
 
         html {
-            scroll-behavior: auto;
+            scroll-behavior: smooth;
         }
 
         *,
         *::before,
         *::after {
-            transition: none !important;
-            animation: none !important;
+            box-sizing: border-box;
         }
 
-    }
+        body {
+            margin: 0;
 
-</style>
+            font-family:
+                'Inter',
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
 
-    <!-- Structured Data: TechArticle & Breadcrumbs -->
+            color: var(--text-body);
+
+            background: var(--bg-page);
+
+            line-height: 1.7;
+
+            -webkit-font-smoothing: antialiased;
+
+            text-rendering: optimizeLegibility;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+
+        /* =========================================================
+           CONTAINER
+        ========================================================== */
+
+        .container,
+        .article-container {
+            width: 100%;
+
+            max-width: 1080px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+
+        /* =========================================================
+           ARTICLE SECTION
+        ========================================================== */
+
+        .article-section {
+            padding: 34px 0 80px;
+        }
+
+        .article-container {
+            margin-top: 0;
+        }
+
+
+        /* =========================================================
+           BREADCRUMBS
+        ========================================================== */
+
+        .breadcrumbs {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin: 0 0 30px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            color: var(--text-muted);
+        }
+
+        .breadcrumbs a {
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-weight: 500;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs span {
+            color: #94a3b8;
+        }
+
+
+        /* =========================================================
+           ARTICLE HEADER
+        ========================================================== */
+
+        .article-header {
+            max-width: 920px;
+
+            margin: 0 0 52px;
+        }
+
+        .article-category {
+            display: inline-block;
+
+            margin-bottom: 14px;
+
+            color: var(--primary);
+
+            font-size: 12px;
+
+            line-height: 1.4;
+
+            font-weight: 800;
+
+            letter-spacing: 0.09em;
+
+            text-transform: uppercase;
+        }
+
+        .article-header h1 {
+            margin: 0 0 20px;
+
+            color: var(--text-dark);
+
+            font-size: clamp(2.3rem, 5vw, 3.65rem);
+
+            line-height: 1.08;
+
+            letter-spacing: -0.045em;
+
+            font-weight: 800;
+        }
+
+        .article-intro {
+            max-width: 830px;
+
+            margin: 0 0 22px;
+
+            color: #475569;
+
+            font-size: 1.15rem;
+
+            line-height: 1.75;
+        }
+
+        .article-meta {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color: var(--text-muted);
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .article-meta strong {
+            color: var(--text-dark);
+        }
+
+
+        /* =========================================================
+           ARTICLE MAIN LAYOUT
+        ========================================================== */
+
+        .article-layout {
+            display: grid;
+
+            grid-template-columns: 240px minmax(0, 1fr);
+
+            gap: 48px;
+
+            align-items: start;
+
+            margin-top: 0;
+        }
+
+        .article-sidebar {
+            min-width: 0;
+        }
+
+
+        /* =========================================================
+           TABLE OF CONTENTS
+        ========================================================== */
+
+        .toc {
+            position: sticky;
+
+            top: 90px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+            padding: 20px;
+
+            background: var(--bg-light);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc h3 {
+            margin: 0 0 8px;
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+
+            line-height: 1.4;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+        }
+
+        .toc a {
+            display: block;
+
+            padding: 3px 0;
+
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            font-weight: 500;
+
+            transition:
+                color 0.15s ease,
+                padding-left 0.15s ease;
+        }
+
+        .toc a:hover {
+            color: var(--primary-dark);
+
+            text-decoration: none;
+
+            padding-left: 3px;
+        }
+
+
+        /* =========================================================
+           ARTICLE CONTENT
+        ========================================================== */
+
+        .article-content {
+            min-width: 0;
+
+            width: 100%;
+
+            max-width: 760px;
+
+            color: var(--text-body);
+
+            font-size: 17px;
+
+            line-height: 1.78;
+        }
+
+        .article-content section {
+            margin: 0 0 68px;
+
+            scroll-margin-top: 100px;
+        }
+
+        .article-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content p {
+            margin: 0 0 20px;
+
+            color: var(--text-body);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 0 0 25px;
+
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content h2 {
+            margin: 0 0 18px;
+
+            color: var(--text-dark);
+
+            font-size: clamp(1.8rem, 3vw, 2.35rem);
+
+            line-height: 1.2;
+
+            font-weight: 800;
+
+            letter-spacing: -0.03em;
+        }
+
+        .article-content h3 {
+            margin: 34px 0 13px;
+
+            color: var(--text-dark);
+
+            font-size: 1.25rem;
+
+            line-height: 1.4;
+
+            font-weight: 700;
+
+            letter-spacing: -0.015em;
+        }
+
+        .article-content strong {
+            color: var(--text-dark);
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           INLINE CODE
+        ========================================================== */
+
+        .article-content code {
+            display: inline-block;
+
+            padding: 2px 6px;
+
+            background: #f1f5f9;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 5px;
+
+            color: #0f172a;
+
+            font-family:
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                monospace;
+
+            font-size: 0.88em;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================== */
+
+        .quick-answer {
+            margin: 0 0 44px;
+
+            padding: 22px 24px;
+
+            background: var(--primary-light);
+
+            border: 1px solid #dbeafe;
+
+            border-left: 4px solid var(--primary);
+
+            border-radius:
+                0
+                var(--radius)
+                var(--radius)
+                0;
+        }
+
+        .quick-answer > strong {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--text-dark);
+
+            font-size: 15px;
+
+            font-weight: 800;
+        }
+
+        .quick-answer p {
+            margin: 0;
+
+            color: var(--text-body);
+        }
+
+        .quick-answer .formula-box {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================================
+           FORMULA BOX
+        ========================================================== */
+
+        .formula-box {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 100%;
+
+            min-height: 72px;
+
+            margin: 28px 0;
+
+            padding: 20px 24px;
+
+            background: var(--formula-bg);
+
+            border: 1px solid #1e293b;
+
+            border-radius: var(--radius);
+
+            color: var(--formula-text) !important;
+
+            text-align: center;
+
+            font-size: 1.45rem;
+
+            font-weight: 700;
+
+            line-height: 1.5;
+
+            box-shadow: var(--shadow-sm);
+
+            overflow: hidden;
+        }
+
+        .article-content .formula-box,
+        .article-content .formula-box *,
+        .article-content .formula-box strong,
+        .article-content .formula-box span,
+        .article-content .formula-box p,
+        .article-content .formula-box div {
+            color: #ffffff !important;
+        }
+
+        .formula-box .formula {
+            display: block;
+
+            margin: 0;
+
+            color: #ffffff !important;
+
+            font-size: clamp(1.7rem, 4vw, 2.15rem);
+
+            line-height: 1.35;
+
+            font-weight: 800;
+
+            letter-spacing: 0.015em;
+        }
+
+        .formula-box p {
+            margin: 8px 0 0;
+
+            color: var(--formula-muted) !important;
+
+            font-size: 1rem;
+
+            font-weight: 400;
+
+            line-height: 1.6;
+        }
+
+        .formula-box .formula-label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #cbd5e1 !important;
+
+            font-size: 0.76rem;
+
+            font-weight: 800;
+
+            line-height: 1.4;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           FORMULA GRID
+        ========================================================== */
+
+        .formula-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 16px;
+
+            margin: 28px 0;
+        }
+
+        .formula-card {
+            min-width: 0;
+
+            padding: 20px 16px;
+
+            background: var(--bg-light);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            text-align: center;
+
+            box-shadow: var(--shadow-sm);
+
+            transition:
+                border-color 0.15s ease,
+                transform 0.15s ease,
+                box-shadow 0.15s ease;
+        }
+
+        .formula-card:hover {
+            border-color: #bfdbfe;
+
+            box-shadow: var(--shadow-md);
+
+            transform: translateY(-1px);
+        }
+
+        .formula-card strong {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--text-dark);
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+        .formula-card span {
+            display: block;
+
+            color: var(--text-dark);
+
+            font-size: 1.05rem;
+
+            line-height: 1.5;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           CALCULATION BOX
+        ========================================================== */
+
+        .calculation-box {
+            display: block !important;
+
+            width: 100% !important;
+
+            height: auto !important;
+
+            min-height: 0 !important;
+
+            max-height: none !important;
+
+            margin: 22px 0 !important;
+
+            padding: 18px 22px !important;
+
+            background: var(--bg-light) !important;
+
+            border: 1px solid var(--border) !important;
+
+            border-radius: var(--radius) !important;
+
+            color: var(--text-body) !important;
+
+            font-size: 1.05rem !important;
+
+            line-height: 1.7 !important;
+
+            overflow: visible !important;
+
+            visibility: visible !important;
+
+            opacity: 1 !important;
+
+            box-shadow: none;
+        }
+
+        .calculation-box,
+        .calculation-box *,
+        .article-content .calculation-box,
+        .article-content .calculation-box * {
+            visibility: visible !important;
+
+            opacity: 1 !important;
+        }
+
+        .calculation-box p {
+            display: block !important;
+
+            margin: 5px 0 !important;
+
+            padding: 0 !important;
+
+            color: var(--text-body) !important;
+
+            font-size: 1.05rem !important;
+
+            line-height: 1.7 !important;
+
+            font-weight: 400;
+        }
+
+        .calculation-box p:first-child {
+            margin-top: 0 !important;
+        }
+
+        .calculation-box p:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .calculation-box div {
+            display: block !important;
+
+            margin: 5px 0 !important;
+
+            padding: 0 !important;
+
+            color: var(--text-body) !important;
+
+            font-size: 1.05rem !important;
+
+            line-height: 1.7 !important;
+        }
+
+        .calculation-box strong {
+            color: var(--primary) !important;
+
+            font-weight: 700 !important;
+        }
+
+        .calculation-box code {
+            color: #0f172a !important;
+
+            background: #ffffff !important;
+
+            border: 1px solid var(--border) !important;
+        }
+
+
+        /* =========================================================
+           CALCULATION ROW
+        ========================================================== */
+
+        .calculation-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .calculation-row:last-child {
+            border-bottom: none;
+        }
+
+        .calculation-row strong {
+            color: var(--text-dark);
+        }
+
+
+        /* =========================================================
+           RESULT BOX
+        ========================================================== */
+
+        .result-box {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 72px;
+
+            margin: 26px 0;
+
+            padding: 18px 24px;
+
+            background: var(--primary-light);
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: var(--radius);
+
+            color: var(--primary);
+
+            text-align: center;
+
+            font-size: 1.45rem;
+
+            line-height: 1.4;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .result-box strong {
+            color: var(--primary) !important;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           ENGINEERING TABLE
+        ========================================================== */
+
+        .engineering-table {
+            width: 100%;
+
+            margin: 28px 0;
+
+            border-collapse: separate;
+
+            border-spacing: 0;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            font-size: 15px;
+
+            background: #ffffff;
+        }
+
+        .engineering-table th,
+        .engineering-table td {
+            padding: 13px 15px;
+
+            border-right: 1px solid var(--border);
+
+            border-bottom: 1px solid var(--border);
+
+            text-align: left;
+
+            vertical-align: middle;
+        }
+
+        .engineering-table th:last-child,
+        .engineering-table td:last-child {
+            border-right: none;
+        }
+
+        .engineering-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .engineering-table th {
+            background: var(--bg-light);
+
+            color: var(--text-dark);
+
+            font-weight: 800;
+        }
+
+        .engineering-table td {
+            background: #ffffff;
+
+            color: var(--text-body);
+        }
+
+        .engineering-table td strong {
+            color: var(--text-dark);
+        }
+
+        .engineering-table tbody tr:hover td {
+            background: #f8fafc;
+        }
+
+
+        /* =========================================================
+           ARTICLE FIGURES
+        ========================================================== */
+
+        .article-figure {
+            margin: 36px 0;
+        }
+
+        .article-figure img {
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-figure figcaption {
+            margin-top: 12px;
+
+            color: var(--text-muted);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            text-align: left;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================== */
+
+        .article-cta {
+            margin: 52px 0;
+
+            padding: 32px 28px;
+
+            background: var(--bg-light);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-lg);
+
+            text-align: center;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-cta h2 {
+            margin: 0 0 12px;
+
+            color: var(--text-dark);
+        }
+
+        .article-cta p {
+            max-width: 620px;
+
+            margin: 0 auto 24px;
+
+            color: var(--text-muted);
+        }
+
+        .article-cta .primary-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            min-height: 46px;
+
+            padding: 11px 18px;
+
+            background: var(--primary);
+
+            border: 1px solid var(--primary);
+
+            border-radius: var(--radius);
+
+            color: #ffffff !important;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition:
+                background 0.15s ease,
+                transform 0.15s ease,
+                box-shadow 0.15s ease;
+        }
+
+        .article-cta .primary-button:hover {
+            background: var(--primary-dark);
+
+            border-color: var(--primary-dark);
+
+            color: #ffffff !important;
+
+            text-decoration: none;
+
+            transform: translateY(-1px);
+
+            box-shadow: var(--shadow-md);
+        }
+
+        .article-cta .primary-button .material-symbols-rounded {
+            color: #ffffff !important;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================== */
+
+        #faq h3 {
+            margin-top: 30px;
+
+            padding-top: 4px;
+
+            color: var(--text-dark);
+        }
+
+        #faq h3:first-of-type {
+            margin-top: 22px;
+        }
+
+        #faq p {
+            color: var(--text-body);
+        }
+
+
+        /* =========================================================
+           RELATED ARTICLES
+        ========================================================== */
+
+        .related-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin-top: 24px;
+        }
+
+        .related-grid a {
+            display: block;
+
+            padding: 17px 18px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+
+            transition:
+                border-color 0.15s ease,
+                background 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .related-grid a:hover {
+            background: var(--bg-light);
+
+            border-color: #bfdbfe;
+
+            text-decoration: none;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           ENGINEERING NOTE
+        ========================================================== */
+
+        .engineering-note {
+            margin: 28px 0;
+
+            padding: 20px 22px;
+
+            background: #f8fafc;
+
+            border: 1px solid var(--border);
+
+            border-left: 4px solid #94a3b8;
+
+            border-radius:
+                0
+                var(--radius)
+                var(--radius)
+                0;
+        }
+
+        .engineering-note strong {
+            color: var(--text-dark);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================== */
+
+        @media (max-width: 900px) {
+
+            .article-layout {
+                grid-template-columns: 1fr;
+
+                gap: 32px;
+            }
+
+            .article-sidebar {
+                order: 0;
+            }
+
+            .article-content {
+                order: 1;
+
+                max-width: none;
+            }
+
+            .toc {
+                position: relative;
+
+                top: auto;
+            }
+
+            .article-header {
+                margin-bottom: 40px;
+            }
+        }
+
+
+        /* =========================================================
+           PHONE
+        ========================================================== */
+
+        @media (max-width: 640px) {
+
+            .container,
+            .article-container {
+                padding-left: 16px;
+
+                padding-right: 16px;
+            }
+
+            .article-section {
+                padding-top: 24px;
+
+                padding-bottom: 56px;
+            }
+
+            .breadcrumbs {
+                margin-bottom: 24px;
+
+                font-size: 13px;
+
+                gap: 6px;
+            }
+
+            .article-category {
+                margin-bottom: 12px;
+
+                font-size: 11px;
+            }
+
+            .article-header {
+                margin-bottom: 34px;
+            }
+
+            .article-header h1 {
+                margin-bottom: 16px;
+
+                font-size: 2.2rem;
+
+                line-height: 1.1;
+            }
+
+            .article-intro {
+                font-size: 1.05rem;
+
+                line-height: 1.7;
+            }
+
+            .article-meta {
+                font-size: 13px;
+
+                gap: 7px;
+            }
+
+            .article-content {
+                font-size: 16px;
+
+                line-height: 1.72;
+            }
+
+            .article-content section {
+                margin-bottom: 54px;
+            }
+
+            .article-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.18rem;
+            }
+
+            .toc {
+                padding: 17px;
+            }
+
+            .quick-answer {
+                padding: 18px;
+
+                margin-bottom: 34px;
+            }
+
+            .formula-box {
+                min-height: 66px;
+
+                margin: 22px 0;
+
+                padding: 18px 15px;
+
+                font-size: 1.25rem;
+            }
+
+            .formula-box .formula {
+                font-size: 1.55rem;
+            }
+
+            .formula-grid {
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+            .formula-card {
+                padding: 18px 15px;
+            }
+
+            .calculation-box {
+                padding: 16px 18px !important;
+
+                font-size: 1rem !important;
+            }
+
+            .calculation-box p,
+            .calculation-box div {
+                font-size: 1rem !important;
+            }
+
+            .result-box {
+                min-height: 64px;
+
+                padding: 16px 18px;
+
+                font-size: 1.3rem;
+            }
+
+            .engineering-table {
+                display: block;
+
+                overflow-x: auto;
+
+                white-space: nowrap;
+
+                border-radius: var(--radius);
+            }
+
+            .engineering-table th,
+            .engineering-table td {
+                padding: 11px 12px;
+            }
+
+            .article-cta {
+                margin: 40px 0;
+
+                padding: 25px 18px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================== */
+
+        @media (max-width: 400px) {
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-intro {
+                font-size: 1rem;
+            }
+
+            .article-content {
+                font-size: 15.8px;
+            }
+
+            .formula-box .formula {
+                font-size: 1.4rem;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+
+                animation: none !important;
+            }
+        }
+
+    </style>
+
+
+    <!-- =========================================================
+         STRUCTURED DATA — TECH ARTICLE
+    ========================================================== -->
+
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      "headline": "Ohm's Law Explained: Formula, Examples & Calculations",
-      "description": "Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.",
-      "author": {
-        "@type": "Person",
-        "name": "Prasun Barua"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Electrical Engineering by Prasun Barua",
-        "url": "https://electrical.prasunbarua.com"
-      },
-      "datePublished": "2026-08-01",
-      "dateModified": "2026-08-12",
-      "mainEntityOfPage": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Ohm's Law Explained: Formula, Examples & Calculations",
+        "description": "Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.",
+        "author": {
+            "@type": "Person",
+            "name": "Prasun Barua"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com"
+        },
+        "datePublished": "2026-08-01",
+        "dateModified": "2026-08-12",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+        }
     }
     </script>
+
+
+    <!-- =========================================================
+         STRUCTURED DATA — BREADCRUMBS
+    ========================================================== -->
+
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://electrical.prasunbarua.com/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Electrical Fundamentals",
-        "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-      },{
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Ohm's Law"
-      }]
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Electrical Fundamentals",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ohm's Law",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+            }
+        ]
     }
     </script>
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
     <header class="site-header">
+
         <div class="container header-inner">
-            <a href="/" class="logo" aria-label="Electrical Engineering home">
-                <span class="logo-icon" aria-hidden="true">
-                    <span class="material-symbols-rounded">bolt</span>
+
+            <a href="/"
+               class="logo"
+               aria-label="Electrical Engineering home">
+
+                <span class="logo-icon"
+                      aria-hidden="true">
+
+                    <span class="material-symbols-rounded">
+                        bolt
+                    </span>
+
                 </span>
+
                 <span>
-                    <strong>Electrical Engineering</strong>
-                    <small>by Prasun Barua</small>
+
+                    <strong>
+                        Electrical Engineering
+                    </strong>
+
+                    <small>
+                        by Prasun Barua
+                    </small>
+
                 </span>
+
             </a>
 
-            <nav class="main-nav" aria-label="Main navigation">
+
+            <nav class="main-nav"
+                 aria-label="Main navigation">
+
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/articles/electrical-fundamentals/" class="active">Tutorials</a></li>
-                    <li><a href="/articles/electrical-calculations/">Calculations</a></li>
-                    <li><a href="/articles/solar-pv/">Solar PV</a></li>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
+
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-fundamentals/"
+                           class="active">
+                            Tutorials
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-calculations/">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/solar-pv/">
+                            Solar PV
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
 
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
     <main>
+
         <section class="article-section">
+
             <div class="article-container">
 
-                <!-- Breadcrumb Navigation -->
-                <nav class="breadcrumbs" aria-label="Breadcrumb">
-                    <a href="/">Home</a>
-                    <span aria-hidden="true">›</span>
-                    <a href="/articles/electrical-fundamentals/">Electrical Fundamentals</a>
-                    <span aria-hidden="true">›</span>
-                    <span aria-current="page">Ohm's Law</span>
+
+                <!-- =================================================
+                     BREADCRUMBS
+                ================================================== -->
+
+                <nav class="breadcrumbs"
+                     aria-label="Breadcrumb">
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <span aria-hidden="true">
+                        ›
+                    </span>
+
+                    <a href="/articles/electrical-fundamentals/">
+                        Electrical Fundamentals
+                    </a>
+
+                    <span aria-hidden="true">
+                        ›
+                    </span>
+
+                    <span aria-current="page">
+                        Ohm's Law
+                    </span>
+
                 </nav>
 
-                <!-- Article Header -->
+
+                <!-- =================================================
+                     ARTICLE HEADER
+                ================================================== -->
+
                 <header class="article-header">
-                    <div class="article-category">ELECTRICAL FUNDAMENTALS</div>
-                    <h1>Ohm's Law Explained: Formula, Examples &amp; Calculations</h1>
+
+                    <div class="article-category">
+                        ELECTRICAL FUNDAMENTALS
+                    </div>
+
+                    <h1>
+                        Ohm's Law Explained: Formula, Examples &amp; Calculations
+                    </h1>
+
                     <p class="article-intro">
-                        Ohm's Law is one of the most foundational relationships in electrical engineering. It describes how voltage, current, and resistance interact within an electrical circuit.
+                        Ohm's Law is one of the most foundational relationships
+                        in electrical engineering. It describes how voltage,
+                        current, and resistance interact within an electrical
+                        circuit.
                     </p>
 
                     <div class="article-meta">
-                        <span>By <strong>Prasun Barua</strong></span>
-                        <span aria-hidden="true">•</span>
-                        <span>Electrical Engineering</span>
-                        <span aria-hidden="true">•</span>
-                        <span>Updated August 2026</span>
+
+                        <span>
+                            By <strong>Prasun Barua</strong>
+                        </span>
+
+                        <span aria-hidden="true">
+                            •
+                        </span>
+
+                        <span>
+                            Electrical Engineering
+                        </span>
+
+                        <span aria-hidden="true">
+                            •
+                        </span>
+
+                        <span>
+                            Updated August 2026
+                        </span>
+
                     </div>
+
                 </header>
 
-                <!-- Article Main Content Layout -->
+
+                <!-- =================================================
+                     ARTICLE LAYOUT
+                ================================================== -->
+
                 <div class="article-layout">
 
-                    <!-- Sticky Sidebar Table of Contents -->
-                    <aside class="article-sidebar" aria-label="Article Navigation">
-                        <nav class="toc" aria-label="Table of Contents">
-                            <h3>On This Page</h3>
-                            <a href="#what-is-ohms-law">What Is Ohm's Law?</a>
-                            <a href="#formula">Ohm's Law Formula</a>
-                            <a href="#triangle">Ohm's Law Triangle</a>
-                            <a href="#example">Worked Example</a>
-                            <a href="#engineering">Engineering Notes</a>
-                            <a href="#faq">FAQ</a>
+
+                    <!-- =================================================
+                         SIDEBAR
+                    ================================================== -->
+
+                    <aside class="article-sidebar"
+                           aria-label="Article Navigation">
+
+                        <nav class="toc"
+                             aria-label="Table of Contents">
+
+                            <h3>
+                                On This Page
+                            </h3>
+
+                            <a href="#what-is-ohms-law">
+                                What Is Ohm's Law?
+                            </a>
+
+                            <a href="#formula">
+                                Ohm's Law Formula
+                            </a>
+
+                            <a href="#triangle">
+                                Ohm's Law Triangle
+                            </a>
+
+                            <a href="#example">
+                                Worked Example
+                            </a>
+
+                            <a href="#engineering">
+                                Engineering Notes
+                            </a>
+
+                            <a href="#faq">
+                                FAQ
+                            </a>
+
                         </nav>
+
                     </aside>
 
-                    <!-- Core Content Section -->
+
+                    <!-- =================================================
+                         ARTICLE CONTENT
+                    ================================================== -->
+
                     <article class="article-content">
 
-                        <!-- Quick Answer Box -->
+
+                        <!-- =================================================
+                             QUICK ANSWER
+                        ================================================== -->
+
                         <div class="quick-answer">
-                            <strong>Quick Answer</strong>
+
+                            <strong>
+                                Quick Answer
+                            </strong>
+
                             <p>
-                                Ohm's Law states that the current (<code>I</code>) flowing through a conductor between two points is directly proportional to the voltage (<code>V</code>) across the two points and inversely proportional to the resistance (<code>R</code>).
+                                Ohm's Law states that the current
+                                (<code>I</code>) flowing through a conductor
+                                between two points is directly proportional
+                                to the voltage (<code>V</code>) across the
+                                two points and inversely proportional to the
+                                resistance (<code>R</code>).
                             </p>
-                            <div class="formula-box" style="margin-top: 1rem;">V = I × R</div>
+
+                            <div class="formula-box"
+                                 style="margin-top: 1rem;">
+                                V = I × R
+                            </div>
+
                         </div>
 
-                        <!-- Section: What Is Ohm's Law -->
+
+                        <!-- =================================================
+                             WHAT IS OHM'S LAW
+                        ================================================== -->
+
                         <section id="what-is-ohms-law">
-                            <h2>What Is Ohm's Law?</h2>
+
+                            <h2>
+                                What Is Ohm's Law?
+                            </h2>
+
                             <p>
-                                Ohm's Law is a fundamental principle used in electrical and electronic engineering to calculate the relationship between voltage, current, and resistance in an electrical circuit.
+                                Ohm's Law is a fundamental principle used in
+                                electrical and electronic engineering to
+                                calculate the relationship between voltage,
+                                current, and resistance in an electrical
+                                circuit.
                             </p>
+
                             <p>
-                                When the resistance of a circuit is constant, increasing the voltage results in a proportional increase in current. Conversely, if resistance increases for a given voltage, current decreases.
+                                When the resistance of a circuit is constant,
+                                increasing the voltage results in a proportional
+                                increase in current. Conversely, if resistance
+                                increases for a given voltage, current decreases.
                             </p>
-                            <p>The three fundamental electrical quantities are:</p>
+
+                            <p>
+                                The three fundamental electrical quantities are:
+                            </p>
+
                             <ul>
-                                <li><strong>Voltage (V)</strong> — Electrical potential difference, measured in Volts (V).</li>
-                                <li><strong>Current (I)</strong> — The flow rate of electric charge, measured in Amperes (A).</li>
-                                <li><strong>Resistance (R)</strong> — The opposition to current flow, measured in Ohms (Ω).</li>
+
+                                <li>
+                                    <strong>Voltage (V)</strong>
+                                    — Electrical potential difference,
+                                    measured in Volts (V).
+                                </li>
+
+                                <li>
+                                    <strong>Current (I)</strong>
+                                    — The flow rate of electric charge,
+                                    measured in Amperes (A).
+                                </li>
+
+                                <li>
+                                    <strong>Resistance (R)</strong>
+                                    — The opposition to current flow,
+                                    measured in Ohms (Ω).
+                                </li>
+
                             </ul>
+
                         </section>
 
-                        <!-- Section: Formula -->
+
+                        <!-- =================================================
+                             FORMULA
+                        ================================================== -->
+
                         <section id="formula">
-                            <h2>Ohm's Law Formula</h2>
-                            <p>The standard algebraic expression for Ohm's Law is:</p>
 
-                            <div class="formula-box">V = I × R</div>
+                            <h2>
+                                Ohm's Law Formula
+                            </h2>
 
-                            <p>Where:</p>
+                            <p>
+                                The standard algebraic expression for
+                                Ohm's Law is:
+                            </p>
+
+                            <div class="formula-box">
+                                V = I × R
+                            </div>
+
+                            <p>
+                                Where:
+                            </p>
 
                             <table class="engineering-table">
+
                                 <thead>
+
                                     <tr>
-                                        <th scope="col">Symbol</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Unit</th>
+
+                                        <th scope="col">
+                                            Symbol
+                                        </th>
+
+                                        <th scope="col">
+                                            Quantity
+                                        </th>
+
+                                        <th scope="col">
+                                            Unit
+                                        </th>
+
                                     </tr>
+
                                 </thead>
+
                                 <tbody>
+
                                     <tr>
-                                        <td><strong>V</strong></td>
-                                        <td>Voltage</td>
-                                        <td>Volt (V)</td>
+
+                                        <td>
+                                            <strong>V</strong>
+                                        </td>
+
+                                        <td>
+                                            Voltage
+                                        </td>
+
+                                        <td>
+                                            Volt (V)
+                                        </td>
+
                                     </tr>
+
                                     <tr>
-                                        <td><strong>I</strong></td>
-                                        <td>Current</td>
-                                        <td>Ampere (A)</td>
+
+                                        <td>
+                                            <strong>I</strong>
+                                        </td>
+
+                                        <td>
+                                            Current
+                                        </td>
+
+                                        <td>
+                                            Ampere (A)
+                                        </td>
+
                                     </tr>
+
                                     <tr>
-                                        <td><strong>R</strong></td>
-                                        <td>Resistance</td>
-                                        <td>Ohm (Ω)</td>
+
+                                        <td>
+                                            <strong>R</strong>
+                                        </td>
+
+                                        <td>
+                                            Resistance
+                                        </td>
+
+                                        <td>
+                                            Ohm (Ω)
+                                        </td>
+
                                     </tr>
+
                                 </tbody>
+
                             </table>
+
                         </section>
 
-                        <!-- Section: Triangle -->
+
+                        <!-- =================================================
+                             TRIANGLE
+                        ================================================== -->
+
                         <section id="triangle">
-                            <h2>Ohm's Law Triangle</h2>
-                            <p>The formula can be rearranged depending on which quantity needs to be calculated:</p>
+
+                            <h2>
+                                Ohm's Law Triangle
+                            </h2>
+
+                            <p>
+                                The formula can be rearranged depending on
+                                which quantity needs to be calculated:
+                            </p>
 
                             <div class="formula-grid">
+
                                 <div class="formula-card">
-                                    <strong>Voltage</strong>
-                                    <span>V = I × R</span>
+
+                                    <strong>
+                                        Voltage
+                                    </strong>
+
+                                    <span>
+                                        V = I × R
+                                    </span>
+
                                 </div>
+
+
                                 <div class="formula-card">
-                                    <strong>Current</strong>
-                                    <span>I = V ÷ R</span>
+
+                                    <strong>
+                                        Current
+                                    </strong>
+
+                                    <span>
+                                        I = V ÷ R
+                                    </span>
+
                                 </div>
+
+
                                 <div class="formula-card">
-                                    <strong>Resistance</strong>
-                                    <span>R = V ÷ I</span>
+
+                                    <strong>
+                                        Resistance
+                                    </strong>
+
+                                    <span>
+                                        R = V ÷ I
+                                    </span>
+
                                 </div>
+
                             </div>
+
                         </section>
 
-                        <!-- Section: Worked Example -->
+
+                        <!-- =================================================
+                             WORKED EXAMPLE
+                        ================================================== -->
+
                         <section id="example">
-                            <h2>Worked Example</h2>
+
+                            <h2>
+                                Worked Example
+                            </h2>
+
                             <p>
-                                Suppose a 24 V DC supply is connected across a resistor with a resistance of 12 Ω. What current will flow through the circuit?
+                                Suppose a 24 V DC supply is connected across
+                                a resistor with a resistance of 12 Ω. What
+                                current will flow through the circuit?
                             </p>
 
-                            <h3>Step 1 — Identify the known values</h3>
+
+                            <h3>
+                                Step 1 — Identify the known values
+                            </h3>
+
                             <div class="calculation-box">
-                                <p>Voltage (<code>V</code>) = 24 V</p>
-                                <p>Resistance (<code>R</code>) = 12 Ω</p>
+
+                                <p>
+                                    Voltage (<code>V</code>) = 24 V
+                                </p>
+
+                                <p>
+                                    Resistance (<code>R</code>) = 12 Ω
+                                </p>
+
                             </div>
 
-                            <h3>Step 2 — Apply Ohm's Law for current</h3>
-                            <div class="formula-box">I = V ÷ R</div>
 
-                            <h3>Step 3 — Substitute values and calculate</h3>
-                            <div class="formula-box">I = 24 ÷ 12</div>
+                            <h3>
+                                Step 2 — Apply Ohm's Law for current
+                            </h3>
+
+                            <div class="formula-box">
+                                I = V ÷ R
+                            </div>
+
+
+                            <h3>
+                                Step 3 — Substitute values and calculate
+                            </h3>
+
+                            <div class="formula-box">
+                                I = 24 ÷ 12
+                            </div>
+
 
                             <div class="result-box">
-                                <strong>I = 2 A</strong>
+
+                                <strong>
+                                    I = 2 A
+                                </strong>
+
                             </div>
 
+
                             <p>
-                                Therefore, the total current flowing through the resistor is <strong>2 amperes</strong>.
+                                Therefore, the total current flowing through
+                                the resistor is <strong>2 amperes</strong>.
                             </p>
+
                         </section>
 
-                        <!-- Section: Engineering Notes -->
+
+                        <!-- =================================================
+                             ENGINEERING NOTES
+                        ================================================== -->
+
                         <section id="engineering">
-                            <h2>Engineering Notes</h2>
-                            <p>
-                                While Ohm's Law is the baseline for simple linear DC circuits, practical AC power networks involve frequency-dependent components like inductors and capacitors.
-                            </p>
-                            <p>
-                                In AC circuits, pure resistance (<code>R</code>) is expanded to total <strong>impedance (<code>Z</code>)</strong>, modifying the relationship to <code>V = I × Z</code>. Furthermore, Ohm's Law is frequently combined with Joule's Law to determine electrical power dissipation:
-                            </p>
 
-                            <div class="formula-box">P = V × I = I² × R</div>
+                            <h2>
+                                Engineering Notes
+                            </h2>
 
                             <p>
-                                Combining these equations enables power system engineers to calculate power loss, voltage drop across distribution lines, and fault current magnitudes.
+                                While Ohm's Law is the baseline for simple
+                                linear DC circuits, practical AC power networks
+                                involve frequency-dependent components like
+                                inductors and capacitors.
                             </p>
+
+                            <p>
+                                In AC circuits, pure resistance
+                                (<code>R</code>) is expanded to total
+                                <strong>impedance (<code>Z</code>)</strong>,
+                                modifying the relationship to
+                                <code>V = I × Z</code>.
+                                Furthermore, Ohm's Law is frequently combined
+                                with Joule's Law to determine electrical
+                                power dissipation:
+                            </p>
+
+                            <div class="formula-box">
+                                P = V × I = I² × R
+                            </div>
+
+                            <p>
+                                Combining these equations enables power system
+                                engineers to calculate power loss, voltage drop
+                                across distribution lines, and fault current
+                                magnitudes.
+                            </p>
+
                         </section>
 
-                        <!-- Section: CTA / Calculator -->
+
+                        <!-- =================================================
+                             CALCULATOR CTA
+                        ================================================== -->
+
                         <section>
+
                             <div class="article-cta">
-                                <h2>Need an Electrical Calculation?</h2>
-                                <p>Use our dedicated engineering tools for fast cable sizing, voltage drop, and power calculations.</p>
-                                <a href="https://calculator.prasunbarua.com/" target="_blank" rel="noopener" class="primary-button">
-                                    Open Electrical Calculators <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+
+                                <h2>
+                                    Need an Electrical Calculation?
+                                </h2>
+
+                                <p>
+                                    Use our dedicated engineering tools for
+                                    fast cable sizing, voltage drop, and power
+                                    calculations.
+                                </p>
+
+                                <a href="https://calculator.prasunbarua.com/"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="primary-button">
+
+                                    Open Electrical Calculators
+
+                                    <span class="material-symbols-rounded"
+                                          aria-hidden="true">
+                                        arrow_forward
+                                    </span>
+
                                 </a>
+
                             </div>
+
                         </section>
 
-                        <!-- Section: FAQ -->
+
+                        <!-- =================================================
+                             FAQ
+                        ================================================== -->
+
                         <section id="faq">
-                            <h2>Frequently Asked Questions</h2>
 
-                            <h3>What is the basic formula of Ohm's Law?</h3>
-                            <p>The basic formula is <code>V = I × R</code>, where <code>V</code> is voltage in volts, <code>I</code> is current in amperes, and <code>R</code> is resistance in ohms.</p>
+                            <h2>
+                                Frequently Asked Questions
+                            </h2>
 
-                            <h3>What happens when resistance increases?</h3>
-                            <p>If voltage remains constant, increasing the circuit resistance reduces current flow proportionally according to <code>I = V ÷ R</code>.</p>
 
-                            <h3>Is Ohm's Law applicable to AC circuits?</h3>
-                            <p>Ohm's Law applies directly to resistive AC loads. However, for loads with inductive or capacitive components, total impedance (<code>Z</code>) must be used instead of simple resistance (<code>R</code>).</p>
+                            <h3>
+                                What is the basic formula of Ohm's Law?
+                            </h3>
+
+                            <p>
+                                The basic formula is
+                                <code>V = I × R</code>,
+                                where <code>V</code> is voltage in volts,
+                                <code>I</code> is current in amperes,
+                                and <code>R</code> is resistance in ohms.
+                            </p>
+
+
+                            <h3>
+                                What happens when resistance increases?
+                            </h3>
+
+                            <p>
+                                If voltage remains constant, increasing the
+                                circuit resistance reduces current flow
+                                proportionally according to
+                                <code>I = V ÷ R</code>.
+                            </p>
+
+
+                            <h3>
+                                Is Ohm's Law applicable to AC circuits?
+                            </h3>
+
+                            <p>
+                                Ohm's Law applies directly to resistive AC
+                                loads. However, for loads with inductive or
+                                capacitive components, total impedance
+                                (<code>Z</code>) must be used instead of
+                                simple resistance (<code>R</code>).
+                            </p>
+
                         </section>
 
-                        <!-- Section: Related Tutorials -->
+
+                        <!-- =================================================
+                             RELATED TUTORIALS
+                             
+                             IMPORTANT:
+                             This article links ONLY to the three
+                             related concepts.
+
+                             The destination article must contain:
+                             id="voltage"
+                             id="current"
+                             id="resistance"
+                        ================================================== -->
+
                         <section>
-                            <h2>Related Tutorials</h2>
+
+                            <h2>
+                                Related Tutorials
+                            </h2>
+
                             <div class="related-grid">
-                                <a href="/articles/electrical-fundamentals/ohms-law/">
-            Ohm's Law Explained
-        </a>
 
-        <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#voltage">
-            What Is Voltage?
-        </a>
 
-        <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#current">
-            What Is Electric Current?
-        </a>
+                                <!-- VOLTAGE -->
 
-        <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#resistance">
-            What Is Resistance?
-        </a>
+                                <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#voltage">
 
-        <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#power">
-            Electrical Power Explained
-        </a>
+                                    What Is Voltage?
+
+                                </a>
+
+
+                                <!-- CURRENT -->
+
+                                <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#current">
+
+                                    What Is Electric Current?
+
+                                </a>
+
+
+                                <!-- RESISTANCE -->
+
+                                <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html#resistance">
+
+                                    What Is Resistance?
+
+                                </a>
+
 
                             </div>
+
                         </section>
+
 
                     </article>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
-    <!-- Footer -->
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <footer class="site-footer">
+
         <div class="container footer-grid">
+
+
+            <!-- COMPANY -->
+
             <div>
+
                 <div class="footer-logo">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
+
+                    <span class="material-symbols-rounded"
+                          aria-hidden="true">
+                        bolt
+                    </span>
+
                     Electrical Engineering
+
                 </div>
-                <p>Practical electrical engineering tutorials, calculations, design guides, and renewable energy resources.</p>
+
+                <p>
+                    Practical electrical engineering tutorials,
+                    calculations, design guides, and renewable energy
+                    resources.
+                </p>
+
             </div>
 
-            <div>
-                <h3>Explore</h3>
-                <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/articles/electrical-fundamentals/">Electrical Fundamentals</a></li>
-                    <li><a href="/articles/electrical-calculations/">Calculations</a></li>
-                    <li><a href="/articles/solar-pv/">Solar PV</a></li>
-                </ul>
-            </div>
+
+            <!-- EXPLORE -->
 
             <div>
-                <h3>Information</h3>
+
+                <h3>
+                    Explore
+                </h3>
+
                 <ul class="footer-links">
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="/disclaimer.html">Disclaimer</a></li>
+
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-fundamentals/">
+                            Electrical Fundamentals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/electrical-calculations/">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/articles/solar-pv/">
+                            Solar PV
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
+
+
+            <!-- INFORMATION -->
+
+            <div>
+
+                <h3>
+                    Information
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="/about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/privacy-policy.html">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/disclaimer.html">
+                            Disclaimer
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
         </div>
+
+
+        <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
+
             <div class="container">
-                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
+
+                <p>
+                    &copy; 2026 Prasun Barua. All rights reserved.
+                </p>
+
             </div>
+
         </div>
+
     </footer>
+
 
 </body>
 
