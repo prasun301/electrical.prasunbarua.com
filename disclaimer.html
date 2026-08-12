@@ -30,10 +30,10 @@
     <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
 
      <!-- =====================================================
-         FAVICON (Updated to neutral light/dark theme)
-         ===================================================== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+          FAVICON (Blue and Black Vibe)
+          ===================================================== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
     <!-- Font & Asset Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,15 +47,17 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
 
-    <!-- Ultra-Clean Minimalist Grayscale Styling -->
+    <!-- Blue and Black Theme Styling -->
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --border-color: #e5e7eb;
-            --border-light: #f3f4f6;
-            --surface-subtle: #fafafa;
+            --text-main: #0b0f19;
+            --text-muted: #475569;
+            --accent-blue: #2563eb;
+            --accent-blue-hover: #1d4ed8;
+            --border-color: #cbd5e1;
+            --border-light: #f1f5f9;
+            --surface-subtle: #f8fafc;
         }
 
         html {
@@ -123,14 +125,14 @@
             justify-content: center;
             width: 36px;
             height: 36px;
-            background-color: var(--surface-subtle);
-            border: 1px solid var(--border-color);
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
             border-radius: 8px;
         }
 
         .logo-icon span.material-symbols-rounded {
             font-size: 20px;
-            color: var(--text-main);
+            color: var(--accent-blue);
         }
 
         .logo span strong {
@@ -165,7 +167,7 @@
 
         .main-nav a:hover,
         .main-nav a.active {
-            color: var(--text-main);
+            color: var(--accent-blue);
         }
 
         /* Hero Section */
@@ -184,7 +186,7 @@
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.08em;
-            color: var(--text-muted);
+            color: var(--accent-blue);
             text-transform: uppercase;
             margin-bottom: 0.75rem;
         }
@@ -198,8 +200,8 @@
         }
 
         .hero h1 span {
-            color: var(--text-muted);
-            font-weight: 300;
+            color: var(--accent-blue);
+            font-weight: 600;
         }
 
         .hero p {
@@ -240,7 +242,7 @@
 
         .legal-heading span.material-symbols-rounded {
             font-size: 18px;
-            color: var(--text-main);
+            color: var(--accent-blue);
         }
 
         .legal-heading h2 {
@@ -259,22 +261,22 @@
         }
 
         a.text-link, .article-content a {
-            color: var(--text-main);
+            color: var(--accent-blue);
             text-decoration: underline;
             text-underline-offset: 3px;
-            text-decoration-color: #d1d5db;
+            text-decoration-color: #93c5fd;
         }
 
         a.text-link:hover, .article-content a:hover {
-            color: #000000;
-            text-decoration-color: var(--text-main);
+            color: var(--accent-blue-hover);
+            text-decoration-color: var(--accent-blue);
         }
 
         /* Notice Box */
         .notice-box {
             background: var(--surface-subtle);
             border: 1px solid var(--border-color);
-            border-left: 2px solid var(--text-main);
+            border-left: 3px solid var(--accent-blue);
             border-radius: 6px;
             padding: 1rem 1.25rem;
             margin-top: 1.25rem;
@@ -286,7 +288,7 @@
         }
 
         .notice-box .quick-answer-title span.material-symbols-rounded {
-            color: var(--text-main) !important;
+            color: var(--accent-blue) !important;
         }
 
         .notice-box p {
@@ -314,13 +316,13 @@
         }
 
         .article-card:hover {
-            border-color: var(--text-main);
+            border-color: var(--accent-blue);
             transform: translateY(-1px);
         }
 
         .article-card .icon-box span.material-symbols-rounded {
             font-size: 20px;
-            color: var(--text-main);
+            color: var(--accent-blue);
         }
 
         .article-card h3 {
@@ -337,7 +339,7 @@
         }
 
         .card-link {
-            color: var(--text-main) !important;
+            color: var(--accent-blue) !important;
             font-size: 12.5px;
             font-weight: 500;
             display: inline-flex;
@@ -392,7 +394,7 @@
 
         .site-footer a:hover,
         .site-footer a.active {
-            color: var(--text-main);
+            color: var(--accent-blue);
             text-decoration: underline;
         }
 
@@ -503,7 +505,7 @@
                     <!-- INTRODUCTION -->
                     <article class="legal-intro">
                         <div style="display: flex; gap: 12px; align-items: flex-start;">
-                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 20px; color: var(--text-main); margin-top: 2px;">info</span>
+                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 20px; color: var(--accent-blue); margin-top: 2px;">info</span>
                             <div>
                                 <span class="eyebrow" style="margin-bottom: 0.25rem;">DISCLAIMER</span>
                                 <h2 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin: 0 0 0.35rem 0;">Please Read Before Using This Website</h2>
@@ -716,38 +718,32 @@
          FOOTER
     ====================================================== -->
     <footer class="site-footer">
-        <div class="container footer-grid">
-
-            <div>
-                <div class="footer-logo">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                    Electrical Engineering
-                </div>
-                <p>An educational resource by Prasun Barua dedicated to practical electrical engineering concepts, calculations, and technical insights.</p>
-            </div>
-
-            <div>
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </div>
-
-            <div>
-                <h3>Legal & Privacy</h3>
-                <a href="disclaimer.html" class="active">Disclaimer</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-            </div>
-
-        </div>
-
         <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span class="material-symbols-rounded" style="color: var(--accent-blue);">bolt</span>
+                        <span>Electrical Engineering</span>
+                    </div>
+                    <p>Practical electrical engineering tutorials, calculations, and educational resources by Prasun Barua.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <a href="disclaimer.html" class="active">Disclaimer</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
             <div class="footer-bottom">
-                &copy; <time datetime="2026">2026</time> Prasun Barua. All rights reserved.
+                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
 </body>
-
 </html>
