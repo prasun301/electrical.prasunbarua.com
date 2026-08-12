@@ -128,16 +128,21 @@
             margin-bottom: 2rem;
         }
 
-        .formula-box {
-            background: var(--text-dark);
-            color: #fff;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            padding: 1rem;
-            border-radius: var(--radius);
-            margin: 1.5rem 0;
-        }
+      .formula-box {
+    background: var(--text-dark);
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+}
+
+/* Explicitly override external stylesheet conflicts for inner formula elements */
+.formula-box .formula {
+    color: #fff;
+}
 
         .formula-grid {
             display: grid;
