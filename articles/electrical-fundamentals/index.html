@@ -30,6 +30,9 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color"
+        content="#0b57d0">
+
     <title>
         Electrical Fundamentals | Electrical Engineering by Prasun Barua
     </title>
@@ -41,7 +44,7 @@
         content="Prasun Barua">
 
     <meta name="robots"
-        content="index, follow, max-image-preview:large">
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
     <link rel="canonical"
         href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
@@ -90,7 +93,7 @@
 
     <link rel="icon"
         type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
 
     <!-- =====================================================
@@ -105,10 +108,7 @@
         crossorigin>
 
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
 
 
     <!-- =====================================================
@@ -157,6 +157,7 @@
 
         .breadcrumbs a {
             color: var(--text-secondary);
+            text-decoration: none;
         }
 
         .breadcrumbs a:hover {
@@ -191,6 +192,7 @@
         .page-category {
             display: inline-flex;
             align-items: center;
+            gap: 7px;
 
             padding: 7px 13px;
 
@@ -242,7 +244,7 @@
 
 
         /* =====================================================
-           INTRO INFORMATION BOX
+           OVERVIEW BOX
            ===================================================== */
 
         .fundamentals-overview {
@@ -285,6 +287,10 @@
             letter-spacing: 0.06em;
 
             text-transform: uppercase;
+        }
+
+        .fundamentals-overview-title .material-symbols-rounded {
+            font-size: 20px;
         }
 
         .fundamentals-overview p {
@@ -485,6 +491,7 @@
             width: fit-content;
 
             margin-top: auto;
+
             padding-top: 34px;
 
             color: var(--primary);
@@ -492,6 +499,8 @@
             font-size: 15px;
 
             font-weight: 800;
+
+            text-decoration: none;
         }
 
         .article-card-link .material-symbols-rounded {
@@ -513,7 +522,7 @@
 
 
         /* =====================================================
-           MORE ARTICLES NOTICE
+           MORE ARTICLES
            ===================================================== */
 
         .more-articles {
@@ -550,14 +559,12 @@
             .fundamentals-intro,
             .articles-heading {
                 grid-template-columns: 1fr;
-
                 gap: 24px;
             }
 
             .article-grid {
                 grid-template-columns: 1fr;
             }
-
         }
 
 
@@ -589,7 +596,6 @@
 
             .fundamentals-overview {
                 padding: 22px;
-
                 margin-bottom: 48px;
             }
 
@@ -599,10 +605,8 @@
 
             .article-card {
                 min-height: 400px;
-
                 padding: 26px;
             }
-
         }
 
 
@@ -614,14 +618,12 @@
 
             .article-card {
                 min-height: 380px;
-
                 padding: 22px;
             }
 
             .article-card-icon {
                 width: 58px;
                 height: 58px;
-
                 margin-bottom: 22px;
             }
 
@@ -632,7 +634,6 @@
             .more-articles {
                 padding: 20px;
             }
-
         }
 
 
@@ -653,7 +654,6 @@
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
             }
-
         }
 
     </style>
@@ -667,6 +667,7 @@
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/#collection",
         "name": "Electrical Fundamentals",
         "headline": "Electrical Fundamentals",
         "description": "Practical electrical engineering fundamentals covering voltage, current, resistance, electrical power, Ohm's Law, formulas, units, and engineering examples.",
@@ -674,12 +675,13 @@
         "inLanguage": "en",
         "author": {
             "@type": "Person",
-            "name": "Prasun Barua"
+            "name": "Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/about.html"
         },
         "publisher": {
             "@type": "Organization",
             "name": "Electrical Engineering by Prasun Barua",
-            "url": "https://electrical.prasunbarua.com"
+            "url": "https://electrical.prasunbarua.com/"
         }
     }
     </script>
@@ -795,7 +797,8 @@
 
                     <li>
                         <a href="/articles/electrical-fundamentals/"
-                            class="active">
+                            class="active"
+                            aria-current="page">
                             Tutorials
                         </a>
                     </li>
@@ -876,7 +879,14 @@
                     <div class="fundamentals-heading">
 
                         <div class="page-category">
-                            ELECTRICAL ENGINEERING
+
+                            <span class="material-symbols-rounded"
+                                aria-hidden="true">
+                                electrical_services
+                            </span>
+
+                            Electrical Engineering
+
                         </div>
 
                         <h1>
@@ -971,16 +981,13 @@
 
                         </div>
 
-
                         <div class="article-card-category">
-                            ELECTRICAL FUNDAMENTALS
+                            Electrical Fundamentals
                         </div>
-
 
                         <h3>
                             Voltage, Current, Resistance &amp; Electrical Power Explained
                         </h3>
-
 
                         <p>
 
@@ -989,7 +996,6 @@
                             a practical electrical example.
 
                         </p>
-
 
                         <a href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
                             class="article-card-link">
@@ -1021,16 +1027,13 @@
 
                         </div>
 
-
                         <div class="article-card-category">
-                            ELECTRICAL FUNDAMENTALS
+                            Electrical Fundamentals
                         </div>
-
 
                         <h3>
                             Ohm's Law Explained
                         </h3>
-
 
                         <p>
 
@@ -1040,7 +1043,6 @@
                             engineering examples.
 
                         </p>
-
 
                         <a href="/articles/electrical-fundamentals/ohms-law/"
                             class="article-card-link">
@@ -1069,6 +1071,7 @@
                     <strong>
                         More electrical engineering fundamentals
                     </strong>
+
                     will be added to this section as new tutorials
                     are published.
 
@@ -1211,8 +1214,7 @@
          SITE JAVASCRIPT
          ===================================================== -->
 
-    <script src="/assets/js/app.js"
-        defer></script>
+    <script src="/assets/js/app.js" defer></script>
 
 </body>
 
