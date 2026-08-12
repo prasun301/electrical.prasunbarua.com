@@ -142,8 +142,10 @@ a {
     text-decoration: none;
 }
 
-ul,
-ol {
+/* Nav & component list resets */
+.main-nav ul,
+.article-meta,
+.unstyled-list {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -182,7 +184,7 @@ ol {
     border: 0;
 }
 
-/* Perfect alignment for Google Material Symbols */
+/* Alignment for Google Material Symbols */
 .material-symbols-rounded {
     font-family: "Material Symbols Rounded", sans-serif;
     font-weight: normal;
@@ -281,13 +283,11 @@ ol {
     display: flex;
     align-items: center;
     gap: 4px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
 .main-nav li {
     display: inline-flex;
+    flex-shrink: 0;
 }
 
 .main-nav a {
@@ -374,7 +374,7 @@ ol {
 
 
 /* =========================================================
-   7. GOOGLE-STYLE SEARCH BAR (ALIGNMENT & DESIGN FIX)
+   7. GOOGLE-STYLE SEARCH BAR
    ========================================================= */
 
 .search-box {
@@ -468,7 +468,7 @@ ol {
 
 
 /* =========================================================
-   8. ARTICLE METADATA & HEADER FIX
+   8. ARTICLE METADATA & HEADER
    ========================================================= */
 
 .article-header {
@@ -484,7 +484,6 @@ ol {
     font-weight: 700;
 }
 
-/* Inline metadata container with flex alignment */
 .article-meta {
     display: flex;
     align-items: center;
@@ -539,11 +538,12 @@ ol {
     margin-bottom: 12px;
 }
 
+/* Fluid responsive grid fix for smaller mobile displays */
 .category-grid,
 .calculator-grid,
 .article-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 24px;
 }
 
@@ -592,19 +592,24 @@ ol {
         --header-height: 64px;
     }
 
+    .container {
+        width: min(calc(100% - 32px), var(--container));
+    }
+
     .main-nav {
+        max-width: 100%;
         overflow-x: auto;
         white-space: nowrap;
         padding-bottom: 4px;
         -webkit-overflow-scrolling: touch;
     }
 
-    .main-nav::-webkit-scrollbar {
-        display: none;
+    .main-nav ul {
+        flex-wrap: nowrap;
     }
 
-    .container {
-        width: min(calc(100% - 32px), var(--container));
+    .main-nav::-webkit-scrollbar {
+        display: none;
     }
 
     .article-meta {
