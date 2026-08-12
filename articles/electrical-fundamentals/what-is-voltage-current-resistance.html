@@ -48,6 +48,36 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/app.js" defer></script>
 
+    <!-- Embedded Figure Styles -->
+    <style>
+        .article-figure {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .article-figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 0.75rem auto;
+            border-radius: 4px;
+        }
+
+        .article-figure figcaption {
+            font-size: 0.9rem;
+            color: #555555;
+            line-height: 1.4;
+        }
+
+        .article-figure figcaption strong {
+            color: #0b57d0;
+        }
+    </style>
+
     <!-- Article Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     [
@@ -277,6 +307,18 @@
                             In the water analogy, resistance can be compared with a restriction in a pipe. A smaller pipe or obstruction makes it more difficult for water to flow. In an electrical circuit, greater resistance makes it more difficult for current to flow for a given voltage.
                         </p>
 
+                        <!-- Figure 1: Water Analogy -->
+                        <figure class="article-figure">
+                            <img src="/assets/images/water-analogy-voltage-current-resistance.svg" 
+                                 alt="Water analogy diagram comparing voltage to pressure, current to flow rate, and resistance to pipe restriction" 
+                                 width="800" 
+                                 height="450" 
+                                 loading="lazy">
+                            <figcaption>
+                                <strong>Figure 1:</strong> The hydraulic (water) analogy illustrating how voltage (pressure), current (flow rate), and resistance (restriction) interact.
+                            </figcaption>
+                        </figure>
+
                         <h3>What determines resistance?</h3>
                         <p>For a uniform conductor, resistance is related to its material, length and cross-sectional area.</p>
 
@@ -306,6 +348,18 @@
                             <p>Voltage equals current multiplied by resistance.</p>
                         </div>
 
+                        <!-- Figure 2: Simple Electrical Circuit Schematic -->
+                        <figure class="article-figure">
+                            <img src="/assets/images/simple-circuit-diagram.svg" 
+                                 alt="Simple electrical circuit schematic showing a DC voltage source driving current through a resistor" 
+                                 width="800" 
+                                 height="450" 
+                                 loading="lazy">
+                            <figcaption>
+                                <strong>Figure 2:</strong> A basic closed-loop electrical circuit schematic showing a DC voltage source (V), current flow (I), and resistor load (R).
+                            </figcaption>
+                        </figure>
+
                         <p>The same relationship can be rearranged to find current or resistance:</p>
 
                         <div class="formula-grid">
@@ -323,7 +377,7 @@
                             </div>
                         </div>
 
-                        <p>The practical value of Ohm's Law is that if two of these quantities are known, the third can be calculated.</p>
+                        <p>As illustrated in <strong>Figure 2</strong>, the practical value of Ohm's Law is that if two of these quantities are known, the third can be calculated.</p>
                         <p>For example, if a 24 V source is connected across a 12 Ω resistive load:</p>
 
                         <div class="calculation-box">
@@ -351,12 +405,24 @@
                             <p>Power equals voltage multiplied by current.</p>
                         </div>
 
+                        <!-- Figure 3: Formula Triangle -->
+                        <figure class="article-figure">
+                            <img src="/assets/images/ohms-law-power-triangle.svg" 
+                                 alt="Ohm's Law and Electrical Power formula reference triangles" 
+                                 width="800" 
+                                 height="450" 
+                                 loading="lazy">
+                            <figcaption>
+                                <strong>Figure 3:</strong> The Ohm's Law and Power formula triangles used as a quick visual reference for circuit calculations.
+                            </figcaption>
+                        </figure>
+
                         <p>
                             This equation is extremely useful in electrical engineering. It appears in load calculations, equipment specifications, power supplies, solar PV systems, batteries and many other applications.
                         </p>
 
                         <h3>Other useful power equations</h3>
-                        <p>By combining the power equation with Ohm's Law, two additional forms can be obtained:</p>
+                        <p>By combining the power equation with Ohm's Law (refer to the reference triangles in <strong>Figure 3</strong>), two additional forms can be obtained:</p>
 
                         <div class="formula-grid">
                             <div class="formula-box">
