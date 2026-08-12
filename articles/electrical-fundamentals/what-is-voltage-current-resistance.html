@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -150,7 +149,7 @@ html
             flex-wrap: wrap;
             gap: 8px;
 
-            margin-bottom: 34px;
+            margin-bottom: 32px;
 
             color: var(--text-muted);
             font-size: 13px;
@@ -176,7 +175,7 @@ html
 
         .article-header {
             max-width: 920px;
-            margin: 0 auto 52px;
+            margin: 0 auto 48px;
             text-align: center;
         }
 
@@ -185,7 +184,7 @@ html
             align-items: center;
             gap: 7px;
 
-            padding: 7px 13px;
+            padding: 6px 12px;
 
             border-radius: var(--radius-pill);
 
@@ -195,25 +194,30 @@ html
             color: var(--primary);
 
             font-size: 11px;
-            font-weight: 800;
+            font-weight: 700;
 
-            letter-spacing: 0.08em;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
         }
 
         .article-header h1 {
-            margin: 20px auto 0;
+            margin: 18px auto 0;
 
             max-width: 900px;
 
             color: var(--text-strong);
 
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.1;
+            /*
+             * Standard modern editorial size.
+             * Previously up to 58px.
+             */
+            font-size: clamp(34px, 4.5vw, 48px);
+
+            line-height: 1.12;
 
             letter-spacing: -0.035em;
 
-            font-weight: 750;
+            font-weight: 800;
 
             text-wrap: balance;
         }
@@ -225,7 +229,11 @@ html
 
             color: var(--text-secondary);
 
+            /*
+             * Reduced from 17-20px range.
+             */
             font-size: 18px;
+
             line-height: 1.6;
 
             text-wrap: pretty;
@@ -237,9 +245,9 @@ html
             justify-content: center;
             flex-wrap: wrap;
 
-            gap: 9px;
+            gap: 8px;
 
-            margin-top: 22px;
+            margin-top: 20px;
 
             color: var(--text-muted);
 
@@ -278,7 +286,7 @@ html
             position: sticky;
             top: 96px;
 
-            padding: 20px;
+            padding: 18px;
 
             border: 1px solid var(--border);
 
@@ -290,14 +298,14 @@ html
         }
 
         .toc-title {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
 
             color: var(--text-strong);
 
             font-size: 12px;
-            font-weight: 800;
+            font-weight: 700;
 
-            letter-spacing: 0.08em;
+            letter-spacing: 0.07em;
 
             text-transform: uppercase;
         }
@@ -305,7 +313,7 @@ html
         .toc a {
             display: block;
 
-            padding: 7px 10px;
+            padding: 6px 9px;
 
             margin: 2px 0;
 
@@ -341,6 +349,10 @@ html
 
             margin: 0;
 
+            /*
+             * Standard article body size.
+             * Reduced from 17px.
+             */
             font-size: 16px;
 
             line-height: 1.75;
@@ -349,7 +361,7 @@ html
         .article-content section {
             scroll-margin-top: 100px;
 
-            margin-bottom: 64px;
+            margin-bottom: 56px;
         }
 
         .article-content h2 {
@@ -357,27 +369,33 @@ html
 
             margin: 0 0 16px;
 
-            padding-top: 8px;
+            padding-top: 6px;
 
             color: var(--text-strong);
 
-            font-size: clamp(24px, 2.5vw, 30px);
+            /*
+             * Reduced from 25-34px.
+             */
+            font-size: clamp(26px, 3vw, 30px);
 
             line-height: 1.25;
 
             letter-spacing: -0.025em;
 
-            font-weight: 750;
+            font-weight: 800;
         }
 
         .article-content h3 {
-            margin: 30px 0 11px;
+            margin: 28px 0 10px;
 
             color: var(--text-strong);
 
-            font-size: 18px;
+            /*
+             * Reduced from 20px.
+             */
+            font-size: 19px;
 
-            line-height: 1.4;
+            line-height: 1.35;
 
             letter-spacing: -0.015em;
 
@@ -396,7 +414,7 @@ html
 
         .article-content ul,
         .article-content ol {
-            margin: 0 0 24px;
+            margin: 0 0 22px;
 
             padding-left: 24px;
 
@@ -404,7 +422,7 @@ html
         }
 
         .article-content li {
-            margin-bottom: 7px;
+            margin-bottom: 8px;
         }
 
         .article-content a {
@@ -468,7 +486,7 @@ html
 
             font-size: 12px;
 
-            font-weight: 800;
+            font-weight: 700;
 
             text-transform: uppercase;
 
@@ -476,7 +494,7 @@ html
         }
 
         .quick-answer p {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
 
             color: var(--text);
         }
@@ -515,7 +533,10 @@ html
 
             font-family: var(--font-mono);
 
-            font-size: clamp(19px, 2.5vw, 25px);
+            /*
+             * Reduced from up to 28px.
+             */
+            font-size: clamp(18px, 2.5vw, 24px);
 
             font-weight: 700;
 
@@ -536,13 +557,13 @@ html
 
             grid-template-columns: repeat(3, 1fr);
 
-            gap: 16px;
+            gap: 14px;
 
-            margin: 28px 0;
+            margin: 26px 0;
         }
 
         .formula-card {
-            padding: 22px 18px;
+            padding: 20px 16px;
 
             border: 1px solid var(--border);
 
@@ -571,7 +592,7 @@ html
         .formula-card strong {
             display: block;
 
-            margin-bottom: 8px;
+            margin-bottom: 7px;
 
             color: var(--text-strong);
 
@@ -598,7 +619,7 @@ html
 
             overflow-x: auto;
 
-            margin: 28px 0;
+            margin: 26px 0;
 
             border: 1px solid var(--border);
 
@@ -631,7 +652,7 @@ html
 
             color: var(--text-strong);
 
-            font-size: 13px;
+            font-size: 12px;
 
             font-weight: 700;
         }
@@ -652,9 +673,9 @@ html
            ===================================================== */
 
         .calculation-box {
-            padding: 20px 22px;
+            padding: 18px 20px;
 
-            margin: 20px 0;
+            margin: 18px 0;
 
             border: 1px solid var(--border);
 
@@ -663,10 +684,12 @@ html
             background: var(--background-soft);
 
             font-family: var(--font-mono);
+
+            font-size: 14px;
         }
 
         .calculation-box p {
-            margin-bottom: 8px;
+            margin-bottom: 7px;
 
             color: var(--text);
         }
@@ -718,9 +741,9 @@ html
 
             overflow: hidden;
 
-            padding: 32px;
+            padding: 30px;
 
-            margin: 56px 0;
+            margin: 52px 0;
 
             border-radius: var(--radius-xl);
 
@@ -752,7 +775,7 @@ html
         }
 
         .article-cta h2 {
-            margin: 0 0 10px;
+            margin: 0 0 9px;
 
             padding: 0;
 
@@ -762,7 +785,7 @@ html
         .article-cta p {
             max-width: 600px;
 
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .primary-button {
@@ -778,9 +801,9 @@ html
 
             gap: 8px;
 
-            min-height: 46px;
+            min-height: 44px;
 
-            padding: 10px 18px;
+            padding: 9px 17px;
 
             border-radius: var(--radius-pill);
 
@@ -824,7 +847,7 @@ html
 
             gap: 12px;
 
-            margin-top: 24px;
+            margin-top: 22px;
         }
 
         .related-grid a {
@@ -864,7 +887,7 @@ html
 
             color: var(--primary);
 
-            font-size: 18px;
+            font-size: 17px;
 
             transition: transform var(--transition-fast);
         }
@@ -891,7 +914,7 @@ html
            ===================================================== */
 
         .article-share {
-            margin: 64px 0 8px;
+            margin-top: 56px;
 
             padding-top: 28px;
 
@@ -899,23 +922,31 @@ html
         }
 
         .article-share-title {
-            margin-bottom: 14px;
+            margin-bottom: 6px;
 
             color: var(--text-strong);
 
-            font-size: 14px;
+            font-size: 18px;
 
             font-weight: 700;
         }
 
-        .article-share-buttons {
+        .article-share-text {
+            margin: 0 0 18px;
+
+            color: var(--text-muted);
+
+            font-size: 14px;
+        }
+
+        .share-buttons {
             display: flex;
 
             align-items: center;
 
             flex-wrap: wrap;
 
-            gap: 8px;
+            gap: 9px;
         }
 
         .share-button {
@@ -927,7 +958,7 @@ html
 
             gap: 7px;
 
-            min-height: 38px;
+            min-height: 40px;
 
             padding: 8px 13px;
 
@@ -937,9 +968,7 @@ html
 
             background: #ffffff;
 
-            color: var(--text-secondary);
-
-            font-family: inherit;
+            color: var(--text);
 
             font-size: 13px;
 
@@ -949,72 +978,44 @@ html
 
             cursor: pointer;
 
-            box-shadow: var(--shadow-xs);
-
             transition:
-                color var(--transition-fast),
-                background var(--transition-fast),
-                border-color var(--transition-fast),
                 transform var(--transition-fast),
+                border-color var(--transition-fast),
+                background var(--transition-fast),
+                color var(--transition-fast),
                 box-shadow var(--transition-fast);
         }
 
-        .share-button svg {
-            width: 16px;
-
-            height: 16px;
-
-            fill: currentColor;
-
-            flex: 0 0 16px;
-        }
-
         .share-button:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
 
-            text-decoration: none;
+            border-color: var(--primary-soft);
+
+            background: var(--background-soft);
+
+            color: var(--primary);
 
             box-shadow: var(--shadow-sm);
+
+            text-decoration: none;
         }
 
-        .share-facebook:hover {
-            color: #1877f2;
+        .share-button svg {
+            width: 17px;
 
-            border-color: #bfdbfe;
+            height: 17px;
 
-            background: #eff6ff;
+            flex: 0 0 17px;
+
+            fill: currentColor;
         }
 
-        .share-x:hover {
-            color: #000000;
-
-            border-color: #d1d5db;
-
-            background: #f8fafc;
-        }
-
-        .share-linkedin:hover {
-            color: #0a66c2;
-
-            border-color: #bfdbfe;
-
-            background: #eff6ff;
-        }
-
-        .share-whatsapp:hover {
-            color: #16a34a;
+        .share-button.copy-success {
+            color: #15803d;
 
             border-color: #bbf7d0;
 
             background: #f0fdf4;
-        }
-
-        .share-copy:hover {
-            color: var(--primary);
-
-            border-color: var(--primary-soft);
-
-            background: var(--primary-light);
         }
 
 
@@ -1075,13 +1076,16 @@ html
             }
 
             .article-header {
-                margin-bottom: 38px;
+                margin-bottom: 36px;
             }
 
             .article-header h1 {
-                font-size: clamp(30px, 8vw, 40px);
+                /*
+                 * Standard mobile heading.
+                 */
+                font-size: clamp(30px, 8vw, 38px);
 
-                line-height: 1.12;
+                line-height: 1.13;
             }
 
             .article-intro {
@@ -1097,9 +1101,7 @@ html
             }
 
             .article-content h2 {
-                font-size: 25px;
-
-                line-height: 1.28;
+                font-size: 26px;
             }
 
             .article-content h3 {
@@ -1112,6 +1114,18 @@ html
 
             .article-cta {
                 padding: 24px;
+            }
+
+            .share-buttons {
+                gap: 8px;
+            }
+
+            .share-button {
+                min-height: 38px;
+
+                padding: 7px 11px;
+
+                font-size: 12px;
             }
 
         }
@@ -1132,7 +1146,7 @@ html
             }
 
             .formula-box {
-                min-height: 68px;
+                min-height: 66px;
 
                 padding: 14px;
 
@@ -1147,32 +1161,22 @@ html
                 padding: 16px;
             }
 
-            .article-content h2 {
-                font-size: 24px;
-            }
-
             .article-share {
-                margin-top: 52px;
+                margin-top: 46px;
 
                 padding-top: 24px;
             }
 
-            .article-share-buttons {
-                gap: 7px;
+            .share-buttons {
+                display: grid;
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 8px;
             }
 
             .share-button {
-                min-height: 36px;
-
-                padding: 7px 11px;
-
-                font-size: 12px;
-            }
-
-            .share-button svg {
-                width: 15px;
-
-                height: 15px;
+                width: 100%;
             }
 
         }
@@ -2233,143 +2237,141 @@ html
                              SOCIAL SHARE
                              ================================================= -->
 
-                        <div class="article-share">
+                        <section class="article-share"
+                            aria-label="Share this article">
 
                             <div class="article-share-title">
                                 Share this article
                             </div>
 
-                            <div class="article-share-buttons">
+                            <p class="article-share-text">
+                                Found this article useful? Share it with your
+                                friends, students, colleagues, or fellow engineers.
+                            </p>
 
 
-                                <!-- Facebook -->
+                            <div class="share-buttons">
 
-                                <a
-                                    href="https://www.facebook.com/sharer/sharer.php?u=https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+
+                                <!-- FACEBOOK -->
+
+                                <a class="share-button"
+                                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Felectrical.prasunbarua.com%2Farticles%2Felectrical-fundamentals%2Fwhat-is-voltage-current-resistance.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="share-button share-facebook"
                                     aria-label="Share on Facebook"
                                     title="Share on Facebook">
 
-                                    <svg
-                                        viewBox="0 0 24 24"
+                                    <svg viewBox="0 0 24 24"
                                         aria-hidden="true">
 
-                                        <path
-                                            d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9c0-.7.3-1 1-1z">
-                                        </path>
+                                        <path d="M13.5 8H16V4.5c-.4-.1-1.7-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H4v4h3.4v7h4.1v-7h3.4l.5-4h-3.9V10c0-1.2.3-2 2-2z"/>
 
                                     </svg>
 
-                                    <span>
-                                        Facebook
-                                    </span>
+                                    Facebook
 
                                 </a>
 
 
                                 <!-- X -->
 
-                                <a
-                                    href="https://twitter.com/intent/tweet?url=https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html&text=Voltage%2C%20Current%2C%20Resistance%20%26%20Electrical%20Power%20Explained"
+                                <a class="share-button"
+                                    href="https://twitter.com/intent/tweet?url=https%3A%2F%2Felectrical.prasunbarua.com%2Farticles%2Felectrical-fundamentals%2Fwhat-is-voltage-current-resistance.html&amp;text=Voltage%2C%20Current%2C%20Resistance%20%26%20Electrical%20Power%20Explained"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="share-button share-x"
                                     aria-label="Share on X"
                                     title="Share on X">
 
-                                    <svg
-                                        viewBox="0 0 24 24"
+                                    <svg viewBox="0 0 24 24"
                                         aria-hidden="true">
 
-                                        <path
-                                            d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.4L2.8 2h6.4l4.4 5.8L18.9 2zm-1.1 17.9h1.7L8.3 4H6.5l11.3 15.9z">
-                                        </path>
+                                        <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.4L2.8 2h6.4l4.4 5.8L18.9 2zm-1.1 17.9h1.7L8.3 4H6.5l11.3 15.9z"/>
 
                                     </svg>
 
-                                    <span>
-                                        X
-                                    </span>
+                                    X
 
                                 </a>
 
 
-                                <!-- LinkedIn -->
+                                <!-- LINKEDIN -->
 
-                                <a
-                                    href="https://www.linkedin.com/sharing/share-offsite/?url=https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+                                <a class="share-button"
+                                    href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Felectrical.prasunbarua.com%2Farticles%2Felectrical-fundamentals%2Fwhat-is-voltage-current-resistance.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="share-button share-linkedin"
                                     aria-label="Share on LinkedIn"
                                     title="Share on LinkedIn">
 
-                                    <svg
-                                        viewBox="0 0 24 24"
+                                    <svg viewBox="0 0 24 24"
                                         aria-hidden="true">
 
-                                        <path
-                                            d="M6.5 8.5H2.8V21h3.7V8.5zM4.65 3A2.15 2.15 0 1 0 4.65 7.3 2.15 2.15 0 0 0 4.65 3zM21.2 13.9c0-3.8-2-5.6-4.7-5.6-2.1 0-3.1 1.2-3.7 2v-1.8H9.1V21h3.7v-6.2c0-1.6.3-3.1 2.3-3.1 2 0 2 1.8 2 3.2V21h3.7l.4-7.1z">
-                                        </path>
+                                        <path d="M6.5 8.3H3V21h3.5V8.3zM4.8 3A2.1 2.1 0 1 0 4.8 7.2 2.1 2.1 0 0 0 4.8 3zM21 13.7c0-3.8-2-5.6-4.8-5.6-2.2 0-3.2 1.2-3.8 2v-1.8H9V21h3.5v-6.3c0-1.7.3-3.4 2.5-3.4 2.2 0 2.2 2 2.2 3.5V21H21v-7.3z"/>
 
                                     </svg>
 
-                                    <span>
-                                        LinkedIn
-                                    </span>
+                                    LinkedIn
 
                                 </a>
 
 
-                                <!-- WhatsApp -->
+                                <!-- WHATSAPP -->
 
-                                <a
-                                    href="https://api.whatsapp.com/send?text=Voltage%2C%20Current%2C%20Resistance%20%26%20Electrical%20Power%20Explained%20https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+                                <a class="share-button"
+                                    href="https://api.whatsapp.com/send?text=Voltage%2C%20Current%2C%20Resistance%20%26%20Electrical%20Power%20Explained%20https%3A%2F%2Felectrical.prasunbarua.com%2Farticles%2Felectrical-fundamentals%2Fwhat-is-voltage-current-resistance.html"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="share-button share-whatsapp"
                                     aria-label="Share on WhatsApp"
                                     title="Share on WhatsApp">
 
-                                    <svg
-                                        viewBox="0 0 24 24"
+                                    <svg viewBox="0 0 24 24"
                                         aria-hidden="true">
 
-                                        <path
-                                            d="M12 2a9.8 9.8 0 0 0-8.5 14.7L2 22l5.5-1.4A9.9 9.9 0 1 0 12 2zm0 17.8c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.3.8.9-3.2-.2-.3A7.9 7.9 0 1 1 12 19.8zm4.4-5.9c-.2-.1-1.3-.7-1.5-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-1.5-.7-2.5-1.2-3.5-2.8-.3-.5.3-.5.8-1.7.1-.2 0-.3 0-.4l-.4-1c-.1-.3-.3-.3-.5-.3h-.4c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.5 1.5.7 2.1.8 2.9.7.5-.1 1.3-.5 1.5-1 .2-.5.2-.9.2-1-.1-.2-.2-.2-.4-.3z">
-                                        </path>
+                                        <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.2 1.6 6L.2 24l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5zM12.1 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7.9 1-3.6-.2-.4a9.8 9.8 0 1 1 8.3 4.7zm5.4-7.3c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.2-.3-.2-.6-.4z"/>
 
                                     </svg>
 
-                                    <span>
-                                        WhatsApp
-                                    </span>
+                                    WhatsApp
 
                                 </a>
 
 
-                                <!-- Copy Link -->
+                                <!-- EMAIL -->
 
-                                <button
-                                    type="button"
-                                    class="share-button share-copy"
-                                    aria-label="Copy article link"
-                                    title="Copy article link"
-                                    onclick="copyArticleLink(this)">
+                                <a class="share-button"
+                                    href="mailto:?subject=Voltage%2C%20Current%2C%20Resistance%20%26%20Electrical%20Power%20Explained&amp;body=I%20thought%20you%20might%20find%20this%20article%20useful%3A%20https%3A%2F%2Felectrical.prasunbarua.com%2Farticles%2Felectrical-fundamentals%2Fwhat-is-voltage-current-resistance.html"
+                                    aria-label="Share by email"
+                                    title="Share by email">
 
-                                    <svg
-                                        viewBox="0 0 24 24"
+                                    <svg viewBox="0 0 24 24"
                                         aria-hidden="true">
 
-                                        <path
-                                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z">
-                                        </path>
+                                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
 
                                     </svg>
 
-                                    <span>
+                                    Email
+
+                                </a>
+
+
+                                <!-- COPY LINK -->
+
+                                <button type="button"
+                                    class="share-button"
+                                    id="copyArticleLink"
+                                    aria-label="Copy article link"
+                                    title="Copy article link">
+
+                                    <svg viewBox="0 0 24 24"
+                                        aria-hidden="true">
+
+                                        <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+
+                                    </svg>
+
+                                    <span id="copyArticleText">
                                         Copy Link
                                     </span>
 
@@ -2378,7 +2380,7 @@ html
 
                             </div>
 
-                        </div>
+                        </section>
 
 
                     </article>
@@ -2516,53 +2518,100 @@ html
 
 
     <!-- =====================================================
-         COPY LINK FUNCTION
-         ===================================================== -->
-
-    <script>
-
-        function copyArticleLink(button) {
-
-            const url = window.location.href;
-
-            navigator.clipboard.writeText(url)
-                .then(function () {
-
-                    const text = button.querySelector("span");
-
-                    const originalText = text.textContent;
-
-                    text.textContent = "Copied!";
-
-                    setTimeout(function () {
-
-                        text.textContent = originalText;
-
-                    }, 1800);
-
-                })
-                .catch(function () {
-
-                    window.prompt(
-                        "Copy this article link:",
-                        url
-                    );
-
-                });
-
-        }
-
-    </script>
-
-
-    <!-- =====================================================
          SITE JAVASCRIPT
          ===================================================== -->
 
     <script src="/assets/js/app.js"
         defer></script>
 
+
+    <!-- =====================================================
+         ARTICLE SHARE JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const copyButton =
+                document.getElementById("copyArticleLink");
+
+            const copyText =
+                document.getElementById("copyArticleText");
+
+
+            if (!copyButton || !copyText) {
+                return;
+            }
+
+
+            copyButton.addEventListener("click", async function () {
+
+                const articleUrl =
+                    window.location.href.split("#")[0];
+
+
+                try {
+
+                    await navigator.clipboard.writeText(articleUrl);
+
+                    copyText.textContent = "Copied!";
+
+                    copyButton.classList.add("copy-success");
+
+
+                    setTimeout(function () {
+
+                        copyText.textContent = "Copy Link";
+
+                        copyButton.classList.remove("copy-success");
+
+                    }, 2000);
+
+
+                } catch (error) {
+
+                    /*
+                     * Fallback for browsers that do not allow
+                     * navigator.clipboard.
+                     */
+
+                    const temporaryInput =
+                        document.createElement("input");
+
+                    temporaryInput.value = articleUrl;
+
+                    document.body.appendChild(temporaryInput);
+
+                    temporaryInput.select();
+
+                    document.execCommand("copy");
+
+                    temporaryInput.remove();
+
+
+                    copyText.textContent = "Copied!";
+
+                    copyButton.classList.add("copy-success");
+
+
+                    setTimeout(function () {
+
+                        copyText.textContent = "Copy Link";
+
+                        copyButton.classList.remove("copy-success");
+
+                    }, 2000);
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
 </body>
 
 </html>
-
