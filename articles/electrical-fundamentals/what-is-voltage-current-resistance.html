@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- Main Stylesheet & App Script (Fixed relative paths) -->
+    <!-- Main Stylesheet & App Script -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <script src="../../assets/js/app.js" defer></script>
 
@@ -449,7 +449,7 @@
                                 In the water analogy, resistance can be compared with a restriction in a pipe. A smaller pipe or obstruction makes it more difficult for water to flow. In an electrical circuit, greater resistance makes it more difficult for current to flow for a given voltage.
                             </p>
 
-                            <!-- Figure 1: Water Analogy (Fixed image path) -->
+                            <!-- Figure 1: Water Analogy -->
                             <figure class="article-figure">
                                 <img src="../../assets/images/water-analogy-voltage-current-resistance.jpeg" 
                                      alt="Water analogy diagram comparing voltage to pressure, current to flow rate, and resistance to pipe restriction" 
@@ -485,7 +485,7 @@
                                 <p style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; color: #cbd5e1;">Voltage equals current multiplied by resistance.</p>
                             </div>
 
-                            <!-- Figure 2: Simple Electrical Circuit Schematic (Fixed image path) -->
+                            <!-- Figure 2: Simple Electrical Circuit Schematic -->
                             <figure class="article-figure">
                                 <img src="../../assets/images/simple-circuit-diagram.jpeg" 
                                      alt="Simple electrical circuit schematic showing a DC voltage source driving current through a resistor" 
@@ -539,7 +539,7 @@
                                 <p style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; color: #cbd5e1;">Power equals voltage multiplied by current.</p>
                             </div>
 
-                            <!-- Figure 3: Formula Triangle (Fixed image path) -->
+                            <!-- Figure 3: Formula Triangle -->
                             <figure class="article-figure">
                                 <img src="../../assets/images/ohms-law-power-triangle.jpeg" 
                                      alt="Ohm's Law and Electrical Power formula reference triangles" 
@@ -627,32 +627,18 @@
                                 <div class="formula">P<sub>loss</sub> = I²R</div>
                             </div>
 
-                            <p>This is one reason why reducing unnecessary resistance in electrical systems can improve efficiency and reduce losses.</p>
-
-                            <h3>Solar PV systems</h3>
-                            <p>The same fundamental quantities are central to solar photovoltaic system design.</p>
-                            <p>
-                                A PV module has voltage and current characteristics that vary with operating conditions. When modules are connected in series, voltage increases while current remains approximately that of the string. When strings are connected in parallel, current increases while voltage remains approximately the same.
-                            </p>
-                            <p>
-                                Understanding these relationships is essential when determining PV string configuration and matching the array to an inverter.
-                            </p>
-
-                            <h3>Electrical equipment</h3>
-                            <p>
-                                Motors, heaters, transformers, power supplies, inverters and other equipment all have electrical ratings that involve voltage, current and power.
-                            </p>
-                            <p>Reading these ratings correctly is an important practical skill for anyone working with electrical systems.</p>
+                            <p>This is one reason why reducing unnecessary resistance and selecting appropriate conductor sizes is critical in efficient electrical system design.</p>
                         </section>
 
-                        <!-- Section 8: Key Takeaways -->
+                        <!-- Section 8: Summary -->
                         <section id="summary" class="article-section">
                             <h2>8. Key Takeaways</h2>
                             <ul>
-                                <li><strong>Voltage (V):</strong> The potential difference driving charge flow.</li>
-                                <li><strong>Current (I):</strong> The rate of flow of electric charge.</li>
-                                <li><strong>Resistance (R):</strong> The opposition to current flow.</li>
-                                <li><strong>Power (P):</strong> The rate at which energy is converted or transferred (P = V × I).</li>
+                                <li><strong>Voltage (V):</strong> The electrical potential difference that drives current.</li>
+                                <li><strong>Current (I):</strong> The rate of flow of electric charge, measured in amperes.</li>
+                                <li><strong>Resistance (R):</strong> The opposition to current flow, measured in ohms.</li>
+                                <li><strong>Power (P):</strong> The rate of energy transfer, calculated as $P = V \times I$.</li>
+                                <li><strong>Ohm's Law:</strong> The fundamental relationship $V = I \times R$ connects these core quantities.</li>
                             </ul>
                         </section>
 
@@ -663,44 +649,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <div class="footer-logo">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                    Electrical Engineering
-                </div>
-                <p>Practical electrical engineering tutorials, calculations, design guides and renewable energy resources.</p>
-            </div>
-
-            <div>
-                <h3>Explore</h3>
-                <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../electrical-fundamentals/">Electrical Fundamentals</a></li>
-                    <li><a href="../electrical-calculations/">Calculations</a></li>
-                    <li><a href="../solar-pv/">Solar PV</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>Information</h3>
-                <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li><a href="../../about.html">About</a></li>
-                    <li><a href="../../contact.html">Contact</a></li>
-                    <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="../../disclaimer.html">Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
-            </div>
+    <footer class="site-footer" style="background: var(--bg-light); border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 Electrical Engineering by Prasun Barua. All rights reserved.</p>
         </div>
     </footer>
 
 </body>
-
 </html>
