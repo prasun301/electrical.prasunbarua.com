@@ -35,7 +35,7 @@
     </title>
 
     <meta name="description"
-          content="Learn what voltage, current, and resistance are, how they work together in an electrical circuit, their units, formulas, practical examples, and the relationship described by Ohm's Law.">
+          content="Learn what voltage, current, and resistance are, how they work together in an electrical circuit, their units, formulas, practical examples, and Ohm's Law.">
 
     <meta name="author"
           content="Prasun Barua">
@@ -71,7 +71,7 @@
 
 
     <!-- =========================================================
-         TWITTER CARD
+         TWITTER / X
     ========================================================== -->
 
     <meta name="twitter:card"
@@ -90,7 +90,7 @@
 
     <link rel="icon"
           type="image/svg+xml"
-          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b57d0' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230a66c2' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
 
     <!-- =========================================================
@@ -105,14 +105,14 @@
           crossorigin>
 
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
 
 
     <!-- =========================================================
-         MAIN STYLESHEET
+         GLOBAL SITE CSS
     ========================================================== -->
 
     <link rel="stylesheet"
@@ -123,56 +123,53 @@
 
 
     <!-- =========================================================
-         ARTICLE STYLES
+         ARTICLE CSS
     ========================================================== -->
 
     <style>
 
         /* =========================================================
-           DESIGN SYSTEM
+           LIGHT DESIGN SYSTEM
         ========================================================== */
 
         :root {
 
-            --primary: #0b57d0;
-            --primary-dark: #084298;
-            --primary-light: #eff6ff;
+            --primary: #0a66c2;
+            --primary-hover: #084f96;
 
-            --text-dark: #0f172a;
-            --text-body: #334155;
-            --text-muted: #64748b;
+            --text: #1d1d1f;
+            --text-secondary: #424245;
+            --text-muted: #6e6e73;
 
-            --bg-page: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-soft: #f1f5f9;
+            --background: #ffffff;
+            --surface: #fbfbfd;
+            --surface-2: #f5f5f7;
 
-            --border: #e2e8f0;
-            --border-strong: #cbd5e1;
+            --border: #e5e5ea;
+            --border-light: #eeeeF0;
 
-            --formula-bg: #0f172a;
-            --formula-text: #ffffff;
-            --formula-muted: #cbd5e1;
+            --blue-soft: #f0f7ff;
+            --blue-border: #d7e9ff;
 
-            --success-bg: #f0fdf4;
-            --success-border: #bbf7d0;
-            --success-text: #166534;
+            --formula-bg: #1d1d1f;
 
-            --radius-sm: 6px;
-            --radius: 10px;
-            --radius-lg: 14px;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 18px;
 
-            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
-            --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.08);
+            --shadow-sm:
+                0 1px 3px rgba(0,0,0,.04);
+
+            --shadow-md:
+                0 8px 30px rgba(0,0,0,.06);
+
+            --header-height: 64px;
         }
 
 
         /* =========================================================
-           GLOBAL RESET
+           RESET
         ========================================================== */
-
-        html {
-            scroll-behavior: smooth;
-        }
 
         *,
         *::before,
@@ -180,22 +177,38 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
         body {
+
             margin: 0;
 
+            background: var(--background);
+
+            color: var(--text);
+
             font-family:
-                'Inter',
                 -apple-system,
                 BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                "Inter",
                 "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
                 sans-serif;
 
-            color: var(--text-body);
-            background: var(--bg-page);
+            font-size: 16px;
 
             line-height: 1.7;
 
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
             text-rendering: optimizeLegibility;
         }
 
@@ -222,23 +235,196 @@
 
         .container,
         .article-container {
+
             width: 100%;
-            max-width: 1080px;
+
+            max-width: 1120px;
 
             margin-left: auto;
             margin-right: auto;
 
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 24px;
+            padding-right: 24px;
         }
 
 
         /* =========================================================
-           ARTICLE SECTION
+           HEADER
+        ========================================================== */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: var(--header-height);
+
+            background: rgba(255,255,255,.88);
+
+            border-bottom: 1px solid rgba(0,0,0,.07);
+
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+        }
+
+        .header-inner {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* =========================================================
+           LOGO
+        ========================================================== */
+
+        .logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--text);
+
+            text-decoration: none;
+
+            flex-shrink: 0;
+        }
+
+        .logo:hover {
+            text-decoration: none;
+        }
+
+        .logo-icon {
+
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #f2f2f7;
+
+            border-radius: 10px;
+
+            color: var(--primary);
+        }
+
+        .logo-icon .material-symbols-rounded {
+            font-size: 21px;
+        }
+
+        .logo strong {
+
+            display: block;
+
+            color: var(--text);
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            line-height: 1.2;
+
+            letter-spacing: -.01em;
+        }
+
+        .logo small {
+
+            display: block;
+
+            margin-top: 2px;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+
+            line-height: 1.2;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================== */
+
+        .main-nav ul {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px;
+
+            margin: 0;
+
+            padding: 0;
+
+            list-style: none;
+        }
+
+        .main-nav a {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            min-height: 38px;
+
+            padding: 7px 12px;
+
+            color: #424245;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            border-radius: 9px;
+
+            transition:
+                background .18s ease,
+                color .18s ease;
+        }
+
+        .main-nav a:hover {
+
+            background: #f5f5f7;
+
+            color: #000;
+        }
+
+        .main-nav a.active {
+
+            background: #f0f7ff;
+
+            color: var(--primary);
+
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           ARTICLE AREA
         ========================================================== */
 
         .article-section {
-            padding: 34px 0 80px;
+
+            padding: 38px 0 90px;
         }
 
 
@@ -247,23 +433,28 @@
         ========================================================== */
 
         .breadcrumbs {
+
             display: flex;
+
             flex-wrap: wrap;
+
             align-items: center;
 
-            gap: 8px;
+            gap: 7px;
 
-            margin: 0 0 30px;
-
-            font-size: 14px;
-            line-height: 1.5;
+            margin-bottom: 32px;
 
             color: var(--text-muted);
+
+            font-size: 13px;
         }
 
         .breadcrumbs a {
+
             color: var(--primary);
+
             text-decoration: none;
+
             font-weight: 500;
         }
 
@@ -272,7 +463,7 @@
         }
 
         .breadcrumbs span {
-            color: #94a3b8;
+            color: #a1a1a6;
         }
 
 
@@ -281,64 +472,79 @@
         ========================================================== */
 
         .article-header {
-            max-width: 920px;
-            margin: 0 0 32px;
+
+            max-width: 900px;
+
+            margin-bottom: 48px;
         }
 
         .article-category {
-            display: inline-block;
+
+            display: inline-flex;
+
+            align-items: center;
 
             margin-bottom: 14px;
 
             color: var(--primary);
 
-            font-size: 12px;
-            line-height: 1.4;
+            font-size: 11px;
 
-            font-weight: 800;
-            letter-spacing: 0.09em;
+            font-weight: 700;
+
+            letter-spacing: .1em;
 
             text-transform: uppercase;
         }
 
         .article-header h1 {
-            margin: 0 0 20px;
 
-            color: var(--text-dark);
+            margin: 0 0 18px;
 
-            font-size: clamp(2.3rem, 5vw, 3.65rem);
-            line-height: 1.08;
+            color: var(--text);
 
-            letter-spacing: -0.045em;
+            font-size:
+                clamp(2.45rem, 6vw, 4.15rem);
+
+            line-height: 1.05;
+
+            letter-spacing: -.055em;
+
             font-weight: 800;
         }
 
         .article-intro {
-            max-width: 830px;
+
+            max-width: 820px;
 
             margin: 0 0 22px;
 
-            color: #475569;
+            color: var(--text-secondary);
 
-            font-size: 1.15rem;
-            line-height: 1.75;
+            font-size: 1.16rem;
+
+            line-height: 1.7;
+
+            letter-spacing: -.01em;
         }
 
         .article-meta {
+
             display: flex;
+
             flex-wrap: wrap;
+
             align-items: center;
 
-            gap: 9px;
+            gap: 8px;
 
             color: var(--text-muted);
 
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 13px;
         }
 
         .article-meta strong {
-            color: var(--text-dark);
+            color: var(--text);
         }
 
 
@@ -346,137 +552,179 @@
            SHARE BAR
         ========================================================== */
 
-        .article-share {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
+        .share-wrapper {
 
-            gap: 10px;
+            position: sticky;
 
-            margin: 0 0 42px;
+            top: calc(var(--header-height) + 12px);
 
-            padding: 14px 16px;
+            z-index: 100;
 
-            background: var(--bg-light);
-
-            border: 1px solid var(--border);
-
-            border-radius: var(--radius);
-
-            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
         }
 
-        .share-label {
-            display: inline-flex;
+        .share-bar {
+
+            display: flex;
 
             align-items: center;
 
             gap: 7px;
 
-            margin-right: 4px;
+            width: max-content;
 
-            color: var(--text-dark);
+            max-width: 100%;
 
-            font-size: 14px;
+            padding: 7px;
 
-            font-weight: 700;
+            background: rgba(255,255,255,.94);
+
+            border: 1px solid rgba(0,0,0,.08);
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 8px 30px rgba(0,0,0,.07);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
         }
 
-        .share-label .material-symbols-rounded {
-            font-size: 20px;
-            color: var(--primary);
+        .share-label {
+
+            padding: 0 7px;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .04em;
+
+            text-transform: uppercase;
         }
 
         .share-button {
+
+            width: 38px;
+            height: 38px;
+
             display: inline-flex;
 
             align-items: center;
             justify-content: center;
 
-            gap: 7px;
+            padding: 0;
 
-            min-height: 38px;
+            border: 0;
 
-            padding: 8px 13px;
+            border-radius: 10px;
 
-            border: 1px solid var(--border);
+            background: transparent;
 
-            border-radius: 8px;
-
-            background: #ffffff;
-
-            color: var(--text-dark);
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            font-weight: 600;
+            color: #424245;
 
             cursor: pointer;
 
             transition:
-                background 0.15s ease,
-                border-color 0.15s ease,
-                color 0.15s ease,
-                transform 0.15s ease;
+                background .18s ease,
+                color .18s ease,
+                transform .18s ease;
         }
 
         .share-button:hover {
-            background: var(--primary-light);
 
-            border-color: #bfdbfe;
+            background: #f2f2f7;
 
-            color: var(--primary);
+            color: #000;
 
             transform: translateY(-1px);
         }
 
+        .share-button svg {
+
+            width: 19px;
+            height: 19px;
+
+            display: block;
+
+            fill: currentColor;
+        }
+
         .share-button .material-symbols-rounded {
-            font-size: 19px;
+
+            font-size: 21px;
         }
 
         .share-button.native-share {
-            background: var(--primary);
 
-            border-color: var(--primary);
+            background: #f0f7ff;
 
-            color: #ffffff;
+            color: var(--primary);
         }
 
-        .share-button.native-share:hover {
-            background: var(--primary-dark);
+        .share-button.copy-button {
 
-            border-color: var(--primary-dark);
-
-            color: #ffffff;
+            background: #f5f5f7;
         }
 
-        .share-status {
-            display: none;
+        .share-tooltip {
 
-            color: var(--success-text);
+            position: fixed;
+
+            left: 50%;
+
+            bottom: 25px;
+
+            transform:
+                translate(-50%, 20px);
+
+            z-index: 9999;
+
+            padding: 10px 16px;
+
+            background: #1d1d1f;
+
+            color: #fff;
+
+            border-radius: 10px;
 
             font-size: 13px;
 
             font-weight: 600;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity .2s ease,
+                transform .2s ease;
         }
 
-        .share-status.show {
-            display: inline-block;
+        .share-tooltip.show {
+
+            opacity: 1;
+
+            transform:
+                translate(-50%, 0);
         }
 
 
         /* =========================================================
-           ARTICLE MAIN LAYOUT
+           MAIN LAYOUT
         ========================================================== */
 
         .article-layout {
+
             display: grid;
 
-            grid-template-columns: 240px minmax(0, 1fr);
+            grid-template-columns:
+                220px
+                minmax(0, 760px);
 
-            gap: 48px;
+            gap: 54px;
 
             align-items: start;
         }
@@ -491,59 +739,58 @@
         ========================================================== */
 
         .toc {
+
             position: sticky;
-            top: 90px;
 
-            display: flex;
-            flex-direction: column;
+            top: 130px;
 
-            gap: 9px;
+            padding: 18px;
 
-            padding: 20px;
-
-            background: var(--bg-light);
+            background: #fbfbfd;
 
             border: 1px solid var(--border);
-            border-radius: var(--radius);
 
-            box-shadow: var(--shadow-sm);
+            border-radius: 14px;
         }
 
         .toc h3 {
-            margin: 0 0 8px;
+
+            margin: 0 0 12px;
 
             color: var(--text-muted);
 
-            font-size: 12px;
-            line-height: 1.4;
+            font-size: 10px;
 
             font-weight: 800;
 
+            letter-spacing: .09em;
+
             text-transform: uppercase;
-            letter-spacing: 0.08em;
         }
 
         .toc a {
+
             display: block;
 
-            padding: 3px 0;
+            padding: 5px 0;
 
-            color: var(--primary);
+            color: #5b5b60;
 
             text-decoration: none;
 
-            font-size: 14px;
+            font-size: 13px;
+
             line-height: 1.5;
 
-            font-weight: 500;
-
             transition:
-                color 0.15s ease,
-                padding-left 0.15s ease;
+                color .15s ease,
+                padding-left .15s ease;
         }
 
         .toc a:hover {
-            color: var(--primary-dark);
+
+            color: var(--primary);
+
             padding-left: 3px;
         }
 
@@ -553,33 +800,35 @@
         ========================================================== */
 
         .article-content {
-            min-width: 0;
-            width: 100%;
-            max-width: 760px;
 
-            color: var(--text-body);
+            min-width: 0;
+
+            color: var(--text-secondary);
 
             font-size: 17px;
-            line-height: 1.78;
+
+            line-height: 1.8;
         }
 
         .article-content section {
-            margin: 0 0 68px;
+
+            margin-bottom: 68px;
+
             scroll-margin-top: 100px;
         }
 
-        .article-content section:last-child {
-            margin-bottom: 0;
-        }
-
         .article-content p {
+
             margin: 0 0 20px;
-            color: var(--text-body);
+
+            color: var(--text-secondary);
         }
 
         .article-content ul,
         .article-content ol {
+
             margin: 0 0 25px;
+
             padding-left: 1.5rem;
         }
 
@@ -588,55 +837,58 @@
         }
 
         .article-content h2 {
+
             margin: 0 0 18px;
 
-            color: var(--text-dark);
+            color: var(--text);
 
-            font-size: clamp(1.8rem, 3vw, 2.35rem);
+            font-size:
+                clamp(1.8rem, 3vw, 2.35rem);
 
-            line-height: 1.2;
+            line-height: 1.15;
 
             font-weight: 800;
 
-            letter-spacing: -0.03em;
+            letter-spacing: -.035em;
         }
 
         .article-content h3 {
+
             margin: 34px 0 13px;
 
-            color: var(--text-dark);
+            color: var(--text);
 
-            font-size: 1.25rem;
+            font-size: 1.2rem;
 
             line-height: 1.4;
 
             font-weight: 700;
 
-            letter-spacing: -0.015em;
+            letter-spacing: -.015em;
         }
 
         .article-content strong {
-            color: var(--text-dark);
-            font-weight: 700;
+            color: var(--text);
         }
 
 
         /* =========================================================
-           INLINE CODE
+           CODE
         ========================================================== */
 
         .article-content code {
+
             display: inline-block;
 
             padding: 2px 6px;
 
-            background: #f1f5f9;
+            background: #f5f5f7;
 
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e5e5ea;
 
             border-radius: 5px;
 
-            color: #0f172a;
+            color: #1d1d1f;
 
             font-family:
                 ui-monospace,
@@ -646,8 +898,7 @@
                 Consolas,
                 monospace;
 
-            font-size: 0.88em;
-            line-height: 1.4;
+            font-size: .87em;
         }
 
 
@@ -656,176 +907,163 @@
         ========================================================== */
 
         .quick-answer {
-            margin: 0 0 44px;
+
+            margin-bottom: 45px;
 
             padding: 22px 24px;
 
-            background: var(--primary-light);
+            background: var(--blue-soft);
 
-            border: 1px solid #dbeafe;
+            border: 1px solid var(--blue-border);
 
-            border-left: 4px solid var(--primary);
-
-            border-radius:
-                0
-                var(--radius)
-                var(--radius)
-                0;
+            border-radius: 14px;
         }
 
         .quick-answer > strong {
+
             display: block;
 
             margin-bottom: 8px;
 
-            color: var(--text-dark);
+            color: var(--text);
 
-            font-size: 15px;
-            font-weight: 800;
+            font-size: 14px;
         }
 
         .quick-answer p {
-            margin: 0;
-        }
-
-        .quick-answer .formula-box {
-            margin-top: 18px;
+            margin-bottom: 0;
         }
 
 
         /* =========================================================
-           FORMULA BOX
+           FORMULA
         ========================================================== */
 
         .formula-box {
+
             display: flex;
+
             flex-direction: column;
 
             align-items: center;
+
             justify-content: center;
 
             width: 100%;
+
             min-height: 72px;
 
-            margin: 28px 0;
-            padding: 20px 24px;
+            margin: 27px 0;
+
+            padding: 20px;
 
             background: var(--formula-bg);
 
-            border: 1px solid #1e293b;
-            border-radius: var(--radius);
+            border-radius: 13px;
 
-            color: #ffffff !important;
+            color: #fff;
 
             text-align: center;
 
-            font-size: 1.45rem;
-            font-weight: 700;
-
-            line-height: 1.5;
-
-            box-shadow: var(--shadow-sm);
+            box-shadow:
+                0 4px 15px rgba(0,0,0,.08);
 
             overflow: hidden;
         }
 
         .formula-box,
-        .formula-box *,
-        .article-content .formula-box,
-        .article-content .formula-box * {
-            color: #ffffff !important;
+        .formula-box * {
+            color: #fff !important;
         }
 
         .formula-box .formula {
+
             display: block;
 
-            color: #ffffff !important;
+            font-size:
+                clamp(1.6rem, 4vw, 2.1rem);
 
-            font-size: clamp(1.7rem, 4vw, 2.15rem);
-
-            line-height: 1.35;
+            line-height: 1.3;
 
             font-weight: 800;
 
-            letter-spacing: 0.015em;
+            letter-spacing: .01em;
         }
 
         .formula-box p {
+
             margin: 8px 0 0;
 
-            color: var(--formula-muted) !important;
+            color: #d2d2d7 !important;
 
-            font-size: 1rem;
-
-            font-weight: 400;
+            font-size: 14px;
 
             line-height: 1.6;
         }
 
-        .formula-box .formula-label {
-            display: block;
+        .formula-label {
 
             margin-bottom: 5px;
 
-            color: #cbd5e1 !important;
+            color: #a1a1a6 !important;
 
-            font-size: 0.76rem;
+            font-size: 10px;
 
             font-weight: 800;
 
-            line-height: 1.4;
-
-            letter-spacing: 0.08em;
+            letter-spacing: .1em;
 
             text-transform: uppercase;
         }
 
 
         /* =========================================================
-           FUNDAMENTAL QUANTITY CARDS
+           FORMULA CARDS
         ========================================================== */
 
         .formula-grid {
+
             display: grid;
 
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
-            gap: 16px;
+            gap: 14px;
 
             margin: 28px 0;
         }
 
         .formula-card {
+
             min-width: 0;
 
-            padding: 22px 16px;
+            padding: 21px 17px;
 
-            background: var(--bg-light);
+            background: #fbfbfd;
 
             border: 1px solid var(--border);
 
-            border-radius: var(--radius);
+            border-radius: 13px;
 
             text-align: center;
 
-            box-shadow: var(--shadow-sm);
-
             transition:
-                border-color 0.15s ease,
-                transform 0.15s ease,
-                box-shadow 0.15s ease;
+                transform .18s ease,
+                box-shadow .18s ease,
+                border-color .18s ease;
         }
 
         .formula-card:hover {
-            border-color: #bfdbfe;
+
+            transform: translateY(-2px);
+
+            border-color: #d4d4d8;
 
             box-shadow: var(--shadow-md);
-
-            transform: translateY(-1px);
         }
 
         .formula-card .symbol {
+
             display: block;
 
             margin-bottom: 8px;
@@ -834,28 +1072,30 @@
 
             font-size: 2rem;
 
-            line-height: 1;
-
             font-weight: 800;
+
+            line-height: 1;
         }
 
         .formula-card strong {
+
             display: block;
 
             margin-bottom: 7px;
 
-            color: var(--text-dark);
+            color: var(--text);
 
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 15px;
         }
 
         .formula-card span {
+
             display: block;
 
             color: var(--text-muted);
 
-            font-size: 14px;
+            font-size: 13px;
+
             line-height: 1.55;
         }
 
@@ -865,118 +1105,93 @@
         ========================================================== */
 
         .calculation-box {
-            display: block;
-
-            width: 100%;
 
             margin: 22px 0;
 
-            padding: 18px 22px;
+            padding: 17px 20px;
 
-            background: var(--bg-light);
+            background: #fbfbfd;
 
             border: 1px solid var(--border);
 
-            border-radius: var(--radius);
-
-            color: var(--text-body);
-
-            font-size: 1.05rem;
-
-            line-height: 1.7;
+            border-radius: 12px;
         }
 
         .calculation-box p {
-            margin: 5px 0;
 
-            color: var(--text-body);
-        }
+            margin: 4px 0;
 
-        .calculation-box p:first-child {
-            margin-top: 0;
-        }
-
-        .calculation-box p:last-child {
-            margin-bottom: 0;
+            color: var(--text-secondary);
         }
 
         .calculation-box strong {
             color: var(--primary);
         }
 
-        .calculation-box code {
-            color: #0f172a;
-
-            background: #ffffff;
-
-            border: 1px solid var(--border);
-        }
-
 
         /* =========================================================
-           RESULT BOX
+           RESULT
         ========================================================== */
 
         .result-box {
+
             display: flex;
 
             align-items: center;
             justify-content: center;
 
-            min-height: 72px;
+            min-height: 68px;
 
-            margin: 26px 0;
+            margin: 25px 0;
 
-            padding: 18px 24px;
+            padding: 17px 22px;
 
-            background: var(--primary-light);
+            background: var(--blue-soft);
 
-            border: 1px solid #bfdbfe;
+            border: 1px solid var(--blue-border);
 
-            border-radius: var(--radius);
+            border-radius: 13px;
 
             color: var(--primary);
 
             text-align: center;
 
-            font-size: 1.45rem;
-
-            line-height: 1.4;
-
-            box-shadow: var(--shadow-sm);
+            font-size: 1.4rem;
         }
 
         .result-box strong {
             color: var(--primary) !important;
-            font-weight: 800;
         }
 
 
         /* =========================================================
-           ENGINEERING TABLE
+           TABLE
         ========================================================== */
 
         .engineering-table {
+
             width: 100%;
 
             margin: 28px 0;
 
             border-collapse: separate;
+
             border-spacing: 0;
 
             border: 1px solid var(--border);
 
-            border-radius: var(--radius);
+            border-radius: 13px;
 
-            font-size: 15px;
-
-            background: #ffffff;
+            background: #fff;
 
             overflow: hidden;
+
+            font-size: 14px;
         }
 
         .engineering-table th,
         .engineering-table td {
+
             padding: 13px 15px;
 
             border-right: 1px solid var(--border);
@@ -990,33 +1205,28 @@
 
         .engineering-table th:last-child,
         .engineering-table td:last-child {
-            border-right: none;
+            border-right: 0;
         }
 
         .engineering-table tr:last-child td {
-            border-bottom: none;
+            border-bottom: 0;
         }
 
         .engineering-table th {
-            background: var(--bg-light);
 
-            color: var(--text-dark);
+            background: #f5f5f7;
 
-            font-weight: 800;
+            color: var(--text);
+
+            font-weight: 700;
         }
 
         .engineering-table td {
-            background: #ffffff;
-
-            color: var(--text-body);
-        }
-
-        .engineering-table td strong {
-            color: var(--text-dark);
+            color: var(--text-secondary);
         }
 
         .engineering-table tbody tr:hover td {
-            background: #f8fafc;
+            background: #fbfbfd;
         }
 
 
@@ -1025,25 +1235,22 @@
         ========================================================== */
 
         .engineering-note {
+
             margin: 28px 0;
 
-            padding: 20px 22px;
+            padding: 20px;
 
-            background: #f8fafc;
+            background: #fbfbfd;
 
             border: 1px solid var(--border);
 
-            border-left: 4px solid #94a3b8;
+            border-left: 3px solid #a1a1a6;
 
-            border-radius:
-                0
-                var(--radius)
-                var(--radius)
-                0;
+            border-radius: 0 12px 12px 0;
         }
 
-        .engineering-note strong {
-            color: var(--text-dark);
+        .engineering-note p:last-child {
+            margin-bottom: 0;
         }
 
 
@@ -1052,85 +1259,78 @@
         ========================================================== */
 
         .article-cta {
-            margin: 52px 0;
 
-            padding: 32px 28px;
+            margin: 50px 0;
 
-            background: var(--bg-light);
+            padding: 32px 26px;
+
+            background: #fbfbfd;
 
             border: 1px solid var(--border);
 
-            border-radius: var(--radius-lg);
+            border-radius: 17px;
 
             text-align: center;
-
-            box-shadow: var(--shadow-sm);
         }
 
         .article-cta h2 {
-            margin: 0 0 12px;
-
-            color: var(--text-dark);
+            margin-bottom: 10px;
         }
 
         .article-cta p {
+
             max-width: 620px;
 
-            margin: 0 auto 24px;
+            margin: 0 auto 22px;
 
             color: var(--text-muted);
         }
 
-        .article-cta .primary-button {
+        .primary-button {
+
             display: inline-flex;
 
             align-items: center;
             justify-content: center;
 
-            gap: 8px;
+            gap: 7px;
 
-            min-height: 46px;
+            min-height: 44px;
 
-            padding: 11px 18px;
+            padding: 10px 17px;
 
             background: var(--primary);
 
             border: 1px solid var(--primary);
 
-            border-radius: var(--radius);
+            border-radius: 10px;
 
-            color: #ffffff !important;
+            color: #fff !important;
 
             text-decoration: none;
 
-            font-size: 15px;
+            font-size: 14px;
 
             font-weight: 700;
 
             transition:
-                background 0.15s ease,
-                transform 0.15s ease,
-                box-shadow 0.15s ease;
+                background .18s ease,
+                transform .18s ease;
         }
 
-        .article-cta .primary-button:hover {
-            background: var(--primary-dark);
+        .primary-button:hover {
 
-            border-color: var(--primary-dark);
+            background: var(--primary-hover);
 
-            color: #ffffff !important;
-
-            text-decoration: none;
+            color: #fff !important;
 
             transform: translateY(-1px);
 
-            box-shadow: var(--shadow-md);
+            text-decoration: none;
         }
 
-        .article-cta .primary-button .material-symbols-rounded {
-            color: #ffffff !important;
-
-            font-size: 20px;
+        .primary-button .material-symbols-rounded {
+            color: #fff !important;
         }
 
 
@@ -1140,18 +1340,10 @@
 
         #faq h3 {
             margin-top: 30px;
-
-            padding-top: 4px;
-
-            color: var(--text-dark);
-        }
-
-        #faq h3:first-of-type {
-            margin-top: 22px;
         }
 
         #faq p {
-            color: var(--text-body);
+            color: var(--text-secondary);
         }
 
 
@@ -1160,178 +1352,221 @@
         ========================================================== */
 
         .related-section {
-            margin-top: 10px;
-        }
 
-        .related-intro {
-            margin-bottom: 20px !important;
-
-            color: var(--text-muted) !important;
-
-            font-size: 15px;
+            padding-top: 10px;
         }
 
         .related-grid {
+
             display: grid;
 
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
 
-            gap: 14px;
+            gap: 13px;
 
             margin-top: 24px;
         }
 
         .related-card {
-            display: flex;
 
-            flex-direction: column;
-
-            min-height: 150px;
-
-            padding: 20px;
-
-            background: #ffffff;
-
-            border: 1px solid var(--border);
-
-            border-radius: var(--radius);
-
-            color: var(--text-dark);
-
-            text-decoration: none;
-
-            box-shadow: var(--shadow-sm);
-
-            transition:
-                border-color 0.15s ease,
-                background 0.15s ease,
-                transform 0.15s ease,
-                box-shadow 0.15s ease;
-        }
-
-        .related-card:hover {
-            background: var(--bg-light);
-
-            border-color: #bfdbfe;
-
-            text-decoration: none;
-
-            transform: translateY(-2px);
-
-            box-shadow: var(--shadow-md);
-        }
-
-        .related-card-category {
-            margin-bottom: 8px;
-
-            color: var(--primary);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            letter-spacing: 0.08em;
-
-            text-transform: uppercase;
-        }
-
-        .related-card-title {
-            margin-bottom: 8px;
-
-            color: var(--text-dark);
-
-            font-size: 16px;
-
-            line-height: 1.45;
-
-            font-weight: 700;
-        }
-
-        .related-card-description {
-            margin: 0;
-
-            color: var(--text-muted);
-
-            font-size: 13px;
-
-            line-height: 1.55;
-        }
-
-        .related-card-footer {
             display: flex;
 
             align-items: center;
 
             justify-content: space-between;
 
-            gap: 10px;
+            gap: 15px;
 
-            margin-top: auto;
+            min-height: 78px;
 
-            padding-top: 15px;
+            padding: 17px 18px;
+
+            background: #fff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            color: var(--text);
+
+            text-decoration: none;
+
+            transition:
+                transform .18s ease,
+                box-shadow .18s ease,
+                border-color .18s ease;
         }
 
-        .related-read {
+        .related-card:hover {
+
+            color: var(--text);
+
+            border-color: #d1d1d6;
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow-md);
+
+            text-decoration: none;
+        }
+
+        .related-card-content {
+            min-width: 0;
+        }
+
+        .related-card-category {
+
+            display: block;
+
+            margin-bottom: 4px;
+
             color: var(--primary);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+        }
+
+        .related-card-title {
+
+            display: block;
+
+            color: var(--text);
+
+            font-size: 14px;
+
+            line-height: 1.45;
+
+            font-weight: 700;
+        }
+
+        .related-card .material-symbols-rounded {
+
+            flex-shrink: 0;
+
+            color: #8e8e93;
+
+            font-size: 21px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        .site-footer {
+
+            margin-top: 50px;
+
+            background: #f5f5f7;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                2fr
+                1fr
+                1fr;
+
+            gap: 50px;
+
+            padding-top: 50px;
+
+            padding-bottom: 45px;
+        }
+
+        .footer-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 12px;
+
+            color: var(--text);
+
+            font-weight: 700;
+        }
+
+        .footer-logo .material-symbols-rounded {
+            color: var(--primary);
+        }
+
+        .footer-grid p {
+
+            max-width: 440px;
+
+            margin: 0;
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .footer-grid h3 {
+
+            margin: 0 0 12px;
+
+            color: var(--text);
 
             font-size: 13px;
 
             font-weight: 700;
         }
 
-        .related-card .material-symbols-rounded {
-            color: var(--primary);
+        .footer-links {
 
-            font-size: 20px;
+            margin: 0;
+
+            padding: 0;
+
+            list-style: none;
         }
 
-        .related-loading {
-            display: flex;
+        .footer-links li {
+            margin-bottom: 7px;
+        }
 
-            align-items: center;
-
-            gap: 10px;
-
-            min-height: 90px;
-
-            padding: 20px;
-
-            background: var(--bg-light);
-
-            border: 1px solid var(--border);
-
-            border-radius: var(--radius);
+        .footer-links a {
 
             color: var(--text-muted);
 
-            font-size: 14px;
+            text-decoration: none;
+
+            font-size: 13px;
         }
 
-        .related-loading .material-symbols-rounded {
+        .footer-links a:hover {
             color: var(--primary);
-
-            animation: relatedSpin 1.1s linear infinite;
         }
 
-        @keyframes relatedSpin {
-            to {
-                transform: rotate(360deg);
-            }
+        .footer-bottom {
+
+            border-top: 1px solid var(--border);
+
+            padding: 20px 0;
         }
 
-        .related-empty {
-            padding: 20px;
+        .footer-bottom p {
 
-            background: var(--bg-light);
-
-            border: 1px solid var(--border);
-
-            border-radius: var(--radius);
+            margin: 0;
 
             color: var(--text-muted);
 
-            font-size: 14px;
+            font-size: 12px;
         }
 
 
@@ -1341,10 +1576,15 @@
 
         @media (max-width: 900px) {
 
+            .main-nav {
+                display: none;
+            }
+
             .article-layout {
+
                 grid-template-columns: 1fr;
 
-                gap: 32px;
+                gap: 30px;
             }
 
             .article-sidebar {
@@ -1353,177 +1593,145 @@
 
             .article-content {
                 order: 1;
-
-                max-width: none;
             }
 
             .toc {
+
                 position: relative;
 
                 top: auto;
             }
 
-            .article-header {
-                margin-bottom: 30px;
+            .share-wrapper {
+                top: calc(var(--header-height) + 8px);
             }
         }
 
 
         /* =========================================================
-           PHONE
+           MOBILE
         ========================================================== */
 
         @media (max-width: 640px) {
 
             .container,
             .article-container {
+
                 padding-left: 16px;
                 padding-right: 16px;
             }
 
             .article-section {
-                padding-top: 24px;
-                padding-bottom: 56px;
+
+                padding-top: 25px;
+                padding-bottom: 65px;
             }
 
             .breadcrumbs {
+
                 margin-bottom: 24px;
 
-                font-size: 13px;
-
-                gap: 6px;
-            }
-
-            .article-category {
-                margin-bottom: 12px;
-
-                font-size: 11px;
+                font-size: 12px;
             }
 
             .article-header {
-                margin-bottom: 25px;
-            }
-
-            .article-header h1 {
-                margin-bottom: 16px;
-
-                font-size: 2.2rem;
-
-                line-height: 1.1;
-            }
-
-            .article-intro {
-                font-size: 1.05rem;
-
-                line-height: 1.7;
-            }
-
-            .article-meta {
-                font-size: 13px;
-
-                gap: 7px;
-            }
-
-            .article-share {
-                align-items: stretch;
-
-                margin-bottom: 32px;
-
-                padding: 13px;
-
-                gap: 8px;
-            }
-
-            .share-label {
-                width: 100%;
-
-                margin-bottom: 2px;
-            }
-
-            .share-button {
-                flex: 1;
-
-                min-width: 0;
-
-                padding-left: 8px;
-                padding-right: 8px;
-            }
-
-            .share-button span:last-child {
-                display: none;
-            }
-
-            .share-status {
-                width: 100%;
-            }
-
-            .article-content {
-                font-size: 16px;
-
-                line-height: 1.72;
-            }
-
-            .article-content section {
-                margin-bottom: 54px;
-            }
-
-            .article-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .article-content h3 {
-                font-size: 1.18rem;
-            }
-
-            .toc {
-                padding: 17px;
-            }
-
-            .quick-answer {
-                padding: 18px;
 
                 margin-bottom: 34px;
             }
 
+            .article-header h1 {
+
+                font-size: 2.25rem;
+
+                line-height: 1.08;
+
+                letter-spacing: -.045em;
+            }
+
+            .article-intro {
+
+                font-size: 1.03rem;
+
+                line-height: 1.7;
+            }
+
+            .article-content {
+
+                font-size: 16px;
+
+                line-height: 1.75;
+            }
+
+            .article-content section {
+                margin-bottom: 55px;
+            }
+
+            .article-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.15rem;
+            }
+
+
+            /* Mobile share bar */
+
+            .share-wrapper {
+
+                width: 100%;
+
+                margin-bottom: 24px;
+            }
+
+            .share-bar {
+
+                width: 100%;
+
+                justify-content: space-between;
+
+                overflow-x: auto;
+
+                scrollbar-width: none;
+            }
+
+            .share-bar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .share-label {
+                display: none;
+            }
+
+            .share-button {
+
+                flex: 0 0 36px;
+
+                width: 36px;
+                height: 36px;
+            }
+
+
+            .formula-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 11px;
+            }
+
             .formula-box {
-                min-height: 66px;
 
                 margin: 22px 0;
 
                 padding: 18px 15px;
-
-                font-size: 1.25rem;
             }
 
             .formula-box .formula {
-                font-size: 1.55rem;
-            }
-
-            .formula-grid {
-                grid-template-columns: 1fr;
-
-                gap: 12px;
-            }
-
-            .formula-card {
-                padding: 18px 15px;
-            }
-
-            .calculation-box {
-                padding: 16px 18px;
-
-                font-size: 1rem;
-            }
-
-            .result-box {
-                min-height: 64px;
-
-                padding: 16px 18px;
-
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             .engineering-table {
+
                 display: block;
 
                 overflow-x: auto;
@@ -1531,25 +1739,31 @@
                 white-space: nowrap;
             }
 
-            .engineering-table th,
-            .engineering-table td {
-                padding: 11px 12px;
+            .related-grid {
+
+                grid-template-columns: 1fr;
             }
 
             .article-cta {
-                margin: 40px 0;
 
                 padding: 25px 18px;
             }
 
-            .related-grid {
+            .footer-grid {
+
                 grid-template-columns: 1fr;
+
+                gap: 30px;
+
+                padding-top: 38px;
+
+                padding-bottom: 35px;
             }
         }
 
 
         /* =========================================================
-           VERY SMALL PHONES
+           VERY SMALL PHONE
         ========================================================== */
 
         @media (max-width: 400px) {
@@ -1558,16 +1772,19 @@
                 font-size: 2rem;
             }
 
-            .article-intro {
-                font-size: 1rem;
-            }
-
             .article-content {
                 font-size: 15.8px;
             }
 
-            .formula-box .formula {
-                font-size: 1.4rem;
+            .share-button {
+                flex-basis: 34px;
+                width: 34px;
+                height: 34px;
+            }
+
+            .share-button svg {
+                width: 17px;
+                height: 17px;
             }
         }
 
@@ -1585,17 +1802,18 @@
             *,
             *::before,
             *::after {
-                transition: none !important;
-                animation: none !important;
-            }
 
+                animation: none !important;
+
+                transition: none !important;
+            }
         }
 
     </style>
 
 
     <!-- =========================================================
-         STRUCTURED DATA — TECH ARTICLE
+         TECH ARTICLE STRUCTURED DATA
     ========================================================== -->
 
     <script type="application/ld+json">
@@ -1603,7 +1821,7 @@
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "What Are Voltage, Current & Resistance?",
-        "description": "Learn what voltage, current, and resistance are, how they work together in an electrical circuit, their units, formulas, practical examples, and the relationship described by Ohm's Law.",
+        "description": "Learn what voltage, current, and resistance are, how they work together in an electrical circuit, their units, formulas, practical examples, and Ohm's Law.",
         "author": {
             "@type": "Person",
             "name": "Prasun Barua"
@@ -1624,7 +1842,7 @@
 
 
     <!-- =========================================================
-         STRUCTURED DATA — BREADCRUMBS
+         BREADCRUMB STRUCTURED DATA
     ========================================================== -->
 
     <script type="application/ld+json">
@@ -1656,7 +1874,7 @@
 
 
     <!-- =========================================================
-         STRUCTURED DATA — FAQ
+         FAQ STRUCTURED DATA
     ========================================================== -->
 
     <script type="application/ld+json">
@@ -1728,6 +1946,7 @@
                 </span>
 
                 <span>
+
                     <strong>
                         Electrical Engineering
                     </strong>
@@ -1735,6 +1954,7 @@
                     <small>
                         by Prasun Barua
                     </small>
+
                 </span>
 
             </a>
@@ -1792,7 +2012,7 @@
 
 
     <!-- =========================================================
-         MAIN CONTENT
+         MAIN
     ========================================================== -->
 
     <main>
@@ -1813,17 +2033,13 @@
                         Home
                     </a>
 
-                    <span aria-hidden="true">
-                        ›
-                    </span>
+                    <span aria-hidden="true">›</span>
 
                     <a href="/articles/electrical-fundamentals/">
                         Electrical Fundamentals
                     </a>
 
-                    <span aria-hidden="true">
-                        ›
-                    </span>
+                    <span aria-hidden="true">›</span>
 
                     <span aria-current="page">
                         Voltage, Current &amp; Resistance
@@ -1859,17 +2075,13 @@
                             By <strong>Prasun Barua</strong>
                         </span>
 
-                        <span aria-hidden="true">
-                            •
-                        </span>
+                        <span aria-hidden="true">•</span>
 
                         <span>
                             Electrical Engineering
                         </span>
 
-                        <span aria-hidden="true">
-                            •
-                        </span>
+                        <span aria-hidden="true">•</span>
 
                         <span>
                             Updated August 2026
@@ -1881,138 +2093,202 @@
 
 
                 <!-- =================================================
-                     SHARE
+                     SOCIAL SHARE
                 ================================================== -->
 
-                <div class="article-share"
-                     aria-label="Share this article">
+                <div class="share-wrapper">
 
-                    <span class="share-label">
+                    <div class="share-bar"
+                         aria-label="Share this article">
 
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            share
-                        </span>
-
-                        Share this article
-
-                    </span>
-
-
-                    <button type="button"
-                            class="share-button native-share"
-                            id="nativeShareButton">
-
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            share
-                        </span>
-
-                        <span>
+                        <span class="share-label">
                             Share
                         </span>
 
-                    </button>
+
+                        <!-- FACEBOOK -->
+
+                        <button class="share-button"
+                                type="button"
+                                data-share="facebook"
+                                aria-label="Share on Facebook"
+                                title="Facebook">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.5v3h2.8v8h3.2z"/>
+
+                            </svg>
+
+                        </button>
 
 
-                    <a class="share-button"
-                       id="facebookShare"
-                       href="#"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Share on Facebook">
+                        <!-- X -->
 
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            public
-                        </span>
+                        <button class="share-button"
+                                type="button"
+                                data-share="x"
+                                aria-label="Share on X"
+                                title="X">
 
-                        <span>
-                            Facebook
-                        </span>
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
 
-                    </a>
+                                <path d="M18.244 2.25h3.308l-7.227 8.26L22.827 21.75h-6.58l-5.153-6.73-5.895 6.73H1.89l7.73-8.835L1.172 2.25H7.92l4.658 6.158 5.666-6.158zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
 
+                            </svg>
 
-                    <a class="share-button"
-                       id="xShare"
-                       href="#"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Share on X">
-
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            close
-                        </span>
-
-                        <span>
-                            X
-                        </span>
-
-                    </a>
+                        </button>
 
 
-                    <a class="share-button"
-                       id="linkedinShare"
-                       href="#"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Share on LinkedIn">
+                        <!-- LINKEDIN -->
 
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            work
-                        </span>
+                        <button class="share-button"
+                                type="button"
+                                data-share="linkedin"
+                                aria-label="Share on LinkedIn"
+                                title="LinkedIn">
 
-                        <span>
-                            LinkedIn
-                        </span>
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
 
-                    </a>
+                                <path d="M6.5 8.2H3.1V21h3.4V8.2zM4.8 3C3.7 3 3 3.7 3 4.7c0 1 .7 1.7 1.8 1.7s1.8-.7 1.8-1.7C6.6 3.7 5.9 3 4.8 3zM20.9 13.7c0-3.9-2.1-5.7-4.9-5.7-2.3 0-3.3 1.3-3.9 2.2V8.2H8.7V21h3.4v-6.3c0-1.7.3-3.4 2.5-3.4 2.1 0 2.1 1.9 2.1 3.5V21h3.4l.8-7.3z"/>
 
+                            </svg>
 
-                    <a class="share-button"
-                       id="whatsappShare"
-                       href="#"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Share on WhatsApp">
-
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            chat
-                        </span>
-
-                        <span>
-                            WhatsApp
-                        </span>
-
-                    </a>
+                        </button>
 
 
-                    <button type="button"
-                            class="share-button"
-                            id="copyLinkButton">
+                        <!-- WHATSAPP -->
 
-                        <span class="material-symbols-rounded"
-                              aria-hidden="true">
-                            link
-                        </span>
+                        <button class="share-button"
+                                type="button"
+                                data-share="whatsapp"
+                                aria-label="Share on WhatsApp"
+                                title="WhatsApp">
 
-                        <span>
-                            Copy Link
-                        </span>
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
 
-                    </button>
+                                <path d="M20 3.9A10 10 0 0 0 4.6 17.8L3 22l4.3-1.6A10 10 0 1 0 20 3.9zm-8 16.2c-1.6 0-3.1-.5-4.4-1.4l-.3-.2-2.5.9.9-2.4-.2-.3a8.2 8.2 0 1 1 6.5 3.4zm4.5-6.1c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1-.1.2-.5.7-.6.8-.1.2-.2.2-.4.1-.2-.1-.8-.3-1.5-1-.5-.5-.9-1.1-1-1.3-.1-.2 0-.3.1-.4l.3-.4c.1-.1.1-.2.2-.3.1-.1 0-.2 0-.3 0-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.4c-.1 0-.3.1-.5.2-.2.2-.7.7-.7 1.8s.7 2.1.8 2.3c.1.2 1.4 2.2 3.4 3 .5.2.9.4 1.2.5.5.2 1 .2 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/>
+
+                            </svg>
+
+                        </button>
 
 
-                    <span class="share-status"
-                          id="shareStatus"
-                          aria-live="polite">
-                        Link copied!
-                    </span>
+                        <!-- PINTEREST -->
 
+                        <button class="share-button"
+                                type="button"
+                                data-share="pinterest"
+                                aria-label="Share on Pinterest"
+                                title="Pinterest">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-1.6 0-3.5.4-5.1l1.1-4.6s-.3-.7-.3-1.7c0-1.6.9-2.8 2-2.8.9 0 1.3.7 1.3 1.5 0 .9-.6 2.2-.9 3.4-.3 1 .5 1.8 1.5 1.8 1.8 0 3.2-1.9 3.2-4.7 0-2.5-1.8-4.2-4.4-4.2-3 0-4.8 2.2-4.8 4.5 0 .9.3 1.9.8 2.4.1.1.1.2.1.4l-.3 1.2c-.1.4-.4.5-.7.3-1.3-.6-2.1-2.5-2.1-4.1 0-3.4 2.5-6.5 7.2-6.5 3.8 0 6.7 2.7 6.7 6.2 0 3.7-2.3 6.7-5.5 6.7-1.1 0-2.2-.6-2.6-1.3l-.7 2.7c-.3 1.1-1.1 2.5-1.6 3.4A10 10 0 1 0 12 2z"/>
+
+                            </svg>
+
+                        </button>
+
+
+                        <!-- REDDIT -->
+
+                        <button class="share-button"
+                                type="button"
+                                data-share="reddit"
+                                aria-label="Share on Reddit"
+                                title="Reddit">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M21.6 12.1c0-.9-.8-1.7-1.7-1.7-.4 0-.8.2-1.1.4-1.2-.9-2.8-1.5-4.6-1.7l.8-3.5 2.4.5c.1.7.7 1.2 1.4 1.2.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.5 0-1 .3-1.2.7l-2.7-.6c-.4-.1-.7.1-.8.5l-.9 4.1c-1.8.1-3.5.7-4.7 1.6-.3-.2-.7-.4-1.1-.4-.9 0-1.7.8-1.7 1.7 0 .5.2.9.5 1.2-.1.3-.1.7-.1 1 0 2.9 3.4 5.3 7.6 5.3s7.6-2.4 7.6-5.3c0-.3 0-.7-.1-1 .4-.3.7-.8.7-1.2zM9.1 13.1c.6 0 1.1.5 1.1 1.1s-.5 1.1-1.1 1.1S8 14.8 8 14.2s.5-1.1 1.1-1.1zm5.8 4.3c-.8.8-2.4 1.2-3.9 1.2s-3.1-.4-3.9-1.2c-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0 .6.6 1.8.9 3.2.9s2.6-.3 3.2-.9c.2-.2.5-.2.7 0 .2.2.2.5 0 .7zm0-2.1c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z"/>
+
+                            </svg>
+
+                        </button>
+
+
+                        <!-- TELEGRAM -->
+
+                        <button class="share-button"
+                                type="button"
+                                data-share="telegram"
+                                aria-label="Share on Telegram"
+                                title="Telegram">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M21.5 3.4L18.3 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.7 13.8l-4.9-1.5c-1.1-.3-1.1-1.1.2-1.6L20.2 3c.9-.3 1.7.2 1.3.4z"/>
+
+                            </svg>
+
+                        </button>
+
+
+                        <!-- EMAIL -->
+
+                        <button class="share-button"
+                                type="button"
+                                data-share="email"
+                                aria-label="Share by email"
+                                title="Email">
+
+                            <span class="material-symbols-rounded">
+                                mail
+                            </span>
+
+                        </button>
+
+
+                        <!-- COPY -->
+
+                        <button class="share-button copy-button"
+                                type="button"
+                                id="copyShareButton"
+                                aria-label="Copy article link"
+                                title="Copy link">
+
+                            <span class="material-symbols-rounded">
+                                link
+                            </span>
+
+                        </button>
+
+
+                        <!-- NATIVE SHARE -->
+
+                        <button class="share-button native-share"
+                                type="button"
+                                id="nativeShareButton"
+                                aria-label="Share article"
+                                title="More sharing options">
+
+                            <span class="material-symbols-rounded">
+                                share
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHARE SUCCESS MESSAGE -->
+
+                <div class="share-tooltip"
+                     id="shareTooltip"
+                     role="status"
+                     aria-live="polite">
+
+                    Link copied
                 </div>
 
 
@@ -2077,17 +2353,13 @@
                                 FAQ
                             </a>
 
-                            <a href="#related">
-                                Related Articles
-                            </a>
-
                         </nav>
 
                     </aside>
 
 
                     <!-- =================================================
-                         ARTICLE CONTENT
+                         ARTICLE
                     ================================================== -->
 
                     <article class="article-content">
@@ -2304,9 +2576,11 @@
                             </div>
 
                             <div class="result-box">
+
                                 <strong>
                                     Current = 5 A
                                 </strong>
+
                             </div>
 
                         </section>
@@ -2404,19 +2678,19 @@
 
                                     <tr>
 
-                                        <th scope="col">
+                                        <th>
                                             Quantity
                                         </th>
 
-                                        <th scope="col">
+                                        <th>
                                             Symbol
                                         </th>
 
-                                        <th scope="col">
+                                        <th>
                                             Unit
                                         </th>
 
-                                        <th scope="col">
+                                        <th>
                                             Basic Meaning
                                         </th>
 
@@ -2530,7 +2804,6 @@
 
                                 </div>
 
-
                                 <div class="formula-card">
 
                                     <span class="symbol">
@@ -2547,7 +2820,6 @@
                                     </span>
 
                                 </div>
-
 
                                 <div class="formula-card">
 
@@ -2610,7 +2882,6 @@
 
                                 </div>
 
-
                                 <div class="formula-card">
 
                                     <strong>
@@ -2622,7 +2893,6 @@
                                     </span>
 
                                 </div>
-
 
                                 <div class="formula-card">
 
@@ -2642,7 +2912,7 @@
 
 
                         <!-- =================================================
-                             WORKED EXAMPLE
+                             EXAMPLE
                         ================================================== -->
 
                         <section id="example">
@@ -2657,7 +2927,6 @@
                                 <strong>12 Ω</strong>. What current flows
                                 through the resistor?
                             </p>
-
 
                             <h3>
                                 Step 1 — Identify the known values
@@ -2675,7 +2944,6 @@
 
                             </div>
 
-
                             <h3>
                                 Step 2 — Choose the formula
                             </h3>
@@ -2683,7 +2951,6 @@
                             <div class="formula-box">
                                 I = V ÷ R
                             </div>
-
 
                             <h3>
                                 Step 3 — Substitute the values
@@ -2693,7 +2960,6 @@
                                 I = 24 ÷ 12
                             </div>
 
-
                             <div class="result-box">
 
                                 <strong>
@@ -2701,7 +2967,6 @@
                                 </strong>
 
                             </div>
-
 
                             <p>
                                 Therefore, the current flowing through the
@@ -2712,7 +2977,7 @@
 
 
                         <!-- =================================================
-                             ENGINEERING NOTES
+                             ENGINEERING
                         ================================================== -->
 
                         <section id="engineering">
@@ -2732,7 +2997,8 @@
                             <p>
                                 In practical electrical systems, engineers
                                 also consider other quantities such as
-                                <strong>power</strong>, <strong>energy</strong>,
+                                <strong>power</strong>,
+                                <strong>energy</strong>,
                                 <strong>impedance</strong>, frequency, and
                                 power factor.
                             </p>
@@ -2784,7 +3050,7 @@
 
 
                         <!-- =================================================
-                             CALCULATOR CTA
+                             CTA
                         ================================================== -->
 
                         <section>
@@ -2830,7 +3096,6 @@
                                 Frequently Asked Questions
                             </h2>
 
-
                             <h3>
                                 What is voltage?
                             </h3>
@@ -2842,7 +3107,6 @@
                                 drive electric charge through a circuit.
                             </p>
 
-
                             <h3>
                                 What is electric current?
                             </h3>
@@ -2853,7 +3117,6 @@
                                 measured in amperes (A).
                             </p>
 
-
                             <h3>
                                 What is resistance?
                             </h3>
@@ -2862,7 +3125,6 @@
                                 Resistance is the opposition to electric
                                 current flow. It is measured in ohms (Ω).
                             </p>
-
 
                             <h3>
                                 What is the relationship between voltage,
@@ -2875,7 +3137,6 @@
                                 <code>V = I × R</code>.
                             </p>
 
-
                             <h3>
                                 What happens to current when resistance
                                 increases?
@@ -2887,7 +3148,6 @@
                                 according to
                                 <code>I = V ÷ R</code>.
                             </p>
-
 
                             <h3>
                                 What happens to current when voltage increases?
@@ -2904,34 +3164,25 @@
 
 
                         <!-- =================================================
-                             AUTO RELATED ARTICLES
+                             AUTOMATIC RELATED ARTICLES
                         ================================================== -->
 
-                        <section id="related"
-                                 class="related-section">
+                        <section class="related-section"
+                                 id="related-articles">
 
                             <h2>
                                 Related Articles
                             </h2>
 
-                            <p class="related-intro">
-                                Continue learning with more electrical
-                                engineering tutorials and practical guides.
+                            <p>
+                                Continue learning with these related electrical
+                                engineering tutorials and practical resources.
                             </p>
 
-                            <div id="relatedArticles"
-                                 class="related-grid">
+                            <div class="related-grid"
+                                 id="relatedArticles">
 
-                                <div class="related-loading">
-
-                                    <span class="material-symbols-rounded"
-                                          aria-hidden="true">
-                                        progress_activity
-                                    </span>
-
-                                    Loading related articles...
-
-                                </div>
+                                <!-- JavaScript inserts articles here -->
 
                             </div>
 
@@ -2958,8 +3209,6 @@
         <div class="container footer-grid">
 
 
-            <!-- COMPANY -->
-
             <div>
 
                 <div class="footer-logo">
@@ -2981,8 +3230,6 @@
 
             </div>
 
-
-            <!-- EXPLORE -->
 
             <div>
 
@@ -3021,8 +3268,6 @@
             </div>
 
 
-            <!-- INFORMATION -->
-
             <div>
 
                 <h3>
@@ -3059,13 +3304,8 @@
 
             </div>
 
-
         </div>
 
-
-        <!-- =========================================================
-             FOOTER BOTTOM
-        ========================================================== -->
 
         <div class="footer-bottom">
 
@@ -3083,131 +3323,254 @@
 
 
     <!-- =========================================================
-         SHARE + AUTO RELATED ARTICLES JAVASCRIPT
+         SHARE + RELATED ARTICLES JAVASCRIPT
     ========================================================== -->
 
     <script>
 
         document.addEventListener("DOMContentLoaded", function () {
 
+
             /* =====================================================
                ARTICLE INFORMATION
-            ====================================================== */
+            ===================================================== */
 
-            const currentUrl = window.location.href.split("#")[0];
+            const articleTitle =
+                document.title;
 
-            const currentTitle =
-                document.querySelector("h1")?.textContent.trim()
-                || document.title;
-
-            const currentCategory =
-                document.querySelector(".article-category")
-                ?.textContent
-                .trim()
-                .toLowerCase()
-                || "";
-
-            const currentDescription =
-                document.querySelector(".article-intro")
-                ?.textContent
-                .trim()
-                || "";
+            const articleUrl =
+                window.location.href;
 
 
             /* =====================================================
-               SHARE URLS
-            ====================================================== */
+               SOCIAL SHARE LINKS
+            ===================================================== */
 
-            const encodedUrl =
-                encodeURIComponent(currentUrl);
+            const shareButtons =
+                document.querySelectorAll("[data-share]");
 
-            const encodedTitle =
-                encodeURIComponent(currentTitle);
 
-            const encodedDescription =
-                encodeURIComponent(currentDescription);
+            shareButtons.forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    const network =
+                        button.getAttribute("data-share");
+
+                    let shareUrl = "";
+
+
+                    switch (network) {
+
+                        case "facebook":
+
+                            shareUrl =
+                                "https://www.facebook.com/sharer/sharer.php?u="
+                                + encodeURIComponent(articleUrl);
+
+                            break;
+
+
+                        case "x":
+
+                            shareUrl =
+                                "https://twitter.com/intent/tweet?url="
+                                + encodeURIComponent(articleUrl)
+                                + "&text="
+                                + encodeURIComponent(articleTitle);
+
+                            break;
+
+
+                        case "linkedin":
+
+                            shareUrl =
+                                "https://www.linkedin.com/sharing/share-offsite/?url="
+                                + encodeURIComponent(articleUrl);
+
+                            break;
+
+
+                        case "whatsapp":
+
+                            shareUrl =
+                                "https://api.whatsapp.com/send?text="
+                                + encodeURIComponent(
+                                    articleTitle + " " + articleUrl
+                                );
+
+                            break;
+
+
+                        case "pinterest":
+
+                            shareUrl =
+                                "https://pinterest.com/pin/create/button/?url="
+                                + encodeURIComponent(articleUrl)
+                                + "&description="
+                                + encodeURIComponent(articleTitle);
+
+                            break;
+
+
+                        case "reddit":
+
+                            shareUrl =
+                                "https://www.reddit.com/submit?url="
+                                + encodeURIComponent(articleUrl)
+                                + "&title="
+                                + encodeURIComponent(articleTitle);
+
+                            break;
+
+
+                        case "telegram":
+
+                            shareUrl =
+                                "https://t.me/share/url?url="
+                                + encodeURIComponent(articleUrl)
+                                + "&text="
+                                + encodeURIComponent(articleTitle);
+
+                            break;
+
+
+                        case "email":
+
+                            shareUrl =
+                                "mailto:?subject="
+                                + encodeURIComponent(articleTitle)
+                                + "&body="
+                                + encodeURIComponent(
+                                    "I thought you might find this useful:\n\n"
+                                    + articleTitle
+                                    + "\n"
+                                    + articleUrl
+                                );
+
+                            break;
+
+                    }
+
+
+                    if (shareUrl) {
+
+                        if (network === "email") {
+
+                            window.location.href =
+                                shareUrl;
+
+                        } else {
+
+                            window.open(
+                                shareUrl,
+                                "_blank",
+                                "noopener,noreferrer,width=700,height=600"
+                            );
+
+                        }
+
+                    }
+
+                });
+
+            });
 
 
             /* =====================================================
-               FACEBOOK
-            ====================================================== */
+               COPY LINK
+            ===================================================== */
 
-            const facebookShare =
-                document.getElementById("facebookShare");
+            const copyButton =
+                document.getElementById("copyShareButton");
 
-            if (facebookShare) {
+            const tooltip =
+                document.getElementById("shareTooltip");
 
-                facebookShare.href =
-                    "https://www.facebook.com/sharer/sharer.php?u="
-                    + encodedUrl;
+
+            function showCopiedMessage(message) {
+
+                tooltip.textContent =
+                    message || "Link copied";
+
+                tooltip.classList.add("show");
+
+                setTimeout(function () {
+
+                    tooltip.classList.remove("show");
+
+                }, 1800);
+
+            }
+
+
+            if (copyButton) {
+
+                copyButton.addEventListener("click", async function () {
+
+                    try {
+
+                        await navigator.clipboard.writeText(
+                            articleUrl
+                        );
+
+                        showCopiedMessage(
+                            "Article link copied"
+                        );
+
+                    } catch (error) {
+
+                        const textarea =
+                            document.createElement("textarea");
+
+                        textarea.value =
+                            articleUrl;
+
+                        textarea.style.position =
+                            "fixed";
+
+                        textarea.style.opacity =
+                            "0";
+
+                        document.body.appendChild(
+                            textarea
+                        );
+
+                        textarea.select();
+
+                        document.execCommand(
+                            "copy"
+                        );
+
+                        textarea.remove();
+
+                        showCopiedMessage(
+                            "Article link copied"
+                        );
+
+                    }
+
+                });
 
             }
 
 
             /* =====================================================
-               X / TWITTER
-            ====================================================== */
-
-            const xShare =
-                document.getElementById("xShare");
-
-            if (xShare) {
-
-                xShare.href =
-                    "https://twitter.com/intent/tweet?url="
-                    + encodedUrl
-                    + "&text="
-                    + encodedTitle;
-
-            }
-
-
-            /* =====================================================
-               LINKEDIN
-            ====================================================== */
-
-            const linkedinShare =
-                document.getElementById("linkedinShare");
-
-            if (linkedinShare) {
-
-                linkedinShare.href =
-                    "https://www.linkedin.com/sharing/share-offsite/?url="
-                    + encodedUrl;
-
-            }
-
-
-            /* =====================================================
-               WHATSAPP
-            ====================================================== */
-
-            const whatsappShare =
-                document.getElementById("whatsappShare");
-
-            if (whatsappShare) {
-
-                whatsappShare.href =
-                    "https://api.whatsapp.com/send?text="
-                    + encodedTitle
-                    + "%20"
-                    + encodedUrl;
-
-            }
-
-
-            /* =====================================================
-               NATIVE SHARE
-            ====================================================== */
+               NATIVE DEVICE SHARE
+            ===================================================== */
 
             const nativeShareButton =
-                document.getElementById("nativeShareButton");
+                document.getElementById(
+                    "nativeShareButton"
+                );
+
 
             if (nativeShareButton) {
 
                 if (!navigator.share) {
 
-                    nativeShareButton.style.display = "none";
+                    nativeShareButton.style.display =
+                        "none";
 
                 } else {
 
@@ -3218,24 +3581,24 @@
                             try {
 
                                 await navigator.share({
-                                    title: currentTitle,
-                                    text: currentDescription,
-                                    url: currentUrl
+
+                                    title:
+                                        articleTitle,
+
+                                    text:
+                                        "Read this electrical engineering article:",
+
+                                    url:
+                                        articleUrl
+
                                 });
 
                             } catch (error) {
 
-                                if (
-                                    error &&
-                                    error.name !== "AbortError"
-                                ) {
-
-                                    console.log(
-                                        "Share cancelled or unavailable.",
-                                        error
-                                    );
-
-                                }
+                                /*
+                                 User cancelled the native share
+                                 dialog. No action required.
+                                */
 
                             }
 
@@ -3248,864 +3611,217 @@
 
 
             /* =====================================================
-               COPY LINK
-            ====================================================== */
+               AUTOMATIC RELATED ARTICLES
+            ===================================================== */
 
-            const copyLinkButton =
-                document.getElementById("copyLinkButton");
+            const relatedArticles = [
 
-            const shareStatus =
-                document.getElementById("shareStatus");
+                {
+                    title:
+                        "Ohm's Law Explained: Formula, Examples & Calculations",
 
+                    category:
+                        "Electrical Fundamentals",
 
-            function showShareStatus(message) {
+                    url:
+                        "/articles/electrical-fundamentals/ohms-law/"
+                },
 
-                if (!shareStatus) {
-                    return;
+                {
+                    title:
+                        "Electrical Fundamentals",
+
+                    category:
+                        "Electrical Fundamentals",
+
+                    url:
+                        "/articles/electrical-fundamentals/"
+                },
+
+                {
+                    title:
+                        "Understanding Electrical Power: P = V × I",
+
+                    category:
+                        "Electrical Fundamentals",
+
+                    url:
+                        "/articles/electrical-fundamentals/electrical-power/"
+                },
+
+                {
+                    title:
+                        "AC vs DC: What Is the Difference?",
+
+                    category:
+                        "Electrical Fundamentals",
+
+                    url:
+                        "/articles/electrical-fundamentals/ac-vs-dc/"
+                },
+
+                {
+                    title:
+                        "Series and Parallel Circuits Explained",
+
+                    category:
+                        "Circuit Fundamentals",
+
+                    url:
+                        "/articles/electrical-fundamentals/series-parallel-circuits/"
+                },
+
+                {
+                    title:
+                        "How to Calculate Electrical Power",
+
+                    category:
+                        "Electrical Calculations",
+
+                    url:
+                        "/articles/electrical-calculations/electrical-power/"
+                },
+
+                {
+                    title:
+                        "Voltage Drop: Formula and Practical Calculation",
+
+                    category:
+                        "Electrical Calculations",
+
+                    url:
+                        "/articles/electrical-calculations/voltage-drop/"
+                },
+
+                {
+                    title:
+                        "Electrical Cable Size Calculation",
+
+                    category:
+                        "Electrical Calculations",
+
+                    url:
+                        "/articles/electrical-calculations/cable-size/"
+                },
+
+                {
+                    title:
+                        "Solar PV System Basics",
+
+                    category:
+                        "Solar PV",
+
+                    url:
+                        "/articles/solar-pv/solar-pv-system-basics/"
+                },
+
+                {
+                    title:
+                        "How Solar Panels Generate Electricity",
+
+                    category:
+                        "Solar PV",
+
+                    url:
+                        "/articles/solar-pv/how-solar-panels-work/"
                 }
 
-                shareStatus.textContent = message;
+            ];
 
-                shareStatus.classList.add("show");
-
-                setTimeout(function () {
-
-                    shareStatus.classList.remove("show");
-
-                }, 2500);
-
-            }
-
-
-            async function copyCurrentUrl() {
-
-                try {
-
-                    if (
-                        navigator.clipboard &&
-                        window.isSecureContext
-                    ) {
-
-                        await navigator.clipboard.writeText(
-                            currentUrl
-                        );
-
-                        showShareStatus("Link copied!");
-
-                        return;
-
-                    }
-
-                    const textarea =
-                        document.createElement("textarea");
-
-                    textarea.value = currentUrl;
-
-                    textarea.style.position = "fixed";
-                    textarea.style.opacity = "0";
-
-                    document.body.appendChild(textarea);
-
-                    textarea.focus();
-                    textarea.select();
-
-                    document.execCommand("copy");
-
-                    textarea.remove();
-
-                    showShareStatus("Link copied!");
-
-                } catch (error) {
-
-                    console.error(
-                        "Could not copy link:",
-                        error
-                    );
-
-                    showShareStatus(
-                        "Unable to copy link"
-                    );
-
-                }
-
-            }
-
-
-            if (copyLinkButton) {
-
-                copyLinkButton.addEventListener(
-                    "click",
-                    copyCurrentUrl
-                );
-
-            }
-
-
-            /* =====================================================
-               AUTO RELATED ARTICLES
-               
-               This system:
-               
-               1. Reads sitemap.xml
-               2. Finds article URLs
-               3. Excludes current article
-               4. Fetches article pages
-               5. Reads title/category/description
-               6. Scores similarity
-               7. Displays best matches
-               
-            ====================================================== */
 
             const relatedContainer =
-                document.getElementById("relatedArticles");
-
-
-            const sitemapUrl =
-                "/sitemap.xml";
-
-
-            const MAX_RELATED =
-                4;
-
-
-            /* =====================================================
-               KEYWORD EXTRACTION
-            ====================================================== */
-
-            function getKeywords(text) {
-
-                return text
-                    .toLowerCase()
-                    .replace(/[^a-z0-9\s]/g, " ")
-                    .split(/\s+/)
-                    .filter(function (word) {
-
-                        return (
-                            word.length >= 4 &&
-                            ![
-                                "what",
-                                "this",
-                                "that",
-                                "with",
-                                "from",
-                                "your",
-                                "about",
-                                "into",
-                                "their",
-                                "there",
-                                "which",
-                                "using",
-                                "learn",
-                                "article",
-                                "electrical",
-                                "engineering"
-                            ].includes(word)
-                        );
-
-                    });
-
-            }
-
-
-            const currentKeywords =
-                getKeywords(
-                    currentTitle
-                    + " "
-                    + currentDescription
-                    + " "
-                    + currentCategory
+                document.getElementById(
+                    "relatedArticles"
                 );
 
 
-            /* =====================================================
-               CATEGORY NORMALIZATION
-            ====================================================== */
+            if (relatedContainer) {
 
-            function normalizeCategory(category) {
+                /*
+                 Remove the current article from
+                 the related article list.
+                */
 
-                return category
-                    .toLowerCase()
-                    .replace(/\s+/g, " ")
-                    .trim();
+                const currentPath =
+                    window.location.pathname;
 
-            }
 
+                const filteredArticles =
+                    relatedArticles.filter(
+                        function (article) {
 
-            /* =====================================================
-               URL VALIDATION
-            ====================================================== */
-
-            function isArticleUrl(url) {
-
-                if (!url) {
-                    return false;
-                }
-
-                try {
-
-                    const parsed =
-                        new URL(url, window.location.origin);
-
-                    if (
-                        parsed.origin !==
-                        window.location.origin
-                    ) {
-                        return false;
-                    }
-
-                    const path =
-                        parsed.pathname.toLowerCase();
-
-                    return (
-                        path.startsWith("/articles/")
-                        &&
-                        path !== "/articles/"
-                    );
-
-                } catch (error) {
-
-                    return false;
-
-                }
-
-            }
-
-
-            /* =====================================================
-               FETCH ARTICLE INFORMATION
-            ====================================================== */
-
-            async function getArticleInfo(url) {
-
-                try {
-
-                    const response =
-                        await fetch(
-                            url,
-                            {
-                                method: "GET",
-                                credentials: "same-origin",
-                                cache: "no-cache"
-                            }
-                        );
-
-                    if (!response.ok) {
-                        return null;
-                    }
-
-                    const html =
-                        await response.text();
-
-
-                    const parser =
-                        new DOMParser();
-
-
-                    const documentPage =
-                        parser.parseFromString(
-                            html,
-                            "text/html"
-                        );
-
-
-                    const title =
-                        documentPage
-                            .querySelector("h1")
-                            ?.textContent
-                            .trim()
-                        ||
-                        documentPage
-                            .querySelector("title")
-                            ?.textContent
-                            .trim()
-                        ||
-                        "";
-
-
-                    const description =
-                        documentPage
-                            .querySelector(
-                                'meta[name="description"]'
-                            )
-                            ?.getAttribute("content")
-                        ||
-                        documentPage
-                            .querySelector(".article-intro")
-                            ?.textContent
-                            .trim()
-                        ||
-                        "";
-
-
-                    const category =
-                        documentPage
-                            .querySelector(".article-category")
-                            ?.textContent
-                            .trim()
-                        ||
-                        "";
-
-
-                    if (!title) {
-                        return null;
-                    }
-
-
-                    return {
-
-                        url: url,
-
-                        title: title,
-
-                        description: description,
-
-                        category: category,
-
-                        keywords:
-                            getKeywords(
-                                title
-                                + " "
-                                + description
-                                + " "
-                                + category
-                            )
-
-                    };
-
-                } catch (error) {
-
-                    console.warn(
-                        "Could not read article:",
-                        url,
-                        error
-                    );
-
-                    return null;
-
-                }
-
-            }
-
-
-            /* =====================================================
-               CALCULATE ARTICLE SIMILARITY
-            ====================================================== */
-
-            function calculateScore(article) {
-
-                let score = 0;
-
-
-                const articleCategory =
-                    normalizeCategory(
-                        article.category
-                    );
-
-
-                const normalizedCurrentCategory =
-                    normalizeCategory(
-                        currentCategory
-                    );
-
-
-                /* Same category gets strong priority */
-
-                if (
-                    articleCategory &&
-                    normalizedCurrentCategory &&
-                    articleCategory ===
-                    normalizedCurrentCategory
-                ) {
-
-                    score += 20;
-
-                }
-
-
-                /* Category partial match */
-
-                if (
-                    articleCategory &&
-                    normalizedCurrentCategory &&
-                    (
-                        articleCategory.includes(
-                            normalizedCurrentCategory
-                        )
-                        ||
-                        normalizedCurrentCategory.includes(
-                            articleCategory
-                        )
-                    )
-                ) {
-
-                    score += 10;
-
-                }
-
-
-                /* Keyword matching */
-
-                const uniqueCurrentKeywords =
-                    [
-                        ...new Set(
-                            currentKeywords
-                        )
-                    ];
-
-
-                uniqueCurrentKeywords.forEach(
-                    function (keyword) {
-
-                        if (
-                            article.keywords.includes(
-                                keyword
-                            )
-                        ) {
-
-                            score += 3;
-
-                        }
-
-                    }
-                );
-
-
-                /* URL/category relevance */
-
-                const lowerUrl =
-                    article.url.toLowerCase();
-
-
-                if (
-                    lowerUrl.includes(
-                        "/electrical-fundamentals/"
-                    )
-                    &&
-                    currentCategory.includes(
-                        "electrical fundamentals"
-                    )
-                ) {
-
-                    score += 8;
-
-                }
-
-
-                if (
-                    lowerUrl.includes(
-                        "/electrical-calculations/"
-                    )
-                    &&
-                    (
-                        currentTitle
-                            .toLowerCase()
-                            .includes("calculation")
-                        ||
-                        currentTitle
-                            .toLowerCase()
-                            .includes("voltage")
-                    )
-                ) {
-
-                    score += 5;
-
-                }
-
-
-                if (
-                    lowerUrl.includes(
-                        "/solar-pv/"
-                    )
-                    &&
-                    (
-                        currentTitle
-                            .toLowerCase()
-                            .includes("solar")
-                        ||
-                        currentDescription
-                            .toLowerCase()
-                            .includes("solar")
-                    )
-                ) {
-
-                    score += 8;
-
-                }
-
-
-                return score;
-
-            }
-
-
-            /* =====================================================
-               CREATE RELATED ARTICLE CARD
-            ====================================================== */
-
-            function createRelatedCard(article) {
-
-                const link =
-                    document.createElement("a");
-
-                link.href =
-                    article.url;
-
-                link.className =
-                    "related-card";
-
-
-                const category =
-                    document.createElement("div");
-
-                category.className =
-                    "related-card-category";
-
-                category.textContent =
-                    article.category ||
-                    "Electrical Engineering";
-
-
-                const title =
-                    document.createElement("div");
-
-                title.className =
-                    "related-card-title";
-
-                title.textContent =
-                    article.title;
-
-
-                const description =
-                    document.createElement("p");
-
-                description.className =
-                    "related-card-description";
-
-
-                let cleanDescription =
-                    article.description
-                    || "Explore this practical electrical engineering article.";
-
-
-                if (
-                    cleanDescription.length > 115
-                ) {
-
-                    cleanDescription =
-                        cleanDescription.substring(
-                            0,
-                            112
-                        ).trim()
-                        + "...";
-
-                }
-
-
-                description.textContent =
-                    cleanDescription;
-
-
-                const footer =
-                    document.createElement("div");
-
-                footer.className =
-                    "related-card-footer";
-
-
-                const read =
-                    document.createElement("span");
-
-                read.className =
-                    "related-read";
-
-                read.textContent =
-                    "Read article";
-
-
-                const arrow =
-                    document.createElement("span");
-
-                arrow.className =
-                    "material-symbols-rounded";
-
-                arrow.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-                arrow.textContent =
-                    "arrow_forward";
-
-
-                footer.appendChild(read);
-
-                footer.appendChild(arrow);
-
-
-                link.appendChild(category);
-
-                link.appendChild(title);
-
-                link.appendChild(description);
-
-                link.appendChild(footer);
-
-
-                return link;
-
-            }
-
-
-            /* =====================================================
-               LOAD SITEMAP
-            ====================================================== */
-
-            async function loadSitemapUrls() {
-
-                try {
-
-                    const response =
-                        await fetch(
-                            sitemapUrl,
-                            {
-                                method: "GET",
-                                cache: "no-cache"
-                            }
-                        );
-
-
-                    if (!response.ok) {
-                        throw new Error(
-                            "Sitemap unavailable"
-                        );
-                    }
-
-
-                    const xml =
-                        await response.text();
-
-
-                    const parser =
-                        new DOMParser();
-
-
-                    const sitemap =
-                        parser.parseFromString(
-                            xml,
-                            "application/xml"
-                        );
-
-
-                    const locNodes =
-                        sitemap.querySelectorAll(
-                            "loc"
-                        );
-
-
-                    const urls = [];
-
-
-                    locNodes.forEach(
-                        function (node) {
-
-                            const url =
-                                node.textContent
-                                    .trim();
-
-
-                            if (
-                                isArticleUrl(url)
-                            ) {
-
-                                urls.push(url);
-
-                            }
+                            return article.url !==
+                                currentPath;
 
                         }
                     );
-
-
-                    return urls;
-
-                } catch (error) {
-
-                    console.warn(
-                        "Could not load sitemap:",
-                        error
-                    );
-
-                    return [];
-
-                }
-
-            }
-
-
-            /* =====================================================
-               LOAD RELATED ARTICLES
-            ====================================================== */
-
-            async function loadRelatedArticles() {
-
-                if (!relatedContainer) {
-                    return;
-                }
-
-
-                const urls =
-                    await loadSitemapUrls();
-
-
-                const normalizedCurrent =
-                    currentUrl
-                        .replace(/\/+$/, "")
-                        .toLowerCase();
-
-
-                const filteredUrls =
-                    urls.filter(
-                        function (url) {
-
-                            const normalized =
-                                new URL(
-                                    url,
-                                    window.location.origin
-                                )
-                                .href
-                                .replace(/\/+$/, "")
-                                .toLowerCase();
-
-
-                            return (
-                                normalized !==
-                                normalizedCurrent
-                            );
-
-                        }
-                    );
-
-
-                if (!filteredUrls.length) {
-
-                    relatedContainer.innerHTML =
-                        `
-                        <div class="related-empty">
-                            More related articles will appear here as the
-                            electrical engineering library grows.
-                        </div>
-                        `;
-
-                    return;
-
-                }
 
 
                 /*
-                 * Limit the number of pages fetched in one article
-                 * to avoid making the browser request too many pages.
-                 */
+                 Shuffle articles so the related
+                 section is not always identical.
+                */
 
-                const urlsToFetch =
-                    filteredUrls.slice(
-                        0,
-                        20
-                    );
-
-
-                const articleResults =
-                    await Promise.all(
-                        urlsToFetch.map(
-                            getArticleInfo
-                        )
-                    );
-
-
-                const articles =
-                    articleResults
-                        .filter(Boolean)
-                        .map(
-                            function (article) {
-
-                                return {
-
-                                    ...article,
-
-                                    score:
-                                        calculateScore(
-                                            article
-                                        )
-
-                                };
-
-                            }
-                        );
-
-
-                articles.sort(
-                    function (a, b) {
-
-                        if (
-                            b.score !==
-                            a.score
-                        ) {
-
-                            return (
-                                b.score -
-                                a.score
-                            );
-
+                const shuffled =
+                    filteredArticles.sort(
+                        function () {
+                            return Math.random() - 0.5;
                         }
+                    );
 
 
-                        return a.title.localeCompare(
-                            b.title
-                        );
-
-                    }
-                );
-
+                /*
+                 Show six related articles.
+                */
 
                 const selected =
-                    articles.slice(
-                        0,
-                        MAX_RELATED
-                    );
-
-
-                if (!selected.length) {
-
-                    relatedContainer.innerHTML =
-                        `
-                        <div class="related-empty">
-                            No related articles are available yet.
-                        </div>
-                        `;
-
-                    return;
-
-                }
-
-
-                relatedContainer.innerHTML =
-                    "";
+                    shuffled.slice(0, 6);
 
 
                 selected.forEach(
                     function (article) {
 
+                        const link =
+                            document.createElement("a");
+
+                        link.href =
+                            article.url;
+
+                        link.className =
+                            "related-card";
+
+
+                        link.innerHTML = `
+
+                            <span class="related-card-content">
+
+                                <span class="related-card-category">
+                                    ${article.category}
+                                </span>
+
+                                <span class="related-card-title">
+                                    ${article.title}
+                                </span>
+
+                            </span>
+
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        `;
+
+
                         relatedContainer.appendChild(
-                            createRelatedCard(
-                                article
-                            )
+                            link
                         );
 
                     }
                 );
 
             }
-
-
-            loadRelatedArticles();
 
         });
 
