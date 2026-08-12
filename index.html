@@ -1,370 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- =====================================================
+         GOOGLE ANALYTICS
+         ===================================================== -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-XY335VGVGJ');
     </script>
-
+    <!-- =====================================================
+         BASIC META
+         ===================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Electrical Engineering by Prasun Barua | Tutorials & Calculations</title>
-
-    <meta name="description" content="Practical electrical engineering tutorials, professional calculation tools, and solar PV design resources by Prasun Barua.">
+    <title>Electrical Engineering Tutorials, Calculations &amp; Guides | Prasun Barua</title>
+    <meta name="description" content="Learn electrical engineering through practical tutorials, calculations, solar PV guides, power systems, electrical design, testing, commissioning, and real-world engineering examples.">
     <meta name="author" content="Prasun Barua">
-    <meta name="robots" content="index, follow">
-
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <!-- =====================================================
+         CANONICAL
+         ===================================================== -->
     <link rel="canonical" href="https://electrical.prasunbarua.com/">
-
-    <!-- Open Graph / Social Media -->
+    <!-- =====================================================
+         OPEN GRAPH
+         ===================================================== -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Electrical Engineering by Prasun Barua">
-    <meta property="og:description" content="Practical electrical engineering tutorials, professional calculation tools, and solar PV resources.">
     <meta property="og:url" content="https://electrical.prasunbarua.com/">
+    <meta property="og:title" content="Electrical Engineering Tutorials, Calculations &amp; Guides">
+    <meta property="og:description" content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design methods, and engineering resources by Prasun Barua.">
     <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-
-    <!-- Font & Asset Preconnects -->
+    <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+    <meta property="og:image:alt" content="Electrical Engineering by Prasun Barua">
+    <meta property="og:locale" content="en_US">
+    <!-- =====================================================
+         TWITTER / X CARD
+         ===================================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electrical Engineering Tutorials &amp; Calculations">
+    <meta name="twitter:description" content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design, and engineering resources.">
+    <meta name="twitter:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+    <meta name="twitter:image:alt" content="Electrical Engineering by Prasun Barua">
+    <!-- =====================================================
+         FAVICON
+         ===================================================== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <!-- =====================================================
+         FONTS & ICONS
+         ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-
-    <!-- Google AdSense -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+    <!-- =====================================================
+         GOOGLE ADSENSE
+         ===================================================== -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
-
-    <!-- Unified Theme Styling with Auto Dark Mode -->
+    <!-- =====================================================
+         STYLESHEET (APPLE / GOOGLE LITE CLEAN DESIGN SYSTEM)
+         ===================================================== -->
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-main: #0b0f19;
-            --text-muted: #475569;
-            --accent-blue: #2563eb;
-            --accent-blue-hover: #1d4ed8;
-            --border-color: #cbd5e1;
-            --border-light: #f1f5f9;
-            --surface-subtle: #f8fafc;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --bg-color: #fbfbfd;
+            --surface-color: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-muted: #86868b;
+            --accent-color: #0066cc;
+            --accent-light: #f5f5f7;
+            --border-color: #d2d2d7;
+            --border-light: #e5e5ea;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --max-width: 1140px;
         }
-
-        /* Automatic Device-Based Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #0b0f19;
-                --text-main: #f8fafc;
-                --text-muted: #94a3b8;
-                --accent-blue: #3b82f6;
-                --accent-blue-hover: #60a5fa;
-                --border-color: #1e293b;
-                --border-light: #111827;
-                --surface-subtle: #111827;
-            }
-
-            .site-header {
-                background: rgba(11, 15, 25, 0.85) !important;
-            }
-
-            .logo-icon {
-                background-color: #1e293b !important;
-                border-color: #334155 !important;
-            }
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: var(--font-stack);
             background-color: var(--bg-color);
-            color: var(--text-muted);
-            letter-spacing: -0.01em;
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: none;
+        }
         .container {
-            width: 100%;
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 24px;
         }
-
-        /* Header */
+        /* Header / Navigation */
         .site-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 14px 0;
         }
-
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 64px;
         }
-
         .logo {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 10px;
-            text-decoration: none;
-            color: var(--text-main);
-        }
-
-        .logo-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            border-radius: 8px;
-        }
-
-        .logo-icon span.material-symbols-rounded {
-            font-size: 20px;
-            color: var(--accent-blue);
-        }
-
-        .logo span strong {
-            display: block;
-            font-size: 13px;
             font-weight: 600;
-            line-height: 1.2;
+            color: var(--text-primary);
         }
-
-        .logo span small {
+        .logo-icon {
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+        .logo strong {
             display: block;
-            font-size: 11px;
+            font-size: 15px;
+            letter-spacing: -0.01em;
+        }
+        .logo small {
+            display: block;
+            font-size: 12px;
             color: var(--text-muted);
             font-weight: 400;
         }
-
         .main-nav ul {
             display: flex;
+            gap: 24px;
             list-style: none;
-            gap: 1.5rem;
             margin: 0;
             padding: 0;
         }
-
         .main-nav a {
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: 500;
-            color: var(--text-muted);
+            color: var(--text-secondary);
+        }
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--accent-color);
             text-decoration: none;
-            transition: color 0.2s ease;
         }
-
-        .main-nav a:hover,
-        .main-nav a.active {
-            color: var(--accent-blue);
-        }
-
         /* Hero Section */
         .hero {
-            padding: 4rem 0 3rem 0;
-            background: var(--bg-color);
-            text-align: left;
+            padding: 64px 0 48px;
+            text-align: center;
         }
-
-        .hero .container {
+        .hero-content {
             max-width: 780px;
-            margin: 0;
+            margin: 0 auto;
         }
-
         .eyebrow {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .hero h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--text-main);
-            margin: 0 0 0.75rem 0;
-        }
-
-        .hero h1 span {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Sections */
-        .section {
-            padding: 2.5rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin: 0 0 0.25rem 0;
-        }
-
-        .section-header p {
-            font-size: 13.5px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Grid Cards Layout */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .article-card {
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-decoration: none;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-1px);
-        }
-
-        .icon-box span.material-symbols-rounded {
-            font-size: 24px;
-            color: var(--accent-blue);
-        }
-
-        .article-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin: 0.75rem 0 0.35rem 0;
-        }
-
-        .article-card p {
-            font-size: 13.5px;
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-
-        .card-link {
-            color: var(--accent-blue) !important;
-            font-size: 13px;
-            font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--accent-color);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .hero h1 {
+            margin: 0 0 16px;
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            line-height: 1.15;
+        }
+        .hero h1 span {
+            display: block;
+            color: var(--accent-color);
+            font-size: clamp(24px, 3.5vw, 38px);
+            margin-top: 8px;
+        }
+        .hero p {
+            margin: 0 auto 32px;
+            color: var(--text-secondary);
+            font-size: 17px;
+            line-height: 1.6;
+            max-width: 640px;
+        }
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 6px 6px 6px 16px;
+            max-width: 580px;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-box:focus-within {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.12);
+        }
+        .search-box .material-symbols-rounded {
+            color: var(--text-muted);
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 15px;
+            font-family: var(--font-stack);
+            color: var(--text-primary);
+        }
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+        .search-box button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-stack);
+            transition: background 0.15s;
+        }
+        .search-box button:hover {
+            background: #0051a8;
+        }
+        .search-box button .material-symbols-rounded {
+            color: white;
+            font-size: 18px;
+            margin: 0;
+        }
+        .search-message {
+            font-size: 13px;
+            color: var(--text-muted);
+            min-height: 20px;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        /* Sections */
+        .section {
+            padding: 64px 0;
+        }
+        .section-alt {
+            background: #f2f2f7;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .section-heading {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--accent-light);
+            color: var(--accent-color);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 0 0 12px;
+        }
+        .section-heading p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin: 0;
+        }
+        /* Grids */
+        .category-grid, .calculator-grid, .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        /* Cards */
+        .category-card, .calculator-card, .article-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .category-card:hover, .calculator-card:hover, .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border-color: var(--border-color);
+            text-decoration: none;
+        }
+        .category-icon, .icon-box, .tool-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: var(--accent-light);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .category-icon .material-symbols-rounded,
+        .icon-box .material-symbols-rounded,
+        .tool-icon .material-symbols-rounded {
+            font-size: 24px;
+        }
+        .category-card h3, .calculator-card h3, .article-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 8px;
+            letter-spacing: -0.01em;
+        }
+        .category-card p, .calculator-card p, .article-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0 0 20px;
+            flex: 1;
+        }
+        .card-link, .article-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-color);
             margin-top: auto;
         }
-
-        /* Footer - Custom Black Background */
-        .site-footer {
-            background-color: #000000;
-            border-top: 1px solid var(--border-color);
-            color: #94a3b8;
-            padding: 3rem 0 0 0;
-            margin-top: 3rem;
+        .card-link .material-symbols-rounded, .article-card a .material-symbols-rounded {
+            font-size: 18px;
+            transition: transform 0.15s ease;
         }
-
+        .category-card:hover .card-link .material-symbols-rounded,
+        .calculator-card:hover .card-link .material-symbols-rounded,
+        .article-card:hover a .material-symbols-rounded {
+            transform: translateX(4px);
+        }
+        /* Calculator card specific layout */
+        .calculator-card {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+        }
+        .calculator-card .tool-icon {
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+        /* Solar PV Feature Panel */
+        .feature-panel {
+            background: var(--surface-color);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+        .feature-content h2 {
+            font-size: clamp(26px, 3.5vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 12px 0 16px;
+        }
+        .feature-content p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin: 0 0 20px;
+        }
+        .feature-content ul {
+            margin: 0 0 28px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+        .feature-content li {
+            margin-bottom: 8px;
+        }
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.15s ease;
+        }
+        .primary-button:hover {
+            background: #0051a8;
+            color: white;
+            text-decoration: none;
+        }
+        .primary-button .material-symbols-rounded {
+            font-size: 20px;
+        }
+        /* Feature Visual Illustration */
+        .feature-visual {
+            background: var(--accent-light);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+        }
+        .solar-illustration {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            text-align: center;
+        }
+        .sun {
+            color: #f59e0b;
+        }
+        .sun .material-symbols-rounded {
+            font-size: 48px;
+        }
+        .solar-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-template-rows: repeat(3, 24px);
+            gap: 4px;
+            background: #1e3a8a;
+            padding: 8px;
+            border-radius: 6px;
+            border: 2px solid #3b82f6;
+        }
+        .solar-panel span {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+        .energy-line {
+            color: var(--accent-color);
+        }
+        .energy-line .material-symbols-rounded {
+            font-size: 28px;
+        }
+        .inverter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-color);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+        .inverter .material-symbols-rounded {
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+        /* Author Section */
+        .author-section {
+            background: var(--surface-color);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: var(--accent-color);
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .author-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 8px 0 12px;
+            letter-spacing: -0.02em;
+        }
+        .author-section p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin: 0 0 16px;
+        }
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        .text-link .material-symbols-rounded {
+            font-size: 18px;
+        }
+        /* Footer */
+        .site-footer {
+            background: #1d1d1f;
+            color: #fbfbfd;
+            padding: 64px 0 32px;
+        }
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 2rem;
-            padding-bottom: 2.5rem;
+            gap: 48px;
+            margin-bottom: 48px;
         }
-
-        .site-footer h3 {
-            font-size: 0.9rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
             font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 0.75rem;
+            color: white;
+            margin-bottom: 16px;
         }
-
+        .footer-logo .material-symbols-rounded {
+            color: var(--accent-color);
+        }
         .site-footer p {
-            font-size: 13px;
-            color: #94a3b8;
+            color: #86868b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 360px;
         }
-
+        .site-footer h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin: 0 0 16px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
         .site-footer a {
             display: block;
-            font-size: 13px;
-            color: #94a3b8;
-            text-decoration: none;
-            margin-bottom: 0.4rem;
-            transition: color 0.2s ease;
+            color: #86868b;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.15s ease;
         }
-
         .site-footer a:hover {
-            color: #3b82f6;
-            text-decoration: underline;
+            color: white;
+            text-decoration: none;
         }
-
         .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding: 1.25rem 0;
-            font-size: 12px;
-            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
         }
-
-        @media (max-width: 768px) {
+        .footer-bottom p {
+            color: #86868b;
+            font-size: 13px;
+            margin: 0;
+            max-width: none;
+        }
+        /* Responsive Media Queries */
+        @media (max-width: 900px) {
+            .feature-panel {
+                grid-template-columns: 1fr;
+                padding: 32px;
+            }
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px;
+            }
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 32px;
             }
             .main-nav {
                 display: none;
             }
-            .hero h1 {
-                font-size: 1.85rem;
-            }
         }
     </style>
+    <!-- =====================================================
+         STRUCTURED DATA — WEBSITE
+         ===================================================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://electrical.prasunbarua.com/#website",
+        "name": "Electrical Engineering by Prasun Barua",
+        "alternateName": "Electrical Engineering Knowledge Hub",
+        "url": "https://electrical.prasunbarua.com/",
+        "description": "Practical electrical engineering tutorials, calculations, solar PV guides, electrical design resources, testing procedures, and engineering examples.",
+        "inLanguage": "en",
+        "publisher": {
+            "@id": "https://electrical.prasunbarua.com/#person"
+        }
+    }
+    </script>
+    <!-- =====================================================
+         STRUCTURED DATA — PERSON
+         ===================================================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://electrical.prasunbarua.com/#person",
+        "name": "Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/about.html",
+        "jobTitle": "Senior Electrical Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/"
+        }
+    }
+    </script>
+    <!-- =====================================================
+         STRUCTURED DATA — ORGANIZATION
+         ===================================================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://electrical.prasunbarua.com/#organization",
+        "name": "Electrical Engineering by Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://electrical.prasunbarua.com/assets/images/og-cover.png"
+        }
+    }
+    </script>
 </head>
-
 <body>
-
-    <!-- HEADER -->
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
     <header class="site-header">
         <div class="container header-inner">
-            <a href="index.html" class="logo" aria-label="Electrical Engineering home">
+            <a href="/" class="logo" aria-label="Electrical Engineering home page">
                 <span class="logo-icon" aria-hidden="true">
                     <span class="material-symbols-rounded">bolt</span>
                 </span>
@@ -373,104 +711,275 @@
                     <small>by Prasun Barua</small>
                 </span>
             </a>
-
             <nav class="main-nav" aria-label="Main navigation">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="/" class="active" aria-current="page">Home</a></li>
                     <li><a href="#tutorials">Tutorials</a></li>
                     <li><a href="#calculations">Calculations</a></li>
                     <li><a href="#solar">Solar PV</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <!-- MAIN CONTENT -->
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-content">
+            <span class="eyebrow">
+                ELECTRICAL ENGINEERING KNOWLEDGE HUB
+            </span>
+            <h1 id="hero-title">
+                Learn Electrical Engineering.
+                <span>Understand. Calculate. Design.</span>
+            </h1>
+            <p>
+                Practical electrical engineering tutorials, calculations, solar PV guides, power system concepts, design methods, testing procedures, and real-world engineering examples.
+            </p>
+            <!-- Search Form -->
+            <form class="search-box" id="site-search-form" role="search">
+                <label for="site-search" class="sr-only">Search electrical engineering topics</label>
+                <span class="material-symbols-rounded" aria-hidden="true">search</span>
+                <input type="search" id="site-search" name="q" placeholder="Search electrical engineering topics..." autocomplete="off" enterkeyhint="search">
+                <button id="search-button" type="submit">
+                    <span class="material-symbols-rounded" aria-hidden="true">search</span>
+                    <span>Search</span>
+                </button>
+            </form>
+            <p id="search-message" class="search-message" aria-live="polite"></p>
+        </div>
+    </section>
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
     <main>
-
-        <!-- HERO SECTION -->
-        <section class="hero">
+        <!-- TUTORIAL CATEGORIES -->
+        <section class="section" id="tutorials" aria-labelledby="tutorials-title">
             <div class="container">
-                <span class="eyebrow">PRACTICAL ENGINEERING RESOURCES</span>
-                <h1>Engineering Concepts, <span>Simplified.</span></h1>
-                <p>Explore high-quality electrical engineering tutorials, step-by-step calculations, and reliable design tools built for students and professionals.</p>
+                <div class="section-heading">
+                    <span class="section-label">
+                        <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+                        LEARN
+                    </span>
+                    <h2 id="tutorials-title">Explore Electrical Engineering</h2>
+                    <p>Build your knowledge from electrical fundamentals to practical engineering applications.</p>
+                </div>
+                <div class="category-grid">
+                    <!-- Electrical Fundamentals -->
+                    <a href="/articles/electrical-fundamentals/" class="category-card">
+                        <div class="category-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">electrical_services</span>
+                        </div>
+                        <h3>Electrical Fundamentals</h3>
+                        <p>Voltage, current, resistance, power, energy, AC, DC, and essential electrical concepts.</p>
+                        <span class="card-link">
+                            Explore
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
+                    <!-- Electrical Calculations -->
+                    <a href="/articles/electrical-calculations/" class="category-card">
+                        <div class="category-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
+                        </div>
+                        <h3>Electrical Calculations</h3>
+                        <p>Practical formulas, worked examples, sizing calculations, and engineering methods.</p>
+                        <span class="card-link">
+                            Explore
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
+                    <!-- Power Systems -->
+                    <a href="/articles/power-systems/" class="category-card">
+                        <div class="category-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">electric_bolt</span>
+                        </div>
+                        <h3>Power Systems</h3>
+                        <p>Transformers, distribution systems, power factor, protection, and grid concepts.</p>
+                        <span class="card-link">
+                            Explore
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
+                    <!-- Solar PV -->
+                    <a href="/articles/solar-pv/" class="category-card">
+                        <div class="category-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
+                        </div>
+                        <h3>Solar PV Engineering</h3>
+                        <p>Solar PV design, string sizing, inverters, performance, losses, and system calculations.</p>
+                        <span class="card-link">
+                            Explore
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
+                    <!-- Electrical Design -->
+                    <a href="/articles/electrical-design/" class="category-card">
+                        <div class="category-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">architecture</span>
+                        </div>
+                        <h3>Electrical Design</h3>
+                        <p>Cable selection, protection, distribution, earthing, and practical electrical design.</p>
+                        <span class="card-link">
+                            Explore
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
+                    <!-- Testing & Commissioning -->
+                    <a href="/articles/testing-commissioning/" class="category-card">
+                        <div class="category-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">science</span>
+                        </div>
+                        <h3>Testing &amp; Commissioning</h3>
+                        <p>Electrical testing procedures, commissioning steps, safety checks, and standards.</p>
+                        <span class="card-link">
+                            Explore
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- FEATURED SECTIONS GRID -->
-        <section class="section" id="tutorials">
+        <!-- CALCULATORS & TOOLS -->
+        <section class="section section-alt" id="calculations" aria-labelledby="calculations-title">
             <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow" style="margin-bottom: 0.25rem;">EXPLORE TOPICS</span>
-                    <h2>Core Engineering Hub</h2>
-                    <p>Select a category below to access specialized resources and calculators.</p>
+                <div class="section-heading">
+                    <span class="section-label">
+                        <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
+                        TOOLS
+                    </span>
+                    <h2 id="calculations-title">Electrical Engineering Calculations</h2>
+                    <p>Interactive tools and calculators designed for quick and accurate engineering design.</p>
                 </div>
-
-                <div class="article-grid">
-                    <a href="#tutorials" class="article-card">
-                        <div class="icon-box" aria-hidden="true">
-                            <span class="material-symbols-rounded">school</span>
+                <div class="calculator-grid">
+                    <a href="/calculators/cable-sizing/" class="calculator-card">
+                        <div class="tool-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">cable</span>
                         </div>
-                        <h3>Tutorials & Guides</h3>
-                        <p>Deep-dive articles explaining core electrical engineering principles, transformer theory, and power distribution.</p>
-                        <span class="card-link">Browse Tutorials <span class="material-symbols-rounded" style="font-size: 13px;">arrow_forward</span></span>
+                        <div>
+                            <h3>Cable Sizing Calculator</h3>
+                            <p>Calculate minimum cable size based on current-carrying capacity and voltage drop.</p>
+                            <span class="card-link">
+                                Open Tool <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                            </span>
+                        </div>
                     </a>
-
-                    <a href="#calculations" class="article-card" id="calculations">
-                        <div class="icon-box" aria-hidden="true">
-                            <span class="material-symbols-rounded">calculate</span>
+                    <a href="/calculators/voltage-drop/" class="calculator-card">
+                        <div class="tool-icon">
+                            <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
                         </div>
-                        <h3>Engineering Calculations</h3>
-                        <p>Interactive tools for sizing cables, calculating voltage drop, short-circuit currents, and electrical loads.</p>
-                        <span class="card-link">Use Calculators <span class="material-symbols-rounded" style="font-size: 13px;">arrow_forward</span></span>
-                    </a>
-
-                    <a href="#solar" class="article-card" id="solar">
-                        <div class="icon-box" aria-hidden="true">
-                            <span class="material-symbols-rounded">solar_power</span>
+                        <div>
+                            <h3>Voltage Drop Calculator</h3>
+                            <p>Determine voltage drop across single-phase and three-phase AC circuits.</p>
+                            <span class="card-link">
+                                Open Tool <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                            </span>
                         </div>
-                        <h3>Solar PV Systems</h3>
-                        <p>Design guides and estimation tools for photovoltaic panel sizing, inverter selection, and string configurations.</p>
-                        <span class="card-link">Explore Solar PV <span class="material-symbols-rounded" style="font-size: 13px;">arrow_forward</span></span>
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- SOLAR PV FEATURE -->
+        <section class="section" id="solar" aria-labelledby="solar-title">
+            <div class="container">
+                <div class="feature-panel">
+                    <div class="feature-content">
+                        <span class="section-label">
+                            <span class="material-symbols-rounded" aria-hidden="true">solar_power</span>
+                            FEATURED GUIDE
+                        </span>
+                        <h2 id="solar-title">Complete Solar PV System Design Guide</h2>
+                        <p>Learn how to design commercial and residential solar photovoltaic systems from scratch, covering string sizing, inverter matching, and yield calculations.</p>
+                        <ul>
+                            <li>DC and AC side sizing calculations</li>
+                            <li>Inverter MPPT voltage range compliance</li>
+                            <li>Cable and protection device selection</li>
+                        </ul>
+                        <a href="/articles/solar-pv/complete-guide/" class="primary-button">
+                            <span>Read the Guide</span>
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div class="feature-visual" aria-hidden="true">
+                        <div class="solar-illustration">
+                            <div class="sun">
+                                <span class="material-symbols-rounded">wb_sunny</span>
+                            </div>
+                            <div class="energy-line">
+                                <span class="material-symbols-rounded">south</span>
+                            </div>
+                            <div class="solar-panel">
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="energy-line">
+                                <span class="material-symbols-rounded">south</span>
+                            </div>
+                            <div class="inverter">
+                                <span class="material-symbols-rounded">settings_power</span>
+                                Inverter / Grid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="section section-alt" id="about">
+            <div class="container">
+                <div class="author-section">
+                    <div class="author-avatar" aria-hidden="true">PB</div>
+                    <div>
+                        <span class="section-label">
+                            <span class="material-symbols-rounded" aria-hidden="true">person</span>
+                            MEET THE AUTHOR
+                        </span>
+                        <h2>Prasun Barua</h2>
+                        <p>Senior Electrical Engineer sharing practical guides, real-world calculations, and professional engineering insights to help students and working professionals master electrical system design.</p>
+                        <a href="/about.html" class="text-link">
+                            <span>Learn more about my background</span>
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <!-- FOOTER -->
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div>
-                    <div class="logo" style="margin-bottom: 0.75rem;">
-                        <span class="logo-icon" aria-hidden="true" style="width: 28px; height: 28px; background-color: #1e293b; border-color: #334155;">
-                            <span class="material-symbols-rounded" style="font-size: 16px; color: #3b82f6;">bolt</span>
-                        </span>
-                        <span style="font-size: 13.5px; font-weight: 600; color: #ffffff;">Electrical Engineering by Prasun Barua</span>
-                    </div>
-                    <p>Dedicated to sharing clear, professional, and practical electrical engineering knowledge for students, practitioners, and enthusiasts.</p>
+              <div>
+                <div class="footer-logo">
+                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
+                    <span>Electrical Engineering by Prasun Barua</span>
                 </div>
-                <div>
-                    <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div>
-                    <h3>Legal & Policies</h3>
-                    <a href="disclaimer.html">Disclaimer</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                </div>
+                <p>Practical electrical engineering tutorials, calculations, and resources for professionals and students.</p>
+              </div>
+              <div>
+                <h3>Quick Links</h3>
+                <a href="#tutorials">Tutorials</a>
+                <a href="#calculations">Calculations</a>
+                <a href="#solar">Solar PV</a>
+                <a href="#about">About</a>
+              </div>
+              <div>
+                <h3>Legal</h3>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Use</a>
+              </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Prasun Barua. All rights reserved.
+                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
