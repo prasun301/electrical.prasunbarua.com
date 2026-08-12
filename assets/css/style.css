@@ -4,7 +4,6 @@
    Apple / Google Inspired
    ========================================================= */
 
-
 /* =========================================================
    1. DESIGN TOKENS
    ========================================================= */
@@ -39,20 +38,6 @@
     --success: #248a3d;
     --warning: #b76e00;
     --danger: #c93434;
-
-    /* -----------------------------------------------------
-       SOCIAL COLORS
-       ----------------------------------------------------- */
-
-    --facebook: #1877f2;
-    --x: #000000;
-    --linkedin: #0a66c2;
-    --whatsapp: #25d366;
-    --pinterest: #e60023;
-    --telegram: #229ed9;
-    --reddit: #ff4500;
-    --email: #5f6368;
-    --copy: #0066cc;
 
     /* -----------------------------------------------------
        SHADOWS
@@ -1159,6 +1144,7 @@ main {
 
 /* =========================================================
    24. CALCULATION BLOCK
+   Apple-Light Version
    ========================================================= */
 
 .calculation {
@@ -1297,8 +1283,6 @@ main {
 
 /* =========================================================
    28. ARTICLE SHARE
-   APPLE / GOOGLE STYLE
-   ICON ONLY
    ========================================================= */
 
 .article-share {
@@ -1308,7 +1292,7 @@ main {
 
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
 
     margin-top: 48px;
 
@@ -1317,53 +1301,33 @@ main {
     border-top: 1px solid var(--border);
 }
 
-
-/* ---------------------------------------------------------
-   SHARE TITLE
-   --------------------------------------------------------- */
-
 .article-share-label {
     margin-right: 6px;
 
     color: var(--text-secondary);
 
-    font-size: 14px;
+    font-size: 13px;
 
     line-height: 1.4;
 
     font-weight: 600;
-
-    white-space: nowrap;
 }
 
-
-/* ---------------------------------------------------------
-   SHARE BUTTON
-   --------------------------------------------------------- */
-
 .share-button {
-    position: relative;
-
-    width: 42px;
-    height: 42px;
-
-    min-width: 42px;
-    min-height: 42px;
-
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    flex: 0 0 42px;
+    gap: 6px;
 
-    padding: 0;
+    min-height: 36px;
 
-    margin: 0;
+    padding: 7px 12px;
 
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
 
-    border-radius: 50%;
+    border-radius: 9px;
 
     background: var(--surface);
 
@@ -1371,327 +1335,29 @@ main {
 
     font-family: var(--font-sans);
 
-    /*
-       IMPORTANT:
-       This prevents text such as
-       "Facebook", "Copy link", "WhatsApp"
-       from appearing beside the icon.
-    */
-    font-size: 0;
+    font-size: 13px;
 
     line-height: 1;
-
-    text-align: center;
-
-    white-space: nowrap;
-
-    box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.05);
-
-    overflow: visible;
-
-    cursor: pointer;
-
-    text-decoration: none;
-
-    transition:
-        transform var(--transition-fast),
-        background-color var(--transition-fast),
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast),
-        color var(--transition-fast);
-}
-
-
-/* ---------------------------------------------------------
-   ICON ELEMENTS
-   Supports:
-   Material Symbols
-   SVG
-   Font Awesome
-   Generic icon classes
-   --------------------------------------------------------- */
-
-.share-button .material-symbols-rounded,
-.share-button .material-symbols-outlined,
-.share-button .material-icons,
-.share-button .share-icon,
-.share-button .icon,
-.share-button i,
-.share-button svg,
-.share-button img {
-    display: block;
-
-    width: 20px;
-    height: 20px;
-
-    margin: 0;
-
-    padding: 0;
-
-    flex: 0 0 auto;
-
-    font-size: 20px;
-
-    line-height: 1;
-
-    text-align: center;
-
-    object-fit: contain;
-
-    color: currentColor;
-}
-
-
-/* Font Awesome */
-.share-button .fa,
-.share-button .fab,
-.share-button .fas,
-.share-button .far,
-.share-button .fa-brands,
-.share-button .fa-solid,
-.share-button .fa-regular {
-    width: auto;
-    height: auto;
-
-    font-size: 19px;
-
-    line-height: 1;
-}
-
-
-/* Inline SVG */
-.share-button svg {
-    fill: currentColor;
-
-    stroke: none;
-}
-
-
-/* ---------------------------------------------------------
-   HIDE TEXT LABELS
-   --------------------------------------------------------- */
-
-.share-button .share-text,
-.share-button .share-label,
-.share-button .share-name,
-.share-button [data-share-label] {
-    display: none !important;
-}
-
-
-/* ---------------------------------------------------------
-   HOVER
-   --------------------------------------------------------- */
-
-.share-button:hover {
-    transform: translateY(-2px);
-
-    background: var(--bg-soft);
-
-    border-color: var(--border-strong);
-
-    color: var(--text);
-
-    box-shadow:
-        0 5px 14px rgba(0, 0, 0, 0.08);
-
-    text-decoration: none;
-}
-
-
-/* ---------------------------------------------------------
-   ACTIVE
-   --------------------------------------------------------- */
-
-.share-button:active {
-    transform: translateY(0) scale(0.96);
-
-    box-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-
-/* ---------------------------------------------------------
-   SOCIAL BRAND HOVER COLORS
-   --------------------------------------------------------- */
-
-.share-button[data-share="facebook"]:hover,
-.share-button.facebook:hover {
-    color: var(--facebook);
-
-    border-color: rgba(24, 119, 242, 0.28);
-
-    background: rgba(24, 119, 242, 0.07);
-}
-
-.share-button[data-share="x"]:hover,
-.share-button.x:hover,
-.share-button[data-share="twitter"]:hover,
-.share-button.twitter:hover {
-    color: var(--x);
-
-    border-color: rgba(0, 0, 0, 0.18);
-
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.share-button[data-share="linkedin"]:hover,
-.share-button.linkedin:hover {
-    color: var(--linkedin);
-
-    border-color: rgba(10, 102, 194, 0.25);
-
-    background: rgba(10, 102, 194, 0.07);
-}
-
-.share-button[data-share="whatsapp"]:hover,
-.share-button.whatsapp:hover {
-    color: var(--whatsapp);
-
-    border-color: rgba(37, 211, 102, 0.28);
-
-    background: rgba(37, 211, 102, 0.08);
-}
-
-.share-button[data-share="pinterest"]:hover,
-.share-button.pinterest:hover {
-    color: var(--pinterest);
-
-    border-color: rgba(230, 0, 35, 0.25);
-
-    background: rgba(230, 0, 35, 0.07);
-}
-
-.share-button[data-share="telegram"]:hover,
-.share-button.telegram:hover {
-    color: var(--telegram);
-
-    border-color: rgba(34, 158, 217, 0.28);
-
-    background: rgba(34, 158, 217, 0.08);
-}
-
-.share-button[data-share="reddit"]:hover,
-.share-button.reddit:hover {
-    color: var(--reddit);
-
-    border-color: rgba(255, 69, 0, 0.25);
-
-    background: rgba(255, 69, 0, 0.07);
-}
-
-.share-button[data-share="email"]:hover,
-.share-button.email:hover {
-    color: var(--email);
-
-    border-color: rgba(95, 99, 104, 0.25);
-
-    background: rgba(95, 99, 104, 0.07);
-}
-
-.share-button[data-share="copy"]:hover,
-.share-button.copy:hover {
-    color: var(--copy);
-
-    border-color: rgba(0, 102, 204, 0.25);
-
-    background: rgba(0, 102, 204, 0.07);
-}
-
-
-/* ---------------------------------------------------------
-   SHARE TOOLTIP
-   Uses title attribute naturally, but this supports
-   optional data-tooltip attributes too.
-   --------------------------------------------------------- */
-
-.share-button[data-tooltip]::after {
-    content: attr(data-tooltip);
-
-    position: absolute;
-
-    left: 50%;
-    bottom: calc(100% + 9px);
-
-    z-index: 20;
-
-    padding: 6px 9px;
-
-    border-radius: 7px;
-
-    background: rgba(29, 29, 31, 0.94);
-
-    color: #ffffff;
-
-    font-size: 11px;
-
-    line-height: 1.2;
 
     font-weight: 500;
 
-    white-space: nowrap;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transform:
-        translate(-50%, 4px);
-
-    transition:
-        opacity var(--transition-fast),
-        transform var(--transition-fast);
+    cursor: pointer;
 }
 
-.share-button[data-tooltip]::before {
-    content: "";
+.share-button:hover {
+    border-color: #b7d4f5;
 
-    position: absolute;
+    background: var(--blue-soft);
 
-    left: 50%;
-    bottom: calc(100% + 4px);
+    color: var(--blue);
 
-    z-index: 19;
-
-    width: 7px;
-    height: 7px;
-
-    background: rgba(29, 29, 31, 0.94);
-
-    transform:
-        translateX(-50%)
-        rotate(45deg);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity var(--transition-fast);
+    transform: translateY(-1px);
 }
 
-.share-button[data-tooltip]:hover::after,
-.share-button[data-tooltip]:hover::before {
-    opacity: 1;
-}
+.share-button .material-symbols-rounded {
+    font-size: 18px;
 
-.share-button[data-tooltip]:hover::after {
-    transform:
-        translate(-50%, 0);
-}
-
-
-/* ---------------------------------------------------------
-   SHARE COPY SUCCESS
-   --------------------------------------------------------- */
-
-.share-button.copied {
-    color: var(--success);
-
-    border-color: rgba(36, 138, 61, 0.25);
-
-    background: rgba(36, 138, 61, 0.07);
+    line-height: 1;
 }
 
 
@@ -1822,8 +1488,6 @@ main {
     border-color: #c7dfff;
 
     background: var(--surface);
-
-    color: var(--text);
 
     box-shadow: var(--shadow-md);
 
@@ -2632,71 +2296,23 @@ main {
         font-size: 13px;
     }
 
-
-    /* -----------------------------------------------------
-       MOBILE SHARE BAR
-       ----------------------------------------------------- */
-
     .article-share {
-        align-items: center;
+        align-items: stretch;
 
-        justify-content: flex-start;
-
-        flex-direction: row;
-
-        gap: 9px;
-
-        padding-top: 22px;
+        flex-direction: column;
     }
 
     .article-share-label {
-        width: 100%;
+        margin-right: 0;
 
-        margin: 0 0 4px;
-
-        font-size: 13px;
+        margin-bottom: 2px;
     }
 
     .share-button {
-        width: 40px;
-        height: 40px;
+        width: 100%;
 
-        min-width: 40px;
         min-height: 40px;
-
-        flex: 0 0 40px;
     }
-
-    .share-button .material-symbols-rounded,
-    .share-button .material-symbols-outlined,
-    .share-button .material-icons,
-    .share-button .share-icon,
-    .share-button .icon {
-        width: 19px;
-        height: 19px;
-
-        font-size: 19px;
-    }
-
-    .share-button i {
-        font-size: 18px;
-    }
-
-    .share-button svg {
-        width: 19px;
-        height: 19px;
-    }
-
-    /*
-       Hide tooltip on small screens.
-       This prevents the tooltip from going outside
-       the screen when many icons are present.
-    */
-    .share-button[data-tooltip]::before,
-    .share-button[data-tooltip]::after {
-        display: none;
-    }
-
 
     .article-author {
         gap: 12px;
@@ -2780,41 +2396,6 @@ main {
         font-size: 15.8px;
 
         line-height: 1.75;
-    }
-
-
-    /* -----------------------------------------------------
-       EXTRA SMALL SHARE BUTTONS
-       ----------------------------------------------------- */
-
-    .article-share {
-        gap: 7px;
-    }
-
-    .share-button {
-        width: 38px;
-        height: 38px;
-
-        min-width: 38px;
-        min-height: 38px;
-
-        flex-basis: 38px;
-    }
-
-    .share-button .material-symbols-rounded,
-    .share-button .material-symbols-outlined,
-    .share-button .material-icons,
-    .share-button .share-icon,
-    .share-button .icon {
-        width: 18px;
-        height: 18px;
-
-        font-size: 18px;
-    }
-
-    .share-button svg {
-        width: 18px;
-        height: 18px;
     }
 }
 
@@ -2927,6 +2508,12 @@ main {
    47. LIGHT THEME SAFETY
    ========================================================= */
 
+/*
+   Intentionally kept without !important.
+   This prevents old/dark styles from overriding the
+   main design while keeping the stylesheet maintainable.
+*/
+
 html,
 body {
     background-color: var(--bg);
@@ -3036,88 +2623,6 @@ pre {
 }
 
 
-/* =========================================================
-   50. SHARE ICON SAFETY
-   Prevents old styles from making social buttons
-   behave like normal text buttons.
-   ========================================================= */
-
-.article-share .share-button {
-    box-sizing: border-box;
-
-    display: inline-flex !important;
-
-    align-items: center !important;
-
-    justify-content: center !important;
-
-    flex-direction: row !important;
-
-    gap: 0 !important;
-
-    overflow: visible !important;
-
-    text-decoration: none !important;
-}
-
-.article-share .share-button > span:not(
-    .material-symbols-rounded
-):not(
-    .material-symbols-outlined
-):not(
-    .material-icons
-):not(
-    .share-icon
-):not(
-    .icon
-) {
-    /*
-       If the markup contains plain text such as
-       Facebook / WhatsApp / Copy Link, hide it.
-    */
-    font-size: 0;
-}
-
-.article-share .share-button > svg {
-    flex-shrink: 0;
-
-    pointer-events: none;
-}
-
-.article-share .share-button > i {
-    flex-shrink: 0;
-
-    pointer-events: none;
-}
-
-/* =========================================================
-   FIX: SHARE BUTTON ICON VISIBILITY
-   ========================================================= */
-/* Force icon elements to display with full visibility */
-.share-button i,
-.share-button svg,
-.share-button img,
-.share-button .material-symbols-rounded,
-.share-button .material-symbols-outlined,
-.share-button .material-icons,
-.share-button .share-icon,
-.share-button .icon,
-.share-button [class*="fa-"],
-.share-button [class*="bi-"] {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 20px !important;
-    line-height: 1 !important;
-    color: currentColor !important;
-}
-
-/* Ensure SVG icons inherit current text color */
-.share-button svg {
-    fill: currentColor;
-}
 /* =========================================================
    END OF STYLE.CSS
    ========================================================= */
