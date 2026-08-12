@@ -50,137 +50,683 @@
     <script src="../../assets/js/app.js" defer></script>
 
     <!-- Essential Layout Safety Styles & Component Styles -->
-     <style>
-        :root {
-            --primary: #0b57d0;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
-            --border: #e2e8f0;
-            --radius: 8px;
-        }
+    <style>
+/* =========================================================
+   ARTICLE PAGE — WORDPRESS-STYLE LAYOUT
+   ========================================================= */
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: var(--text-dark);
-            margin: 0;
-            line-height: 1.6;
-        }
+:root {
+    --primary: #0b57d0;
+    --text-dark: #1e293b;
+    --text-heading: #0f172a;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --border: #e2e8f0;
+    --formula-bg: #1e293b;
+    --formula-text: #ffffff;
+    --formula-muted: #cbd5e1;
+    --radius: 8px;
+}
 
-        .container, .article-container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 1.25rem;
-        }
+/* =========================================================
+   BASE
+   ========================================================= */
 
-        /* Article Layout Grid */
-        .article-layout {
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        @media (max-width: 768px) {
-            .article-layout {
-                grid-template-columns: 1fr;
-            }
-        }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.7;
+    background: #ffffff;
+}
 
-        /* Sidebar TOC Styling */
-        .toc {
-            position: sticky;
-            top: 2rem;
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-            border-radius: var(--radius);
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+/* Prevent fixed header from covering article */
+main {
+    display: block;
+}
 
-        .toc h3 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
-        .toc a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+.container,
+.article-container {
+    width: 100%;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+}
 
-        .toc a:hover {
-            text-decoration: underline;
-        }
+/* =========================================================
+   ARTICLE PAGE TOP SPACING
+   IMPORTANT:
+   Only the MAIN article wrapper gets this padding.
+   Do NOT apply it to every .article-section because
+   .article-section is also used for individual sections.
+   ========================================================= */
 
-        /* Quick Answer & Formula Styling */
-        .quick-answer {
-            background: #eff6ff;
-            border-left: 4px solid var(--primary);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            margin-bottom: 2rem;
-        }
+main > .article-section {
+    padding-top: 96px;
+    padding-bottom: 72px;
+}
 
-      .formula-box {
-    background: var(--text-dark);
-    color: #fff;
-    text-align: center;
-    font-size: 1.5rem;
+/* =========================================================
+   BREADCRUMBS
+   ========================================================= */
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: var(--text-muted);
+
+    margin-bottom: 28px;
+}
+
+.breadcrumbs a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* =========================================================
+   ARTICLE HEADER
+   ========================================================= */
+
+.article-header {
+    max-width: 850px;
+    margin: 0 auto 56px;
+}
+
+.article-category {
+    display: inline-block;
+
+    font-size: 12px;
     font-weight: 700;
-    padding: 1rem;
-    border-radius: var(--radius);
-    margin: 1.5rem 0;
+    letter-spacing: 0.08em;
+
+    color: var(--primary);
+
+    margin-bottom: 14px;
 }
 
-/* Explicitly override external stylesheet conflicts for inner formula elements */
+.article-header h1 {
+    margin: 0 0 20px;
+
+    color: var(--text-heading);
+
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+}
+
+.article-intro {
+    margin: 0 0 20px;
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+
+    color: var(--text-muted);
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   ARTICLE GRID
+   ========================================================= */
+
+.article-layout {
+    display: grid;
+
+    grid-template-columns: 240px minmax(0, 1fr);
+
+    gap: 48px;
+
+    align-items: start;
+
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   SIDEBAR / TABLE OF CONTENTS
+   ========================================================= */
+
+.article-sidebar {
+    min-width: 0;
+}
+
+.toc {
+    position: sticky;
+
+    /* Header is approximately 70px high */
+    top: 92px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border);
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+}
+
+.toc h3 {
+    margin: 0 0 8px;
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: var(--text-muted);
+}
+
+.toc a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+
+    padding: 2px 0;
+}
+
+.toc a:hover {
+    color: #0842a0;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   ARTICLE CONTENT
+   ========================================================= */
+
+.article-content {
+    min-width: 0;
+
+    max-width: 800px;
+}
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
+.article-content p {
+    margin-top: 0;
+    margin-bottom: 22px;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.article-content .lead {
+    font-size: 1.2rem;
+    line-height: 1.75;
+
+    color: var(--text-heading);
+
+    margin-bottom: 24px;
+}
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.article-content h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+
+    color: var(--text-heading);
+
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+    line-height: 1.2;
+
+    letter-spacing: -0.025em;
+
+    font-weight: 800;
+}
+
+.article-content h3 {
+    margin-top: 36px;
+    margin-bottom: 12px;
+
+    color: var(--text-heading);
+
+    font-size: 1.35rem;
+    line-height: 1.3;
+
+    font-weight: 700;
+}
+
+/* =========================================================
+   ARTICLE SECTIONS
+   ========================================================= */
+
+/*
+   Individual article sections.
+   This gives a WordPress-like vertical rhythm.
+*/
+
+.article-content > .article-section {
+    margin-top: 64px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* First section should not have unnecessary huge gap */
+.article-content > .article-section:first-of-type {
+    margin-top: 48px;
+}
+
+/* Anchor positioning when clicking TOC */
+.article-content > .article-section {
+    scroll-margin-top: 100px;
+}
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+.article-content ul,
+.article-content ol {
+    margin-top: 0;
+    margin-bottom: 24px;
+
+    padding-left: 28px;
+}
+
+.article-content li {
+    margin-bottom: 9px;
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   QUICK ANSWER
+   ========================================================= */
+
+.quick-answer {
+    background: #eff6ff;
+
+    border-left: 4px solid var(--primary);
+
+    padding: 20px 24px;
+
+    border-radius: 0 8px 8px 0;
+
+    margin: 0 0 36px;
+}
+
+.quick-answer strong {
+    color: var(--text-heading);
+}
+
+.quick-answer p {
+    margin: 8px 0 0;
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   FORMULA BOX
+   ========================================================= */
+
+.formula-box {
+    width: 100%;
+    box-sizing: border-box;
+
+    background: var(--formula-bg);
+
+    color: var(--formula-text) !important;
+
+    text-align: center;
+
+    padding: 28px 24px;
+
+    border-radius: 8px;
+
+    margin: 28px 0 32px;
+
+    overflow-x: auto;
+}
+
+/*
+   IMPORTANT:
+   Force formula text to white.
+   Your external style.css appears to be
+   overriding .formula color.
+*/
+
 .formula-box .formula {
-    color: #fff;
+    color: #ffffff !important;
+
+    font-size: clamp(1.5rem, 3vw, 2rem);
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.02em;
+
+    margin: 0;
 }
 
-        .formula-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
+/* Formula heading such as RESISTANCE / OHM'S LAW */
 
-        .formula-card {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1rem;
-            text-align: center;
-            background: var(--bg-light);
-        }
+.formula-box > div:first-child {
+    color: #cbd5e1 !important;
 
-        .formula-card strong {
-            display: block;
-            margin-bottom: 0.25rem;
-        }
+    font-size: 0.8rem !important;
 
-        /* Engineering Tables */
-        .engineering-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
+    font-weight: 700;
 
-        .engineering-table th, .engineering-table td {
-            border: 1px solid var(--border);
-            padding: 0.75rem 1rem;
-            text-align: left;
-        }
+    margin-bottom: 12px !important;
 
-        .engineering-table th {
-            background: var(--bg-light);
-        }
-    </style>
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+/* Formula description */
+
+.formula-box p {
+    color: #cbd5e1 !important;
+
+    font-size: 1rem !important;
+
+    font-weight: 400 !important;
+
+    line-height: 1.6;
+
+    margin: 14px 0 0 !important;
+}
+
+.formula-box p strong {
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   FORMULA GRID
+   ========================================================= */
+
+.formula-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 16px;
+
+    margin: 28px 0 32px;
+}
+
+.formula-card {
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+.formula-card strong {
+    display: block;
+
+    color: var(--text-heading);
+
+    margin-bottom: 8px;
+
+    font-size: 0.95rem;
+}
+
+.formula-card span {
+    display: block;
+
+    color: var(--text-heading);
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+}
+
+/* =========================================================
+   CALCULATION BOX
+   ========================================================= */
+
+.calculation-box {
+    background: #f8fafc;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 20px 24px;
+
+    margin: 24px 0 28px;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+}
+
+.calculation-box strong {
+    color: var(--primary) !important;
+}
+
+/* =========================================================
+   FIGURES / IMAGES
+   ========================================================= */
+
+.article-figure {
+    margin: 32px 0 40px;
+
+    padding: 0;
+}
+
+.article-figure img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--border);
+}
+
+.article-figure figcaption {
+    margin-top: 12px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+.article-figure figcaption strong {
+    color: var(--text-dark);
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.engineering-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin: 28px 0 32px;
+
+    font-size: 0.95rem;
+}
+
+.engineering-table th,
+.engineering-table td {
+    border: 1px solid var(--border);
+
+    padding: 12px 16px;
+
+    text-align: left;
+}
+
+.engineering-table th {
+    background: var(--bg-light);
+
+    color: var(--text-heading);
+
+    font-weight: 700;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .article-layout {
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+    }
+
+    .article-sidebar {
+        order: -1;
+    }
+
+    .toc {
+        position: relative;
+
+        top: auto;
+    }
+
+    .article-content {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container,
+    .article-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    main > .article-section {
+        padding-top: 80px;
+        padding-bottom: 48px;
+    }
+
+    .article-header {
+        margin-bottom: 40px;
+    }
+
+    .article-header h1 {
+        font-size: 2.15rem;
+    }
+
+    .article-intro {
+        font-size: 1.05rem;
+    }
+
+    .article-content p,
+    .article-content li {
+        font-size: 1rem;
+    }
+
+    .article-content > .article-section {
+        margin-top: 52px;
+    }
+
+    .formula-box {
+        padding: 24px 16px;
+    }
+
+    .formula-box .formula {
+        font-size: 1.45rem;
+    }
+
+    .formula-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .article-header h1 {
+        font-size: 1.9rem;
+    }
+
+    .article-meta {
+        font-size: 13px;
+    }
+
+    .toc {
+        padding: 16px;
+    }
+
+    .formula-box {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+</style>
     
     <!-- Article Structured Data (JSON-LD) -->
     <script type="application/ld+json">
