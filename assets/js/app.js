@@ -1,609 +1,237 @@
 "use strict";
 
-/*
+/**
  * =========================================================
  * ELECTRICAL.PRASUNBARUA.COM
  * Main Application Script
+ * =========================================================
+ *
+ * Features:
+ * 1. Google site search
+ * 2. Active navigation highlighting
+ * 3. External link security
+ *
+ * No mobile menu / three-dot button is used.
  * =========================================================
  */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       1. SITE SEARCH
-       ===================================================== */
 
-    const searchForm = document.getElementById("site-search-form");
-    const searchInput = document.getElementById("site-search");
-    const searchButton = document.getElementById("search-button");
-    const searchMessage = document.getElementById("search-message");
+    // =========================================================
+    // 1. SITE SEARCH
+    // =========================================================
 
-    const SITE_DOMAIN = "electrical.prasunbarua.com";
+    const searchForm =
+        document.getElementById("site-search-form");
 
-    const showSearchMessage = (message) => {
-        if (!searchMessage) return;
+    const searchInput =
+        document.getElementById("site-search");
 
-        searchMessage.textContent = message;
-        searchMessage.style.display = message ? "block" : "none";
-    };
-
-    const performSearch = () => {
-
-        if (!searchInput) return;
-
-        const query = searchInput.value.trim();
-
-        if (!query) {
-
-            showSearchMessage(
-                "Please enter an engineering topic, formula, or calculation."
-            );
-
-            searchInput.focus();
-
-            return;
-        }
-
-        showSearchMessage("");
-
-        /*
-         * Search only within electrical.prasunbarua.com
-         */
-        const googleQuery =
-            `site:${SITE_DOMAIN} ${query}`;
-
-        const searchURL =
-            `https://www.google.com/search?q=${encodeURIComponent(googleQuery)}`;
-
-        /*
-         * Open Google site search in a new tab.
-         */
-        window.open(
-            searchURL,
-            "_blank",
-            "noopener,noreferrer"
-        );
-    };
+    const searchMessage =
+        document.getElementById("search-message");
 
 
     if (searchForm && searchInput) {
 
-        /*
-         * Prevent the browser's default form submission.
-         */
         searchForm.addEventListener("submit", (event) => {
 
             event.preventDefault();
 
-            performSearch();
-
-        });
-
-
-        /*
-         * Clear the error message when the user starts typing.
-         */
-        searchInput.addEventListener("input", () => {
-
-            if (searchMessage && searchInput.value.trim()) {
-                showSearchMessage("");
-            }
-
-        });
+            const query =
+                searchInput.value.trim();
 
 
-        /*
-         * Escape key clears the search field.
-         */
-        searchInput.addEventListener("keydown", (event) => {
+            // -------------------------------------------------
+            // Empty search
+            // -------------------------------------------------
 
-            if (event.key === "Escape") {
+            if (!query) {
 
-                searchInput.value = "";
+                if (searchMessage) {
 
-                showSearchMessage("");
+                    searchMessage.textContent =
+                        "Please enter an engineering topic or formula to search.";
 
-            }
-
-        });
-
-    }
-
-
-    /*
-     * Keep compatibility if the button is accessed directly.
-     */
-    if (searchButton && !searchForm) {
-
-        searchButton.addEventListener(
-            "click",
-            performSearch
-        );
-
-    }
-
-
-    /* =====================================================
-       2. MOBILE NAVIGATION
-       ===================================================== */
-
-    const menuToggle =
-        document.querySelector(".menu-toggle");
-
-    const mainNav =
-        document.querySelector(".main-nav");
-
-    if (menuToggle && mainNav) {
-
-        menuToggle.addEventListener("click", () => {
-
-            const isOpen =
-                menuToggle.getAttribute("aria-expanded") === "true";
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(!isOpen)
-            );
-
-            mainNav.classList.toggle(
-                "nav-open",
-                !isOpen
-            );
-
-
-            /*
-             * Change menu icon.
-             */
-            const icon =
-                menuToggle.querySelector(
-                    ".material-symbols-rounded"
-                );
-
-            if (icon) {
-
-                icon.textContent =
-                    isOpen ? "menu" : "close";
-
-            }
-
-        });
-
-
-        /*
-         * Close mobile menu when a navigation link is clicked.
-         */
-        const navLinks =
-            mainNav.querySelectorAll("a");
-
-        navLinks.forEach((link) => {
-
-            link.addEventListener("click", () => {
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                mainNav.classList.remove(
-                    "nav-open"
-                );
-
-                const icon =
-                    menuToggle.querySelector(
-                        ".material-symbols-rounded"
-                    );
-
-                if (icon) {
-                    icon.textContent = "menu";
+                    searchMessage.style.display =
+                        "block";
                 }
 
-            });
+                searchInput.focus();
 
-        });
-
-
-        /*
-         * Close menu when clicking outside.
-         */
-        document.addEventListener("click", (event) => {
-
-            if (
-                !mainNav.contains(event.target) &&
-                !menuToggle.contains(event.target)
-            ) {
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                mainNav.classList.remove(
-                    "nav-open"
-                );
-
-                const icon =
-                    menuToggle.querySelector(
-                        ".material-symbols-rounded"
-                    );
-
-                if (icon) {
-                    icon.textContent = "menu";
-                }
-
-            }
-
-        });
-
-
-        /*
-         * Close mobile menu with Escape.
-         */
-        document.addEventListener("keydown", (event) => {
-
-            if (event.key === "Escape") {
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                mainNav.classList.remove(
-                    "nav-open"
-                );
-
-                const icon =
-                    menuToggle.querySelector(
-                        ".material-symbols-rounded"
-                    );
-
-                if (icon) {
-                    icon.textContent = "menu";
-                }
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       3. ACTIVE NAVIGATION
-       ===================================================== */
-
-    const highlightActiveNavigation = () => {
-
-        const navLinks =
-            document.querySelectorAll(
-                ".main-nav a"
-            );
-
-        const currentPath =
-            window.location.pathname.replace(
-                /\/$/,
-                ""
-            ) || "/";
-
-        navLinks.forEach((link) => {
-
-            const href =
-                link.getAttribute("href");
-
-            /*
-             * Ignore anchor links such as:
-             * #tutorials
-             * #calculations
-             * #solar
-             * #about
-             */
-            if (!href || href.startsWith("#")) {
                 return;
             }
 
 
-            /*
-             * Ignore external links.
-             */
-            if (
-                href.startsWith("http://") ||
-                href.startsWith("https://")
-            ) {
-                return;
+            // -------------------------------------------------
+            // Clear previous message
+            // -------------------------------------------------
+
+            if (searchMessage) {
+
+                searchMessage.textContent =
+                    "";
+
+                searchMessage.style.display =
+                    "none";
             }
 
 
-            const linkURL =
-                new URL(
-                    href,
-                    window.location.origin
+            // -------------------------------------------------
+            // Google site search
+            // -------------------------------------------------
+
+            const siteDomain =
+                "electrical.prasunbarua.com";
+
+            const googleSearchQuery =
+                `site:${siteDomain} ${query}`;
+
+            const searchUrl =
+                "https://www.google.com/search?q=" +
+                encodeURIComponent(
+                    googleSearchQuery
                 );
 
-            const linkPath =
-                linkURL.pathname.replace(
-                    /\/$/,
-                    ""
-                ) || "/";
 
+            // -------------------------------------------------
+            // Open Google search in a new tab
+            // -------------------------------------------------
 
-            if (linkPath === currentPath) {
-
-                link.classList.add("active");
-
-                link.setAttribute(
-                    "aria-current",
-                    "page"
-                );
-
-            } else {
-
-                link.classList.remove(
-                    "active"
-                );
-
-                link.removeAttribute(
-                    "aria-current"
-                );
-
-            }
+            window.open(
+                searchUrl,
+                "_blank",
+                "noopener,noreferrer"
+            );
 
         });
 
-    };
+    }
 
 
-    highlightActiveNavigation();
+    // =========================================================
+    // 2. ACTIVE NAVIGATION
+    // =========================================================
 
+    const currentPath =
+        window.location.pathname;
 
-    /* =====================================================
-       4. SMOOTH INTERNAL NAVIGATION
-       ===================================================== */
-
-    const internalAnchorLinks =
+    const navLinks =
         document.querySelectorAll(
-            'a[href^="#"]'
+            ".main-nav a"
         );
 
-    internalAnchorLinks.forEach((link) => {
 
-        link.addEventListener("click", (event) => {
+    navLinks.forEach((link) => {
 
-            const targetID =
-                link.getAttribute("href");
+        const linkUrl =
+            new URL(
+                link.href,
+                window.location.origin
+            );
 
-            if (
-                !targetID ||
-                targetID === "#"
-            ) {
-                return;
-            }
+        const linkPath =
+            linkUrl.pathname;
 
-            const target =
-                document.querySelector(targetID);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+        const linkHash =
+            linkUrl.hash;
 
 
-            /*
-             * Update browser URL without jumping.
-             */
-            if (
-                window.history &&
-                window.history.pushState
-            ) {
+        // -----------------------------------------------------
+        // Remove existing active state
+        // -----------------------------------------------------
 
-                window.history.pushState(
-                    null,
-                    "",
-                    targetID
-                );
+        link.classList.remove("active");
 
-            }
+        link.removeAttribute(
+            "aria-current"
+        );
 
-        });
+
+        // -----------------------------------------------------
+        // Homepage
+        // -----------------------------------------------------
+
+        if (
+            currentPath === "/" &&
+            linkPath === "/"
+        ) {
+
+            link.classList.add("active");
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+            return;
+        }
+
+
+        // -----------------------------------------------------
+        // Other pages
+        // -----------------------------------------------------
+
+        if (
+            currentPath === linkPath &&
+            !linkHash
+        ) {
+
+            link.classList.add("active");
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+        }
 
     });
 
 
-    /* =====================================================
-       5. EXTERNAL LINK SECURITY
-       ===================================================== */
+    // =========================================================
+    // 3. EXTERNAL LINK SECURITY
+    // =========================================================
 
     const externalLinks =
         document.querySelectorAll(
             'a[href^="http://"], a[href^="https://"]'
         );
 
-    externalLinks.forEach((link) => {
 
-        let url;
+    externalLinks.forEach((link) => {
 
         try {
 
-            url = new URL(
-                link.href,
-                window.location.href
-            );
+            const url =
+                new URL(link.href);
+
+            const isExternal =
+                url.hostname !==
+                window.location.hostname;
+
+
+            if (isExternal) {
+
+                link.setAttribute(
+                    "target",
+                    "_blank"
+                );
+
+                link.setAttribute(
+                    "rel",
+                    "noopener noreferrer"
+                );
+
+            }
 
         } catch (error) {
 
-            return;
-
-        }
-
-
-        /*
-         * Only apply target="_blank" to
-         * genuinely external domains.
-         */
-        if (
-            url.hostname !==
-            window.location.hostname
-        ) {
-
-            link.setAttribute(
-                "target",
-                "_blank"
-            );
-
-            link.setAttribute(
-                "rel",
-                "noopener noreferrer"
-            );
+            // Ignore invalid URLs.
 
         }
 
     });
 
-
-    /* =====================================================
-       6. KEYBOARD ACCESSIBILITY
-       ===================================================== */
-
-    /*
-     * Allow "/" to focus the search box,
-     * similar to many modern search interfaces.
-     */
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (
-                event.key === "/" &&
-                !event.ctrlKey &&
-                !event.metaKey &&
-                !event.altKey
-            ) {
-
-                const activeElement =
-                    document.activeElement;
-
-                const isTyping =
-                    activeElement &&
-                    (
-                        activeElement.tagName === "INPUT" ||
-                        activeElement.tagName === "TEXTAREA" ||
-                        activeElement.isContentEditable
-                    );
-
-                if (isTyping) {
-                    return;
-                }
-
-                if (searchInput) {
-
-                    event.preventDefault();
-
-                    searchInput.focus();
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       7. SEARCH FOCUS EFFECT
-       ===================================================== */
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "focus",
-            () => {
-
-                if (searchInput.parentElement) {
-
-                    searchInput.parentElement.classList.add(
-                        "search-focused"
-                    );
-
-                }
-
-            }
-        );
-
-
-        searchInput.addEventListener(
-            "blur",
-            () => {
-
-                if (searchInput.parentElement) {
-
-                    searchInput.parentElement.classList.remove(
-                        "search-focused"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       8. CURRENT YEAR
-       ===================================================== */
-
-    /*
-     * Automatically update elements using:
-     *
-     * <span data-current-year></span>
-     *
-     * This avoids manually changing the footer every year.
-     */
-    const yearElements =
-        document.querySelectorAll(
-            "[data-current-year]"
-        );
-
-    yearElements.forEach((element) => {
-
-        element.textContent =
-            new Date().getFullYear();
-
-    });
-
-
-    /* =====================================================
-       9. REDUCED MOTION SUPPORT
-       ===================================================== */
-
-    /*
-     * Respect users who prefer reduced motion.
-     */
-    const prefersReducedMotion =
-        window.matchMedia &&
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-    if (prefersReducedMotion) {
-
-        document.documentElement.classList.add(
-            "reduce-motion"
-        );
-
-    }
-
-
-    /* =====================================================
-       10. INITIALIZATION COMPLETE
-       ===================================================== */
-
-    document.documentElement.classList.add(
-        "js-ready"
-    );
 
 });
