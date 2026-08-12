@@ -30,10 +30,10 @@
     <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
 
      <!-- =====================================================
-         FAVICON
+         FAVICON (Updated to neutral light/dark theme)
          ===================================================== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
     <!-- Font & Asset Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,8 +117,19 @@
             color: var(--text-main);
         }
 
+        .logo-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--surface-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
         .logo-icon span.material-symbols-rounded {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--text-main);
         }
 
@@ -712,30 +723,27 @@
                     <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
                     Electrical Engineering
                 </div>
-                <p>Practical electrical engineering tutorials, calculations, design guides, and renewable energy resources.</p>
+                <p>An educational resource by Prasun Barua dedicated to practical electrical engineering concepts, calculations, and technical insights.</p>
             </div>
 
             <div>
-                <h3>Explore</h3>
+                <h3>Quick Links</h3>
                 <a href="index.html">Home</a>
-                <a href="index.html#tutorials">Tutorials</a>
-                <a href="index.html#calculations">Calculations</a>
-                <a href="index.html#solar">Solar PV</a>
-            </div>
-
-            <div>
-                <h3>Information</h3>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
+            </div>
+
+            <div>
+                <h3>Legal & Privacy</h3>
+                <a href="disclaimer.html" class="active">Disclaimer</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="disclaimer.html" class="active" aria-current="page">Disclaimer</a>
             </div>
 
         </div>
 
-        <div class="footer-bottom">
-            <div class="container" style="max-width: 1100px;">
-                <p style="margin: 0; color: var(--text-muted);">&copy; 2026 Prasun Barua. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-bottom">
+                &copy; <time datetime="2026">2026</time> Prasun Barua. All rights reserved.
             </div>
         </div>
     </footer>
