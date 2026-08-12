@@ -13,7 +13,6 @@
         gtag('js', new Date());
         gtag('config', 'G-XY335VGVGJ');
     </script>
-
     <!-- =====================================================
          BASIC META
          ===================================================== -->
@@ -23,12 +22,10 @@
     <meta name="description" content="Learn electrical engineering through practical tutorials, calculations, solar PV guides, power systems, electrical design, testing, commissioning, and real-world engineering examples.">
     <meta name="author" content="Prasun Barua">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
     <!-- =====================================================
          CANONICAL
          ===================================================== -->
     <link rel="canonical" href="https://electrical.prasunbarua.com/">
-
     <!-- =====================================================
          OPEN GRAPH
          ===================================================== -->
@@ -40,7 +37,6 @@
     <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
     <meta property="og:image:alt" content="Electrical Engineering by Prasun Barua">
     <meta property="og:locale" content="en_US">
-
     <!-- =====================================================
          TWITTER / X CARD
          ===================================================== -->
@@ -49,55 +45,48 @@
     <meta name="twitter:description" content="Practical electrical engineering tutorials, calculations, solar PV guides, electrical design, and engineering resources.">
     <meta name="twitter:image" content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
     <meta name="twitter:image:alt" content="Electrical Engineering by Prasun Barua">
-
     <!-- =====================================================
-         FAVICON
+         FAVICON (Monochromatic Dark Minimalist)
          ===================================================== -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
     <!-- =====================================================
          FONTS & ICONS
          ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
-
     <!-- =====================================================
          GOOGLE ADSENSE
          ===================================================== -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
-
     <!-- =====================================================
-         STYLESHEET (APPLE / GOOGLE LITE CLEAN DESIGN SYSTEM)
+         STYLESHEET (STRICT BLACK / WHITE / GREY LITE CLEAN DESIGN SYSTEM)
          ===================================================== -->
     <style>
         :root {
             --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --bg-color: #fbfbfd;
+            --bg-color: #ffffff;
             --surface-color: #ffffff;
-            --text-primary: #1d1d1f;
-            --text-secondary: #515154;
-            --text-muted: #86868b;
-            --accent-color: #0066cc;
-            --accent-light: #f5f5f7;
-            --border-color: #d2d2d7;
-            --border-light: #e5e5ea;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --accent-color: #111827;
+            --accent-light: #f9fafb;
+            --border-color: #d1d5db;
+            --border-light: #f3f4f6;
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 18px;
             --max-width: 1140px;
         }
-
         *, *::before, *::after {
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
             font-size: 16px;
         }
-
         body {
             font-family: var(--font-stack);
             background-color: var(--bg-color);
@@ -108,25 +97,24 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         a {
             color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        a:hover {
             text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #d1d5db;
         }
-
+        a:hover {
+            color: #000000;
+            text-decoration-color: var(--accent-color);
+        }
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 24px;
         }
-
         /* Header / Navigation */
         .site-header {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-light);
@@ -135,40 +123,35 @@
             z-index: 100;
             padding: 14px 0;
         }
-
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
             font-weight: 600;
             color: var(--text-primary);
+            text-decoration: none !important;
         }
-
         .logo-icon {
             color: var(--accent-color);
             display: flex;
             align-items: center;
         }
-
         .logo strong {
             display: block;
             font-size: 15px;
             letter-spacing: -0.01em;
         }
-
         .logo small {
             display: block;
             font-size: 12px;
             color: var(--text-muted);
             font-weight: 400;
         }
-
         .main-nav ul {
             display: flex;
             gap: 24px;
@@ -176,36 +159,35 @@
             margin: 0;
             padding: 0;
         }
-
         .main-nav a {
             font-size: 14px;
             font-weight: 500;
             color: var(--text-secondary);
-        }
-
-        .main-nav a:hover, .main-nav a.active {
-            color: var(--accent-color);
             text-decoration: none;
         }
-
+        .main-nav a:hover, .main-nav a.active {
+            color: #000000 !important;
+            text-decoration: underline !important;
+            text-underline-offset: 3px;
+        }
         /* Hero Section */
         .hero {
             padding: 64px 0 48px;
             text-align: center;
+            background: #ffffff;
         }
-
         .hero-content {
             max-width: 780px;
             margin: 0 auto;
         }
-
         .eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             padding: 6px 12px;
             background: var(--accent-light);
-            color: var(--accent-color);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
             border-radius: 100px;
             font-size: 11px;
             font-weight: 700;
@@ -213,7 +195,6 @@
             text-transform: uppercase;
             margin-bottom: 16px;
         }
-
         .hero h1 {
             margin: 0 0 16px;
             font-size: clamp(36px, 5vw, 52px);
@@ -222,14 +203,12 @@
             color: var(--text-primary);
             line-height: 1.15;
         }
-
         .hero h1 span {
             display: block;
-            color: var(--accent-color);
+            color: var(--text-secondary);
             font-size: clamp(24px, 3.5vw, 38px);
             margin-top: 8px;
         }
-
         .hero p {
             margin: 0 auto 32px;
             color: var(--text-secondary);
@@ -237,7 +216,6 @@
             line-height: 1.6;
             max-width: 640px;
         }
-
         /* Search Box */
         .search-box {
             display: flex;
@@ -251,18 +229,15 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             transition: border-color 0.2s, box-shadow 0.2s;
         }
-
         .search-box:focus-within {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.12);
+            border-color: #111827;
+            box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.08);
         }
-
         .search-box .material-symbols-rounded {
             color: var(--text-muted);
             font-size: 20px;
             margin-right: 10px;
         }
-
         .search-box input {
             flex: 1;
             border: none;
@@ -272,16 +247,14 @@
             font-family: var(--font-stack);
             color: var(--text-primary);
         }
-
         .search-box input::placeholder {
             color: var(--text-muted);
         }
-
         .search-box button {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: var(--accent-color);
+            background: #111827;
             color: white;
             border: none;
             border-radius: var(--radius-sm);
@@ -292,23 +265,19 @@
             font-family: var(--font-stack);
             transition: background 0.15s;
         }
-
         .search-box button:hover {
-            background: #0051a8;
+            background: #000000;
         }
-
         .search-box button .material-symbols-rounded {
             color: white;
             font-size: 18px;
             margin: 0;
         }
-
         .search-message {
             font-size: 13px;
             color: var(--text-muted);
             min-height: 20px;
         }
-
         .sr-only {
             position: absolute;
             width: 1px;
@@ -320,31 +289,29 @@
             white-space: nowrap;
             border: 0;
         }
-
         /* Sections */
         .section {
             padding: 64px 0;
+            background: #ffffff;
         }
-
         .section-alt {
-            background: #f2f2f7;
+            background: #f9fafb;
             border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
         }
-
         .section-heading {
             text-align: center;
             max-width: 640px;
             margin: 0 auto 48px;
         }
-
         .section-label {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             padding: 6px 12px;
-            background: var(--accent-light);
-            color: var(--accent-color);
+            background: #ffffff;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
             border-radius: 100px;
             font-size: 11px;
             font-weight: 700;
@@ -352,7 +319,6 @@
             text-transform: uppercase;
             margin-bottom: 12px;
         }
-
         .section-heading h2 {
             font-size: clamp(28px, 4vw, 36px);
             font-weight: 700;
@@ -360,24 +326,21 @@
             color: var(--text-primary);
             margin: 0 0 12px;
         }
-
         .section-heading p {
             color: var(--text-secondary);
             font-size: 16px;
             margin: 0;
         }
-
         /* Grids */
         .category-grid, .calculator-grid, .article-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
         }
-
         /* Cards */
         .category-card, .calculator-card, .article-card {
             background: var(--surface-color);
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             padding: 28px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
@@ -385,33 +348,30 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            text-decoration: none !important;
         }
-
         .category-card:hover, .calculator-card:hover, .article-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            border-color: var(--border-color);
-            text-decoration: none;
+            border-color: #111827;
         }
-
         .category-icon, .icon-box, .tool-icon {
             width: 48px;
             height: 48px;
             border-radius: var(--radius-sm);
             background: var(--accent-light);
-            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
         }
-
         .category-icon .material-symbols-rounded,
         .icon-box .material-symbols-rounded,
         .tool-icon .material-symbols-rounded {
             font-size: 24px;
         }
-
         .category-card h3, .calculator-card h3, .article-card h3 {
             font-size: 18px;
             font-weight: 600;
@@ -419,35 +379,37 @@
             margin: 0 0 8px;
             letter-spacing: -0.01em;
         }
-
         .category-card p, .calculator-card p, .article-card p {
             font-size: 14px;
             color: var(--text-secondary);
             margin: 0 0 20px;
             flex: 1;
         }
-
         .card-link, .article-card a {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--accent-color);
+            color: var(--text-primary);
             margin-top: auto;
+            text-decoration: underline !important;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--border-color);
         }
-
+        .card-link:hover, .article-card a:hover {
+            color: #000000;
+            text-decoration-color: #111827 !important;
+        }
         .card-link .material-symbols-rounded, .article-card a .material-symbols-rounded {
             font-size: 18px;
             transition: transform 0.15s ease;
         }
-
         .category-card:hover .card-link .material-symbols-rounded,
         .calculator-card:hover .card-link .material-symbols-rounded,
         .article-card:hover a .material-symbols-rounded {
             transform: translateX(4px);
         }
-
         /* Calculator card specific layout */
         .calculator-card {
             flex-direction: row;
@@ -455,16 +417,14 @@
             gap: 20px;
             padding: 24px;
         }
-
         .calculator-card .tool-icon {
             margin-bottom: 0;
             flex-shrink: 0;
         }
-
         /* Solar PV Feature Panel */
         .feature-panel {
             background: var(--surface-color);
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             padding: 48px;
             display: grid;
@@ -473,7 +433,6 @@
             align-items: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
-
         .feature-content h2 {
             font-size: clamp(26px, 3.5vw, 36px);
             font-weight: 700;
@@ -481,50 +440,44 @@
             color: var(--text-primary);
             margin: 12px 0 16px;
         }
-
         .feature-content p {
             color: var(--text-secondary);
             font-size: 16px;
             margin: 0 0 20px;
         }
-
         .feature-content ul {
             margin: 0 0 28px;
             padding-left: 20px;
             color: var(--text-secondary);
             font-size: 15px;
         }
-
         .feature-content li {
             margin-bottom: 8px;
         }
-
         .primary-button {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--accent-color);
+            background: #111827;
             color: white;
             padding: 12px 24px;
             border-radius: var(--radius-sm);
             font-weight: 600;
             font-size: 15px;
             transition: background 0.15s ease;
+            text-decoration: none !important;
         }
-
         .primary-button:hover {
-            background: #0051a8;
+            background: #000000;
             color: white;
-            text-decoration: none;
         }
-
         .primary-button .material-symbols-rounded {
             font-size: 20px;
         }
-
         /* Feature Visual Illustration */
         .feature-visual {
             background: var(--accent-light);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             padding: 32px;
             display: flex;
@@ -532,7 +485,6 @@
             justify-content: center;
             min-height: 280px;
         }
-
         .solar-illustration {
             display: flex;
             flex-direction: column;
@@ -540,39 +492,32 @@
             gap: 16px;
             text-align: center;
         }
-
         .sun {
-            color: #f59e0b;
+            color: #111827;
         }
-
         .sun .material-symbols-rounded {
             font-size: 48px;
         }
-
         .solar-panel {
             display: grid;
             grid-template-columns: repeat(3, 40px);
             grid-template-rows: repeat(3, 24px);
             gap: 4px;
-            background: #1e3a8a;
+            background: #111827;
             padding: 8px;
             border-radius: 6px;
-            border: 2px solid #3b82f6;
+            border: 2px solid #4b5563;
         }
-
         .solar-panel span {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 2px;
         }
-
         .energy-line {
-            color: var(--accent-color);
+            color: #111827;
         }
-
         .energy-line .material-symbols-rounded {
             font-size: 28px;
         }
-
         .inverter {
             display: flex;
             align-items: center;
@@ -585,26 +530,23 @@
             font-size: 13px;
             color: var(--text-primary);
         }
-
         .inverter .material-symbols-rounded {
-            color: var(--accent-color);
+            color: #111827;
             font-size: 20px;
         }
-
         /* Article Card Category */
         .article-card .article-category {
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.06em;
-            color: var(--accent-color);
+            color: var(--text-secondary);
             margin-bottom: 12px;
             text-transform: uppercase;
         }
-
         /* Author Section */
         .author-section {
             background: var(--surface-color);
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             padding: 40px;
             display: flex;
@@ -612,13 +554,13 @@
             gap: 32px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
-
         .author-avatar {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             background: var(--accent-light);
-            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
             font-size: 28px;
             font-weight: 700;
             display: flex;
@@ -626,7 +568,6 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         .author-section h2 {
             font-size: 24px;
             font-weight: 700;
@@ -634,97 +575,87 @@
             margin: 8px 0 12px;
             letter-spacing: -0.02em;
         }
-
         .author-section p {
             color: var(--text-secondary);
             font-size: 15px;
             margin: 0 0 16px;
         }
-
         .text-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--accent-color);
+            color: var(--text-primary);
+            text-decoration: underline !important;
+            text-underline-offset: 3px;
         }
-
         .text-link .material-symbols-rounded {
             font-size: 18px;
         }
-
-        /* Footer */
+        /* Lite Black and White Footer */
         .site-footer {
-            background: #1d1d1f;
-            color: #fbfbfd;
+            background: #ffffff;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-secondary);
             padding: 64px 0 32px;
         }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 48px;
             margin-bottom: 48px;
         }
-
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 18px;
             font-weight: 600;
-            color: white;
+            color: var(--text-primary);
             margin-bottom: 16px;
         }
-
         .footer-logo .material-symbols-rounded {
-            color: var(--accent-color);
+            color: var(--text-primary);
         }
-
         .site-footer p {
-            color: #86868b;
+            color: var(--text-secondary);
             font-size: 14px;
             line-height: 1.6;
             margin: 0;
             max-width: 360px;
         }
-
         .site-footer h3 {
             font-size: 14px;
             font-weight: 600;
-            color: white;
+            color: var(--text-primary);
             margin: 0 0 16px;
             letter-spacing: 0.02em;
             text-transform: uppercase;
         }
-
         .site-footer a {
             display: block;
-            color: #86868b;
+            color: var(--text-secondary);
             font-size: 14px;
             margin-bottom: 10px;
+            text-decoration: none;
             transition: color 0.15s ease;
         }
-
         .site-footer a:hover {
-            color: white;
-            text-decoration: none;
+            color: var(--text-primary);
+            text-decoration: underline !important;
         }
-
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-light);
             padding-top: 24px;
-            text-align: center;
+            text-align: left;
         }
-
         .footer-bottom p {
-            color: #86868b;
+            color: var(--text-muted);
             font-size: 13px;
             margin: 0;
             max-width: none;
         }
-
         /* Responsive Media Queries */
         @media (max-width: 900px) {
             .feature-panel {
@@ -745,7 +676,6 @@
             }
         }
     </style>
-
     <!-- =====================================================
          STRUCTURED DATA — WEBSITE
          ===================================================== -->
@@ -764,7 +694,6 @@
         }
     }
     </script>
-
     <!-- =====================================================
          STRUCTURED DATA — PERSON
          ===================================================== -->
@@ -783,7 +712,6 @@
         }
     }
     </script>
-
     <!-- =====================================================
          STRUCTURED DATA — ORGANIZATION
          ===================================================== -->
@@ -802,7 +730,6 @@
     </script>
 </head>
 <body>
-
     <!-- =====================================================
          HEADER
          ===================================================== -->
@@ -828,7 +755,6 @@
             </nav>
         </div>
     </header>
-
     <!-- =====================================================
          HERO
          ===================================================== -->
@@ -844,7 +770,6 @@
             <p>
                 Practical electrical engineering tutorials, calculations, solar PV guides, power system concepts, design methods, testing procedures, and real-world engineering examples.
             </p>
-
             <!-- Search Form -->
             <form class="search-box" id="site-search-form" role="search">
                 <label for="site-search" class="sr-only">Search electrical engineering topics</label>
@@ -858,12 +783,10 @@
             <p id="search-message" class="search-message" aria-live="polite"></p>
         </div>
     </section>
-
     <!-- =====================================================
          MAIN CONTENT
          ===================================================== -->
     <main>
-
         <!-- TUTORIAL CATEGORIES -->
         <section class="section" id="tutorials" aria-labelledby="tutorials-title">
             <div class="container">
@@ -951,7 +874,6 @@
                 </div>
             </div>
         </section>
-
         <!-- ENGINEERING CALCULATIONS -->
         <section class="section section-alt" id="calculations" aria-labelledby="calculations-title">
             <div class="container">
@@ -1009,7 +931,6 @@
                 </div>
             </div>
         </section>
-
         <!-- SOLAR PV FEATURE -->
         <section class="section" id="solar" aria-labelledby="solar-title">
             <div class="container">
@@ -1059,7 +980,6 @@
                 </div>
             </div>
         </section>
-
         <!-- LATEST TUTORIALS -->
         <section class="section section-alt" aria-labelledby="latest-tutorials-title">
             <div class="container">
@@ -1114,7 +1034,6 @@
                 </div>
             </div>
         </section>
-
         <!-- AUTHOR -->
         <section class="section" id="about" aria-labelledby="about-title">
             <div class="container">
@@ -1137,11 +1056,9 @@
                 </div>
             </div>
         </section>
-
     </main>
-
     <!-- =====================================================
-         FOOTER
+         FOOTER (Lite Black & White Minimalist)
          ===================================================== -->
     <footer class="site-footer">
         <div class="container footer-grid">
@@ -1175,7 +1092,6 @@
             </div>
         </div>
     </footer>
-
     <!-- =====================================================
          SITE JAVASCRIPT
          ===================================================== -->
