@@ -9,18 +9,21 @@
    - Load articles.json
    - Display category articles
    - Search articles
-   - Generate reliable article links
+   - Use exact article URLs from articles.json
    - Handle category navigation
    - Handle mobile navigation
    - Work with GitHub Pages + Cloudflare
-========================================================= */
+
+   IMPORTANT:
+   articles.json is the SOURCE OF TRUTH for article URLs.
+   ========================================================= */
 
 "use strict";
 
 
 /* =========================================================
    GLOBAL CONFIGURATION
-========================================================= */
+   ========================================================= */
 
 const SITE_CONFIG = {
 
@@ -29,6 +32,7 @@ const SITE_CONFIG = {
     homeURL: "/",
 
     categories: {
+
         fundamentals: {
             name: "Electrical Fundamentals",
             shortName: "Fundamentals",
@@ -70,6 +74,7 @@ const SITE_CONFIG = {
             path: "/articles/testing-commissioning/",
             icon: "engineering"
         }
+
     }
 
 };
@@ -77,18 +82,21 @@ const SITE_CONFIG = {
 
 /* =========================================================
    DOM READY
-========================================================= */
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    initializeSite();
+        initializeSite();
 
-});
+    }
+);
 
 
 /* =========================================================
    INITIALIZE SITE
-========================================================= */
+   ========================================================= */
 
 async function initializeSite() {
 
@@ -116,28 +124,22 @@ async function initializeSite() {
 
 /* =========================================================
    LOAD ARTICLES.JSON
-========================================================= */
+   ========================================================= */
 
 async function loadArticles() {
 
     const articleContainer =
-        document.querySelector(
-            "#articles-list"
-        ) ||
-        document.querySelector(
-            "#article-list"
-        ) ||
-        document.querySelector(
-            ".articles-grid"
-        ) ||
-        document.querySelector(
-            ".article-grid"
-        );
+        document.querySelector("#articles-list") ||
+        document.querySelector("#article-list") ||
+        document.querySelector(".articles-grid") ||
+        document.querySelector(".article-grid");
+
 
     /*
-       If this is an article page and there is no
-       article listing container, there is nothing
-       to render from articles.json.
+       Article detail pages normally do not have
+       an article listing container.
+
+       Therefore, do nothing on those pages.
     */
 
     if (!articleContainer) {
@@ -188,6 +190,11 @@ async function loadArticles() {
         }
 
 
+        /*
+           Make articles available globally
+           for search and other scripts.
+        */
+
         window.ElectricalArticles =
             articles;
 
@@ -217,7 +224,7 @@ async function loadArticles() {
 
 /* =========================================================
    NORMALIZE ARTICLES
-========================================================= */
+   ========================================================= */
 
 function normalizeArticles(data) {
 
@@ -225,7 +232,7 @@ function normalizeArticles(data) {
 
 
     /*
-       Support these formats:
+       Supported formats:
 
        1. [
             {...},
@@ -264,9 +271,14 @@ function normalizeArticles(data) {
 
     return articles
         .filter(
-            article =>
-                article &&
-                typeof article === "object"
+            function (article) {
+
+                return (
+                    article &&
+                    typeof article === "object"
+                );
+
+            }
         )
         .map(
             normalizeArticle
@@ -277,7 +289,7 @@ function normalizeArticles(data) {
 
 /* =========================================================
    NORMALIZE ONE ARTICLE
-========================================================= */
+   ========================================================= */
 
 function normalizeArticle(article) {
 
@@ -317,15 +329,28 @@ function normalizeArticle(article) {
     normalized.readTime =
         article.readTime ||
         article.read_time ||
+        article.readingTime ||
         "";
 
 
     /*
        IMPORTANT:
-       Keep the URL from articles.json if it exists.
 
-       This prevents app.js from accidentally
-       constructing the wrong URL.
+       Use the exact URL supplied by articles.json.
+
+       Do NOT modify it.
+
+       Example:
+
+       /articles/electrical-fundamentals/ohms-law/
+
+       remains exactly that.
+
+       And:
+
+       /articles/electrical-fundamentals/what-is-voltage-current-resistance.html
+
+       remains exactly that.
     */
 
     normalized.url =
@@ -336,7 +361,8 @@ function normalizeArticle(article) {
 
 
     /*
-       If no URL exists, attempt to build one.
+       Only create a URL if articles.json
+       does not provide one.
     */
 
     if (!normalized.url) {
@@ -344,6 +370,13 @@ function normalizeArticle(article) {
         normalized.url =
             buildArticleURL(
                 normalized
+            );
+
+    } else {
+
+        normalized.url =
+            normalizeArticleURL(
+                normalized.url
             );
 
     }
@@ -356,11 +389,9 @@ function normalizeArticle(article) {
 
 /* =========================================================
    GET CATEGORY SLUG
-========================================================= */
+   ========================================================= */
 
-function getCategorySlug(
-    category
-) {
+function getCategorySlug(category) {
 
     if (!category) {
 
@@ -419,23 +450,50 @@ function getCategorySlug(
     };
 
 
-    return mappings[text] ||
-        slugify(text);
+    return (
+        mappings[text] ||
+        slugify(text)
+    );
 
 }
 
 
 /* =========================================================
    BUILD ARTICLE URL
-========================================================= */
+   =========================================================
 
-function buildArticleURL(
-    article
-) {
+   IMPORTANT:
+
+   This is ONLY a fallback.
+
+   If articles.json contains:
+
+   "url": "/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+
+   that exact URL is used.
+
+   This function never adds an "ohms-law" directory
+   automatically.
+   ========================================================= */
+
+function buildArticleURL(article) {
 
     /*
-       First try explicit slug.
+       If an explicit URL exists,
+       ALWAYS use it.
     */
+
+    if (
+        article &&
+        article.url
+    ) {
+
+        return normalizeArticleURL(
+            article.url
+        );
+
+    }
+
 
     const categorySlug =
         article.categorySlug ||
@@ -451,7 +509,8 @@ function buildArticleURL(
 
 
     /*
-       If slug is missing, create it from title.
+       If slug is missing,
+       create it from title.
     */
 
     if (!slug) {
@@ -465,56 +524,19 @@ function buildArticleURL(
 
 
     /*
-       IMPORTANT SPECIAL CASE FOR YOUR CURRENT
-       ELECTRICAL FUNDAMENTALS STRUCTURE.
+       Standard fallback structure:
 
-       Your files are:
+       /articles/category/article/
+
+       Example:
+
+       /articles/electrical-fundamentals/ohms-law/
+
+       or
 
        /articles/electrical-fundamentals/
-       /ohms-law/
-       /what-is-voltage-current-resistance.html
-
-       Therefore, if an article has its own
-       explicit URL in articles.json, that URL
-       should always be used.
-
-       This function is only a fallback.
+       what-is-voltage-current-resistance/
     */
-
-
-    if (
-        categorySlug ===
-        "electrical-fundamentals"
-    ) {
-
-        if (
-            slug ===
-            "what-is-voltage-current-resistance"
-        ) {
-
-            return (
-                "/articles/electrical-fundamentals/" +
-                "ohms-law/" +
-                "what-is-voltage-current-resistance.html"
-            );
-
-        }
-
-
-        if (
-            slug ===
-            "ohms-law"
-        ) {
-
-            return (
-                "/articles/electrical-fundamentals/" +
-                "ohms-law/"
-            );
-
-        }
-
-    }
-
 
     return (
         "/articles/" +
@@ -533,11 +555,9 @@ function buildArticleURL(
 
 /* =========================================================
    SLUGIFY
-========================================================= */
+   ========================================================= */
 
-function slugify(
-    value
-) {
+function slugify(value) {
 
     return String(
         value || ""
@@ -554,14 +574,15 @@ function slugify(
         )
         .replace(
             /^-+|-+$/g,
-            "");
+            ""
+        );
 
 }
 
 
 /* =========================================================
    DETERMINE CURRENT CATEGORY
-========================================================= */
+   ========================================================= */
 
 function getCurrentCategory() {
 
@@ -579,9 +600,7 @@ function getCurrentCategory() {
         );
 
 
-    if (
-        !categoryMatch
-    ) {
+    if (!categoryMatch) {
 
         return "";
 
@@ -595,7 +614,7 @@ function getCurrentCategory() {
 
 /* =========================================================
    RENDER CURRENT PAGE ARTICLES
-========================================================= */
+   ========================================================= */
 
 function renderCurrentPageArticles(
     articles
@@ -605,29 +624,15 @@ function renderCurrentPageArticles(
         getCurrentCategory();
 
 
-    /*
-       If we're on the home page, display
-       all articles unless the page has a
-       specific data-category attribute.
-    */
-
     let filtered =
         articles;
 
 
     const listing =
-        document.querySelector(
-            "#articles-list"
-        ) ||
-        document.querySelector(
-            "#article-list"
-        ) ||
-        document.querySelector(
-            ".articles-grid"
-        ) ||
-        document.querySelector(
-            ".article-grid"
-        );
+        document.querySelector("#articles-list") ||
+        document.querySelector("#article-list") ||
+        document.querySelector(".articles-grid") ||
+        document.querySelector(".article-grid");
 
 
     if (!listing) {
@@ -638,8 +643,8 @@ function renderCurrentPageArticles(
 
 
     /*
-       Look for explicit category information
-       in HTML.
+       Check whether the page explicitly
+       specifies a category.
     */
 
     const pageCategory =
@@ -648,13 +653,11 @@ function renderCurrentPageArticles(
         currentCategory;
 
 
-    if (
-        pageCategory
-    ) {
+    if (pageCategory) {
 
         filtered =
             articles.filter(
-                article => {
+                function (article) {
 
                     const slug =
                         article.categorySlug ||
@@ -689,7 +692,7 @@ function renderCurrentPageArticles(
 
 /* =========================================================
    RENDER ARTICLES
-========================================================= */
+   ========================================================= */
 
 function renderArticles(
     articles,
@@ -732,11 +735,19 @@ function renderArticles(
 
 /* =========================================================
    CREATE ARTICLE CARD
-========================================================= */
+   ========================================================= */
 
 function createArticleCard(
     article
 ) {
+
+    /*
+       Use an anchor element so normal browser
+       navigation works automatically.
+
+       This is safer than forcing navigation
+       with JavaScript.
+    */
 
     const card =
         document.createElement(
@@ -746,7 +757,9 @@ function createArticleCard(
 
     /*
        CRITICAL:
-       Use the exact URL stored in articles.json.
+
+       Use the EXACT normalized URL
+       from articles.json.
     */
 
     const articleURL =
@@ -785,6 +798,7 @@ function createArticleCard(
     const description =
         escapeHTML(
             article.description ||
+            article.excerpt ||
             ""
         );
 
@@ -841,40 +855,24 @@ function createArticleCard(
 
 
     /*
-       Make sure normal click navigation works.
+       We intentionally DO NOT call:
+
+       event.preventDefault()
+
+       Normal browser link behavior is preferable.
+
+       This allows:
+
+       - Normal click
+       - Ctrl + click
+       - Cmd + click
+       - Middle click
+       - Open in new tab
+       - Open in new window
+       - Browser accessibility
+
+       to work correctly.
     */
-
-    card.addEventListener(
-        "click",
-        function (event) {
-
-            /*
-               Don't interfere with modified clicks
-               such as Ctrl/Cmd click or middle click.
-            */
-
-            if (
-                event.ctrlKey ||
-                event.metaKey ||
-                event.shiftKey ||
-                event.altKey ||
-                event.button !== 0
-            ) {
-
-                return;
-
-            }
-
-
-            event.preventDefault();
-
-
-            window.location.href =
-                articleURL;
-
-        }
-    );
-
 
     return card;
 
@@ -883,11 +881,9 @@ function createArticleCard(
 
 /* =========================================================
    NORMALIZE ARTICLE URL
-========================================================= */
+   ========================================================= */
 
-function normalizeArticleURL(
-    url
-) {
+function normalizeArticleURL(url) {
 
     if (!url) {
 
@@ -901,8 +897,11 @@ function normalizeArticleURL(
 
 
     /*
-       If it's already an absolute URL,
-       keep it.
+       Absolute URL:
+
+       https://example.com/article/
+
+       Keep unchanged.
     */
 
     if (
@@ -943,7 +942,15 @@ function normalizeArticleURL(
 
 
     /*
-       Fix accidental HTML path variations.
+       Remove accidental duplicate slashes.
+
+       Example:
+
+       //articles///test/
+
+       becomes:
+
+       /articles/test/
     */
 
     finalURL =
@@ -954,7 +961,7 @@ function normalizeArticleURL(
 
 
     /*
-       Preserve root slash.
+       Preserve root URL.
     */
 
     if (
@@ -973,7 +980,7 @@ function normalizeArticleURL(
 
 /* =========================================================
    UPDATE ARTICLE COUNT
-========================================================= */
+   ========================================================= */
 
 function updateArticleCount(
     articles
@@ -1008,7 +1015,7 @@ function updateArticleCount(
 
 /* =========================================================
    SEARCH
-========================================================= */
+   ========================================================= */
 
 function setupSearch() {
 
@@ -1085,25 +1092,15 @@ function setupSearch() {
 
 /* =========================================================
    PERFORM SEARCH
-========================================================= */
+   ========================================================= */
 
-function performSearch(
-    query
-) {
+function performSearch(query) {
 
     const container =
-        document.querySelector(
-            "#articles-list"
-        ) ||
-        document.querySelector(
-            "#article-list"
-        ) ||
-        document.querySelector(
-            ".articles-grid"
-        ) ||
-        document.querySelector(
-            ".article-grid"
-        );
+        document.querySelector("#articles-list") ||
+        document.querySelector("#article-list") ||
+        document.querySelector(".articles-grid") ||
+        document.querySelector(".article-grid");
 
 
     if (!container) {
@@ -1142,16 +1139,15 @@ function performSearch(
 
 
     /*
-       First restrict to current category.
+       Restrict search to current category
+       when viewing a category page.
     */
 
-    if (
-        currentCategory
-    ) {
+    if (currentCategory) {
 
         filtered =
             filtered.filter(
-                article => {
+                function (article) {
 
                     const category =
                         article.categorySlug ||
@@ -1172,7 +1168,10 @@ function performSearch(
 
 
     /*
-       If search is empty, show category articles.
+       Empty search:
+
+       Restore all articles for the
+       current category.
     */
 
     if (!searchText) {
@@ -1182,9 +1181,11 @@ function performSearch(
             container
         );
 
+
         updateArticleCount(
             filtered
         );
+
 
         return;
 
@@ -1192,8 +1193,16 @@ function performSearch(
 
 
     /*
-       Search title, description,
-       category and keywords.
+       Search across:
+
+       - title
+       - description
+       - excerpt
+       - category
+       - category slug
+       - keywords
+       - tags
+       - slug
     */
 
     filtered =
@@ -1207,13 +1216,17 @@ function performSearch(
 
                         article.description,
 
+                        article.excerpt,
+
                         article.category,
 
                         article.categorySlug,
 
                         article.keywords,
 
-                        article.tags
+                        article.tags,
+
+                        article.slug
 
                     ]
                         .flat()
@@ -1245,13 +1258,21 @@ function performSearch(
 
 /* =========================================================
    NAVIGATION
-========================================================= */
+   ========================================================= */
 
 function setupNavigation() {
 
     /*
-       Automatically fix category links that
-       have data-category attributes.
+       Automatically set category links
+       using data-category.
+
+       Example:
+
+       <a data-category="fundamentals">
+
+       becomes:
+
+       /articles/electrical-fundamentals/
     */
 
     document
@@ -1281,7 +1302,7 @@ function setupNavigation() {
 
                     if (
                         element.tagName
-                        .toLowerCase() ===
+                            .toLowerCase() ===
                         "a"
                     ) {
 
@@ -1297,8 +1318,8 @@ function setupNavigation() {
 
 
     /*
-       Make sure article category navigation
-       behaves normally.
+       Close mobile navigation when
+       an article/category link is clicked.
     */
 
     document
@@ -1325,7 +1346,7 @@ function setupNavigation() {
 
 /* =========================================================
    MOBILE MENU
-========================================================= */
+   ========================================================= */
 
 function setupMobileMenu() {
 
@@ -1412,7 +1433,7 @@ function setupMobileMenu() {
 
 /* =========================================================
    OPEN MOBILE MENU
-========================================================= */
+   ========================================================= */
 
 function openMobileMenu() {
 
@@ -1449,6 +1470,7 @@ function openMobileMenu() {
             "is-visible"
         );
 
+
         overlay.setAttribute(
             "aria-hidden",
             "false"
@@ -1476,7 +1498,7 @@ function openMobileMenu() {
 
 /* =========================================================
    CLOSE MOBILE MENU
-========================================================= */
+   ========================================================= */
 
 function closeMobileMenu() {
 
@@ -1513,6 +1535,7 @@ function closeMobileMenu() {
             "is-visible"
         );
 
+
         overlay.setAttribute(
             "aria-hidden",
             "true"
@@ -1540,7 +1563,7 @@ function closeMobileMenu() {
 
 /* =========================================================
    EMPTY STATE
-========================================================= */
+   ========================================================= */
 
 function showEmptyState(
     container,
@@ -1571,11 +1594,9 @@ function showEmptyState(
 
 /* =========================================================
    HTML ESCAPE
-========================================================= */
+   ========================================================= */
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
     return String(
         value || ""
@@ -1605,11 +1626,21 @@ function escapeHTML(
 
 
 /* =========================================================
-   EXPOSE PUBLIC FUNCTIONS
+   PUBLIC API
+   =========================================================
 
-   Useful if another script needs to trigger
-   a search or reload.
-========================================================= */
+   Other scripts can use:
+
+   ElectricalSite.loadArticles()
+
+   ElectricalSite.search("voltage")
+
+   ElectricalSite.openMobileMenu()
+
+   ElectricalSite.closeMobileMenu()
+
+   ElectricalSite.buildArticleURL(article)
+   ========================================================= */
 
 window.ElectricalSite = {
 
@@ -1633,4 +1664,4 @@ window.ElectricalSite = {
 
 /* =========================================================
    END OF APP.JS
-========================================================= */
+   ========================================================= */
