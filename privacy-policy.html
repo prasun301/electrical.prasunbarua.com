@@ -17,7 +17,6 @@
         }
 
         gtag('js', new Date());
-
         gtag('config', 'G-XY335VGVGJ');
     </script>
 
@@ -36,7 +35,7 @@
     </title>
 
     <meta name="description"
-          content="Privacy Policy for Electrical Engineering by Prasun Barua. Learn how information, cookies, Google Analytics, Google AdSense, and contact information are handled on this website.">
+          content="Privacy Policy for Electrical Engineering by Prasun Barua. Learn how cookies, Google Analytics, advertising, contact information, and other data are handled on this website.">
 
     <meta name="author"
           content="Prasun Barua">
@@ -59,7 +58,7 @@
           content="Privacy Policy | Electrical Engineering by Prasun Barua">
 
     <meta property="og:description"
-          content="Learn how Electrical Engineering by Prasun Barua handles website information, cookies, analytics, advertising, and contact data.">
+          content="Learn how Electrical Engineering by Prasun Barua handles cookies, analytics, advertising, contact information, and privacy.">
 
     <meta property="og:url"
           content="https://electrical.prasunbarua.com/privacy-policy.html">
@@ -131,81 +130,22 @@
 
 
     <!-- =====================================================
-         PRIVACY PAGE SPECIFIC CSS
+         PRIVACY POLICY PAGE CSS
     ====================================================== -->
 
     <style>
 
         /* =====================================================
-           PRIVACY PAGE
+           PAGE CONTAINER
         ====================================================== */
 
-        .privacy-section {
-            padding: 60px 0 90px;
+        .privacy-page {
+            padding: 32px 0 90px;
         }
 
         .privacy-container {
-            width: min(calc(100% - 48px), 1120px);
-            margin-inline: auto;
-        }
-
-
-        /* =====================================================
-           HERO
-        ====================================================== */
-
-        .privacy-hero {
-            padding: 70px 0 55px;
-            background:
-                linear-gradient(
-                    135deg,
-                    #eff6ff 0%,
-                    #ffffff 60%,
-                    #f8fafc 100%
-                );
-            border-bottom: 1px solid var(--border);
-        }
-
-        .privacy-hero-content {
-            max-width: 900px;
+            width: min(calc(100% - 48px), 1180px);
             margin: 0 auto;
-            text-align: center;
-        }
-
-        .privacy-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            padding: 7px 14px;
-            margin-bottom: 18px;
-            border: 1px solid var(--primary-soft);
-            border-radius: var(--radius-pill);
-            background: var(--primary-light);
-            color: var(--primary);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .privacy-hero h1 {
-            margin: 0;
-            color: var(--text-strong);
-            font-size: clamp(36px, 6vw, 60px);
-            line-height: 1.08;
-            letter-spacing: -0.045em;
-            font-weight: 800;
-        }
-
-        .privacy-hero h1 span {
-            color: var(--primary);
-        }
-
-        .privacy-hero p {
-            max-width: 720px;
-            margin: 22px auto 0;
-            color: var(--text-secondary);
-            font-size: 18px;
-            line-height: 1.7;
         }
 
 
@@ -213,66 +153,202 @@
            BREADCRUMBS
         ====================================================== */
 
-        .privacy-breadcrumbs {
+        .breadcrumbs {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 36px;
+
+            margin-bottom: 34px;
+
             color: var(--text-muted);
             font-size: 13px;
         }
 
-        .privacy-breadcrumbs a {
+        .breadcrumbs a {
             color: var(--text-secondary);
         }
 
-        .privacy-breadcrumbs a:hover {
+        .breadcrumbs a:hover {
             color: var(--primary);
             text-decoration: underline;
         }
 
-        .privacy-breadcrumbs .separator {
+        .breadcrumbs .separator {
             color: var(--border-strong);
         }
 
 
         /* =====================================================
-           MAIN LAYOUT
+           PAGE HERO
+        ====================================================== */
+
+        .privacy-header {
+            max-width: 850px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .privacy-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 7px 13px;
+
+            border: 1px solid var(--primary-soft);
+            border-radius: var(--radius-pill);
+
+            background: var(--primary-light);
+
+            color: var(--primary);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .privacy-header h1 {
+            margin: 20px 0 0;
+
+            color: var(--text-strong);
+
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.08;
+
+            letter-spacing: -0.045em;
+
+            font-weight: 800;
+        }
+
+        .privacy-header h1 span {
+            color: var(--primary);
+        }
+
+        .privacy-header p {
+            max-width: 760px;
+
+            margin: 20px auto 0;
+
+            color: var(--text-secondary);
+
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .privacy-updated {
+            margin-top: 20px;
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           IMPORTANT NOTICE
+        ====================================================== */
+
+        .privacy-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+
+            margin-bottom: 45px;
+            padding: 22px 24px;
+
+            border: 1px solid var(--primary-soft);
+            border-left: 4px solid var(--primary);
+
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
+            background: var(--primary-light);
+        }
+
+        .privacy-notice .material-symbols-rounded {
+            color: var(--primary);
+            font-size: 25px;
+        }
+
+        .privacy-notice strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--text-strong);
+        }
+
+        .privacy-notice p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           MAIN TWO-COLUMN LAYOUT
         ====================================================== */
 
         .privacy-layout {
             display: grid;
-            grid-template-columns: 230px minmax(0, 1fr);
-            gap: 48px;
+
+            grid-template-columns: 250px minmax(0, 1fr);
+
+            gap: 55px;
+
             align-items: start;
         }
 
 
         /* =====================================================
-           STICKY TABLE OF CONTENTS
+           LEFT SIDEBAR
         ====================================================== */
 
         .privacy-sidebar {
             position: relative;
+            min-width: 0;
         }
+
+
+        /* =====================================================
+           STICKY TABLE OF CONTENTS
+
+           THIS IS THE IMPORTANT PART
+        ====================================================== */
 
         .privacy-toc {
             position: sticky;
-            top: 96px;
+
+            /*
+             * Keep the TOC below the fixed/sticky site header.
+             * Adjust this value if your header is taller.
+             */
+            top: 95px;
+
+            z-index: 10;
 
             padding: 20px;
 
             border: 1px solid var(--border);
+
             border-radius: var(--radius-lg);
 
-            background: var(--background-soft);
+            background: var(--surface-elevated);
 
-            box-shadow: var(--shadow-xs);
+            box-shadow: var(--shadow-sm);
         }
 
         .privacy-toc-title {
-            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 15px;
 
             color: var(--text-strong);
 
@@ -281,6 +357,11 @@
 
             letter-spacing: 0.08em;
             text-transform: uppercase;
+        }
+
+        .privacy-toc-title .material-symbols-rounded {
+            color: var(--primary);
+            font-size: 19px;
         }
 
         .privacy-toc a {
@@ -295,49 +376,75 @@
 
             font-size: 13px;
             font-weight: 500;
+
             line-height: 1.4;
 
+            text-decoration: none;
+
             transition:
+                background var(--transition-fast),
                 color var(--transition-fast),
-                background var(--transition-fast);
+                transform var(--transition-fast);
         }
 
         .privacy-toc a:hover {
             color: var(--primary);
+
             background: var(--primary-light);
+
+            transform: translateX(2px);
+
             text-decoration: none;
         }
 
 
         /* =====================================================
-           PRIVACY CONTENT
+           RIGHT CONTENT
         ====================================================== */
 
         .privacy-content {
-            max-width: 780px;
+            min-width: 0;
 
-            font-size: 17px;
+            max-width: 800px;
+
+            font-size: 16px;
             line-height: 1.8;
         }
 
         .privacy-content section {
             scroll-margin-top: 100px;
+
             margin-bottom: 60px;
         }
 
         .privacy-content h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
             margin: 0 0 18px;
+
+            padding-top: 5px;
 
             color: var(--text-strong);
 
-            font-size: clamp(25px, 3vw, 34px);
+            font-size: clamp(25px, 3vw, 33px);
+
             line-height: 1.25;
 
             letter-spacing: -0.035em;
         }
 
+        .privacy-content h2 .material-symbols-rounded {
+            color: var(--primary);
+
+            font-size: 29px;
+
+            flex-shrink: 0;
+        }
+
         .privacy-content h3 {
-            margin: 30px 0 12px;
+            margin: 30px 0 10px;
 
             color: var(--text-strong);
 
@@ -346,7 +453,8 @@
         }
 
         .privacy-content p {
-            margin: 0 0 20px;
+            margin: 0 0 18px;
+
             color: var(--text-secondary);
         }
 
@@ -355,14 +463,15 @@
         }
 
         .privacy-content ul {
-            margin: 0 0 24px;
-            padding-left: 24px;
+            margin: 0 0 22px;
+
+            padding-left: 25px;
 
             color: var(--text-secondary);
         }
 
         .privacy-content li {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
         }
 
         .privacy-content a {
@@ -376,129 +485,91 @@
 
 
         /* =====================================================
-           INTRO BOX
+           LEGAL CARD
         ====================================================== */
 
-        .privacy-intro {
-            display: flex;
-            gap: 18px;
-
+        .legal-card {
             padding: 24px;
 
-            margin-bottom: 48px;
+            margin: 25px 0;
 
-            border: 1px solid var(--primary-soft);
-            border-left: 4px solid var(--primary);
+            border: 1px solid var(--border);
 
-            border-radius:
-                0
-                var(--radius-lg)
-                var(--radius-lg)
-                0;
+            border-radius: var(--radius-lg);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary-light),
-                    #ffffff
-                );
+            background: var(--background-soft);
 
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-xs);
         }
 
-        .privacy-intro-icon {
-            flex: 0 0 auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 46px;
-            height: 46px;
-
-            border-radius: 12px;
-
-            background: var(--primary);
-
-            color: #ffffff;
-        }
-
-        .privacy-intro h2 {
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
-        .privacy-intro p:last-child {
+        .legal-card p:last-child {
             margin-bottom: 0;
         }
 
 
         /* =====================================================
-           LEGAL SECTION
+           HIGHLIGHT BOX
         ====================================================== */
 
-        .privacy-section-block {
-            padding-bottom: 50px;
-            margin-bottom: 50px;
-
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .privacy-section-block:last-child {
-            border-bottom: none;
-        }
-
-
-        /* =====================================================
-           SECTION HEADING
-        ====================================================== */
-
-        .privacy-heading {
+        .privacy-highlight {
             display: flex;
-            align-items: center;
-            gap: 12px;
 
-            margin-bottom: 18px;
-        }
+            align-items: flex-start;
 
-        .privacy-heading .material-symbols-rounded {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 13px;
 
-            width: 42px;
-            height: 42px;
+            padding: 20px 22px;
 
-            border-radius: 10px;
+            margin: 25px 0;
+
+            border: 1px solid var(--primary-soft);
+
+            border-radius: var(--radius-md);
 
             background: var(--primary-light);
-            color: var(--primary);
-
-            font-size: 22px;
         }
 
-        .privacy-heading h2 {
+        .privacy-highlight .material-symbols-rounded {
+            color: var(--primary);
+
+            font-size: 24px;
+
+            flex-shrink: 0;
+        }
+
+        .privacy-highlight strong {
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .privacy-highlight p {
             margin: 0;
+
+            font-size: 14px;
         }
 
 
         /* =====================================================
-           INFORMATION TABLE
+           DATA TABLE
         ====================================================== */
 
         .privacy-table-wrapper {
             width: 100%;
+
             overflow-x: auto;
 
-            margin: 28px 0;
+            margin: 25px 0;
 
             border: 1px solid var(--border);
+
             border-radius: var(--radius-md);
         }
 
         .privacy-table {
             width: 100%;
-            min-width: 560px;
+
+            min-width: 600px;
 
             border-collapse: collapse;
 
@@ -512,6 +583,7 @@
             border-bottom: 1px solid var(--border);
 
             text-align: left;
+
             vertical-align: top;
         }
 
@@ -527,7 +599,7 @@
         .privacy-table td {
             color: var(--text-secondary);
 
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .privacy-table tr:last-child td {
@@ -536,126 +608,52 @@
 
 
         /* =====================================================
-           NOTICE BOX
+           CONTACT BOX
         ====================================================== */
 
-        .privacy-notice {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-
-            padding: 20px;
-
-            margin: 24px 0;
-
-            border: 1px solid #bfdbfe;
-            border-radius: var(--radius-md);
-
-            background: #eff6ff;
-        }
-
-        .privacy-notice .material-symbols-rounded {
-            color: var(--primary);
-            font-size: 24px;
-        }
-
-        .privacy-notice strong {
-            display: block;
-            margin-bottom: 5px;
-
-            color: var(--text-strong);
-        }
-
-        .privacy-notice p {
-            margin: 0;
-            font-size: 15px;
-        }
-
-
-        /* =====================================================
-           LAST UPDATED
-        ====================================================== */
-
-        .privacy-updated {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            padding: 7px 12px;
-
-            margin-bottom: 20px;
-
-            border-radius: var(--radius-pill);
-
-            background: var(--background-soft);
-            border: 1px solid var(--border);
-
-            color: var(--text-muted);
-
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-
-        /* =====================================================
-           CONTACT CTA
-        ====================================================== */
-
-        .privacy-contact {
-            padding: 30px;
+        .contact-box {
+            padding: 25px;
 
             border: 1px solid var(--primary-soft);
-            border-radius: var(--radius-xl);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #eff6ff,
-                    #dbeafe
-                );
+            border-radius: var(--radius-lg);
+
+            background: linear-gradient(
+                135deg,
+                var(--primary-light),
+                #ffffff
+            );
         }
 
-        .privacy-contact h2 {
-            margin-bottom: 10px;
+        .contact-box p:last-child {
+            margin-bottom: 0;
         }
 
-        .privacy-contact p {
-            max-width: 650px;
-        }
 
-        .privacy-button {
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        .back-top {
             display: inline-flex;
+
             align-items: center;
-            justify-content: center;
-            gap: 8px;
 
-            min-height: 46px;
+            gap: 7px;
 
-            padding: 10px 18px;
+            margin-top: 10px;
 
-            border-radius: var(--radius-pill);
+            color: var(--primary);
 
-            background: var(--primary);
-            color: #ffffff !important;
+            font-size: 13px;
 
-            font-size: 14px;
             font-weight: 700;
 
-            box-shadow:
-                0 8px 20px rgba(37, 99, 235, 0.2);
-
-            transition:
-                transform var(--transition-fast),
-                background var(--transition-fast);
+            text-decoration: none;
         }
 
-        .privacy-button:hover {
-            background: var(--primary-dark);
-            color: #ffffff !important;
-
-            transform: translateY(-2px);
-
-            text-decoration: none;
+        .back-top:hover {
+            text-decoration: underline;
         }
 
 
@@ -667,81 +665,89 @@
 
             .privacy-layout {
                 grid-template-columns: 1fr;
-                gap: 28px;
+
+                gap: 30px;
+            }
+
+            /*
+             * On tablet/mobile the sidebar is no longer sticky.
+             * This prevents it from taking too much screen space.
+             */
+            .privacy-toc {
+                position: relative;
+
+                top: auto;
             }
 
             .privacy-sidebar {
                 order: 0;
             }
 
-            .privacy-toc {
-                position: relative;
-                top: auto;
+            .privacy-content {
+                order: 1;
+
+                max-width: none;
             }
 
-            .privacy-toc a {
-                display: inline-block;
-                margin: 3px;
-            }
         }
 
 
         @media (max-width: 768px) {
 
             .privacy-container {
-                width: min(calc(100% - 32px), 1120px);
+                width: min(calc(100% - 32px), 1180px);
             }
 
-            .privacy-hero {
-                padding: 50px 0 40px;
+            .privacy-page {
+                padding-top: 22px;
             }
 
-            .privacy-hero h1 {
+            .privacy-header {
+                margin-bottom: 40px;
+            }
+
+            .privacy-header h1 {
                 font-size: clamp(34px, 9vw, 46px);
             }
 
-            .privacy-hero p {
+            .privacy-header p {
                 font-size: 16px;
-            }
-
-            .privacy-section {
-                padding: 40px 0 70px;
             }
 
             .privacy-content {
                 font-size: 16px;
+
                 line-height: 1.75;
             }
 
-            .privacy-intro {
-                flex-direction: column;
+            .privacy-content section {
+                margin-bottom: 50px;
             }
 
-            .privacy-contact {
-                padding: 24px;
-            }
         }
 
 
         @media (max-width: 520px) {
 
+            .privacy-notice {
+                padding: 18px;
+
+                gap: 10px;
+            }
+
             .privacy-toc {
                 padding: 16px;
             }
 
-            .privacy-heading {
-                align-items: flex-start;
+            .privacy-content h2 {
+                font-size: 25px;
             }
 
-            .privacy-heading .material-symbols-rounded {
-                width: 38px;
-                height: 38px;
-                font-size: 20px;
+            .legal-card,
+            .contact-box {
+                padding: 20px;
             }
 
-            .privacy-table {
-                min-width: 500px;
-            }
         }
 
 
@@ -762,6 +768,7 @@
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
             }
+
         }
 
     </style>
@@ -778,49 +785,22 @@
         "name": "Privacy Policy",
         "url": "https://electrical.prasunbarua.com/privacy-policy.html",
         "description": "Privacy Policy for Electrical Engineering by Prasun Barua.",
-        "inLanguage": "en",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Electrical Engineering by Prasun Barua",
-            "url": "https://electrical.prasunbarua.com/"
-        },
         "author": {
             "@type": "Person",
             "name": "Prasun Barua"
-        }
-    }
-    </script>
-
-
-    <!-- =====================================================
-         BREADCRUMB STRUCTURED DATA
-    ====================================================== -->
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://electrical.prasunbarua.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Privacy Policy",
-                "item": "https://electrical.prasunbarua.com/privacy-policy.html"
-            }
-        ]
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Prasun Barua"
+        },
+        "inLanguage": "en"
     }
     </script>
 
 </head>
 
 
-<body>
+<body id="top">
 
 
     <!-- =====================================================
@@ -835,10 +815,10 @@
                class="logo"
                aria-label="Electrical Engineering home">
 
-                <span class="logo-icon"
-                      aria-hidden="true">
+                <span class="logo-icon">
 
-                    <span class="material-symbols-rounded">
+                    <span class="material-symbols-rounded"
+                          aria-hidden="true">
                         bolt
                     </span>
 
@@ -894,40 +874,12 @@
 
 
     <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <section class="privacy-hero">
-
-        <div class="privacy-container privacy-hero-content">
-
-            <div class="privacy-eyebrow">
-                PRIVACY &amp; DATA
-            </div>
-
-            <h1>
-                Privacy <span>Policy.</span>
-            </h1>
-
-            <p>
-                This Privacy Policy explains how Electrical Engineering
-                by Prasun Barua handles information collected through
-                this website, including analytics, advertising, cookies,
-                and contact communications.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
          MAIN
     ====================================================== -->
 
     <main>
 
-        <section class="privacy-section">
+        <section class="privacy-page">
 
             <div class="privacy-container">
 
@@ -936,7 +888,7 @@
                      BREADCRUMBS
                 ================================================== -->
 
-                <nav class="privacy-breadcrumbs"
+                <nav class="breadcrumbs"
                      aria-label="Breadcrumb">
 
                     <a href="index.html">
@@ -956,14 +908,85 @@
 
 
                 <!-- =================================================
-                     LAYOUT
+                     HEADER
+                ================================================== -->
+
+                <header class="privacy-header">
+
+                    <span class="privacy-label">
+
+                        <span class="material-symbols-rounded"
+                              aria-hidden="true">
+                            lock
+                        </span>
+
+                        PRIVACY &amp; DATA
+
+                    </span>
+
+
+                    <h1>
+                        Privacy <span>Policy.</span>
+                    </h1>
+
+
+                    <p>
+                        This Privacy Policy explains how Electrical Engineering
+                        by Prasun Barua handles information, cookies, analytics,
+                        advertising, and communications when you use this website.
+                    </p>
+
+
+                    <div class="privacy-updated">
+
+                        <strong>
+                            Last updated: August 12, 2026
+                        </strong>
+
+                    </div>
+
+                </header>
+
+
+                <!-- =================================================
+                     NOTICE
+                ================================================== -->
+
+                <div class="privacy-notice">
+
+                    <span class="material-symbols-rounded"
+                          aria-hidden="true">
+                        info
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Your privacy matters.
+                        </strong>
+
+                        <p>
+                            We aim to collect and use information only where
+                            reasonably necessary to operate, secure, improve,
+                            and support this website. This page explains the
+                            main categories of information and technologies
+                            that may be involved.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     TWO-COLUMN LAYOUT
                 ================================================== -->
 
                 <div class="privacy-layout">
 
 
                     <!-- =============================================
-                         STICKY TABLE OF CONTENTS
+                         LEFT STICKY TABLE OF CONTENTS
                     ============================================== -->
 
                     <aside class="privacy-sidebar"
@@ -973,54 +996,74 @@
                              aria-label="Table of Contents">
 
                             <div class="privacy-toc-title">
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    menu_book
+                                </span>
+
                                 On This Page
+
                             </div>
+
 
                             <a href="#introduction">
                                 Introduction
                             </a>
 
                             <a href="#information">
-                                Information We Collect
+                                Information We May Collect
                             </a>
 
                             <a href="#analytics">
                                 Google Analytics
                             </a>
 
-                            <a href="#advertising">
-                                Google AdSense
-                            </a>
-
                             <a href="#cookies">
-                                Cookies
+                                Cookies &amp; Similar Technologies
                             </a>
 
-                            <a href="#contact">
-                                Contact Information
+                            <a href="#advertising">
+                                Advertising &amp; Google AdSense
                             </a>
 
                             <a href="#third-party">
                                 Third-Party Services
                             </a>
 
+                            <a href="#contact-data">
+                                Contact Information
+                            </a>
+
+                            <a href="#use">
+                                How Information Is Used
+                            </a>
+
+                            <a href="#retention">
+                                Data Retention
+                            </a>
+
                             <a href="#security">
                                 Data Security
+                            </a>
+
+                            <a href="#international">
+                                International Data Processing
+                            </a>
+
+                            <a href="#rights">
+                                Privacy Rights
                             </a>
 
                             <a href="#children">
                                 Children's Privacy
                             </a>
 
-                            <a href="#rights">
-                                Your Privacy Rights
-                            </a>
-
                             <a href="#changes">
-                                Policy Changes
+                                Changes to This Policy
                             </a>
 
-                            <a href="#contact-us">
+                            <a href="#contact">
                                 Contact Us
                             </a>
 
@@ -1030,7 +1073,7 @@
 
 
                     <!-- =============================================
-                         CONTENT
+                         RIGHT CONTENT
                     ============================================== -->
 
                     <article class="privacy-content">
@@ -1042,86 +1085,73 @@
 
                         <section id="introduction">
 
-                            <div class="privacy-intro">
+                            <h2>
 
-                                <div class="privacy-intro-icon">
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    description
+                                </span>
 
-                                    <span class="material-symbols-rounded"
-                                          aria-hidden="true">
-                                        privacy_tip
-                                    </span>
+                                Introduction
 
-                                </div>
+                            </h2>
 
-                                <div>
 
-                                    <h2>
-                                        Your Privacy Matters
-                                    </h2>
+                            <p>
+                                This Privacy Policy applies to
+                                <strong>Electrical Engineering by Prasun Barua</strong>,
+                                available at
+                                <strong>electrical.prasunbarua.com</strong>.
+                            </p>
 
-                                    <div class="privacy-updated">
 
-                                        <span class="material-symbols-rounded"
-                                              aria-hidden="true">
-                                            update
-                                        </span>
+                            <p>
+                                The website provides electrical engineering
+                                tutorials, engineering calculations,
+                                electrical design information, solar PV
+                                resources, technical articles, and related
+                                educational materials.
+                            </p>
 
-                                        Last updated: August 12, 2026
 
-                                    </div>
+                            <p>
+                                By using this website, you acknowledge that
+                                you have read this Privacy Policy and understand
+                                how information may be processed as described
+                                below.
+                            </p>
 
-                                    <p>
-                                        This Privacy Policy applies to
-                                        <strong>Electrical Engineering by
-                                        Prasun Barua</strong>, available at
-                                        <strong>electrical.prasunbarua.com</strong>.
-                                    </p>
-
-                                    <p>
-                                        The purpose of this policy is to
-                                        explain what information may be
-                                        collected when you visit the website
-                                        and how that information may be used.
-                                    </p>
-
-                                </div>
-
-                            </div>
+                            <a href="#top"
+                               class="back-top">
+                                ↑ Back to top
+                            </a>
 
                         </section>
 
 
                         <!-- =========================================
-                             INFORMATION WE COLLECT
+                             INFORMATION
                         ========================================== -->
 
-                        <section id="information"
-                                 class="privacy-section-block">
+                        <section id="information">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
                                     database
                                 </span>
 
-                                <h2>
-                                    Information We Collect
-                                </h2>
+                                Information We May Collect
 
-                            </div>
+                            </h2>
 
-                            <p>
-                                We do not require visitors to create an
-                                account or provide personal information simply
-                                to browse the website.
-                            </p>
 
                             <p>
-                                Depending on how you use the website, certain
-                                technical or voluntarily provided information
-                                may be processed.
+                                Depending on how you use the website, different
+                                types of information may be processed.
                             </p>
+
 
                             <div class="privacy-table-wrapper">
 
@@ -1136,7 +1166,11 @@
                                             </th>
 
                                             <th>
-                                                How It May Be Used
+                                                Possible Source
+                                            </th>
+
+                                            <th>
+                                                Purpose
                                             </th>
 
                                         </tr>
@@ -1148,29 +1182,18 @@
                                         <tr>
 
                                             <td>
-                                                Device and browser information
+                                                Technical information
                                             </td>
 
                                             <td>
-                                                Used for website analytics,
-                                                performance monitoring, and
-                                                security.
-                                            </td>
-
-                                        </tr>
-
-                                        <tr>
-
-                                            <td>
-                                                IP address or approximate
-                                                location
+                                                Browser, device, IP address,
+                                                operating system, approximate
+                                                location, and similar technical data
                                             </td>
 
                                             <td>
-                                                May be processed by analytics
-                                                or advertising services for
-                                                reporting, security, and
-                                                advertising purposes.
+                                                Security, analytics, performance,
+                                                and website operation
                                             </td>
 
                                         </tr>
@@ -1178,13 +1201,18 @@
                                         <tr>
 
                                             <td>
-                                                Pages visited and interactions
+                                                Usage information
                                             </td>
 
                                             <td>
-                                                Used to understand how visitors
-                                                use the website and improve
-                                                content and navigation.
+                                                Pages visited, interactions,
+                                                referring pages, and general
+                                                browsing activity
+                                            </td>
+
+                                            <td>
+                                                Understanding website usage and
+                                                improving content
                                             </td>
 
                                         </tr>
@@ -1192,13 +1220,17 @@
                                         <tr>
 
                                             <td>
-                                                Information submitted through
-                                                contact forms or email
+                                                Contact information
                                             </td>
 
                                             <td>
-                                                Used only to respond to your
-                                                inquiry or communication.
+                                                Information voluntarily submitted
+                                                through a contact method
+                                            </td>
+
+                                            <td>
+                                                Responding to enquiries and
+                                                communications
                                             </td>
 
                                         </tr>
@@ -1209,6 +1241,13 @@
 
                             </div>
 
+
+                            <p>
+                                We do not intentionally request sensitive
+                                personal information through ordinary website
+                                browsing.
+                            </p>
+
                         </section>
 
 
@@ -1216,141 +1255,62 @@
                              GOOGLE ANALYTICS
                         ========================================== -->
 
-                        <section id="analytics"
-                                 class="privacy-section-block">
+                        <section id="analytics">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
                                     analytics
                                 </span>
 
-                                <h2>
-                                    Google Analytics
-                                </h2>
+                                Google Analytics
 
-                            </div>
+                            </h2>
+
 
                             <p>
                                 This website uses
-                                <strong>Google Analytics</strong> to
-                                understand how visitors interact with the
-                                website.
+                                <strong>Google Analytics</strong> to understand
+                                general website traffic and how visitors
+                                interact with the site.
                             </p>
+
 
                             <p>
-                                Google Analytics may collect information such
-                                as pages viewed, approximate geographic
-                                information, device type, browser type,
-                                referral sources, and interactions with the
-                                website.
+                                The Google Analytics measurement ID used by this
+                                website is:
                             </p>
 
-                            <p>
-                                This information is generally used in
-                                aggregated form to understand website traffic,
-                                improve content, and improve the user
-                                experience.
-                            </p>
 
-                            <div class="privacy-notice">
+                            <div class="legal-card">
 
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    info
-                                </span>
+                                <strong>
+                                    G-XY335VGVGJ
+                                </strong>
 
-                                <div>
-
-                                    <strong>
-                                        Google Analytics
-                                    </strong>
-
-                                    <p>
-                                        Google Analytics is a third-party
-                                        service operated by Google. Its
-                                        collection and processing of
-                                        information is subject to Google's
-                                        own privacy policies and settings.
-                                    </p>
-
-                                </div>
+                                <p>
+                                    Analytics information may include page
+                                    views, approximate geographic information,
+                                    device and browser information, referral
+                                    sources, and other usage information.
+                                </p>
 
                             </div>
 
-                        </section>
-
-
-                        <!-- =========================================
-                             GOOGLE ADSENSE
-                        ========================================== -->
-
-                        <section id="advertising"
-                                 class="privacy-section-block">
-
-                            <div class="privacy-heading">
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    ads_click
-                                </span>
-
-                                <h2>
-                                    Google AdSense &amp; Advertising
-                                </h2>
-
-                            </div>
 
                             <p>
-                                This website may display advertisements
-                                through <strong>Google AdSense</strong>.
+                                Analytics data is used primarily to understand
+                                website performance, identify popular content,
+                                improve navigation, and improve the overall
+                                user experience.
                             </p>
+
 
                             <p>
-                                Google and its advertising partners may use
-                                cookies or similar technologies to provide,
-                                measure, and personalize advertising.
+                                Google may process information according to
+                                its own privacy policies and terms.
                             </p>
-
-                            <p>
-                                Advertising may be based on factors such as
-                                your browsing activity, approximate location,
-                                device information, or other signals permitted
-                                by applicable advertising technologies.
-                            </p>
-
-                            <p>
-                                We do not directly receive sensitive personal
-                                information about visitors from Google
-                                AdSense.
-                            </p>
-
-                            <div class="privacy-notice">
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    campaign
-                                </span>
-
-                                <div>
-
-                                    <strong>
-                                        Advertising Preferences
-                                    </strong>
-
-                                    <p>
-                                        Depending on your location and browser
-                                        settings, you may have options to
-                                        manage personalized advertising or
-                                        advertising cookies through Google's
-                                        available privacy and advertising
-                                        controls.
-                                    </p>
-
-                                </div>
-
-                            </div>
 
                         </section>
 
@@ -1359,81 +1319,141 @@
                              COOKIES
                         ========================================== -->
 
-                        <section id="cookies"
-                                 class="privacy-section-block">
+                        <section id="cookies">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
                                     cookie
                                 </span>
 
-                                <h2>
-                                    Cookies &amp; Similar Technologies
-                                </h2>
+                                Cookies &amp; Similar Technologies
+
+                            </h2>
+
+
+                            <p>
+                                This website and third-party services used on
+                                the website may use cookies or similar
+                                technologies.
+                            </p>
+
+
+                            <p>
+                                Cookies are small data files that can be stored
+                                on your device when you visit a website.
+                                They may be used for functions such as
+                                remembering preferences, measuring website
+                                usage, security, and advertising.
+                            </p>
+
+
+                            <div class="privacy-highlight">
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    settings
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Cookie controls
+                                    </strong>
+
+                                    <p>
+                                        You can generally control or delete
+                                        cookies through your browser settings.
+                                        Disabling certain cookies may affect
+                                        some website functionality.
+                                    </p>
+
+                                </div>
 
                             </div>
-
-                            <p>
-                                Cookies are small text files that websites may
-                                store on your device. They can help websites
-                                remember settings, understand traffic, and
-                                provide relevant functionality.
-                            </p>
-
-                            <p>
-                                This website may use cookies or similar
-                                technologies through services such as Google
-                                Analytics and Google AdSense.
-                            </p>
-
-                            <p>
-                                You can generally control or delete cookies
-                                through your browser settings. Disabling
-                                certain cookies may affect some website
-                                functionality or advertising features.
-                            </p>
 
                         </section>
 
 
                         <!-- =========================================
-                             CONTACT INFORMATION
+                             ADSENSE
                         ========================================== -->
 
-                        <section id="contact"
-                                 class="privacy-section-block">
+                        <section id="advertising">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
-                                    mail
+                                    ads_click
                                 </span>
 
-                                <h2>
-                                    Information You Provide
-                                </h2>
+                                Advertising &amp; Google AdSense
+
+                            </h2>
+
+
+                            <p>
+                                This website may display advertisements through
+                                <strong>Google AdSense</strong>.
+                            </p>
+
+
+                            <p>
+                                Google and its advertising partners may use
+                                cookies or similar technologies to provide,
+                                measure, and personalize advertising.
+                            </p>
+
+
+                            <p>
+                                Advertising may be based on factors such as
+                                website content, contextual information, and
+                                where applicable, a user's interaction with
+                                advertising services.
+                            </p>
+
+
+                            <p>
+                                Users may be shown non-personalized advertising
+                                where required by applicable settings,
+                                regulations, or consent choices.
+                            </p>
+
+
+                            <div class="privacy-highlight">
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    privacy_tip
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Advertising privacy
+                                    </strong>
+
+                                    <p>
+                                        Google's advertising systems may use
+                                        cookies and similar technologies in
+                                        accordance with Google's policies.
+                                        Visitors should review Google's
+                                        advertising and privacy information
+                                        for details about available controls.
+                                    </p>
+
+                                </div>
 
                             </div>
 
-                            <p>
-                                If you contact us by email or through a contact
-                                form, you may voluntarily provide information
-                                such as your name, email address, subject,
-                                message, or other information necessary to
-                                respond to your inquiry.
-                            </p>
 
                             <p>
-                                This information is used primarily for
-                                communication and responding to your request.
-                            </p>
-
-                            <p>
-                                We do not sell or rent voluntarily submitted
-                                contact information to third parties.
+                                Where applicable, consent requirements for
+                                users in the European Economic Area (EEA),
+                                the United Kingdom, and Switzerland are handled
+                                through Google's applicable consent mechanisms.
                             </p>
 
                         </section>
@@ -1443,39 +1463,179 @@
                              THIRD PARTY
                         ========================================== -->
 
-                        <section id="third-party"
-                                 class="privacy-section-block">
+                        <section id="third-party">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
-                                    open_in_new
+                                    hub
                                 </span>
 
-                                <h2>
-                                    Third-Party Services &amp; External Links
-                                </h2>
+                                Third-Party Services
 
-                            </div>
+                            </h2>
+
 
                             <p>
-                                The website may contain links to external
-                                websites, tools, documentation, standards
-                                organizations, calculators, educational
-                                resources, or other third-party services.
+                                The website may rely on third-party services
+                                to provide analytics, advertising, fonts,
+                                security, hosting, external resources, or
+                                other website functionality.
                             </p>
 
-                            <p>
-                                When you follow an external link, you leave
-                                this website and become subject to the privacy
-                                policy and terms of the external website.
-                            </p>
 
                             <p>
-                                We do not control the privacy practices,
-                                security, content, or policies of third-party
-                                websites.
+                                These third parties may process technical or
+                                usage information according to their own
+                                privacy policies.
+                            </p>
+
+
+                            <p>
+                                Examples of services used or potentially used
+                                by this website include Google Analytics,
+                                Google AdSense, Google Fonts, and other
+                                infrastructure or external services required
+                                to operate the website.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =========================================
+                             CONTACT DATA
+                        ========================================== -->
+
+                        <section id="contact-data">
+
+                            <h2>
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    mail
+                                </span>
+
+                                Contact Information
+
+                            </h2>
+
+
+                            <p>
+                                If you contact us through an email address,
+                                contact form, or another communication method,
+                                we may receive the information you voluntarily
+                                provide.
+                            </p>
+
+
+                            <p>
+                                This may include your name, email address,
+                                message, and any other information you choose
+                                to provide.
+                            </p>
+
+
+                            <p>
+                                Such information is used primarily to respond
+                                to your enquiry and communicate with you
+                                regarding your request.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =========================================
+                             USE
+                        ========================================== -->
+
+                        <section id="use">
+
+                            <h2>
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    task_alt
+                                </span>
+
+                                How Information Is Used
+
+                            </h2>
+
+
+                            <p>
+                                Information may be used for purposes including:
+                            </p>
+
+
+                            <ul>
+
+                                <li>
+                                    Operating and maintaining the website.
+                                </li>
+
+                                <li>
+                                    Improving website content and navigation.
+                                </li>
+
+                                <li>
+                                    Understanding website traffic and usage.
+                                </li>
+
+                                <li>
+                                    Detecting security issues, abuse, or
+                                    suspicious activity.
+                                </li>
+
+                                <li>
+                                    Responding to enquiries and communications.
+                                </li>
+
+                                <li>
+                                    Supporting advertising and measurement
+                                    services where applicable.
+                                </li>
+
+                                <li>
+                                    Complying with applicable legal obligations.
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+
+                        <!-- =========================================
+                             RETENTION
+                        ========================================== -->
+
+                        <section id="retention">
+
+                            <h2>
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    schedule
+                                </span>
+
+                                Data Retention
+
+                            </h2>
+
+
+                            <p>
+                                Information is retained only for as long as
+                                reasonably necessary for the purpose for which
+                                it was collected, including legal, security,
+                                operational, and business requirements.
+                            </p>
+
+
+                            <p>
+                                Information processed by third-party services
+                                such as analytics or advertising providers may
+                                be retained according to those providers'
+                                respective policies and retention settings.
                             </p>
 
                         </section>
@@ -1485,38 +1645,123 @@
                              SECURITY
                         ========================================== -->
 
-                        <section id="security"
-                                 class="privacy-section-block">
+                        <section id="security">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
                                     security
                                 </span>
 
-                                <h2>
-                                    Data Security
-                                </h2>
+                                Data Security
 
-                            </div>
+                            </h2>
+
 
                             <p>
                                 Reasonable technical and organizational
-                                measures may be used to protect information
+                                measures are used to help protect information
                                 handled through this website.
                             </p>
 
-                            <p>
-                                However, no method of transmission over the
-                                Internet or method of electronic storage can
-                                be guaranteed to be completely secure.
-                            </p>
 
                             <p>
-                                Therefore, we cannot guarantee absolute
-                                security of information transmitted over the
-                                Internet.
+                                However, no internet transmission, website,
+                                server, or electronic storage system can be
+                                guaranteed to be completely secure.
+                            </p>
+
+
+                            <p>
+                                You should therefore avoid sending confidential,
+                                sensitive, or highly personal information
+                                through ordinary website communications.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =========================================
+                             INTERNATIONAL
+                        ========================================== -->
+
+                        <section id="international">
+
+                            <h2>
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    public
+                                </span>
+
+                                International Data Processing
+
+                            </h2>
+
+
+                            <p>
+                                Because this website uses third-party services
+                                and internet infrastructure, information may
+                                be processed or stored in countries other than
+                                the country from which you access the website.
+                            </p>
+
+
+                            <p>
+                                Such processing may be subject to the privacy
+                                and data protection laws applicable to the
+                                relevant service provider and location.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =========================================
+                             RIGHTS
+                        ========================================== -->
+
+                        <section id="rights">
+
+                            <h2>
+
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    manage_accounts
+                                </span>
+
+                                Privacy Rights
+
+                            </h2>
+
+
+                            <p>
+                                Depending on where you live and applicable law,
+                                you may have rights relating to personal
+                                information.
+                            </p>
+
+
+                            <p>
+                                These may include rights to request access,
+                                correction, deletion, restriction of processing,
+                                objection to certain processing, or other
+                                rights provided by applicable data protection
+                                legislation.
+                            </p>
+
+
+                            <p>
+                                Where applicable, users in the EEA, United
+                                Kingdom, and Switzerland may have additional
+                                rights under relevant data protection laws.
+                            </p>
+
+
+                            <p>
+                                Requests regarding personal information may be
+                                submitted using the contact information provided
+                                on this website.
                             </p>
 
                         </section>
@@ -1526,144 +1771,38 @@
                              CHILDREN
                         ========================================== -->
 
-                        <section id="children"
-                                 class="privacy-section-block">
+                        <section id="children">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
-                                    family_restroom
+                                    child_care
                                 </span>
 
-                                <h2>
-                                    Children's Privacy
-                                </h2>
+                                Children's Privacy
 
-                            </div>
+                            </h2>
 
-                            <p>
-                                This website provides general electrical
-                                engineering and educational information.
-                            </p>
 
                             <p>
-                                We do not knowingly request or intentionally
-                                collect personal information from children
-                                for the purpose of creating accounts or
-                                profiles.
+                                This website is intended primarily for general
+                                educational and professional audiences.
                             </p>
+
+
+                            <p>
+                                We do not knowingly request personal information
+                                from children for the purpose of collecting
+                                such information.
+                            </p>
+
 
                             <p>
                                 If you believe that a child has provided
                                 personal information through the website,
-                                please contact us so that the matter can be
-                                reviewed.
-                            </p>
-
-                        </section>
-
-
-                        <!-- =========================================
-                             PRIVACY RIGHTS
-                        ========================================== -->
-
-                        <section id="rights"
-                                 class="privacy-section-block">
-
-                            <div class="privacy-heading">
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    manage_accounts
-                                </span>
-
-                                <h2>
-                                    Your Privacy Rights
-                                </h2>
-
-                            </div>
-
-                            <p>
-                                Depending on where you live, you may have
-                                certain rights regarding your personal
-                                information under applicable privacy laws.
-                            </p>
-
-                            <p>
-                                These rights may include, where applicable:
-                            </p>
-
-                            <ul>
-
-                                <li>
-                                    Requesting information about personal
-                                    data processed about you.
-                                </li>
-
-                                <li>
-                                    Requesting correction of inaccurate
-                                    personal information.
-                                </li>
-
-                                <li>
-                                    Requesting deletion of certain personal
-                                    information.
-                                </li>
-
-                                <li>
-                                    Objecting to or restricting certain
-                                    processing activities.
-                                </li>
-
-                                <li>
-                                    Withdrawing consent where processing is
-                                    based on consent.
-                                </li>
-
-                            </ul>
-
-                            <p>
-                                The availability of these rights depends on
-                                applicable law and the circumstances of the
-                                request.
-                            </p>
-
-                        </section>
-
-
-                        <!-- =========================================
-                             INTERNATIONAL DATA
-                        ========================================== -->
-
-                        <section id="international"
-                                 class="privacy-section-block">
-
-                            <div class="privacy-heading">
-
-                                <span class="material-symbols-rounded"
-                                      aria-hidden="true">
-                                    language
-                                </span>
-
-                                <h2>
-                                    International Data Processing
-                                </h2>
-
-                            </div>
-
-                            <p>
-                                Because this website uses third-party services
-                                and Internet infrastructure located in
-                                different countries, information processed
-                                through these services may be transferred
-                                across international borders.
-                            </p>
-
-                            <p>
-                                Third-party providers may process information
-                                according to their own privacy policies and
-                                applicable legal requirements.
+                                please contact us so that appropriate action
+                                can be considered.
                             </p>
 
                         </section>
@@ -1673,87 +1812,89 @@
                              CHANGES
                         ========================================== -->
 
-                        <section id="changes"
-                                 class="privacy-section-block">
+                        <section id="changes">
 
-                            <div class="privacy-heading">
+                            <h2>
 
                                 <span class="material-symbols-rounded"
                                       aria-hidden="true">
-                                    edit_note
+                                    update
                                 </span>
 
-                                <h2>
-                                    Changes to This Privacy Policy
-                                </h2>
+                                Changes to This Privacy Policy
 
-                            </div>
+                            </h2>
+
 
                             <p>
                                 This Privacy Policy may be updated from time
-                                to time to reflect changes to the website,
-                                services, technologies, or applicable legal
-                                requirements.
+                                to time to reflect changes in the website,
+                                services, technologies, legal requirements,
+                                or privacy practices.
                             </p>
+
 
                             <p>
                                 When changes are made, the updated version will
-                                be published on this page and the
-                                <strong>Last updated</strong> date will be
-                                revised where appropriate.
-                            </p>
-
-                            <p>
-                                We encourage visitors to review this page
-                                periodically for the latest information.
+                                be published on this page with a revised
+                                "Last updated" date.
                             </p>
 
                         </section>
 
 
                         <!-- =========================================
-                             CONTACT US
+                             CONTACT
                         ========================================== -->
 
-                        <section id="contact-us">
+                        <section id="contact">
 
-                            <div class="privacy-contact">
+                            <h2>
 
-                                <div class="privacy-heading">
+                                <span class="material-symbols-rounded"
+                                      aria-hidden="true">
+                                    contact_mail
+                                </span>
 
-                                    <span class="material-symbols-rounded"
-                                          aria-hidden="true">
-                                        contact_mail
-                                    </span>
+                                Contact Us
 
-                                    <h2>
-                                        Contact Us
-                                    </h2>
+                            </h2>
 
-                                </div>
+
+                            <div class="contact-box">
 
                                 <p>
-                                    If you have questions about this Privacy
-                                    Policy, the information handled through
-                                    this website, or your privacy rights,
-                                    please contact us.
+                                    If you have questions, concerns, or
+                                    requests regarding this Privacy Policy
+                                    or the handling of information on this
+                                    website, please contact us through the
+                                    website's contact page.
                                 </p>
 
-                                <a href="contact.html"
-                                   class="privacy-button">
 
-                                    Contact Prasun Barua
+                                <p>
 
-                                    <span class="material-symbols-rounded"
-                                          aria-hidden="true">
-                                        arrow_forward
-                                    </span>
+                                    <a href="contact.html">
+                                        Contact Electrical Engineering
+                                    </a>
 
-                                </a>
+                                </p>
 
                             </div>
 
                         </section>
+
+
+                        <!-- =========================================
+                             BACK TO TOP
+                        ========================================== -->
+
+                        <a href="#top"
+                           class="back-top">
+
+                            ↑ Back to top
+
+                        </a>
 
 
                     </article>
@@ -1773,125 +1914,12 @@
 
     <footer class="site-footer">
 
-        <div class="container footer-grid">
+        <div class="container">
 
-
-            <div>
-
-                <div class="footer-logo">
-
-                    <span class="material-symbols-rounded"
-                          aria-hidden="true">
-                        bolt
-                    </span>
-
-                    Electrical Engineering
-
-                </div>
-
-                <p>
-                    Practical electrical engineering tutorials,
-                    calculations, design guides, and renewable
-                    energy resources.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Explore
-                </h3>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="articles/electrical-fundamentals/">
-                            Electrical Fundamentals
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="articles/electrical-calculations/">
-                            Calculations
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="articles/solar-pv/">
-                            Solar PV
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Information
-                </h3>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="privacy-policy.html"
-                           aria-current="page">
-                            Privacy Policy
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="terms-and-conditions.html">
-                            Terms &amp; Conditions
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="disclaimer.html">
-                            Disclaimer
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <div class="container">
-
-                <p>
-                    &copy; 2026 Electrical Engineering by Prasun Barua.
-                    All rights reserved.
-                </p>
-
-            </div>
+            <p>
+                &copy; 2026 Electrical Engineering by Prasun Barua.
+                All rights reserved.
+            </p>
 
         </div>
 
