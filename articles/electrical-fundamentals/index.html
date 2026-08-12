@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Google Analytics (gtag.js) -->
+    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -15,331 +15,307 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Metadata -->
-    <title>Electrical Fundamentals | Electrical Engineering</title>
-    <meta name="description" content="Learn electrical engineering fundamentals including voltage, current, resistance, Ohm's law, AC and DC, electrical power, and essential circuit concepts.">
+    <title>Ohm's Law Explained: Formula, Examples & Calculations | Electrical Engineering</title>
+    <meta name="description" content="Ohm's Law describes how voltage, current, and resistance interact in an electrical circuit. Learn the formula, triangle, and practical engineering examples.">
     <meta name="author" content="Prasun Barua">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Electrical Fundamentals | Electrical Engineering">
-    <meta property="og:description" content="Build a strong foundation in electrical engineering through clear explanations, practical examples, and core circuit principles.">
-    <meta property="og:url" content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/">
-    <meta property="og:image" content="https://electrical.prasunbarua.com/assets/images/og-image.jpg">
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Electrical Fundamentals | Electrical Engineering">
-    <meta name="twitter:description" content="Learn electrical engineering fundamentals including voltage, current, resistance, Ohm's law, AC and DC.">
+    <link rel="canonical" href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
-    <!-- Preconnect Fonts -->
+    <!-- Fonts & Material Symbols -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Google Fonts & Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- Embedded Styles (Includes Layout Fixes directly so page doesn't break if CSS fails to link) -->
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --radius: 12px;
+            --max-width: 860px;
+        }
 
-    <!-- Monetization Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Structured Data (BreadcrumbList) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://electrical.prasunbarua.com/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Electrical Fundamentals",
-        "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-      }]
-    }
-    </script>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Fix */
+        .site-header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            background: #fff;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        .logo-icon {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 8px;
+            padding: 6px;
+            display: flex;
+        }
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Article Structure Fix */
+        article.content-wrapper {
+            padding: 2.5rem 0 4rem;
+        }
+
+        /* Breadcrumb Styling */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+
+        .category-eyebrow {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1.article-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--text-dark);
+            margin: 0.5rem 0 1rem;
+        }
+
+        .article-lead {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Meta Row */
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Table of Contents Pill Styling */
+        .toc-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .toc-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+        .toc-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            list-style: none;
+        }
+        .toc-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .toc-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Callout / Quick Answer Box */
+        .quick-answer-card {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 2.5rem;
+        }
+        .quick-answer-card h3 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Formula Box Styling */
+        .formula-box {
+            background: var(--text-dark);
+            color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin: 2rem 0;
+        }
+
+        /* Body Typography */
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+        }
+        .article-body p {
+            margin-bottom: 1.25rem;
+            color: #334155;
+            font-size: 1.05rem;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+    <!-- SITE HEADER -->
     <header class="site-header">
-        <div class="container header-inner">
-            <a href="../../index.html" class="logo" aria-label="Electrical Engineering Home">
+        <div class="header-inner">
+            <a href="../../../index.html" class="logo" aria-label="Electrical Engineering Home">
                 <span class="logo-icon">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
+                    <span class="material-symbols-rounded">bolt</span>
                 </span>
-                <span class="logo-text">
-                    <strong>Electrical Engineering</strong>
-                    <small>by Prasun Barua</small>
+                <span>
+                    <strong>Electrical Engineering</strong><br>
+                    <small style="color:var(--text-muted)">by Prasun Barua</small>
                 </span>
             </a>
 
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span class="material-symbols-rounded">menu</span>
-            </button>
-
-            <nav class="main-nav" aria-label="Main navigation">
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="./" class="active" aria-current="page">Tutorials</a></li>
-                    <li><a href="../electrical-calculations/">Calculations</a></li>
-                    <li><a href="../solar-pv/">Solar PV</a></li>
-                    <li><a href="../../about.html">About</a></li>
-                    <li><a href="../../contact.html">Contact</a></li>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../" class="active">Tutorials</a></li>
+                    <li><a href="../../electrical-calculations/">Calculations</a></li>
+                    <li><a href="../../solar-pv/">Solar PV</a></li>
+                    <li><a href="../../../about.html">About</a></li>
+                    <li><a href="../../../contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
-    <main>
+    <!-- MAIN ARTICLE SECTION -->
+    <main class="container">
+        <article class="content-wrapper">
+            
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../index.html">Home</a> &rsaquo;
+                <a href="../">Electrical Fundamentals</a> &rsaquo;
+                <span>Ohm's Law</span>
+            </nav>
 
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <span class="eyebrow">ELECTRICAL ENGINEERING FUNDAMENTALS</span>
-                    <h1>Electrical <span>Fundamentals.</span></h1>
-                    <p>Build a strong foundation in electrical engineering through clear explanations, practical examples, essential formulas, and core engineering concepts.</p>
-                </div>
+            <span class="category-eyebrow">ELECTRICAL FUNDAMENTALS</span>
+            <h1 class="article-title">Ohm's Law Explained: Formula, Examples & Calculations</h1>
+            <p class="article-lead">Ohm's Law is one of the most foundational relationships in electrical engineering. It describes how voltage, current, and resistance interact within an electrical circuit.</p>
+
+            <div class="article-meta">
+                <span>By <strong>Prasun Barua</strong></span>
+                <span>Category: <strong>Electrical Engineering</strong></span>
+                <span>Updated: <strong>August 2026</strong></span>
             </div>
-        </section>
 
-        <!-- INTRODUCTION SECTION -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">school</span>
-                        START HERE
-                    </span>
-                    <h2>Build Your Electrical Engineering Foundation</h2>
-                    <p>Electrical engineering concepts become intuitive when the core fundamentals are crystal clear. These modules introduce essential principles used throughout power systems, circuit design, and renewable energy.</p>
-                </div>
-
-                <!-- ARTICLE GRID -->
-                <div class="article-grid">
-
-                    <!-- Voltage, Current and Resistance -->
-                    <article class="article-card">
-                        <div class="article-category">FUNDAMENTALS · BEGINNER</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">electric_bolt</span>
-                        </div>
-                        <h3>Voltage, Current and Resistance</h3>
-                        <p>Learn the three primary electrical quantities that define circuit behavior. Understand how voltage, current, and resistance interact in practical systems.</p>
-                        <a href="what-is-voltage-current-resistance.html" class="card-link" aria-label="Read Voltage, Current and Resistance tutorial">
-                            Read Tutorial
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </a>
-                    </article>
-
-                    <!-- Ohm's Law -->
-                    <article class="article-card">
-                        <div class="article-category">FUNDAMENTALS · CIRCUITS</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">functions</span>
-                        </div>
-                        <h3>Ohm's Law Explained</h3>
-                        <p>Explore the governing formula of direct current analysis and discover how to calculate voltage drops, currents, and component power ratings.</p>
-                        <a href="ohms-law/" class="card-link" aria-label="Read Ohm's Law Explained tutorial">
-                            Read Tutorial
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                        </a>
-                    </article>
-
-                    <!-- AC vs DC -->
-                    <article class="article-card">
-                        <div class="article-category">FUNDAMENTALS · AC &amp; DC</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">waves</span>
-                        </div>
-                        <h3>AC vs DC Electricity</h3>
-                        <p>Learn the fundamental differences between alternating current and direct current, including grid distribution and local power applications.</p>
-                        <a href="#" class="card-link disabled" tabindex="-1" aria-disabled="true" aria-label="AC vs DC Electricity tutorial coming soon">
-                            Coming Soon
-                            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
-                        </a>
-                    </article>
-
-                    <!-- Electrical Power -->
-                    <article class="article-card">
-                        <div class="article-category">FUNDAMENTALS · POWER</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                        </div>
-                        <h3>Electrical Power Explained</h3>
-                        <p>Understand real power, apparent power, and reactive components. Learn how power transfer is calculated across alternating and direct current circuits.</p>
-                        <a href="#" class="card-link disabled" tabindex="-1" aria-disabled="true" aria-label="Electrical Power tutorial coming soon">
-                            Coming Soon
-                            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
-                        </a>
-                    </article>
-
-                    <!-- Electrical Energy -->
-                    <article class="article-card">
-                        <div class="article-category">FUNDAMENTALS · ENERGY</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">energy_savings_leaf</span>
-                        </div>
-                        <h3>Electrical Energy &amp; Consumption</h3>
-                        <p>Discover how electrical energy accumulates over time, how utility meters measure consumption, and how efficiency impacts system design.</p>
-                        <a href="#" class="card-link disabled" tabindex="-1" aria-disabled="true" aria-label="Electrical Energy tutorial coming soon">
-                            Coming Soon
-                            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
-                        </a>
-                    </article>
-
-                    <!-- Circuit Basics -->
-                    <article class="article-card">
-                        <div class="article-category">FUNDAMENTALS · CIRCUITS</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">account_tree</span>
-                        </div>
-                        <h3>Understanding Electrical Circuits</h3>
-                        <p>Explore the fundamental components of standard circuits: sources, conductors, switches, protective devices, and load configurations.</p>
-                        <a href="#" class="card-link disabled" tabindex="-1" aria-disabled="true" aria-label="Understanding Electrical Circuits tutorial coming soon">
-                            Coming Soon
-                            <span class="material-symbols-rounded" aria-hidden="true">schedule</span>
-                        </a>
-                    </article>
-
-                </div>
+            <!-- Table of Contents -->
+            <div class="toc-box">
+                <div class="toc-title">On This Page</div>
+                <ul class="toc-links">
+                    <li><a href="#what-is-ohms-law">What Is Ohm's Law?</a></li>
+                    <li><a href="#formula">Ohm's Law Formula</a></li>
+                    <li><a href="#triangle">Ohm's Law Triangle</a></li>
+                    <li><a href="#examples">Worked Example</a></li>
+                    <li><a href="#notes">Engineering Notes</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
             </div>
-        </section>
 
-        <!-- LEARNING PATH SECTION -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">route</span>
-                        RECOMMENDED LEARNING PATH
-                    </span>
-                    <h2>Learn Electrical Engineering Step by Step</h2>
-                    <p>Start with basic electrical parameters, then progress sequentially to circuit analysis, system design, and renewable energy integration.</p>
-                </div>
-
-                <div class="article-grid path-grid">
-                    <article class="article-card path-card">
-                        <div class="article-category">STEP 01</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
-                        </div>
-                        <h3>Understand the Fundamentals</h3>
-                        <p>Master core concepts: voltage, current flow, electrical resistance, and governing physical laws.</p>
-                    </article>
-
-                    <article class="article-card path-card">
-                        <div class="article-category">STEP 02</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                        </div>
-                        <h3>Master Calculations</h3>
-                        <p>Apply foundational equations through practical examples and online calculation tools.</p>
-                    </article>
-
-                    <article class="article-card path-card">
-                        <div class="article-category">STEP 03</div>
-                        <div class="icon-box">
-                            <span class="material-symbols-rounded" aria-hidden="true">engineering</span>
-                        </div>
-                        <h3>Apply Engineering Principles</h3>
-                        <p>Bridge theoretical concepts with actual power distribution, solar PV systems, and safety design.</p>
-                    </article>
-                </div>
+            <!-- Quick Answer Card -->
+            <div class="quick-answer-card">
+                <h3>Quick Answer</h3>
+                <p>Ohm's Law states that the current ($I$) flowing through a conductor between two points is directly proportional to the voltage ($V$) across the two points and inversely proportional to the resistance ($R$).</p>
             </div>
-        </section>
 
-        <!-- CALCULATOR CTA SECTION -->
-        <section class="section">
-            <div class="container">
-                <div class="feature-panel">
-                    <div class="feature-content">
-                        <span class="section-label">
-                            <span class="material-symbols-rounded" aria-hidden="true">calculate</span>
-                            PRACTICAL TOOLS
-                        </span>
-                        <h2>Turn Concepts Into Practical Calculations</h2>
-                        <p>Put your core knowledge to work with specialized engineering tools designed for wire sizing, voltage drop, and power factor analysis.</p>
-                        <a href="https://calculator.prasunbarua.com/" target="_blank" rel="noopener" class="primary-button">
-                            Explore Calculators
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
-                        </a>
-                    </div>
-                </div>
+            <!-- Formula Visual Block -->
+            <div class="formula-box" id="formula">
+                V = I &times; R
             </div>
-        </section>
 
-        <!-- LEARNING NOTE SECTION -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="author-section">
-                    <div>
-                        <span class="section-label">
-                            <span class="material-symbols-rounded" aria-hidden="true">info</span>
-                            ENGINEERING INSIGHT
-                        </span>
-                        <h2>Understand the Physical Meaning First</h2>
-                        <p>Engineering equations are practical tools, not just abstract mathematics. Grasping the physical phenomena behind each unit ensures accurate formula selection, precise result interpretation, and faster error detection in real-world scenarios.</p>
-                    </div>
-                </div>
+            <!-- Main Content Area -->
+            <div class="article-body">
+                <h2 id="what-is-ohms-law">What Is Ohm's Law?</h2>
+                <p>Ohm's Law is a fundamental principle used in electrical and electronic engineering to calculate the relationship between voltage, current, and resistance in an electrical circuit.</p>
+                <p>When the resistance of a circuit is constant, increasing the voltage results in a proportional increase in current. Conversely, if resistance increases for a given voltage, current decreases.</p>
             </div>
-        </section>
 
+        </article>
     </main>
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <div class="footer-logo">
-                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
-                    Electrical Engineering
-                </div>
-                <p>Clear, practical electrical engineering tutorials, online calculators, system design guides, and solar energy resources.</p>
-            </div>
-
-            <div>
-                <h3>Explore</h3>
-                <a href="../../index.html">Home</a>
-                <a href="./">Electrical Fundamentals</a>
-                <a href="../electrical-calculations/">Calculations</a>
-                <a href="../solar-pv/">Solar PV</a>
-            </div>
-
-            <div>
-                <h3>Information</h3>
-                <a href="../../about.html">About</a>
-                <a href="../../contact.html">Contact</a>
-                <a href="../../privacy-policy.html">Privacy Policy</a>
-                <a href="../../disclaimer.html">Disclaimer</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
 </body>
 </html>
