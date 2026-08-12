@@ -3090,7 +3090,34 @@ pre {
     pointer-events: none;
 }
 
+/* =========================================================
+   FIX: SHARE BUTTON ICON VISIBILITY
+   ========================================================= */
+/* Force icon elements to display with full visibility */
+.share-button i,
+.share-button svg,
+.share-button img,
+.share-button .material-symbols-rounded,
+.share-button .material-symbols-outlined,
+.share-button .material-icons,
+.share-button .share-icon,
+.share-button .icon,
+.share-button [class*="fa-"],
+.share-button [class*="bi-"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    color: currentColor !important;
+}
 
+/* Ensure SVG icons inherit current text color */
+.share-button svg {
+    fill: currentColor;
+}
 /* =========================================================
    END OF STYLE.CSS
    ========================================================= */
