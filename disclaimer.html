@@ -29,8 +29,8 @@
     <meta property="og:url" content="https://electrical.prasunbarua.com/disclaimer.html">
     <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+    <!-- Favicon (Monochromatic Dark Minimalist) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111827' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
     <!-- Font & Asset Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
 
-    <!-- Apple & Google Minimalist Single Unified Page Styling -->
+    <!-- Grey / Black / White Minimalist Styling -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -66,8 +66,15 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+        }
+        .logo-icon span.material-symbols-rounded {
+            color: #111827 !important;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #000000 !important;
         }
         .section, .section-alt {
             background-color: #ffffff !important;
@@ -89,7 +96,7 @@
             color: #4b5563;
         }
         
-        /* Unified Single Page Document Flow (No Separate Boxes) */
+        /* Unified Single Page Document Flow */
         .article-content {
             background: #ffffff;
             padding: 0;
@@ -97,8 +104,8 @@
             margin: 0 auto;
         }
         .legal-intro {
-            background: #f8fafc;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #f9fafb;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 12px;
             padding: 1.75rem;
             margin-bottom: 2.5rem;
@@ -120,7 +127,7 @@
         }
         .legal-heading span.material-symbols-rounded {
             font-size: 20px;
-            color: #2563eb;
+            color: #374151;
         }
         .legal-heading h2 {
             font-size: 1.1rem;
@@ -134,13 +141,32 @@
             color: #4b5563;
             margin-bottom: 0.85rem;
         }
+        a.text-link, .article-content a {
+            color: #111827;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #d1d5db;
+        }
+        a.text-link:hover, .article-content a:hover {
+            color: #000000;
+            text-decoration-color: #111827;
+        }
         .notice-box {
-            background: #fffbeb;
-            border: 1px solid #fef3c7;
-            border-left: 3px solid #f59e0b;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-left: 3px solid #111827;
             border-radius: 8px;
             padding: 1rem 1.25rem;
             margin-top: 1rem;
+        }
+        .notice-box .quick-answer-title {
+            color: #111827 !important;
+        }
+        .notice-box .quick-answer-title span.material-symbols-rounded {
+            color: #111827 !important;
+        }
+        .notice-box p {
+            color: #374151 !important;
         }
         .article-grid {
             display: grid;
@@ -150,7 +176,7 @@
         }
         .article-card {
             background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 12px;
             padding: 1.25rem;
             transition: all 0.2s ease;
@@ -158,10 +184,13 @@
         .article-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-            border-color: rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+        .card-link {
+            color: #111827 !important;
         }
 
-        /* High-Contrast Professional Footer Styling */
+        /* High-Contrast Clean Minimal Grey/Black Footer Styling */
         .site-footer {
             background-color: #ffffff !important;
             border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -184,7 +213,7 @@
             margin-bottom: 0.5rem !important;
         }
         .site-footer .footer-logo span {
-            color: #2563eb !important;
+            color: #111827 !important;
         }
         .site-footer p {
             font-size: 13px !important;
@@ -200,7 +229,8 @@
         }
         .site-footer a:hover,
         .site-footer a.active {
-            color: #2563eb !important;
+            color: #111827 !important;
+            text-decoration: underline !important;
         }
         .footer-grid {
             display: grid;
@@ -213,7 +243,7 @@
             padding: 1.25rem 0 !important;
             text-align: left !important;
             font-size: 12.5px !important;
-            color: #374151 !important;
+            color: #4b5563 !important;
         }
         @media (max-width: 768px) {
             .footer-grid {
@@ -334,11 +364,11 @@
                         <p>Information published on this website should therefore not be treated as a replacement for project-specific engineering analysis or professional review.</p>
 
                         <div class="notice-box" role="note">
-                            <div class="quick-answer-title" style="display: flex; align-items: center; gap: 6px; font-weight: 600; margin-bottom: 6px; color: #92400e;">
-                                <span class="material-symbols-rounded" aria-hidden="true" style="color: #f59e0b; font-size: 18px;">warning</span>
+                            <div class="quick-answer-title" style="display: flex; align-items: center; gap: 6px; font-weight: 600; margin-bottom: 6px;">
+                                <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 18px;">warning</span>
                                 Important Safety Notice
                             </div>
-                            <p style="margin: 0; color: #78350f;">Before using any calculation, design method, or technical information on an actual project, verify it against the applicable standards, manufacturer documentation, project specifications, and requirements of the relevant authority or qualified professional.</p>
+                            <p style="margin: 0;">Before using any calculation, design method, or technical information on an actual project, verify it against the applicable standards, manufacturer documentation, project specifications, and requirements of the relevant authority or qualified professional.</p>
                         </div>
                     </section>
 
@@ -477,7 +507,7 @@
                         </div>
                         <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0.5rem 0 0.25rem 0;">About</h3>
                         <p>Learn about Prasun Barua and the purpose behind this engineering education resource.</p>
-                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem; color: #2563eb;">
+                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem;">
                             Learn More
                             <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px;">arrow_forward</span>
                         </span>
@@ -489,7 +519,7 @@
                         </div>
                         <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0.5rem 0 0.25rem 0;">Privacy Policy</h3>
                         <p>Learn how information may be collected, used, and handled when you use this website.</p>
-                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem; color: #2563eb;">
+                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem;">
                             Read Privacy Policy
                             <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px;">arrow_forward</span>
                         </span>
@@ -501,7 +531,7 @@
                         </div>
                         <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0.5rem 0 0.25rem 0;">Contact</h3>
                         <p>Send a question, correction, suggestion, or collaboration inquiry through the contact form.</p>
-                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem; color: #2563eb;">
+                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem;">
                             Contact
                             <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px;">arrow_forward</span>
                         </span>
