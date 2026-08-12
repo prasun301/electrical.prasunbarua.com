@@ -1,8 +1,7 @@
 /* =========================================================
    ELECTRICAL ENGINEERING BY PRASUN BARUA
    GLOBAL LIGHT DESIGN SYSTEM
-   APPLE / GOOGLE INSPIRED
-   VERSION 2.0
+   Apple / Google Inspired
    ========================================================= */
 
 
@@ -13,13 +12,12 @@
 :root {
 
     /* -----------------------------------------------------
-       CORE COLORS
+       COLORS
        ----------------------------------------------------- */
 
     --bg: #ffffff;
     --bg-soft: #f5f5f7;
     --bg-subtle: #fafafa;
-    --bg-hover: #f2f2f5;
 
     --surface: #ffffff;
     --surface-hover: #f8f8fa;
@@ -33,18 +31,10 @@
     --border-light: #ededf0;
     --border-strong: #d2d2d7;
 
-    /* -----------------------------------------------------
-       BRAND
-       ----------------------------------------------------- */
-
     --blue: #0066cc;
     --blue-hover: #004f9e;
     --blue-soft: #eaf3ff;
     --blue-softer: #f5f8fc;
-
-    /* -----------------------------------------------------
-       STATUS
-       ----------------------------------------------------- */
 
     --success: #248a3d;
     --warning: #b76e00;
@@ -55,13 +45,14 @@
        ----------------------------------------------------- */
 
     --facebook: #1877f2;
-    --x: #111111;
+    --x: #000000;
     --linkedin: #0a66c2;
     --whatsapp: #25d366;
     --pinterest: #e60023;
     --telegram: #229ed9;
     --reddit: #ff4500;
     --email: #5f6368;
+    --copy: #0066cc;
 
     /* -----------------------------------------------------
        SHADOWS
@@ -78,9 +69,6 @@
 
     --shadow-lg:
         0 16px 40px rgba(0, 0, 0, 0.08);
-
-    --shadow-header:
-        0 1px 3px rgba(0, 0, 0, 0.04);
 
     /* -----------------------------------------------------
        RADIUS
@@ -99,7 +87,6 @@
 
     --container-width: 1180px;
     --article-width: 820px;
-    --sidebar-width: 240px;
 
     /* -----------------------------------------------------
        TYPOGRAPHY
@@ -133,7 +120,7 @@
         0.16s ease;
 
     --transition:
-        0.20s ease;
+        0.2s ease;
 
     --transition-slow:
         0.28s ease;
@@ -261,7 +248,7 @@ select:focus-visible {
 
 
 /* =========================================================
-   4. TYPOGRAPHY
+   4. TYPOGRAPHY SYSTEM
    ========================================================= */
 
 h1,
@@ -286,6 +273,8 @@ h6 {
 
 p {
     color: var(--text-secondary);
+
+    font-weight: 400;
 }
 
 strong,
@@ -317,8 +306,6 @@ pre {
 
     margin-left: auto;
     margin-right: auto;
-
-    min-width: 0;
 }
 
 
@@ -338,8 +325,6 @@ pre {
     background: rgba(255, 255, 255, 0.94);
 
     border-bottom: 1px solid rgba(229, 229, 234, 0.88);
-
-    box-shadow: var(--shadow-header);
 
     backdrop-filter: blur(18px) saturate(180%);
     -webkit-backdrop-filter: blur(18px) saturate(180%);
@@ -522,7 +507,7 @@ pre {
 
 
 /* =========================================================
-   9. MOBILE MENU BUTTON
+   9. MOBILE MENU
    ========================================================= */
 
 .mobile-menu-button {
@@ -549,19 +534,10 @@ pre {
     box-shadow: var(--shadow-xs);
 
     cursor: pointer;
-
-    transition:
-        background var(--transition-fast),
-        border-color var(--transition-fast),
-        transform var(--transition-fast);
 }
 
 .mobile-menu-button:hover {
     background: var(--bg-soft);
-
-    border-color: var(--border-strong);
-
-    transform: translateY(-1px);
 }
 
 .mobile-menu-button .material-symbols-rounded {
@@ -757,14 +733,12 @@ main {
     display: grid;
 
     grid-template-columns:
-        var(--sidebar-width)
+        240px
         minmax(0, var(--article-width));
 
     gap: 56px;
 
     align-items: start;
-
-    min-width: 0;
 }
 
 
@@ -1011,8 +985,6 @@ main {
     line-height: 1.25;
 
     letter-spacing: -0.03em;
-
-    scroll-margin-top: 100px;
 }
 
 .article-content h3 {
@@ -1025,8 +997,6 @@ main {
     line-height: 1.35;
 
     letter-spacing: -0.02em;
-
-    scroll-margin-top: 100px;
 }
 
 .article-content h4 {
@@ -1037,8 +1007,6 @@ main {
     font-size: 18px;
 
     line-height: 1.4;
-
-    scroll-margin-top: 100px;
 }
 
 .article-content ul,
@@ -1191,7 +1159,6 @@ main {
 
 /* =========================================================
    24. CALCULATION BLOCK
-   APPLE LIGHT VERSION
    ========================================================= */
 
 .calculation {
@@ -1237,8 +1204,6 @@ main {
     border: 1px solid var(--border);
 
     border-radius: var(--radius-md);
-
-    -webkit-overflow-scrolling: touch;
 }
 
 .article-table {
@@ -1276,10 +1241,6 @@ main {
 
 .article-table tr:last-child td {
     border-bottom: 0;
-}
-
-.article-table tbody tr:hover td {
-    background: var(--surface-hover);
 }
 
 
@@ -1336,6 +1297,8 @@ main {
 
 /* =========================================================
    28. ARTICLE SHARE
+   APPLE / GOOGLE STYLE
+   ICON ONLY
    ========================================================= */
 
 .article-share {
@@ -1354,12 +1317,17 @@ main {
     border-top: 1px solid var(--border);
 }
 
+
+/* ---------------------------------------------------------
+   SHARE TITLE
+   --------------------------------------------------------- */
+
 .article-share-label {
-    margin-right: 5px;
+    margin-right: 6px;
 
     color: var(--text-secondary);
 
-    font-size: 13px;
+    font-size: 14px;
 
     line-height: 1.4;
 
@@ -1369,24 +1337,29 @@ main {
 }
 
 
-/* =========================================================
-   29. ICON-ONLY SOCIAL SHARE BUTTON
-   ========================================================= */
+/* ---------------------------------------------------------
+   SHARE BUTTON
+   --------------------------------------------------------- */
 
 .share-button {
     position: relative;
 
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+    min-height: 42px;
 
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    flex: 0 0 40px;
+    flex: 0 0 42px;
 
     padding: 0;
+
+    margin: 0;
 
     border: 1px solid var(--border);
 
@@ -1398,157 +1371,262 @@ main {
 
     font-family: var(--font-sans);
 
-    font-size: 17px;
+    /*
+       IMPORTANT:
+       This prevents text such as
+       "Facebook", "Copy link", "WhatsApp"
+       from appearing beside the icon.
+    */
+    font-size: 0;
 
     line-height: 1;
 
-    font-weight: 500;
+    text-align: center;
 
-    text-decoration: none;
+    white-space: nowrap;
+
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05);
+
+    overflow: visible;
 
     cursor: pointer;
 
-    box-shadow: var(--shadow-xs);
+    text-decoration: none;
 
     transition:
-        color var(--transition-fast),
-        background var(--transition-fast),
+        transform var(--transition-fast),
+        background-color var(--transition-fast),
         border-color var(--transition-fast),
         box-shadow var(--transition-fast),
-        transform var(--transition-fast);
+        color var(--transition-fast);
 }
+
+
+/* ---------------------------------------------------------
+   ICON ELEMENTS
+   Supports:
+   Material Symbols
+   SVG
+   Font Awesome
+   Generic icon classes
+   --------------------------------------------------------- */
+
+.share-button .material-symbols-rounded,
+.share-button .material-symbols-outlined,
+.share-button .material-icons,
+.share-button .share-icon,
+.share-button .icon,
+.share-button i,
+.share-button svg,
+.share-button img {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    margin: 0;
+
+    padding: 0;
+
+    flex: 0 0 auto;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    text-align: center;
+
+    object-fit: contain;
+
+    color: currentColor;
+}
+
+
+/* Font Awesome */
+.share-button .fa,
+.share-button .fab,
+.share-button .fas,
+.share-button .far,
+.share-button .fa-brands,
+.share-button .fa-solid,
+.share-button .fa-regular {
+    width: auto;
+    height: auto;
+
+    font-size: 19px;
+
+    line-height: 1;
+}
+
+
+/* Inline SVG */
+.share-button svg {
+    fill: currentColor;
+
+    stroke: none;
+}
+
+
+/* ---------------------------------------------------------
+   HIDE TEXT LABELS
+   --------------------------------------------------------- */
+
+.share-button .share-text,
+.share-button .share-label,
+.share-button .share-name,
+.share-button [data-share-label] {
+    display: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+   --------------------------------------------------------- */
 
 .share-button:hover {
     transform: translateY(-2px);
 
-    box-shadow: var(--shadow-md);
+    background: var(--bg-soft);
+
+    border-color: var(--border-strong);
+
+    color: var(--text);
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.08);
 
     text-decoration: none;
 }
 
+
+/* ---------------------------------------------------------
+   ACTIVE
+   --------------------------------------------------------- */
+
 .share-button:active {
     transform: translateY(0) scale(0.96);
-}
 
-.share-button i,
-.share-button svg,
-.share-button .material-symbols-rounded {
-    display: block;
-
-    width: 18px;
-    height: 18px;
-
-    font-size: 18px;
-
-    line-height: 1;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 
-/* =========================================================
-   30. SOCIAL BRAND HOVER COLORS
-   ========================================================= */
+/* ---------------------------------------------------------
+   SOCIAL BRAND HOVER COLORS
+   --------------------------------------------------------- */
 
-.share-button[data-share="facebook"]:hover {
-    color: #ffffff;
+.share-button[data-share="facebook"]:hover,
+.share-button.facebook:hover {
+    color: var(--facebook);
 
-    background: var(--facebook);
+    border-color: rgba(24, 119, 242, 0.28);
 
-    border-color: var(--facebook);
+    background: rgba(24, 119, 242, 0.07);
 }
 
-.share-button[data-share="x"]:hover {
-    color: #ffffff;
+.share-button[data-share="x"]:hover,
+.share-button.x:hover,
+.share-button[data-share="twitter"]:hover,
+.share-button.twitter:hover {
+    color: var(--x);
 
-    background: var(--x);
+    border-color: rgba(0, 0, 0, 0.18);
 
-    border-color: var(--x);
+    background: rgba(0, 0, 0, 0.05);
 }
 
-.share-button[data-share="linkedin"]:hover {
-    color: #ffffff;
+.share-button[data-share="linkedin"]:hover,
+.share-button.linkedin:hover {
+    color: var(--linkedin);
 
-    background: var(--linkedin);
+    border-color: rgba(10, 102, 194, 0.25);
 
-    border-color: var(--linkedin);
+    background: rgba(10, 102, 194, 0.07);
 }
 
-.share-button[data-share="whatsapp"]:hover {
-    color: #ffffff;
+.share-button[data-share="whatsapp"]:hover,
+.share-button.whatsapp:hover {
+    color: var(--whatsapp);
 
-    background: var(--whatsapp);
+    border-color: rgba(37, 211, 102, 0.28);
 
-    border-color: var(--whatsapp);
+    background: rgba(37, 211, 102, 0.08);
 }
 
-.share-button[data-share="pinterest"]:hover {
-    color: #ffffff;
+.share-button[data-share="pinterest"]:hover,
+.share-button.pinterest:hover {
+    color: var(--pinterest);
 
-    background: var(--pinterest);
+    border-color: rgba(230, 0, 35, 0.25);
 
-    border-color: var(--pinterest);
+    background: rgba(230, 0, 35, 0.07);
 }
 
-.share-button[data-share="telegram"]:hover {
-    color: #ffffff;
+.share-button[data-share="telegram"]:hover,
+.share-button.telegram:hover {
+    color: var(--telegram);
 
-    background: var(--telegram);
+    border-color: rgba(34, 158, 217, 0.28);
 
-    border-color: var(--telegram);
+    background: rgba(34, 158, 217, 0.08);
 }
 
-.share-button[data-share="reddit"]:hover {
-    color: #ffffff;
+.share-button[data-share="reddit"]:hover,
+.share-button.reddit:hover {
+    color: var(--reddit);
 
-    background: var(--reddit);
+    border-color: rgba(255, 69, 0, 0.25);
 
-    border-color: var(--reddit);
+    background: rgba(255, 69, 0, 0.07);
 }
 
-.share-button[data-share="email"]:hover {
-    color: #ffffff;
+.share-button[data-share="email"]:hover,
+.share-button.email:hover {
+    color: var(--email);
 
-    background: var(--email);
+    border-color: rgba(95, 99, 104, 0.25);
 
-    border-color: var(--email);
+    background: rgba(95, 99, 104, 0.07);
 }
 
-.share-button[data-share="copy"]:hover {
-    color: #ffffff;
+.share-button[data-share="copy"]:hover,
+.share-button.copy:hover {
+    color: var(--copy);
 
-    background: var(--blue);
+    border-color: rgba(0, 102, 204, 0.25);
 
-    border-color: var(--blue);
+    background: rgba(0, 102, 204, 0.07);
 }
 
 
-/* =========================================================
-   31. SOCIAL TOOLTIP
-   ========================================================= */
+/* ---------------------------------------------------------
+   SHARE TOOLTIP
+   Uses title attribute naturally, but this supports
+   optional data-tooltip attributes too.
+   --------------------------------------------------------- */
 
-.share-button::after {
-    content: attr(aria-label);
+.share-button[data-tooltip]::after {
+    content: attr(data-tooltip);
 
     position: absolute;
 
     left: 50%;
-
     bottom: calc(100% + 9px);
 
-    transform:
-        translateX(-50%)
-        translateY(4px);
+    z-index: 20;
 
-    padding: 5px 8px;
+    padding: 6px 9px;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
-    background: #1d1d1f;
+    background: rgba(29, 29, 31, 0.94);
 
     color: #ffffff;
 
     font-size: 11px;
 
-    line-height: 1;
+    line-height: 1.2;
 
     font-weight: 500;
 
@@ -1558,36 +1636,67 @@ main {
 
     pointer-events: none;
 
+    transform:
+        translate(-50%, 4px);
+
     transition:
         opacity var(--transition-fast),
         transform var(--transition-fast);
 }
 
-.share-button:hover::after,
-.share-button:focus-visible::after {
-    opacity: 1;
+.share-button[data-tooltip]::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: calc(100% + 4px);
+
+    z-index: 19;
+
+    width: 7px;
+    height: 7px;
+
+    background: rgba(29, 29, 31, 0.94);
 
     transform:
         translateX(-50%)
-        translateY(0);
+        rotate(45deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity var(--transition-fast);
+}
+
+.share-button[data-tooltip]:hover::after,
+.share-button[data-tooltip]:hover::before {
+    opacity: 1;
+}
+
+.share-button[data-tooltip]:hover::after {
+    transform:
+        translate(-50%, 0);
 }
 
 
-/* =========================================================
-   32. COPY SUCCESS STATE
-   ========================================================= */
+/* ---------------------------------------------------------
+   SHARE COPY SUCCESS
+   --------------------------------------------------------- */
 
 .share-button.copied {
-    color: #ffffff;
+    color: var(--success);
 
-    background: var(--success);
+    border-color: rgba(36, 138, 61, 0.25);
 
-    border-color: var(--success);
+    background: rgba(36, 138, 61, 0.07);
 }
 
 
 /* =========================================================
-   33. AUTHOR SECTION
+   29. AUTHOR SECTION
    ========================================================= */
 
 .article-footer {
@@ -1652,7 +1761,7 @@ main {
 
 
 /* =========================================================
-   34. RELATED ARTICLES
+   30. RELATED ARTICLES
    ========================================================= */
 
 .related-section {
@@ -1753,7 +1862,7 @@ main {
 
 
 /* =========================================================
-   35. ARTICLE LIST
+   31. ARTICLE LIST
    ========================================================= */
 
 .articles-list,
@@ -1794,11 +1903,6 @@ main {
     box-shadow: var(--shadow-xs);
 
     text-decoration: none;
-
-    transition:
-        border-color var(--transition),
-        box-shadow var(--transition),
-        transform var(--transition);
 }
 
 .article-card:hover {
@@ -1870,7 +1974,7 @@ main {
 
 
 /* =========================================================
-   36. CATEGORY CARDS
+   32. CATEGORY CARDS
    ========================================================= */
 
 .category-grid {
@@ -1901,11 +2005,6 @@ main {
     box-shadow: var(--shadow-xs);
 
     text-decoration: none;
-
-    transition:
-        border-color var(--transition),
-        box-shadow var(--transition),
-        transform var(--transition);
 }
 
 .category-card:hover {
@@ -1943,7 +2042,7 @@ main {
 
 
 /* =========================================================
-   37. SEARCH
+   33. SEARCH
    ========================================================= */
 
 .search-box,
@@ -2008,7 +2107,7 @@ main {
 
 
 /* =========================================================
-   38. GENERIC CARDS
+   34. GENERIC CARDS
    ========================================================= */
 
 .card {
@@ -2021,10 +2120,6 @@ main {
     background: var(--surface);
 
     box-shadow: var(--shadow-xs);
-
-    transition:
-        border-color var(--transition),
-        box-shadow var(--transition);
 }
 
 .card:hover {
@@ -2035,7 +2130,7 @@ main {
 
 
 /* =========================================================
-   39. BUTTONS
+   35. BUTTONS
    ========================================================= */
 
 .btn {
@@ -2065,13 +2160,6 @@ main {
     text-decoration: none;
 
     cursor: pointer;
-
-    transition:
-        background var(--transition-fast),
-        color var(--transition-fast),
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast),
-        transform var(--transition-fast);
 }
 
 .btn:hover {
@@ -2111,7 +2199,7 @@ main {
 
 
 /* =========================================================
-   40. EMPTY STATE
+   36. EMPTY STATE
    ========================================================= */
 
 .empty-state {
@@ -2139,7 +2227,7 @@ main {
 
 
 /* =========================================================
-   41. ADSENSE
+   37. ADS
    ========================================================= */
 
 .ad-container {
@@ -2162,7 +2250,7 @@ main {
 
 
 /* =========================================================
-   42. SITE FOOTER
+   38. SITE FOOTER
    ========================================================= */
 
 .site-footer {
@@ -2213,7 +2301,7 @@ main {
 
 
 /* =========================================================
-   43. MOBILE SIDEBAR OVERLAY
+   39. MOBILE SIDEBAR OVERLAY
    ========================================================= */
 
 .sidebar-overlay {
@@ -2237,7 +2325,7 @@ main {
 
 
 /* =========================================================
-   44. MOBILE ARTICLE SIDEBAR
+   40. MOBILE ARTICLE SIDEBAR
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -2318,7 +2406,7 @@ main {
 
 
 /* =========================================================
-   45. TABLET
+   41. TABLET
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -2378,7 +2466,7 @@ main {
 
 
 /* =========================================================
-   46. MOBILE
+   42. MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -2546,7 +2634,7 @@ main {
 
 
     /* -----------------------------------------------------
-       MOBILE SOCIAL ICONS
+       MOBILE SHARE BAR
        ----------------------------------------------------- */
 
     .article-share {
@@ -2558,29 +2646,57 @@ main {
 
         gap: 9px;
 
-        margin-top: 38px;
-
-        padding-top: 20px;
+        padding-top: 22px;
     }
 
     .article-share-label {
         width: 100%;
 
-        margin-right: 0;
+        margin: 0 0 4px;
 
-        margin-bottom: 3px;
+        font-size: 13px;
     }
 
     .share-button {
         width: 40px;
         height: 40px;
 
+        min-width: 40px;
+        min-height: 40px;
+
         flex: 0 0 40px;
     }
 
-    .share-button::after {
+    .share-button .material-symbols-rounded,
+    .share-button .material-symbols-outlined,
+    .share-button .material-icons,
+    .share-button .share-icon,
+    .share-button .icon {
+        width: 19px;
+        height: 19px;
+
+        font-size: 19px;
+    }
+
+    .share-button i {
+        font-size: 18px;
+    }
+
+    .share-button svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    /*
+       Hide tooltip on small screens.
+       This prevents the tooltip from going outside
+       the screen when many icons are present.
+    */
+    .share-button[data-tooltip]::before,
+    .share-button[data-tooltip]::after {
         display: none;
     }
+
 
     .article-author {
         gap: 12px;
@@ -2619,7 +2735,7 @@ main {
 
 
 /* =========================================================
-   47. VERY SMALL MOBILE
+   43. VERY SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 420px) {
@@ -2666,26 +2782,45 @@ main {
         line-height: 1.75;
     }
 
+
+    /* -----------------------------------------------------
+       EXTRA SMALL SHARE BUTTONS
+       ----------------------------------------------------- */
+
+    .article-share {
+        gap: 7px;
+    }
+
     .share-button {
         width: 38px;
         height: 38px;
 
+        min-width: 38px;
+        min-height: 38px;
+
         flex-basis: 38px;
     }
 
-    .share-button i,
-    .share-button svg,
-    .share-button .material-symbols-rounded {
-        width: 17px;
-        height: 17px;
+    .share-button .material-symbols-rounded,
+    .share-button .material-symbols-outlined,
+    .share-button .material-icons,
+    .share-button .share-icon,
+    .share-button .icon {
+        width: 18px;
+        height: 18px;
 
-        font-size: 17px;
+        font-size: 18px;
+    }
+
+    .share-button svg {
+        width: 18px;
+        height: 18px;
     }
 }
 
 
 /* =========================================================
-   48. EXTRA WIDE SCREENS
+   44. EXTRA WIDE SCREENS
    ========================================================= */
 
 @media (min-width: 1400px) {
@@ -2708,7 +2843,7 @@ main {
 
 
 /* =========================================================
-   49. REDUCED MOTION
+   45. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2732,7 +2867,7 @@ main {
 
 
 /* =========================================================
-   50. PRINT
+   46. PRINT
    ========================================================= */
 
 @media print {
@@ -2789,7 +2924,7 @@ main {
 
 
 /* =========================================================
-   51. LIGHT THEME SAFETY
+   47. LIGHT THEME SAFETY
    ========================================================= */
 
 html,
@@ -2845,7 +2980,7 @@ main {
 
 
 /* =========================================================
-   52. OVERFLOW / LAYOUT SAFETY
+   48. OVERFLOW / LAYOUT SAFETY
    ========================================================= */
 
 .article-layout,
@@ -2874,7 +3009,7 @@ pre {
 
 
 /* =========================================================
-   53. SAFE MOBILE TABLES
+   49. SAFE MOBILE TABLES
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -2902,172 +3037,57 @@ pre {
 
 
 /* =========================================================
-   54. SELECTION
+   50. SHARE ICON SAFETY
+   Prevents old styles from making social buttons
+   behave like normal text buttons.
    ========================================================= */
 
-::selection {
-    background: rgba(0, 102, 204, 0.16);
+.article-share .share-button {
+    box-sizing: border-box;
 
-    color: var(--text);
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    flex-direction: row !important;
+
+    gap: 0 !important;
+
+    overflow: visible !important;
+
+    text-decoration: none !important;
 }
 
-
-/* =========================================================
-   55. SCROLLBAR
-   ========================================================= */
-
-* {
-    scrollbar-width: thin;
-
-    scrollbar-color:
-        #c7c7cc
-        #f5f5f7;
+.article-share .share-button > span:not(
+    .material-symbols-rounded
+):not(
+    .material-symbols-outlined
+):not(
+    .material-icons
+):not(
+    .share-icon
+):not(
+    .icon
+) {
+    /*
+       If the markup contains plain text such as
+       Facebook / WhatsApp / Copy Link, hide it.
+    */
+    font-size: 0;
 }
 
-::-webkit-scrollbar {
-    width: 9px;
-    height: 9px;
+.article-share .share-button > svg {
+    flex-shrink: 0;
+
+    pointer-events: none;
 }
 
-::-webkit-scrollbar-track {
-    background: #f5f5f7;
-}
+.article-share .share-button > i {
+    flex-shrink: 0;
 
-::-webkit-scrollbar-thumb {
-    background: #c7c7cc;
-
-    border-radius: 999px;
-
-    border: 2px solid #f5f5f7;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #a9a9af;
-}
-
-
-/* =========================================================
-   56. ARTICLE CONTENT — INLINE CODE
-   ========================================================= */
-
-.article-content code:not(pre code) {
-    padding:
-        2px
-        5px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 5px;
-
-    background: var(--bg-soft);
-
-    color: #2c2c2e;
-
-    font-family: var(--font-mono);
-
-    font-size: 0.88em;
-}
-
-
-/* =========================================================
-   57. ARTICLE CONTENT — CODE BLOCK
-   ========================================================= */
-
-.article-content pre {
-    margin: 24px 0;
-
-    padding: 18px 20px;
-
-    overflow-x: auto;
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-md);
-
-    background: #f6f6f8;
-
-    color: #1d1d1f;
-
-    font-family: var(--font-mono);
-
-    font-size: 14px;
-
-    line-height: 1.7;
-
-    -webkit-overflow-scrolling: touch;
-}
-
-.article-content pre code {
-    padding: 0;
-
-    border: 0;
-
-    background: transparent;
-
-    color: inherit;
-
-    font-size: inherit;
-}
-
-
-/* =========================================================
-   58. HORIZONTAL RULE
-   ========================================================= */
-
-.article-content hr {
-    height: 1px;
-
-    margin: 42px 0;
-
-    border: 0;
-
-    background: var(--border);
-}
-
-
-/* =========================================================
-   59. ARTICLE CONTENT — DEFINITION / INFO LIST
-   ========================================================= */
-
-.article-content dl {
-    margin: 24px 0;
-}
-
-.article-content dt {
-    margin-top: 18px;
-
-    color: var(--text);
-
-    font-weight: 650;
-}
-
-.article-content dd {
-    margin:
-        5px
-        0
-        0
-        0;
-
-    color: var(--text-secondary);
-}
-
-
-/* =========================================================
-   60. RESPONSIVE SOCIAL SHARE CENTERING
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    .article-share {
-        gap: 7px;
-    }
-
-    .share-button {
-        width: 36px;
-        height: 36px;
-
-        flex-basis: 36px;
-    }
+    pointer-events: none;
 }
 
 
