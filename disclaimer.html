@@ -44,15 +44,15 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
 
-    <!-- Apple & Google Minimalist Single White Page UI Enhancements -->
+    <!-- Apple & Google Minimalist Single Unified Page Styling -->
     <style>
         html {
             scroll-behavior: smooth;
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.55;
+            font-size: 13.5px;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             background-color: #ffffff;
@@ -63,34 +63,76 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
         }
         .section, .section-alt {
             background-color: #ffffff !important;
+            padding: 3rem 0;
         }
-        .legal-section {
+        .hero {
+            padding: 3.5rem 0 1.5rem 0;
             background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-radius: 12px;
-            padding: 1.75rem;
-            margin-bottom: 1.25rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.01);
-            transition: all 0.2s ease;
+            text-align: left;
         }
-        .legal-section:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-            border-color: rgba(0, 0, 0, 0.08);
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #111827;
+        }
+        .hero p {
+            font-size: 14px;
+            color: #4b5563;
+        }
+        
+        /* Unified Single Page Document Flow (No Separate Boxes) */
+        .article-content {
+            background: #ffffff;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .legal-intro {
             background: #f8fafc;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-radius: 14px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+        .legal-section {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            box-shadow: none;
+        }
+        .legal-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 0.5rem;
+        }
+        .legal-heading span.material-symbols-rounded {
+            font-size: 20px;
+            color: #2563eb;
+        }
+        .legal-heading h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+        p {
+            font-size: 13.5px;
+            color: #4b5563;
+            margin-bottom: 0.85rem;
         }
         .notice-box {
             background: #fffbeb;
@@ -99,45 +141,28 @@
             border-radius: 8px;
             padding: 1rem 1.25rem;
             margin-top: 1rem;
-            font-size: 13.5px;
         }
-        .hero {
-            padding: 3rem 0 1.5rem 0;
-            background: #ffffff;
-        }
-        .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
-        .hero p {
-            font-size: 14px;
-            color: #4b5563;
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
         }
         .article-card {
             background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 12px;
             padding: 1.25rem;
             transition: all 0.2s ease;
         }
         .article-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-        p, li {
-            font-size: 13.5px;
-            color: #4b5563;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.12);
         }
         .site-footer {
             background-color: #ffffff;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
         }
     </style>
 
@@ -223,7 +248,7 @@
                         </div>
                         <div>
                             <span class="section-label">DISCLAIMER</span>
-                            <h2>Please Read Before Using This Website</h2>
+                            <h2 style="font-size: 1.15rem; font-weight: 600; margin: 0.25rem 0 0.5rem 0;">Please Read Before Using This Website</h2>
                             <p><strong>Last updated: <time datetime="2026-08-11">August 11, 2026</time></strong></p>
                             <p>Electrical Engineering is an educational resource created to share practical knowledge, engineering concepts, calculations, and technical information.</p>
                             <p>By using this website, you acknowledge that the information provided here is intended primarily for learning and general reference and may not be appropriate for every engineering project or situation.</p>
@@ -269,10 +294,12 @@
                         <p>The engineering calculators and online tools available through this website are designed to assist with learning, preliminary calculations, and general estimation.</p>
                         <p>Results depend on the values, assumptions, formulas, units, and parameters entered by the user. A result produced by a calculator should therefore be considered an aid rather than a final engineering decision.</p>
                         <p>Users are responsible for checking inputs, formulas, units, and results before relying on them for design, procurement, construction, testing, commissioning, or operation.</p>
-                        <a href="https://calculator.prasunbarua.com/" class="text-link" target="_blank" rel="noopener noreferrer">
-                            Explore Engineering Calculators
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
-                        </a>
+                        <p style="margin-top: 0.5rem;">
+                            <a href="https://calculator.prasunbarua.com/" class="text-link" target="_blank" rel="noopener noreferrer">
+                                Explore Engineering Calculators
+                                <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px; vertical-align: middle;">arrow_outward</span>
+                            </a>
+                        </p>
                     </section>
 
                     <!-- NO PROFESSIONAL ADVICE -->
@@ -374,14 +401,14 @@
         </section>
 
         <!-- RELATED INFORMATION -->
-        <section class="section">
+        <section class="section" style="border-top: 1px solid #f3f4f6;">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading" style="margin-bottom: 1.25rem;">
                     <span class="section-label">
-                        <span class="material-symbols-rounded" aria-hidden="true">policy</span>
+                        <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px; vertical-align: middle;">policy</span>
                         WEBSITE INFORMATION
                     </span>
-                    <h2>Related Pages</h2>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-top: 0.25rem;">Related Pages</h2>
                     <p>Find more information about this website, privacy, and contacting the author.</p>
                 </div>
 
@@ -391,11 +418,11 @@
                         <div class="icon-box" aria-hidden="true">
                             <span class="material-symbols-rounded">person</span>
                         </div>
-                        <h3>About</h3>
+                        <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0.5rem 0 0.25rem 0;">About</h3>
                         <p>Learn about Prasun Barua and the purpose behind this engineering education resource.</p>
-                        <span class="card-link">
+                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem; color: #2563eb;">
                             Learn More
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px;">arrow_forward</span>
                         </span>
                     </a>
 
@@ -403,11 +430,11 @@
                         <div class="icon-box" aria-hidden="true">
                             <span class="material-symbols-rounded">privacy_tip</span>
                         </div>
-                        <h3>Privacy Policy</h3>
+                        <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0.5rem 0 0.25rem 0;">Privacy Policy</h3>
                         <p>Learn how information may be collected, used, and handled when you use this website.</p>
-                        <span class="card-link">
+                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem; color: #2563eb;">
                             Read Privacy Policy
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px;">arrow_forward</span>
                         </span>
                     </a>
 
@@ -415,11 +442,11 @@
                         <div class="icon-box" aria-hidden="true">
                             <span class="material-symbols-rounded">contact_mail</span>
                         </div>
-                        <h3>Contact</h3>
+                        <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin: 0.5rem 0 0.25rem 0;">Contact</h3>
                         <p>Send a question, correction, suggestion, or collaboration inquiry through the contact form.</p>
-                        <span class="card-link">
+                        <span class="card-link" style="font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.5rem; color: #2563eb;">
                             Contact
-                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 14px;">arrow_forward</span>
                         </span>
                     </a>
 
