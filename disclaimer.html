@@ -16,7 +16,7 @@
 
     <title>Disclaimer | Electrical Engineering by Prasun Barua</title>
 
-    <meta name="description" content="Professional disclaimer detailing the scope, limitations, and liabilities of educational electrical engineering tutorials, calculations, and tools published by Prasun Barua.">
+    <meta name="description" content="Professional disclaimer detailing the scope, limitations, and liabilities of educational electrical engineering tutorials, calculations, solar PV resources, and tools published by Prasun Barua.">
     <meta name="author" content="Prasun Barua">
     <meta name="robots" content="index, follow">
 
@@ -29,11 +29,8 @@
     <meta property="og:url" content="https://electrical.prasunbarua.com/disclaimer.html">
     <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
 
-     <!-- =====================================================
-          FAVICON (Blue and Black Vibe)
-          ===================================================== -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
     <!-- Font & Asset Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,391 +38,11 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168" crossorigin="anonymous"></script>
-
-    <!-- Blue and Black Theme Styling -->
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-main: #0b0f19;
-            --text-muted: #475569;
-            --accent-blue: #2563eb;
-            --accent-blue-hover: #1d4ed8;
-            --border-color: #cbd5e1;
-            --border-light: #f1f5f9;
-            --surface-subtle: #f8fafc;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: var(--bg-color);
-            color: var(--text-muted);
-            letter-spacing: -0.01em;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Container helper */
-        .container {
-            width: 100%;
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .site-header .container {
-            max-width: 1100px;
-        }
-
-        .site-footer .container {
-            max-width: 1100px;
-        }
-
-        /* Header */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 64px;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text-main);
-        }
-
-        .logo-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            border-radius: 8px;
-        }
-
-        .logo-icon span.material-symbols-rounded {
-            font-size: 20px;
-            color: var(--accent-blue);
-        }
-
-        .logo span strong {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        .logo span small {
-            display: block;
-            font-size: 11px;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .main-nav a {
-            font-size: 13.5px;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .main-nav a:hover,
-        .main-nav a.active {
-            color: var(--accent-blue);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 0 2rem 0;
-            background: var(--bg-color);
-            text-align: left;
-        }
-
-        .hero .container {
-            max-width: 780px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .hero h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--text-main);
-            margin: 0 0 0.75rem 0;
-        }
-
-        .hero h1 span {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Article Document Flow */
-        .section {
-            padding: 2.5rem 0;
-        }
-
-        .article-content {
-            background: var(--bg-color);
-        }
-
-        .legal-intro {
-            background: var(--surface-subtle);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .legal-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .legal-heading {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-light);
-            padding-bottom: 0.6rem;
-        }
-
-        .legal-heading span.material-symbols-rounded {
-            font-size: 18px;
-            color: var(--accent-blue);
-        }
-
-        .legal-heading h2 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin: 0;
-            letter-spacing: -0.01em;
-        }
-
-        p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        a.text-link, .article-content a {
-            color: var(--accent-blue);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            text-decoration-color: #93c5fd;
-        }
-
-        a.text-link:hover, .article-content a:hover {
-            color: var(--accent-blue-hover);
-            text-decoration-color: var(--accent-blue);
-        }
-
-        /* Notice Box */
-        .notice-box {
-            background: var(--surface-subtle);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--accent-blue);
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            margin-top: 1.25rem;
-        }
-
-        .notice-box .quick-answer-title {
-            color: var(--text-main) !important;
-            font-size: 13.5px;
-        }
-
-        .notice-box .quick-answer-title span.material-symbols-rounded {
-            color: var(--accent-blue) !important;
-        }
-
-        .notice-box p {
-            color: var(--text-muted) !important;
-            font-size: 13.5px;
-        }
-
-        /* Related Grid Cards */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1rem;
-            margin-top: 1.25rem;
-        }
-
-        .article-card {
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-            text-decoration: none;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-1px);
-        }
-
-        .article-card .icon-box span.material-symbols-rounded {
-            font-size: 20px;
-            color: var(--accent-blue);
-        }
-
-        .article-card h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin: 0.5rem 0 0.35rem 0;
-        }
-
-        .article-card p {
-            font-size: 13px;
-            margin-bottom: 0.5rem;
-            color: var(--text-muted);
-        }
-
-        .card-link {
-            color: var(--accent-blue) !important;
-            font-size: 12.5px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-top: auto;
-        }
-
-        /* Minimalist Footer */
-        .site-footer {
-            background-color: var(--bg-color);
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 3rem 0 0 0;
-            margin-top: 3rem;
-        }
-
-        .site-footer h3 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 0.75rem;
-        }
-
-        .site-footer .footer-logo {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 0.5rem;
-        }
-
-        .site-footer .footer-logo span {
-            color: var(--text-main);
-        }
-
-        .site-footer p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .site-footer a {
-            display: block;
-            font-size: 13px;
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-bottom: 0.4rem;
-            transition: color 0.2s ease;
-        }
-
-        .site-footer a:hover,
-        .site-footer a.active {
-            color: var(--accent-blue);
-            text-decoration: underline;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 2rem;
-            padding-bottom: 2.5rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-light);
-            padding: 1.25rem 0;
-            text-align: left;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .main-nav {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 1.85rem;
-            }
-        }
-    </style>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -492,7 +109,7 @@
                 <div class="hero-text">
                     <span class="eyebrow">WEBSITE INFORMATION</span>
                     <h1>Website <span>Disclaimer.</span></h1>
-                    <p>A clean explanation of the purpose and limitations of the educational content, engineering calculations, tools, and resources published on this website.</p>
+                    <p>A clear explanation of the purpose and limitations of the educational content, engineering calculations, tools, and resources published on this website.</p>
                 </div>
             </div>
         </section>
@@ -504,15 +121,15 @@
 
                     <!-- INTRODUCTION -->
                     <article class="legal-intro">
-                        <div style="display: flex; gap: 12px; align-items: flex-start;">
-                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 20px; color: var(--accent-blue); margin-top: 2px;">info</span>
-                            <div>
-                                <span class="eyebrow" style="margin-bottom: 0.25rem;">DISCLAIMER</span>
-                                <h2 style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin: 0 0 0.35rem 0;">Please Read Before Using This Website</h2>
-                                <p style="margin-bottom: 0.75rem;"><strong>Last updated: <time datetime="2026-08-11">August 11, 2026</time></strong></p>
-                                <p>Electrical Engineering is an educational resource created to share practical knowledge, engineering concepts, calculations, and technical information.</p>
-                                <p style="margin-bottom: 0;">By using this website, you acknowledge that the information provided here is intended primarily for learning and general reference and may not be appropriate for every engineering project or situation.</p>
-                            </div>
+                        <div class="icon-box" aria-hidden="true">
+                            <span class="material-symbols-rounded">info</span>
+                        </div>
+                        <div>
+                            <span class="section-label">DISCLAIMER</span>
+                            <h2>Please Read Before Using This Website</h2>
+                            <p><strong>Last updated: <time datetime="2026-08-11">August 11, 2026</time></strong></p>
+                            <p>Electrical Engineering is an educational resource created to share practical knowledge, engineering concepts, calculations, and technical information.</p>
+                            <p>By using this website, you acknowledge that the information provided here is intended primarily for learning and general reference and may not be appropriate for every engineering project or situation.</p>
                         </div>
                     </article>
 
@@ -538,11 +155,11 @@
                         <p>Information published on this website should therefore not be treated as a replacement for project-specific engineering analysis or professional review.</p>
 
                         <div class="notice-box" role="note">
-                            <div class="quick-answer-title" style="display: flex; align-items: center; gap: 6px; font-weight: 600; margin-bottom: 4px;">
-                                <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 16px;">warning</span>
+                            <div class="quick-answer-title">
+                                <span class="material-symbols-rounded" aria-hidden="true">warning</span>
                                 Important Safety Notice
                             </div>
-                            <p style="margin: 0;">Before using any calculation, design method, or technical information on an actual project, verify it against the applicable standards, manufacturer documentation, project specifications, and requirements of the relevant authority or qualified professional.</p>
+                            <p>Before using any calculation, design method, or technical information on an actual project, verify it against the applicable standards, manufacturer documentation, project specifications, and requirements of the relevant authority or qualified professional.</p>
                         </div>
                     </section>
 
@@ -555,12 +172,10 @@
                         <p>The engineering calculators and online tools available through this website are designed to assist with learning, preliminary calculations, and general estimation.</p>
                         <p>Results depend on the values, assumptions, formulas, units, and parameters entered by the user. A result produced by a calculator should therefore be considered an aid rather than a final engineering decision.</p>
                         <p>Users are responsible for checking inputs, formulas, units, and results before relying on them for design, procurement, construction, testing, commissioning, or operation.</p>
-                        <p style="margin-top: 0.75rem; margin-bottom: 0;">
-                            <a href="https://calculator.prasunbarua.com/" class="text-link" target="_blank" rel="noopener noreferrer">
-                                Explore Engineering Calculators
-                                <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 13px; vertical-align: middle;">arrow_outward</span>
-                            </a>
-                        </p>
+                        <a href="https://calculator.prasunbarua.com/" class="text-link" target="_blank" rel="noopener noreferrer">
+                            Explore Engineering Calculators
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+                        </a>
                     </section>
 
                     <!-- NO PROFESSIONAL ADVICE -->
@@ -648,13 +263,13 @@
                     </section>
 
                     <!-- CONTACT -->
-                    <section class="legal-section" id="contact-info" style="margin-bottom: 0;">
+                    <section class="legal-section" id="contact-info">
                         <div class="legal-heading">
                             <span class="material-symbols-rounded" aria-hidden="true">contact_mail</span>
                             <h2>Questions or Corrections</h2>
                         </div>
                         <p>If you have a question about this Disclaimer, believe that information on the website needs correction, or would like to report a technical issue, please use the <a href="contact.html">Contact page</a>.</p>
-                        <p style="margin-bottom: 0;">Please provide enough information for the issue to be reviewed, such as the relevant page, calculation, or section of content.</p>
+                        <p>Please provide enough information for the issue to be reviewed, such as the relevant page, calculation, or section of content.</p>
                     </section>
 
                 </div>
@@ -662,12 +277,15 @@
         </section>
 
         <!-- RELATED INFORMATION -->
-        <section class="section" style="border-top: 1px solid var(--border-light); margin-top: 2rem;">
+        <section class="section section-alt">
             <div class="container">
-                <div style="margin-bottom: 1.5rem;">
-                    <span class="eyebrow" style="margin-bottom: 0.25rem;">WEBSITE INFORMATION</span>
-                    <h2 style="font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin: 0 0 0.25rem 0;">Related Pages</h2>
-                    <p style="margin: 0; font-size: 13.5px;">Find more information about this website, privacy, and contacting the author.</p>
+                <div class="section-heading">
+                    <span class="section-label">
+                        <span class="material-symbols-rounded" aria-hidden="true">policy</span>
+                        WEBSITE INFORMATION
+                    </span>
+                    <h2>Related Pages</h2>
+                    <p>Find more information about this website, privacy, and contacting the author.</p>
                 </div>
 
                 <div class="article-grid">
@@ -680,7 +298,7 @@
                         <p>Learn about Prasun Barua and the purpose behind this engineering education resource.</p>
                         <span class="card-link">
                             Learn More
-                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 13px;">arrow_forward</span>
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
                         </span>
                     </a>
 
@@ -692,7 +310,7 @@
                         <p>Learn how information may be collected, used, and handled when you use this website.</p>
                         <span class="card-link">
                             Read Privacy Policy
-                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 13px;">arrow_forward</span>
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
                         </span>
                     </a>
 
@@ -704,7 +322,7 @@
                         <p>Send a question, correction, suggestion, or collaboration inquiry through the contact form.</p>
                         <span class="card-link">
                             Contact
-                            <span class="material-symbols-rounded" aria-hidden="true" style="font-size: 13px;">arrow_forward</span>
+                            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
                         </span>
                     </a>
 
@@ -718,32 +336,41 @@
          FOOTER
     ====================================================== -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-logo">
-                        <span class="material-symbols-rounded" style="color: var(--accent-blue);">bolt</span>
-                        <span>Electrical Engineering</span>
-                    </div>
-                    <p>Practical electrical engineering tutorials, calculations, and educational resources by Prasun Barua.</p>
+        <div class="container footer-grid">
+
+            <div>
+                <div class="footer-logo">
+                    <span class="material-symbols-rounded" aria-hidden="true">bolt</span>
+                    Electrical Engineering
                 </div>
-                <div>
-                    <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div>
-                    <h3>Legal</h3>
-                    <a href="disclaimer.html" class="active">Disclaimer</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                </div>
+                <p>Practical electrical engineering tutorials, calculations, design guides, and renewable energy resources.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Prasun Barua. All rights reserved.</p>
+
+            <div>
+                <h3>Explore</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#tutorials">Tutorials</a>
+                <a href="index.html#calculations">Calculations</a>
+                <a href="index.html#solar">Solar PV</a>
+            </div>
+
+            <div>
+                <h3>Information</h3>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="disclaimer.html" class="active" aria-current="page">Disclaimer</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Prasun Barua. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
 </body>
+
 </html>
