@@ -1,19 +1,36 @@
 "use strict";
 
 /**
+ * =========================================================
  * ELECTRICAL.PRASUNBARUA.COM
  * Main Application Script
+ * =========================================================
+ *
+ * Features:
+ * 1. Google site search
+ * 2. Active navigation highlighting
+ * 3. External link security
+ *
+ * No mobile menu / three-dot button is used.
+ * =========================================================
  */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
     // =========================================================
-    // 1. SITE SEARCH SYSTEM
+    // 1. SITE SEARCH
     // =========================================================
 
-    const searchForm = document.getElementById("site-search-form");
-    const searchInput = document.getElementById("site-search");
-    const searchMessage = document.getElementById("search-message");
+    const searchForm =
+        document.getElementById("site-search-form");
+
+    const searchInput =
+        document.getElementById("site-search");
+
+    const searchMessage =
+        document.getElementById("search-message");
+
 
     if (searchForm && searchInput) {
 
@@ -21,67 +38,154 @@ document.addEventListener("DOMContentLoaded", () => {
 
             event.preventDefault();
 
-            const query = searchInput.value.trim();
+            const query =
+                searchInput.value.trim();
+
+
+            // -------------------------------------------------
+            // Empty search
+            // -------------------------------------------------
 
             if (!query) {
 
                 if (searchMessage) {
+
                     searchMessage.textContent =
                         "Please enter an engineering topic or formula to search.";
-                    searchMessage.style.display = "block";
+
+                    searchMessage.style.display =
+                        "block";
                 }
 
                 searchInput.focus();
+
                 return;
             }
 
+
+            // -------------------------------------------------
+            // Clear previous message
+            // -------------------------------------------------
+
             if (searchMessage) {
-                searchMessage.textContent = "";
-                searchMessage.style.display = "none";
+
+                searchMessage.textContent =
+                    "";
+
+                searchMessage.style.display =
+                    "none";
             }
 
-            const siteDomain = "electrical.prasunbarua.com";
+
+            // -------------------------------------------------
+            // Google site search
+            // -------------------------------------------------
+
+            const siteDomain =
+                "electrical.prasunbarua.com";
+
+            const googleSearchQuery =
+                `site:${siteDomain} ${query}`;
 
             const searchUrl =
                 "https://www.google.com/search?q=" +
-                encodeURIComponent(`site:${siteDomain} ${query}`);
+                encodeURIComponent(
+                    googleSearchQuery
+                );
+
+
+            // -------------------------------------------------
+            // Open Google search in a new tab
+            // -------------------------------------------------
 
             window.open(
                 searchUrl,
                 "_blank",
                 "noopener,noreferrer"
             );
+
         });
+
     }
 
 
     // =========================================================
-    // 2. ACTIVE NAVIGATION LINK HIGHLIGHTER
+    // 2. ACTIVE NAVIGATION
     // =========================================================
 
-    const currentPath = window.location.pathname;
+    const currentPath =
+        window.location.pathname;
 
-    const navLinks = document.querySelectorAll(".main-nav a");
+    const navLinks =
+        document.querySelectorAll(
+            ".main-nav a"
+        );
+
 
     navLinks.forEach((link) => {
 
-        const linkPath = new URL(
-            link.href,
-            window.location.origin
-        ).pathname;
+        const linkUrl =
+            new URL(
+                link.href,
+                window.location.origin
+            );
 
-        const isHome =
+        const linkPath =
+            linkUrl.pathname;
+
+        const linkHash =
+            linkUrl.hash;
+
+
+        // -----------------------------------------------------
+        // Remove existing active state
+        // -----------------------------------------------------
+
+        link.classList.remove("active");
+
+        link.removeAttribute(
+            "aria-current"
+        );
+
+
+        // -----------------------------------------------------
+        // Homepage
+        // -----------------------------------------------------
+
+        if (
             currentPath === "/" &&
-            (linkPath === "/" || linkPath.endsWith("/index.html"));
+            linkPath === "/"
+        ) {
 
-        const isCurrentPage =
-            currentPath === linkPath;
-
-        if (isHome || isCurrentPage) {
             link.classList.add("active");
-        } else {
-            link.classList.remove("active");
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+            return;
         }
+
+
+        // -----------------------------------------------------
+        // Other pages
+        // -----------------------------------------------------
+
+        if (
+            currentPath === linkPath &&
+            !linkHash
+        ) {
+
+            link.classList.add("active");
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+        }
+
     });
 
 
@@ -89,22 +193,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. EXTERNAL LINK SECURITY
     // =========================================================
 
-    const externalLinks = document.querySelectorAll(
-        'a[href^="http"]'
-    );
+    const externalLinks =
+        document.querySelectorAll(
+            'a[href^="http://"], a[href^="https://"]'
+        );
+
 
     externalLinks.forEach((link) => {
 
-        const url = new URL(link.href);
+        try {
 
-        if (url.hostname !== window.location.hostname) {
+            const url =
+                new URL(link.href);
 
-            link.setAttribute("target", "_blank");
-            link.setAttribute(
-                "rel",
-                "noopener noreferrer"
-            );
+            const isExternal =
+                url.hostname !==
+                window.location.hostname;
+
+
+            if (isExternal) {
+
+                link.setAttribute(
+                    "target",
+                    "_blank"
+                );
+
+                link.setAttribute(
+                    "rel",
+                    "noopener noreferrer"
+                );
+
+            }
+
+        } catch (error) {
+
+            // Ignore invalid URLs.
+
         }
+
     });
+
 
 });
