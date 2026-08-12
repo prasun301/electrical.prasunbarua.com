@@ -31,11 +31,11 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>
-        Ohm's Law Explained: Formula, Examples &amp; Calculations | Electrical Engineering
+        What Are Voltage, Current &amp; Resistance? | Electrical Engineering
     </title>
 
     <meta name="description"
-          content="Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.">
+          content="Learn what voltage, current, and resistance are, how they work together in an electrical circuit, their units, formulas, practical examples, and the relationship described by Ohm's Law.">
 
     <meta name="author"
           content="Prasun Barua">
@@ -44,7 +44,7 @@
           content="index, follow, max-image-preview:large">
 
     <link rel="canonical"
-          href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
+          href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance/">
 
 
     <!-- =========================================================
@@ -55,13 +55,13 @@
           content="article">
 
     <meta property="og:title"
-          content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
+          content="What Are Voltage, Current &amp; Resistance?">
 
     <meta property="og:description"
-          content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
+          content="Understand voltage, current, and resistance with simple explanations, units, formulas, practical examples, and Ohm's Law.">
 
     <meta property="og:url"
-          content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/">
+          content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance/">
 
     <meta property="og:site_name"
           content="Electrical Engineering">
@@ -78,10 +78,10 @@
           content="summary_large_image">
 
     <meta name="twitter:title"
-          content="Ohm's Law Explained: Formula, Examples &amp; Calculations">
+          content="What Are Voltage, Current &amp; Resistance?">
 
     <meta name="twitter:description"
-          content="Understand the core relationship between voltage, current, and resistance with practical engineering examples.">
+          content="Learn the fundamentals of voltage, current, and resistance and how they are related by Ohm's Law.">
 
 
     <!-- =========================================================
@@ -240,10 +240,6 @@
             padding: 34px 0 80px;
         }
 
-        .article-container {
-            margin-top: 0;
-        }
-
 
         /* =========================================================
            BREADCRUMBS
@@ -357,8 +353,6 @@
             gap: 48px;
 
             align-items: start;
-
-            margin-top: 0;
         }
 
         .article-sidebar {
@@ -424,7 +418,6 @@
 
         .toc a:hover {
             color: var(--primary-dark);
-            text-decoration: none;
             padding-left: 3px;
         }
 
@@ -567,7 +560,6 @@
 
         .quick-answer p {
             margin: 0;
-            color: var(--text-body);
         }
 
         .quick-answer .formula-box {
@@ -611,19 +603,15 @@
             overflow: hidden;
         }
 
+        .formula-box,
+        .formula-box *,
         .article-content .formula-box,
-        .article-content .formula-box *,
-        .article-content .formula-box strong,
-        .article-content .formula-box span,
-        .article-content .formula-box p,
-        .article-content .formula-box div {
+        .article-content .formula-box * {
             color: #ffffff !important;
         }
 
         .formula-box .formula {
             display: block;
-
-            margin: 0;
 
             color: #ffffff !important;
 
@@ -668,7 +656,7 @@
 
 
         /* =========================================================
-           FORMULA GRID
+           FUNDAMENTAL QUANTITY CARDS
         ========================================================== */
 
         .formula-grid {
@@ -685,7 +673,7 @@
         .formula-card {
             min-width: 0;
 
-            padding: 20px 16px;
+            padding: 22px 16px;
 
             background: var(--bg-light);
 
@@ -711,26 +699,38 @@
             transform: translateY(-1px);
         }
 
-        .formula-card strong {
+        .formula-card .symbol {
             display: block;
 
             margin-bottom: 8px;
 
+            color: var(--primary);
+
+            font-size: 2rem;
+
+            line-height: 1;
+
+            font-weight: 800;
+        }
+
+        .formula-card strong {
+            display: block;
+
+            margin-bottom: 7px;
+
             color: var(--text-dark);
 
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 700;
         }
 
         .formula-card span {
             display: block;
 
-            color: var(--text-dark);
+            color: var(--text-muted);
 
-            font-size: 1.05rem;
-            line-height: 1.5;
-
-            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.55;
         }
 
 
@@ -739,120 +739,53 @@
         ========================================================== */
 
         .calculation-box {
-            display: block !important;
+            display: block;
 
-            width: 100% !important;
+            width: 100%;
 
-            height: auto !important;
+            margin: 22px 0;
 
-            min-height: 0 !important;
+            padding: 18px 22px;
 
-            max-height: none !important;
+            background: var(--bg-light);
 
-            margin: 22px 0 !important;
+            border: 1px solid var(--border);
 
-            padding: 18px 22px !important;
+            border-radius: var(--radius);
 
-            background: var(--bg-light) !important;
+            color: var(--text-body);
 
-            border: 1px solid var(--border) !important;
+            font-size: 1.05rem;
 
-            border-radius: var(--radius) !important;
-
-            color: var(--text-body) !important;
-
-            font-size: 1.05rem !important;
-
-            line-height: 1.7 !important;
-
-            overflow: visible !important;
-
-            visibility: visible !important;
-
-            opacity: 1 !important;
+            line-height: 1.7;
 
             box-shadow: none;
         }
 
-        .calculation-box,
-        .calculation-box *,
-        .article-content .calculation-box,
-        .article-content .calculation-box * {
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-
         .calculation-box p {
-            display: block !important;
+            margin: 5px 0;
 
-            margin: 5px 0 !important;
-            padding: 0 !important;
-
-            color: var(--text-body) !important;
-
-            font-size: 1.05rem !important;
-            line-height: 1.7 !important;
-
-            font-weight: 400;
+            color: var(--text-body);
         }
 
         .calculation-box p:first-child {
-            margin-top: 0 !important;
+            margin-top: 0;
         }
 
         .calculation-box p:last-child {
-            margin-bottom: 0 !important;
-        }
-
-        .calculation-box div {
-            display: block !important;
-
-            margin: 5px 0 !important;
-            padding: 0 !important;
-
-            color: var(--text-body) !important;
-
-            font-size: 1.05rem !important;
-            line-height: 1.7 !important;
+            margin-bottom: 0;
         }
 
         .calculation-box strong {
-            color: var(--primary) !important;
-            font-weight: 700 !important;
+            color: var(--primary);
         }
 
         .calculation-box code {
-            color: #0f172a !important;
+            color: #0f172a;
 
-            background: #ffffff !important;
+            background: #ffffff;
 
-            border: 1px solid var(--border) !important;
-        }
-
-
-        /* =========================================================
-           CALCULATION ROW
-        ========================================================== */
-
-        .calculation-row {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: center;
-
-            gap: 20px;
-
-            padding: 10px 0;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .calculation-row:last-child {
-            border-bottom: none;
-        }
-
-        .calculation-row strong {
-            color: var(--text-dark);
+            border: 1px solid var(--border);
         }
 
 
@@ -907,8 +840,6 @@
             border-collapse: separate;
             border-spacing: 0;
 
-            overflow: hidden;
-
             border: 1px solid var(--border);
 
             border-radius: var(--radius);
@@ -916,6 +847,8 @@
             font-size: 15px;
 
             background: #ffffff;
+
+            overflow: hidden;
         }
 
         .engineering-table th,
@@ -964,35 +897,29 @@
 
 
         /* =========================================================
-           ARTICLE FIGURES
+           ENGINEERING NOTE
         ========================================================== */
 
-        .article-figure {
-            margin: 36px 0;
-        }
+        .engineering-note {
+            margin: 28px 0;
 
-        .article-figure img {
-            display: block;
+            padding: 20px 22px;
 
-            width: 100%;
-            height: auto;
+            background: #f8fafc;
 
             border: 1px solid var(--border);
 
-            border-radius: var(--radius);
+            border-left: 4px solid #94a3b8;
 
-            box-shadow: var(--shadow-sm);
+            border-radius:
+                0
+                var(--radius)
+                var(--radius)
+                0;
         }
 
-        .article-figure figcaption {
-            margin-top: 12px;
-
-            color: var(--text-muted);
-
-            font-size: 14px;
-            line-height: 1.6;
-
-            text-align: left;
+        .engineering-note strong {
+            color: var(--text-dark);
         }
 
 
@@ -1018,6 +945,7 @@
 
         .article-cta h2 {
             margin: 0 0 12px;
+
             color: var(--text-dark);
         }
 
@@ -1052,6 +980,7 @@
             text-decoration: none;
 
             font-size: 15px;
+
             font-weight: 700;
 
             transition:
@@ -1076,6 +1005,7 @@
 
         .article-cta .primary-button .material-symbols-rounded {
             color: #ffffff !important;
+
             font-size: 20px;
         }
 
@@ -1086,7 +1016,9 @@
 
         #faq h3 {
             margin-top: 30px;
+
             padding-top: 4px;
+
             color: var(--text-dark);
         }
 
@@ -1163,34 +1095,8 @@
 
         .related-grid a .material-symbols-rounded {
             flex-shrink: 0;
+
             font-size: 20px;
-        }
-
-
-        /* =========================================================
-           ENGINEERING NOTE
-        ========================================================== */
-
-        .engineering-note {
-            margin: 28px 0;
-
-            padding: 20px 22px;
-
-            background: #f8fafc;
-
-            border: 1px solid var(--border);
-
-            border-left: 4px solid #94a3b8;
-
-            border-radius:
-                0
-                var(--radius)
-                var(--radius)
-                0;
-        }
-
-        .engineering-note strong {
-            color: var(--text-dark);
         }
 
 
@@ -1202,6 +1108,7 @@
 
             .article-layout {
                 grid-template-columns: 1fr;
+
                 gap: 32px;
             }
 
@@ -1211,11 +1118,13 @@
 
             .article-content {
                 order: 1;
+
                 max-width: none;
             }
 
             .toc {
                 position: relative;
+
                 top: auto;
             }
 
@@ -1244,12 +1153,15 @@
 
             .breadcrumbs {
                 margin-bottom: 24px;
+
                 font-size: 13px;
+
                 gap: 6px;
             }
 
             .article-category {
                 margin-bottom: 12px;
+
                 font-size: 11px;
             }
 
@@ -1259,22 +1171,27 @@
 
             .article-header h1 {
                 margin-bottom: 16px;
+
                 font-size: 2.2rem;
+
                 line-height: 1.1;
             }
 
             .article-intro {
                 font-size: 1.05rem;
+
                 line-height: 1.7;
             }
 
             .article-meta {
                 font-size: 13px;
+
                 gap: 7px;
             }
 
             .article-content {
                 font-size: 16px;
+
                 line-height: 1.72;
             }
 
@@ -1296,6 +1213,7 @@
 
             .quick-answer {
                 padding: 18px;
+
                 margin-bottom: 34px;
             }
 
@@ -1315,6 +1233,7 @@
 
             .formula-grid {
                 grid-template-columns: 1fr;
+
                 gap: 12px;
             }
 
@@ -1323,13 +1242,9 @@
             }
 
             .calculation-box {
-                padding: 16px 18px !important;
-                font-size: 1rem !important;
-            }
+                padding: 16px 18px;
 
-            .calculation-box p,
-            .calculation-box div {
-                font-size: 1rem !important;
+                font-size: 1rem;
             }
 
             .result-box {
@@ -1346,8 +1261,6 @@
                 overflow-x: auto;
 
                 white-space: nowrap;
-
-                border-radius: var(--radius);
             }
 
             .engineering-table th,
@@ -1357,6 +1270,7 @@
 
             .article-cta {
                 margin: 40px 0;
+
                 padding: 25px 18px;
             }
 
@@ -1419,8 +1333,8 @@
     {
         "@context": "https://schema.org",
         "@type": "TechArticle",
-        "headline": "Ohm's Law Explained: Formula, Examples & Calculations",
-        "description": "Learn Ohm's Law with simple explanations, formulas, practical examples, and electrical engineering calculations.",
+        "headline": "What Are Voltage, Current & Resistance?",
+        "description": "Learn what voltage, current, and resistance are, how they work together in an electrical circuit, their units, formulas, practical examples, and the relationship described by Ohm's Law.",
         "author": {
             "@type": "Person",
             "name": "Prasun Barua"
@@ -1430,11 +1344,11 @@
             "name": "Electrical Engineering by Prasun Barua",
             "url": "https://electrical.prasunbarua.com"
         },
-        "datePublished": "2026-08-01",
+        "datePublished": "2026-08-12",
         "dateModified": "2026-08-12",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance/"
         }
     }
     </script>
@@ -1464,8 +1378,54 @@
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Ohm's Law",
-                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+                "name": "Voltage, Current & Resistance",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance/"
+            }
+        ]
+    }
+    </script>
+
+
+    <!-- =========================================================
+         STRUCTURED DATA — FAQ
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is voltage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voltage is the electrical potential difference between two points. It provides the potential that can drive electric charge through a circuit and is measured in volts (V)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is current?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Current is the rate at which electric charge flows through a circuit. It is measured in amperes (A)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is resistance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Resistance is the opposition to the flow of electric current. It is measured in ohms (Ω)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How are voltage, current, and resistance related?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voltage, current, and resistance are related by Ohm's Law: V = I × R."
+                }
             }
         ]
     }
@@ -1499,7 +1459,6 @@
                 </span>
 
                 <span>
-
                     <strong>
                         Electrical Engineering
                     </strong>
@@ -1507,7 +1466,6 @@
                     <small>
                         by Prasun Barua
                     </small>
-
                 </span>
 
             </a>
@@ -1599,7 +1557,7 @@
                     </span>
 
                     <span aria-current="page">
-                        Ohm's Law
+                        Voltage, Current &amp; Resistance
                     </span>
 
                 </nav>
@@ -1616,14 +1574,14 @@
                     </div>
 
                     <h1>
-                        Ohm's Law Explained: Formula, Examples &amp; Calculations
+                        What Are Voltage, Current &amp; Resistance?
                     </h1>
 
                     <p class="article-intro">
-                        Ohm's Law is one of the most foundational relationships
-                        in electrical engineering. It describes how voltage,
-                        current, and resistance interact within an electrical
-                        circuit.
+                        Voltage, current, and resistance are three of the most
+                        fundamental concepts in electrical engineering.
+                        Understanding how they work together is essential for
+                        analyzing electrical and electronic circuits.
                     </p>
 
                     <div class="article-meta">
@@ -1674,16 +1632,32 @@
                                 On This Page
                             </h3>
 
-                            <a href="#what-is-ohms-law">
-                                What Is Ohm's Law?
+                            <a href="#overview">
+                                Voltage, Current &amp; Resistance
                             </a>
 
-                            <a href="#formula">
-                                Ohm's Law Formula
+                            <a href="#voltage">
+                                What Is Voltage?
                             </a>
 
-                            <a href="#triangle">
-                                Ohm's Law Triangle
+                            <a href="#current">
+                                What Is Current?
+                            </a>
+
+                            <a href="#resistance">
+                                What Is Resistance?
+                            </a>
+
+                            <a href="#comparison">
+                                Comparison Table
+                            </a>
+
+                            <a href="#relationship">
+                                How They Are Related
+                            </a>
+
+                            <a href="#ohms-law">
+                                Ohm's Law
                             </a>
 
                             <a href="#example">
@@ -1721,16 +1695,15 @@
                             </strong>
 
                             <p>
-                                Ohm's Law states that the current
-                                (<code>I</code>) flowing through a conductor
-                                between two points is directly proportional
-                                to the voltage (<code>V</code>) across the
-                                two points and inversely proportional to the
-                                resistance (<code>R</code>).
+                                <strong>Voltage</strong> is the electrical
+                                potential difference that can drive charge,
+                                <strong>current</strong> is the rate of
+                                electric charge flow, and
+                                <strong>resistance</strong> is the opposition
+                                to that flow.
                             </p>
 
-                            <div class="formula-box"
-                                 style="margin-top: 1rem;">
+                            <div class="formula-box">
                                 V = I × R
                             </div>
 
@@ -1738,52 +1711,117 @@
 
 
                         <!-- =================================================
-                             WHAT IS OHM'S LAW
+                             OVERVIEW
                         ================================================== -->
 
-                        <section id="what-is-ohms-law">
+                        <section id="overview">
 
                             <h2>
-                                What Is Ohm's Law?
+                                Voltage, Current &amp; Resistance
                             </h2>
 
                             <p>
-                                Ohm's Law is a fundamental principle used in
-                                electrical and electronic engineering to
-                                calculate the relationship between voltage,
-                                current, and resistance in an electrical
-                                circuit.
+                                Almost every electrical circuit can be
+                                understood by looking at three fundamental
+                                quantities: <strong>voltage</strong>,
+                                <strong>current</strong>, and
+                                <strong>resistance</strong>.
                             </p>
 
                             <p>
-                                When the resistance of a circuit is constant,
-                                increasing the voltage results in a proportional
-                                increase in current. Conversely, if resistance
-                                increases for a given voltage, current decreases.
+                                These quantities describe different aspects
+                                of electrical behavior. Voltage represents
+                                electrical potential difference, current
+                                describes the flow of electric charge, and
+                                resistance describes how strongly a material
+                                or component opposes that flow.
                             </p>
 
                             <p>
-                                The three fundamental electrical quantities are:
+                                Their relationship is described by
+                                <strong>Ohm's Law</strong> for circuits and
+                                components that exhibit an ohmic relationship.
                             </p>
+
+                            <div class="formula-box">
+                                V = I × R
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             VOLTAGE
+                        ================================================== -->
+
+                        <section id="voltage">
+
+                            <h2>
+                                What Is Voltage?
+                            </h2>
+
+                            <p>
+                                <strong>Voltage</strong> is the electrical
+                                potential difference between two points in a
+                                circuit. It represents the amount of energy
+                                available per unit of electric charge between
+                                those points.
+                            </p>
+
+                            <p>
+                                Voltage is commonly described as the
+                                electrical potential that can cause current
+                                to flow when a closed conductive path is
+                                available.
+                            </p>
+
+                            <h3>
+                                Voltage Unit
+                            </h3>
+
+                            <p>
+                                Voltage is measured in <strong>volts (V)</strong>.
+                                A multimeter set to voltage measures the
+                                potential difference between two points.
+                            </p>
+
+                            <div class="formula-box">
+
+                                <span class="formula-label">
+                                    Voltage
+                                </span>
+
+                                <span class="formula">
+                                    V = W ÷ Q
+                                </span>
+
+                                <p>
+                                    where W is energy in joules and Q is
+                                    electric charge in coulombs.
+                                </p>
+
+                            </div>
+
+                            <h3>
+                                Common Voltage Examples
+                            </h3>
 
                             <ul>
 
                                 <li>
-                                    <strong>Voltage (V)</strong>
-                                    — Electrical potential difference,
-                                    measured in Volts (V).
+                                    A single AA battery is typically around
+                                    <strong>1.5 V</strong>.
                                 </li>
 
                                 <li>
-                                    <strong>Current (I)</strong>
-                                    — The flow rate of electric charge,
-                                    measured in Amperes (A).
+                                    A common USB power supply provides
+                                    <strong>5 V</strong>.
                                 </li>
 
                                 <li>
-                                    <strong>Resistance (R)</strong>
-                                    — The opposition to current flow,
-                                    measured in Ohms (Ω).
+                                    A typical household AC supply may be
+                                    approximately <strong>230 V</strong>
+                                    depending on the electrical system.
                                 </li>
 
                             </ul>
@@ -1792,26 +1830,163 @@
 
 
                         <!-- =================================================
-                             FORMULA
+                             CURRENT
                         ================================================== -->
 
-                        <section id="formula">
+                        <section id="current">
 
                             <h2>
-                                Ohm's Law Formula
+                                What Is Current?
                             </h2>
 
                             <p>
-                                The standard algebraic expression for
-                                Ohm's Law is:
+                                <strong>Electric current</strong> is the rate
+                                at which electric charge flows through a
+                                conductor or circuit.
+                            </p>
+
+                            <p>
+                                Current is represented by the symbol
+                                <code>I</code> and is measured in
+                                <strong>amperes (A)</strong>.
                             </p>
 
                             <div class="formula-box">
-                                V = I × R
+
+                                <span class="formula-label">
+                                    Electric Current
+                                </span>
+
+                                <span class="formula">
+                                    I = Q ÷ t
+                                </span>
+
+                                <p>
+                                    where Q is electric charge in coulombs
+                                    and t is time in seconds.
+                                </p>
+
                             </div>
 
                             <p>
-                                Where:
+                                For example, if 10 coulombs of charge pass
+                                through a conductor in 2 seconds, the average
+                                current is:
+                            </p>
+
+                            <div class="calculation-box">
+
+                                <p>
+                                    <strong>Q</strong> = 10 C
+                                </p>
+
+                                <p>
+                                    <strong>t</strong> = 2 s
+                                </p>
+
+                                <p>
+                                    <strong>I</strong> = Q ÷ t
+                                </p>
+
+                                <p>
+                                    <strong>I</strong> = 10 ÷ 2 = 5 A
+                                </p>
+
+                            </div>
+
+                            <div class="result-box">
+                                <strong>
+                                    Current = 5 A
+                                </strong>
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             RESISTANCE
+                        ================================================== -->
+
+                        <section id="resistance">
+
+                            <h2>
+                                What Is Resistance?
+                            </h2>
+
+                            <p>
+                                <strong>Resistance</strong> is the opposition
+                                offered by a material or electrical component
+                                to the flow of electric current.
+                            </p>
+
+                            <p>
+                                Resistance is represented by the symbol
+                                <code>R</code> and is measured in
+                                <strong>ohms (Ω)</strong>.
+                            </p>
+
+                            <p>
+                                A higher resistance generally results in lower
+                                current for a given voltage, while a lower
+                                resistance generally allows more current to
+                                flow.
+                            </p>
+
+                            <div class="formula-box">
+
+                                <span class="formula-label">
+                                    Resistance
+                                </span>
+
+                                <span class="formula">
+                                    R = V ÷ I
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Factors Affecting Resistance
+                            </h3>
+
+                            <p>
+                                The resistance of a conductor depends on
+                                several factors, including its material,
+                                length, cross-sectional area, and temperature.
+                            </p>
+
+                            <div class="formula-box">
+
+                                <span class="formula-label">
+                                    Conductor Resistance
+                                </span>
+
+                                <span class="formula">
+                                    R = ρL ÷ A
+                                </span>
+
+                                <p>
+                                    where ρ is resistivity, L is conductor
+                                    length, and A is cross-sectional area.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             COMPARISON
+                        ================================================== -->
+
+                        <section id="comparison">
+
+                            <h2>
+                                Voltage vs Current vs Resistance
+                            </h2>
+
+                            <p>
+                                The three quantities have different roles in
+                                an electrical circuit.
                             </p>
 
                             <table class="engineering-table">
@@ -1821,15 +1996,19 @@
                                     <tr>
 
                                         <th scope="col">
-                                            Symbol
-                                        </th>
-
-                                        <th scope="col">
                                             Quantity
                                         </th>
 
                                         <th scope="col">
+                                            Symbol
+                                        </th>
+
+                                        <th scope="col">
                                             Unit
+                                        </th>
+
+                                        <th scope="col">
+                                            Basic Meaning
                                         </th>
 
                                     </tr>
@@ -1841,47 +2020,59 @@
                                     <tr>
 
                                         <td>
-                                            <strong>V</strong>
+                                            <strong>Voltage</strong>
                                         </td>
 
                                         <td>
-                                            Voltage
+                                            V
                                         </td>
 
                                         <td>
                                             Volt (V)
                                         </td>
 
+                                        <td>
+                                            Electrical potential difference
+                                        </td>
+
                                     </tr>
 
                                     <tr>
 
                                         <td>
-                                            <strong>I</strong>
+                                            <strong>Current</strong>
                                         </td>
 
                                         <td>
-                                            Current
+                                            I
                                         </td>
 
                                         <td>
                                             Ampere (A)
                                         </td>
 
+                                        <td>
+                                            Rate of electric charge flow
+                                        </td>
+
                                     </tr>
 
                                     <tr>
 
                                         <td>
-                                            <strong>R</strong>
+                                            <strong>Resistance</strong>
                                         </td>
 
                                         <td>
-                                            Resistance
+                                            R
                                         </td>
 
                                         <td>
                                             Ohm (Ω)
+                                        </td>
+
+                                        <td>
+                                            Opposition to current flow
                                         </td>
 
                                     </tr>
@@ -1894,18 +2085,106 @@
 
 
                         <!-- =================================================
-                             TRIANGLE
+                             RELATIONSHIP
                         ================================================== -->
 
-                        <section id="triangle">
+                        <section id="relationship">
 
                             <h2>
-                                Ohm's Law Triangle
+                                How Voltage, Current &amp; Resistance Are Related
                             </h2>
 
                             <p>
-                                The formula can be rearranged depending on
-                                which quantity needs to be calculated:
+                                Voltage, current, and resistance are closely
+                                related in an electrical circuit. For a
+                                component following Ohm's Law, changing one
+                                quantity affects the others.
+                            </p>
+
+                            <div class="formula-grid">
+
+                                <div class="formula-card">
+
+                                    <span class="symbol">
+                                        V
+                                    </span>
+
+                                    <strong>
+                                        Voltage
+                                    </strong>
+
+                                    <span>
+                                        Voltage increases when current or
+                                        resistance increases, assuming the
+                                        other quantity remains constant.
+                                    </span>
+
+                                </div>
+
+
+                                <div class="formula-card">
+
+                                    <span class="symbol">
+                                        I
+                                    </span>
+
+                                    <strong>
+                                        Current
+                                    </strong>
+
+                                    <span>
+                                        Current increases with voltage and
+                                        decreases with resistance.
+                                    </span>
+
+                                </div>
+
+
+                                <div class="formula-card">
+
+                                    <span class="symbol">
+                                        R
+                                    </span>
+
+                                    <strong>
+                                        Resistance
+                                    </strong>
+
+                                    <span>
+                                        Resistance limits the amount of
+                                        current flowing for a given voltage.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             OHM'S LAW
+                        ================================================== -->
+
+                        <section id="ohms-law">
+
+                            <h2>
+                                Ohm's Law
+                            </h2>
+
+                            <p>
+                                The relationship between voltage, current, and
+                                resistance is commonly expressed using
+                                <strong>Ohm's Law</strong>:
+                            </p>
+
+                            <div class="formula-box">
+                                V = I × R
+                            </div>
+
+                            <p>
+                                The equation can be rearranged to calculate
+                                any one of the three quantities.
                             </p>
 
                             <div class="formula-grid">
@@ -1964,9 +2243,10 @@
                             </h2>
 
                             <p>
-                                Suppose a 24 V DC supply is connected across
-                                a resistor with a resistance of 12 Ω. What
-                                current will flow through the circuit?
+                                Consider a simple DC circuit supplied by
+                                <strong>24 V</strong> with a resistor of
+                                <strong>12 Ω</strong>. What current flows
+                                through the resistor?
                             </p>
 
 
@@ -1988,7 +2268,7 @@
 
 
                             <h3>
-                                Step 2 — Apply Ohm's Law for current
+                                Step 2 — Choose the formula
                             </h3>
 
                             <div class="formula-box">
@@ -1997,7 +2277,7 @@
 
 
                             <h3>
-                                Step 3 — Substitute values and calculate
+                                Step 3 — Substitute the values
                             </h3>
 
                             <div class="formula-box">
@@ -2015,8 +2295,8 @@
 
 
                             <p>
-                                Therefore, the total current flowing through
-                                the resistor is <strong>2 amperes</strong>.
+                                Therefore, the current flowing through the
+                                resistor is <strong>2 amperes</strong>.
                             </p>
 
                         </section>
@@ -2033,33 +2313,63 @@
                             </h2>
 
                             <p>
-                                While Ohm's Law is the baseline for simple
-                                linear DC circuits, practical AC power networks
-                                involve frequency-dependent components like
-                                inductors and capacitors.
+                                Voltage, current, and resistance are
+                                fundamental concepts used throughout
+                                electrical engineering, including power
+                                systems, electronics, control systems,
+                                instrumentation, and renewable energy.
                             </p>
 
                             <p>
-                                In AC circuits, pure resistance
-                                (<code>R</code>) is expanded to total
-                                <strong>impedance (<code>Z</code>)</strong>,
-                                modifying the relationship to
-                                <code>V = I × Z</code>.
-                                Furthermore, Ohm's Law is frequently combined
-                                with Joule's Law to determine electrical
-                                power dissipation:
+                                In practical electrical systems, engineers
+                                also consider other quantities such as
+                                <strong>power</strong>, <strong>energy</strong>,
+                                <strong>impedance</strong>, frequency, and
+                                power factor.
                             </p>
 
                             <div class="formula-box">
-                                P = V × I = I² × R
+
+                                <span class="formula-label">
+                                    Electrical Power
+                                </span>
+
+                                <span class="formula">
+                                    P = V × I
+                                </span>
+
                             </div>
 
                             <p>
-                                Combining these equations enables power system
-                                engineers to calculate power loss, voltage drop
-                                across distribution lines, and fault current
-                                magnitudes.
+                                Combining Ohm's Law with the power equation
+                                gives additional useful relationships:
                             </p>
+
+                            <div class="formula-box">
+                                P = I² × R
+                            </div>
+
+                            <div class="formula-box">
+                                P = V² ÷ R
+                            </div>
+
+                            <div class="engineering-note">
+
+                                <strong>
+                                    Engineering Note:
+                                </strong>
+
+                                <p>
+                                    Ohm's Law describes the voltage-current
+                                    relationship for ohmic behavior. Not every
+                                    electrical component behaves as a constant
+                                    resistance over all operating conditions.
+                                    Devices such as diodes and semiconductor
+                                    components can have nonlinear
+                                    voltage-current characteristics.
+                                </p>
+
+                            </div>
 
                         </section>
 
@@ -2078,8 +2388,8 @@
 
                                 <p>
                                     Use our dedicated engineering tools for
-                                    fast cable sizing, voltage drop, and power
-                                    calculations.
+                                    cable sizing, voltage drop, solar PV,
+                                    and other electrical calculations.
                                 </p>
 
                                 <a href="https://calculator.prasunbarua.com/"
@@ -2111,39 +2421,74 @@
                                 Frequently Asked Questions
                             </h2>
 
+
                             <h3>
-                                What is the basic formula of Ohm's Law?
+                                What is voltage?
                             </h3>
 
                             <p>
-                                The basic formula is
-                                <code>V = I × R</code>,
-                                where <code>V</code> is voltage in volts,
-                                <code>I</code> is current in amperes,
-                                and <code>R</code> is resistance in ohms.
+                                Voltage is the electrical potential difference
+                                between two points. It is measured in volts
+                                (V) and represents the potential available to
+                                drive electric charge through a circuit.
                             </p>
 
+
                             <h3>
-                                What happens when resistance increases?
+                                What is electric current?
                             </h3>
 
                             <p>
-                                If voltage remains constant, increasing the
-                                circuit resistance reduces current flow
-                                proportionally according to
+                                Electric current is the rate of flow of
+                                electric charge through a circuit. It is
+                                measured in amperes (A).
+                            </p>
+
+
+                            <h3>
+                                What is resistance?
+                            </h3>
+
+                            <p>
+                                Resistance is the opposition to electric
+                                current flow. It is measured in ohms (Ω).
+                            </p>
+
+
+                            <h3>
+                                What is the relationship between voltage,
+                                current, and resistance?
+                            </h3>
+
+                            <p>
+                                For an ohmic relationship, they are related by
+                                Ohm's Law:
+                                <code>V = I × R</code>.
+                            </p>
+
+
+                            <h3>
+                                What happens to current when resistance
+                                increases?
+                            </h3>
+
+                            <p>
+                                If voltage remains constant, increasing
+                                resistance causes current to decrease
+                                according to
                                 <code>I = V ÷ R</code>.
                             </p>
 
+
                             <h3>
-                                Is Ohm's Law applicable to AC circuits?
+                                What happens to current when voltage increases?
                             </h3>
 
                             <p>
-                                Ohm's Law applies directly to resistive AC
-                                loads. However, for loads with inductive or
-                                capacitive components, total impedance
-                                (<code>Z</code>) must be used instead of
-                                simple resistance (<code>R</code>).
+                                If resistance remains constant, increasing
+                                voltage causes current to increase
+                                proportionally according to
+                                <code>I = V ÷ R</code>.
                             </p>
 
                         </section>
@@ -2151,26 +2496,43 @@
 
                         <!-- =================================================
                              RELATED TUTORIALS
-                             
-                             IMPORTANT:
-                             These URLs assume every article has its own
-                             index.html inside its folder.
-
                         ================================================== -->
 
                         <section>
-    <h2>
-        Related Tutorials
-    </h2>
 
-    <div class="related-grid">
+                            <h2>
+                                Related Tutorials
+                            </h2>
 
-        <a href="/articles/electrical-fundamentals/">
-            Voltage, Current, Resistance &amp; Electrical Power Explained
-        </a>
+                            <div class="related-grid">
 
-    </div>
-</section>
+                                <a href="/articles/electrical-fundamentals/ohms-law/">
+
+                                    Ohm's Law Explained: Formula, Examples
+                                    &amp; Calculations
+
+                                    <span class="material-symbols-rounded"
+                                          aria-hidden="true">
+                                        arrow_forward
+                                    </span>
+
+                                </a>
+
+
+                                <a href="/articles/electrical-fundamentals/">
+
+                                    Electrical Fundamentals
+
+                                    <span class="material-symbols-rounded"
+                                          aria-hidden="true">
+                                        arrow_forward
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                        </section>
 
 
                     </article>
@@ -2298,7 +2660,9 @@
         </div>
 
 
-        <!-- FOOTER BOTTOM -->
+        <!-- =========================================================
+             FOOTER BOTTOM
+        ========================================================== -->
 
         <div class="footer-bottom">
 
