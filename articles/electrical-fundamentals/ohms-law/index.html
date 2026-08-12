@@ -43,9 +43,137 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- Main Stylesheet & App Script -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="/assets/js/app.js" defer></script>
+    <!-- Main Stylesheet (Relative Fallback & Root Relative) -->
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <script src="../../../assets/js/app.js" defer></script>
+
+    <!-- Essential Layout Safety Styles -->
+    <style>
+        :root {
+            --primary: #0b57d0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container, .article-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* Article Layout Grid */
+        .article-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar TOC Styling */
+        .toc {
+            position: sticky;
+            top: 2rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toc h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick Answer & Formula Styling */
+        .quick-answer {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 2rem;
+        }
+
+        .formula-box {
+            background: var(--text-dark);
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin: 1.5rem 0;
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .formula-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem;
+            text-align: center;
+            background: var(--bg-light);
+        }
+
+        .formula-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Engineering Tables */
+        .engineering-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .engineering-table th, .engineering-table td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        .engineering-table th {
+            background: var(--bg-light);
+        }
+    </style>
 
     <!-- Structured Data: TechArticle & Breadcrumbs -->
     <script type="application/ld+json">
@@ -174,7 +302,7 @@
                             <p>
                                 Ohm's Law states that the current (<code>I</code>) flowing through a conductor between two points is directly proportional to the voltage (<code>V</code>) across the two points and inversely proportional to the resistance (<code>R</code>).
                             </p>
-                            <div class="formula">V = I × R</div>
+                            <div class="formula-box" style="margin-top: 1rem;">V = I × R</div>
                         </div>
 
                         <!-- Section: What Is Ohm's Law -->
