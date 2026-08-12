@@ -3,9 +3,27 @@
 
 <head>
 
-    <!-- =========================================================
+    <!-- =====================================================
+         GOOGLE ANALYTICS
+    ====================================================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-XY335VGVGJ');
+    </script>
+
+
+    <!-- =====================================================
          BASIC META
-    ========================================================== -->
+    ====================================================== -->
 
     <meta charset="UTF-8">
 
@@ -14,9 +32,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <title>
+        Privacy Policy | Electrical Engineering by Prasun Barua
+    </title>
+
     <meta
         name="description"
-        content="Privacy Policy for Electrical Engineering by Prasun Barua. Learn how this website uses cookies, advertising services, analytics, and information provided by visitors."
+        content="Privacy Policy for Electrical Engineering by Prasun Barua. Learn how information, cookies, analytics, advertising and contact form data are handled when you use this website."
     >
 
     <meta
@@ -31,17 +53,59 @@
 
     <link
         rel="canonical"
-        href="https://www.prasunbarua.com/p/privacy-policy.html"
+        href="https://electrical.prasunbarua.com/privacy-policy.html"
     >
 
-    <title>
-        Privacy Policy | Electrical Engineering by Prasun Barua
-    </title>
+
+    <!-- =====================================================
+         OPEN GRAPH
+    ====================================================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Privacy Policy | Electrical Engineering by Prasun Barua"
+    >
+
+    <meta
+        property="og:description"
+        content="Read the Privacy Policy for Electrical Engineering by Prasun Barua."
+    >
+
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/privacy-policy.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Electrical Engineering by Prasun Barua"
+    >
 
 
-    <!-- =========================================================
-         GOOGLE MATERIAL SYMBOLS
-    ========================================================== -->
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
 
     <link
         rel="preconnect"
@@ -55,29 +119,37 @@
     >
 
     <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Material Symbols -->
+
+    <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
         rel="stylesheet"
     >
 
 
-    <!-- =========================================================
-         SITE STYLESHEET
-    ========================================================== -->
+    <!-- =====================================================
+         GLOBAL WEBSITE CSS
+    ====================================================== -->
 
     <link
         rel="stylesheet"
-        href="/style.css"
+        href="assets/css/style.css"
     >
 
 
-    <!-- =========================================================
-         FAVICON
-    ========================================================== -->
+    <!-- =====================================================
+         GOOGLE ADSENSE
+    ====================================================== -->
 
-    <link
-        rel="icon"
-        href="/favicon.ico"
-    >
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous">
+    </script>
 
 </head>
 
@@ -85,1282 +157,1098 @@
 <body>
 
 
-<!-- =========================================================
-     SITE HEADER
-========================================================== -->
+    <!-- =====================================================
+         SITE HEADER
+    ====================================================== -->
 
-<header class="site-header">
+    <header class="site-header">
 
-    <div class="container header-inner">
+        <div class="container header-inner">
 
 
-        <!-- LOGO -->
+            <!-- LOGO -->
 
-        <a
-            href="/"
-            class="logo"
-            aria-label="Electrical Engineering by Prasun Barua"
-        >
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="Electrical Engineering home"
+            >
 
-            <span class="logo-icon">
+                <span
+                    class="logo-icon"
+                    aria-hidden="true"
+                >
 
-                <span class="material-symbols-rounded">
-                    electrical_services
+                    <span class="material-symbols-rounded">
+                        bolt
+                    </span>
+
                 </span>
 
-            </span>
+
+                <span>
+
+                    <strong>
+                        Electrical Engineering
+                    </strong>
+
+                    <small>
+                        by Prasun Barua
+                    </small>
+
+                </span>
+
+            </a>
 
 
-            <span>
+            <!-- MAIN NAVIGATION -->
 
-                <strong>
-                    Electrical Engineering
-                </strong>
+            <nav
+                class="main-nav"
+                aria-label="Main navigation"
+            >
 
-                <small>
-                    by Prasun Barua
-                </small>
+                <ul>
 
-            </span>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
 
-        </a>
+                    <li>
+                        <a href="index.html#tutorials">
+                            Tutorials
+                        </a>
+                    </li>
 
+                    <li>
+                        <a href="index.html#calculations">
+                            Calculations
+                        </a>
+                    </li>
 
-        <!-- DESKTOP NAVIGATION -->
+                    <li>
+                        <a href="index.html#solar">
+                            Solar PV
+                        </a>
+                    </li>
 
-        <nav
-            class="main-nav"
-            aria-label="Main navigation"
-        >
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
 
-            <ul>
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="/">
-                        Home
-                    </a>
-                </li>
+                </ul>
 
-                <li>
-                    <a href="/p/articles.html">
-                        Articles
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/p/about.html">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/p/contact.html">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
+            </nav>
 
 
-        <!-- MOBILE MENU BUTTON -->
+            <!-- MOBILE MENU BUTTON -->
 
-        <button
-            class="mobile-menu-button"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-        >
+            <button
+                type="button"
+                class="mobile-menu-button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
 
-            <span class="material-symbols-rounded">
-                menu
-            </span>
+                <span class="material-symbols-rounded">
+                    menu
+                </span>
 
-        </button>
+            </button>
 
-    </div>
+        </div>
 
-</header>
+    </header>
 
-
-
-<!-- =========================================================
-     MAIN CONTENT
-========================================================== -->
-
-<main>
 
 
     <!-- =====================================================
-         PRIVACY HERO
+         MAIN CONTENT
     ====================================================== -->
 
-    <section class="hero">
-
-        <div class="container">
-
-            <div class="hero-content">
-
-                <span class="hero-eyebrow">
-                    Privacy & transparency
-                </span>
+    <main>
 
 
-                <h1>
-                    Privacy Policy
-                </h1>
+        <!-- =================================================
+             PAGE HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <span class="hero-eyebrow">
+                        PRIVACY &amp; DATA
+                    </span>
+
+
+                    <h1>
+                        Privacy Policy
+                    </h1>
+
+
+                    <p>
+                        We respect your privacy and aim to be
+                        transparent about how information is
+                        collected and used when you visit this
+                        website.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRIVACY POLICY CONTENT
+        ================================================== -->
+
+        <section class="page-section">
+
+            <div class="container">
+
+
+                <div class="article-content">
+
+
+                    <p>
+                        <strong>Last updated: August 2026</strong>
+                    </p>
+
+
+                    <p>
+                        This Privacy Policy explains how
+                        <strong>
+                            Electrical Engineering by Prasun Barua
+                        </strong>
+                        ("we", "us", "our", or "this website")
+                        handles information when you visit and use
+                        <strong>
+                            https://electrical.prasunbarua.com/
+                        </strong>.
+                    </p>
+
+
+                    <p>
+                        We value your privacy and believe that
+                        visitors should understand what information
+                        may be collected, why it may be collected,
+                        and how it may be used.
+                    </p>
+
+
+                    <p>
+                        By using this website, you acknowledge the
+                        practices described in this Privacy Policy.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         1. INFORMATION WE COLLECT
+                    ========================================== -->
+
+                    <h2>
+                        1. Information We Collect
+                    </h2>
+
+
+                    <p>
+                        We do not require visitors to create an
+                        account or provide personal information simply
+                        to browse the website.
+                    </p>
+
+
+                    <p>
+                        Depending on how you interact with the site,
+                        certain information may be collected
+                        automatically or voluntarily provided by you.
+                    </p>
+
+
+                    <h3>
+                        Information you voluntarily provide
+                    </h3>
+
+
+                    <p>
+                        If you contact us through the contact form,
+                        you may voluntarily provide information such
+                        as:
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Your name
+                        </li>
+
+                        <li>
+                            Your email address
+                        </li>
+
+                        <li>
+                            The subject of your message
+                        </li>
+
+                        <li>
+                            The content of your message
+                        </li>
+
+                    </ul>
+
+
+                    <p>
+                        We use this information primarily to respond
+                        to your inquiry, feedback, correction request
+                        or other communication.
+                    </p>
+
+
+
+                    <h3>
+                        Information collected automatically
+                    </h3>
+
+
+                    <p>
+                        When you visit the website, certain technical
+                        information may be collected automatically by
+                        web servers, analytics services, advertising
+                        services or other third-party technologies.
+                    </p>
+
+
+                    <p>
+                        This may include information such as your
+                        approximate location, browser type, device
+                        type, operating system, referring page,
+                        pages viewed, time spent on pages and
+                        general interaction information.
+                    </p>
+
+
+                    <p>
+                        This information is generally used in
+                        aggregate to understand website usage,
+                        improve content and maintain website
+                        performance.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         2. GOOGLE ANALYTICS
+                    ========================================== -->
+
+                    <h2>
+                        2. Google Analytics
+                    </h2>
+
+
+                    <p>
+                        This website uses
+                        <strong>Google Analytics</strong>
+                        to help understand how visitors use the
+                        website.
+                    </p>
+
+
+                    <p>
+                        Google Analytics may collect information such
+                        as pages visited, approximate geographic
+                        information, device and browser information,
+                        traffic sources and interaction data.
+                    </p>
+
+
+                    <p>
+                        We use this information to understand website
+                        traffic, improve the site's content and
+                        identify areas that may provide a better
+                        experience for visitors.
+                    </p>
+
+
+                    <p>
+                        Google may process information according to
+                        its own privacy policies and terms.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         3. GOOGLE ADSENSE
+                    ========================================== -->
+
+                    <h2>
+                        3. Google AdSense and Advertising
+                    </h2>
+
+
+                    <p>
+                        This website participates in the
+                        <strong>Google AdSense</strong> advertising
+                        program.
+                    </p>
+
+
+                    <p>
+                        Google and its advertising partners may use
+                        cookies or similar technologies to display
+                        advertisements based on a user's visit to
+                        this website and other websites.
+                    </p>
+
+
+                    <p>
+                        Advertising technologies may collect or use
+                        information such as browser information,
+                        device information, approximate location,
+                        advertising identifiers and interaction with
+                        advertisements, subject to the applicable
+                        policies and settings of the advertising
+                        providers.
+                    </p>
+
+
+                    <p>
+                        Advertisements may be personalized or
+                        non-personalized depending on applicable
+                        settings, consent requirements and the
+                        visitor's location.
+                    </p>
+
+
+                    <p>
+                        We do not directly control the information
+                        collected by Google or other advertising
+                        partners through their advertising
+                        technologies.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         4. COOKIES
+                    ========================================== -->
+
+                    <h2>
+                        4. Cookies and Similar Technologies
+                    </h2>
+
+
+                    <p>
+                        Cookies are small text files that websites
+                        may store on your device. They can be used
+                        for purposes such as remembering preferences,
+                        measuring website traffic, delivering
+                        advertising and improving website
+                        functionality.
+                    </p>
+
+
+                    <p>
+                        This website and third-party services used on
+                        the website may use cookies or similar
+                        technologies.
+                    </p>
+
+
+                    <p>
+                        You can generally control or disable cookies
+                        through your browser settings. However,
+                        disabling certain cookies may affect the
+                        functionality of some websites or services.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         5. THIRD-PARTY SERVICES
+                    ========================================== -->
+
+                    <h2>
+                        5. Third-Party Services
+                    </h2>
+
+
+                    <p>
+                        This website may use third-party services to
+                        provide analytics, advertising, fonts,
+                        security, hosting, communication or other
+                        website functionality.
+                    </p>
+
+
+                    <p>
+                        These third-party providers may process
+                        technical or other information according to
+                        their own privacy policies.
+                    </p>
+
+
+                    <p>
+                        Examples of third-party services that may be
+                        used by this website include Google Analytics,
+                        Google AdSense, Google Fonts and other
+                        infrastructure or service providers required
+                        to operate the website.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         6. GOOGLE FONTS
+                    ========================================== -->
+
+                    <h2>
+                        6. Google Fonts
+                    </h2>
+
+
+                    <p>
+                        This website may use fonts provided through
+                        Google Fonts to provide a consistent and
+                        readable visual experience.
+                    </p>
+
+
+                    <p>
+                        When the fonts are loaded, your browser may
+                        communicate with Google's servers to retrieve
+                        the required font resources.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         7. CONTACT FORM
+                    ========================================== -->
+
+                    <h2>
+                        7. Contact Form Information
+                    </h2>
+
+
+                    <p>
+                        If you voluntarily submit a message through
+                        our contact form, the information you provide
+                        may be transmitted through our contact
+                        processing system.
+                    </p>
+
+
+                    <p>
+                        Contact information is used to respond to your
+                        inquiry and is not intentionally collected for
+                        unrelated marketing purposes.
+                    </p>
+
+
+                    <p>
+                        We may retain correspondence for a reasonable
+                        period when necessary to respond to your
+                        request, maintain records of communications,
+                        prevent abuse or resolve disputes.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         8. HOW WE USE INFORMATION
+                    ========================================== -->
+
+                    <h2>
+                        8. How We Use Information
+                    </h2>
+
+
+                    <p>
+                        Information may be used for legitimate website
+                        and communication purposes, including:
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Providing and maintaining the website
+                        </li>
+
+                        <li>
+                            Responding to contact requests
+                        </li>
+
+                        <li>
+                            Improving articles and educational content
+                        </li>
+
+                        <li>
+                            Understanding website traffic and usage
+                        </li>
+
+                        <li>
+                            Monitoring website performance
+                        </li>
+
+                        <li>
+                            Detecting spam, abuse or security issues
+                        </li>
+
+                        <li>
+                            Displaying and measuring advertising
+                        </li>
+
+                        <li>
+                            Complying with applicable legal obligations
+                        </li>
+
+                    </ul>
+
+
+
+                    <!-- =========================================
+                         9. DATA SHARING
+                    ========================================== -->
+
+                    <h2>
+                        9. Sharing of Information
+                    </h2>
+
+
+                    <p>
+                        We do not sell, rent or intentionally trade
+                        your personal information to third parties.
+                    </p>
+
+
+                    <p>
+                        Information may nevertheless be processed by
+                        third-party service providers when necessary
+                        to operate the website, provide analytics,
+                        deliver advertisements, process contact
+                        messages, maintain infrastructure or comply
+                        with legal requirements.
+                    </p>
+
+
+                    <p>
+                        We may also disclose information where we
+                        reasonably believe disclosure is necessary to
+                        protect the website, visitors, our rights or
+                        comply with a legal obligation.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         10. DATA SECURITY
+                    ========================================== -->
+
+                    <h2>
+                        10. Data Security
+                    </h2>
+
+
+                    <p>
+                        We take reasonable measures to protect
+                        information handled through this website.
+                    </p>
+
+
+                    <p>
+                        However, no method of transmission over the
+                        internet or electronic storage system can be
+                        guaranteed to be completely secure.
+                    </p>
+
+
+                    <p>
+                        Therefore, while we make reasonable efforts
+                        to protect information, we cannot guarantee
+                        absolute security.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         11. CHILDREN'S PRIVACY
+                    ========================================== -->
+
+                    <h2>
+                        11. Children's Privacy
+                    </h2>
+
+
+                    <p>
+                        This website is intended to provide general
+                        educational and engineering information and
+                        does not knowingly request personal information
+                        from children.
+                    </p>
+
+
+                    <p>
+                        If you believe that a child has provided
+                        personal information through this website,
+                        please contact us so that appropriate action
+                        can be considered.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         12. EXTERNAL LINKS
+                    ========================================== -->
+
+                    <h2>
+                        12. External Links
+                    </h2>
+
+
+                    <p>
+                        Articles or pages on this website may contain
+                        links to external websites, references or
+                        resources.
+                    </p>
+
+
+                    <p>
+                        We are not responsible for the privacy
+                        practices, content, security or policies of
+                        external websites.
+                    </p>
+
+
+                    <p>
+                        Visitors should review the privacy policy of
+                        any external website they choose to visit.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         13. YOUR CHOICES
+                    ========================================== -->
+
+                    <h2>
+                        13. Your Privacy Choices
+                    </h2>
+
+
+                    <p>
+                        Depending on your location and applicable law,
+                        you may have certain rights concerning your
+                        personal information.
+                    </p>
+
+
+                    <p>
+                        These may include rights to request access to,
+                        correction of or deletion of certain personal
+                        information that we hold about you, subject to
+                        applicable legal limitations.
+                    </p>
+
+
+                    <p>
+                        You may also control certain cookie and
+                        advertising preferences through your browser,
+                        device settings or available consent and
+                        advertising controls.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         14. INTERNATIONAL USERS
+                    ========================================== -->
+
+                    <h2>
+                        14. International Visitors
+                    </h2>
+
+
+                    <p>
+                        This website may be accessed by visitors from
+                        different countries.
+                    </p>
+
+
+                    <p>
+                        Depending on where you are located, privacy
+                        and data-protection laws may provide you with
+                        specific rights regarding the processing of
+                        your information.
+                    </p>
+
+
+                    <p>
+                        We aim to respect applicable privacy
+                        requirements and handle information in a
+                        reasonable and transparent manner.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         15. POLICY UPDATES
+                    ========================================== -->
+
+                    <h2>
+                        15. Changes to This Privacy Policy
+                    </h2>
+
+
+                    <p>
+                        We may update this Privacy Policy from time to
+                        time to reflect changes to the website,
+                        services, technology, legal requirements or
+                        privacy practices.
+                    </p>
+
+
+                    <p>
+                        When changes are made, the updated version will
+                        be published on this page and the
+                        "Last updated" date may be revised.
+                    </p>
+
+
+                    <p>
+                        We encourage visitors to review this page
+                        periodically for the latest information.
+                    </p>
+
+
+
+                    <!-- =========================================
+                         16. CONTACT
+                    ========================================== -->
+
+                    <h2>
+                        16. Contact Us
+                    </h2>
+
+
+                    <p>
+                        If you have questions about this Privacy
+                        Policy, the information handled through this
+                        website, or your interaction with our services,
+                        you can contact us through the website's
+                        contact page.
+                    </p>
+
+
+                    <p>
+
+                        <a
+                            href="contact.html"
+                            class="btn btn-primary"
+                        >
+
+                            <span class="material-symbols-rounded">
+                                mail
+                            </span>
+
+                            Contact Us
+
+                        </a>
+
+                    </p>
+
+
+
+                    <!-- =========================================
+                         FINAL NOTE
+                    ========================================== -->
+
+                    <div class="article-note">
+
+                        <strong>
+                            Privacy commitment:
+                        </strong>
+
+                        We aim to collect and use information
+                        responsibly, provide transparency about the
+                        services used on this website, and respect
+                        applicable privacy and data-protection
+                        requirements.
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SITE FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+
+        <div class="container footer-grid">
+
+
+            <!-- FOOTER ABOUT -->
+
+            <div>
+
+                <div class="footer-logo">
+
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >
+                        bolt
+                    </span>
+
+                    Electrical Engineering
+
+                </div>
 
 
                 <p>
-                    Your privacy matters. This policy explains what
-                    information may be collected when you visit
-                    Electrical Engineering by Prasun Barua, why it
-                    may be collected, how it is used, and the choices
-                    available to you.
+                    Practical electrical engineering tutorials,
+                    calculations, design guides and renewable-energy
+                    resources.
+                </p>
+
+            </div>
+
+
+            <!-- FOOTER EXPLORE -->
+
+            <div>
+
+                <h3>
+                    Explore
+                </h3>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#tutorials">
+                            Electrical Fundamentals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#calculations">
+                            Calculations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#solar">
+                            Solar PV
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- FOOTER INFORMATION -->
+
+            <div>
+
+                <h3>
+                    Information
+                </h3>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="privacy-policy.html"
+                            aria-current="page"
+                        >
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="disclaimer.html">
+                            Disclaimer
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Prasun Barua.
+                    All rights reserved.
                 </p>
 
             </div>
 
         </div>
 
-    </section>
+
+    </footer>
 
 
 
     <!-- =====================================================
-         PRIVACY POLICY CONTENT
+         MOBILE NAVIGATION
     ====================================================== -->
 
-    <section class="page-section">
+    <script>
 
-        <div class="container">
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
-            <article
-                class="article-content"
-                style="
-                    max-width: 820px;
-                    margin: 0 auto;
-                "
-            >
+                const menuButton =
+                    document.querySelector(
+                        ".mobile-menu-button"
+                    );
 
+                const navigation =
+                    document.querySelector(
+                        ".main-nav"
+                    );
 
-                <!-- =================================================
-                     LAST UPDATED
-                ================================================== -->
 
-                <div class="article-note">
+                if (!menuButton || !navigation) {
+                    return;
+                }
 
-                    <strong>
-                        Last updated:
-                    </strong>
 
-                    August 12, 2026
+                menuButton.addEventListener(
+                    "click",
+                    function () {
 
-                    <br><br>
+                        const isOpen =
+                            navigation.classList.toggle(
+                                "mobile-open"
+                            );
 
-                    This Privacy Policy applies to visitors of
-                    Electrical Engineering by Prasun Barua at
-                    <strong>prasunbarua.com</strong>.
 
-                </div>
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            isOpen
+                        );
 
 
+                        const icon =
+                            menuButton.querySelector(
+                                ".material-symbols-rounded"
+                            );
 
-                <!-- =================================================
-                     1. INTRODUCTION
-                ================================================== -->
 
-                <h2>
-                    1. Introduction
-                </h2>
+                        if (icon) {
 
-                <p>
-                    Welcome to <strong>Electrical Engineering by
-                    Prasun Barua</strong>.
-                </p>
+                            icon.textContent =
+                                isOpen
+                                    ? "close"
+                                    : "menu";
 
-                <p>
-                    This website is an independent educational and
-                    technical resource covering electrical
-                    engineering, renewable energy, solar
-                    photovoltaic systems, power systems, electrical
-                    design, engineering calculations and related
-                    technical subjects.
-                </p>
+                        }
 
-                <p>
-                    I respect your privacy and aim to be transparent
-                    about how information may be collected and used
-                    when you visit this website.
-                </p>
+                    }
+                );
 
-                <p>
-                    This Privacy Policy explains the types of
-                    information that may be collected, how that
-                    information may be used, cookies and similar
-                    technologies, advertising services, analytics,
-                    third-party services, and the choices available
-                    to visitors.
-                </p>
 
+                navigation
+                    .querySelectorAll("a")
+                    .forEach(function (link) {
 
+                        link.addEventListener(
+                            "click",
+                            function () {
 
-                <!-- =================================================
-                     2. INFORMATION WE COLLECT
-                ================================================== -->
+                                navigation.classList.remove(
+                                    "mobile-open"
+                                );
 
-                <h2>
-                    2. Information We May Collect
-                </h2>
 
-                <p>
-                    The website is primarily an informational
-                    resource. You can generally browse and read the
-                    content without creating an account or directly
-                    providing personal information.
-                </p>
+                                menuButton.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
 
-                <p>
-                    Depending on how you interact with the website,
-                    certain information may nevertheless be processed
-                    automatically or voluntarily provided by you.
-                </p>
 
+                                const icon =
+                                    menuButton.querySelector(
+                                        ".material-symbols-rounded"
+                                    );
 
-                <h3>
-                    Information you provide voluntarily
-                </h3>
 
-                <p>
-                    If you contact me through a contact form, email,
-                    or another communication method provided on the
-                    website, you may choose to provide information
-                    such as your name, email address, and the contents
-                    of your message.
-                </p>
+                                if (icon) {
+                                    icon.textContent = "menu";
+                                }
 
-                <p>
-                    This information is used primarily to respond to
-                    your communication and address your request.
-                </p>
+                            }
+                        );
 
+                    });
 
-                <h3>
-                    Information collected automatically
-                </h3>
-
-                <p>
-                    When you visit a website, certain technical
-                    information may be automatically transmitted by
-                    your browser or device. Depending on the services
-                    enabled on this website, this may include
-                    information such as:
-                </p>
-
-                <ul>
-
-                    <li>
-                        IP address or an approximate location derived
-                        from it;
-                    </li>
-
-                    <li>
-                        browser type and version;
-                    </li>
-
-                    <li>
-                        device type;
-                    </li>
-
-                    <li>
-                        operating system;
-                    </li>
-
-                    <li>
-                        referring website or page;
-                    </li>
-
-                    <li>
-                        pages viewed;
-                    </li>
-
-                    <li>
-                        approximate time spent on pages;
-                    </li>
-
-                    <li>
-                        date and time of access;
-                    </li>
-
-                    <li>
-                        general interaction and usage information;
-                    </li>
-
-                    <li>
-                        technical information required to maintain
-                        website security and functionality.
-                    </li>
-
-                </ul>
-
-                <p>
-                    Much of this information is technical or
-                    statistical in nature and is not intentionally
-                    used by this website to identify individual
-                    visitors personally.
-                </p>
-
-
-
-                <!-- =================================================
-                     3. HOW INFORMATION IS USED
-                ================================================== -->
-
-                <h2>
-                    3. How Information May Be Used
-                </h2>
-
-                <p>
-                    Information collected through the website may be
-                    used for legitimate purposes such as:
-                </p>
-
-                <ul>
-
-                    <li>
-                        operating and maintaining the website;
-                    </li>
-
-                    <li>
-                        improving website performance and usability;
-                    </li>
-
-                    <li>
-                        understanding which content is useful to
-                        visitors;
-                    </li>
-
-                    <li>
-                        analyzing general website traffic and usage;
-                    </li>
-
-                    <li>
-                        detecting, preventing and investigating
-                        security issues or abuse;
-                    </li>
-
-                    <li>
-                        responding to questions and messages;
-                    </li>
-
-                    <li>
-                        displaying and measuring advertising;
-                    </li>
-
-                    <li>
-                        complying with applicable legal obligations.
-                    </li>
-
-                </ul>
-
-                <p>
-                    I do not intentionally collect personal
-                    information simply because you visit or read an
-                    article on this website.
-                </p>
-
-
-
-                <!-- =================================================
-                     4. GOOGLE ADSENSE
-                ================================================== -->
-
-                <h2>
-                    4. Google AdSense and Advertising
-                </h2>
-
-                <p>
-                    This website may display advertisements provided
-                    by <strong>Google AdSense</strong> and its
-                    advertising partners.
-                </p>
-
-                <p>
-                    Google and third-party advertising vendors may use
-                    cookies, web beacons, device identifiers or similar
-                    technologies to help serve, measure and improve
-                    advertisements.
-                </p>
-
-                <p>
-                    Depending on applicable settings, consent
-                    requirements and advertising configuration, ads
-                    may be personalized based on information such as
-                    a visitor's previous interactions with websites
-                    or other online activity.
-                </p>
-
-                <p>
-                    Google states that advertising cookies may be used
-                    to help serve ads based on a user's prior visits
-                    to this website or other websites.
-                </p>
-
-
-                <div class="article-note">
-
-                    <strong>
-                        Advertising choice
-                    </strong>
-
-                    <br><br>
-
-                    Visitors may manage or turn off personalized
-                    advertising through Google's advertising
-                    settings. Choosing to disable personalized
-                    advertising does not necessarily mean that
-                    advertisements will no longer be displayed.
-                    Instead, advertising may be less personalized or
-                    based on contextual information.
-
-                </div>
-
-
-                <p>
-                    Google also provides information about how its
-                    advertising technologies work and how users can
-                    manage advertising preferences.
-                </p>
-
-                <p>
-                    Google and its advertising partners may operate
-                    independently from this website and may process
-                    information according to their own privacy
-                    policies.
-                </p>
-
-
-
-                <!-- =================================================
-                     5. GOOGLE ANALYTICS
-                ================================================== -->
-
-                <h2>
-                    5. Google Analytics
-                </h2>
-
-                <p>
-                    If Google Analytics is enabled on this website,
-                    it may be used to understand how visitors use the
-                    website and to improve its content, structure and
-                    performance.
-                </p>
-
-                <p>
-                    Google Analytics may collect information such as
-                    pages visited, approximate geographic information,
-                    device and browser information, traffic sources,
-                    and interactions with the website.
-                </p>
-
-                <p>
-                    Analytics information is generally used in
-                    aggregated or statistical form to understand
-                    website performance rather than to identify
-                    individual visitors.
-                </p>
-
-                <p>
-                    If Analytics is disabled or removed from the
-                    website in the future, this section will no longer
-                    apply to that service.
-                </p>
-
-
-
-                <!-- =================================================
-                     6. COOKIES
-                ================================================== -->
-
-                <h2>
-                    6. Cookies and Similar Technologies
-                </h2>
-
-                <p>
-                    This website and certain third-party services may
-                    use cookies or similar technologies.
-                </p>
-
-                <p>
-                    A cookie is a small text file stored by a website
-                    in your browser. Cookies can perform different
-                    functions, including remembering preferences,
-                    supporting website functionality, measuring
-                    traffic, preventing abuse, and helping deliver or
-                    measure advertising.
-                </p>
-
-
-                <h3>
-                    Types of cookies that may be used
-                </h3>
-
-
-                <h4>
-                    Essential or functional technologies
-                </h4>
-
-                <p>
-                    Some technologies may be necessary for the website
-                    to function correctly, maintain security, remember
-                    certain preferences, or provide requested
-                    functionality.
-                </p>
-
-
-                <h4>
-                    Analytics technologies
-                </h4>
-
-                <p>
-                    Analytics technologies may help understand how
-                    visitors use the website, which pages are visited,
-                    and how the website performs.
-                </p>
-
-
-                <h4>
-                    Advertising technologies
-                </h4>
-
-                <p>
-                    Advertising partners, including Google, may use
-                    cookies and similar technologies to display,
-                    measure, limit or personalize advertisements,
-                    subject to applicable settings and consent
-                    requirements.
-                </p>
-
-                <p>
-                    You can generally control cookies through your
-                    browser settings. However, disabling certain
-                    cookies may affect the functionality or experience
-                    of some websites.
-                </p>
-
-
-
-                <!-- =================================================
-                     7. PERSONALIZED ADVERTISING
-                ================================================== -->
-
-                <h2>
-                    7. Personalized and Non-Personalized Advertising
-                </h2>
-
-                <p>
-                    Advertising displayed through Google services may
-                    be personalized or non-personalized depending on
-                    applicable laws, consent, user settings and the
-                    advertising configuration of the website.
-                </p>
-
-                <p>
-                    Personalized advertising may use information
-                    associated with previous browsing activity or
-                    interactions to make advertisements more relevant.
-                </p>
-
-                <p>
-                    Non-personalized advertising generally relies more
-                    heavily on contextual information, such as the
-                    content of the page being viewed, rather than a
-                    user's previous browsing behavior.
-                </p>
-
-                <p>
-                    Where legally required, appropriate consent
-                    mechanisms may be used before certain cookies or
-                    personal information are processed for
-                    advertising purposes.
-                </p>
-
-
-
-                <!-- =================================================
-                     8. THIRD PARTY SERVICES
-                ================================================== -->
-
-                <h2>
-                    8. Third-Party Services
-                </h2>
-
-                <p>
-                    The website may use services provided by third
-                    parties to operate, analyze, secure or monetize
-                    the website.
-                </p>
-
-                <p>
-                    These services may include, depending on the
-                    current configuration of the website:
-                </p>
-
-                <ul>
-
-                    <li>
-                        Google AdSense;
-                    </li>
-
-                    <li>
-                        Google Analytics;
-                    </li>
-
-                    <li>
-                        Google Fonts or other font delivery services;
-                    </li>
-
-                    <li>
-                        website hosting and content delivery services;
-                    </li>
-
-                    <li>
-                        security, performance and infrastructure
-                        services;
-                    </li>
-
-                    <li>
-                        social media or sharing services, where
-                        available.
-                    </li>
-
-                </ul>
-
-                <p>
-                    Third-party services may collect or process
-                    information according to their own privacy
-                    policies and terms.
-                </p>
-
-                <p>
-                    This website does not control the privacy practices
-                    of independent third-party providers. Visitors
-                    should review the privacy policies of those
-                    providers when appropriate.
-                </p>
-
-
-
-                <!-- =================================================
-                     9. SOCIAL SHARING
-                ================================================== -->
-
-                <h2>
-                    9. Social Sharing Features
-                </h2>
-
-                <p>
-                    Some articles may provide buttons or links that
-                    allow you to share content through social
-                    networking platforms or messaging services.
-                </p>
-
-                <p>
-                    These features may direct you to a third-party
-                    service or open a sharing interface operated by
-                    that service.
-                </p>
-
-                <p>
-                    Once you interact with a third-party platform,
-                    that platform's own privacy policy and terms may
-                    apply.
-                </p>
-
-                <p>
-                    Where possible, simple share links may be used
-                    rather than embedded social media content in order
-                    to reduce unnecessary third-party requests when a
-                    page is loaded.
-                </p>
-
-
-
-                <!-- =================================================
-                     10. CONTACT INFORMATION
-                ================================================== -->
-
-                <h2>
-                    10. Information Sent Through Contact Forms
-                </h2>
-
-                <p>
-                    If you choose to contact the website owner, you
-                    may provide information such as your name, email
-                    address and message.
-                </p>
-
-                <p>
-                    This information is used for the purpose for which
-                    you provide it, such as responding to your
-                    question, feedback or request.
-                </p>
-
-                <p>
-                    Please avoid sending sensitive personal
-                    information through a general website contact
-                    form unless it is specifically requested and an
-                    appropriate secure method has been provided.
-                </p>
-
-
-
-                <!-- =================================================
-                     11. DATA SHARING
-                ================================================== -->
-
-                <h2>
-                    11. How Information May Be Shared
-                </h2>
-
-                <p>
-                    I do not sell, rent or intentionally trade visitors'
-                    personal information for money.
-                </p>
-
-                <p>
-                    Information may nevertheless be processed or
-                    shared where reasonably necessary for the
-                    operation of the website or where required by law.
-                </p>
-
-                <p>
-                    Examples may include:
-                </p>
-
-                <ul>
-
-                    <li>
-                        service providers that host, secure or operate
-                        website infrastructure;
-                    </li>
-
-                    <li>
-                        analytics providers;
-                    </li>
-
-                    <li>
-                        advertising providers such as Google;
-                    </li>
-
-                    <li>
-                        technical service providers;
-                    </li>
-
-                    <li>
-                        legal, regulatory or law-enforcement
-                        authorities where disclosure is required by
-                        applicable law.
-                    </li>
-
-                </ul>
-
-                <p>
-                    Personal information is not intentionally shared
-                    with third parties for unrelated purposes.
-                </p>
-
-
-
-                <!-- =================================================
-                     12. DATA RETENTION
-                ================================================== -->
-
-                <h2>
-                    12. Data Retention
-                </h2>
-
-                <p>
-                    Information is retained only for as long as
-                    reasonably necessary for the purpose for which it
-                    was collected, to provide requested services,
-                    maintain appropriate records, resolve disputes,
-                    enforce agreements, or comply with applicable
-                    legal obligations.
-                </p>
-
-                <p>
-                    The retention periods of information processed by
-                    third-party services such as Google may be
-                    determined by those providers according to their
-                    respective policies and settings.
-                </p>
-
-
-
-                <!-- =================================================
-                     13. DATA SECURITY
-                ================================================== -->
-
-                <h2>
-                    13. Data Security
-                </h2>
-
-                <p>
-                    Reasonable technical and organizational measures
-                    are used to help protect information handled
-                    through this website.
-                </p>
-
-                <p>
-                    The website is intended to be accessed through
-                    HTTPS where available, helping protect information
-                    transmitted between your browser and the website.
-                </p>
-
-                <p>
-                    However, no method of transmission or electronic
-                    storage can be guaranteed to be completely secure.
-                    Visitors should therefore avoid submitting highly
-                    sensitive information through ordinary website
-                    forms or public communication channels.
-                </p>
-
-
-
-                <!-- =================================================
-                     14. CHILDREN
-                ================================================== -->
-
-                <h2>
-                    14. Children's Privacy
-                </h2>
-
-                <p>
-                    This website provides general educational and
-                    technical content and is not intentionally designed
-                    to collect personal information from children.
-                </p>
-
-                <p>
-                    I do not knowingly request or intentionally collect
-                    sensitive personal information from children
-                    through this website.
-                </p>
-
-                <p>
-                    If you believe that a child has provided personal
-                    information through the website and you would like
-                    it reviewed or removed, please contact me through
-                    the website's Contact page.
-                </p>
-
-
-
-                <!-- =================================================
-                     15. YOUR PRIVACY CHOICES
-                ================================================== -->
-
-                <h2>
-                    15. Your Privacy Choices
-                </h2>
-
-                <p>
-                    Depending on your location and applicable law, you
-                    may have rights or choices concerning personal
-                    information and cookies.
-                </p>
-
-                <p>
-                    These may include the ability to:
-                </p>
-
-                <ul>
-
-                    <li>
-                        request information about personal data that
-                        may be held about you;
-                    </li>
-
-                    <li>
-                        request correction of inaccurate information;
-                    </li>
-
-                    <li>
-                        request deletion of information where
-                        applicable;
-                    </li>
-
-                    <li>
-                        object to or restrict certain processing;
-                    </li>
-
-                    <li>
-                        withdraw consent where processing is based on
-                        consent;
-                    </li>
-
-                    <li>
-                        manage cookie preferences through available
-                        consent tools or browser settings;
-                    </li>
-
-                    <li>
-                        opt out of personalized advertising through
-                        Google's available advertising controls.
-                    </li>
-
-                </ul>
-
-                <p>
-                    The availability of particular rights depends on
-                    applicable privacy laws and your circumstances.
-                </p>
-
-
-
-                <!-- =================================================
-                     16. EUROPEAN USERS
-                ================================================== -->
-
-                <h2>
-                    16. European Economic Area, United Kingdom and
-                    Switzerland
-                </h2>
-
-                <p>
-                    Visitors located in jurisdictions where privacy
-                    and cookie consent laws apply may be presented
-                    with additional consent choices before certain
-                    cookies, advertising technologies or other
-                    non-essential technologies are used.
-                </p>
-
-                <p>
-                    Where required, the website may use a consent
-                    management mechanism to obtain and record
-                    appropriate choices regarding cookies and
-                    advertising technologies.
-                </p>
-
-                <p>
-                    Your available choices may vary depending on your
-                    location, applicable law and the services enabled
-                    on the website.
-                </p>
-
-
-
-                <!-- =================================================
-                     17. CALIFORNIA / US PRIVACY
-                ================================================== -->
-
-                <h2>
-                    17. United States Privacy Rights
-                </h2>
-
-                <p>
-                    Privacy laws in certain U.S. states provide
-                    residents with specific rights concerning personal
-                    information.
-                </p>
-
-                <p>
-                    Where such laws apply to this website, applicable
-                    rights may include access, correction, deletion,
-                    or other choices provided by the relevant law.
-                </p>
-
-                <p>
-                    This website does not intentionally sell visitors'
-                    personal information for monetary consideration.
-                </p>
-
-                <p>
-                    Because privacy laws and their applicability can
-                    change, requests will be considered according to
-                    the law applicable to the particular request.
-                </p>
-
-
-
-                <!-- =================================================
-                     18. INTERNATIONAL USERS
-                ================================================== -->
-
-                <h2>
-                    18. International Visitors
-                </h2>
-
-                <p>
-                    This website can be accessed by visitors from
-                    different countries.
-                </p>
-
-                <p>
-                    Depending on the services used and where you are
-                    located, information may be processed by service
-                    providers in countries other than your own.
-                </p>
-
-                <p>
-                    Third-party providers such as Google may process
-                    information in accordance with their own
-                    international privacy and data-protection
-                    practices.
-                </p>
-
-
-
-                <!-- =================================================
-                     19. EXTERNAL LINKS
-                ================================================== -->
-
-                <h2>
-                    19. External Links
-                </h2>
-
-                <p>
-                    Articles and pages on this website may contain
-                    links to external websites, documentation,
-                    manufacturers, technical resources or other
-                    third-party websites.
-                </p>
-
-                <p>
-                    Once you leave this website, this Privacy Policy
-                    may no longer apply. I recommend reviewing the
-                    privacy policy of any external website you visit.
-                </p>
-
-                <p>
-                    I am not responsible for the privacy practices,
-                    content or security of independent third-party
-                    websites.
-                </p>
-
-
-
-                <!-- =================================================
-                     20. TECHNICAL INFORMATION
-                ================================================== -->
-
-                <h2>
-                    20. Technical and Engineering Content
-                </h2>
-
-                <p>
-                    This website publishes educational and technical
-                    information relating to electrical engineering,
-                    renewable energy and related subjects.
-                </p>
-
-                <p>
-                    Technical content may include calculations,
-                    examples, specifications, diagrams and references.
-                    Such content is provided for general educational
-                    purposes and should not be interpreted as a
-                    substitute for project-specific professional
-                    engineering design, applicable codes, standards,
-                    manufacturer instructions or qualified professional
-                    review.
-                </p>
-
-
-
-                <!-- =================================================
-                     21. CHANGES
-                ================================================== -->
-
-                <h2>
-                    21. Changes to This Privacy Policy
-                </h2>
-
-                <p>
-                    This Privacy Policy may be updated from time to
-                    time to reflect changes in the website, technology,
-                    advertising services, analytics tools, applicable
-                    laws or privacy practices.
-                </p>
-
-                <p>
-                    When changes are made, the "Last updated" date at
-                    the beginning of this policy will be updated.
-                </p>
-
-                <p>
-                    Visitors are encouraged to review this page
-                    periodically to stay informed about how information
-                    may be handled.
-                </p>
-
-
-
-                <!-- =================================================
-                     22. CONTACT
-                ================================================== -->
-
-                <h2>
-                    22. Contact
-                </h2>
-
-                <p>
-                    If you have a question about this Privacy Policy,
-                    believe that your privacy has been affected, or
-                    would like to make a privacy-related request,
-                    please contact me through the website's Contact
-                    page.
-                </p>
-
-                <p style="margin-top: 24px;">
-
-                    <a
-                        href="/p/contact.html"
-                        class="btn btn-primary"
-                    >
-
-                        <span class="material-symbols-rounded">
-                            mail
-                        </span>
-
-                        Contact
-
-                    </a>
-
-                </p>
-
-
-
-                <!-- =================================================
-                     FINAL NOTE
-                ================================================== -->
-
-                <div
-                    class="article-note"
-                    style="margin-top: 42px;"
-                >
-
-                    <strong>
-                        A note about privacy
-                    </strong>
-
-                    <br><br>
-
-                    Privacy is an important part of maintaining a
-                    trustworthy website. The purpose of this policy is
-                    to explain the website's practices in clear,
-                    straightforward language rather than hide them
-                    behind complicated legal terminology.
-
-                    <br><br>
-
-                    If a service, advertising technology or analytics
-                    tool is added or removed in the future, this policy
-                    may be updated accordingly.
-
-                </div>
-
-
-            </article>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-
-<!-- =========================================================
-     SITE FOOTER
-========================================================== -->
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Electrical Engineering by Prasun Barua.
-                All rights reserved.
-            </p>
-
-
-            <p>
-
-                <a href="/p/about.html">
-                    About
-                </a>
-
-                &nbsp; · &nbsp;
-
-                <a href="/p/contact.html">
-                    Contact
-                </a>
-
-                &nbsp; · &nbsp;
-
-                <a
-                    href="/p/privacy-policy.html"
-                    aria-current="page"
-                >
-                    Privacy Policy
-                </a>
-
-                &nbsp; · &nbsp;
-
-                <a href="/p/disclaimer.html">
-                    Disclaimer
-                </a>
-
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =========================================================
-     MOBILE MENU
-========================================================== -->
-
-<script>
-
-(function () {
-
-    const button =
-        document.querySelector(".mobile-menu-button");
-
-    const nav =
-        document.querySelector(".main-nav");
-
-    if (!button || !nav) return;
-
-
-    button.addEventListener("click", function () {
-
-        const expanded =
-            button.getAttribute("aria-expanded") === "true";
-
-        button.setAttribute(
-            "aria-expanded",
-            String(!expanded)
+            }
         );
 
-        nav.classList.toggle(
-            "mobile-nav-open"
-        );
-
-    });
-
-})();
-
-</script>
+    </script>
 
 
 </body>
