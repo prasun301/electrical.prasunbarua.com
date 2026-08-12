@@ -47,133 +47,1363 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/app.js" defer></script>
 
-    <!-- Essential Layout Safety Styles -->
-    <style>
-        :root {
-            --primary: #0b57d0;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
-            --border: #e2e8f0;
-            --radius: 8px;
-        }
+   <!-- Essential Layout Safety Styles -->
+<style>
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: var(--text-dark);
-            margin: 0;
-            line-height: 1.6;
-        }
+    /* =========================================================
+       DESIGN SYSTEM
+    ========================================================= */
 
-        .container, .article-container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 1.25rem;
-        }
+    :root {
+        --primary: #0b57d0;
+        --primary-dark: #084298;
+        --primary-light: #eff6ff;
 
-        /* Article Layout Grid */
+        --text-dark: #0f172a;
+        --text-body: #334155;
+        --text-muted: #64748b;
+
+        --bg-page: #ffffff;
+        --bg-light: #f8fafc;
+        --bg-soft: #f1f5f9;
+
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+
+        --formula-bg: #0f172a;
+        --formula-text: #ffffff;
+        --formula-muted: #cbd5e1;
+
+        --success-bg: #f0fdf4;
+        --success-border: #bbf7d0;
+        --success-text: #166534;
+
+        --radius-sm: 6px;
+        --radius: 10px;
+        --radius-lg: 14px;
+
+        --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+        --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+
+
+    /* =========================================================
+       GLOBAL RESET / BASE
+    ========================================================= */
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+
+        font-family:
+            'Inter',
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        color: var(--text-body);
+
+        background: var(--bg-page);
+
+        line-height: 1.7;
+
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    a {
+        color: var(--primary);
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+
+    /* =========================================================
+       GLOBAL CONTAINER
+    ========================================================= */
+
+    .container,
+    .article-container {
+        width: 100%;
+        max-width: 1080px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* =========================================================
+       ARTICLE SECTION
+    ========================================================= */
+
+    .article-section {
+        padding: 34px 0 80px;
+    }
+
+    .article-container {
+        margin-top: 0;
+    }
+
+
+    /* =========================================================
+       BREADCRUMBS
+    ========================================================= */
+
+    .breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        gap: 8px;
+
+        margin: 0 0 30px;
+
+        font-size: 14px;
+        line-height: 1.5;
+
+        color: var(--text-muted);
+    }
+
+    .breadcrumbs a {
+        color: var(--primary);
+
+        text-decoration: none;
+
+        font-weight: 500;
+    }
+
+    .breadcrumbs a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumbs span {
+        color: #94a3b8;
+    }
+
+
+    /* =========================================================
+       ARTICLE HEADER
+    ========================================================= */
+
+    .article-header {
+        max-width: 920px;
+
+        margin: 0 0 52px;
+    }
+
+    .article-category {
+        display: inline-block;
+
+        margin-bottom: 14px;
+
+        color: var(--primary);
+
+        font-size: 12px;
+        line-height: 1.4;
+
+        font-weight: 800;
+
+        letter-spacing: 0.09em;
+
+        text-transform: uppercase;
+    }
+
+    .article-header h1 {
+        margin: 0 0 20px;
+
+        color: var(--text-dark);
+
+        font-size: clamp(2.3rem, 5vw, 3.65rem);
+
+        line-height: 1.08;
+
+        letter-spacing: -0.045em;
+
+        font-weight: 800;
+    }
+
+    .article-intro {
+        max-width: 830px;
+
+        margin: 0 0 22px;
+
+        color: #475569;
+
+        font-size: 1.15rem;
+
+        line-height: 1.75;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        gap: 9px;
+
+        color: var(--text-muted);
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .article-meta strong {
+        color: var(--text-dark);
+    }
+
+
+    /* =========================================================
+       ARTICLE MAIN LAYOUT
+    ========================================================= */
+
+    .article-layout {
+        display: grid;
+
+        grid-template-columns:
+            240px
+            minmax(0, 1fr);
+
+        gap: 48px;
+
+        align-items: start;
+
+        margin-top: 0;
+    }
+
+    .article-sidebar {
+        min-width: 0;
+    }
+
+
+    /* =========================================================
+       TABLE OF CONTENTS
+    ========================================================= */
+
+    .toc {
+        position: sticky;
+
+        top: 90px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 9px;
+
+        padding: 20px;
+
+        background: var(--bg-light);
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .toc h3 {
+        margin: 0 0 8px;
+
+        color: var(--text-muted);
+
+        font-size: 12px;
+
+        line-height: 1.4;
+
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.08em;
+    }
+
+    .toc a {
+        display: block;
+
+        padding: 3px 0;
+
+        color: var(--primary);
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+
+        font-weight: 500;
+
+        transition:
+            color 0.15s ease,
+            padding-left 0.15s ease;
+    }
+
+    .toc a:hover {
+        color: var(--primary-dark);
+
+        text-decoration: none;
+
+        padding-left: 3px;
+    }
+
+
+    /* =========================================================
+       ARTICLE CONTENT
+    ========================================================= */
+
+    .article-content {
+        min-width: 0;
+
+        width: 100%;
+
+        max-width: 760px;
+
+        color: var(--text-body);
+
+        font-size: 17px;
+
+        line-height: 1.78;
+    }
+
+    .article-content section {
+        margin: 0 0 68px;
+
+        scroll-margin-top: 100px;
+    }
+
+    .article-content section:last-child {
+        margin-bottom: 0;
+    }
+
+    .article-content p {
+        margin: 0 0 20px;
+
+        color: var(--text-body);
+    }
+
+    .article-content ul,
+    .article-content ol {
+        margin: 0 0 25px;
+
+        padding-left: 1.5rem;
+    }
+
+    .article-content li {
+        margin-bottom: 8px;
+    }
+
+    .article-content h2 {
+        margin: 0 0 18px;
+
+        color: var(--text-dark);
+
+        font-size: clamp(1.8rem, 3vw, 2.35rem);
+
+        line-height: 1.2;
+
+        font-weight: 800;
+
+        letter-spacing: -0.03em;
+    }
+
+    .article-content h3 {
+        margin: 34px 0 13px;
+
+        color: var(--text-dark);
+
+        font-size: 1.25rem;
+
+        line-height: 1.4;
+
+        font-weight: 700;
+
+        letter-spacing: -0.015em;
+    }
+
+    .article-content strong {
+        color: var(--text-dark);
+
+        font-weight: 700;
+    }
+
+
+    /* =========================================================
+       INLINE CODE
+    ========================================================= */
+
+    .article-content code {
+        display: inline-block;
+
+        padding: 2px 6px;
+
+        background: #f1f5f9;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 5px;
+
+        color: #0f172a;
+
+        font-family:
+            ui-monospace,
+            SFMono-Regular,
+            Menlo,
+            Monaco,
+            Consolas,
+            monospace;
+
+        font-size: 0.88em;
+
+        line-height: 1.4;
+    }
+
+
+    /* =========================================================
+       QUICK ANSWER
+    ========================================================= */
+
+    .quick-answer {
+        margin: 0 0 44px;
+
+        padding: 22px 24px;
+
+        background: var(--primary-light);
+
+        border: 1px solid #dbeafe;
+
+        border-left: 4px solid var(--primary);
+
+        border-radius:
+            0
+            var(--radius)
+            var(--radius)
+            0;
+    }
+
+    .quick-answer > strong {
+        display: block;
+
+        margin-bottom: 8px;
+
+        color: var(--text-dark);
+
+        font-size: 15px;
+
+        font-weight: 800;
+    }
+
+    .quick-answer p {
+        margin: 0;
+
+        color: var(--text-body);
+    }
+
+    .quick-answer .formula-box {
+        margin-top: 18px;
+    }
+
+
+    /* =========================================================
+       FORMULA BOX
+    ========================================================= */
+
+    .formula-box {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 100%;
+
+        min-height: 72px;
+
+        margin: 28px 0;
+
+        padding: 20px 24px;
+
+        background: var(--formula-bg);
+
+        border: 1px solid #1e293b;
+
+        border-radius: var(--radius);
+
+        color: var(--formula-text) !important;
+
+        text-align: center;
+
+        font-size: 1.45rem;
+
+        font-weight: 700;
+
+        line-height: 1.5;
+
+        box-shadow: var(--shadow-sm);
+
+        overflow: hidden;
+    }
+
+    /*
+       IMPORTANT:
+       Protect formula text from rules in style.css.
+    */
+
+    .article-content .formula-box,
+    .article-content .formula-box *,
+    .article-content .formula-box strong,
+    .article-content .formula-box span,
+    .article-content .formula-box p,
+    .article-content .formula-box div {
+        color: #ffffff !important;
+    }
+
+    .formula-box .formula {
+        display: block;
+
+        margin: 0;
+
+        color: #ffffff !important;
+
+        font-size: clamp(1.7rem, 4vw, 2.15rem);
+
+        line-height: 1.35;
+
+        font-weight: 800;
+
+        letter-spacing: 0.015em;
+    }
+
+    .formula-box p {
+        margin: 8px 0 0;
+
+        color: var(--formula-muted) !important;
+
+        font-size: 1rem;
+
+        font-weight: 400;
+
+        line-height: 1.6;
+    }
+
+    .formula-box .formula-label {
+        display: block;
+
+        margin-bottom: 5px;
+
+        color: #cbd5e1 !important;
+
+        font-size: 0.76rem;
+
+        font-weight: 800;
+
+        line-height: 1.4;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       FORMULA GRID
+    ========================================================= */
+
+    .formula-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px;
+
+        margin: 28px 0;
+    }
+
+    .formula-card {
+        min-width: 0;
+
+        padding: 20px 16px;
+
+        background: var(--bg-light);
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius);
+
+        text-align: center;
+
+        box-shadow: var(--shadow-sm);
+
+        transition:
+            border-color 0.15s ease,
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+    }
+
+    .formula-card:hover {
+        border-color: #bfdbfe;
+
+        box-shadow: var(--shadow-md);
+
+        transform: translateY(-1px);
+    }
+
+    .formula-card strong {
+        display: block;
+
+        margin-bottom: 8px;
+
+        color: var(--text-dark);
+
+        font-size: 14px;
+
+        font-weight: 700;
+    }
+
+    .formula-card span {
+        display: block;
+
+        color: var(--text-dark);
+
+        font-size: 1.05rem;
+
+        line-height: 1.5;
+
+        font-weight: 800;
+    }
+
+
+    /* =========================================================
+       CALCULATION BOX
+       
+       This is specifically designed to prevent the
+       "empty white box" problem shown in your screenshot.
+    ========================================================= */
+
+    .calculation-box {
+        display: block !important;
+
+        width: 100% !important;
+
+        height: auto !important;
+
+        min-height: 0 !important;
+
+        max-height: none !important;
+
+        margin: 22px 0 !important;
+
+        padding: 18px 22px !important;
+
+        background: var(--bg-light) !important;
+
+        border: 1px solid var(--border) !important;
+
+        border-radius: var(--radius) !important;
+
+        color: var(--text-body) !important;
+
+        font-size: 1.05rem !important;
+
+        line-height: 1.7 !important;
+
+        overflow: visible !important;
+
+        visibility: visible !important;
+
+        opacity: 1 !important;
+
+        box-shadow: none;
+    }
+
+    /*
+       Force every common child element inside the
+       calculation box to remain visible.
+    */
+
+    .calculation-box,
+    .calculation-box *,
+    .article-content .calculation-box,
+    .article-content .calculation-box * {
+        visibility: visible !important;
+
+        opacity: 1 !important;
+    }
+
+    .calculation-box p {
+        display: block !important;
+
+        margin: 5px 0 !important;
+
+        padding: 0 !important;
+
+        color: var(--text-body) !important;
+
+        font-size: 1.05rem !important;
+
+        line-height: 1.7 !important;
+
+        font-weight: 400;
+    }
+
+    .calculation-box p:first-child {
+        margin-top: 0 !important;
+    }
+
+    .calculation-box p:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .calculation-box div {
+        display: block !important;
+
+        margin: 5px 0 !important;
+
+        padding: 0 !important;
+
+        color: var(--text-body) !important;
+
+        font-size: 1.05rem !important;
+
+        line-height: 1.7 !important;
+    }
+
+    .calculation-box strong {
+        color: var(--primary) !important;
+
+        font-weight: 700 !important;
+    }
+
+    .calculation-box code {
+        color: #0f172a !important;
+
+        background: #ffffff !important;
+
+        border: 1px solid var(--border) !important;
+    }
+
+
+    /* =========================================================
+       CALCULATION ROW
+       Optional class for cleaner calculations
+    ========================================================= */
+
+    .calculation-row {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 20px;
+
+        padding: 10px 0;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .calculation-row:last-child {
+        border-bottom: none;
+    }
+
+    .calculation-row strong {
+        color: var(--text-dark);
+    }
+
+
+    /* =========================================================
+       RESULT BOX
+    ========================================================= */
+
+    .result-box {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-height: 72px;
+
+        margin: 26px 0;
+
+        padding: 18px 24px;
+
+        background: var(--primary-light);
+
+        border: 1px solid #bfdbfe;
+
+        border-radius: var(--radius);
+
+        color: var(--primary);
+
+        text-align: center;
+
+        font-size: 1.45rem;
+
+        line-height: 1.4;
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .result-box strong {
+        color: var(--primary) !important;
+
+        font-weight: 800;
+    }
+
+
+    /* =========================================================
+       ENGINEERING TABLE
+    ========================================================= */
+
+    .engineering-table {
+        width: 100%;
+
+        margin: 28px 0;
+
+        border-collapse: separate;
+
+        border-spacing: 0;
+
+        overflow: hidden;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius);
+
+        font-size: 15px;
+
+        background: #ffffff;
+    }
+
+    .engineering-table th,
+    .engineering-table td {
+        padding: 13px 15px;
+
+        border-right: 1px solid var(--border);
+
+        border-bottom: 1px solid var(--border);
+
+        text-align: left;
+
+        vertical-align: middle;
+    }
+
+    .engineering-table th:last-child,
+    .engineering-table td:last-child {
+        border-right: none;
+    }
+
+    .engineering-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .engineering-table th {
+        background: var(--bg-light);
+
+        color: var(--text-dark);
+
+        font-weight: 800;
+    }
+
+    .engineering-table td {
+        background: #ffffff;
+
+        color: var(--text-body);
+    }
+
+    .engineering-table td strong {
+        color: var(--text-dark);
+    }
+
+    .engineering-table tbody tr:hover td {
+        background: #f8fafc;
+    }
+
+
+    /* =========================================================
+       ARTICLE FIGURES / IMAGES
+    ========================================================= */
+
+    .article-figure {
+        margin: 36px 0;
+    }
+
+    .article-figure img {
+        display: block;
+
+        width: 100%;
+
+        height: auto;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .article-figure figcaption {
+        margin-top: 12px;
+
+        color: var(--text-muted);
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        text-align: left;
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .article-cta {
+        margin: 52px 0;
+
+        padding: 32px 28px;
+
+        background: var(--bg-light);
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-lg);
+
+        text-align: center;
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .article-cta h2 {
+        margin: 0 0 12px;
+
+        color: var(--text-dark);
+    }
+
+    .article-cta p {
+        max-width: 620px;
+
+        margin: 0 auto 24px;
+
+        color: var(--text-muted);
+    }
+
+    .article-cta .primary-button {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        min-height: 46px;
+
+        padding: 11px 18px;
+
+        background: var(--primary);
+
+        border: 1px solid var(--primary);
+
+        border-radius: var(--radius);
+
+        color: #ffffff !important;
+
+        text-decoration: none;
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+        transition:
+            background 0.15s ease,
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+    }
+
+    .article-cta .primary-button:hover {
+        background: var(--primary-dark);
+
+        border-color: var(--primary-dark);
+
+        color: #ffffff !important;
+
+        text-decoration: none;
+
+        transform: translateY(-1px);
+
+        box-shadow: var(--shadow-md);
+    }
+
+    .article-cta .primary-button .material-symbols-rounded {
+        color: #ffffff !important;
+
+        font-size: 20px;
+    }
+
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    #faq h3 {
+        margin-top: 30px;
+
+        padding-top: 4px;
+
+        color: var(--text-dark);
+    }
+
+    #faq h3:first-of-type {
+        margin-top: 22px;
+    }
+
+    #faq p {
+        color: var(--text-body);
+    }
+
+
+    /* =========================================================
+       RELATED ARTICLES
+    ========================================================= */
+
+    .related-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        margin-top: 24px;
+    }
+
+    .related-grid a {
+        display: block;
+
+        padding: 17px 18px;
+
+        background: #ffffff;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius);
+
+        color: var(--primary);
+
+        text-decoration: none;
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        line-height: 1.5;
+
+        transition:
+            border-color 0.15s ease,
+            background 0.15s ease,
+            transform 0.15s ease;
+    }
+
+    .related-grid a:hover {
+        background: var(--bg-light);
+
+        border-color: #bfdbfe;
+
+        text-decoration: none;
+
+        transform: translateY(-1px);
+    }
+
+
+    /* =========================================================
+       OPTIONAL INFO / NOTE BOX
+    ========================================================= */
+
+    .engineering-note {
+        margin: 28px 0;
+
+        padding: 20px 22px;
+
+        background: #f8fafc;
+
+        border: 1px solid var(--border);
+
+        border-left: 4px solid #94a3b8;
+
+        border-radius:
+            0
+            var(--radius)
+            var(--radius)
+            0;
+    }
+
+    .engineering-note strong {
+        color: var(--text-dark);
+    }
+
+
+    /* =========================================================
+       MOBILE — TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
         .article-layout {
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr;
+
+            gap: 32px;
         }
 
-        @media (max-width: 768px) {
-            .article-layout {
-                grid-template-columns: 1fr;
-            }
+        .article-sidebar {
+            order: 0;
         }
 
-        /* Sidebar TOC Styling */
+        .article-content {
+            order: 1;
+
+            max-width: none;
+        }
+
         .toc {
-            position: sticky;
-            top: 2rem;
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-            border-radius: var(--radius);
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            position: relative;
+
+            top: auto;
         }
 
-        .toc h3 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
+        .article-header {
+            margin-bottom: 40px;
         }
 
-        .toc a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
+    }
+
+
+    /* =========================================================
+       MOBILE — PHONE
+    ========================================================= */
+
+    @media (max-width: 640px) {
+
+        .container,
+        .article-container {
+            padding-left: 16px;
+            padding-right: 16px;
         }
 
-        .toc a:hover {
-            text-decoration: underline;
+        .article-section {
+            padding-top: 24px;
+
+            padding-bottom: 56px;
         }
 
-        /* Quick Answer & Formula Styling */
+        .breadcrumbs {
+            margin-bottom: 24px;
+
+            font-size: 13px;
+
+            gap: 6px;
+        }
+
+        .article-category {
+            margin-bottom: 12px;
+
+            font-size: 11px;
+        }
+
+        .article-header {
+            margin-bottom: 34px;
+        }
+
+        .article-header h1 {
+            margin-bottom: 16px;
+
+            font-size: 2.2rem;
+
+            line-height: 1.1;
+        }
+
+        .article-intro {
+            font-size: 1.05rem;
+
+            line-height: 1.7;
+        }
+
+        .article-meta {
+            font-size: 13px;
+
+            gap: 7px;
+        }
+
+        .article-content {
+            font-size: 16px;
+
+            line-height: 1.72;
+        }
+
+        .article-content section {
+            margin-bottom: 54px;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.18rem;
+        }
+
+        .toc {
+            padding: 17px;
+        }
+
         .quick-answer {
-            background: #eff6ff;
-            border-left: 4px solid var(--primary);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            margin-bottom: 2rem;
+            padding: 18px;
+
+            margin-bottom: 34px;
         }
 
         .formula-box {
-            background: var(--text-dark);
-            color: #fff;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            padding: 1rem;
-            border-radius: var(--radius);
-            margin: 1.5rem 0;
+            min-height: 66px;
+
+            margin: 22px 0;
+
+            padding: 18px 15px;
+
+            font-size: 1.25rem;
+        }
+
+        .formula-box .formula {
+            font-size: 1.55rem;
         }
 
         .formula-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
+            grid-template-columns: 1fr;
+
+            gap: 12px;
         }
 
         .formula-card {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1rem;
-            text-align: center;
-            background: var(--bg-light);
+            padding: 18px 15px;
         }
 
-        .formula-card strong {
-            display: block;
-            margin-bottom: 0.25rem;
+        .calculation-box {
+            padding: 16px 18px !important;
+
+            font-size: 1rem !important;
         }
 
-        /* Engineering Tables */
+        .calculation-box p,
+        .calculation-box div {
+            font-size: 1rem !important;
+        }
+
+        .result-box {
+            min-height: 64px;
+
+            padding: 16px 18px;
+
+            font-size: 1.3rem;
+        }
+
         .engineering-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
+            display: block;
+
+            overflow-x: auto;
+
+            white-space: nowrap;
+
+            border-radius: var(--radius);
         }
 
-        .engineering-table th, .engineering-table td {
-            border: 1px solid var(--border);
-            padding: 0.75rem 1rem;
-            text-align: left;
+        .engineering-table th,
+        .engineering-table td {
+            padding: 11px 12px;
         }
 
-        .engineering-table th {
-            background: var(--bg-light);
+        .article-cta {
+            margin: 40px 0;
+
+            padding: 25px 18px;
         }
-    </style>
+
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    /* =========================================================
+       VERY SMALL PHONES
+    ========================================================= */
+
+    @media (max-width: 400px) {
+
+        .article-header h1 {
+            font-size: 2rem;
+        }
+
+        .article-intro {
+            font-size: 1rem;
+        }
+
+        .article-content {
+            font-size: 15.8px;
+        }
+
+        .formula-box .formula {
+            font-size: 1.4rem;
+        }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+
+    }
+
+</style>
 
     <!-- Structured Data: TechArticle & Breadcrumbs -->
     <script type="application/ld+json">
