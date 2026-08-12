@@ -2,8 +2,13 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
+
+    <!-- =====================================================
+         GOOGLE ANALYTICS
+         ===================================================== -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -15,44 +20,90 @@
         gtag('config', 'G-XY335VGVGJ');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Voltage, Current, Resistance &amp; Electrical Power Explained | Electrical Engineering</title>
+    <!-- =====================================================
+         BASIC META
+         ===================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Voltage, Current, Resistance &amp; Electrical Power Explained
+        | Electrical Engineering
+    </title>
 
     <meta name="description"
-        content="Learn the fundamentals of voltage, electric current, resistance, and electrical power with simple explanations, formulas, examples, and engineering applications.">
+        content="Learn what voltage, electric current, resistance, and electrical power are with simple explanations, formulas, units, Ohm's Law, practical examples, and engineering applications.">
 
-    <meta name="author" content="Prasun Barua">
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author"
+        content="Prasun Barua">
+
+    <meta name="robots"
+        content="index, follow, max-image-preview:large">
 
     <link rel="canonical"
         href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
+
+    <!-- =====================================================
+         OPEN GRAPH
+         ===================================================== -->
+
+    <meta property="og:type"
+        content="article">
+
     <meta property="og:title"
         content="Voltage, Current, Resistance &amp; Electrical Power Explained">
+
     <meta property="og:description"
-        content="Understand voltage, electric current, resistance, and electrical power with simple engineering explanations and formulas.">
+        content="Understand voltage, electric current, resistance, and electrical power with simple engineering explanations, formulas, units, and examples.">
+
     <meta property="og:url"
         content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html">
-    <meta property="og:site_name" content="Electrical Engineering by Prasun Barua">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name"
+        content="Electrical Engineering by Prasun Barua">
+
+    <meta property="og:locale"
+        content="en_US">
+
+
+    <!-- =====================================================
+         TWITTER / X
+         ===================================================== -->
+
+    <meta name="twitter:card"
+        content="summary_large_image">
+
     <meta name="twitter:title"
         content="Voltage, Current, Resistance &amp; Electrical Power Explained">
-    <meta name="twitter:description"
-        content="Learn the fundamentals of voltage, current, resistance, and electrical power with practical engineering formulas and examples.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml"
+    <meta name="twitter:description"
+        content="Learn voltage, current, resistance, and electrical power with practical formulas, examples, and engineering explanations.">
+
+
+    <!-- =====================================================
+         FAVICON
+         ===================================================== -->
+
+    <link rel="icon"
+        type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -60,11 +111,21 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <!-- Article-specific styling -->
+    <!-- =====================================================
+         MAIN STYLESHEET
+         ===================================================== -->
+
+    <link rel="stylesheet"
+        href="/assets/css/style.css">
+
+
+    <!-- =====================================================
+         ARTICLE-SPECIFIC CSS
+         ===================================================== -->
+
     <style>
+
         /* =====================================================
            ARTICLE PAGE
            ===================================================== */
@@ -78,7 +139,10 @@
             padding: 28px 0 80px;
         }
 
-        /* Breadcrumb */
+
+        /* =====================================================
+           BREADCRUMBS
+           ===================================================== */
 
         .breadcrumbs {
             display: flex;
@@ -103,7 +167,10 @@
             color: var(--border-strong);
         }
 
-        /* Article Header */
+
+        /* =====================================================
+           ARTICLE HEADER
+           ===================================================== */
 
         .article-header {
             max-width: 900px;
@@ -160,7 +227,10 @@
             color: var(--text);
         }
 
-        /* Main Article Layout */
+
+        /* =====================================================
+           MAIN ARTICLE LAYOUT
+           ===================================================== */
 
         .article-layout {
             display: grid;
@@ -173,7 +243,10 @@
             position: relative;
         }
 
-        /* Sticky TOC */
+
+        /* =====================================================
+           TABLE OF CONTENTS
+           ===================================================== */
 
         .toc {
             position: sticky;
@@ -211,7 +284,10 @@
             text-decoration: none;
         }
 
-        /* Article Content */
+
+        /* =====================================================
+           ARTICLE CONTENT
+           ===================================================== */
 
         .article-content {
             max-width: 760px;
@@ -272,7 +348,10 @@
             font-size: 0.9em;
         }
 
-        /* Quick Answer */
+
+        /* =====================================================
+           QUICK ANSWER
+           ===================================================== */
 
         .quick-answer {
             position: relative;
@@ -306,7 +385,10 @@
             color: var(--text);
         }
 
-        /* Formula */
+
+        /* =====================================================
+           FORMULA BOX
+           ===================================================== */
 
         .formula-box {
             display: flex;
@@ -329,9 +411,13 @@
             font-weight: 700;
             letter-spacing: -0.02em;
             box-shadow: var(--shadow-md);
+            overflow-x: auto;
         }
 
-        /* Formula Cards */
+
+        /* =====================================================
+           FORMULA CARDS
+           ===================================================== */
 
         .formula-grid {
             display: grid;
@@ -373,7 +459,10 @@
             font-weight: 700;
         }
 
-        /* Engineering Table */
+
+        /* =====================================================
+           ENGINEERING TABLE
+           ===================================================== */
 
         .table-wrapper {
             width: 100%;
@@ -413,13 +502,10 @@
             border-bottom: none;
         }
 
-        .engineering-table td:first-child {
-            color: var(--primary);
-            font-family: var(--font-mono);
-            font-weight: 700;
-        }
 
-        /* Calculation */
+        /* =====================================================
+           CALCULATION
+           ===================================================== */
 
         .calculation-box {
             padding: 20px 22px;
@@ -454,7 +540,10 @@
             text-align: center;
         }
 
-        /* CTA */
+
+        /* =====================================================
+           CTA
+           ===================================================== */
 
         .article-cta {
             position: relative;
@@ -521,7 +610,10 @@
             text-decoration: none;
         }
 
-        /* Related Tutorials */
+
+        /* =====================================================
+           RELATED TUTORIALS
+           ===================================================== */
 
         .related-grid {
             display: grid;
@@ -569,14 +661,20 @@
             transform: translateX(4px);
         }
 
-        /* FAQ */
+
+        /* =====================================================
+           FAQ
+           ===================================================== */
 
         #faq h3 {
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border-light);
         }
 
-        /* Responsive */
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
 
         @media (max-width: 900px) {
 
@@ -603,6 +701,7 @@
                 grid-template-columns: 1fr;
             }
         }
+
 
         @media (max-width: 768px) {
 
@@ -640,6 +739,7 @@
             }
         }
 
+
         @media (max-width: 520px) {
 
             .article-meta {
@@ -665,7 +765,10 @@
             }
         }
 
-        /* Reduced motion */
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -681,61 +784,127 @@
                 animation-iteration-count: 1 !important;
             }
         }
+
     </style>
 
-    <!-- Structured Data: TechArticle -->
+
+    <!-- =====================================================
+         STRUCTURED DATA: TECH ARTICLE
+         ===================================================== -->
+
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      "headline": "Voltage, Current, Resistance & Electrical Power Explained",
-      "description": "Learn the fundamentals of voltage, electric current, resistance, and electrical power with simple explanations, formulas, and engineering examples.",
-      "author": {
-        "@type": "Person",
-        "name": "Prasun Barua"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Electrical Engineering by Prasun Barua",
-        "url": "https://electrical.prasunbarua.com"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
-      }
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Voltage, Current, Resistance & Electrical Power Explained",
+        "description": "Learn the fundamentals of voltage, electric current, resistance, and electrical power with simple explanations, formulas, units, and engineering examples.",
+        "author": {
+            "@type": "Person",
+            "name": "Prasun Barua"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+        },
+        "about": [
+            "Voltage",
+            "Electric Current",
+            "Electrical Resistance",
+            "Electrical Power",
+            "Ohm's Law"
+        ],
+        "inLanguage": "en"
     }
     </script>
 
-    <!-- Breadcrumb Structured Data -->
+
+    <!-- =====================================================
+         STRUCTURED DATA: BREADCRUMBS
+         ===================================================== -->
+
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://electrical.prasunbarua.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Electrical Fundamentals",
-          "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Voltage, Current & Resistance"
-        }
-      ]
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Electrical Fundamentals",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Voltage, Current & Resistance",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+            }
+        ]
+    }
+    </script>
+
+
+    <!-- =====================================================
+         STRUCTURED DATA: FAQ
+         ===================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is voltage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voltage is the electrical potential difference between two points. It is measured in volts (V)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is electric current?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Electric current is the rate of flow of electric charge through a circuit. It is measured in amperes (A)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is resistance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Resistance is the opposition to the flow of electric current. It is measured in ohms (Ω)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is electrical power?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Electrical power represents the rate at which electrical energy is transferred or consumed. It is measured in watts (W)."
+                }
+            }
+        ]
     }
     </script>
 
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
          HEADER
@@ -745,29 +914,48 @@
 
         <div class="container header-inner">
 
-            <a href="/" class="logo" aria-label="Electrical Engineering home">
+            <a href="/"
+                class="logo"
+                aria-label="Electrical Engineering home">
 
-                <span class="logo-icon" aria-hidden="true">
-                    <span class="material-symbols-rounded">bolt</span>
+                <span class="logo-icon"
+                    aria-hidden="true">
+
+                    <span class="material-symbols-rounded">
+                        bolt
+                    </span>
+
                 </span>
 
                 <span>
-                    <strong>Electrical Engineering</strong>
-                    <small>by Prasun Barua</small>
+
+                    <strong>
+                        Electrical Engineering
+                    </strong>
+
+                    <small>
+                        by Prasun Barua
+                    </small>
+
                 </span>
 
             </a>
 
-            <nav class="main-nav" aria-label="Main navigation">
+
+            <nav class="main-nav"
+                aria-label="Main navigation">
 
                 <ul>
 
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/">
+                            Home
+                        </a>
                     </li>
 
                     <li>
-                        <a href="/articles/electrical-fundamentals/" class="active">
+                        <a href="/articles/electrical-fundamentals/"
+                            class="active">
                             Tutorials
                         </a>
                     </li>
@@ -815,19 +1003,31 @@
 
             <div class="article-container">
 
-                <!-- Breadcrumb -->
 
-                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <!-- =================================================
+                     BREADCRUMB
+                     ================================================= -->
 
-                    <a href="/">Home</a>
+                <nav class="breadcrumbs"
+                    aria-label="Breadcrumb">
 
-                    <span class="separator" aria-hidden="true">›</span>
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <span class="separator"
+                        aria-hidden="true">
+                        ›
+                    </span>
 
                     <a href="/articles/electrical-fundamentals/">
                         Electrical Fundamentals
                     </a>
 
-                    <span class="separator" aria-hidden="true">›</span>
+                    <span class="separator"
+                        aria-hidden="true">
+                        ›
+                    </span>
 
                     <span aria-current="page">
                         Voltage, Current &amp; Resistance
@@ -836,7 +1036,9 @@
                 </nav>
 
 
-                <!-- Article Header -->
+                <!-- =================================================
+                     ARTICLE HEADER
+                     ================================================= -->
 
                 <header class="article-header">
 
@@ -861,13 +1063,17 @@
                             By <strong>Prasun Barua</strong>
                         </span>
 
-                        <span aria-hidden="true">•</span>
+                        <span aria-hidden="true">
+                            •
+                        </span>
 
                         <span>
                             Electrical Engineering
                         </span>
 
-                        <span aria-hidden="true">•</span>
+                        <span aria-hidden="true">
+                            •
+                        </span>
 
                         <span>
                             Updated August 2026
@@ -878,7 +1084,9 @@
                 </header>
 
 
-                <!-- Main Layout -->
+                <!-- =================================================
+                     MAIN ARTICLE LAYOUT
+                     ================================================= -->
 
                 <div class="article-layout">
 
@@ -917,6 +1125,10 @@
                                 How They Are Related
                             </a>
 
+                            <a href="#example">
+                                Worked Example
+                            </a>
+
                             <a href="#faq">
                                 FAQ
                             </a>
@@ -933,13 +1145,16 @@
                     <article class="article-content">
 
 
-                        <!-- Quick Answer -->
+                        <!-- =================================================
+                             QUICK ANSWER
+                             ================================================= -->
 
                         <div class="quick-answer">
 
                             <div class="quick-answer-title">
 
-                                <span class="material-symbols-rounded">
+                                <span class="material-symbols-rounded"
+                                    aria-hidden="true">
                                     bolt
                                 </span>
 
@@ -948,14 +1163,16 @@
                             </div>
 
                             <p>
-                                Voltage provides the electrical potential difference
-                                that drives current through a circuit. Resistance
-                                opposes current flow, while electrical power describes
-                                the rate at which electrical energy is transferred or
-                                consumed.
+                                Voltage provides the electrical potential
+                                difference that can drive current through a
+                                circuit. Resistance opposes current flow,
+                                while electrical power describes the rate at
+                                which electrical energy is transferred or
+                                converted.
                             </p>
 
-                            <div class="formula-box">
+                            <div class="formula-box"
+                                aria-label="Electrical power equals voltage multiplied by current">
                                 P = V × I
                             </div>
 
@@ -973,10 +1190,10 @@
                             </h2>
 
                             <p>
-                                Voltage is the electrical potential difference between
-                                two points in a circuit. It represents the amount of
-                                energy available to move electric charge between
-                                those points.
+                                Voltage is the electrical potential difference
+                                between two points in a circuit. It represents
+                                the energy transferred per unit of electric
+                                charge between those points.
                             </p>
 
                             <p>
@@ -986,10 +1203,11 @@
                             </p>
 
                             <p>
-                                In a simple electrical circuit, a voltage source such
-                                as a battery creates the potential difference that
-                                causes electric current to flow when a complete
-                                conducting path is available.
+                                In a simple electrical circuit, a voltage source
+                                such as a battery creates a potential
+                                difference that can cause electric current to
+                                flow when a complete conducting path is
+                                available.
                             </p>
 
                             <div class="formula-box">
@@ -1030,8 +1248,9 @@
                             </h2>
 
                             <p>
-                                Electric current is the rate at which electric charge
-                                flows through a conductor or electrical circuit.
+                                Electric current is the rate at which electric
+                                charge flows through a conductor or electrical
+                                circuit.
                             </p>
 
                             <p>
@@ -1065,10 +1284,11 @@
                             </ul>
 
                             <p>
-                                In practical electrical engineering, current is one
-                                of the most important quantities used when selecting
-                                conductors, protective devices, transformers,
-                                switchgear, and electrical equipment.
+                                In practical electrical engineering, current
+                                is one of the most important quantities used
+                                when selecting conductors, protective devices,
+                                transformers, switchgear, and electrical
+                                equipment.
                             </p>
 
                         </section>
@@ -1085,9 +1305,9 @@
                             </h2>
 
                             <p>
-                                Electrical resistance is the opposition to the flow
-                                of electric current through a material or circuit
-                                component.
+                                Electrical resistance is the opposition to the
+                                flow of electric current through a material or
+                                circuit component.
                             </p>
 
                             <p>
@@ -1101,8 +1321,9 @@
                             </div>
 
                             <p>
-                                According to Ohm's Law, when voltage and resistance
-                                are known, the current can be calculated using:
+                                According to Ohm's Law, when voltage and
+                                resistance are known, the current can be
+                                calculated using:
                             </p>
 
                             <div class="formula-box">
@@ -1110,9 +1331,25 @@
                             </div>
 
                             <p>
-                                Resistance depends on factors such as the material,
-                                conductor length, conductor cross-sectional area,
-                                and temperature.
+                                Resistance depends on factors such as the
+                                material, conductor length, conductor
+                                cross-sectional area, and temperature.
+                            </p>
+
+                            <p>
+                                For a uniform conductor, resistance can also
+                                be expressed as:
+                            </p>
+
+                            <div class="formula-box">
+                                R = ρL ÷ A
+                            </div>
+
+                            <p>
+                                Where <strong>ρ</strong> is the material's
+                                resistivity, <strong>L</strong> is conductor
+                                length, and <strong>A</strong> is the
+                                conductor cross-sectional area.
                             </p>
 
                         </section>
@@ -1129,9 +1366,9 @@
                             </h2>
 
                             <p>
-                                Electrical power is the rate at which electrical
-                                energy is transferred, converted, or consumed by
-                                an electrical device.
+                                Electrical power is the rate at which
+                                electrical energy is transferred, converted,
+                                or consumed by an electrical device.
                             </p>
 
                             <p>
@@ -1145,8 +1382,9 @@
                             </div>
 
                             <p>
-                                For a resistive load, power can also be calculated
-                                using:
+                                For a resistive load, power can also be
+                                calculated using the following equivalent
+                                forms:
                             </p>
 
                             <div class="formula-grid">
@@ -1154,7 +1392,7 @@
                                 <div class="formula-card">
 
                                     <strong>
-                                        Power
+                                        Voltage &amp; Current
                                     </strong>
 
                                     <span>
@@ -1203,10 +1441,11 @@
                             </h2>
 
                             <p>
-                                These electrical quantities are closely related.
-                                Ohm's Law provides the fundamental relationship between
-                                voltage, current, and resistance, while the electrical
-                                power equation connects these quantities to power.
+                                These electrical quantities are closely
+                                related. Ohm's Law provides the fundamental
+                                relationship between voltage, current, and
+                                resistance, while the electrical power
+                                equation connects these quantities to power.
                             </p>
 
                             <div class="table-wrapper">
@@ -1344,8 +1583,9 @@
                                 using Ohm's Law.
                             </p>
 
+
                             <h3>
-                                Step 1 — Known values
+                                Step 1 — Known Values
                             </h3>
 
                             <div class="calculation-box">
@@ -1360,6 +1600,7 @@
 
                             </div>
 
+
                             <h3>
                                 Step 2 — Apply Ohm's Law
                             </h3>
@@ -1367,6 +1608,7 @@
                             <div class="formula-box">
                                 I = V ÷ R
                             </div>
+
 
                             <h3>
                                 Step 3 — Calculate
@@ -1385,6 +1627,20 @@
                                 resistor is <strong>2 amperes</strong>.
                             </p>
 
+
+                            <h3>
+                                Step 4 — Calculate Electrical Power
+                            </h3>
+
+                            <div class="formula-box">
+                                P = V × I = 24 × 2 = 48 W
+                            </div>
+
+                            <p>
+                                The resistor therefore dissipates
+                                <strong>48 W</strong> of electrical power.
+                            </p>
+
                         </section>
 
 
@@ -1401,15 +1657,15 @@
                                 </h2>
 
                                 <p>
-                                    Use our engineering calculators for practical
-                                    cable sizing, voltage-drop calculations,
-                                    solar PV calculations, and other electrical
-                                    engineering tasks.
+                                    Use our engineering calculators for
+                                    practical cable sizing, voltage-drop
+                                    calculations, solar PV calculations,
+                                    and other electrical engineering tasks.
                                 </p>
 
                                 <a href="https://calculator.prasunbarua.com/"
                                     target="_blank"
-                                    rel="noopener"
+                                    rel="noopener noreferrer"
                                     class="primary-button">
 
                                     Open Electrical Calculators
@@ -1436,6 +1692,7 @@
                                 Frequently Asked Questions
                             </h2>
 
+
                             <h3>
                                 What is voltage?
                             </h3>
@@ -1445,15 +1702,17 @@
                                 between two points. It is measured in volts (V).
                             </p>
 
+
                             <h3>
                                 What is electric current?
                             </h3>
 
                             <p>
-                                Electric current is the rate of flow of electric
-                                charge through a circuit. It is measured in
-                                amperes (A).
+                                Electric current is the rate of flow of
+                                electric charge through a circuit. It is
+                                measured in amperes (A).
                             </p>
+
 
                             <h3>
                                 What is resistance?
@@ -1464,6 +1723,7 @@
                                 electric current. It is measured in ohms (Ω).
                             </p>
 
+
                             <h3>
                                 What is electrical power?
                             </h3>
@@ -1472,6 +1732,18 @@
                                 Electrical power represents the rate at which
                                 electrical energy is transferred or consumed.
                                 It is measured in watts (W).
+                            </p>
+
+
+                            <h3>
+                                What is Ohm's Law?
+                            </h3>
+
+                            <p>
+                                Ohm's Law describes the relationship between
+                                voltage, current, and resistance in an
+                                electrical circuit. It can be written as
+                                <strong>V = I × R</strong>.
                             </p>
 
                         </section>
@@ -1489,13 +1761,9 @@
 
                             <div class="related-grid">
 
-                                <!-- IMPORTANT:
-                                     .html must be included before the #fragment.
-                                -->
-
                                 <a href="/articles/electrical-fundamentals/ohms-law/">
-            Ohm's Law Explained
-        </a>
+                                    Ohm's Law Explained
+                                </a>
 
                             </div>
 
@@ -1520,6 +1788,7 @@
     <footer class="site-footer">
 
         <div class="container footer-grid">
+
 
             <div>
 
@@ -1634,8 +1903,12 @@
     </footer>
 
 
-    <!-- Site JavaScript -->
-    <script src="/assets/js/app.js" defer></script>
+    <!-- =====================================================
+         SITE JAVASCRIPT
+         ===================================================== -->
+
+    <script src="/assets/js/app.js"
+        defer></script>
 
 </body>
 
