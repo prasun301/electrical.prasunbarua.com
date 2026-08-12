@@ -30,13 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (searchMessage) {
                 searchMessage.textContent = "";
+                searchMessage.style.display = "none";
             }
 
             // Fallback Google Site Search
             const siteDomain = "electrical.prasunbarua.com";
             const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:${siteDomain} ${query}`)}`;
 
-            // Open search in a new tab so users stay on the site
+            // Open search in a new tab
             window.open(searchUrl, "_blank", "noopener,noreferrer");
         };
 
@@ -56,12 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. ACTIVE NAVIGATION LINK HIGHLIGHTER
     // =========================================================
     const highlightActiveNav = () => {
-        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+        const currentPath = window.location.pathname;
         const navLinks = document.querySelectorAll(".main-nav a");
 
         navLinks.forEach((link) => {
-            const href = link.getAttribute("href");
-            if (href === currentPath || (currentPath === "" && href === "index.html")) {
+            // Use URL object properties to handle relative paths (../../../index.html) cleanly
+            const linkPath = link.pathname;
+
+            // Highlight exact match or root homepage match
+            if (
+                currentPath === linkPath ||
+                (currentPath === "/" && linkPath.endsWith("index.html")) ||
+                (currentPath.endsWith("index.html") && linkPath === "/")
+            ) {
                 link.classList.add("active");
             } else {
                 link.classList.remove("active");
@@ -75,9 +83,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. EXTERNAL LINK SECURITY
     // =========================================================
     // Automatically add security attributes to all external links
-    const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="' + window.location.hostname + '"])');
+    const externalLinks = document.querySelectorAll(`a[href^="http"]:not([href*="${window.location.hostname}"])`);
     externalLinks.forEach((link) => {
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener noreferrer");
     });
+
+    // =========================================================
+    // 4. MOBILE MENU TOGGLE (OPTIONAL)
+    // =========================================================
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener("click", () => {
+            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", !isExpanded);
+            mainNav.classList.toggle("nav-open");
+        });
+    }
 });
