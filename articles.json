@@ -167,19 +167,19 @@
       "id": "voltage-drop-calculation",
       "title": "How to Calculate Voltage Drop",
       "slug": "voltage-drop-calculation",
-      "category": "electrical-design",
-      "categoryName": "Electrical Design",
-      "url": "/articles/electrical-design/voltage-drop-calculation/",
+      "category": "electrical-calculations",
+      "categoryName": "Electrical Calculations",
+      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
       "description": "Learn how to calculate voltage drop in electrical cables using practical formulas and engineering examples.",
       "excerpt": "Understand voltage drop calculations and why voltage drop is important when selecting electrical cables.",
       "icon": "monitoring",
       "image": "",
       "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
       "readingTime": "10 min read",
       "featured": false,
-      "status": "planned",
+      "status": "published",
       "tags": [
         "voltage drop",
         "cable",
@@ -368,3 +368,4 @@
     }
   ]
 }
+
