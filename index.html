@@ -2457,88 +2457,215 @@
     </footer>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
-    <!-- =========================================================
-         JAVASCRIPT
-         ========================================================= -->
+<script>
 
-    <script>
+/* =====================================================
+   SEARCH
+   ===================================================== */
 
-        /* =====================================================
-           SEARCH
-           ===================================================== */
+const searchForm =
+    document.getElementById("site-search-form");
 
-        const searchForm =
-            document.getElementById("site-search-form");
+const searchInput =
+    document.getElementById("site-search");
 
-        const searchInput =
-            document.getElementById("site-search");
-
-        const searchMessage =
-            document.getElementById("search-message");
-
-
-        searchForm.addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const query =
-                searchInput.value.trim();
+const searchMessage =
+    document.getElementById("search-message");
 
 
-            if (!query) {
+if (searchForm && searchInput) {
 
+    searchForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const query =
+            searchInput.value.trim();
+
+
+        if (!query) {
+
+            if (searchMessage) {
                 searchMessage.textContent =
                     "Enter a topic to search.";
-
-                searchInput.focus();
-
-                return;
             }
 
+            searchInput.focus();
 
-            /*
-             * Replace this URL with your article search page
-             * when the article search system is ready.
-             */
-
-            const searchURL =
-                "/articles/?q=" +
-                encodeURIComponent(query);
+            return;
+        }
 
 
-            window.location.href =
-                searchURL;
+        /*
+         * Replace this URL with your article search page
+         * when the article search system is ready.
+         */
+
+        const searchURL =
+            "/articles/?q=" +
+            encodeURIComponent(query);
+
+
+        window.location.href =
+            searchURL;
+
+    });
+
+}
+
+
+/* =====================================================
+   MOBILE ARTICLE SIDEBAR MENU
+   ===================================================== */
+
+const menuButton =
+    document.getElementById("menu-button");
+
+const sidebar =
+    document.getElementById("category-sidebar");
+
+const overlay =
+    document.querySelector(".sidebar-overlay");
+
+
+if (menuButton && sidebar) {
+
+
+    /* -------------------------------------------------
+       OPEN SIDEBAR
+       ------------------------------------------------- */
+
+    function openSidebar() {
+
+        sidebar.classList.add("active");
+
+        if (overlay) {
+            overlay.classList.add("active");
+        }
+
+        document.body.style.overflow = "hidden";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Close article menu"
+        );
+    }
+
+
+    /* -------------------------------------------------
+       CLOSE SIDEBAR
+       ------------------------------------------------- */
+
+    function closeSidebar() {
+
+        sidebar.classList.remove("active");
+
+        if (overlay) {
+            overlay.classList.remove("active");
+        }
+
+        document.body.style.overflow = "";
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Open article menu"
+        );
+    }
+
+
+    /* -------------------------------------------------
+       TOGGLE SIDEBAR
+       ------------------------------------------------- */
+
+    function toggleSidebar() {
+
+        if (sidebar.classList.contains("active")) {
+
+            closeSidebar();
+
+        } else {
+
+            openSidebar();
+
+        }
+
+    }
+
+
+    /* -------------------------------------------------
+       MENU BUTTON
+       ------------------------------------------------- */
+
+    menuButton.addEventListener(
+        "click",
+        toggleSidebar
+    );
+
+
+    /* -------------------------------------------------
+       OVERLAY
+       ------------------------------------------------- */
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+    }
+
+
+    /* -------------------------------------------------
+       CLOSE AFTER SELECTING A CATEGORY
+       ------------------------------------------------- */
+
+    sidebar
+        .querySelectorAll("a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                closeSidebar
+            );
 
         });
 
 
+    /* -------------------------------------------------
+       CLOSE WITH ESCAPE
+       ------------------------------------------------- */
 
-        /* =====================================================
-           MOBILE CATEGORY BUTTON
-           ===================================================== */
+    document.addEventListener(
+        "keydown",
+        function(event) {
 
-        const menuButton =
-            document.getElementById("menu-button");
+            if (event.key === "Escape") {
 
-        const sidebar =
-            document.getElementById("category-sidebar");
+                closeSidebar();
 
-
-        if (menuButton && sidebar) {
-
-            menuButton.addEventListener("click", function() {
-
-                sidebar.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            });
+            }
 
         }
+    );
 
-    </script>
+}
+
+</script>
 
 
 </body>
