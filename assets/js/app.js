@@ -6,7 +6,7 @@
    - Mobile navigation
    - Article sidebar
    - Search
-   - Dynamic article loading
+   - Dynamic latest article loading
    - Related articles
    - Social sharing
    - Copy article URL
@@ -17,18 +17,23 @@
 
 "use strict";
 
+
 /* =========================================================
    GLOBAL CONFIGURATION
    ========================================================= */
 
 const SITE_CONFIG = {
+
     siteName: "Electrical Engineering by Prasun Barua",
 
     siteUrl: window.location.origin,
 
     articlesFile: "/articles.json",
 
-    maxRelatedArticles: 4
+    maxRelatedArticles: 4,
+
+    maxLatestArticles: 4
+
 };
 
 
@@ -43,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeSidebar();
 
     initializeSearch();
+
+    initializeLatestArticles();
 
     initializeSocialSharing();
 
@@ -76,6 +83,7 @@ function initializeMobileMenu() {
         return;
     }
 
+
     function openMenu() {
 
         sidebar.classList.add("active");
@@ -84,10 +92,17 @@ function initializeMobileMenu() {
             overlay.classList.add("active");
         }
 
-        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
 
-        document.body.classList.add("sidebar-open");
+        document.body.classList.add(
+            "sidebar-open"
+        );
+
     }
+
 
     function closeMenu() {
 
@@ -97,51 +112,81 @@ function initializeMobileMenu() {
             overlay.classList.remove("active");
         }
 
-        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-        document.body.classList.remove("sidebar-open");
+        document.body.classList.remove(
+            "sidebar-open"
+        );
+
     }
 
-    menuButton.addEventListener("click", () => {
 
-        const isOpen =
-            sidebar.classList.contains("active");
+    menuButton.addEventListener(
+        "click",
+        () => {
 
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
+            const isOpen =
+                sidebar.classList.contains("active");
+
+            if (isOpen) {
+
+                closeMenu();
+
+            } else {
+
+                openMenu();
+
+            }
+
         }
+    );
 
-    });
 
     if (overlay) {
 
-        overlay.addEventListener("click", closeMenu);
+        overlay.addEventListener(
+            "click",
+            closeMenu
+        );
 
     }
+
 
     sidebar
         .querySelectorAll("a")
         .forEach(link => {
 
-            link.addEventListener("click", () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-                if (window.innerWidth <= 900) {
-                    closeMenu();
+                    if (window.innerWidth <= 900) {
+
+                        closeMenu();
+
+                    }
+
                 }
-
-            });
+            );
 
         });
 
-    document.addEventListener("keydown", event => {
 
-        if (event.key === "Escape") {
-            closeMenu();
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+
+                closeMenu();
+
+            }
+
         }
-
-    });
+    );
 
 }
 
@@ -159,8 +204,12 @@ function initializeSidebar() {
         return;
     }
 
+
     const currentPath =
-        normalizePath(window.location.pathname);
+        normalizePath(
+            window.location.pathname
+        );
+
 
     sidebar
         .querySelectorAll("a")
@@ -173,8 +222,10 @@ function initializeSidebar() {
                 return;
             }
 
+
             const linkPath =
                 normalizePath(href);
+
 
             if (
                 linkPath === currentPath &&
@@ -205,23 +256,36 @@ function normalizePath(path) {
         return "/";
     }
 
+
     try {
 
         const url =
-            new URL(path, window.location.origin);
+            new URL(
+                path,
+                window.location.origin
+            );
+
 
         let cleanPath =
-            url.pathname.replace(/\/+/g, "/");
+            url.pathname.replace(
+                /\/+/g,
+                "/"
+            );
+
 
         if (
             cleanPath.length > 1 &&
             cleanPath.endsWith("/")
         ) {
+
             cleanPath =
                 cleanPath.slice(0, -1);
+
         }
 
+
         return cleanPath.toLowerCase();
+
 
     } catch (error) {
 
@@ -248,20 +312,28 @@ function initializeSearch() {
             ".search-container input"
         );
 
+
     if (!searchInputs.length) {
         return;
     }
 
+
     searchInputs.forEach(input => {
 
-        input.addEventListener("input", () => {
+        input.addEventListener(
+            "input",
+            () => {
 
-            const query =
-                input.value.trim().toLowerCase();
+                const query =
+                    input.value
+                        .trim()
+                        .toLowerCase();
 
-            filterArticleCards(query);
 
-        });
+                filterArticleCards(query);
+
+            }
+        );
 
     });
 
@@ -280,9 +352,11 @@ function filterArticleCards(query) {
             ".related-card"
         );
 
+
     if (!cards.length) {
         return;
     }
+
 
     cards.forEach(card => {
 
@@ -291,16 +365,408 @@ function filterArticleCards(query) {
             card.hidden = false;
 
             return;
+
         }
 
+
         const text =
-            card.textContent
-                .toLowerCase();
+            card.textContent.toLowerCase();
+
 
         card.hidden =
             !text.includes(query);
 
     });
+
+}
+
+
+/* =========================================================
+   LATEST ARTICLES
+   ========================================================= */
+
+async function initializeLatestArticles() {
+
+    const container =
+        document.getElementById(
+            "latest-articles"
+        );
+
+
+    /*
+     * If this page does not contain
+     * the Latest Articles container,
+     * do nothing.
+     */
+
+    if (!container) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                SITE_CONFIG.articlesFile,
+                {
+                    cache: "no-cache"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Unable to load articles.json"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data ||
+            !Array.isArray(data.articles)
+        ) {
+
+            throw new Error(
+                "Invalid articles.json format"
+            );
+
+        }
+
+
+        /*
+         * Only published articles
+         * are shown.
+         */
+
+        const publishedArticles =
+            data.articles
+                .filter(article => {
+
+                    return (
+                        article.status ===
+                        "published"
+                    );
+
+                })
+                .filter(article => {
+
+                    return (
+                        article.url &&
+                        article.title
+                    );
+
+                });
+
+
+        /*
+         * Sort newest first.
+         */
+
+        publishedArticles.sort(
+            (a, b) => {
+
+                const dateA =
+                    new Date(
+                        a.datePublished || 0
+                    );
+
+                const dateB =
+                    new Date(
+                        b.datePublished || 0
+                    );
+
+
+                return dateB - dateA;
+
+            }
+        );
+
+
+        /*
+         * Take only the latest
+         * configured number.
+         */
+
+        const latestArticles =
+            publishedArticles.slice(
+                0,
+                SITE_CONFIG.maxLatestArticles
+            );
+
+
+        /*
+         * Clear the existing container.
+         */
+
+        container.innerHTML = "";
+
+
+        /*
+         * If there are no published
+         * articles, show a message.
+         */
+
+        if (!latestArticles.length) {
+
+            container.innerHTML = `
+                <p class="article-empty">
+                    No published articles yet.
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        /*
+         * Create article elements.
+         */
+
+        latestArticles.forEach(
+            article => {
+
+                const articleElement =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                articleElement.className =
+                    "article-item";
+
+
+                const articleContent =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                /*
+                 * TITLE
+                 */
+
+                const heading =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                const titleLink =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                titleLink.href =
+                    article.url;
+
+
+                titleLink.textContent =
+                    article.title;
+
+
+                heading.appendChild(
+                    titleLink
+                );
+
+
+                /*
+                 * DESCRIPTION
+                 */
+
+                const excerpt =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                excerpt.className =
+                    "article-excerpt";
+
+
+                excerpt.textContent =
+                    article.excerpt ||
+                    article.description ||
+                    "";
+
+
+                /*
+                 * META
+                 */
+
+                const meta =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                meta.className =
+                    "article-meta";
+
+
+                const category =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                category.className =
+                    "article-category";
+
+
+                category.textContent =
+                    article.categoryName ||
+                    "";
+
+
+                const separator =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                separator.textContent =
+                    "·";
+
+
+                const readingTime =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                readingTime.textContent =
+                    article.readingTime ||
+                    "";
+
+
+                meta.appendChild(
+                    category
+                );
+
+                meta.appendChild(
+                    separator
+                );
+
+                meta.appendChild(
+                    readingTime
+                );
+
+
+                /*
+                 * Put text content together.
+                 */
+
+                articleContent.appendChild(
+                    heading
+                );
+
+                articleContent.appendChild(
+                    excerpt
+                );
+
+                articleContent.appendChild(
+                    meta
+                );
+
+
+                /*
+                 * ARTICLE ICON
+                 */
+
+                const thumbnail =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                thumbnail.href =
+                    article.url;
+
+
+                thumbnail.className =
+                    "article-thumb";
+
+
+                thumbnail.setAttribute(
+                    "aria-label",
+                    "Read " + article.title
+                );
+
+
+                const icon =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                icon.className =
+                    "material-symbols-rounded";
+
+
+                icon.textContent =
+                    article.icon ||
+                    "article";
+
+
+                thumbnail.appendChild(
+                    icon
+                );
+
+
+                /*
+                 * Add content to article.
+                 */
+
+                articleElement.appendChild(
+                    articleContent
+                );
+
+                articleElement.appendChild(
+                    thumbnail
+                );
+
+
+                /*
+                 * Add article to homepage.
+                 */
+
+                container.appendChild(
+                    articleElement
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Latest Articles Error:",
+            error
+        );
+
+
+        /*
+         * Keep the homepage clean if
+         * articles.json cannot be loaded.
+         */
+
+        container.innerHTML = `
+            <p class="article-empty">
+                Unable to load latest articles.
+            </p>
+        `;
+
+    }
 
 }
 
@@ -316,22 +782,29 @@ function initializeSocialSharing() {
             ".share-icon[data-share]"
         );
 
+
     if (!buttons.length) {
         return;
     }
 
+
     buttons.forEach(button => {
 
-        button.addEventListener("click", event => {
+        button.addEventListener(
+            "click",
+            event => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const network =
-                button.dataset.share;
 
-            shareArticle(network);
+                const network =
+                    button.dataset.share;
 
-        });
+
+                shareArticle(network);
+
+            }
+        );
 
     });
 
@@ -349,43 +822,49 @@ function getArticleInfo() {
             'link[rel="canonical"]'
         );
 
+
     let url =
         canonical
             ? canonical.href
             : window.location.href;
 
-    /*
-     * Remove unnecessary URL fragments.
-     */
+
     url =
         url.split("#")[0];
+
 
     const titleElement =
         document.querySelector(
             ".article-title"
         );
 
+
     const title =
         titleElement
             ? titleElement.textContent.trim()
             : document.title;
+
 
     const descriptionElement =
         document.querySelector(
             ".article-intro"
         );
 
+
     const description =
         descriptionElement
             ? descriptionElement.textContent.trim()
             : "";
+
 
     const imageElement =
         document.querySelector(
             ".article-feature-image img"
         );
 
+
     let image = "";
+
 
     if (imageElement) {
 
@@ -396,6 +875,7 @@ function getArticleInfo() {
             ).href;
 
     }
+
 
     return {
         url,
@@ -416,18 +896,21 @@ function shareArticle(network) {
     const article =
         getArticleInfo();
 
+
     const encodedUrl =
-        encodeURIComponent(article.url);
-
-    const encodedTitle =
-        encodeURIComponent(article.title);
-
-    const encodedDescription =
         encodeURIComponent(
-            article.description
+            article.url
         );
 
+
+    const encodedTitle =
+        encodeURIComponent(
+            article.title
+        );
+
+
     let shareUrl = "";
+
 
     switch (network) {
 
@@ -533,8 +1016,6 @@ function shareArticle(network) {
                 encodeURIComponent(
                     article.title +
                     "\n\n" +
-                    article.description +
-                    "\n\n" +
                     article.url
                 );
 
@@ -553,11 +1034,6 @@ function shareArticle(network) {
     }
 
 
-    /*
-     * Email should use the browser's
-     * normal mail handler.
-     */
-
     if (network === "email") {
 
         window.location.href =
@@ -567,10 +1043,6 @@ function shareArticle(network) {
 
     }
 
-
-    /*
-     * Open social sharing popup.
-     */
 
     openSharePopup(
         shareUrl,
@@ -584,11 +1056,15 @@ function shareArticle(network) {
    SOCIAL SHARE POPUP
    ========================================================= */
 
-function openSharePopup(url, network) {
+function openSharePopup(
+    url,
+    network
+) {
 
     const width = 640;
 
     const height = 620;
+
 
     const left =
         Math.max(
@@ -596,11 +1072,13 @@ function openSharePopup(url, network) {
             (window.screen.width - width) / 2
         );
 
+
     const top =
         Math.max(
             0,
             (window.screen.height - height) / 2
         );
+
 
     const popup =
         window.open(
@@ -620,10 +1098,6 @@ function openSharePopup(url, network) {
             ].join(",")
         );
 
-    /*
-     * Some browsers block popup windows.
-     * If blocked, open the URL normally.
-     */
 
     if (!popup) {
 
@@ -633,9 +1107,13 @@ function openSharePopup(url, network) {
     } else {
 
         try {
+
             popup.focus();
+
         } catch (error) {
+
             /* Ignore focus errors. */
+
         }
 
     }
@@ -654,9 +1132,11 @@ function initializeCopyLink() {
             '[data-share="copy"]'
         );
 
+
     if (!buttons.length) {
         return;
     }
+
 
     buttons.forEach(button => {
 
@@ -666,7 +1146,9 @@ function initializeCopyLink() {
 
                 event.preventDefault();
 
-                await copyArticleLink(button);
+                await copyArticleLink(
+                    button
+                );
 
             }
         );
@@ -685,10 +1167,13 @@ async function copyArticleLink(button) {
     const article =
         getArticleInfo();
 
+
     const originalLabel =
         button.getAttribute(
             "aria-label"
-        ) || "Copy article link";
+        ) ||
+        "Copy article link";
+
 
     try {
 
@@ -709,18 +1194,22 @@ async function copyArticleLink(button) {
 
         }
 
+
         button.setAttribute(
             "aria-label",
             "Link copied"
         );
 
+
         button.classList.add(
             "copied"
         );
 
+
         showShareToast(
             "Article link copied"
         );
+
 
         setTimeout(() => {
 
@@ -729,11 +1218,13 @@ async function copyArticleLink(button) {
                 originalLabel
             );
 
+
             button.classList.remove(
                 "copied"
             );
 
         }, 1800);
+
 
     } catch (error) {
 
@@ -757,46 +1248,60 @@ function fallbackCopyText(text) {
             "textarea"
         );
 
-    textarea.value = text;
+
+    textarea.value =
+        text;
+
 
     textarea.style.position =
         "fixed";
 
+
     textarea.style.left =
         "-9999px";
 
+
     textarea.style.top =
         "0";
+
 
     textarea.setAttribute(
         "readonly",
         ""
     );
 
+
     document.body.appendChild(
         textarea
     );
 
+
     textarea.select();
+
 
     textarea.setSelectionRange(
         0,
         textarea.value.length
     );
 
+
     const successful =
         document.execCommand(
             "copy"
         );
 
+
     document.body.removeChild(
         textarea
     );
 
+
     if (!successful) {
+
         throw new Error(
             "Copy failed"
         );
+
     }
 
 }
@@ -813,6 +1318,7 @@ function showShareToast(message) {
             ".share-toast"
         );
 
+
     if (!toast) {
 
         toast =
@@ -820,8 +1326,10 @@ function showShareToast(message) {
                 "div"
             );
 
+
         toast.className =
             "share-toast";
+
 
         document.body.appendChild(
             toast
@@ -829,16 +1337,20 @@ function showShareToast(message) {
 
     }
 
+
     toast.textContent =
         message;
+
 
     toast.classList.add(
         "show"
     );
 
+
     clearTimeout(
         toast._timer
     );
+
 
     toast._timer =
         setTimeout(() => {
@@ -863,13 +1375,11 @@ function initializeNativeShare() {
             '[data-share="native"]'
         );
 
+
     if (!button) {
         return;
     }
 
-    /*
-     * Hide native-share button if unsupported.
-     */
 
     if (
         typeof navigator.share !==
@@ -883,14 +1393,17 @@ function initializeNativeShare() {
 
     }
 
+
     button.addEventListener(
         "click",
         async event => {
 
             event.preventDefault();
 
+
             const article =
                 getArticleInfo();
+
 
             try {
 
@@ -907,11 +1420,8 @@ function initializeNativeShare() {
 
                 });
 
-            } catch (error) {
 
-                /*
-                 * User cancellation is normal.
-                 */
+            } catch (error) {
 
                 if (
                     error &&
@@ -944,14 +1454,17 @@ function initializeReadingProgress() {
             ".article-content"
         );
 
+
     if (!article) {
         return;
     }
+
 
     let progressBar =
         document.querySelector(
             ".reading-progress"
         );
+
 
     if (!progressBar) {
 
@@ -960,8 +1473,10 @@ function initializeReadingProgress() {
                 "div"
             );
 
+
         progressBar.className =
             "reading-progress";
+
 
         document.body.appendChild(
             progressBar
@@ -969,30 +1484,38 @@ function initializeReadingProgress() {
 
     }
 
+
     function updateProgress() {
 
         const rect =
             article.getBoundingClientRect();
 
+
         const articleTop =
             window.scrollY +
             rect.top;
 
+
         const articleHeight =
             article.offsetHeight;
 
+
         const viewportHeight =
             window.innerHeight;
+
 
         const current =
             window.scrollY -
             articleTop;
 
+
         const total =
             articleHeight -
             viewportHeight;
 
+
         let percentage = 0;
+
 
         if (total > 0) {
 
@@ -1000,6 +1523,7 @@ function initializeReadingProgress() {
                 (current / total) * 100;
 
         }
+
 
         percentage =
             Math.max(
@@ -1010,10 +1534,12 @@ function initializeReadingProgress() {
                 )
             );
 
+
         progressBar.style.width =
             percentage + "%";
 
     }
+
 
     window.addEventListener(
         "scroll",
@@ -1023,10 +1549,12 @@ function initializeReadingProgress() {
         }
     );
 
+
     window.addEventListener(
         "resize",
         updateProgress
     );
+
 
     updateProgress();
 
@@ -1054,28 +1582,39 @@ function initializeSmoothAnchors() {
                             "href"
                         );
 
+
                     if (
                         !targetId ||
                         targetId === "#"
                     ) {
+
                         return;
+
                     }
+
 
                     const target =
                         document.querySelector(
                             targetId
                         );
 
+
                     if (!target) {
                         return;
                     }
 
+
                     event.preventDefault();
 
+
                     target.scrollIntoView({
+
                         behavior: "smooth",
+
                         block: "start"
+
                     });
+
 
                     history.replaceState(
                         null,
