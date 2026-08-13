@@ -14,7 +14,6 @@
       "icon": "electrical_services",
       "url": "/articles/electrical-fundamentals/"
     },
-
     {
       "id": "electrical-calculations",
       "name": "Electrical Calculations",
@@ -22,7 +21,6 @@
       "icon": "calculate",
       "url": "/articles/electrical-calculations/"
     },
-
     {
       "id": "power-systems",
       "name": "Power Systems",
@@ -30,7 +28,6 @@
       "icon": "electric_bolt",
       "url": "/articles/power-systems/"
     },
-
     {
       "id": "solar-pv",
       "name": "Solar PV",
@@ -38,7 +35,6 @@
       "icon": "solar_power",
       "url": "/articles/solar-pv/"
     },
-
     {
       "id": "electrical-design",
       "name": "Electrical Design",
@@ -46,7 +42,6 @@
       "icon": "architecture",
       "url": "/articles/electrical-design/"
     },
-
     {
       "id": "testing-commissioning",
       "name": "Testing & Commissioning",
