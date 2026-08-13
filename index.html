@@ -720,6 +720,126 @@
             color: var(--blue);
         }
 
+        /* =====================================================
+   MOBILE SIDEBAR DRAWER
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+
+        position: fixed;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        z-index: 2000;
+
+        width: min(310px, 86vw);
+
+        margin: 0;
+
+        padding: 88px 24px 30px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        background: var(--surface);
+
+        border-right: 1px solid var(--border);
+
+        box-shadow: var(--shadow-lg);
+
+        transform: translateX(-105%);
+
+        transition:
+            transform var(--transition-slow);
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .sidebar.active {
+
+        transform: translateX(0);
+    }
+
+
+    /* =================================================
+       MOBILE MENU BUTTON
+       ================================================= */
+
+    .menu-button {
+
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        flex-shrink: 0;
+
+        padding: 0;
+
+        border: 1px solid var(--border);
+
+        border-radius: 11px;
+
+        background: var(--surface);
+
+        color: var(--text);
+
+        box-shadow: var(--shadow-xs);
+
+        cursor: pointer;
+    }
+
+
+    .menu-button:hover {
+
+        background: var(--bg-soft);
+    }
+
+
+    .menu-button .material-symbols-rounded {
+
+        font-size: 23px;
+
+        line-height: 1;
+    }
+
+
+    /* =================================================
+       SIDEBAR OVERLAY
+       ================================================= */
+
+    .sidebar-overlay {
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 1990;
+
+        display: none;
+
+        background: rgba(0, 0, 0, 0.25);
+
+        backdrop-filter: blur(2px);
+
+        -webkit-backdrop-filter: blur(2px);
+    }
+
+
+    .sidebar-overlay.active {
+
+        display: block;
+    }
+
+}
 
         /* =====================================================
            CONTENT
@@ -1530,7 +1650,7 @@
 
 <body>
 
-
+<div class="sidebar-overlay"></div>
     <!-- =========================================================
          HEADER
          ========================================================= -->
