@@ -7,34 +7,30 @@
 /* =========================================================
    1. DESIGN TOKENS
    ========================================================= */
-
 :root {
+    color-scheme: light;
 
     /* -----------------------------------------------------
        COLORS
        ----------------------------------------------------- */
-
     --bg: #ffffff;
     --bg-soft: #f5f5f7;
     --bg-subtle: #fafafa;
-
     --surface: #ffffff;
     --surface-hover: #f8f8fa;
-
     --text: #1d1d1f;
     --text-secondary: #515154;
     --text-tertiary: #6e6e73;
     --text-muted: #86868b;
-
     --border: #e5e5ea;
     --border-light: #ededf0;
     --border-strong: #d2d2d7;
-
     --blue: #0066cc;
     --blue-hover: #004f9e;
     --blue-soft: #eaf3ff;
     --blue-softer: #f5f8fc;
-
+    --blue-accent-hover: #c7dfff;
+    --blue-share-hover: #b7d4f5;
     --success: #248a3d;
     --warning: #b76e00;
     --danger: #c93434;
@@ -42,23 +38,14 @@
     /* -----------------------------------------------------
        SHADOWS
        ----------------------------------------------------- */
-
-    --shadow-xs:
-        0 1px 2px rgba(0, 0, 0, 0.03);
-
-    --shadow-sm:
-        0 2px 8px rgba(0, 0, 0, 0.04);
-
-    --shadow-md:
-        0 8px 24px rgba(0, 0, 0, 0.06);
-
-    --shadow-lg:
-        0 16px 40px rgba(0, 0, 0, 0.08);
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
 
     /* -----------------------------------------------------
        RADIUS
        ----------------------------------------------------- */
-
     --radius-xs: 7px;
     --radius-sm: 9px;
     --radius-md: 12px;
@@ -69,14 +56,12 @@
     /* -----------------------------------------------------
        LAYOUT
        ----------------------------------------------------- */
-
     --container-width: 1180px;
     --article-width: 820px;
 
     /* -----------------------------------------------------
        TYPOGRAPHY
        ----------------------------------------------------- */
-
     --font-sans:
         -apple-system,
         BlinkMacSystemFont,
@@ -87,7 +72,6 @@
         Helvetica,
         Arial,
         sans-serif;
-
     --font-mono:
         ui-monospace,
         SFMono-Regular,
@@ -100,22 +84,14 @@
     /* -----------------------------------------------------
        TRANSITIONS
        ----------------------------------------------------- */
-
-    --transition-fast:
-        0.16s ease;
-
-    --transition:
-        0.2s ease;
-
-    --transition-slow:
-        0.28s ease;
+    --transition-fast: 0.16s ease;
+    --transition: 0.2s ease;
+    --transition-slow: 0.28s ease;
 }
-
 
 /* =========================================================
    2. GLOBAL RESET
    ========================================================= */
-
 *,
 *::before,
 *::after {
@@ -125,15 +101,10 @@
 html {
     margin: 0;
     padding: 0;
-
     min-height: 100%;
-
     background: var(--bg);
-
     font-size: 16px;
-
     scroll-behavior: smooth;
-
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
@@ -141,48 +112,24 @@ html {
 body {
     margin: 0;
     padding: 0;
-
     min-height: 100vh;
-
     overflow-x: hidden;
-
     background: var(--bg);
-
     color: var(--text);
-
     font-family: var(--font-sans);
-
     font-size: 16px;
-
     line-height: 1.6;
-
     font-weight: 400;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
     text-rendering: optimizeLegibility;
 }
-
 
 /* =========================================================
    3. BASIC ELEMENTS
    ========================================================= */
-
-main,
-section,
-article,
-aside,
-header,
-footer,
-nav,
-div {
-    color-scheme: light;
-}
-
 img {
     display: block;
-
     max-width: 100%;
     height: auto;
 }
@@ -205,9 +152,7 @@ button {
 
 a {
     color: var(--blue);
-
     text-decoration: none;
-
     transition:
         color var(--transition-fast),
         background-color var(--transition-fast),
@@ -231,11 +176,9 @@ select:focus-visible {
     outline-offset: 3px;
 }
 
-
 /* =========================================================
    4. TYPOGRAPHY SYSTEM
    ========================================================= */
-
 h1,
 h2,
 h3,
@@ -244,28 +187,22 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 0;
-
     color: var(--text);
-
     font-family: var(--font-sans);
-
     font-weight: 700;
-
     letter-spacing: -0.025em;
-
     text-wrap: balance;
 }
 
 p {
     color: var(--text-secondary);
-
     font-weight: 400;
+    text-wrap: pretty;
 }
 
 strong,
 b {
     color: var(--text);
-
     font-weight: 650;
 }
 
@@ -278,171 +215,114 @@ pre {
     font-family: var(--font-mono);
 }
 
-
 /* =========================================================
    5. CONTAINER
    ========================================================= */
-
 .container {
-    width: min(
-        calc(100% - 40px),
-        var(--container-width)
-    );
-
+    width: min(calc(100% - 40px), var(--container-width));
     margin-left: auto;
     margin-right: auto;
 }
 
-
 /* =========================================================
    6. SITE HEADER
    ========================================================= */
-
 .site-header {
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
-
     width: 100%;
-
     background: rgba(255, 255, 255, 0.94);
-
     border-bottom: 1px solid rgba(229, 229, 234, 0.88);
-
     backdrop-filter: blur(18px) saturate(180%);
     -webkit-backdrop-filter: blur(18px) saturate(180%);
 }
 
 .header-inner {
     min-height: 72px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 24px;
 }
-
 
 /* =========================================================
    7. LOGO
    ========================================================= */
-
 .logo {
     display: inline-flex;
-
     align-items: center;
-
     gap: 12px;
-
     flex-shrink: 0;
-
     color: var(--text);
-
     text-decoration: none;
 }
 
 .logo:hover {
     color: var(--text);
-
     text-decoration: none;
 }
 
 .logo-icon {
     width: 44px;
     height: 44px;
-
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
-
     border-radius: 13px;
-
     background: var(--blue);
-
     color: #ffffff;
-
-    box-shadow:
-        0 6px 16px rgba(0, 102, 204, 0.16);
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.16);
 }
 
 .logo-icon .material-symbols-rounded {
     font-size: 24px;
-
     line-height: 1;
 }
 
 .logo > span:last-child {
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     min-width: 0;
-
     line-height: 1.05;
 }
 
 .logo strong {
     display: block;
-
     color: var(--text);
-
     font-size: 17px;
-
     line-height: 1.15;
-
     font-weight: 700;
-
     letter-spacing: -0.02em;
 }
 
 .logo small {
     display: block;
-
     margin-top: 4px;
-
     color: var(--text-muted);
-
     font-size: 10px;
-
     line-height: 1.15;
-
     font-weight: 500;
-
     letter-spacing: 0.01em;
 }
-
 
 /* =========================================================
    8. MAIN NAVIGATION
    ========================================================= */
-
 .main-nav {
     display: block;
-
     margin: 0;
     padding: 0;
 }
 
 .main-nav ul {
     display: flex;
-
     align-items: center;
-
     gap: 3px;
-
     margin: 0;
     padding: 0;
-
     list-style: none;
 }
 
@@ -453,71 +333,46 @@ pre {
 
 .main-nav a {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     min-height: 40px;
-
     padding: 7px 13px;
-
     border-radius: 10px;
-
     color: var(--text-secondary);
-
     font-size: 14px;
-
     line-height: 1;
-
     font-weight: 500;
-
     white-space: nowrap;
-
     text-decoration: none;
 }
 
 .main-nav a:hover {
     color: var(--text);
-
     background: var(--bg-soft);
 }
 
 .main-nav a.active {
     color: var(--blue);
-
     background: var(--blue-soft);
-
     font-weight: 600;
 }
-
 
 /* =========================================================
    9. MOBILE MENU
    ========================================================= */
-
 .mobile-menu-button {
     display: none;
-
     width: 42px;
     height: 42px;
-
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
-
     padding: 0;
-
     border: 1px solid var(--border);
-
     border-radius: 11px;
-
     background: var(--surface);
-
     color: var(--text);
-
     box-shadow: var(--shadow-xs);
-
     cursor: pointer;
 }
 
@@ -527,28 +382,21 @@ pre {
 
 .mobile-menu-button .material-symbols-rounded {
     font-size: 23px;
-
     line-height: 1;
 }
-
 
 /* =========================================================
    10. MAIN
    ========================================================= */
-
 main {
     display: block;
-
     width: 100%;
-
     background: var(--bg);
 }
-
 
 /* =========================================================
    11. GENERAL PAGE SECTIONS
    ========================================================= */
-
 .page-section {
     padding: 64px 0;
 }
@@ -561,21 +409,12 @@ main {
     padding: 88px 0;
 }
 
-
 /* =========================================================
    12. HERO
    ========================================================= */
-
 .hero {
     padding: 82px 0 72px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #fafafa 100%
-        );
-
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
     border-bottom: 1px solid var(--border);
 }
 
@@ -585,109 +424,66 @@ main {
 
 .hero-eyebrow {
     display: inline-block;
-
     margin-bottom: 14px;
-
     color: var(--blue);
-
     font-size: 12px;
-
     line-height: 1.2;
-
     font-weight: 700;
-
     letter-spacing: 0.08em;
-
     text-transform: uppercase;
 }
 
 .hero h1 {
     margin: 0 0 20px;
-
     color: var(--text);
-
-    font-size: clamp(
-        40px,
-        6vw,
-        64px
-    );
-
+    font-size: clamp(40px, 6vw, 64px);
     line-height: 1.05;
-
     letter-spacing: -0.045em;
 }
 
 .hero p {
     max-width: 720px;
-
     margin: 0;
-
     color: var(--text-secondary);
-
     font-size: 19px;
-
     line-height: 1.65;
 }
-
 
 /* =========================================================
    13. PAGE TITLES
    ========================================================= */
-
 .page-title {
     margin: 0 0 14px;
-
     color: var(--text);
-
-    font-size: clamp(
-        34px,
-        5vw,
-        52px
-    );
-
+    font-size: clamp(34px, 5vw, 52px);
     line-height: 1.1;
-
     letter-spacing: -0.04em;
 }
 
 .page-description {
     max-width: 760px;
-
     margin: 0;
-
     color: var(--text-secondary);
-
     font-size: 18px;
-
     line-height: 1.7;
 }
-
 
 /* =========================================================
    14. BREADCRUMBS
    ========================================================= */
-
 .breadcrumbs {
     display: flex;
-
     flex-wrap: wrap;
-
     align-items: center;
-
     gap: 7px;
-
     margin: 0 0 28px;
-
     color: var(--text-muted);
-
     font-size: 13px;
-
     line-height: 1.4;
 }
 
 .breadcrumbs a {
     color: var(--text-secondary);
-
     font-weight: 500;
 }
 
@@ -697,208 +493,136 @@ main {
 
 .breadcrumbs .material-symbols-rounded {
     font-size: 15px;
-
     color: var(--text-muted);
 }
-
 
 /* =========================================================
    15. ARTICLE PAGE
    ========================================================= */
-
 .article-page {
     width: 100%;
-
     padding: 32px 0 88px;
-
     background: var(--bg);
 }
 
 .article-layout {
     display: grid;
-
-    grid-template-columns:
-        240px
-        minmax(0, var(--article-width));
-
+    grid-template-columns: 240px minmax(0, var(--article-width));
     gap: 56px;
-
     align-items: start;
 }
-
 
 /* =========================================================
    16. ARTICLE SIDEBAR
    ========================================================= */
-
 .article-sidebar {
     position: sticky;
-
     top: 92px;
-
     min-width: 0;
-
     align-self: start;
 }
 
 .article-sidebar-title {
     margin: 0 0 14px;
-
     color: var(--text-muted);
-
     font-size: 12px;
-
     line-height: 1.3;
-
     font-weight: 700;
-
     letter-spacing: 0.07em;
-
     text-transform: uppercase;
 }
 
 .article-sidebar nav {
     display: flex;
-
     flex-direction: column;
-
     gap: 2px;
-
     margin: 0;
     padding: 0;
 }
 
 .article-sidebar nav a {
     display: flex;
-
     align-items: center;
-
     min-height: 40px;
-
     padding: 8px 12px;
-
     border-radius: 9px;
-
     color: var(--text-secondary);
-
     font-size: 14px;
-
     line-height: 1.4;
-
     text-decoration: none;
 }
 
 .article-sidebar nav a:hover {
     color: var(--blue);
-
     background: var(--blue-softer);
 }
 
 .article-sidebar nav a.active {
     color: var(--blue);
-
     background: var(--blue-soft);
-
     font-weight: 600;
 }
 
 .article-sidebar .back-link {
     margin-bottom: 18px;
-
     padding-bottom: 16px;
-
     border-bottom: 1px solid var(--border);
-
     border-radius: 0;
-
     color: var(--blue);
-
     font-weight: 500;
 }
-
 
 /* =========================================================
    17. ARTICLE MAIN
    ========================================================= */
-
 .article-main {
     width: 100%;
-
     min-width: 0;
 }
-
 
 /* =========================================================
    18. ARTICLE HEADER
    ========================================================= */
-
 .article-header {
     width: 100%;
-
     margin-bottom: 32px;
 }
 
 .article-category-label {
     display: inline-block;
-
     margin-bottom: 13px;
-
     color: var(--blue);
-
     font-size: 12px;
-
     line-height: 1.2;
-
     font-weight: 700;
-
     letter-spacing: 0.075em;
-
     text-transform: uppercase;
 }
 
 .article-title {
     margin: 0 0 17px;
-
     color: var(--text);
-
-    font-size: clamp(
-        36px,
-        5vw,
-        56px
-    );
-
+    font-size: clamp(36px, 5vw, 56px);
     line-height: 1.08;
-
     letter-spacing: -0.045em;
-
     font-weight: 700;
 }
 
 .article-intro {
     max-width: 760px;
-
     margin: 0 0 17px;
-
     color: var(--text-secondary);
-
     font-size: 19px;
-
     line-height: 1.65;
 }
 
 .article-meta {
     display: flex;
-
     flex-wrap: wrap;
-
     align-items: center;
-
     gap: 9px;
-
     color: var(--text-muted);
-
     font-size: 13px;
-
     line-height: 1.5;
 }
 
@@ -906,107 +630,77 @@ main {
     color: var(--border-strong);
 }
 
-
 /* =========================================================
    19. FEATURE IMAGE
    ========================================================= */
-
 .article-feature-image {
     width: 100%;
-
     margin: 30px 0 42px;
 }
 
 .article-feature-image img {
     display: block;
-
     width: 100%;
     height: auto;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-lg);
-
     background: var(--bg-soft);
-
     box-shadow: var(--shadow-sm);
 }
-
 
 /* =========================================================
    20. ARTICLE CONTENT
    ========================================================= */
-
 .article-content {
     width: 100%;
-
     max-width: var(--article-width);
-
-    color: #2c2c2e;
-
+    color: var(--text);
     font-size: 17px;
-
     line-height: 1.8;
-
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
 
 .article-content p {
     margin: 0 0 22px;
-
-    color: #2c2c2e;
-
+    color: var(--text-secondary);
     font-weight: 400;
+    text-wrap: pretty;
 }
 
 .article-content h2 {
     margin: 52px 0 18px;
-
     color: var(--text);
-
     font-size: 30px;
-
     line-height: 1.25;
-
     letter-spacing: -0.03em;
 }
 
 .article-content h3 {
     margin: 36px 0 13px;
-
     color: var(--text);
-
     font-size: 22px;
-
     line-height: 1.35;
-
     letter-spacing: -0.02em;
 }
 
 .article-content h4 {
     margin: 28px 0 10px;
-
     color: var(--text);
-
     font-size: 18px;
-
     line-height: 1.4;
 }
 
 .article-content ul,
 .article-content ol {
     margin: 0 0 24px;
-
     padding-left: 28px;
-
-    color: #2c2c2e;
+    color: var(--text-secondary);
 }
 
 .article-content li {
     margin-bottom: 8px;
-
-    color: #2c2c2e;
+    color: var(--text-secondary);
 }
 
 .article-content li::marker {
@@ -1016,17 +710,13 @@ main {
 .article-content strong,
 .article-content b {
     color: var(--text);
-
     font-weight: 650;
 }
 
 .article-content a {
     color: var(--blue);
-
     text-decoration: underline;
-
     text-decoration-thickness: 1px;
-
     text-underline-offset: 3px;
 }
 
@@ -1034,26 +724,15 @@ main {
     color: var(--blue-hover);
 }
 
-
 /* =========================================================
    21. ARTICLE BLOCKQUOTES
    ========================================================= */
-
 .article-content blockquote {
     margin: 28px 0;
-
     padding: 18px 22px;
-
     border-left: 4px solid var(--blue);
-
-    border-radius:
-        0
-        var(--radius-md)
-        var(--radius-md)
-        0;
-
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     background: var(--bg-soft);
-
     color: var(--text-secondary);
 }
 
@@ -1061,75 +740,44 @@ main {
     margin-bottom: 0;
 }
 
-
 /* =========================================================
    22. FORMULA BOX
    ========================================================= */
-
 .formula-box {
     margin: 28px 0;
-
     padding: 24px;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
-
     background: var(--bg-soft);
-
     text-align: center;
-
     box-shadow: var(--shadow-xs);
-
     overflow-x: auto;
 }
 
 .formula {
     color: var(--text);
-
-    font-size: clamp(
-        24px,
-        4vw,
-        34px
-    );
-
+    font-size: clamp(24px, 4vw, 34px);
     line-height: 1.3;
-
     font-weight: 600;
-
     letter-spacing: -0.02em;
-
     white-space: nowrap;
 }
 
 .formula-description {
     margin-top: 8px;
-
     color: var(--text-muted);
-
     font-size: 14px;
-
     line-height: 1.5;
 }
-
 
 /* =========================================================
    23. EXAMPLE BOX
    ========================================================= */
-
 .example-box {
     margin: 28px 0;
-
     padding: 22px 24px;
-
     border-left: 4px solid var(--blue);
-
-    border-radius:
-        0
-        var(--radius-md)
-        var(--radius-md)
-        0;
-
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     background: var(--bg-soft);
 }
 
@@ -1141,33 +789,21 @@ main {
     margin-bottom: 0;
 }
 
-
 /* =========================================================
    24. CALCULATION BLOCK
    Apple-Light Version
    ========================================================= */
-
 .calculation {
     margin: 20px 0;
-
     padding: 18px 20px;
-
     overflow-x: auto;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
-
-    background: #f6f6f8;
-
-    color: #1d1d1f;
-
+    background: var(--bg-soft);
+    color: var(--text);
     font-family: var(--font-mono);
-
     font-size: 14px;
-
     line-height: 1.7;
-
     white-space: pre;
 }
 
@@ -1175,53 +811,37 @@ main {
     color: inherit;
 }
 
-
 /* =========================================================
    25. ARTICLE TABLE
    ========================================================= */
-
 .article-table-wrapper {
     width: 100%;
-
     margin: 28px 0;
-
     overflow-x: auto;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
 }
 
 .article-table {
     width: 100%;
-
     min-width: 500px;
-
     border-collapse: collapse;
-
     background: var(--surface);
-
     font-size: 15px;
 }
 
 .article-table th,
 .article-table td {
     padding: 12px 14px;
-
     border-bottom: 1px solid var(--border);
-
     text-align: left;
-
     color: var(--text-secondary);
-
     line-height: 1.5;
 }
 
 .article-table th {
     background: var(--bg-soft);
-
     color: var(--text);
-
     font-weight: 650;
 }
 
@@ -1229,50 +849,34 @@ main {
     border-bottom: 0;
 }
 
-
 /* =========================================================
    26. ARTICLE IMAGES
    ========================================================= */
-
 .article-content img {
     max-width: 100%;
     height: auto;
-
     border-radius: var(--radius-md);
 }
 
 .image-caption {
     margin-top: 8px;
-
     color: var(--text-muted);
-
     font-size: 13px;
-
     line-height: 1.5;
-
     text-align: center;
 }
-
 
 /* =========================================================
    27. ARTICLE NOTE
    ========================================================= */
-
 .article-note {
     margin: 28px 0;
-
     padding: 18px 20px;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
-
     background: var(--bg-soft);
-
     color: var(--text-secondary);
-
     font-size: 15px;
-
     line-height: 1.7;
 }
 
@@ -1280,444 +884,285 @@ main {
     color: var(--text);
 }
 
-
 /* =========================================================
    28. ARTICLE SHARE
    ========================================================= */
-
 .article-share {
     display: flex;
-
     flex-wrap: wrap;
-
     align-items: center;
-
     gap: 8px;
-
     margin-top: 48px;
-
     padding-top: 24px;
-
     border-top: 1px solid var(--border);
 }
 
 .article-share-label {
     margin-right: 6px;
-
     color: var(--text-secondary);
-
     font-size: 13px;
-
     line-height: 1.4;
-
     font-weight: 600;
 }
 
 .share-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 6px;
-
     min-height: 36px;
-
     padding: 7px 12px;
-
     border: 1px solid var(--border-strong);
-
     border-radius: 9px;
-
     background: var(--surface);
-
     color: var(--text-secondary);
-
     font-family: var(--font-sans);
-
     font-size: 13px;
-
     line-height: 1;
-
     font-weight: 500;
-
     cursor: pointer;
 }
 
 .share-button:hover {
-    border-color: #b7d4f5;
-
+    border-color: var(--blue-share-hover);
     background: var(--blue-soft);
-
     color: var(--blue);
-
     transform: translateY(-1px);
 }
 
 .share-button .material-symbols-rounded {
     font-size: 18px;
-
     line-height: 1;
 }
-
 
 /* =========================================================
    29. AUTHOR SECTION
    ========================================================= */
-
 .article-footer {
     margin-top: 48px;
-
     padding-top: 24px;
-
     border-top: 1px solid var(--border);
 }
 
 .article-author {
     display: flex;
-
     align-items: flex-start;
-
     gap: 15px;
 }
 
 .author-mini-avatar {
     width: 48px;
     height: 48px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
-
     border: 1px solid var(--border);
-
     border-radius: 50%;
-
     background: var(--bg-soft);
-
     color: var(--blue);
-
     font-size: 14px;
-
     font-weight: 700;
 }
 
 .article-author h3 {
     margin: 0 0 4px;
-
     color: var(--text);
-
     font-size: 16px;
-
     line-height: 1.3;
 }
 
 .article-author p {
     margin: 0;
-
     color: var(--text-muted);
-
     font-size: 14px;
-
     line-height: 1.6;
 }
-
 
 /* =========================================================
    30. RELATED ARTICLES
    ========================================================= */
-
 .related-section {
     margin-top: 64px;
-
     padding-top: 40px;
-
     border-top: 1px solid var(--border);
 }
 
 .related-section h2 {
     margin: 0 0 24px;
-
     color: var(--text);
-
     font-size: 26px;
-
     line-height: 1.25;
-
     letter-spacing: -0.025em;
 }
 
 .related-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px, 1fr)
-        );
-
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
-
     width: 100%;
 }
 
 .related-card {
     display: block;
-
     min-width: 0;
-
     padding: 20px;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
-
     background: var(--surface);
-
     color: var(--text);
-
     box-shadow: var(--shadow-xs);
-
     text-decoration: none;
 }
 
 .related-card:hover {
-    border-color: #c7dfff;
-
+    border-color: var(--blue-accent-hover);
     background: var(--surface);
-
     box-shadow: var(--shadow-md);
-
     transform: translateY(-2px);
-
     text-decoration: none;
 }
 
 .related-card-category {
     margin-bottom: 8px;
-
     color: var(--blue);
-
     font-size: 11px;
-
     line-height: 1.2;
-
     font-weight: 700;
-
     letter-spacing: 0.06em;
-
     text-transform: uppercase;
 }
 
 .related-card h3 {
     margin: 0;
-
     color: var(--text);
-
     font-size: 16px;
-
     line-height: 1.4;
-
     letter-spacing: -0.015em;
 }
-
 
 /* =========================================================
    31. ARTICLE LIST
    ========================================================= */
-
 .articles-list,
 .article-grid,
 .articles-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(260px, 1fr)
-        );
-
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
-
     width: 100%;
-
     margin-top: 34px;
 }
 
 .article-card {
     display: flex;
-
     flex-direction: column;
-
     min-width: 0;
-
     padding: 24px;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-lg);
-
     background: var(--surface);
-
     color: var(--text);
-
     box-shadow: var(--shadow-xs);
-
     text-decoration: none;
 }
 
 .article-card:hover {
-    border-color: #c7dfff;
-
+    border-color: var(--blue-accent-hover);
     box-shadow: var(--shadow-md);
-
     transform: translateY(-2px);
-
     text-decoration: none;
 }
 
 .article-card-category {
     margin-bottom: 10px;
-
     color: var(--blue);
-
     font-size: 11px;
-
     line-height: 1.2;
-
     font-weight: 700;
-
     letter-spacing: 0.07em;
-
     text-transform: uppercase;
 }
 
 .article-card h2,
 .article-card h3 {
     margin: 0 0 10px;
-
     color: var(--text);
-
     font-size: 20px;
-
     line-height: 1.35;
-
     letter-spacing: -0.015em;
 }
 
 .article-card p {
     margin: 0;
-
     color: var(--text-secondary);
-
     font-size: 14px;
-
     line-height: 1.65;
 }
 
 .article-card-meta {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 8px;
-
     margin-top: auto;
-
     padding-top: 18px;
-
     color: var(--text-muted);
-
     font-size: 12px;
-
     line-height: 1.4;
 }
-
 
 /* =========================================================
    32. CATEGORY CARDS
    ========================================================= */
-
 .category-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(240px, 1fr)
-        );
-
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 18px;
-
     margin-top: 32px;
 }
 
 .category-card {
     display: block;
-
     padding: 24px;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-lg);
-
     background: var(--surface);
-
     box-shadow: var(--shadow-xs);
-
     text-decoration: none;
 }
 
 .category-card:hover {
-    border-color: #c7dfff;
-
+    border-color: var(--blue-accent-hover);
     background: var(--surface);
-
     box-shadow: var(--shadow-md);
-
     transform: translateY(-2px);
-
     text-decoration: none;
 }
 
 .category-card h2,
 .category-card h3 {
     margin: 0 0 8px;
-
     color: var(--text);
-
     font-size: 19px;
-
     line-height: 1.35;
 }
 
 .category-card p {
     margin: 0;
-
     color: var(--text-secondary);
-
     font-size: 14px;
-
     line-height: 1.6;
 }
-
 
 /* =========================================================
    33. SEARCH
    ========================================================= */
-
 .search-box,
 .search-container,
 .article-search {
     position: relative;
-
     width: 100%;
-
     max-width: 700px;
-
     margin: 28px 0 34px;
 }
 
@@ -1725,29 +1170,16 @@ main {
 .search-container input,
 .article-search input {
     width: 100%;
-
     min-height: 50px;
-
-    padding:
-        0
-        18px;
-
+    padding: 0 18px;
     border: 1px solid var(--border-strong);
-
     border-radius: 13px;
-
     outline: none;
-
     background: var(--surface);
-
     color: var(--text);
-
     font-family: var(--font-sans);
-
     font-size: 16px;
-
     box-shadow: var(--shadow-xs);
-
     transition:
         border-color var(--transition-fast),
         box-shadow var(--transition-fast);
@@ -1763,118 +1195,80 @@ main {
 .search-container input:focus,
 .article-search input:focus {
     border-color: var(--blue);
-
-    box-shadow:
-        0 0 0 4px
-        rgba(0, 102, 204, 0.10);
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.10);
 }
-
 
 /* =========================================================
    34. GENERIC CARDS
    ========================================================= */
-
 .card {
     padding: 24px;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-lg);
-
     background: var(--surface);
-
     box-shadow: var(--shadow-xs);
 }
 
 .card:hover {
     border-color: var(--border-strong);
-
     box-shadow: var(--shadow-md);
 }
-
 
 /* =========================================================
    35. BUTTONS
    ========================================================= */
-
 .btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 8px;
-
     min-height: 42px;
-
     padding: 9px 17px;
-
     border: 1px solid transparent;
-
     border-radius: 10px;
-
     font-family: var(--font-sans);
-
     font-size: 14px;
-
     line-height: 1;
-
     font-weight: 600;
-
     text-decoration: none;
-
     cursor: pointer;
 }
 
 .btn:hover {
     text-decoration: none;
-
     transform: translateY(-1px);
 }
 
 .btn-primary {
     background: var(--blue);
-
     color: #ffffff;
-
-    box-shadow:
-        0 4px 12px rgba(0, 102, 204, 0.16);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.16);
 }
 
 .btn-primary:hover {
     background: var(--blue-hover);
-
     color: #ffffff;
 }
 
 .btn-secondary {
     border-color: var(--border-strong);
-
     background: var(--surface);
-
     color: var(--text);
 }
 
 .btn-secondary:hover {
     background: var(--bg-soft);
-
     color: var(--text);
 }
-
 
 /* =========================================================
    36. EMPTY STATE
    ========================================================= */
-
 .empty-state {
     padding: 48px 24px;
-
     border: 1px dashed var(--border-strong);
-
     border-radius: var(--radius-lg);
-
     background: var(--bg-subtle);
-
     text-align: center;
 }
 
@@ -1885,49 +1279,34 @@ main {
 
 .empty-state p {
     margin: 0;
-
     color: var(--text-muted);
 }
-
 
 /* =========================================================
    37. ADS
    ========================================================= */
-
 .ad-container {
     width: 100%;
-
     margin: 28px 0;
-
     padding: 10px 0;
-
     overflow: hidden;
-
     text-align: center;
 }
 
 .adsbygoogle {
     display: block;
-
     max-width: 100%;
 }
-
 
 /* =========================================================
    38. SITE FOOTER
    ========================================================= */
-
 .site-footer {
     width: 100%;
-
     margin-top: 72px;
-
     padding: 42px 0 28px;
-
     border-top: 1px solid var(--border);
-
     background: var(--bg-subtle);
-
     color: var(--text-secondary);
 }
 
@@ -1941,44 +1320,29 @@ main {
 
 .footer-bottom {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 20px;
-
     padding-top: 20px;
-
     border-top: 1px solid var(--border);
 }
 
 .footer-bottom p {
     margin: 0;
-
     color: var(--text-muted);
-
     font-size: 13px;
-
     line-height: 1.5;
 }
-
 
 /* =========================================================
    39. MOBILE SIDEBAR OVERLAY
    ========================================================= */
-
 .sidebar-overlay {
     position: fixed;
-
     inset: 0;
-
     z-index: 1990;
-
     display: none;
-
     background: rgba(0, 0, 0, 0.25);
-
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
 }
@@ -1987,13 +1351,10 @@ main {
     display: block;
 }
 
-
 /* =========================================================
    40. MOBILE ARTICLE SIDEBAR
    ========================================================= */
-
 @media (max-width: 900px) {
-
     .main-nav {
         display: none;
     }
@@ -2008,35 +1369,18 @@ main {
 
     .article-sidebar {
         position: fixed;
-
         top: 0;
         left: 0;
         bottom: 0;
-
         z-index: 2000;
-
-        width: min(
-            310px,
-            86vw
-        );
-
-        padding:
-            88px
-            24px
-            30px;
-
+        width: min(310px, 86vw);
+        padding: 88px 24px 30px;
         overflow-y: auto;
-
         background: var(--surface);
-
         border-right: 1px solid var(--border);
-
         box-shadow: var(--shadow-lg);
-
         transform: translateX(-105%);
-
-        transition:
-            transform var(--transition-slow);
+        transition: transform var(--transition-slow);
     }
 
     .article-sidebar.active {
@@ -2045,9 +1389,7 @@ main {
 
     .article-sidebar nav a {
         min-height: 44px;
-
         padding: 10px 12px;
-
         font-size: 15px;
     }
 
@@ -2068,18 +1410,12 @@ main {
     }
 }
 
-
 /* =========================================================
    41. TABLET
    ========================================================= */
-
 @media (max-width: 768px) {
-
     .container {
-        width: min(
-            calc(100% - 32px),
-            var(--container-width)
-        );
+        width: min(calc(100% - 32px), var(--container-width));
     }
 
     .header-inner {
@@ -2087,10 +1423,7 @@ main {
     }
 
     .article-page {
-        padding:
-            26px
-            0
-            64px;
+        padding: 26px 0 64px;
     }
 
     .article-title {
@@ -2103,7 +1436,6 @@ main {
 
     .article-content {
         font-size: 16.5px;
-
         line-height: 1.78;
     }
 
@@ -2117,31 +1449,25 @@ main {
 
     .article-feature-image {
         margin-top: 24px;
-
         margin-bottom: 34px;
     }
 
     .footer-bottom {
         align-items: flex-start;
-
         flex-direction: column;
     }
 }
 
-
 /* =========================================================
    42. MOBILE
    ========================================================= */
-
 @media (max-width: 600px) {
-
     .container {
         width: calc(100% - 28px);
     }
 
     .header-inner {
         min-height: 62px;
-
         gap: 12px;
     }
 
@@ -2152,7 +1478,6 @@ main {
     .logo-icon {
         width: 38px;
         height: 38px;
-
         border-radius: 11px;
     }
 
@@ -2166,14 +1491,12 @@ main {
 
     .logo small {
         margin-top: 3px;
-
         font-size: 9px;
     }
 
     .mobile-menu-button {
         width: 40px;
         height: 40px;
-
         border-radius: 10px;
     }
 
@@ -2183,13 +1506,11 @@ main {
 
     .hero h1 {
         font-size: 38px;
-
         line-height: 1.06;
     }
 
     .hero p {
         font-size: 17px;
-
         line-height: 1.62;
     }
 
@@ -2199,7 +1520,6 @@ main {
 
     .page-description {
         font-size: 16px;
-
         line-height: 1.65;
     }
 
@@ -2208,55 +1528,43 @@ main {
     }
 
     .article-page {
-        padding:
-            20px
-            0
-            54px;
+        padding: 20px 0 54px;
     }
 
     .breadcrumbs {
         margin-bottom: 22px;
-
         gap: 6px;
-
         font-size: 12px;
     }
 
     .article-title {
         font-size: 34px;
-
         line-height: 1.1;
     }
 
     .article-intro {
         font-size: 17px;
-
         line-height: 1.62;
     }
 
     .article-meta {
         gap: 6px;
-
         font-size: 12px;
     }
 
     .article-content {
         font-size: 16px;
-
         line-height: 1.76;
     }
 
     .article-content h2 {
         margin-top: 42px;
-
         font-size: 26px;
-
         line-height: 1.28;
     }
 
     .article-content h3 {
         margin-top: 30px;
-
         font-size: 20px;
     }
 
@@ -2270,15 +1578,11 @@ main {
     }
 
     .article-feature-image {
-        margin:
-            24px
-            0
-            32px;
+        margin: 24px 0 32px;
     }
 
     .formula-box {
         margin: 24px 0;
-
         padding: 20px;
     }
 
@@ -2292,26 +1596,22 @@ main {
 
     .calculation {
         padding: 15px;
-
         font-size: 13px;
     }
 
     .article-share {
         align-items: stretch;
-
         flex-direction: column;
     }
 
     .article-share-label {
         margin-right: 0;
-
         margin-bottom: 2px;
     }
 
     .share-button {
         width: 100%;
-
-        min-height: 40px;
+        min-height: 44px; /* Optimized touch target size */
     }
 
     .article-author {
@@ -2330,7 +1630,6 @@ main {
     .article-grid,
     .articles-grid {
         grid-template-columns: 1fr;
-
         gap: 16px;
     }
 
@@ -2344,18 +1643,14 @@ main {
 
     .site-footer {
         margin-top: 54px;
-
         padding-top: 34px;
     }
 }
 
-
 /* =========================================================
    43. VERY SMALL MOBILE
    ========================================================= */
-
 @media (max-width: 420px) {
-
     .container {
         width: calc(100% - 24px);
     }
@@ -2371,7 +1666,6 @@ main {
     .logo-icon {
         width: 36px;
         height: 36px;
-
         border-radius: 10px;
     }
 
@@ -2394,41 +1688,28 @@ main {
 
     .article-content {
         font-size: 15.8px;
-
         line-height: 1.75;
     }
 }
 
-
 /* =========================================================
    44. EXTRA WIDE SCREENS
    ========================================================= */
-
 @media (min-width: 1400px) {
-
     .container {
-        width: min(
-            calc(100% - 64px),
-            1240px
-        );
+        width: min(calc(100% - 64px), 1240px);
     }
 
     .article-layout {
-        grid-template-columns:
-            250px
-            minmax(0, 820px);
-
+        grid-template-columns: 250px minmax(0, 820px);
         gap: 64px;
     }
 }
 
-
 /* =========================================================
    45. REDUCED MOTION
    ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
     html {
         scroll-behavior: auto;
     }
@@ -2437,22 +1718,16 @@ main {
     *::before,
     *::after {
         scroll-behavior: auto !important;
-
         transition-duration: 0.01ms !important;
-
         animation-duration: 0.01ms !important;
-
         animation-iteration-count: 1 !important;
     }
 }
 
-
 /* =========================================================
    46. PRINT
    ========================================================= */
-
 @media print {
-
     .site-header,
     .article-sidebar,
     .article-share,
@@ -2469,7 +1744,6 @@ main {
     main,
     .article-page {
         background: #ffffff !important;
-
         color: #000000 !important;
     }
 
@@ -2498,24 +1772,17 @@ main {
 
     a {
         color: #000000 !important;
-
         text-decoration: underline;
     }
 }
 
-
 /* =========================================================
    47. LIGHT THEME SAFETY
    ========================================================= */
-
-/*
-   Intentionally kept without !important.
-   This prevents old/dark styles from overriding the
-   main design while keeping the stylesheet maintainable.
-*/
-
 html,
-body {
+body,
+main,
+.article-page {
     background-color: var(--bg);
 }
 
@@ -2523,25 +1790,14 @@ body {
     color: var(--text);
 }
 
-main {
-    background-color: var(--bg);
-}
-
-.article-page {
-    background-color: var(--bg);
-}
-
-.article-main {
-    background-color: transparent;
-}
-
+.article-main,
 .article-content {
     background-color: transparent;
 }
 
 .article-content p,
 .article-content li {
-    color: #2c2c2e;
+    color: var(--text-secondary);
 }
 
 .article-content h1,
@@ -2561,15 +1817,12 @@ main {
 
 .site-footer {
     background-color: var(--bg-subtle);
-
     color: var(--text-secondary);
 }
-
 
 /* =========================================================
    48. OVERFLOW / LAYOUT SAFETY
    ========================================================= */
-
 .article-layout,
 .article-main,
 .article-content,
@@ -2578,9 +1831,7 @@ main {
 .category-card,
 .container {
     min-width: 0;
-
     overflow-wrap: break-word;
-
     word-wrap: break-word;
 }
 
@@ -2590,38 +1841,29 @@ table {
 
 pre {
     max-width: 100%;
-
     overflow-x: auto;
 }
-
 
 /* =========================================================
    49. SAFE MOBILE TABLES
    ========================================================= */
-
 @media (max-width: 600px) {
-
     .article-table-wrapper {
         margin-left: 0;
         margin-right: 0;
-
         border-radius: 10px;
     }
 
     .article-table {
         min-width: 460px;
-
         font-size: 14px;
     }
 
     .article-table th,
     .article-table td {
-        padding:
-            10px
-            11px;
+        padding: 10px 11px;
     }
 }
-
 
 /* =========================================================
    END OF STYLE.CSS
