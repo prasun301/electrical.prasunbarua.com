@@ -13,6 +13,7 @@
         gtag('js', new Date());
         gtag('config', 'G-XY335VGVGJ');
     </script>
+
     <!-- =========================================================
          BASIC META
          ========================================================= -->
@@ -26,11 +27,13 @@
           content="Prasun Barua">
     <meta name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
     <!-- =========================================================
          CANONICAL
          ========================================================= -->
     <link rel="canonical"
           href="https://electrical.prasunbarua.com/">
+
     <!-- =========================================================
          OPEN GRAPH
          ========================================================= -->
@@ -50,6 +53,7 @@
           content="Electrical Engineering by Prasun Barua">
     <meta property="og:locale"
           content="en_US">
+
     <!-- =========================================================
          TWITTER / X
          ========================================================= -->
@@ -63,12 +67,14 @@
           content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
     <meta name="twitter:image:alt"
           content="Electrical Engineering by Prasun Barua">
+
     <!-- =========================================================
          FAVICON
          ========================================================= -->
     <link rel="icon"
           type="image/svg+xml"
           href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
+
     <!-- =========================================================
          SYSTEM FONT / GOOGLE MATERIAL ICONS
          ========================================================= -->
@@ -79,6 +85,7 @@
           crossorigin>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
+
     <!-- =========================================================
          GOOGLE ADSENSE
          ========================================================= -->
@@ -86,6 +93,7 @@
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
             crossorigin="anonymous">
     </script>
+
     <!-- =========================================================
          MAIN STYLE
          ========================================================= -->
@@ -431,9 +439,6 @@
             .sidebar.active {
                 transform: translateX(0);
             }
-            /* =================================================
-               MOBILE MENU BUTTON
-               ================================================= */
             .menu-button {
                 display: inline-flex;
                 align-items: center;
@@ -455,9 +460,6 @@
                 font-size: 23px;
                 line-height: 1;
             }
-            /* =================================================
-               SIDEBAR OVERLAY
-               ================================================= */
             .sidebar-overlay {
                 position: fixed;
                 inset: 0;
@@ -838,6 +840,7 @@
             }
         }
     </style>
+
     <!-- =========================================================
          STRUCTURED DATA — WEBSITE
          ========================================================= -->
@@ -856,6 +859,7 @@
         }
     }
     </script>
+
     <!-- =========================================================
          STRUCTURED DATA — PERSON
          ========================================================= -->
@@ -869,11 +873,10 @@
         "jobTitle": "Senior Electrical Engineer"
     }
     </script>
-    <!-- Link your external app.js file -->
-<script src="/app.js" defer></script>
 </head>
 <body>
 <div class="sidebar-overlay"></div>
+
     <!-- =========================================================
          HEADER
          ========================================================= -->
@@ -920,6 +923,7 @@
             </button>
         </div>
     </header>
+
     <!-- =========================================================
          SEARCH
          ========================================================= -->
@@ -960,11 +964,13 @@
             </div>
         </div>
     </section>
+
     <!-- =========================================================
          MAIN
          ========================================================= -->
     <main class="page">
         <div class="content-layout">
+
             <!-- =================================================
                  LEFT SIDEBAR
                  ================================================= -->
@@ -1051,10 +1057,12 @@
                     About the Author
                 </a>
             </aside>
+
             <!-- =================================================
                  MAIN ARTICLE CONTENT
                  ================================================= -->
             <section class="content">
+
                 <!-- PAGE INTRO -->
                 <header class="content-header">
                     <h1>
@@ -1064,6 +1072,7 @@
                         Practical tutorials, calculations and engineering guides covering electrical systems, solar PV, design and testing.
                     </p>
                 </header>
+
                 <!-- =================================================
                      CATEGORY OVERVIEW
                      ================================================= -->
@@ -1166,41 +1175,33 @@
                         </a>
                     </div>
                 </section>
-          
-<!-- =================================================
-     LATEST ARTICLES
-     ================================================= -->
 
-<section id="latest"
-         aria-labelledby="latest-title">
+                <!-- =================================================
+                     LATEST ARTICLES
+                     ================================================= -->
+                <section id="latest"
+                         aria-labelledby="latest-title">
 
-    <div class="section-title">
+                    <div class="section-title">
+                        <h2 id="latest-title">
+                            Latest Articles
+                        </h2>
+                        <a href="/articles/">
+                            View all
+                        </a>
+                    </div>
 
-        <h2 id="latest-title">
-            Latest Articles
-        </h2>
+                    <!--
+                        Articles are loaded automatically from
+                        ./articles.json by app.js
+                    -->
+                    <div class="article-list"
+                         id="latest-articles">
+                        <!-- Dynamic articles will appear here -->
+                    </div>
 
-        <a href="/articles/">
-            View all
-        </a>
+                </section>
 
-    </div>
-
-
-    <!--
-        Articles are loaded automatically from
-        /articles.json by app.js
-    -->
-
-    <div class="article-list"
-         id="latest-articles">
-
-        <!-- Dynamic articles will appear here -->
-
-    </div>
-
-</section>
-                
                 <!-- =================================================
                      CALCULATORS
                      ================================================= -->
@@ -1274,6 +1275,7 @@
                         </a>
                     </div>
                 </section>
+
                 <!-- =================================================
                      ABOUT
                      ================================================= -->
@@ -1289,9 +1291,11 @@
                         About Prasun Barua →
                     </a>
                 </section>
+
             </section>
         </div>
     </main>
+
     <!-- =========================================================
          FOOTER
          ========================================================= -->
@@ -1317,134 +1321,126 @@
             </nav>
         </div>
     </footer>
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-<script>
-/* =====================================================
-   SEARCH
-   ===================================================== */
-const searchForm =
-    document.getElementById("site-search-form");
-const searchInput =
-    document.getElementById("site-search");
-const searchMessage =
-    document.getElementById("search-message");
-if (searchForm && searchInput) {
-    searchForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const query =
-            searchInput.value.trim();
-        if (!query) {
-            if (searchMessage) {
-                searchMessage.textContent =
-                    "Enter a topic to search.";
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+    <!-- MAIN APP SCRIPT (Fetches & loads dynamic articles) -->
+    <script src="./app.js" defer></script>
+
+    <script>
+    /* =====================================================
+       SEARCH
+       ===================================================== */
+    const searchForm =
+        document.getElementById("site-search-form");
+    const searchInput =
+        document.getElementById("site-search");
+    const searchMessage =
+        document.getElementById("search-message");
+
+    if (searchForm && searchInput) {
+        searchForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const query =
+                searchInput.value.trim();
+            if (!query) {
+                if (searchMessage) {
+                    searchMessage.textContent =
+                        "Enter a topic to search.";
+                }
+                searchInput.focus();
+                return;
             }
-            searchInput.focus();
-            return;
-        }
-        const searchURL =
-            "/articles/?q=" +
-            encodeURIComponent(query);
-        window.location.href =
-            searchURL;
-    });
-}
-/* =====================================================
-   MOBILE ARTICLE SIDEBAR MENU
-   ===================================================== */
-const menuButton =
-    document.getElementById("menu-button");
-const sidebar =
-    document.getElementById("category-sidebar");
-const overlay =
-    document.querySelector(".sidebar-overlay");
-if (menuButton && sidebar) {
-    /* -------------------------------------------------
-       OPEN SIDEBAR
-       ------------------------------------------------- */
-    function openSidebar() {
-        sidebar.classList.add("active");
-        if (overlay) {
-            overlay.classList.add("active");
-        }
-        document.body.style.overflow = "hidden";
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-        menuButton.setAttribute(
-            "aria-label",
-            "Close article menu"
-        );
+            const searchURL =
+                "/articles/?q=" +
+                encodeURIComponent(query);
+            window.location.href =
+                searchURL;
+        });
     }
-    /* -------------------------------------------------
-       CLOSE SIDEBAR
-       ------------------------------------------------- */
-    function closeSidebar() {
-        sidebar.classList.remove("active");
-        if (overlay) {
-            overlay.classList.remove("active");
+
+    /* =====================================================
+       MOBILE ARTICLE SIDEBAR MENU
+       ===================================================== */
+    const menuButton =
+        document.getElementById("menu-button");
+    const sidebar =
+        document.getElementById("category-sidebar");
+    const overlay =
+        document.querySelector(".sidebar-overlay");
+
+    if (menuButton && sidebar) {
+        function openSidebar() {
+            sidebar.classList.add("active");
+            if (overlay) {
+                overlay.classList.add("active");
+            }
+            document.body.style.overflow = "hidden";
+            menuButton.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+            menuButton.setAttribute(
+                "aria-label",
+                "Close article menu"
+            );
         }
-        document.body.style.overflow = "";
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-        menuButton.setAttribute(
-            "aria-label",
-            "Open article menu"
-        );
-    }
-    /* -------------------------------------------------
-       TOGGLE SIDEBAR
-       ------------------------------------------------- */
-    function toggleSidebar() {
-        if (sidebar.classList.contains("active")) {
-            closeSidebar();
-        } else {
-            openSidebar();
+
+        function closeSidebar() {
+            sidebar.classList.remove("active");
+            if (overlay) {
+                overlay.classList.remove("active");
+            }
+            document.body.style.overflow = "";
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+            menuButton.setAttribute(
+                "aria-label",
+                "Open article menu"
+            );
         }
-    }
-    /* -------------------------------------------------
-       MENU BUTTON
-       ------------------------------------------------- */
-    menuButton.addEventListener(
-        "click",
-        toggleSidebar
-    );
-    /* -------------------------------------------------
-       OVERLAY
-       ------------------------------------------------- */
-    if (overlay) {
-        overlay.addEventListener(
+
+        function toggleSidebar() {
+            if (sidebar.classList.contains("active")) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        }
+
+        menuButton.addEventListener(
             "click",
-            closeSidebar
+            toggleSidebar
         );
-    }
-    /* -------------------------------------------------
-       CLOSE AFTER SELECTING A CATEGORY
-       ------------------------------------------------- */
-    sidebar
-        .querySelectorAll("a")
-        .forEach(function(link) {
-            link.addEventListener(
+
+        if (overlay) {
+            overlay.addEventListener(
                 "click",
                 closeSidebar
             );
-        });
-    /* -------------------------------------------------
-       CLOSE WITH ESCAPE
-       ------------------------------------------------- */
-    document.addEventListener(
-        "keydown",
-        function(event) {
-            if (event.key === "Escape") {
-                closeSidebar();
-            }
         }
-    );
-}
-</script>
+
+        sidebar
+            .querySelectorAll("a")
+            .forEach(function(link) {
+                link.addEventListener(
+                    "click",
+                    closeSidebar
+                );
+            });
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+                if (event.key === "Escape") {
+                    closeSidebar();
+                }
+            }
+        );
+    }
+    </script>
 </body>
 </html>
