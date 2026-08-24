@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <!-- =========================================================
          BASIC SEO
-         ========================================================= -->
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -21,15 +23,19 @@
     <meta name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
+
     <!-- =========================================================
          CANONICAL
-         ========================================================= -->
+    ========================================================== -->
+
     <link rel="canonical"
           href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html">
 
+
     <!-- =========================================================
          OPEN GRAPH
-         ========================================================= -->
+    ========================================================== -->
+
     <meta property="og:type"
           content="article">
 
@@ -46,17 +52,19 @@
           content="Electrical Engineering by Prasun Barua">
 
     <meta property="og:image"
-          content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+          content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.png">
 
     <meta property="og:image:alt"
-          content="Electrical Energy kWh vs kW">
+          content="Electrical Energy Explained: kWh vs kW">
 
     <meta property="og:locale"
           content="en_US">
 
+
     <!-- =========================================================
          TWITTER / X
-         ========================================================= -->
+    ========================================================== -->
+
     <meta name="twitter:card"
           content="summary_large_image">
 
@@ -67,18 +75,22 @@
           content="Learn the difference between kW and kWh and how to calculate electrical energy consumption.">
 
     <meta name="twitter:image"
-          content="https://electrical.prasunbarua.com/assets/images/og-cover.png">
+          content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.png">
+
 
     <!-- =========================================================
          FAVICON
-         ========================================================= -->
+    ========================================================== -->
+
     <link rel="icon"
           type="image/svg+xml"
           href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E">
 
+
     <!-- =========================================================
          MATERIAL SYMBOLS
-         ========================================================= -->
+    ========================================================== -->
+
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -89,20 +101,56 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap">
 
+
     <!-- =========================================================
          GOOGLE ADSENSE
-         ========================================================= -->
-    <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-            crossorigin="anonymous">
+    ========================================================== -->
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous">
     </script>
+
+
+    <!-- =========================================================
+         GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ">
+    </script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag(
+            "js",
+            new Date()
+        );
+
+        gtag(
+            "config",
+            "G-XY335VGVGJ"
+        );
+
+    </script>
+
 
     <!-- =========================================================
          STYLE
-         ========================================================= -->
+    ========================================================== -->
+
     <style>
 
         :root {
+
             --font:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -137,9 +185,10 @@
             --header-height: 64px;
         }
 
+
         /* =====================================================
            RESET
-           ===================================================== */
+        ===================================================== */
 
         *,
         *::before,
@@ -147,38 +196,56 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             margin: 0;
+
             background: var(--bg);
+
             color: var(--text);
+
             font-family: var(--font);
+
             font-size: 16px;
+
             line-height: 1.7;
 
             -webkit-font-smoothing: antialiased;
+
             -moz-osx-font-smoothing: grayscale;
         }
 
+
         img {
+
             max-width: 100%;
+
             height: auto;
         }
 
+
         a {
+
             color: inherit;
         }
 
+
         /* =====================================================
            HEADER
-           ===================================================== */
+        ===================================================== */
 
         .site-header {
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
             height: var(--header-height);
@@ -186,30 +253,41 @@
             background: rgba(255,255,255,.92);
 
             backdrop-filter: blur(18px);
+
             -webkit-backdrop-filter: blur(18px);
 
             border-bottom: 1px solid var(--border);
         }
 
+
         .header-inner {
+
             max-width: var(--content-width);
+
             height: 100%;
 
             margin: auto;
+
             padding: 0 24px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
+
         /* =====================================================
            BRAND
-           ===================================================== */
+        ===================================================== */
 
         .brand {
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
 
             min-width: 0;
@@ -217,71 +295,101 @@
             text-decoration: none;
         }
 
+
         .brand-icon {
+
             width: 34px;
+
             height: 34px;
 
             border-radius: 9px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             background: #f1f6fb;
+
             color: var(--blue);
 
             flex-shrink: 0;
         }
 
+
         .brand-icon .material-symbols-rounded {
+
             font-size: 21px;
         }
 
+
         .brand-text {
+
             display: flex;
+
             flex-direction: column;
+
             line-height: 1.15;
         }
 
+
         .brand-title {
+
             font-size: 15px;
+
             font-weight: 600;
         }
 
+
         .brand-subtitle {
+
             font-size: 11px;
+
             color: var(--text-muted);
+
             margin-top: 2px;
         }
 
+
         /* =====================================================
            NAV
-           ===================================================== */
+        ===================================================== */
 
         .top-nav {
+
             display: flex;
+
             align-items: center;
+
             gap: 22px;
         }
 
+
         .top-nav a {
+
             color: var(--text-secondary);
 
             font-size: 14px;
+
             font-weight: 500;
 
             text-decoration: none;
         }
 
+
         .top-nav a:hover {
+
             color: var(--blue);
         }
 
+
         /* =====================================================
            PAGE
-           ===================================================== */
+        ===================================================== */
 
         .page {
+
             max-width: var(--content-width);
 
             margin: auto;
@@ -289,11 +397,13 @@
             padding: 0 24px;
         }
 
+
         /* =====================================================
            CONTENT LAYOUT
-           ===================================================== */
+        ===================================================== */
 
         .content-layout {
+
             display: grid;
 
             grid-template-columns:
@@ -307,11 +417,13 @@
             align-items: start;
         }
 
+
         /* =====================================================
            SIDEBAR
-           ===================================================== */
+        ===================================================== */
 
         .sidebar {
+
             position: sticky;
 
             top: 88px;
@@ -319,30 +431,41 @@
             align-self: start;
         }
 
+
         .sidebar-title {
+
             margin: 0 0 12px;
 
             color: var(--text);
 
             font-size: 12px;
+
             font-weight: 700;
 
             letter-spacing: .06em;
+
             text-transform: uppercase;
         }
 
+
         .category-list {
+
             list-style: none;
 
             margin: 0;
+
             padding: 0;
         }
 
+
         .category-list li {
+
             margin: 2px 0;
         }
 
+
         .category-list a {
+
             display: flex;
 
             align-items: center;
@@ -360,22 +483,33 @@
             text-decoration: none;
         }
 
+
         .category-list a:hover {
+
             background: #f5f5f7;
+
             color: var(--blue);
         }
 
+
         .category-list a.active {
+
             background: #eef5fc;
+
             color: var(--blue);
+
             font-weight: 600;
         }
 
+
         .category-list .material-symbols-rounded {
+
             font-size: 18px;
         }
 
+
         .sidebar-divider {
+
             height: 1px;
 
             background: var(--border);
@@ -383,7 +517,9 @@
             margin: 24px 0;
         }
 
+
         .sidebar-link {
+
             display: flex;
 
             align-items: center;
@@ -401,25 +537,37 @@
             text-decoration: none;
         }
 
+
         .sidebar-link:hover {
+
             background: #f5f5f7;
+
             color: var(--blue);
         }
 
+
         /* =====================================================
            ARTICLE
-           ===================================================== */
+        ===================================================== */
 
         .article {
+
+            width: 100%;
+
             max-width: 780px;
+
             min-width: 0;
+
+            margin: 0;
         }
+
 
         /* =====================================================
            BREADCRUMB
-           ===================================================== */
+        ===================================================== */
 
         .breadcrumb {
+
             margin-bottom: 22px;
 
             color: var(--text-muted);
@@ -427,27 +575,35 @@
             font-size: 13px;
         }
 
+
         .breadcrumb a {
+
             color: var(--blue);
 
             text-decoration: none;
         }
 
+
         .breadcrumb span {
+
             margin: 0 6px;
         }
 
+
         /* =====================================================
            ARTICLE HEADER
-           ===================================================== */
+        ===================================================== */
 
         .article-header {
+
             padding-bottom: 25px;
 
             border-bottom: 1px solid var(--border);
         }
 
+
         .article-category {
+
             color: var(--blue);
 
             font-size: 13px;
@@ -457,7 +613,9 @@
             margin-bottom: 8px;
         }
 
+
         .article-title {
+
             margin: 0 0 13px;
 
             font-size: clamp(32px, 5vw, 46px);
@@ -469,7 +627,9 @@
             font-weight: 750;
         }
 
+
         .article-intro {
+
             margin: 0;
 
             color: var(--text-secondary);
@@ -479,7 +639,9 @@
             line-height: 1.65;
         }
 
+
         .article-meta {
+
             display: flex;
 
             flex-wrap: wrap;
@@ -493,15 +655,65 @@
             font-size: 12px;
         }
 
+
+        /* =====================================================
+           ARTICLE HERO IMAGE
+        ===================================================== */
+
+        .article-hero {
+
+            width: 100%;
+
+            margin: 28px 0 10px;
+
+            padding: 0;
+        }
+
+
+        .article-hero img {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 100%;
+
+            height: auto;
+
+            aspect-ratio: 16 / 9;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            border: 1px solid var(--border);
+        }
+
+
+        .article-hero figcaption {
+
+            margin-top: 8px;
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
         /* =====================================================
            ARTICLE BODY
-           ===================================================== */
+        ===================================================== */
 
         .article-body {
+
             padding-top: 30px;
         }
 
+
         .article-body h2 {
+
             margin: 40px 0 12px;
 
             font-size: 27px;
@@ -511,7 +723,9 @@
             letter-spacing: -.025em;
         }
 
+
         .article-body h3 {
+
             margin: 30px 0 10px;
 
             font-size: 21px;
@@ -519,34 +733,44 @@
             line-height: 1.3;
         }
 
+
         .article-body p {
+
             margin: 0 0 18px;
 
             color: #333338;
         }
 
+
         .article-body ul,
         .article-body ol {
+
             margin: 0 0 20px;
 
             padding-left: 25px;
         }
 
+
         .article-body li {
+
             margin-bottom: 8px;
         }
 
+
         .article-body a {
+
             color: var(--blue);
 
             font-weight: 550;
         }
 
+
         /* =====================================================
            FORMULA BOX
-           ===================================================== */
+        ===================================================== */
 
         .formula-box {
+
             margin: 25px 0;
 
             padding: 22px;
@@ -560,7 +784,9 @@
             text-align: center;
         }
 
+
         .formula {
+
             font-size: 22px;
 
             font-weight: 650;
@@ -570,17 +796,21 @@
             margin-bottom: 8px;
         }
 
+
         .formula-note {
+
             color: var(--text-secondary);
 
             font-size: 13px;
         }
 
+
         /* =====================================================
-           COMPARISON TABLE
-           ===================================================== */
+           TABLE
+        ===================================================== */
 
         .table-wrapper {
+
             width: 100%;
 
             overflow-x: auto;
@@ -588,7 +818,9 @@
             margin: 25px 0;
         }
 
+
         table {
+
             width: 100%;
 
             border-collapse: collapse;
@@ -596,8 +828,10 @@
             font-size: 14px;
         }
 
+
         th,
         td {
+
             padding: 12px 14px;
 
             border: 1px solid var(--border);
@@ -607,17 +841,21 @@
             vertical-align: top;
         }
 
+
         th {
+
             background: #f7f7f8;
 
             font-weight: 650;
         }
 
+
         /* =====================================================
            EXAMPLE BOX
-           ===================================================== */
+        ===================================================== */
 
         .example-box {
+
             margin: 25px 0;
 
             padding: 20px 22px;
@@ -629,7 +867,9 @@
             border-radius: 0 9px 9px 0;
         }
 
+
         .example-box strong {
+
             display: block;
 
             margin-bottom: 7px;
@@ -637,11 +877,13 @@
             color: var(--text);
         }
 
+
         /* =====================================================
            NOTE BOX
-           ===================================================== */
+        ===================================================== */
 
         .note-box {
+
             margin: 25px 0;
 
             padding: 18px 20px;
@@ -653,43 +895,55 @@
             border-radius: 9px;
         }
 
+
         .note-box strong {
+
             display: block;
 
             margin-bottom: 5px;
         }
 
+
         /* =====================================================
            FAQ
-           ===================================================== */
+        ===================================================== */
 
         .faq {
+
             margin-top: 45px;
         }
 
+
         .faq-item {
+
             padding: 18px 0;
 
             border-bottom: 1px solid var(--border);
         }
 
+
         .faq-item h3 {
+
             margin: 0 0 7px;
 
             font-size: 17px;
         }
 
+
         .faq-item p {
+
             margin: 0;
 
             font-size: 15px;
         }
 
+
         /* =====================================================
            RELATED ARTICLES
-           ===================================================== */
+        ===================================================== */
 
         .related {
+
             margin-top: 45px;
 
             padding-top: 25px;
@@ -697,20 +951,32 @@
             border-top: 1px solid var(--border);
         }
 
+
         .related h2 {
+
             margin-top: 0;
         }
 
+
         .related-list {
+
             display: grid;
 
             grid-template-columns:
-                repeat(2, minmax(0,1fr));
+                repeat(2, minmax(0, 1fr));
 
             gap: 10px;
         }
 
+
         .related-card {
+
+            display: block;
+
+            width: 100%;
+
+            min-width: 0;
+
             padding: 15px;
 
             border: 1px solid var(--border);
@@ -722,13 +988,17 @@
             text-decoration: none;
         }
 
+
         .related-card:hover {
+
             border-color: #cbd9e8;
 
             background: #fafcff;
         }
 
+
         .related-card strong {
+
             display: block;
 
             color: var(--text);
@@ -738,7 +1008,9 @@
             line-height: 1.4;
         }
 
+
         .related-card small {
+
             display: block;
 
             margin-top: 5px;
@@ -748,11 +1020,13 @@
             font-size: 11px;
         }
 
+
         /* =====================================================
            FOOTER
-           ===================================================== */
+        ===================================================== */
 
         .site-footer {
+
             border-top: 1px solid var(--border);
 
             background: #fafafa;
@@ -760,7 +1034,9 @@
             padding: 36px 0;
         }
 
+
         .footer-inner {
+
             max-width: var(--content-width);
 
             margin: auto;
@@ -776,13 +1052,17 @@
             gap: 25px;
         }
 
+
         .footer-copy {
+
             color: var(--text-muted);
 
             font-size: 12px;
         }
 
+
         .footer-links {
+
             display: flex;
 
             flex-wrap: wrap;
@@ -790,7 +1070,9 @@
             gap: 18px;
         }
 
+
         .footer-links a {
+
             color: var(--text-muted);
 
             font-size: 12px;
@@ -798,66 +1080,127 @@
             text-decoration: none;
         }
 
+
         .footer-links a:hover {
+
             color: var(--blue);
         }
 
+
         /* =====================================================
-           MOBILE
-           ===================================================== */
+           TABLET
+        ===================================================== */
 
         @media (max-width: 900px) {
 
             .top-nav {
+
                 display: none;
             }
 
+
             .content-layout {
+
                 grid-template-columns: 1fr;
 
                 gap: 30px;
             }
 
+
             .sidebar {
+
                 position: static;
+            }
+
+
+            .article {
+
+                max-width: 100%;
             }
 
         }
 
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
         @media (max-width: 700px) {
 
             :root {
+
                 --header-height: 58px;
             }
+
 
             .header-inner,
             .page,
             .footer-inner {
+
                 padding-left: 16px;
+
                 padding-right: 16px;
             }
 
+
             .brand-subtitle {
+
                 display: none;
             }
 
+
             .content-layout {
+
                 padding-top: 24px;
+
+                padding-bottom: 50px;
             }
 
+
             .article-title {
+
                 font-size: 32px;
             }
 
+
             .article-intro {
+
                 font-size: 16px;
             }
 
+
+            .article-hero {
+
+                margin-top: 22px;
+            }
+
+
+            .article-hero img {
+
+                border-radius: 8px;
+            }
+
+
+            .article-body h2 {
+
+                font-size: 24px;
+            }
+
+
+            .formula {
+
+                font-size: 19px;
+            }
+
+
             .related-list {
+
                 grid-template-columns: 1fr;
             }
 
+
             .footer-inner {
+
                 flex-direction: column;
 
                 align-items: flex-start;
@@ -865,15 +1208,51 @@
 
         }
 
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 420px) {
+
+            .article-title {
+
+                font-size: 29px;
+            }
+
+
+            .article-body {
+
+                font-size: 15px;
+            }
+
+
+            .formula-box {
+
+                padding: 18px 14px;
+            }
+
+
+            .example-box {
+
+                padding: 17px;
+            }
+
+        }
+
     </style>
+
 
     <!-- =========================================================
          STRUCTURED DATA — ARTICLE
-         ========================================================= -->
+    ========================================================== -->
+
     <script type="application/ld+json">
+
     {
         "@context": "https://schema.org",
         "@type": "Article",
+
         "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#article",
 
         "headline": "Electrical Energy Explained: kWh vs kW",
@@ -886,6 +1265,8 @@
             "@type": "WebPage",
             "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
         },
+
+        "image": "https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.png",
 
         "author": {
             "@type": "Person",
@@ -901,6 +1282,7 @@
         },
 
         "datePublished": "2026-08-24",
+
         "dateModified": "2026-08-24",
 
         "inLanguage": "en",
@@ -917,91 +1299,125 @@
             "electrical engineering"
         ]
     }
+
     </script>
+
 
     <!-- =========================================================
          STRUCTURED DATA — BREADCRUMB
-         ========================================================= -->
+    ========================================================== -->
+
     <script type="application/ld+json">
+
     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
 
         "itemListElement": [
+
             {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Electrical Engineering",
                 "item": "https://electrical.prasunbarua.com/"
             },
+
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Electrical Fundamentals",
                 "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
             },
+
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Electrical Energy: kWh vs kW",
                 "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
             }
+
         ]
     }
+
     </script>
+
 
     <!-- =========================================================
          STRUCTURED DATA — FAQ
-         ========================================================= -->
+    ========================================================== -->
+
     <script type="application/ld+json">
+
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
 
         "mainEntity": [
+
             {
                 "@type": "Question",
                 "name": "What is the difference between kW and kWh?",
+
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Kilowatt (kW) is a unit of power and describes the rate at which electrical energy is used or produced. Kilowatt-hour (kWh) is a unit of energy and represents the amount of energy used or produced over time."
                 }
             },
+
             {
                 "@type": "Question",
                 "name": "How do you calculate electrical energy?",
+
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Electrical energy can be calculated by multiplying power by operating time. When power is expressed in kilowatts and time in hours, the result is kilowatt-hours: Energy (kWh) = Power (kW) × Time (h)."
                 }
             },
+
             {
                 "@type": "Question",
                 "name": "Is kW the same as kWh?",
+
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "No. kW measures power, while kWh measures energy. A 5 kW load operating for 2 hours consumes 10 kWh of energy."
                 }
             },
+
             {
                 "@type": "Question",
                 "name": "What does kWh mean on an electricity bill?",
+
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "kWh on an electricity bill represents the amount of electrical energy consumed during the billing period. Electricity charges are commonly based on the number of kilowatt-hours consumed."
                 }
+            },
+
+            {
+                "@type": "Question",
+                "name": "Is kWp the same as kWh?",
+
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. kWp is commonly used to describe the rated peak capacity of a solar PV system, while kWh describes electrical energy generated or consumed over time."
+                }
             }
+
         ]
     }
+
     </script>
 
 </head>
 
+
 <body>
+
 
     <!-- =========================================================
          HEADER
-         ========================================================= -->
+    ========================================================== -->
 
     <header class="site-header">
 
@@ -1012,10 +1428,13 @@
                aria-label="Electrical Engineering home">
 
                 <span class="brand-icon">
+
                     <span class="material-symbols-rounded">
                         bolt
                     </span>
+
                 </span>
+
 
                 <span class="brand-text">
 
@@ -1031,6 +1450,7 @@
 
             </a>
 
+
             <nav class="top-nav"
                  aria-label="Main navigation">
 
@@ -1045,7 +1465,9 @@
                 <a href="https://calculator.prasunbarua.com/"
                    target="_blank"
                    rel="noopener noreferrer">
+
                     Calculators
+
                 </a>
 
                 <a href="/about.html">
@@ -1061,7 +1483,7 @@
 
     <!-- =========================================================
          MAIN
-         ========================================================= -->
+    ========================================================== -->
 
     <main class="page">
 
@@ -1070,7 +1492,7 @@
 
             <!-- =================================================
                  SIDEBAR
-                 ================================================= -->
+            ================================================== -->
 
             <aside class="sidebar"
                    aria-label="Article categories">
@@ -1079,18 +1501,26 @@
                     Categories
                 </h2>
 
+
                 <ul class="category-list">
 
                     <li>
+
                         <a href="/articles/">
+
                             <span class="material-symbols-rounded">
                                 home
                             </span>
+
                             All Articles
+
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="/articles/electrical-fundamentals/"
                            class="active">
 
@@ -1101,9 +1531,12 @@
                             Electrical Fundamentals
 
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="/articles/electrical-calculations/">
 
                             <span class="material-symbols-rounded">
@@ -1113,9 +1546,12 @@
                             Electrical Calculations
 
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="/articles/power-systems/">
 
                             <span class="material-symbols-rounded">
@@ -1125,9 +1561,12 @@
                             Power Systems
 
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="/articles/electrical-design/">
 
                             <span class="material-symbols-rounded">
@@ -1137,9 +1576,12 @@
                             Electrical Design
 
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="/articles/solar-pv/">
 
                             <span class="material-symbols-rounded">
@@ -1149,9 +1591,12 @@
                             Solar PV
 
                         </a>
+
                     </li>
 
+
                     <li>
+
                         <a href="/articles/testing-commissioning/">
 
                             <span class="material-symbols-rounded">
@@ -1161,11 +1606,14 @@
                             Testing & Commissioning
 
                         </a>
+
                     </li>
 
                 </ul>
 
+
                 <div class="sidebar-divider"></div>
+
 
                 <a href="https://calculator.prasunbarua.com/"
                    class="sidebar-link"
@@ -1179,6 +1627,7 @@
                     Engineering Calculators
 
                 </a>
+
 
                 <a href="/about.html"
                    class="sidebar-link">
@@ -1196,9 +1645,10 @@
 
             <!-- =================================================
                  ARTICLE
-                 ================================================= -->
+            ================================================== -->
 
             <article class="article">
+
 
                 <!-- BREADCRUMB -->
 
@@ -1230,15 +1680,20 @@
                         ELECTRICAL FUNDAMENTALS
                     </div>
 
+
                     <h1 class="article-title">
                         Electrical Energy Explained: kWh vs kW
                     </h1>
 
+
                     <p class="article-intro">
+
                         Understand electrical energy, electrical power,
                         kilowatts (kW) and kilowatt-hours (kWh), with
                         simple formulas and practical engineering examples.
+
                     </p>
+
 
                     <div class="article-meta">
 
@@ -1264,55 +1719,94 @@
 
 
                 <!-- =================================================
+                     HERO IMAGE
+                ================================================== -->
+
+                <figure class="article-hero">
+
+                    <img
+                        src="/assets/images/electrical-energy-kwh-vs-kw.png"
+                        alt="Electrical energy explained showing the difference between kW and kWh"
+                        loading="eager"
+                        decoding="async"
+                        width="1200"
+                        height="675">
+
+                    <figcaption>
+
+                        Understanding the relationship between electrical
+                        power, kW, time and electrical energy in kWh.
+
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- =================================================
                      ARTICLE BODY
-                     ================================================= -->
+                ================================================== -->
 
                 <div class="article-body">
 
 
                     <p>
+
                         Electrical energy is one of the most important
                         concepts in electrical engineering. It describes
                         the amount of electrical work performed or energy
                         consumed by an electrical device over a period of
                         time.
+
                     </p>
 
+
                     <p>
+
                         Two units are commonly confused when discussing
                         electrical systems: <strong>kilowatt (kW)</strong>
                         and <strong>kilowatt-hour (kWh)</strong>.
                         Although they are related, they describe different
                         physical quantities.
+
                     </p>
 
+
                     <p>
+
                         Understanding the difference between kW and kWh is
                         essential when working with electrical loads,
                         generators, batteries, solar PV systems and
                         electricity bills.
+
                     </p>
 
 
                     <!-- =================================================
                          WHAT IS ELECTRICAL ENERGY
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         What Is Electrical Energy?
                     </h2>
 
+
                     <p>
+
                         Electrical energy is the energy transferred when
                         electric current flows through an electrical
                         circuit or device.
+
                     </p>
 
+
                     <p>
+
                         For a device operating at a constant power level,
                         electrical energy can be calculated from its power
                         and operating time.
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1326,25 +1820,32 @@
 
                     </div>
 
+
                     <p>
+
                         If power is measured in kilowatts and time is
                         measured in hours, the resulting energy is measured
                         in kilowatt-hours (kWh).
+
                     </p>
 
 
                     <!-- =================================================
                          POWER VS ENERGY
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Electrical Power vs Electrical Energy
                     </h2>
 
+
                     <p>
+
                         Power and energy are closely related, but they are
                         not the same quantity.
+
                     </p>
+
 
                     <div class="table-wrapper">
 
@@ -1353,31 +1854,59 @@
                             <thead>
 
                                 <tr>
-                                    <th>Quantity</th>
-                                    <th>Meaning</th>
-                                    <th>Common Unit</th>
+
+                                    <th>
+                                        Quantity
+                                    </th>
+
+                                    <th>
+                                        Meaning
+                                    </th>
+
+                                    <th>
+                                        Common Unit
+                                    </th>
+
                                 </tr>
 
                             </thead>
 
+
                             <tbody>
 
                                 <tr>
-                                    <td>Power</td>
+
+                                    <td>
+                                        Power
+                                    </td>
+
                                     <td>
                                         Rate at which electrical energy
                                         is transferred or used
                                     </td>
-                                    <td>W or kW</td>
+
+                                    <td>
+                                        W or kW
+                                    </td>
+
                                 </tr>
 
+
                                 <tr>
-                                    <td>Energy</td>
+
+                                    <td>
+                                        Energy
+                                    </td>
+
                                     <td>
                                         Total electrical energy transferred
                                         or consumed over time
                                     </td>
-                                    <td>Wh or kWh</td>
+
+                                    <td>
+                                        Wh or kWh
+                                    </td>
+
                                 </tr>
 
                             </tbody>
@@ -1386,25 +1915,32 @@
 
                     </div>
 
+
                     <p>
+
                         A simple way to understand the difference is to
                         think of <strong>power as the rate</strong> and
                         <strong>energy as the total amount</strong>.
+
                     </p>
 
 
                     <!-- =================================================
                          KW
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         What Is a Kilowatt (kW)?
                     </h2>
 
+
                     <p>
+
                         A kilowatt is a unit of power. One kilowatt is equal
                         to 1,000 watts.
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1418,32 +1954,42 @@
 
                     </div>
 
+
                     <p>
+
                         For example, an electrical heater rated at 2 kW
                         requires approximately 2 kW of electrical power
                         while operating at its rated condition.
+
                     </p>
 
+
                     <p>
+
                         Similarly, a 5 kW solar inverter can deliver up to
                         approximately 5 kW of AC power under suitable
                         operating conditions.
+
                     </p>
 
 
                     <!-- =================================================
                          KWH
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         What Is a Kilowatt-hour (kWh)?
                     </h2>
 
+
                     <p>
+
                         A kilowatt-hour is a unit of energy. It represents
                         the amount of energy used or produced when a
                         1 kW power level is maintained for one hour.
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1457,19 +2003,23 @@
 
                     </div>
 
+
                     <p>
+
                         Therefore, if a 1 kW load operates continuously for
                         1 hour, it consumes 1 kWh of electrical energy.
+
                     </p>
 
 
                     <!-- =================================================
                          MAIN DIFFERENCE
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         kW vs kWh: What Is the Difference?
                     </h2>
+
 
                     <div class="table-wrapper">
 
@@ -1478,32 +2028,71 @@
                             <thead>
 
                                 <tr>
-                                    <th>kW</th>
-                                    <th>kWh</th>
+
+                                    <th>
+                                        kW
+                                    </th>
+
+                                    <th>
+                                        kWh
+                                    </th>
+
                                 </tr>
 
                             </thead>
 
+
                             <tbody>
 
                                 <tr>
-                                    <td>Unit of power</td>
-                                    <td>Unit of energy</td>
+
+                                    <td>
+                                        Unit of power
+                                    </td>
+
+                                    <td>
+                                        Unit of energy
+                                    </td>
+
                                 </tr>
 
-                                <tr>
-                                    <td>Measures the rate of energy use</td>
-                                    <td>Measures total energy used</td>
-                                </tr>
 
                                 <tr>
-                                    <td>Does not directly include time</td>
-                                    <td>Includes time</td>
+
+                                    <td>
+                                        Measures the rate of energy use
+                                    </td>
+
+                                    <td>
+                                        Measures total energy used
+                                    </td>
+
                                 </tr>
 
+
                                 <tr>
-                                    <td>Example: 5 kW load</td>
-                                    <td>Example: 20 kWh consumed</td>
+
+                                    <td>
+                                        Does not directly include time
+                                    </td>
+
+                                    <td>
+                                        Includes time
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Example: 5 kW load
+                                    </td>
+
+                                    <td>
+                                        Example: 20 kWh consumed
+                                    </td>
+
                                 </tr>
 
                             </tbody>
@@ -1512,27 +2101,34 @@
 
                     </div>
 
+
                     <p>
+
                         The easiest way to remember the difference is:
                         <strong>kW tells you how much power is being used at
                         a particular moment, while kWh tells you how much
                         energy has been used over a period of time.</strong>
+
                     </p>
 
 
                     <!-- =================================================
                          ENERGY FORMULA
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Electrical Energy Calculation Formula
                     </h2>
 
+
                     <p>
+
                         When power is expressed in kilowatts and time is
                         expressed in hours, electrical energy can be
                         calculated using:
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1546,10 +2142,14 @@
 
                     </div>
 
+
                     <p>
+
                         If the power is given in watts, convert it to
                         kilowatts before using the formula.
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1562,27 +2162,35 @@
 
                     <!-- =================================================
                          EXAMPLE 1
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Example 1: Energy Consumption of a 1 kW Load
                     </h2>
 
+
                     <p>
+
                         Consider a 1 kW electrical load operating for
                         6 hours.
+
                     </p>
+
 
                     <div class="example-box">
 
-                        <strong>Given:</strong>
+                        <strong>
+                            Given:
+                        </strong>
 
                         Power = 1 kW<br>
                         Operating time = 6 hours
 
                         <br><br>
 
-                        <strong>Calculation:</strong>
+                        <strong>
+                            Calculation:
+                        </strong>
 
                         E = P × t
 
@@ -1598,35 +2206,46 @@
 
                     </div>
 
+
                     <p>
+
                         Therefore, the load consumes 6 kWh of electrical
                         energy during the six-hour operating period.
+
                     </p>
 
 
                     <!-- =================================================
                          EXAMPLE 2
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Example 2: A 2 kW Heater Operating for 5 Hours
                     </h2>
 
+
                     <p>
+
                         Suppose a 2 kW electric heater operates for
                         5 hours per day.
+
                     </p>
+
 
                     <div class="example-box">
 
-                        <strong>Given:</strong>
+                        <strong>
+                            Given:
+                        </strong>
 
                         Power = 2 kW<br>
                         Time = 5 hours
 
                         <br><br>
 
-                        <strong>Calculation:</strong>
+                        <strong>
+                            Calculation:
+                        </strong>
 
                         E = P × t
 
@@ -1642,29 +2261,39 @@
 
                     </div>
 
+
                     <p>
+
                         The heater therefore consumes approximately
                         <strong>10 kWh per day</strong> when operating at
                         a constant 2 kW power level for five hours.
+
                     </p>
 
 
                     <!-- =================================================
                          EXAMPLE 3
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Example 3: Converting Watts to kWh
                     </h2>
 
-                    <p>
-                        Consider a 500 W electrical appliance operating
-                        for 8 hours.
-                    </p>
 
                     <p>
-                        First convert the power from watts to kilowatts:
+
+                        Consider a 500 W electrical appliance operating
+                        for 8 hours.
+
                     </p>
+
+
+                    <p>
+
+                        First convert the power from watts to kilowatts:
+
+                    </p>
+
 
                     <div class="formula-box">
 
@@ -1674,9 +2303,11 @@
 
                     </div>
 
+
                     <p>
                         Now calculate the energy:
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1686,38 +2317,51 @@
 
                     </div>
 
+
                     <p>
+
                         Therefore, the appliance consumes approximately
                         <strong>4 kWh</strong> during eight hours of
                         operation.
+
                     </p>
 
 
                     <!-- =================================================
                          ELECTRICITY BILL
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         How kWh Is Used on an Electricity Bill
                     </h2>
 
+
                     <p>
+
                         Electricity consumption is commonly measured in
                         kilowatt-hours. Your electricity meter records the
                         electrical energy consumed over time.
+
                     </p>
 
+
                     <p>
+
                         For example, if a household consumes 350 kWh during
                         a billing period, the energy consumption for that
                         period is 350 kWh.
+
                     </p>
 
+
                     <p>
+
                         If the applicable electricity energy charge were
                         $0.15 per kWh, the energy portion of the bill would
                         be:
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1731,9 +2375,12 @@
 
                     </div>
 
+
                     <div class="note-box">
 
-                        <strong>Important:</strong>
+                        <strong>
+                            Important:
+                        </strong>
 
                         Actual electricity bills can include additional
                         charges, taxes, demand charges, fixed charges or
@@ -1745,41 +2392,56 @@
 
                     <!-- =================================================
                          SOLAR PV
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         kW and kWh in Solar PV Systems
                     </h2>
 
-                    <p>
-                        The difference between kW and kWh is particularly
-                        important in solar photovoltaic systems.
-                    </p>
 
                     <p>
+
+                        The difference between kW and kWh is particularly
+                        important in solar photovoltaic systems.
+
+                    </p>
+
+
+                    <p>
+
                         Solar PV system capacity is commonly expressed in
                         <strong>kW</strong> or <strong>kWp</strong>, while
                         the electrical energy generated by the system is
                         commonly expressed in <strong>kWh</strong>.
+
                     </p>
 
+
                     <p>
+
                         For example, a solar PV system with a rated capacity
                         of 10 kWp is a power-capacity description. It does
                         not mean that the system produces 10 kWh every
                         hour under all conditions.
+
                     </p>
 
+
                     <p>
+
                         Actual solar energy production depends on factors
                         such as solar irradiance, temperature, system
                         losses, inverter operation, shading and the number
                         of effective sunlight hours.
+
                     </p>
+
 
                     <div class="example-box">
 
-                        <strong>Simple solar example:</strong>
+                        <strong>
+                            Simple solar example:
+                        </strong>
 
                         If a 10 kW PV system produces an average of
                         5 equivalent full-power hours during a particular
@@ -1802,27 +2464,35 @@
 
                     </div>
 
+
                     <p>
+
                         For more solar PV fundamentals, see:
+
                         <a href="/articles/solar-pv/how-solar-pv-works/">
                             How Does a Solar PV System Work?
                         </a>
+
                     </p>
 
 
                     <!-- =================================================
                          THREE PHASE
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Electrical Energy in Three-Phase Systems
                     </h2>
 
+
                     <p>
+
                         In a three-phase system, electrical power can be
                         calculated from line voltage, line current and
                         power factor.
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1831,21 +2501,29 @@
                         </div>
 
                         <div class="formula-note">
-                            For a balanced three-phase system using line-to-line voltage.
+                            For a balanced three-phase system using
+                            line-to-line voltage.
                         </div>
 
                     </div>
 
+
                     <p>
+
                         When voltage and current are expressed in volts and
                         amperes, the calculated power is in watts.
                         Dividing by 1,000 converts watts to kilowatts.
+
                     </p>
 
+
                     <p>
+
                         Once the power in kW is known, energy can be
                         calculated using the operating time:
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1855,26 +2533,34 @@
 
                     </div>
 
+
                     <p>
+
                         For detailed power calculations, see:
+
                         <a href="/articles/electrical-calculations/power-calculation/">
                             How to Calculate Electrical Power
                         </a>.
+
                     </p>
 
 
                     <!-- =================================================
                          COMMON MISTAKES
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Common kW and kWh Mistakes
                     </h2>
 
+
                     <p>
+
                         Several common mistakes occur when discussing
                         electrical power and energy.
+
                     </p>
+
 
                     <ul>
 
@@ -1906,11 +2592,12 @@
 
                     <!-- =================================================
                          QUICK REFERENCE
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Quick Reference: kW and kWh
                     </h2>
+
 
                     <div class="table-wrapper">
 
@@ -1919,37 +2606,91 @@
                             <thead>
 
                                 <tr>
-                                    <th>Term</th>
-                                    <th>Meaning</th>
-                                    <th>Example</th>
+
+                                    <th>
+                                        Term
+                                    </th>
+
+                                    <th>
+                                        Meaning
+                                    </th>
+
+                                    <th>
+                                        Example
+                                    </th>
+
                                 </tr>
 
                             </thead>
 
+
                             <tbody>
 
                                 <tr>
-                                    <td>W</td>
-                                    <td>Watt — unit of power</td>
-                                    <td>500 W appliance</td>
+
+                                    <td>
+                                        W
+                                    </td>
+
+                                    <td>
+                                        Watt — unit of power
+                                    </td>
+
+                                    <td>
+                                        500 W appliance
+                                    </td>
+
                                 </tr>
 
-                                <tr>
-                                    <td>kW</td>
-                                    <td>Kilowatt — unit of power</td>
-                                    <td>5 kW motor</td>
-                                </tr>
 
                                 <tr>
-                                    <td>Wh</td>
-                                    <td>Watt-hour — unit of energy</td>
-                                    <td>500 Wh</td>
+
+                                    <td>
+                                        kW
+                                    </td>
+
+                                    <td>
+                                        Kilowatt — unit of power
+                                    </td>
+
+                                    <td>
+                                        5 kW motor
+                                    </td>
+
                                 </tr>
 
+
                                 <tr>
-                                    <td>kWh</td>
-                                    <td>Kilowatt-hour — unit of energy</td>
-                                    <td>20 kWh consumed</td>
+
+                                    <td>
+                                        Wh
+                                    </td>
+
+                                    <td>
+                                        Watt-hour — unit of energy
+                                    </td>
+
+                                    <td>
+                                        500 Wh
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        kWh
+                                    </td>
+
+                                    <td>
+                                        Kilowatt-hour — unit of energy
+                                    </td>
+
+                                    <td>
+                                        20 kWh consumed
+                                    </td>
+
                                 </tr>
 
                             </tbody>
@@ -1961,28 +2702,38 @@
 
                     <!-- =================================================
                          SUMMARY
-                         ================================================= -->
+                    ================================================== -->
 
                     <h2>
                         Summary
                     </h2>
 
-                    <p>
-                        Kilowatt (kW) and kilowatt-hour (kWh) describe two
-                        different electrical quantities.
-                    </p>
 
                     <p>
+
+                        Kilowatt (kW) and kilowatt-hour (kWh) describe two
+                        different electrical quantities.
+
+                    </p>
+
+
+                    <p>
+
                         <strong>kW measures power</strong>, which represents
                         the rate at which electrical energy is transferred
                         or used.
+
                     </p>
 
+
                     <p>
+
                         <strong>kWh measures energy</strong>, which
                         represents the total amount of electrical energy
                         consumed or produced over a period of time.
+
                     </p>
+
 
                     <div class="formula-box">
 
@@ -1992,17 +2743,20 @@
 
                     </div>
 
+
                     <p>
+
                         Remembering this relationship makes it much easier
                         to understand electrical loads, electricity
                         consumption, solar PV generation and energy
                         calculations.
+
                     </p>
 
 
                     <!-- =================================================
                          FAQ
-                         ================================================= -->
+                    ================================================== -->
 
                     <section class="faq"
                              aria-labelledby="faq-title">
@@ -2019,10 +2773,12 @@
                             </h3>
 
                             <p>
+
                                 kW is a unit of power and describes the rate
                                 of energy use or production. kWh is a unit of
                                 energy and describes the total energy used
                                 or produced over time.
+
                             </p>
 
                         </div>
@@ -2035,10 +2791,12 @@
                             </h3>
 
                             <p>
+
                                 For a constant power load, electrical energy
                                 can be calculated using E = P × t. When power
                                 is in kW and time is in hours, the result is
                                 kWh.
+
                             </p>
 
                         </div>
@@ -2051,9 +2809,11 @@
                             </h3>
 
                             <p>
+
                                 No. kW measures power, while kWh measures
                                 energy. For example, a 5 kW load operating
                                 for 2 hours consumes 10 kWh.
+
                             </p>
 
                         </div>
@@ -2066,8 +2826,10 @@
                             </h3>
 
                             <p>
+
                                 kWh represents the amount of electrical
                                 energy consumed during the billing period.
+
                             </p>
 
                         </div>
@@ -2080,10 +2842,12 @@
                             </h3>
 
                             <p>
+
                                 No. kWp is commonly used to describe the
                                 rated peak capacity of a solar PV system,
                                 while kWh describes electrical energy
                                 generated or consumed over time.
+
                             </p>
 
                         </div>
@@ -2093,7 +2857,7 @@
 
                     <!-- =================================================
                          RELATED ARTICLES
-                         ================================================= -->
+                    ================================================== -->
 
                     <section class="related"
                              aria-labelledby="related-title">
@@ -2102,7 +2866,9 @@
                             Related Electrical Engineering Articles
                         </h2>
 
+
                         <div class="related-list">
+
 
                             <a class="related-card"
                                href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html">
@@ -2187,9 +2953,11 @@
 
                             </a>
 
+
                         </div>
 
                     </section>
+
 
                 </div>
 
@@ -2202,15 +2970,19 @@
 
     <!-- =========================================================
          FOOTER
-         ========================================================= -->
+    ========================================================== -->
 
     <footer class="site-footer">
 
         <div class="footer-inner">
 
+
             <div class="footer-copy">
+
                 © 2026 Prasun Barua. All rights reserved.
+
             </div>
+
 
             <nav class="footer-links"
                  aria-label="Footer navigation">
@@ -2237,5 +3009,7 @@
 
     </footer>
 
+
 </body>
+
 </html>
