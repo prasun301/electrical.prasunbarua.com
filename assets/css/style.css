@@ -1866,5 +1866,187 @@ pre {
 }
 
 /* =========================================================
+   50. INTERACTIVE OHM'S LAW VISUAL
+   ========================================================== */
+
+.ohms-law-visual {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    border: 1px solid #dbe3ec;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    box-shadow: 0 8px 30px rgba(20, 50, 80, 0.08);
+}
+
+.ohms-visual-label {
+    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0066cc;
+}
+
+.ohms-visual-header h3 {
+    margin: 0;
+    font-size: 1.45rem;
+}
+
+.ohms-visual-header p {
+    margin: 0.5rem 0 0;
+    color: #5d6875;
+}
+
+.ohms-law-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.ohms-value-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #dfe6ee;
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.ohms-value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #eef5fc;
+    color: #0066cc;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.ohms-value-content {
+    min-width: 0;
+    width: 100%;
+}
+
+.ohms-value-content label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.ohms-input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.ohms-input-row input {
+    width: 100%;
+    min-width: 0;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    background: #ffffff;
+    font: inherit;
+    font-weight: 600;
+}
+
+.ohms-input-row input:focus {
+    outline: 2px solid rgba(0, 102, 204, 0.2);
+    border-color: #0066cc;
+}
+
+.ohms-input-row span {
+    font-weight: 600;
+    color: #5d6875;
+}
+
+.ohms-equation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1.75rem 0;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: #f1f6fb;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.ohms-equation-value {
+    color: #17324d;
+}
+
+.ohms-equation-symbol {
+    color: #697887;
+}
+
+.ohms-result {
+    text-align: center;
+    padding: 1.4rem;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #dbe3ec;
+}
+
+.ohms-result-label {
+    font-size: 0.85rem;
+    color: #687583;
+}
+
+.ohms-result-value {
+    margin-top: 0.35rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0066cc;
+}
+
+.ohms-result-description {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: #5d6875;
+}
+
+.ohms-reset {
+    display: block;
+    margin: 1.2rem auto 0;
+    padding: 0.65rem 1rem;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #243444;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ohms-reset:hover {
+    background: #f5f8fb;
+}
+
+@media (max-width: 760px) {
+
+    .ohms-law-visual {
+        padding: 1.25rem;
+    }
+
+    .ohms-law-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ohms-equation {
+        font-size: 1.05rem;
+    }
+
+}
+
+/* =========================================================
    END OF STYLE.CSS
    ========================================================= */
