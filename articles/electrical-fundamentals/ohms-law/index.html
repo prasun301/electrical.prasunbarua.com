@@ -1,2271 +1,2435 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <!-- =========================================================
-         CORE DOCUMENT
-    ========================================================== -->
+```
+<!-- =========================================================
+     1. CORE DOCUMENT
+========================================================== -->
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>
-        What Is Ohm's Law? Formula, Examples &amp; Practical Guide | Electrical Engineering
-    </title>
+<meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+>
 
-    <meta
-        name="description"
-        content="Learn what Ohm's Law is, understand voltage, current and resistance, use practical formulas and examples, and calculate electrical values with an interactive Ohm's Law calculator."
-    >
+<meta
+    name="theme-color"
+    content="#0066cc"
+>
 
-    <meta name="author" content="Prasun Barua">
+<meta
+    name="color-scheme"
+    content="light"
+>
 
-    <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    >
+<title>
+    What Is Ohm's Law? Formula, Examples &amp; Practical Guide | Electrical Engineering
+</title>
 
-    <meta
-        name="theme-color"
-        content="#0066cc"
-    >
+<meta
+    name="description"
+    content="Learn what Ohm's Law is, understand voltage, current and resistance, use practical formulas and examples, and calculate electrical values with an interactive Ohm's Law calculator."
+>
 
-    <link
-        rel="canonical"
-        href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
-    >
+<meta name="author" content="Prasun Barua">
 
+<meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
 
-    <!-- =========================================================
-         OPEN GRAPH
-    ========================================================== -->
+<meta
+    name="googlebot"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
 
-    <meta property="og:type" content="article">
-
-    <meta
-        property="og:url"
-        content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
-    >
-
-    <meta
-        property="og:title"
-        content="What Is Ohm's Law? Formula, Examples &amp; Practical Guide"
-    >
-
-    <meta
-        property="og:description"
-        content="Understand Ohm's Law with simple explanations, formulas, practical examples and an interactive calculator."
-    >
-
-    <meta
-        property="og:site_name"
-        content="Electrical Engineering by Prasun Barua"
-    >
-
-    <meta
-        property="og:image"
-        content="https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
-    >
-
-    <meta
-        property="og:image:alt"
-        content="Ohm's Law diagram showing voltage current resistance and electrical power relationships"
-    >
-
-    <meta
-        property="og:image:type"
-        content="image/jpeg"
-    >
-
-    <meta
-        property="og:image:width"
-        content="1200"
-    >
-
-    <meta
-        property="og:image:height"
-        content="675"
-    >
-
-    <meta property="og:locale" content="en_US">
-
-    <meta
-        property="article:section"
-        content="Electrical Fundamentals"
-    >
-
-    <meta
-        property="article:published_time"
-        content="2026-08-12"
-    >
-
-    <meta
-        property="article:modified_time"
-        content="2026-08-26"
-    >
-
-    <meta
-        property="article:author"
-        content="Prasun Barua"
-    >
+<link
+    rel="canonical"
+    href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+>
 
 
-    <!-- =========================================================
-         X / TWITTER
-    ========================================================== -->
+<!-- =========================================================
+     2. PERFORMANCE / RESOURCE HINTS
+========================================================== -->
 
-    <meta name="twitter:card" content="summary_large_image">
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
 
-    <meta
-        name="twitter:title"
-        content="What Is Ohm's Law? Formula, Examples &amp; Practical Guide"
-    >
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
 
-    <meta
-        name="twitter:description"
-        content="Learn Ohm's Law with formulas, practical electrical engineering examples and an interactive calculator."
-    >
+<link
+    rel="dns-prefetch"
+    href="//pagead2.googlesyndication.com"
+>
 
-    <meta
-        name="twitter:image"
-        content="https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
-    >
-
-    <meta
-        name="twitter:image:alt"
-        content="Ohm's Law voltage current resistance and electrical power diagram"
-    >
-
-
-    <!-- =========================================================
-         FAVICON
-    ========================================================== -->
-
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
-    >
+<link
+    rel="dns-prefetch"
+    href="//www.googletagmanager.com"
+>
 
 
-    <!-- =========================================================
-         FONTS
-    ========================================================== -->
+<!-- =========================================================
+     3. OPEN GRAPH
+========================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta
+    property="og:type"
+    content="article"
+>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+<meta
+    property="og:url"
+    content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+>
 
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
-    >
+<meta
+    property="og:title"
+    content="What Is Ohm's Law? Formula, Examples &amp; Practical Guide"
+>
+
+<meta
+    property="og:description"
+    content="Understand Ohm's Law with simple explanations, formulas, practical examples and an interactive calculator."
+>
+
+<meta
+    property="og:site_name"
+    content="Electrical Engineering by Prasun Barua"
+>
+
+<meta
+    property="og:locale"
+    content="en_US"
+>
+
+<meta
+    property="og:image"
+    content="https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
+>
+
+<meta
+    property="og:image:secure_url"
+    content="https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
+>
+
+<meta
+    property="og:image:type"
+    content="image/jpeg"
+>
+
+<meta
+    property="og:image:width"
+    content="1200"
+>
+
+<meta
+    property="og:image:height"
+    content="675"
+>
+
+<meta
+    property="og:image:alt"
+    content="Ohm's Law diagram showing voltage, current, resistance and electrical power relationships"
+>
+
+<meta
+    property="article:section"
+    content="Electrical Fundamentals"
+>
+
+<meta
+    property="article:author"
+    content="Prasun Barua"
+>
+
+<meta
+    property="article:published_time"
+    content="2026-08-12T00:00:00+06:00"
+>
+
+<meta
+    property="article:modified_time"
+    content="2026-08-26T00:00:00+06:00"
+>
 
 
-    <!-- =========================================================
-         GOOGLE ADSENSE
-    ========================================================== -->
+<!-- =========================================================
+     4. X / TWITTER
+========================================================== -->
 
-    <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-        crossorigin="anonymous"
-    ></script>
+<meta
+    name="twitter:card"
+    content="summary_large_image"
+>
 
+<meta
+    name="twitter:title"
+    content="What Is Ohm's Law? Formula, Examples &amp; Practical Guide"
+>
 
-    <!-- =========================================================
-         GOOGLE ANALYTICS
-    ========================================================== -->
+<meta
+    name="twitter:description"
+    content="Learn Ohm's Law with formulas, practical electrical engineering examples and an interactive calculator."
+>
 
-    <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
-    ></script>
+<meta
+    name="twitter:image"
+    content="https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
+>
 
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag("js", new Date());
-
-        gtag("config", "G-XY335VGVGJ");
-    </script>
+<meta
+    name="twitter:image:alt"
+    content="Ohm's Law voltage current resistance and electrical power diagram"
+>
 
 
-    <!-- =========================================================
-         MAIN STYLESHEET
-    ========================================================== -->
+<!-- =========================================================
+     5. FAVICON
+========================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="/assets/css/style.css"
-    >
+<link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+>
+
+<link
+    rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+>
 
 
-    <!-- =========================================================
-         ARTICLE STRUCTURED DATA
-    ========================================================== -->
+<!-- =========================================================
+     6. GOOGLE FONTS
+========================================================== -->
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#article",
-        "headline": "What Is Ohm's Law? Formula, Examples & Practical Guide",
-        "description": "Learn what Ohm's Law is, understand voltage, current and resistance, use practical formulas and examples, and calculate electrical values with an interactive Ohm's Law calculator.",
-        "image": [
-            "https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
-        ],
-        "datePublished": "2026-08-12",
-        "dateModified": "2026-08-26",
-        "author": {
-            "@type": "Person",
-            "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
-            "name": "Prasun Barua",
-            "url": "https://electrical.prasunbarua.com/about.html"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Electrical Engineering by Prasun Barua",
-            "url": "https://electrical.prasunbarua.com/"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
-        },
-        "articleSection": "Electrical Fundamentals",
-        "inLanguage": "en"
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+>
+
+
+<!-- =========================================================
+     7. GOOGLE ADSENSE
+========================================================== -->
+
+<script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+    crossorigin="anonymous"
+></script>
+
+
+<!-- =========================================================
+     8. GOOGLE ANALYTICS
+========================================================== -->
+
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+></script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
     }
-    </script>
+
+    gtag("js", new Date());
+
+    gtag("config", "G-XY335VGVGJ", {
+        anonymize_ip: true,
+        send_page_view: true
+    });
+</script>
 
 
-    <!-- =========================================================
-         WEB PAGE STRUCTURED DATA
-    ========================================================== -->
+<!-- =========================================================
+     9. MAIN STYLESHEET
+========================================================== -->
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#webpage",
-        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/",
-        "name": "What Is Ohm's Law? Formula, Examples & Practical Guide",
-        "description": "Learn Ohm's Law with formulas, examples and an interactive calculator.",
-        "isPartOf": {
-            "@type": "WebSite",
-            "@id": "https://electrical.prasunbarua.com/#website"
-        },
-        "inLanguage": "en",
-        "datePublished": "2026-08-12",
-        "dateModified": "2026-08-26"
-    }
-    </script>
+<link
+    rel="stylesheet"
+    href="/assets/css/style.css"
+>
 
 
-    <!-- =========================================================
-         WEBSITE STRUCTURED DATA
-    ========================================================== -->
+<!-- =========================================================
+     10. ARTICLE STRUCTURED DATA
+========================================================== -->
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://electrical.prasunbarua.com/#website",
-        "url": "https://electrical.prasunbarua.com/",
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#article",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/",
+    "headline": "What Is Ohm's Law? Formula, Examples & Practical Guide",
+    "description": "Learn what Ohm's Law is, understand voltage, current and resistance, use practical formulas and examples, and calculate electrical values with an interactive Ohm's Law calculator.",
+    "image": [
+        "https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg"
+    ],
+    "datePublished": "2026-08-12T00:00:00+06:00",
+    "dateModified": "2026-08-26T00:00:00+06:00",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "articleSection": "Electrical Fundamentals",
+    "author": {
+        "@type": "Person",
+        "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
+        "name": "Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/about.html",
+        "jobTitle": "Senior Electrical Engineer"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://electrical.prasunbarua.com/#organization",
         "name": "Electrical Engineering by Prasun Barua",
-        "inLanguage": "en"
+        "url": "https://electrical.prasunbarua.com/"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#webpage"
     }
-    </script>
+}
+</script>
 
 
-    <!-- =========================================================
-         BREADCRUMB STRUCTURED DATA
-    ========================================================== -->
+<!-- =========================================================
+     11. WEB PAGE STRUCTURED DATA
+========================================================== -->
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#breadcrumb",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://electrical.prasunbarua.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Electrical Fundamentals",
-                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Ohm's Law",
-                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#webpage",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/",
+    "name": "What Is Ohm's Law? Formula, Examples & Practical Guide",
+    "description": "Learn Ohm's Law with formulas, examples and an interactive calculator.",
+    "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://electrical.prasunbarua.com/#website"
+    },
+    "about": {
+        "@type": "Thing",
+        "name": "Ohm's Law"
+    },
+    "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://electrical.prasunbarua.com/assets/images/ohms-law-power-triangle.jpeg",
+        "width": 1200,
+        "height": 675
+    },
+    "breadcrumb": {
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#breadcrumb"
+    },
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "datePublished": "2026-08-12T00:00:00+06:00",
+    "dateModified": "2026-08-26T00:00:00+06:00"
+}
+</script>
+
+
+<!-- =========================================================
+     12. WEBSITE STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://electrical.prasunbarua.com/#website",
+    "url": "https://electrical.prasunbarua.com/",
+    "name": "Electrical Engineering by Prasun Barua",
+    "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
+    "inLanguage": "en",
+    "publisher": {
+        "@id": "https://electrical.prasunbarua.com/#organization"
+    }
+}
+</script>
+
+
+<!-- =========================================================
+     13. ORGANIZATION STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://electrical.prasunbarua.com/#organization",
+    "name": "Electrical Engineering by Prasun Barua",
+    "url": "https://electrical.prasunbarua.com/"
+}
+</script>
+
+
+<!-- =========================================================
+     14. BREADCRUMB STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/#breadcrumb",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://electrical.prasunbarua.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Electrical Fundamentals",
+            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Ohm's Law",
+            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/ohms-law/"
+        }
+    ]
+}
+</script>
+
+
+<!-- =========================================================
+     15. FAQ STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is Ohm's Law?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ohm's Law describes the relationship between voltage, current and resistance using the equation V = I × R."
             }
-        ]
-    }
-    </script>
-
-
-    <!-- =========================================================
-         FAQ STRUCTURED DATA
-    ========================================================== -->
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What is Ohm's Law?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Ohm's Law describes the relationship between voltage, current and resistance in an electrical circuit using the equation V = I × R."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What is the formula for current?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Current can be calculated using I = V ÷ R, where V is voltage in volts and R is resistance in ohms."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What is the formula for resistance?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Resistance can be calculated using R = V ÷ I, where V is voltage and I is current."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can Ohm's Law be used for every electrical device?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No. Ohm's Law is most directly applicable to approximately ohmic behavior. Many devices, including diodes and other semiconductor components, have nonlinear voltage-current characteristics."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What are the three main quantities in Ohm's Law?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "The three quantities are voltage measured in volts, current measured in amperes, and resistance measured in ohms."
-                }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the formula for current?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Current is calculated using I = V ÷ R, where V is voltage in volts and R is resistance in ohms."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "What is the formula for resistance?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Resistance is calculated using R = V ÷ I, where V is voltage and I is current."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can Ohm's Law be used for every electrical device?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Ohm's Law does not describe all electrical devices under all operating conditions. Many devices, including diodes and other semiconductor components, have nonlinear voltage-current characteristics."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the three main quantities in Ohm's Law?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The three quantities are voltage measured in volts, current measured in amperes, and resistance measured in ohms."
+            }
+        }
+    ]
+}
+</script>
+```
 
 </head>
 
-
 <body>
 
-    <!-- =========================================================
-         SITE HEADER
-    ========================================================== -->
+```
+<!-- =========================================================
+     16. SITE HEADER
+========================================================== -->
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="container header-inner">
+    <div class="container header-inner">
 
-            <a
-                href="/"
-                class="logo"
-                aria-label="Electrical Engineering by Prasun Barua home"
+        <a
+            href="/"
+            class="logo"
+            aria-label="Electrical Engineering by Prasun Barua home"
+        >
+
+            <span
+                class="logo-icon"
+                aria-hidden="true"
+            >
+                <span class="material-symbols-rounded">
+                    bolt
+                </span>
+            </span>
+
+            <span class="logo-text">
+
+                <strong>
+                    Electrical Engineering
+                </strong>
+
+                <small>
+                    by Prasun Barua
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <button
+            type="button"
+            id="mobile-menu-button"
+            class="mobile-menu-button"
+            aria-label="Open article navigation"
+            aria-expanded="false"
+            aria-controls="article-sidebar"
+        >
+
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                menu
+            </span>
+
+        </button>
+
+
+        <nav
+            class="main-nav"
+            aria-label="Main navigation"
+        >
+
+            <ul>
+
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="/articles/electrical-fundamentals/"
+                        class="active"
+                        aria-current="page"
+                    >
+                        Articles
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/about.html">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     17. MOBILE SIDEBAR OVERLAY
+========================================================== -->
+
+<div
+    id="sidebar-overlay"
+    class="sidebar-overlay"
+    aria-hidden="true"
+></div>
+
+
+<!-- =========================================================
+     18. MAIN ARTICLE
+========================================================== -->
+
+<main class="article-page">
+
+    <div class="container">
+
+        <div class="article-layout">
+
+
+            <!-- =================================================
+                 19. ARTICLE SIDEBAR
+            ================================================== -->
+
+            <aside
+                class="article-sidebar site-sidebar"
+                id="article-sidebar"
+                aria-label="Article navigation"
             >
 
-                <span
-                    class="logo-icon"
-                    aria-hidden="true"
+                <div class="article-sidebar-title">
+                    Electrical Engineering
+                </div>
+
+
+                <nav aria-label="Article sections">
+
+                    <a
+                        href="/articles/electrical-fundamentals/"
+                        class="back-link"
+                    >
+                        ← All Electrical Fundamentals
+                    </a>
+
+                    <a href="#what-is-ohms-law">
+                        What Is Ohm's Law?
+                    </a>
+
+                    <a href="#ohms-law-formulas">
+                        Ohm's Law Formulas
+                    </a>
+
+                    <a href="#understanding-quantities">
+                        Voltage, Current &amp; Resistance
+                    </a>
+
+                    <a href="#practical-example">
+                        Practical Examples
+                    </a>
+
+                    <a href="#ohms-law-table">
+                        Calculation Table
+                    </a>
+
+                    <a href="#power-relationship">
+                        Electrical Power
+                    </a>
+
+                    <a href="#applications">
+                        Applications
+                    </a>
+
+                    <a href="#limitations">
+                        Limitations
+                    </a>
+
+                    <a href="#faq">
+                        FAQ
+                    </a>
+
+                    <a href="#summary">
+                        Summary
+                    </a>
+
+                </nav>
+
+            </aside>
+
+
+            <!-- =================================================
+                 20. ARTICLE
+            ================================================== -->
+
+            <article
+                class="article-main"
+                itemscope
+                itemtype="https://schema.org/Article"
+            >
+
+
+                <!-- BREADCRUMBS -->
+
+                <nav
+                    class="breadcrumbs"
+                    aria-label="Breadcrumb"
                 >
-                    <span class="material-symbols-rounded">
-                        bolt
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <span aria-hidden="true">
+                        /
                     </span>
-                </span>
 
-                <span class="logo-text">
+                    <a href="/articles/electrical-fundamentals/">
+                        Electrical Fundamentals
+                    </a>
 
-                    <strong>
-                        Electrical Engineering
-                    </strong>
+                    <span aria-hidden="true">
+                        /
+                    </span>
 
-                    <small>
-                        by Prasun Barua
-                    </small>
+                    <span aria-current="page">
+                        Ohm's Law
+                    </span>
 
-                </span>
-
-            </a>
-
-
-            <button
-                type="button"
-                id="mobile-menu-button"
-                class="mobile-menu-button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="article-sidebar"
-            >
-                <span
-                    class="material-symbols-rounded"
-                    aria-hidden="true"
-                >
-                    menu
-                </span>
-            </button>
+                </nav>
 
 
-            <nav
-                class="main-nav"
-                aria-label="Main navigation"
-            >
+                <!-- ARTICLE HEADER -->
 
-                <ul>
+                <header class="article-header">
 
-                    <li>
-                        <a href="/">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="/articles/electrical-fundamentals/"
-                            class="active"
-                            aria-current="page"
-                        >
-                            Articles
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/about.html">
-                            About
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         SIDEBAR OVERLAY
-    ========================================================== -->
-
-    <div
-        id="sidebar-overlay"
-        class="sidebar-overlay"
-        aria-hidden="true"
-    ></div>
-
-
-    <!-- =========================================================
-         MAIN CONTENT
-    ========================================================== -->
-
-    <main class="article-page">
-
-        <div class="container">
-
-            <div class="article-layout">
-
-
-                <!-- =================================================
-                     SIDEBAR
-                ================================================== -->
-
-                <aside
-                    class="article-sidebar site-sidebar"
-                    id="article-sidebar"
-                    aria-label="Article navigation"
-                >
-
-                    <div class="article-sidebar-title">
-                        Electrical Engineering
+                    <div class="article-category-label">
+                        Electrical Fundamentals
                     </div>
 
 
-                    <nav>
+                    <h1
+                        class="article-title"
+                        itemprop="headline"
+                    >
+                        What Is Ohm's Law?
+                        Formula, Examples &amp; Practical Guide
+                    </h1>
 
-                        <a
-                            href="/articles/electrical-fundamentals/"
-                            class="back-link"
+
+                    <p
+                        class="article-intro"
+                        itemprop="description"
+                    >
+                        Ohm's Law describes the relationship between
+                        voltage, current, and resistance in an electrical
+                        circuit. Learn the formulas, practical applications,
+                        worked examples, limitations, and use the
+                        interactive calculator below.
+                    </p>
+
+
+                    <div class="article-meta">
+
+                        <span>
+                            By
+                            <a
+                                href="/about.html"
+                                itemprop="author"
+                            >
+                                Prasun Barua
+                            </a>
+                        </span>
+
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
                         >
-                            ← All Electrical Fundamentals
-                        </a>
+                            •
+                        </span>
 
-                        <a
-                            href="#what-is-ohms-law"
+                        <time
+                            datetime="2026-08-12"
+                            itemprop="datePublished"
                         >
-                            What Is Ohm's Law?
-                        </a>
+                            Published August 12, 2026
+                        </time>
 
-                        <a
-                            href="#ohms-law-formulas"
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
                         >
-                            Ohm's Law Formulas
-                        </a>
+                            •
+                        </span>
 
-                        <a
-                            href="#understanding-quantities"
+                        <time
+                            datetime="2026-08-26"
+                            itemprop="dateModified"
                         >
-                            Voltage, Current &amp; Resistance
-                        </a>
+                            Updated August 26, 2026
+                        </time>
 
-                        <a
-                            href="#practical-example"
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
                         >
-                            Practical Example
-                        </a>
+                            •
+                        </span>
 
-                        <a
-                            href="#ohms-law-table"
-                        >
-                            Calculation Table
-                        </a>
+                        <span>
+                            7 min read
+                        </span>
 
-                        <a
-                            href="#power-relationship"
-                        >
-                            Electrical Power
-                        </a>
+                    </div>
 
-                        <a
-                            href="#applications"
-                        >
-                            Applications
-                        </a>
-
-                        <a
-                            href="#limitations"
-                        >
-                            Limitations
-                        </a>
-
-                        <a
-                            href="#faq"
-                        >
-                            FAQ
-                        </a>
-
-                    </nav>
-
-                </aside>
+                </header>
 
 
-                <!-- =================================================
-                     ARTICLE
-                ================================================== -->
+                <!-- FEATURE IMAGE -->
 
-                <article class="article-main">
+                <figure class="article-feature-image">
 
-                    <!-- BREADCRUMBS -->
-
-                    <nav
-                        class="breadcrumbs"
-                        aria-label="Breadcrumb"
+                    <img
+                        src="/assets/images/ohms-law-power-triangle.jpeg"
+                        alt="Ohm's Law diagram showing voltage, current, resistance and electrical power relationships"
+                        width="1200"
+                        height="675"
+                        fetchpriority="high"
+                        decoding="async"
+                        loading="eager"
+                        itemprop="image"
                     >
 
-                        <a href="/">
-                            Home
-                        </a>
+                    <figcaption class="image-caption">
+                        Ohm's Law relates voltage, current and resistance,
+                        while also connecting with electrical power.
+                    </figcaption>
 
-                        <span aria-hidden="true">
-                            /
-                        </span>
+                </figure>
 
-                        <a href="/articles/electrical-fundamentals/">
-                            Electrical Fundamentals
-                        </a>
 
-                        <span aria-hidden="true">
-                            /
-                        </span>
+                <!-- ARTICLE CONTENT -->
 
-                        <span aria-current="page">
-                            Ohm's Law
-                        </span>
+                <div
+                    class="article-content"
+                    itemprop="articleBody"
+                >
+
+
+                    <p>
+                        <strong>Ohm's Law</strong> is one of the most
+                        fundamental relationships in electrical engineering.
+                        It connects three important electrical quantities:
+                        voltage, current, and resistance.
+                    </p>
+
+
+                    <p>
+                        Engineers, technicians and students use Ohm's Law
+                        for circuit analysis, electrical calculations,
+                        troubleshooting, component selection and basic
+                        system design.
+                    </p>
+
+
+                    <!-- QUICK ANSWER -->
+
+                    <aside
+                        class="article-note"
+                        aria-label="Quick answer"
+                    >
+
+                        <strong>Quick answer:</strong>
+                        Ohm's Law is expressed as
+                        <strong>V = I × R</strong>.
+                        Voltage equals current multiplied by resistance.
+
+                    </aside>
+
+
+                    <!-- TABLE OF CONTENTS -->
+
+                    <nav
+                        class="article-toc"
+                        aria-labelledby="toc-title"
+                    >
+
+                        <h2 id="toc-title">
+                            In This Article
+                        </h2>
+
+                        <ol>
+
+                            <li>
+                                <a href="#what-is-ohms-law">
+                                    What Is Ohm's Law?
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#ohms-law-formulas">
+                                    Ohm's Law Formulas
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#understanding-quantities">
+                                    Voltage, Current and Resistance
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#practical-example">
+                                    Practical Examples
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#ohms-law-table">
+                                    Calculation Table
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#power-relationship">
+                                    Ohm's Law and Electrical Power
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#applications">
+                                    Applications
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#limitations">
+                                    Limitations
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#faq">
+                                    Frequently Asked Questions
+                                </a>
+                            </li>
+
+                        </ol>
 
                     </nav>
 
 
-                    <!-- ARTICLE HEADER -->
+                    <!-- =================================================
+                         WHAT IS OHM'S LAW
+                    ================================================== -->
 
-                    <header class="article-header">
+                    <h2 id="what-is-ohms-law">
+                        What Is Ohm's Law?
+                    </h2>
 
-                        <div class="article-category-label">
-                            Electrical Fundamentals
+
+                    <p>
+                        Ohm's Law states that the current flowing through
+                        an approximately ohmic conductor is proportional to
+                        the voltage applied across it when relevant physical
+                        conditions remain sufficiently constant.
+                    </p>
+
+
+                    <p>
+                        The basic equation is:
+                    </p>
+
+
+                    <div
+                        class="formula-box"
+                        role="img"
+                        aria-label="Ohm's Law formula V equals I times R"
+                    >
+
+                        <div class="formula">
+                            V = I × R
                         </div>
 
-
-                        <h1 class="article-title">
-                            What Is Ohm's Law?
-                            Formula, Examples &amp; Practical Guide
-                        </h1>
-
-
-                        <p class="article-intro">
-                            Ohm's Law describes the relationship between
-                            voltage, current, and resistance in an electrical
-                            circuit. Learn the formulas, practical applications,
-                            worked examples, limitations, and use the
-                            interactive calculator below.
-                        </p>
-
-
-                        <div class="article-meta">
-
-                            <span>
-                                By
-                                <a href="/about.html">
-                                    Prasun Barua
-                                </a>
-                            </span>
-
-                            <span
-                                class="article-meta-separator"
-                                aria-hidden="true"
-                            >
-                                •
-                            </span>
-
-                            <time datetime="2026-08-12">
-                                Published August 12, 2026
-                            </time>
-
-                            <span
-                                class="article-meta-separator"
-                                aria-hidden="true"
-                            >
-                                •
-                            </span>
-
-                            <time datetime="2026-08-26">
-                                Updated August 26, 2026
-                            </time>
-
-                            <span
-                                class="article-meta-separator"
-                                aria-hidden="true"
-                            >
-                                •
-                            </span>
-
-                            <span>
-                                7 min read
-                            </span>
-
+                        <div class="formula-description">
+                            Voltage = Current × Resistance
                         </div>
 
-                    </header>
+                    </div>
 
 
-                    <!-- FEATURE IMAGE -->
-
-                    <figure class="article-feature-image">
-
-                        <img
-                            src="/assets/images/ohms-law-power-triangle.jpeg"
-                            alt="Ohm's Law diagram showing voltage, current, resistance and electrical power relationships"
-                            width="1200"
-                            height="675"
-                            fetchpriority="high"
-                            decoding="async"
-                        >
-
-                        <figcaption class="image-caption">
-                            Ohm's Law relates voltage, current and resistance,
-                            while also connecting with electrical power.
-                        </figcaption>
-
-                    </figure>
+                    <p>
+                        The three quantities are:
+                    </p>
 
 
-                    <!-- ARTICLE CONTENT -->
+                    <ul>
 
-                    <div class="article-content">
+                        <li>
+                            <strong>V</strong> = Voltage, measured in volts (V)
+                        </li>
 
+                        <li>
+                            <strong>I</strong> = Current, measured in amperes (A)
+                        </li>
 
-                        <p>
-                            <strong>Ohm's Law</strong> is one of the most
-                            fundamental relationships in electrical engineering.
-                            It connects three important electrical quantities:
-                            voltage, current, and resistance.
-                        </p>
+                        <li>
+                            <strong>R</strong> = Resistance, measured in ohms (Ω)
+                        </li>
 
-
-                        <p>
-                            Engineers, technicians and students use Ohm's Law
-                            for circuit analysis, electrical calculations,
-                            troubleshooting, component selection and basic
-                            system design.
-                        </p>
+                    </ul>
 
 
-                        <!-- QUICK ANSWER -->
+                    <!-- =================================================
+                         INTERACTIVE CALCULATOR
+                    ================================================== -->
 
-                        <aside
-                            class="article-note"
-                            aria-label="Quick answer"
-                        >
+                    <section
+                        class="ohms-law-visual"
+                        aria-labelledby="ohms-visual-title"
+                    >
 
-                            <strong>Quick answer:</strong>
-                            Ohm's Law is expressed as
-                            <strong>V = I × R</strong>.
-                            Voltage equals current multiplied by resistance.
-                        </aside>
+                        <div class="ohms-visual-header">
 
-
-                        <!-- TABLE OF CONTENTS -->
-
-                        <nav
-                            class="article-toc"
-                            aria-labelledby="toc-title"
-                        >
-
-                            <h2 id="toc-title">
-                                In This Article
-                            </h2>
-
-                            <ol>
-
-                                <li>
-                                    <a href="#what-is-ohms-law">
-                                        What Is Ohm's Law?
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#ohms-law-formulas">
-                                        Ohm's Law Formulas
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#understanding-quantities">
-                                        Voltage, Current and Resistance
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#practical-example">
-                                        Practical Examples
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#ohms-law-table">
-                                        Calculation Table
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#power-relationship">
-                                        Ohm's Law and Electrical Power
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#applications">
-                                        Applications
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#limitations">
-                                        Limitations
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#faq">
-                                        Frequently Asked Questions
-                                    </a>
-                                </li>
-
-                            </ol>
-
-                        </nav>
-
-
-                        <!-- =================================================
-                             WHAT IS OHM'S LAW
-                        ================================================== -->
-
-                        <h2 id="what-is-ohms-law">
-                            What Is Ohm's Law?
-                        </h2>
-
-
-                        <p>
-                            Ohm's Law states that the current flowing through
-                            an approximately ohmic conductor is proportional to
-                            the voltage applied across it when relevant physical
-                            conditions remain sufficiently constant.
-                        </p>
-
-
-                        <p>
-                            The basic equation is:
-                        </p>
-
-
-                        <div
-                            class="formula-box"
-                            role="img"
-                            aria-label="Ohm's Law formula V equals I times R"
-                        >
-
-                            <div class="formula">
-                                V = I × R
+                            <div class="ohms-visual-label">
+                                INTERACTIVE LEARNING
                             </div>
 
-                            <div class="formula-description">
-                                Voltage = Current × Resistance
-                            </div>
+                            <h3 id="ohms-visual-title">
+                                Ohm's Law Calculator
+                            </h3>
+
+                            <p>
+                                Enter the two known values and calculate
+                                the third quantity.
+                            </p>
 
                         </div>
 
 
-                        <p>
-                            The three quantities are:
-                        </p>
+                        <div class="ohms-calculator">
 
+                            <!-- FORMULA -->
 
-                        <ul>
+                            <div
+                                class="ohms-equation"
+                                aria-label="Ohm's Law equation"
+                            >
 
-                            <li>
-                                <strong>V</strong> = Voltage, measured in volts (V)
-                            </li>
+                                <div class="ohms-equation-item">
 
-                            <li>
-                                <strong>I</strong> = Current, measured in amperes (A)
-                            </li>
+                                    <span
+                                        id="ohms-v-display"
+                                        class="ohms-equation-value"
+                                    >
+                                        12.00 V
+                                    </span>
 
-                            <li>
-                                <strong>R</strong> = Resistance, measured in ohms (Ω)
-                            </li>
+                                    <span class="ohms-equation-label">
+                                        Voltage
+                                    </span>
 
-                        </ul>
-
-
-                        <!-- =================================================
-                             INTERACTIVE CALCULATOR
-                        ================================================== -->
-
-                        <section
-                            class="ohms-law-visual"
-                            aria-labelledby="ohms-visual-title"
-                        >
-
-                            <div class="ohms-visual-header">
-
-                                <div class="ohms-visual-label">
-                                    INTERACTIVE LEARNING
                                 </div>
 
-                                <h3 id="ohms-visual-title">
-                                    Ohm's Law Calculator
-                                </h3>
 
-                                <p>
-                                    Enter any two known values and calculate
-                                    the third quantity.
-                                </p>
+                                <span
+                                    class="ohms-equation-symbol"
+                                    aria-hidden="true"
+                                >
+                                    =
+                                </span>
+
+
+                                <div class="ohms-equation-item">
+
+                                    <span
+                                        id="ohms-i-display"
+                                        class="ohms-equation-value"
+                                    >
+                                        2.00 A
+                                    </span>
+
+                                    <span class="ohms-equation-label">
+                                        Current
+                                    </span>
+
+                                </div>
+
+
+                                <span
+                                    class="ohms-equation-symbol"
+                                    aria-hidden="true"
+                                >
+                                    ×
+                                </span>
+
+
+                                <div class="ohms-equation-item">
+
+                                    <span
+                                        id="ohms-r-display"
+                                        class="ohms-equation-value"
+                                    >
+                                        6.00 Ω
+                                    </span>
+
+                                    <span class="ohms-equation-label">
+                                        Resistance
+                                    </span>
+
+                                </div>
 
                             </div>
 
 
-                            <div class="ohms-calculator">
+                            <!-- CALCULATION MODE -->
 
-                                <!-- FORMULA -->
+                            <div class="ohms-calculation-mode">
 
-                                <div
-                                    class="ohms-equation"
-                                    aria-label="Ohm's Law equation"
+                                <label for="ohms-calculate">
+                                    Calculate:
+                                </label>
+
+                                <select
+                                    id="ohms-calculate"
+                                    name="calculate"
+                                    aria-label="Select quantity to calculate"
                                 >
 
-                                    <div class="ohms-equation-item">
+                                    <option value="current" selected>
+                                        Current (I)
+                                    </option>
 
-                                        <span
-                                            id="ohms-v-display"
-                                            class="ohms-equation-value"
-                                        >
-                                            12.00 V
+                                    <option value="voltage">
+                                        Voltage (V)
+                                    </option>
+
+                                    <option value="resistance">
+                                        Resistance (R)
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- INPUT GRID -->
+
+                            <div class="ohms-input-grid">
+
+
+                                <!-- VOLTAGE -->
+
+                                <div class="ohms-input-card">
+
+                                    <label for="ohms-voltage">
+
+                                        <span class="ohms-input-symbol">
+                                            V
                                         </span>
 
-                                        <span class="ohms-equation-label">
+                                        <span>
                                             Voltage
                                         </span>
 
+                                    </label>
+
+
+                                    <div class="ohms-input-wrapper">
+
+                                        <input
+                                            type="number"
+                                            id="ohms-voltage"
+                                            name="voltage"
+                                            value="12"
+                                            min="0"
+                                            step="0.01"
+                                            inputmode="decimal"
+                                            autocomplete="off"
+                                            aria-describedby="ohms-voltage-help"
+                                        >
+
+                                        <span class="ohms-input-unit">
+                                            V
+                                        </span>
+
                                     </div>
 
 
-                                    <span
-                                        class="ohms-equation-symbol"
-                                        aria-hidden="true"
-                                    >
-                                        =
-                                    </span>
+                                    <small id="ohms-voltage-help">
+                                        Electrical potential difference
+                                    </small>
+
+                                </div>
 
 
-                                    <div class="ohms-equation-item">
+                                <!-- CURRENT -->
 
-                                        <span
-                                            id="ohms-i-display"
-                                            class="ohms-equation-value"
-                                        >
-                                            2.00 A
+                                <div class="ohms-input-card">
+
+                                    <label for="ohms-current">
+
+                                        <span class="ohms-input-symbol">
+                                            I
                                         </span>
 
-                                        <span class="ohms-equation-label">
+                                        <span>
                                             Current
                                         </span>
 
-                                    </div>
-
-
-                                    <span
-                                        class="ohms-equation-symbol"
-                                        aria-hidden="true"
-                                    >
-                                        ×
-                                    </span>
-
-
-                                    <div class="ohms-equation-item">
-
-                                        <span
-                                            id="ohms-r-display"
-                                            class="ohms-equation-value"
-                                        >
-                                            6.00 Ω
-                                        </span>
-
-                                        <span class="ohms-equation-label">
-                                            Resistance
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <!-- CALCULATION MODE -->
-
-                                <div class="ohms-calculation-mode">
-
-                                    <label for="ohms-calculate">
-                                        Calculate:
                                     </label>
 
-                                    <select
-                                        id="ohms-calculate"
-                                        name="calculate"
-                                    >
 
-                                        <option value="current" selected>
-                                            Current (I)
-                                        </option>
+                                    <div class="ohms-input-wrapper">
 
-                                        <option value="voltage">
-                                            Voltage (V)
-                                        </option>
+                                        <input
+                                            type="number"
+                                            id="ohms-current"
+                                            name="current"
+                                            value="2"
+                                            min="0"
+                                            step="0.01"
+                                            inputmode="decimal"
+                                            autocomplete="off"
+                                            aria-describedby="ohms-current-help"
+                                        >
 
-                                        <option value="resistance">
-                                            Resistance (R)
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-
-                                <!-- INPUTS -->
-
-                                <div class="ohms-input-grid">
-
-
-                                    <!-- VOLTAGE -->
-
-                                    <div class="ohms-input-card">
-
-                                        <label for="ohms-voltage">
-
-                                            <span class="ohms-input-symbol">
-                                                V
-                                            </span>
-
-                                            <span>
-                                                Voltage
-                                            </span>
-
-                                        </label>
-
-                                        <div class="ohms-input-wrapper">
-
-                                            <input
-                                                type="number"
-                                                id="ohms-voltage"
-                                                name="voltage"
-                                                value="12"
-                                                min="0"
-                                                step="0.01"
-                                                inputmode="decimal"
-                                            >
-
-                                            <span class="ohms-input-unit">
-                                                V
-                                            </span>
-
-                                        </div>
-
-                                        <small>
-                                            Electrical potential difference
-                                        </small>
-
-                                    </div>
-
-
-                                    <!-- CURRENT -->
-
-                                    <div class="ohms-input-card">
-
-                                        <label for="ohms-current">
-
-                                            <span class="ohms-input-symbol">
-                                                I
-                                            </span>
-
-                                            <span>
-                                                Current
-                                            </span>
-
-                                        </label>
-
-                                        <div class="ohms-input-wrapper">
-
-                                            <input
-                                                type="number"
-                                                id="ohms-current"
-                                                name="current"
-                                                value="2"
-                                                min="0"
-                                                step="0.01"
-                                                inputmode="decimal"
-                                            >
-
-                                            <span class="ohms-input-unit">
-                                                A
-                                            </span>
-
-                                        </div>
-
-                                        <small>
-                                            Flow of electric charge
-                                        </small>
-
-                                    </div>
-
-
-                                    <!-- RESISTANCE -->
-
-                                    <div class="ohms-input-card">
-
-                                        <label for="ohms-resistance">
-
-                                            <span class="ohms-input-symbol">
-                                                R
-                                            </span>
-
-                                            <span>
-                                                Resistance
-                                            </span>
-
-                                        </label>
-
-                                        <div class="ohms-input-wrapper">
-
-                                            <input
-                                                type="number"
-                                                id="ohms-resistance"
-                                                name="resistance"
-                                                value="6"
-                                                min="0.01"
-                                                step="0.01"
-                                                inputmode="decimal"
-                                            >
-
-                                            <span class="ohms-input-unit">
-                                                Ω
-                                            </span>
-
-                                        </div>
-
-                                        <small>
-                                            Opposition to current flow
-                                        </small>
-
-                                    </div>
-
-                                </div>
-
-
-                                <!-- RESULT -->
-
-                                <div
-                                    class="ohms-result-box"
-                                    aria-live="polite"
-                                >
-
-                                    <div class="ohms-result-label">
-                                        Calculated Result
-                                    </div>
-
-                                    <div class="ohms-result-value">
-
-                                        <span id="ohms-result">
-                                            2.00
-                                        </span>
-
-                                        <span id="ohms-result-unit">
+                                        <span class="ohms-input-unit">
                                             A
                                         </span>
 
                                     </div>
 
-                                    <p id="ohms-result-formula">
-                                        I = V ÷ R
-                                    </p>
+
+                                    <small id="ohms-current-help">
+                                        Flow of electric charge
+                                    </small>
 
                                 </div>
 
 
-                                <!-- ERROR -->
+                                <!-- RESISTANCE -->
 
-                                <div
-                                    id="ohms-error"
-                                    class="ohms-error"
-                                    role="alert"
-                                    hidden
-                                ></div>
+                                <div class="ohms-input-card">
 
+                                    <label for="ohms-resistance">
 
-                                <!-- ACTIONS -->
+                                        <span class="ohms-input-symbol">
+                                            R
+                                        </span>
 
-                                <div class="ohms-calculator-actions">
-
-                                    <button
-                                        type="button"
-                                        id="ohms-reset"
-                                        class="ohms-reset-button"
-                                    >
-                                        Reset to Example
-                                    </button>
-
-                                </div>
-
-
-                                <!-- EXAMPLE -->
-
-                                <div class="ohms-learning-example">
-
-                                    <div class="ohms-learning-example-label">
-                                        Example
-                                    </div>
-
-                                    <div
-                                        class="ohms-learning-example-equation"
-                                        id="ohms-example-equation"
-                                    >
-                                        I = 12 V ÷ 6 Ω = 2 A
-                                    </div>
-
-                                    <p id="ohms-example-text">
-                                        If the voltage is 12 V and the
-                                        resistance is 6 Ω, the resulting
-                                        current is 2 A.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </section>
-
-
-                        <!-- =================================================
-                             FORMULAS
-                        ================================================== -->
-
-                        <h2 id="ohms-law-formulas">
-                            Ohm's Law Formulas
-                        </h2>
-
-
-                        <p>
-                            Rearranging the basic equation allows you to
-                            calculate any one of the three quantities when
-                            the other two are known.
-                        </p>
-
-
-                        <div class="formula-box">
-
-                            <div class="formula">
-                                V = I × R
-                            </div>
-
-                            <div class="formula-description">
-                                Calculate voltage
-                            </div>
-
-                        </div>
-
-
-                        <div class="formula-box">
-
-                            <div class="formula">
-                                I = V ÷ R
-                            </div>
-
-                            <div class="formula-description">
-                                Calculate current
-                            </div>
-
-                        </div>
-
-
-                        <div class="formula-box">
-
-                            <div class="formula">
-                                R = V ÷ I
-                            </div>
-
-                            <div class="formula-description">
-                                Calculate resistance
-                            </div>
-
-                        </div>
-
-
-                        <!-- =================================================
-                             QUANTITIES
-                        ================================================== -->
-
-                        <h2 id="understanding-quantities">
-                            Understanding Voltage, Current and Resistance
-                        </h2>
-
-
-                        <h3 id="voltage">
-                            Voltage
-                        </h3>
-
-
-                        <p>
-                            Voltage is the electrical potential difference
-                            between two points. It provides the potential that
-                            drives charge through a circuit.
-                        </p>
-
-
-                        <p>
-                            Voltage is measured in
-                            <strong>volts (V)</strong>.
-                        </p>
-
-
-                        <h3 id="current">
-                            Current
-                        </h3>
-
-
-                        <p>
-                            Electric current is the rate at which electric
-                            charge flows through a conductor.
-                        </p>
-
-
-                        <p>
-                            Current is measured in
-                            <strong>amperes (A)</strong>.
-                        </p>
-
-
-                        <h3 id="resistance">
-                            Resistance
-                        </h3>
-
-
-                        <p>
-                            Electrical resistance describes the opposition
-                            to current flow through a material or component.
-                        </p>
-
-
-                        <p>
-                            Resistance is measured in
-                            <strong>ohms (Ω)</strong>.
-                        </p>
-
-
-                        <!-- =================================================
-                             PRACTICAL EXAMPLE
-                        ================================================== -->
-
-                        <h2 id="practical-example">
-                            Practical Examples of Ohm's Law
-                        </h2>
-
-
-                        <h3>
-                            Example 1: Calculate Current
-                        </h3>
-
-
-                        <p>
-                            Suppose a 12 V DC power supply is connected to
-                            a 6 Ω resistor. What current flows through the
-                            resistor?
-                        </p>
-
-
-                        <div class="example-box">
-
-                            <h3>
-                                Given
-                            </h3>
-
-                            <ul>
-
-                                <li>
-                                    Voltage = 12 V
-                                </li>
-
-                                <li>
-                                    Resistance = 6 Ω
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-
-                        <p>
-                            Use:
-                        </p>
-
-
-                        <div class="calculation">
-
-                            I = V ÷ R
-                            <br>
-                            I = 12 ÷ 6
-                            <br>
-                            I = 2 A
-
-                        </div>
-
-
-                        <p>
-                            Therefore, the current is
-                            <strong>2 A</strong>.
-                        </p>
-
-
-                        <h3 id="second-example">
-                            Example 2: Calculate Resistance
-                        </h3>
-
-
-                        <p>
-                            Consider a circuit supplied by 24 V with a
-                            current of 3 A. What is the resistance?
-                        </p>
-
-
-                        <div class="calculation">
-
-                            R = V ÷ I
-                            <br>
-                            R = 24 ÷ 3
-                            <br>
-                            R = 8 Ω
-
-                        </div>
-
-
-                        <p>
-                            Therefore, the resistance is
-                            <strong>8 Ω</strong>.
-                        </p>
-
-
-                        <h3>
-                            Example 3: Calculate Voltage
-                        </h3>
-
-
-                        <p>
-                            A circuit carries 5 A through a 10 Ω resistive
-                            load. What voltage is required?
-                        </p>
-
-
-                        <div class="calculation">
-
-                            V = I × R
-                            <br>
-                            V = 5 × 10
-                            <br>
-                            V = 50 V
-
-                        </div>
-
-
-                        <p>
-                            Therefore, the required voltage is
-                            <strong>50 V</strong>.
-                        </p>
-
-
-                        <!-- =================================================
-                             TABLE
-                        ================================================== -->
-
-                        <h2 id="ohms-law-table">
-                            Ohm's Law Calculation Table
-                        </h2>
-
-
-                        <div class="article-table-wrapper">
-
-                            <table class="article-table">
-
-                                <caption>
-                                    Ohm's Law formulas for calculating voltage,
-                                    current and resistance
-                                </caption>
-
-                                <thead>
-
-                                    <tr>
-
-                                        <th scope="col">
-                                            Known Values
-                                        </th>
-
-                                        <th scope="col">
-                                            Formula
-                                        </th>
-
-                                        <th scope="col">
-                                            Quantity Calculated
-                                        </th>
-
-                                    </tr>
-
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-
-                                        <td>
-                                            Current + Resistance
-                                        </td>
-
-                                        <td>
-                                            V = I × R
-                                        </td>
-
-                                        <td>
-                                            Voltage
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>
-                                            Voltage + Resistance
-                                        </td>
-
-                                        <td>
-                                            I = V ÷ R
-                                        </td>
-
-                                        <td>
-                                            Current
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>
-                                            Voltage + Current
-                                        </td>
-
-                                        <td>
-                                            R = V ÷ I
-                                        </td>
-
-                                        <td>
+                                        <span>
                                             Resistance
-                                        </td>
+                                        </span>
 
-                                    </tr>
-
-                                </tbody>
-
-                            </table>
-
-                        </div>
+                                    </label>
 
 
-                        <!-- =================================================
-                             POWER
-                        ================================================== -->
+                                    <div class="ohms-input-wrapper">
 
-                        <h2 id="power-relationship">
-                            Ohm's Law and Electrical Power
-                        </h2>
+                                        <input
+                                            type="number"
+                                            id="ohms-resistance"
+                                            name="resistance"
+                                            value="6"
+                                            min="0.01"
+                                            step="0.01"
+                                            inputmode="decimal"
+                                            autocomplete="off"
+                                            aria-describedby="ohms-resistance-help"
+                                        >
+
+                                        <span class="ohms-input-unit">
+                                            Ω
+                                        </span>
+
+                                    </div>
 
 
-                        <p>
-                            Ohm's Law can be combined with the electrical
-                            power equation to derive several useful
-                            relationships.
-                        </p>
+                                    <small id="ohms-resistance-help">
+                                        Opposition to current flow
+                                    </small>
 
+                                </div>
 
-                        <div class="formula-box">
-
-                            <div class="formula">
-                                P = V × I
                             </div>
 
-                            <div class="formula-description">
-                                Electrical power
-                            </div>
 
-                        </div>
-
-
-                        <p>
-                            Substituting the Ohm's Law relationships gives:
-                        </p>
-
-
-                        <div class="formula-box">
-
-                            <div class="formula">
-                                P = I²R
-                            </div>
-
-                        </div>
-
-
-                        <div class="formula-box">
-
-                            <div class="formula">
-                                P = V² ÷ R
-                            </div>
-
-                        </div>
-
-
-                        <p>
-                            These relationships are commonly used in circuit
-                            calculations, resistor power calculations,
-                            equipment analysis and electrical design.
-                        </p>
-
-
-                        <!-- =================================================
-                             APPLICATIONS
-                        ================================================== -->
-
-                        <h2 id="applications">
-                            Applications of Ohm's Law
-                        </h2>
-
-
-                        <p>
-                            Ohm's Law is used throughout electrical and
-                            electronic engineering.
-                        </p>
-
-
-                        <ul>
-
-                            <li>
-                                Electrical circuit analysis
-                            </li>
-
-                            <li>
-                                Cable and conductor calculations
-                            </li>
-
-                            <li>
-                                Voltage-drop calculations
-                            </li>
-
-                            <li>
-                                Resistor selection
-                            </li>
-
-                            <li>
-                                Power calculations
-                            </li>
-
-                            <li>
-                                Electrical troubleshooting
-                            </li>
-
-                            <li>
-                                Electronic circuit analysis
-                            </li>
-
-                            <li>
-                                Basic solar PV calculations
-                            </li>
-
-                        </ul>
-
-
-                        <!-- =================================================
-                             LIMITATIONS
-                        ================================================== -->
-
-                        <h2 id="limitations">
-                            Limitations of Ohm's Law
-                        </h2>
-
-
-                        <p>
-                            Ohm's Law is extremely useful, but it does not
-                            describe every electrical device under every
-                            operating condition.
-                        </p>
-
-
-                        <p>
-                            Some components have nonlinear voltage-current
-                            characteristics. Their effective resistance can
-                            change as voltage, current, temperature or other
-                            operating conditions change.
-                        </p>
-
-
-                        <p>
-                            Examples include semiconductor devices such as
-                            diodes and many electronic components.
-                        </p>
-
-
-                        <aside
-                            class="article-note"
-                            aria-label="Engineering note"
-                        >
-
-                            <strong>Engineering note:</strong>
-                            Always consider operating conditions, temperature,
-                            manufacturer data and applicable electrical
-                            standards when performing engineering calculations
-                            for real systems.
-                        </aside>
-
-
-                        <!-- =================================================
-                             FAQ
-                        ================================================== -->
-
-                        <section
-                            id="faq"
-                            class="article-faq"
-                            aria-labelledby="faq-title"
-                        >
-
-                            <h2 id="faq-title">
-                                Frequently Asked Questions
-                            </h2>
-
-
-                            <details>
-
-                                <summary>
-                                    What is Ohm's Law?
-                                </summary>
-
-                                <p>
-                                    Ohm's Law describes the relationship between
-                                    voltage, current and resistance using
-                                    V = I × R.
-                                </p>
-
-                            </details>
-
-
-                            <details>
-
-                                <summary>
-                                    What is the formula for current?
-                                </summary>
-
-                                <p>
-                                    Current is calculated using
-                                    <strong>I = V ÷ R</strong>.
-                                    Voltage is divided by resistance.
-                                </p>
-
-                            </details>
-
-
-                            <details>
-
-                                <summary>
-                                    What is the formula for resistance?
-                                </summary>
-
-                                <p>
-                                    Resistance is calculated using
-                                    <strong>R = V ÷ I</strong>.
-                                </p>
-
-                            </details>
-
-
-                            <details>
-
-                                <summary>
-                                    Can Ohm's Law be used for every electrical device?
-                                </summary>
-
-                                <p>
-                                    No. Many devices are non-ohmic and do not
-                                    have a constant resistance over all
-                                    operating conditions.
-                                </p>
-
-                            </details>
-
-
-                            <details>
-
-                                <summary>
-                                    What are the units used in Ohm's Law?
-                                </summary>
-
-                                <p>
-                                    Voltage is measured in volts (V), current
-                                    in amperes (A), and resistance in ohms (Ω).
-                                </p>
-
-                            </details>
-
-                        </section>
-
-
-                        <!-- =================================================
-                             SUMMARY
-                        ================================================== -->
-
-                        <h2 id="summary">
-                            Summary
-                        </h2>
-
-
-                        <p>
-                            Ohm's Law provides a fundamental relationship
-                            between voltage, current and resistance.
-                        </p>
-
-
-                        <div
-                            class="formula-box"
-                            aria-label="Ohm's Law formula"
-                        >
-
-                            <div class="formula">
-                                V = I × R
-                            </div>
-
-                        </div>
-
-
-                        <p>
-                            From this equation, voltage, current or resistance
-                            can be calculated when the other two values are
-                            known.
-                        </p>
-
-
-                        <p>
-                            Understanding Ohm's Law provides a foundation for
-                            more advanced electrical topics such as power,
-                            voltage drop, circuit analysis, equipment
-                            calculations and electrical system design.
-                        </p>
-
-
-                    </div>
-
-
-                    <!-- =================================================
-                         SHARE
-                    ================================================== -->
-
-                    <div
-                        class="article-share"
-                        aria-label="Share this article"
-                    >
-
-                        <span class="article-share-label">
-                            Share this article:
-                        </span>
-
-
-                        <button
-                            type="button"
-                            class="share-button copy"
-                            data-share="copy"
-                            aria-label="Copy article link"
-                            title="Copy link"
-                        >
-
-                            <span
-                                class="material-symbols-rounded"
-                                aria-hidden="true"
-                            >
-                                link
-                            </span>
-
-                            <span>
-                                Copy link
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="share-button linkedin"
-                            data-share="linkedin"
-                            aria-label="Share on LinkedIn"
-                            title="Share on LinkedIn"
-                        >
-
-                            <span
-                                class="material-symbols-rounded"
-                                aria-hidden="true"
-                            >
-                                share
-                            </span>
-
-                            <span>
-                                LinkedIn
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="share-button x"
-                            data-share="x"
-                            aria-label="Share on X"
-                            title="Share on X"
-                        >
-
-                            <span>
-                                X
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="share-button whatsapp"
-                            data-share="whatsapp"
-                            aria-label="Share on WhatsApp"
-                            title="Share on WhatsApp"
-                        >
-
-                            <span
-                                class="material-symbols-rounded"
-                                aria-hidden="true"
-                            >
-                                chat
-                            </span>
-
-                            <span>
-                                WhatsApp
-                            </span>
-
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="share-button facebook"
-                            data-share="facebook"
-                            aria-label="Share on Facebook"
-                            title="Share on Facebook"
-                        >
-
-                            <span
-                                class="material-symbols-rounded"
-                                aria-hidden="true"
-                            >
-                                public
-                            </span>
-
-                            <span>
-                                Facebook
-                            </span>
-
-                        </button>
-
-                    </div>
-
-
-                    <!-- =================================================
-                         AUTHOR
-                    ================================================== -->
-
-                    <footer class="article-footer">
-
-                        <div class="article-author">
+                            <!-- RESULT -->
 
                             <div
-                                class="author-mini-avatar"
-                                aria-hidden="true"
+                                class="ohms-result-box"
+                                aria-live="polite"
+                                aria-atomic="true"
                             >
-                                PB
+
+                                <div class="ohms-result-label">
+                                    Calculated Result
+                                </div>
+
+
+                                <div class="ohms-result-value">
+
+                                    <span id="ohms-result">
+                                        2.00
+                                    </span>
+
+                                    <span id="ohms-result-unit">
+                                        A
+                                    </span>
+
+                                </div>
+
+
+                                <p id="ohms-result-formula">
+                                    I = V ÷ R
+                                </p>
+
                             </div>
 
 
-                            <div>
+                            <!-- ERROR -->
 
-                                <h3>
-                                    Prasun Barua
-                                </h3>
+                            <div
+                                id="ohms-error"
+                                class="ohms-error"
+                                role="alert"
+                                hidden
+                            ></div>
 
-                                <p>
-                                    Senior Electrical Engineer sharing
-                                    practical knowledge in electrical
-                                    engineering, renewable energy, solar PV,
-                                    design, testing and commissioning.
-                                </p>
 
-                                <a href="/about.html">
-                                    About the author →
-                                </a>
+                            <!-- RESET -->
+
+                            <div class="ohms-calculator-actions">
+
+                                <button
+                                    type="button"
+                                    id="ohms-reset"
+                                    class="ohms-reset-button"
+                                >
+                                    Reset to Example
+                                </button>
 
                             </div>
 
-                        </div>
 
-                    </footer>
+                            <!-- EXAMPLE -->
 
+                            <div class="ohms-learning-example">
 
-                    <!-- =================================================
-                         RELATED ARTICLES
-                    ================================================== -->
-
-                    <section
-                        class="related-section"
-                        aria-labelledby="related-title"
-                    >
-
-                        <h2 id="related-title">
-                            Related Articles
-                        </h2>
-
-
-                        <div class="related-grid">
-
-
-                            <a
-                                href="/articles/electrical-fundamentals/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Fundamentals
+                                <div class="ohms-learning-example-label">
+                                    Example
                                 </div>
 
-                                <h3>
-                                    Explore Electrical Fundamentals
-                                </h3>
-
-                                <p>
-                                    Learn the core concepts used in
-                                    electrical engineering.
-                                </p>
-
-                            </a>
-
-
-                            <a
-                                href="/articles/electrical-calculations/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Calculations
+                                <div
+                                    class="ohms-learning-example-equation"
+                                    id="ohms-example-equation"
+                                >
+                                    I = 12 V ÷ 6 Ω = 2 A
                                 </div>
 
-                                <h3>
-                                    Electrical Calculations
-                                </h3>
-
-                                <p>
-                                    Explore practical electrical calculation
-                                    methods and engineering formulas.
+                                <p id="ohms-example-text">
+                                    If the voltage is 12 V and the
+                                    resistance is 6 Ω, the resulting
+                                    current is 2 A.
                                 </p>
 
-                            </a>
-
-
-                            <a
-                                href="/articles/solar-pv/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Solar PV Engineering
-                                </div>
-
-                                <h3>
-                                    Solar PV Engineering
-                                </h3>
-
-                                <p>
-                                    Learn practical solar PV design and
-                                    electrical engineering concepts.
-                                </p>
-
-                            </a>
-
+                            </div>
 
                         </div>
 
                     </section>
 
 
-                </article>
+                    <!-- =================================================
+                         FORMULAS
+                    ================================================== -->
 
-            </div>
+                    <h2 id="ohms-law-formulas">
+                        Ohm's Law Formulas
+                    </h2>
+
+
+                    <p>
+                        Rearranging the basic equation allows you to
+                        calculate any one of the three quantities when
+                        the other two are known.
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            V = I × R
+                        </div>
+
+                        <div class="formula-description">
+                            Calculate voltage
+                        </div>
+
+                    </div>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            I = V ÷ R
+                        </div>
+
+                        <div class="formula-description">
+                            Calculate current
+                        </div>
+
+                    </div>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            R = V ÷ I
+                        </div>
+
+                        <div class="formula-description">
+                            Calculate resistance
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         QUANTITIES
+                    ================================================== -->
+
+                    <h2 id="understanding-quantities">
+                        Understanding Voltage, Current and Resistance
+                    </h2>
+
+
+                    <h3 id="voltage">
+                        Voltage
+                    </h3>
+
+
+                    <p>
+                        Voltage is the electrical potential difference
+                        between two points. It provides the potential that
+                        drives charge through a circuit.
+                    </p>
+
+
+                    <p>
+                        Voltage is measured in
+                        <strong>volts (V)</strong>.
+                    </p>
+
+
+                    <h3 id="current">
+                        Current
+                    </h3>
+
+
+                    <p>
+                        Electric current is the rate at which electric
+                        charge flows through a conductor.
+                    </p>
+
+
+                    <p>
+                        Current is measured in
+                        <strong>amperes (A)</strong>.
+                    </p>
+
+
+                    <h3 id="resistance">
+                        Resistance
+                    </h3>
+
+
+                    <p>
+                        Electrical resistance describes the opposition
+                        to current flow through a material or component.
+                    </p>
+
+
+                    <p>
+                        Resistance is measured in
+                        <strong>ohms (Ω)</strong>.
+                    </p>
+
+
+                    <!-- =================================================
+                         PRACTICAL EXAMPLES
+                    ================================================== -->
+
+                    <h2 id="practical-example">
+                        Practical Examples of Ohm's Law
+                    </h2>
+
+
+                    <h3>
+                        Example 1: Calculate Current
+                    </h3>
+
+
+                    <p>
+                        Suppose a 12 V DC power supply is connected to
+                        a 6 Ω resistor. What current flows through the
+                        resistor?
+                    </p>
+
+
+                    <div class="example-box">
+
+                        <h3>
+                            Given
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Voltage = 12 V
+                            </li>
+
+                            <li>
+                                Resistance = 6 Ω
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <p>
+                        Use:
+                    </p>
+
+
+                    <div class="calculation">
+
+                        I = V ÷ R
+                        <br>
+                        I = 12 ÷ 6
+                        <br>
+                        I = 2 A
+
+                    </div>
+
+
+                    <p>
+                        Therefore, the current is
+                        <strong>2 A</strong>.
+                    </p>
+
+
+                    <h3 id="second-example">
+                        Example 2: Calculate Resistance
+                    </h3>
+
+
+                    <p>
+                        Consider a circuit supplied by 24 V with a
+                        current of 3 A. What is the resistance?
+                    </p>
+
+
+                    <div class="calculation">
+
+                        R = V ÷ I
+                        <br>
+                        R = 24 ÷ 3
+                        <br>
+                        R = 8 Ω
+
+                    </div>
+
+
+                    <p>
+                        Therefore, the resistance is
+                        <strong>8 Ω</strong>.
+                    </p>
+
+
+                    <h3>
+                        Example 3: Calculate Voltage
+                    </h3>
+
+
+                    <p>
+                        A circuit carries 5 A through a 10 Ω resistive
+                        load. What voltage is required?
+                    </p>
+
+
+                    <div class="calculation">
+
+                        V = I × R
+                        <br>
+                        V = 5 × 10
+                        <br>
+                        V = 50 V
+
+                    </div>
+
+
+                    <p>
+                        Therefore, the required voltage is
+                        <strong>50 V</strong>.
+                    </p>
+
+
+                    <!-- =================================================
+                         CALCULATION TABLE
+                    ================================================== -->
+
+                    <h2 id="ohms-law-table">
+                        Ohm's Law Calculation Table
+                    </h2>
+
+
+                    <div class="article-table-wrapper">
+
+                        <table class="article-table">
+
+                            <caption>
+                                Ohm's Law formulas for calculating voltage,
+                                current and resistance
+                            </caption>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Known Values
+                                    </th>
+
+                                    <th scope="col">
+                                        Formula
+                                    </th>
+
+                                    <th scope="col">
+                                        Quantity Calculated
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Current + Resistance
+                                    </td>
+
+                                    <td>
+                                        V = I × R
+                                    </td>
+
+                                    <td>
+                                        Voltage
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Voltage + Resistance
+                                    </td>
+
+                                    <td>
+                                        I = V ÷ R
+                                    </td>
+
+                                    <td>
+                                        Current
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Voltage + Current
+                                    </td>
+
+                                    <td>
+                                        R = V ÷ I
+                                    </td>
+
+                                    <td>
+                                        Resistance
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         POWER
+                    ================================================== -->
+
+                    <h2 id="power-relationship">
+                        Ohm's Law and Electrical Power
+                    </h2>
+
+
+                    <p>
+                        Ohm's Law can be combined with the electrical
+                        power equation to derive several useful
+                        relationships.
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = V × I
+                        </div>
+
+                        <div class="formula-description">
+                            Electrical power
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        Substituting the Ohm's Law relationships gives:
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = I²R
+                        </div>
+
+                    </div>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = V² ÷ R
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        These relationships are commonly used in circuit
+                        calculations, resistor power calculations,
+                        equipment analysis and electrical design.
+                    </p>
+
+
+                    <!-- =================================================
+                         APPLICATIONS
+                    ================================================== -->
+
+                    <h2 id="applications">
+                        Applications of Ohm's Law
+                    </h2>
+
+
+                    <p>
+                        Ohm's Law is used throughout electrical and
+                        electronic engineering.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Electrical circuit analysis
+                        </li>
+
+                        <li>
+                            Cable and conductor calculations
+                        </li>
+
+                        <li>
+                            Voltage-drop calculations
+                        </li>
+
+                        <li>
+                            Resistor selection
+                        </li>
+
+                        <li>
+                            Power calculations
+                        </li>
+
+                        <li>
+                            Electrical troubleshooting
+                        </li>
+
+                        <li>
+                            Electronic circuit analysis
+                        </li>
+
+                        <li>
+                            Basic solar PV calculations
+                        </li>
+
+                    </ul>
+
+
+                    <!-- =================================================
+                         LIMITATIONS
+                    ================================================== -->
+
+                    <h2 id="limitations">
+                        Limitations of Ohm's Law
+                    </h2>
+
+
+                    <p>
+                        Ohm's Law is extremely useful, but it does not
+                        describe every electrical device under every
+                        operating condition.
+                    </p>
+
+
+                    <p>
+                        Some components have nonlinear voltage-current
+                        characteristics. Their effective resistance can
+                        change as voltage, current, temperature or other
+                        operating conditions change.
+                    </p>
+
+
+                    <p>
+                        Examples include semiconductor devices such as
+                        diodes and many electronic components.
+                    </p>
+
+
+                    <aside
+                        class="article-note"
+                        aria-label="Engineering note"
+                    >
+
+                        <strong>Engineering note:</strong>
+                        Always consider operating conditions, temperature,
+                        manufacturer data and applicable electrical
+                        standards when performing engineering calculations
+                        for real systems.
+
+                    </aside>
+
+
+                    <!-- =================================================
+                         FAQ
+                    ================================================== -->
+
+                    <section
+                        id="faq"
+                        class="article-faq"
+                        aria-labelledby="faq-title"
+                    >
+
+                        <h2 id="faq-title">
+                            Frequently Asked Questions
+                        </h2>
+
+
+                        <details>
+
+                            <summary>
+                                What is Ohm's Law?
+                            </summary>
+
+                            <p>
+                                Ohm's Law describes the relationship between
+                                voltage, current and resistance using
+                                V = I × R.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                What is the formula for current?
+                            </summary>
+
+                            <p>
+                                Current is calculated using
+                                <strong>I = V ÷ R</strong>.
+                                Voltage is divided by resistance.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                What is the formula for resistance?
+                            </summary>
+
+                            <p>
+                                Resistance is calculated using
+                                <strong>R = V ÷ I</strong>.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                Can Ohm's Law be used for every electrical device?
+                            </summary>
+
+                            <p>
+                                No. Many devices are non-ohmic and do not
+                                have a constant resistance over all
+                                operating conditions.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                What are the units used in Ohm's Law?
+                            </summary>
+
+                            <p>
+                                Voltage is measured in volts (V), current
+                                in amperes (A), and resistance in ohms (Ω).
+                            </p>
+
+                        </details>
+
+                    </section>
+
+
+                    <!-- =================================================
+                         SUMMARY
+                    ================================================== -->
+
+                    <h2 id="summary">
+                        Summary
+                    </h2>
+
+
+                    <p>
+                        Ohm's Law provides a fundamental relationship
+                        between voltage, current and resistance.
+                    </p>
+
+
+                    <div
+                        class="formula-box"
+                        aria-label="Ohm's Law formula"
+                    >
+
+                        <div class="formula">
+                            V = I × R
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        From this equation, voltage, current or resistance
+                        can be calculated when the other two values are
+                        known.
+                    </p>
+
+
+                    <p>
+                        Understanding Ohm's Law provides a foundation for
+                        more advanced electrical topics such as power,
+                        voltage drop, circuit analysis, equipment
+                        calculations and electrical system design.
+                    </p>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     21. SOCIAL SHARING
+                ================================================== -->
+
+                <div
+                    class="article-share"
+                    aria-label="Share this article"
+                >
+
+                    <span class="article-share-label">
+                        Share this article:
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="share-button copy"
+                        data-share="copy"
+                        aria-label="Copy article link"
+                        title="Copy link"
+                    >
+
+                        <span
+                            class="material-symbols-rounded"
+                            aria-hidden="true"
+                        >
+                            link
+                        </span>
+
+                        <span>
+                            Copy link
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="share-button linkedin"
+                        data-share="linkedin"
+                        aria-label="Share on LinkedIn"
+                        title="Share on LinkedIn"
+                    >
+
+                        <span
+                            class="material-symbols-rounded"
+                            aria-hidden="true"
+                        >
+                            share
+                        </span>
+
+                        <span>
+                            LinkedIn
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="share-button x"
+                        data-share="x"
+                        aria-label="Share on X"
+                        title="Share on X"
+                    >
+
+                        <span>
+                            X
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="share-button whatsapp"
+                        data-share="whatsapp"
+                        aria-label="Share on WhatsApp"
+                        title="Share on WhatsApp"
+                    >
+
+                        <span
+                            class="material-symbols-rounded"
+                            aria-hidden="true"
+                        >
+                            chat
+                        </span>
+
+                        <span>
+                            WhatsApp
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="share-button facebook"
+                        data-share="facebook"
+                        aria-label="Share on Facebook"
+                        title="Share on Facebook"
+                    >
+
+                        <span
+                            class="material-symbols-rounded"
+                            aria-hidden="true"
+                        >
+                            public
+                        </span>
+
+                        <span>
+                            Facebook
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     22. AUTHOR
+                ================================================== -->
+
+                <footer class="article-footer">
+
+                    <div
+                        class="article-author"
+                        itemprop="author"
+                        itemscope
+                        itemtype="https://schema.org/Person"
+                    >
+
+                        <div
+                            class="author-mini-avatar"
+                            aria-hidden="true"
+                        >
+                            PB
+                        </div>
+
+
+                        <div>
+
+                            <h3 itemprop="name">
+                                Prasun Barua
+                            </h3>
+
+                            <p>
+                                Senior Electrical Engineer sharing
+                                practical knowledge in electrical
+                                engineering, renewable energy, solar PV,
+                                design, testing and commissioning.
+                            </p>
+
+                            <a
+                                href="/about.html"
+                                itemprop="url"
+                            >
+                                About the author →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </footer>
+
+
+                <!-- =================================================
+                     23. RELATED ARTICLES
+                ================================================== -->
+
+                <section
+                    class="related-section"
+                    aria-labelledby="related-title"
+                >
+
+                    <h2 id="related-title">
+                        Related Articles
+                    </h2>
+
+
+                    <div class="related-grid">
+
+
+                        <a
+                            href="/articles/electrical-fundamentals/"
+                            class="related-card"
+                        >
+
+                            <div class="related-card-category">
+                                Electrical Fundamentals
+                            </div>
+
+                            <h3>
+                                Explore Electrical Fundamentals
+                            </h3>
+
+                            <p>
+                                Learn the core concepts used in
+                                electrical engineering.
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="/articles/electrical-calculations/"
+                            class="related-card"
+                        >
+
+                            <div class="related-card-category">
+                                Electrical Calculations
+                            </div>
+
+                            <h3>
+                                Electrical Calculations
+                            </h3>
+
+                            <p>
+                                Explore practical electrical calculation
+                                methods and engineering formulas.
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="/articles/solar-pv/"
+                            class="related-card"
+                        >
+
+                            <div class="related-card-category">
+                                Solar PV Engineering
+                            </div>
+
+                            <h3>
+                                Solar PV Engineering
+                            </h3>
+
+                            <p>
+                                Learn practical solar PV design and
+                                electrical engineering concepts.
+                            </p>
+
+                        </a>
+
+
+                    </div>
+
+                </section>
+
+
+            </article>
 
         </div>
 
-    </main>
+    </div>
+
+</main>
 
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
+<!-- =========================================================
+     24. SITE FOOTER
+========================================================== -->
 
-    <footer class="site-footer">
+<footer class="site-footer">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="footer-bottom">
+        <div class="footer-bottom">
 
-                <p>
-                    © 2026 Prasun Barua. All rights reserved.
-                </p>
-
-            </div>
+            <p>
+                © 2026 Prasun Barua. All rights reserved.
+            </p>
 
         </div>
 
-    </footer>
+    </div>
+
+</footer>
 
 
-    <!-- =========================================================
-         SHARE SCRIPT
-    ========================================================== -->
+<!-- =========================================================
+     25. SHARE SCRIPT
+========================================================== -->
 
-    <script>
+<script>
 
-        document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-            const pageURL = window.location.href;
-            const pageTitle = document.title;
-
-
-            document
-                .querySelectorAll("[data-share]")
-                .forEach(function (button) {
-
-                    button.addEventListener("click", async function () {
-
-                        const type = button.dataset.share;
+        const pageURL = window.location.href;
+        const pageTitle = document.title;
 
 
-                        if (type === "copy") {
+        document
+            .querySelectorAll("[data-share]")
+            .forEach(function (button) {
 
-                            try {
+                button.addEventListener("click", async function () {
 
-                                await navigator.clipboard.writeText(pageURL);
+                    const type = button.dataset.share;
 
-                                const label =
-                                    button.querySelector("span:last-child");
 
-                                const originalText =
-                                    label ? label.textContent : "Copy link";
+                    /* -------------------------------------------------
+                       COPY LINK
+                    ------------------------------------------------- */
 
-                                if (label) {
-                                    label.textContent = "Copied!";
-                                }
+                    if (type === "copy") {
 
-                                button.classList.add("copied");
+                        try {
 
-                                setTimeout(function () {
+                            await navigator.clipboard.writeText(pageURL);
 
-                                    if (label) {
-                                        label.textContent = originalText;
-                                    }
+                            const label =
+                                button.querySelector("span:last-child");
 
-                                    button.classList.remove("copied");
+                            const originalText =
+                                label
+                                    ? label.textContent
+                                    : "Copy link";
 
-                                }, 1500);
-
-                            } catch (error) {
-
-                                window.prompt(
-                                    "Copy this article link:",
-                                    pageURL
-                                );
-
+                            if (label) {
+                                label.textContent = "Copied!";
                             }
 
-                            return;
-                        }
+                            button.classList.add("copied");
 
 
-                        let shareURL = "";
+                            setTimeout(function () {
 
+                                if (label) {
+                                    label.textContent = originalText;
+                                }
 
-                        if (type === "facebook") {
+                                button.classList.remove("copied");
 
-                            shareURL =
-                                "https://www.facebook.com/sharer/sharer.php?u=" +
-                                encodeURIComponent(pageURL);
+                            }, 1500);
 
-                        }
+                        } catch (error) {
 
-
-                        if (type === "linkedin") {
-
-                            shareURL =
-                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                encodeURIComponent(pageURL);
-
-                        }
-
-
-                        if (type === "x") {
-
-                            shareURL =
-                                "https://twitter.com/intent/tweet?url=" +
-                                encodeURIComponent(pageURL) +
-                                "&text=" +
-                                encodeURIComponent(pageTitle);
-
-                        }
-
-
-                        if (type === "whatsapp") {
-
-                            shareURL =
-                                "https://api.whatsapp.com/send?text=" +
-                                encodeURIComponent(
-                                    pageTitle + " " + pageURL
-                                );
-
-                        }
-
-
-                        if (shareURL) {
-
-                            window.open(
-                                shareURL,
-                                "_blank",
-                                "noopener,noreferrer,width=700,height=600"
+                            window.prompt(
+                                "Copy this article link:",
+                                pageURL
                             );
 
                         }
 
-                    });
+                        return;
+                    }
+
+
+                    let shareURL = "";
+
+
+                    /* -------------------------------------------------
+                       FACEBOOK
+                    ------------------------------------------------- */
+
+                    if (type === "facebook") {
+
+                        shareURL =
+                            "https://www.facebook.com/sharer/sharer.php?u=" +
+                            encodeURIComponent(pageURL);
+
+                    }
+
+
+                    /* -------------------------------------------------
+                       LINKEDIN
+                    ------------------------------------------------- */
+
+                    if (type === "linkedin") {
+
+                        shareURL =
+                            "https://www.linkedin.com/sharing/share-offsite/?url=" +
+                            encodeURIComponent(pageURL);
+
+                    }
+
+
+                    /* -------------------------------------------------
+                       X
+                    ------------------------------------------------- */
+
+                    if (type === "x") {
+
+                        shareURL =
+                            "https://twitter.com/intent/tweet?url=" +
+                            encodeURIComponent(pageURL) +
+                            "&text=" +
+                            encodeURIComponent(pageTitle);
+
+                    }
+
+
+                    /* -------------------------------------------------
+                       WHATSAPP
+                    ------------------------------------------------- */
+
+                    if (type === "whatsapp") {
+
+                        shareURL =
+                            "https://api.whatsapp.com/send?text=" +
+                            encodeURIComponent(
+                                pageTitle + " " + pageURL
+                            );
+
+                    }
+
+
+                    /* -------------------------------------------------
+                       OPEN SHARE WINDOW
+                    ------------------------------------------------- */
+
+                    if (shareURL) {
+
+                        window.open(
+                            shareURL,
+                            "_blank",
+                            "noopener,noreferrer,width=700,height=600"
+                        );
+
+                    }
 
                 });
 
-        });
+            });
 
-    </script>
+    });
 
-
-    <!-- =========================================================
-         RELATED ARTICLES
-    ========================================================== -->
-
-    <script
-        src="/assets/js/related-articles.js"
-        defer
-    ></script>
+</script>
 
 
-    <!-- =========================================================
-         MAIN SITE JS
-    ========================================================== -->
+<!-- =========================================================
+     26. RELATED ARTICLES
+========================================================== -->
 
-    <script
-        src="/assets/js/app.js"
-        defer
-    ></script>
+<script
+    src="/assets/js/related-articles.js"
+    defer
+></script>
 
 
-    <!-- =========================================================
-         OHM'S LAW CALCULATOR
-    ========================================================== -->
+<!-- =========================================================
+     27. MAIN SITE JAVASCRIPT
+========================================================== -->
 
-    <script
-        src="/assets/js/ohms-law.js"
-        defer
-    ></script>
+<script
+    src="/assets/js/app.js"
+    defer
+></script>
+
+
+<!-- =========================================================
+     28. OHM'S LAW CALCULATOR
+========================================================== -->
+
+<script
+    src="/assets/js/ohms-law.js"
+    defer
+></script>
+```
 
 </body>
 
