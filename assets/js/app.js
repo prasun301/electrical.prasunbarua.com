@@ -19,7 +19,7 @@ const MAX_LATEST_ARTICLES = 6;
 
 
 /* =========================================================
-   LOAD LATEST ARTICLES
+   LOAD LATEST ARTICLES (FIXED)
 ========================================================= */
 
 async function loadLatestArticles() {
@@ -33,6 +33,7 @@ async function loadLatestArticles() {
     container.innerHTML = '<p class="article-empty">Loading articles...</p>';
 
     try {
+        // Use relative path or dynamic location if hosting in subfolders
         const response = await fetch(ARTICLES_URL, {
             method: "GET",
             cache: "no-store",
@@ -42,54 +43,41 @@ async function loadLatestArticles() {
         });
 
         if (!response.ok) {
-            throw new Error("HTTP " + response.status);
+            throw new Error(`HTTP ${response.status}: Failed to load ${ARTICLES_URL}`);
         }
 
         const data = await response.json();
-
-        // Support root array, data.articles, or data.posts
-        const articles = Array.isArray(data)
-            ? data
-            : Array.isArray(data.articles)
-                ? data.articles
-                : Array.isArray(data.posts)
-                    ? data.posts
-                    : [];
+        const articles = Array.isArray(data) ? data : Array.isArray(data.articles) ? data.articles : [];
 
         if (!articles.length) {
-            throw new Error("No valid articles array found in JSON.");
+            throw new Error("No articles found in articles.json");
         }
 
+        // Set 'now' to end of current day to avoid timezone cutoff bugs
         const now = new Date();
+        now.setHours(23, 59, 59, 999);
 
         const publishedArticles = articles
             .filter(function (article) {
                 if (!article || typeof article !== "object") return false;
 
-                // 1. Optional status check (only filter out if explicitly set to draft/hidden)
-                if (article.status) {
-                    const status = String(article.status).toLowerCase();
-                    if (status !== "published" && status !== "active") return false;
+                // Status check
+                if (String(article.status || "").toLowerCase() !== "published") {
+                    return false;
                 }
 
-                // 2. Fallback resolution for date property
-                const rawDate = article.datePublished || article.date || article.pubDate || article.created_at;
-                if (!rawDate) return false;
+                if (!article.datePublished || !article.url) return false;
 
-                const date = new Date(rawDate);
+                // Replace dashes with slashes or append time to parse local date consistently
+                const dateParts = article.datePublished.split("-");
+                const date = dateParts.length === 3 
+                    ? new Date(dateParts[0], dateParts[1] - 1, dateParts[2]) 
+                    : new Date(article.datePublished);
+
                 if (Number.isNaN(date.getTime())) return false;
 
-                // 3. Allow dates up to 1 day in future to prevent timezone offset filtering
-                const futureThreshold = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-                if (date > futureThreshold) return false;
-
-                // 4. Fallback resolution for URL/link property
-                const articleUrl = article.url || article.link || article.path || article.permalink;
-                if (!articleUrl) return false;
-
-                // Normalize resolved properties back onto the object for rendering
-                article.url = articleUrl;
-                article.datePublished = rawDate;
+                // Remove or keep this condition depending on if you want future-dated posts hidden
+                if (date > now) return false;
 
                 return true;
             })
@@ -98,17 +86,11 @@ async function loadLatestArticles() {
             });
 
         const latestArticles = publishedArticles.slice(0, MAX_LATEST_ARTICLES);
-
         renderLatestArticles(container, latestArticles);
 
     } catch (error) {
         console.error("Latest articles error:", error);
-
-        container.innerHTML = "";
-        const errorMessage = document.createElement("p");
-        errorMessage.className = "article-error";
-        errorMessage.textContent = "Unable to load latest articles.";
-        container.appendChild(errorMessage);
+        container.innerHTML = '<p class="article-error">Unable to load latest articles.</p>';
     }
 }
 /* =========================================================
