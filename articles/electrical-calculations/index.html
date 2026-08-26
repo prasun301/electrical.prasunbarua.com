@@ -1,219 +1,382 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <!-- =========================================================
-         BASIC SEO
-    ========================================================== -->
 
-    <meta charset="UTF-8">
+<!-- =========================================================
+     1. CORE DOCUMENT
+========================================================== -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Electrical Calculations | Formulas, Examples & Practical Guides | Electrical Engineering</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="Explore practical electrical engineering calculations, formulas, examples and engineering guides covering voltage drop, power, current, cable sizing and more."
-    >
+<meta
+    name="referrer"
+    content="strict-origin-when-cross-origin"
+>
 
-    <meta name="author" content="Prasun Barua">
+<meta
+    name="theme-color"
+    content="#0066cc"
+>
 
-    <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    >
+<meta
+    name="color-scheme"
+    content="light"
+>
 
-    <link
-        rel="canonical"
-        href="https://electrical.prasunbarua.com/articles/electrical-calculations/"
-    >
+<title>
+    Electrical Calculations | Formulas, Examples &amp; Practical Guides | Electrical Engineering
+</title>
 
+<meta
+    name="description"
+    content="Explore practical electrical engineering calculations, formulas, worked examples and design guides covering voltage drop, electrical power, current, cable sizing and more."
+>
 
-    <!-- =========================================================
-         OPEN GRAPH
-    ========================================================== -->
+<meta
+    name="author"
+    content="Prasun Barua"
+>
 
-    <meta property="og:type" content="website">
+<meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
 
-    <meta
-        property="og:url"
-        content="https://electrical.prasunbarua.com/articles/electrical-calculations/"
-    >
+<meta
+    name="googlebot"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
 
-    <meta
-        property="og:title"
-        content="Electrical Calculations | Formulas, Examples & Practical Guides"
-    >
-
-    <meta
-        property="og:description"
-        content="Practical electrical engineering calculations, formulas, examples and guides for voltage drop, power, current, cable sizing and more."
-    >
-
-    <meta
-        property="og:site_name"
-        content="Electrical Engineering by Prasun Barua"
-    >
-
-    <meta property="og:locale" content="en_US">
-
-
-    <!-- =========================================================
-         X / TWITTER
-    ========================================================== -->
-
-    <meta name="twitter:card" content="summary">
-
-    <meta
-        name="twitter:title"
-        content="Electrical Calculations | Formulas, Examples & Practical Guides"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Practical electrical engineering calculations, formulas, examples and engineering guides."
-    >
+<link
+    rel="canonical"
+    href="https://electrical.prasunbarua.com/articles/electrical-calculations/"
+>
 
 
-    <!-- =========================================================
-         FAVICON
-    ========================================================== -->
+<!-- =========================================================
+     2. PERFORMANCE / RESOURCE HINTS
+========================================================== -->
 
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
-    >
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
 
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
 
-    <!-- =========================================================
-         GOOGLE FONT
-    ========================================================== -->
+<link
+    rel="dns-prefetch"
+    href="//pagead2.googlesyndication.com"
+>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
-    >
+<link
+    rel="dns-prefetch"
+    href="//www.googletagmanager.com"
+>
 
 
-    <!-- =========================================================
-         GOOGLE ADSENSE
-    ========================================================== -->
+<!-- =========================================================
+     3. OPEN GRAPH
+========================================================== -->
 
-    <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-        crossorigin="anonymous"
-    ></script>
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:url"
+    content="https://electrical.prasunbarua.com/articles/electrical-calculations/"
+>
+
+<meta
+    property="og:title"
+    content="Electrical Calculations | Formulas, Examples &amp; Practical Guides"
+>
+
+<meta
+    property="og:description"
+    content="Practical electrical engineering calculations, formulas, worked examples and design guides for voltage drop, power, current, cable sizing and more."
+>
+
+<meta
+    property="og:site_name"
+    content="Electrical Engineering by Prasun Barua"
+>
+
+<meta
+    property="og:locale"
+    content="en_US"
+>
 
 
-    <!-- =========================================================
-         GOOGLE ANALYTICS
-    ========================================================== -->
+<!-- =========================================================
+     4. X / TWITTER
+========================================================== -->
 
-    <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
-    ></script>
+<meta
+    name="twitter:card"
+    content="summary"
+>
 
-    <script>
+<meta
+    name="twitter:title"
+    content="Electrical Calculations | Formulas, Examples &amp; Practical Guides"
+>
 
-        window.dataLayer = window.dataLayer || [];
+<meta
+    name="twitter:description"
+    content="Explore practical electrical engineering calculations, formulas, examples and engineering guides."
+>
 
-        function gtag() {
-            dataLayer.push(arguments);
+
+<!-- =========================================================
+     5. FAVICON
+========================================================== -->
+
+<link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+>
+
+<link
+    rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+>
+
+
+<!-- =========================================================
+     6. GOOGLE FONTS
+========================================================== -->
+
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+>
+
+
+<!-- =========================================================
+     7. GOOGLE ADSENSE
+========================================================== -->
+
+<script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+    crossorigin="anonymous"
+></script>
+
+
+<!-- =========================================================
+     8. GOOGLE ANALYTICS
+========================================================== -->
+
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+></script>
+
+<script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+
+    gtag("config", "G-XY335VGVGJ", {
+        anonymize_ip: true,
+        send_page_view: true
+    });
+
+</script>
+
+
+<!-- =========================================================
+     9. MAIN STYLESHEET
+========================================================== -->
+
+<link
+    rel="stylesheet"
+    href="/assets/css/style.css"
+>
+
+
+<!-- =========================================================
+     10. COLLECTION PAGE STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/#collection",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/",
+    "name": "Electrical Calculations",
+    "description": "Practical electrical engineering calculations, formulas, worked examples and engineering guides.",
+    "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://electrical.prasunbarua.com/#website"
+    },
+    "about": {
+        "@type": "Thing",
+        "name": "Electrical Calculations"
+    },
+    "author": {
+        "@type": "Person",
+        "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
+        "name": "Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/about.html",
+        "jobTitle": "Senior Electrical Engineer"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://electrical.prasunbarua.com/#organization",
+        "name": "Electrical Engineering by Prasun Barua",
+        "url": "https://electrical.prasunbarua.com/"
+    },
+    "inLanguage": "en"
+}
+</script>
+
+
+<!-- =========================================================
+     11. ITEM LIST STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/#itemlist",
+    "name": "Electrical Calculations Articles",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": 2,
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html",
+            "name": "Voltage Drop Calculation: Formula, Examples and Practical Guide"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/",
+            "name": "How to Calculate Electrical Power"
         }
-
-        gtag("js", new Date());
-
-        gtag("config", "G-XY335VGVGJ");
-
-    </script>
+    ]
+}
+</script>
 
 
-    <!-- =========================================================
-         MAIN STYLESHEET
-    ========================================================== -->
+<!-- =========================================================
+     12. WEB PAGE STRUCTURED DATA
+========================================================== -->
 
-    <link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/#webpage",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/",
+    "name": "Electrical Calculations",
+    "description": "Practical electrical engineering calculations, formulas, worked examples and engineering guides.",
+    "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://electrical.prasunbarua.com/#website"
+    },
+    "breadcrumb": {
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/#breadcrumb"
+    },
+    "inLanguage": "en",
+    "isAccessibleForFree": true
+}
+</script>
 
 
-    <!-- =========================================================
-         COLLECTION STRUCTURED DATA
-    ========================================================== -->
+<!-- =========================================================
+     13. WEBSITE STRUCTURED DATA
+========================================================== -->
 
-    <script type="application/ld+json">
-
-    {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/#collection",
-
-        "name": "Electrical Calculations",
-
-        "description": "Practical electrical engineering calculations, formulas, examples and engineering guides.",
-
-        "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/",
-
-        "author": {
-            "@type": "Person",
-            "name": "Prasun Barua",
-            "url": "https://electrical.prasunbarua.com/about.html"
-        },
-
-        "publisher": {
-            "@type": "Organization",
-            "name": "Electrical Engineering by Prasun Barua",
-            "url": "https://electrical.prasunbarua.com/"
-        },
-
-        "inLanguage": "en"
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://electrical.prasunbarua.com/#website",
+    "url": "https://electrical.prasunbarua.com/",
+    "name": "Electrical Engineering by Prasun Barua",
+    "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
+    "inLanguage": "en",
+    "publisher": {
+        "@id": "https://electrical.prasunbarua.com/#organization"
     }
+}
+</script>
 
-    </script>
+
+<!-- =========================================================
+     14. ORGANIZATION STRUCTURED DATA
+========================================================== -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://electrical.prasunbarua.com/#organization",
+    "name": "Electrical Engineering by Prasun Barua",
+    "url": "https://electrical.prasunbarua.com/"
+}
+</script>
 
 
-    <!-- =========================================================
-         BREADCRUMB STRUCTURED DATA
-    ========================================================== -->
+<!-- =========================================================
+     15. BREADCRUMB STRUCTURED DATA
+========================================================== -->
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/#breadcrumb",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://electrical.prasunbarua.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://electrical.prasunbarua.com/articles/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Electrical Calculations",
+            "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/"
+        }
+    ]
+}
+</script>
 
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-
-        "itemListElement": [
-
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://electrical.prasunbarua.com/"
-            },
-
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Electrical Calculations",
-                "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/"
-            }
-
-        ]
-    }
-
-    </script>
 
 </head>
 
@@ -221,632 +384,1141 @@
 <body>
 
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
+<!-- =========================================================
+     16. SITE HEADER
+========================================================== -->
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="container header-inner">
+    <div class="container header-inner">
 
 
-            <a
-                href="/"
-                class="logo"
-                aria-label="Electrical Engineering home"
+        <a
+            href="/"
+            class="logo"
+            aria-label="Electrical Engineering by Prasun Barua home"
+        >
+
+            <span
+                class="logo-icon"
+                aria-hidden="true"
             >
 
-                <span
-                    class="logo-icon"
-                    aria-hidden="true"
+                <span class="material-symbols-rounded">
+                    bolt
+                </span>
+
+            </span>
+
+
+            <span class="logo-text">
+
+                <strong>
+                    Electrical Engineering
+                </strong>
+
+                <small>
+                    by Prasun Barua
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <button
+            type="button"
+            id="mobile-menu-button"
+            class="mobile-menu-button"
+            aria-label="Open article navigation"
+            aria-expanded="false"
+            aria-controls="article-sidebar"
+        >
+
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                menu
+            </span>
+
+        </button>
+
+
+        <nav
+            class="main-nav"
+            aria-label="Main navigation"
+        >
+
+            <ul>
+
+                <li>
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="/articles/electrical-calculations/"
+                        class="active"
+                        aria-current="page"
+                    >
+                        Articles
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="/about.html">
+                        About
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     17. MOBILE SIDEBAR OVERLAY
+========================================================== -->
+
+<div
+    id="sidebar-overlay"
+    class="sidebar-overlay"
+    aria-hidden="true"
+></div>
+
+
+<!-- =========================================================
+     18. MAIN CONTENT
+========================================================== -->
+
+<main class="article-page">
+
+    <div class="container">
+
+        <div class="article-layout">
+
+
+            <!-- =================================================
+                 19. SIDEBAR
+            ================================================== -->
+
+            <aside
+                class="article-sidebar site-sidebar"
+                id="article-sidebar"
+                aria-label="Article categories"
+            >
+
+                <div class="article-sidebar-title">
+                    Electrical Engineering
+                </div>
+
+
+                <nav aria-label="Article categories">
+
+
+                    <a
+                        href="/articles/"
+                        class="back-link"
+                    >
+                        ← All Articles
+                    </a>
+
+
+                    <a href="/articles/electrical-fundamentals/">
+
+                        Electrical Fundamentals
+
+                    </a>
+
+
+                    <a
+                        href="/articles/electrical-calculations/"
+                        class="active"
+                        aria-current="page"
+                    >
+
+                        Electrical Calculations
+
+                    </a>
+
+
+                    <a href="/articles/power-systems/">
+
+                        Power Systems
+
+                    </a>
+
+
+                    <a href="/articles/solar-pv/">
+
+                        Solar PV Engineering
+
+                    </a>
+
+
+                    <a href="/articles/electrical-design/">
+
+                        Electrical Design
+
+                    </a>
+
+
+                    <a href="/articles/testing-commissioning/">
+
+                        Testing &amp; Commissioning
+
+                    </a>
+
+
+                </nav>
+
+
+                <div class="sidebar-divider"></div>
+
+
+                <a
+                    href="https://calculator.prasunbarua.com/"
+                    class="sidebar-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
-                    <span class="material-symbols-rounded">
-                        bolt
+
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >
+                        calculate
                     </span>
-                </span>
 
-                <span class="logo-text">
+                    Engineering Calculators
 
-                    <strong>
-                        Electrical Engineering
-                    </strong>
-
-                    <small>
-                        by Prasun Barua
-                    </small>
-
-                </span>
-
-            </a>
+                </a>
 
 
-            <button
-                type="button"
-                id="mobile-menu-button"
-                class="mobile-menu-button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="article-sidebar"
-            >
-
-                <span
-                    class="material-symbols-rounded"
-                    aria-hidden="true"
+                <a
+                    href="/about.html"
+                    class="sidebar-link"
                 >
-                    menu
-                </span>
 
-            </button>
+                    <span
+                        class="material-symbols-rounded"
+                        aria-hidden="true"
+                    >
+                        person
+                    </span>
+
+                    About the Author
+
+                </a>
+
+            </aside>
 
 
-            <nav
-                class="main-nav"
-                aria-label="Main navigation"
+            <!-- =================================================
+                 20. CATEGORY CONTENT
+            ================================================== -->
+
+            <section
+                class="article-main"
+                itemscope
+                itemtype="https://schema.org/CollectionPage"
             >
-
-                <ul>
-
-                    <li>
-                        <a href="/">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="/articles/electrical-fundamentals/"
-                            class="active"
-                        >
-                            Articles
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/about.html">
-                            About
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         SIDEBAR OVERLAY
-    ========================================================== -->
-
-    <div
-        id="sidebar-overlay"
-        class="sidebar-overlay"
-        aria-hidden="true"
-    ></div>
-
-
-    <!-- =========================================================
-         MAIN
-    ========================================================== -->
-
-    <main class="article-page">
-
-        <div class="container">
-
-            <div class="article-layout">
 
 
                 <!-- =================================================
-                     SIDEBAR
+                     BREADCRUMBS
                 ================================================== -->
 
-                <aside
-                    class="article-sidebar site-sidebar"
-                    id="article-sidebar"
-                    aria-label="Article navigation"
+                <nav
+                    class="breadcrumbs"
+                    aria-label="Breadcrumb"
                 >
 
-                    <div class="article-sidebar-title">
-                        Electrical Engineering
+                    <a href="/">
+                        Home
+                    </a>
+
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+
+                    <a href="/articles/">
+                        Articles
+                    </a>
+
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+
+                    <span aria-current="page">
+                        Electrical Calculations
+                    </span>
+
+                </nav>
+
+
+                <!-- =================================================
+                     PAGE HEADER
+                ================================================== -->
+
+                <header class="article-header">
+
+
+                    <div class="article-category-label">
+                        Electrical Calculations
                     </div>
 
 
-                    <nav>
-
-                        <a
-                            href="/"
-                            class="back-link"
-                        >
-                            ← All Articles
-                        </a>
-
-
-                        <a href="/articles/electrical-fundamentals/">
-                            Electrical Fundamentals
-                        </a>
-
-
-                        <a
-                            href="/articles/electrical-calculations/"
-                            class="active"
-                        >
-                            Electrical Calculations
-                        </a>
-
-
-                        <a href="/articles/power-systems/">
-                            Power Systems
-                        </a>
-
-
-                        <a href="/articles/solar-pv/">
-                            Solar PV Engineering
-                        </a>
-
-
-                        <a href="/articles/electrical-design/">
-                            Electrical Design
-                        </a>
-
-
-                        <a href="/articles/testing-commissioning/">
-                            Testing &amp; Commissioning
-                        </a>
-
-                    </nav>
-
-                </aside>
-
-
-                <!-- =================================================
-                     MAIN CONTENT
-                ================================================== -->
-
-                <section class="article-main">
-
-
-                    <!-- BREADCRUMBS -->
-
-                    <nav
-                        class="breadcrumbs"
-                        aria-label="Breadcrumb"
+                    <h1
+                        class="article-title"
+                        itemprop="name"
                     >
+                        Electrical Calculations
+                    </h1>
 
-                        <a href="/">
-                            Home
-                        </a>
 
-                        <span aria-hidden="true">
-                            /
-                        </span>
+                    <p
+                        class="article-intro"
+                        itemprop="description"
+                    >
+                        Practical electrical engineering calculations,
+                        formulas, worked examples and design guides
+                        covering voltage drop, power, current, cable
+                        sizing and other commonly used engineering
+                        calculations.
+                    </p>
 
-                        <a href="/articles/">
-                            Articles
-                        </a>
 
-                        <span aria-hidden="true">
-                            /
-                        </span>
+                    <div class="article-meta">
+
 
                         <span>
-                            Electrical Calculations
+                            By
+                            <a
+                                href="/about.html"
+                                itemprop="author"
+                            >
+                                Prasun Barua
+                            </a>
                         </span>
 
-                    </nav>
+
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
+                        >
+                            •
+                        </span>
 
 
-                    <!-- PAGE HEADER -->
-
-                    <header class="article-header">
-
-                        <div class="article-category-label">
-                            Electrical Calculations
-                        </div>
-
-
-                        <h1 class="article-title">
-                            Electrical Calculations
-                        </h1>
-
-
-                        <p class="article-intro">
-                            Practical electrical engineering calculations,
-                            formulas and examples covering voltage drop,
-                            current, power, resistance, cable sizing and
-                            other commonly used engineering calculations.
-                        </p>
-
-
-                        <div class="article-meta">
-
-                            <span>
-                                By Prasun Barua
-                            </span>
-
-                            <span
-                                class="article-meta-separator"
-                                aria-hidden="true"
-                            >
-                                •
-                            </span>
-
-                            <span>
-                                Electrical Engineering
-                            </span>
-
-                        </div>
-
-                    </header>
-
-
-                    <!-- =================================================
-                         INTRODUCTION
-                    ================================================== -->
-
-                    <div class="article-content">
-
-                        <p>
-                            Electrical engineering calculations are essential
-                            for designing, checking and troubleshooting
-                            electrical systems.
-                        </p>
-
-
-                        <p>
-                            This section provides practical calculation guides
-                            with formulas, worked examples and engineering
-                            explanations designed to make commonly used
-                            electrical calculations easier to understand and
-                            apply.
-                        </p>
-
-
-                        <h2 id="calculation-guides">
-                            Electrical Calculation Guides
-                        </h2>
-
-
-                        <!-- =================================================
-                             ARTICLE CARD
-                        ================================================== -->
-
-                        <div class="related-grid">
-
-
-                            <a
-                                href="/articles/electrical-calculations/voltage-drop-calculation.html"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Calculations
-                                </div>
-
-                                <h3>
-                                    Voltage Drop Calculation:
-                                    Formula, Examples and Practical Guide
-                                </h3>
-
-                                <p>
-                                    Learn how to calculate voltage drop in
-                                    electrical cables using practical formulas,
-                                    worked examples and engineering
-                                    considerations.
-                                </p>
-
-                            </a>
-
-
-                        </div>
-
-
-                        <!-- =================================================
-                             COMING TOPICS
-                        ================================================== -->
-
-                        <h2 id="future-topics">
-                            More Electrical Calculations
-                        </h2>
-
-
-                        <p>
-                            More practical electrical calculation guides will
-                            be added to this section, covering commonly used
-                            calculations in electrical design and engineering.
-                        </p>
-
-
-                        <ul>
-
-                            <li>
-                                Voltage drop calculations
-                            </li>
-
-                            <li>
-                                Electrical power calculations
-                            </li>
-
-                            <li>
-                                Current calculations
-                            </li>
-
-                            <li>
-                                Cable sizing calculations
-                            </li>
-
-                            <li>
-                                Three-phase electrical calculations
-                            </li>
-
-                            <li>
-                                Short-circuit calculations
-                            </li>
-
-                            <li>
-                                Power factor calculations
-                            </li>
-
-                            <li>
-                                Energy calculations
-                            </li>
-
-                        </ul>
-
-
-                        <!-- =================================================
-                             NOTE
-                        ================================================== -->
-
-                        <div class="article-note">
-
-                            <strong>Engineering note:</strong>
-                            Always verify calculation assumptions, equipment
-                            ratings, installation conditions, applicable
-                            electrical standards and manufacturer data before
-                            using calculated values for engineering design.
-
-                        </div>
+                        <span>
+                            Electrical Engineering
+                        </span>
 
 
                     </div>
 
 
-                    <!-- =================================================
-                         SOCIAL SHARING
-                    ================================================== -->
+                </header>
 
-                    <div class="article-share">
-                        <span class="article-share-label">Share this article:</span>
 
-                        <!-- 1. Copy Link -->
-                        <button 
-                            type="button" 
-                            class="share-button copy" 
-                            data-share="copy"
-                            aria-label="Copy article link"
-                            title="Copy Link"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                            </svg>
-                            <span>Copy link</span>
-                        </button>
+                <!-- =================================================
+                     CATEGORY CONTENT
+                ================================================== -->
 
-                        <!-- 2. LinkedIn -->
-                        <button 
-                            type="button" 
-                            class="share-button linkedin" 
-                            data-share="linkedin"
-                            aria-label="Share on LinkedIn"
-                            title="Share on LinkedIn"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                            <span>LinkedIn</span>
-                        </button>
+                <div
+                    class="article-content"
+                    itemprop="mainEntity"
+                >
 
-                        <!-- 3. X (Twitter) -->
-                        <button 
-                            type="button" 
-                            class="share-button x" 
-                            data-share="x"
-                            aria-label="Share on X"
-                            title="Share on X"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                            <span>X</span>
-                        </button>
 
-                        <!-- 4. WhatsApp -->
-                        <button 
-                            type="button" 
-                            class="share-button whatsapp" 
-                            data-share="whatsapp"
-                            aria-label="Share on WhatsApp"
-                            title="Share on WhatsApp"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                            </svg>
-                            <span>WhatsApp</span>
-                        </button>
+                    <p>
+                        Electrical engineering calculations are essential
+                        for designing, checking and troubleshooting
+                        electrical systems.
+                    </p>
 
-                        <!-- 5. Facebook -->
-                        <button 
-                            type="button" 
-                            class="share-button facebook" 
-                            data-share="facebook"
-                            aria-label="Share on Facebook"
-                            title="Share on Facebook"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                            <span>Facebook</span>
-                        </button>
 
-                    </div>
+                    <p>
+                        This section provides practical calculation guides
+                        with formulas, worked examples and engineering
+                        explanations designed to make commonly used
+                        electrical calculations easier to understand and
+                        apply.
+                    </p>
 
 
                     <!-- =================================================
-                         AUTHOR
+                         CALCULATION GUIDES
                     ================================================== -->
 
-                    <footer class="article-footer">
-
-                        <div class="article-author">
-
-                            <div
-                                class="author-mini-avatar"
-                                aria-hidden="true"
-                            >
-                                PB
-                            </div>
+                    <h2 id="calculation-guides">
+                        Electrical Calculation Guides
+                    </h2>
 
 
-                            <div>
-
-                                <h3>
-                                    Prasun Barua
-                                </h3>
-
-                                <p>
-                                    Senior Electrical Engineer sharing
-                                    practical electrical engineering,
-                                    renewable energy, solar PV, design,
-                                    testing and commissioning knowledge.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </footer>
-
-
-                    <!-- =================================================
-                         RELATED SECTIONS
-                    ================================================== -->
-
-                    <section
-                        class="related-section"
-                        aria-labelledby="related-title"
+                    <div
+                        id="calculation-articles"
+                        class="related-grid"
+                        aria-live="polite"
                     >
 
-                        <h2 id="related-title">
-                            Explore More
-                        </h2>
 
+                        <!-- Fallback card -->
 
-                        <div
-                            class="related-grid"
-                            id="related-articles"
+                        <a
+                            href="/articles/electrical-calculations/voltage-drop-calculation.html"
+                            class="related-card"
                         >
 
-                            <a
-                                href="/articles/electrical-fundamentals/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Electrical Fundamentals
-                                </div>
-
-                                <h3>
-                                    Explore Electrical Fundamentals
-                                </h3>
-
-                            </a>
+                            <div class="related-card-category">
+                                Electrical Calculations
+                            </div>
 
 
-                            <a
-                                href="/articles/power-systems/"
-                                class="related-card"
-                            >
-
-                                <div class="related-card-category">
-                                    Power Systems
-                                </div>
-
-                                <h3>
-                                    Explore Power Systems
-                                </h3>
-
-                            </a>
+                            <h3>
+                                Voltage Drop Calculation:
+                                Formula, Examples and Practical Guide
+                            </h3>
 
 
-                            <a
-                                href="/articles/solar-pv/"
-                                class="related-card"
-                            >
+                            <p>
+                                Learn how to calculate voltage drop in
+                                electrical cables using practical formulas,
+                                worked examples and engineering considerations.
+                            </p>
 
-                                <div class="related-card-category">
-                                    Solar PV Engineering
-                                </div>
+                        </a>
 
-                                <h3>
-                                    Explore Solar PV Engineering
-                                </h3>
 
-                            </a>
+                    </div>
 
-                        </div>
 
-                    </section>
+                    <!-- =================================================
+                         MORE TOPICS
+                    ================================================== -->
 
+                    <h2 id="future-topics">
+                        More Electrical Calculations
+                    </h2>
+
+
+                    <p>
+                        More practical electrical calculation guides will
+                        be added to this section, covering commonly used
+                        calculations in electrical design and engineering.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Voltage drop calculations
+                        </li>
+
+
+                        <li>
+                            Electrical power calculations
+                        </li>
+
+
+                        <li>
+                            Current calculations
+                        </li>
+
+
+                        <li>
+                            Cable sizing calculations
+                        </li>
+
+
+                        <li>
+                            Three-phase electrical calculations
+                        </li>
+
+
+                        <li>
+                            Short-circuit calculations
+                        </li>
+
+
+                        <li>
+                            Power factor calculations
+                        </li>
+
+
+                        <li>
+                            Energy calculations
+                        </li>
+
+                    </ul>
+
+
+                    <!-- =================================================
+                         ENGINEERING NOTE
+                    ================================================== -->
+
+                    <aside
+                        class="article-note"
+                        aria-label="Engineering note"
+                    >
+
+                        <strong>
+                            Engineering note:
+                        </strong>
+
+                        Always verify calculation assumptions, equipment
+                        ratings, installation conditions, applicable
+                        electrical standards and manufacturer data before
+                        using calculated values for engineering design.
+
+                    </aside>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     21. SOCIAL SHARING
+                ================================================== -->
+
+                <section
+                    class="article-share"
+                    aria-label="Share this page"
+                >
+
+                    <span class="article-share-label">
+                        Share this page:
+                    </span>
+
+
+                    <!-- COPY LINK -->
+
+                    <button
+                        type="button"
+                        class="share-button copy"
+                        data-share="copy"
+                        aria-label="Copy page link"
+                        title="Copy Link"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                            ></path>
+
+                            <path
+                                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                            ></path>
+
+                        </svg>
+
+
+                        <span>
+                            Copy link
+                        </span>
+
+                    </button>
+
+
+                    <!-- LINKEDIN -->
+
+                    <button
+                        type="button"
+                        class="share-button linkedin"
+                        data-share="linkedin"
+                        aria-label="Share on LinkedIn"
+                        title="Share on LinkedIn"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            LinkedIn
+                        </span>
+
+                    </button>
+
+
+                    <!-- X -->
+
+                    <button
+                        type="button"
+                        class="share-button x"
+                        data-share="x"
+                        aria-label="Share on X"
+                        title="Share on X"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            X
+                        </span>
+
+                    </button>
+
+
+                    <!-- WHATSAPP -->
+
+                    <button
+                        type="button"
+                        class="share-button whatsapp"
+                        data-share="whatsapp"
+                        aria-label="Share on WhatsApp"
+                        title="Share on WhatsApp"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            WhatsApp
+                        </span>
+
+                    </button>
+
+
+                    <!-- FACEBOOK -->
+
+                    <button
+                        type="button"
+                        class="share-button facebook"
+                        data-share="facebook"
+                        aria-label="Share on Facebook"
+                        title="Share on Facebook"
+                    >
+
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                            />
+
+                        </svg>
+
+
+                        <span>
+                            Facebook
+                        </span>
+
+                    </button>
 
                 </section>
 
-            </div>
+
+                <!-- =================================================
+                     22. AUTHOR
+                ================================================== -->
+
+                <footer class="article-footer">
+
+                    <div
+                        class="article-author"
+                        itemscope
+                        itemtype="https://schema.org/Person"
+                    >
+
+                        <div
+                            class="author-mini-avatar"
+                            aria-hidden="true"
+                        >
+                            PB
+                        </div>
+
+
+                        <div>
+
+                            <div class="article-author-label">
+                                Maintained by
+                            </div>
+
+
+                            <h3 itemprop="name">
+                                Prasun Barua
+                            </h3>
+
+
+                            <p>
+                                Senior Electrical Engineer sharing
+                                practical electrical engineering,
+                                renewable energy, solar PV, design,
+                                testing and commissioning knowledge.
+                            </p>
+
+
+                            <a
+                                href="/about.html"
+                                itemprop="url"
+                            >
+                                About the author →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </footer>
+
+
+                <!-- =================================================
+                     23. EXPLORE MORE
+                ================================================== -->
+
+                <section
+                    class="related-section"
+                    aria-labelledby="explore-title"
+                >
+
+                    <h2 id="explore-title">
+                        Explore More
+                    </h2>
+
+
+                    <div class="related-grid">
+
+
+                        <a
+                            href="/articles/electrical-fundamentals/"
+                            class="related-card"
+                        >
+
+                            <div class="related-card-category">
+                                Electrical Fundamentals
+                            </div>
+
+
+                            <h3>
+                                Explore Electrical Fundamentals
+                            </h3>
+
+
+                            <p>
+                                Learn the core concepts of electricity,
+                                voltage, current, resistance, power and
+                                energy.
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="/articles/power-systems/"
+                            class="related-card"
+                        >
+
+                            <div class="related-card-category">
+                                Power Systems
+                            </div>
+
+
+                            <h3>
+                                Explore Power Systems
+                            </h3>
+
+
+                            <p>
+                                Learn about transformers, distribution,
+                                protection, power factor and electrical
+                                networks.
+                            </p>
+
+                        </a>
+
+
+                        <a
+                            href="/articles/solar-pv/"
+                            class="related-card"
+                        >
+
+                            <div class="related-card-category">
+                                Solar PV
+                            </div>
+
+
+                            <h3>
+                                Explore Solar PV Engineering
+                            </h3>
+
+
+                            <p>
+                                Explore practical solar PV design,
+                                inverter, string and performance topics.
+                            </p>
+
+                        </a>
+
+
+                    </div>
+
+                </section>
+
+
+            </section>
 
         </div>
 
-    </main>
+    </div>
+
+</main>
 
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
+<!-- =========================================================
+     24. SITE FOOTER
+========================================================== -->
 
-    <footer class="site-footer">
+<footer class="site-footer">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="footer-bottom">
+        <div class="footer-bottom">
 
-                <p>
-                    © 2026 Prasun Barua. All rights reserved.
-                </p>
-
-            </div>
+            <p>
+                © 2026 Prasun Barua. All rights reserved.
+            </p>
 
         </div>
 
-    </footer>
+    </div>
+
+</footer>
 
 
-    <!-- =========================================================
-         SHARE SCRIPT
-    ========================================================== -->
+<!-- =========================================================
+     25. CATEGORY ARTICLE LOADER
+========================================================== -->
 
-    <script>
+<script>
 
-        document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    async function () {
 
-            const pageURL = window.location.href;
+        const container =
+            document.getElementById(
+                "calculation-articles"
+            );
 
-            const pageTitle = document.title;
+
+        if (!container) {
+            return;
+        }
 
 
-            document
-                .querySelectorAll("[data-share]")
-                .forEach(function (button) {
+        try {
+
+            const response =
+                await fetch(
+                    "/articles.json",
+                    {
+                        cache: "no-cache"
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load articles.json: " +
+                    response.status
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !data ||
+                !Array.isArray(data.articles)
+            ) {
+
+                throw new Error(
+                    "Invalid articles.json format."
+                );
+
+            }
+
+
+            const categoryArticles =
+                data.articles
+                    .filter(function (article) {
+
+                        return (
+                            article &&
+                            article.category ===
+                                "electrical-calculations" &&
+                            article.status ===
+                                "published" &&
+                            article.url
+                        );
+
+                    })
+                    .sort(function (a, b) {
+
+                        const dateA =
+                            new Date(
+                                a.datePublished ||
+                                0
+                            ).getTime();
+
+
+                        const dateB =
+                            new Date(
+                                b.datePublished ||
+                                0
+                            ).getTime();
+
+
+                        return (
+                            (Number.isNaN(dateB)
+                                ? 0
+                                : dateB) -
+                            (Number.isNaN(dateA)
+                                ? 0
+                                : dateA)
+                        );
+
+                    });
+
+
+            if (!categoryArticles.length) {
+
+                return;
+
+            }
+
+
+            container.innerHTML = "";
+
+
+            categoryArticles.forEach(
+                function (article) {
+
+                    const card =
+                        document.createElement("a");
+
+
+                    card.className =
+                        "related-card";
+
+
+                    card.href =
+                        normalizeArticleURL(
+                            article.url
+                        );
+
+
+                    const category =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    category.className =
+                        "related-card-category";
+
+
+                    category.textContent =
+                        article.categoryName ||
+                        "Electrical Calculations";
+
+
+                    const title =
+                        document.createElement("h3");
+
+
+                    title.textContent =
+                        article.title ||
+                        "Electrical Calculation Guide";
+
+
+                    const description =
+                        document.createElement("p");
+
+
+                    description.textContent =
+                        article.excerpt ||
+                        article.description ||
+                        "Practical electrical engineering calculation guide.";
+
+
+                    card.appendChild(
+                        category
+                    );
+
+
+                    card.appendChild(
+                        title
+                    );
+
+
+                    card.appendChild(
+                        description
+                    );
+
+
+                    container.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+        } catch (error) {
+
+            console.warn(
+                "Electrical calculation articles could not be loaded:",
+                error
+            );
+
+        }
+
+
+        function normalizeArticleURL(
+            url
+        ) {
+
+            if (!url) {
+                return "/";
+            }
+
+
+            let value =
+                String(url)
+                    .split("?")[0]
+                    .split("#")[0]
+                    .replace(/\\/g, "/");
+
+
+            if (
+                !value.startsWith("/")
+            ) {
+
+                value =
+                    "/" + value;
+
+            }
+
+
+            value =
+                value.replace(
+                    /\/+/g,
+                    "/"
+                );
+
+
+            return value;
+
+        }
+
+    }
+);
+
+</script>
+
+
+<!-- =========================================================
+     26. SHARE SCRIPT
+========================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const pageURL =
+            window.location.href;
+
+
+        const pageTitle =
+            document.title;
+
+
+        document
+            .querySelectorAll(
+                "[data-share]"
+            )
+            .forEach(
+                function (button) {
 
                     button.addEventListener(
                         "click",
@@ -856,43 +1528,64 @@
                                 button.dataset.share;
 
 
-                            /* COPY */
+                            /* COPY LINK */
 
-                            if (type === "copy") {
+                            if (
+                                type === "copy"
+                            ) {
 
                                 try {
 
-                                    await navigator.clipboard
-                                        .writeText(pageURL);
+                                    await navigator
+                                        .clipboard
+                                        .writeText(
+                                            pageURL
+                                        );
+
 
                                     const label =
-                                        button.querySelector("span");
+                                        button.querySelector(
+                                            "span:last-child"
+                                        );
+
 
                                     const originalText =
                                         label
                                             ? label.textContent
-                                            : "";
+                                            : "Copy link";
+
 
                                     if (label) {
+
                                         label.textContent =
                                             "Copied!";
+
                                     }
 
-                                    button.classList.add("copied");
+
+                                    button.classList.add(
+                                        "copied"
+                                    );
 
 
-                                    setTimeout(function () {
+                                    setTimeout(
+                                        function () {
 
-                                        if (label) {
-                                            label.textContent =
-                                                originalText;
-                                        }
+                                            if (label) {
 
-                                        button.classList.remove(
-                                            "copied"
-                                        );
+                                                label.textContent =
+                                                    originalText;
 
-                                    }, 1500);
+                                            }
+
+
+                                            button.classList.remove(
+                                                "copied"
+                                            );
+
+                                        },
+                                        1500
+                                    );
 
 
                                 } catch (error) {
@@ -904,52 +1597,73 @@
 
                                 }
 
+
                                 return;
 
                             }
 
 
-                            let shareURL = "";
+                            let shareURL =
+                                "";
 
 
                             /* FACEBOOK */
 
-                            if (type === "facebook") {
+                            if (
+                                type ===
+                                "facebook"
+                            ) {
 
                                 shareURL =
                                     "https://www.facebook.com/sharer/sharer.php?u=" +
-                                    encodeURIComponent(pageURL);
+                                    encodeURIComponent(
+                                        pageURL
+                                    );
 
                             }
 
 
                             /* LINKEDIN */
 
-                            if (type === "linkedin") {
+                            if (
+                                type ===
+                                "linkedin"
+                            ) {
 
                                 shareURL =
                                     "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                    encodeURIComponent(pageURL);
+                                    encodeURIComponent(
+                                        pageURL
+                                    );
 
                             }
 
 
                             /* X */
 
-                            if (type === "x") {
+                            if (
+                                type === "x"
+                            ) {
 
                                 shareURL =
                                     "https://twitter.com/intent/tweet?url=" +
-                                    encodeURIComponent(pageURL) +
+                                    encodeURIComponent(
+                                        pageURL
+                                    ) +
                                     "&text=" +
-                                    encodeURIComponent(pageTitle);
+                                    encodeURIComponent(
+                                        pageTitle
+                                    );
 
                             }
 
 
                             /* WHATSAPP */
 
-                            if (type === "whatsapp") {
+                            if (
+                                type ===
+                                "whatsapp"
+                            ) {
 
                                 shareURL =
                                     "https://api.whatsapp.com/send?text=" +
@@ -975,34 +1689,25 @@
                         }
                     );
 
-                });
+                }
+            );
 
-        });
+    }
+);
 
-    </script>
-
-
-    <!-- =========================================================
-         RELATED ARTICLES JS
-    ========================================================== -->
-
-    <script
-        src="/assets/js/related-articles.js"
-        defer
-    ></script>
+</script>
 
 
-    <!-- =========================================================
-         MAIN SITE JS
-    ========================================================== -->
+<!-- =========================================================
+     27. MAIN SITE JAVASCRIPT
+========================================================== -->
 
-    <script
-        src="/assets/js/app.js"
-        defer
-    ></script>
+<script
+    src="/assets/js/app.js"
+    defer
+></script>
 
 
 </body>
 
 </html>
-
