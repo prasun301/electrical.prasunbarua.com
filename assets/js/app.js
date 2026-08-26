@@ -5,6 +5,7 @@
  * Responsibilities:
  * - Load article data from /articles.json
  * - Render latest published articles
+ * - Automatically sort articles newest first
  * - Handle site search
  * - Handle mobile category sidebar
  * - Provide graceful error handling
@@ -20,7 +21,8 @@
     const CONFIG = {
         articlesUrl: "/articles.json",
         articlesPage: "/articles/",
-        latestArticleLimit: 6
+        latestArticleLimit: 6,
+        articlesTimeout: 10000
     };
 
 
@@ -37,7 +39,6 @@
 
     /* =========================================================
        HTML ESCAPING
-       Prevents article JSON text from being interpreted as HTML.
        ========================================================= */
 
     function escapeHTML(value) {
@@ -74,15 +75,37 @@
 
 
     /* =========================================================
+       DATE PARSING
+       ========================================================= */
+
+    function getPublishedDate(article) {
+        if (!article || !article.datePublished) {
+            return 0;
+        }
+
+        const date = new Date(
+            `${article.datePublished}T00:00:00`
+        );
+
+        if (Number.isNaN(date.getTime())) {
+            return 0;
+        }
+
+        return date.getTime();
+    }
+
+
+    /* =========================================================
        ARTICLE SORTING
+       Newest published article first
        ========================================================= */
 
     function sortNewestFirst(articles) {
         return [...articles].sort((a, b) => {
-            const dateA = new Date(a.datePublished || 0);
-            const dateB = new Date(b.datePublished || 0);
-
-            return dateB - dateA;
+            return (
+                getPublishedDate(b) -
+                getPublishedDate(a)
+            );
         });
     }
 
@@ -92,8 +115,13 @@
        ========================================================= */
 
     function renderArticleThumbnail(article) {
-        const icon = escapeHTML(article.icon || "article");
-        const image = article.image ? escapeHTML(article.image) : "";
+        const icon = escapeHTML(
+            article.icon || "article"
+        );
+
+        const image = article.image
+            ? escapeHTML(article.image)
+            : "";
 
         if (image) {
             return `
@@ -103,13 +131,17 @@
                         alt=""
                         loading="lazy"
                         decoding="async"
+                        onerror="this.parentElement.innerHTML='<span class=&quot;material-symbols-rounded&quot;>article</span>'"
                     >
                 </span>
             `;
         }
 
         return `
-            <span class="article-thumb" aria-hidden="true">
+            <span
+                class="article-thumb"
+                aria-hidden="true"
+            >
                 <span class="material-symbols-rounded">
                     ${icon}
                 </span>
@@ -123,35 +155,68 @@
        ========================================================= */
 
     function renderArticle(article) {
-        const title = escapeHTML(article.title);
+        const title = escapeHTML(
+            article.title || "Untitled Article"
+        );
+
         const description = escapeHTML(
-            article.excerpt || article.description || ""
+            article.excerpt ||
+            article.description ||
+            ""
         );
+
         const category = escapeHTML(
-            article.categoryName || "Electrical Engineering"
+            article.categoryName ||
+            "Electrical Engineering"
         );
+
         const readingTime = escapeHTML(
             article.readingTime || ""
         );
-        const url = escapeHTML(article.url || "#");
-        const date = formatDate(article.datePublished);
 
-        const metaItems = [
-            `<span class="article-category">${category}</span>`
-        ];
+        const url = escapeHTML(
+            article.url || "#"
+        );
+
+        const date = formatDate(
+            article.datePublished
+        );
+
+        const metaItems = [];
+
+        if (category) {
+            metaItems.push(
+                `<span class="article-category">${category}</span>`
+            );
+        }
 
         if (date) {
-            metaItems.push(`<span aria-hidden="true">·</span>`);
-            metaItems.push(`<span>${escapeHTML(date)}</span>`);
+            if (metaItems.length) {
+                metaItems.push(
+                    `<span aria-hidden="true">·</span>`
+                );
+            }
+
+            metaItems.push(
+                `<span>${escapeHTML(date)}</span>`
+            );
         }
 
         if (readingTime) {
-            metaItems.push(`<span aria-hidden="true">·</span>`);
-            metaItems.push(`<span>${readingTime}</span>`);
+            if (metaItems.length) {
+                metaItems.push(
+                    `<span aria-hidden="true">·</span>`
+                );
+            }
+
+            metaItems.push(
+                `<span>${readingTime}</span>`
+            );
         }
 
         return `
             <article class="article-item">
+
                 <div>
                     <h3>
                         <a href="${url}">
@@ -175,8 +240,65 @@
                 >
                     ${renderArticleThumbnail(article)}
                 </a>
+
             </article>
         `;
+    }
+
+
+    /* =========================================================
+       FETCH JSON WITH TIMEOUT
+       ========================================================= */
+
+    async function fetchArticlesJSON() {
+        const controller =
+            new AbortController();
+
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, CONFIG.articlesTimeout);
+
+        try {
+            const url =
+                new URL(
+                    CONFIG.articlesUrl,
+                    window.location.origin
+                ).href;
+
+            const response = await fetch(
+                url,
+                {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json"
+                    },
+                    cache: "no-cache",
+                    signal: controller.signal
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error(
+                    `articles.json returned HTTP ${response.status}`
+                );
+            }
+
+            const contentType =
+                response.headers.get("content-type") || "";
+
+            /*
+             * Do not strictly require application/json because
+             * some static hosts may return an unusual content type.
+             */
+
+            const data =
+                await response.json();
+
+            return data;
+
+        } finally {
+            clearTimeout(timeout);
+        }
     }
 
 
@@ -185,73 +307,138 @@
        ========================================================= */
 
     async function loadArticles() {
-        const articleList = $("#latest-articles");
+        const articleList =
+            $("#latest-articles");
 
         if (!articleList) {
+            console.warn(
+                "Element #latest-articles was not found."
+            );
+
             return;
         }
 
+        /*
+         * Make sure the loading message is visible
+         * while the request is running.
+         */
+
+        articleList.innerHTML = `
+            <p class="article-loading">
+                Loading articles...
+            </p>
+        `;
+
         try {
-            const response = await fetch(
-                CONFIG.articlesUrl,
-                {
-                    method: "GET",
-                    headers: {
-                        Accept: "application/json"
-                    },
-                    cache: "no-store"
-                }
-            );
+            const data =
+                await fetchArticlesJSON();
 
-            if (!response.ok) {
+            if (
+                !data ||
+                !Array.isArray(data.articles)
+            ) {
                 throw new Error(
-                    `Unable to load articles.json (${response.status})`
+                    "Invalid articles.json structure. Expected an 'articles' array."
                 );
             }
 
-            const data = await response.json();
+            /*
+             * Only published articles are displayed.
+             */
 
-            if (!data || !Array.isArray(data.articles)) {
-                throw new Error(
-                    "Invalid articles.json structure."
+            const publishedArticles =
+                data.articles.filter(article => {
+
+                    if (!article) {
+                        return false;
+                    }
+
+                    if (
+                        article.status !==
+                        "published"
+                    ) {
+                        return false;
+                    }
+
+                    if (!article.title) {
+                        return false;
+                    }
+
+                    if (!article.url) {
+                        return false;
+                    }
+
+                    return true;
+                });
+
+
+            /*
+             * Sort automatically:
+             *
+             * newest datePublished
+             * ↓
+             * oldest datePublished
+             */
+
+            const latestArticles =
+                sortNewestFirst(
+                    publishedArticles
+                ).slice(
+                    0,
+                    CONFIG.latestArticleLimit
                 );
-            }
 
-            const publishedArticles = data.articles.filter(
-                article =>
-                    article &&
-                    article.status === "published" &&
-                    article.url &&
-                    article.title
-            );
-
-            const latestArticles = sortNewestFirst(
-                publishedArticles
-            ).slice(0, CONFIG.latestArticleLimit);
 
             if (!latestArticles.length) {
+
                 articleList.innerHTML = `
                     <p class="article-empty">
                         No published articles are available yet.
                     </p>
                 `;
+
                 return;
             }
 
-            articleList.innerHTML = latestArticles
-                .map(renderArticle)
-                .join("");
+
+            /*
+             * Render latest articles.
+             */
+
+            articleList.innerHTML =
+                latestArticles
+                    .map(renderArticle)
+                    .join("");
+
+
+            console.log(
+                `Loaded ${latestArticles.length} latest articles.`
+            );
 
         } catch (error) {
+
             console.error(
                 "Article loading error:",
                 error
             );
 
+
+            let message =
+                "Articles could not be loaded at this time.";
+
+
+            if (
+                error &&
+                error.name === "AbortError"
+            ) {
+                message =
+                    "Article loading timed out. Please try again.";
+            }
+
+
             articleList.innerHTML = `
                 <p class="article-error">
-                    Articles could not be loaded at this time.
-                    Please try again later.
+                    ${escapeHTML(message)}
                 </p>
             `;
         }
@@ -263,50 +450,72 @@
        ========================================================= */
 
     function initSearch() {
-        const searchForm = $("#site-search-form");
-        const searchInput = $("#site-search");
-        const searchMessage = $("#search-message");
+        const searchForm =
+            $("#site-search-form");
 
-        if (!searchForm || !searchInput) {
+        const searchInput =
+            $("#site-search");
+
+        const searchMessage =
+            $("#search-message");
+
+
+        if (
+            !searchForm ||
+            !searchInput
+        ) {
             return;
         }
+
 
         searchForm.addEventListener(
             "submit",
             event => {
+
                 event.preventDefault();
+
 
                 const query =
                     searchInput.value.trim();
 
+
                 if (!query) {
+
                     if (searchMessage) {
                         searchMessage.textContent =
                             "Enter a topic to search.";
                     }
 
                     searchInput.focus();
+
                     return;
                 }
+
 
                 if (searchMessage) {
                     searchMessage.textContent = "";
                 }
+
 
                 const searchURL =
                     `${CONFIG.articlesPage}?q=` +
                     encodeURIComponent(query);
 
-                window.location.href = searchURL;
+
+                window.location.href =
+                    searchURL;
             }
         );
+
 
         searchInput.addEventListener(
             "input",
             () => {
+
                 if (searchMessage) {
                     searchMessage.textContent = "";
                 }
+
             }
         );
     }
@@ -317,115 +526,173 @@
        ========================================================= */
 
     function initMobileSidebar() {
-        const menuButton = $("#menu-button");
-        const sidebar = $("#category-sidebar");
-        const overlay = $(".sidebar-overlay");
 
-        if (!menuButton || !sidebar) {
+        const menuButton =
+            $("#menu-button");
+
+        const sidebar =
+            $("#category-sidebar");
+
+        const overlay =
+            $(".sidebar-overlay");
+
+
+        if (
+            !menuButton ||
+            !sidebar
+        ) {
             return;
         }
+
 
         const menuIcon =
             $(".material-symbols-rounded", menuButton);
 
+
         function openSidebar() {
-            sidebar.classList.add("active");
+
+            sidebar.classList.add(
+                "active"
+            );
+
 
             if (overlay) {
-                overlay.classList.add("active");
+                overlay.classList.add(
+                    "active"
+                );
             }
+
 
             document.body.classList.add(
                 "sidebar-open"
             );
+
 
             menuButton.setAttribute(
                 "aria-expanded",
                 "true"
             );
 
+
             menuButton.setAttribute(
                 "aria-label",
                 "Close article categories"
             );
 
+
             if (menuIcon) {
-                menuIcon.textContent = "close";
+                menuIcon.textContent =
+                    "close";
             }
         }
 
+
         function closeSidebar() {
-            sidebar.classList.remove("active");
+
+            sidebar.classList.remove(
+                "active"
+            );
+
 
             if (overlay) {
-                overlay.classList.remove("active");
+                overlay.classList.remove(
+                    "active"
+                );
             }
+
 
             document.body.classList.remove(
                 "sidebar-open"
             );
+
 
             menuButton.setAttribute(
                 "aria-expanded",
                 "false"
             );
 
+
             menuButton.setAttribute(
                 "aria-label",
                 "Open article categories"
             );
 
+
             if (menuIcon) {
-                menuIcon.textContent = "menu";
+                menuIcon.textContent =
+                    "menu";
             }
         }
 
+
         function toggleSidebar() {
-            if (sidebar.classList.contains("active")) {
+
+            if (
+                sidebar.classList.contains(
+                    "active"
+                )
+            ) {
                 closeSidebar();
             } else {
                 openSidebar();
             }
         }
 
+
         menuButton.addEventListener(
             "click",
             toggleSidebar
         );
 
+
         if (overlay) {
+
             overlay.addEventListener(
                 "click",
                 closeSidebar
             );
+
         }
+
 
         $$(".category-list a, .sidebar-link", sidebar)
             .forEach(link => {
+
                 link.addEventListener(
                     "click",
                     closeSidebar
                 );
+
             });
+
 
         document.addEventListener(
             "keydown",
             event => {
-                if (event.key === "Escape") {
+
+                if (
+                    event.key === "Escape"
+                ) {
                     closeSidebar();
                 }
+
             }
         );
+
 
         window.addEventListener(
             "resize",
             () => {
+
                 if (
                     window.innerWidth > 900 &&
-                    sidebar.classList.contains("active")
+                    sidebar.classList.contains(
+                        "active"
+                    )
                 ) {
                     closeSidebar();
                 }
+
             }
         );
     }
@@ -436,19 +703,35 @@
        ========================================================= */
 
     function init() {
+
         initSearch();
+
         initMobileSidebar();
+
         loadArticles();
+
     }
 
-    if (document.readyState === "loading") {
+
+    /* =========================================================
+       START APPLICATION
+       ========================================================= */
+
+    if (
+        document.readyState ===
+        "loading"
+    ) {
+
         document.addEventListener(
             "DOMContentLoaded",
             init,
             { once: true }
         );
+
     } else {
+
         init();
+
     }
 
 })();
