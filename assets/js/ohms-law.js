@@ -2,53 +2,51 @@
  * Ohm's Law Interactive Calculator
  * Electrical Engineering by Prasun Barua
  *
+ * Formula:
  * V = I × R
- * I = V ÷ R
- * R = V ÷ I
+ *
+ * The user can change any two values.
+ * The third value is calculated automatically.
  */
 
-(() => {
+(function () {
     "use strict";
-
-    /* =========================================================
-       WAIT FOR DOM
-       ========================================================= */
 
     function initOhmsLaw() {
 
-        /* -----------------------------------------------------
-           FIND ELEMENTS
-           ----------------------------------------------------- */
+        /* =====================================================
+           GET ELEMENTS
+        ===================================================== */
 
-        const voltageInput = document.getElementById("ohm-voltage");
-        const currentInput = document.getElementById("ohm-current");
-        const resistanceInput = document.getElementById("ohm-resistance");
+        const voltageInput = document.getElementById("ohms-voltage");
+        const currentInput = document.getElementById("ohms-current");
+        const resistanceInput = document.getElementById("ohms-resistance");
 
-        const voltageValue = document.getElementById("ohm-voltage-value");
-        const currentValue = document.getElementById("ohm-current-value");
-        const resistanceValue = document.getElementById("ohm-resistance-value");
+        const voltageDisplay = document.getElementById("ohms-v-display");
+        const currentDisplay = document.getElementById("ohms-i-display");
+        const resistanceDisplay = document.getElementById("ohms-r-display");
 
-        const voltageDisplay = document.getElementById("ohm-voltage-display");
-        const currentDisplay = document.getElementById("ohm-current-display");
-        const resistanceDisplay = document.getElementById("ohm-resistance-display");
+        const resultDisplay = document.getElementById("ohms-result");
 
-        const calculatedValue = document.getElementById("ohm-calculated-value");
-        const calculatedUnit = document.getElementById("ohm-calculated-unit");
-        const calculationText = document.getElementById("ohm-calculation-text");
-        const explanation = document.getElementById("ohm-explanation");
+        const resetButton = document.getElementById("ohms-reset");
 
 
-        /* -----------------------------------------------------
-           CHECK REQUIRED ELEMENTS
-           ----------------------------------------------------- */
+        /* =====================================================
+           CHECK ELEMENTS
+        ===================================================== */
 
         if (
             !voltageInput ||
             !currentInput ||
-            !resistanceInput
+            !resistanceInput ||
+            !voltageDisplay ||
+            !currentDisplay ||
+            !resistanceDisplay ||
+            !resultDisplay ||
+            !resetButton
         ) {
-            console.warn(
-                "Ohm's Law Interactive: Required input elements were not found."
+            console.error(
+                "Ohm's Law calculator: Required HTML elements were not found."
             );
 
             return;
@@ -56,325 +54,286 @@
 
 
         /* =====================================================
-           STATE
-           ===================================================== */
+           DEFAULT VALUES
+        ===================================================== */
 
-        let activeInput = "voltage";
+        const DEFAULTS = {
+            voltage: 12,
+            current: 2,
+            resistance: 6
+        };
 
 
         /* =====================================================
-           HELPERS
-           ===================================================== */
+           STATE
+        ===================================================== */
+
+        let lastChanged = "voltage";
+
+
+        /* =====================================================
+           NUMBER HELPERS
+        ===================================================== */
 
         function getNumber(input) {
+
             const value = parseFloat(input.value);
 
-            return Number.isFinite(value) ? value : 0;
+            return Number.isFinite(value) ? value : null;
         }
 
 
-        function formatNumber(value) {
+        function formatNumber(value, decimals = 2) {
 
             if (!Number.isFinite(value)) {
-                return "0";
+                return "—";
             }
 
-            if (Math.abs(value) >= 1000) {
-                return value.toFixed(0);
-            }
-
-            if (Math.abs(value) >= 100) {
-                return value.toFixed(1);
-            }
-
-            if (Math.abs(value) >= 10) {
-                return value.toFixed(2);
-            }
-
-            return value.toFixed(2);
-        }
-
-
-        function updateText(element, value) {
-
-            if (element) {
-                element.textContent = value;
-            }
+            return value.toFixed(decimals);
         }
 
 
         /* =====================================================
            UPDATE DISPLAY
-           ===================================================== */
+        ===================================================== */
 
-        function updateDisplays() {
+        function updateDisplays(voltage, current, resistance) {
 
-            const voltage = getNumber(voltageInput);
-            const current = getNumber(currentInput);
-            const resistance = getNumber(resistanceInput);
+            voltageDisplay.textContent =
+                `${formatNumber(voltage, 2)} V`;
 
-            updateText(
-                voltageValue,
-                formatNumber(voltage)
-            );
+            currentDisplay.textContent =
+                `${formatNumber(current, 2)} A`;
 
-            updateText(
-                currentValue,
-                formatNumber(current)
-            );
-
-            updateText(
-                resistanceValue,
-                formatNumber(resistance)
-            );
-
-            updateText(
-                voltageDisplay,
-                formatNumber(voltage)
-            );
-
-            updateText(
-                currentDisplay,
-                formatNumber(current)
-            );
-
-            updateText(
-                resistanceDisplay,
-                formatNumber(resistance)
-            );
+            resistanceDisplay.textContent =
+                `${formatNumber(resistance, 2)} Ω`;
         }
 
 
         /* =====================================================
-           CALCULATE OHM'S LAW
-           ===================================================== */
+           CALCULATE
+        ===================================================== */
 
-        function calculate() {
+        function calculate(changedField) {
 
             let voltage = getNumber(voltageInput);
             let current = getNumber(currentInput);
             let resistance = getNumber(resistanceInput);
 
-            let result = 0;
-            let unit = "";
-            let equation = "";
-            let message = "";
 
+            /* -----------------------------------------------
+               VOLTAGE CHANGED
+               Calculate current from V ÷ R
+            ------------------------------------------------ */
 
-            /* -------------------------------------------------
-               VOLTAGE IS BEING ADJUSTED
-               Calculate CURRENT
+            if (changedField === "voltage") {
 
-               I = V / R
-               ------------------------------------------------- */
-
-            if (activeInput === "voltage") {
-
-                if (resistance <= 0) {
-
-                    result = 0;
-                    unit = "A";
-
-                    equation =
-                        "Enter a resistance greater than 0 Ω.";
-
-                    message =
-                        "Increase the resistance above zero to calculate current.";
-
-                } else {
-
-                    current = voltage / resistance;
-
-                    currentInput.value = current;
-
-                    result = current;
-                    unit = "A";
-
-                    equation =
-                        `${formatNumber(voltage)} V ÷ ` +
-                        `${formatNumber(resistance)} Ω`;
-
-                    message =
-                        "Current is calculated from voltage divided by resistance.";
+                if (
+                    voltage === null ||
+                    resistance === null ||
+                    resistance <= 0
+                ) {
+                    return;
                 }
+
+                current = voltage / resistance;
+
+                currentInput.value =
+                    formatNumber(current, 2);
             }
 
 
-            /* -------------------------------------------------
-               CURRENT IS BEING ADJUSTED
-               Calculate VOLTAGE
+            /* -----------------------------------------------
+               CURRENT CHANGED
+               Calculate voltage from I × R
+            ------------------------------------------------ */
 
-               V = I × R
-               ------------------------------------------------- */
+            else if (changedField === "current") {
 
-            else if (activeInput === "current") {
+                if (
+                    current === null ||
+                    resistance === null
+                ) {
+                    return;
+                }
 
                 voltage = current * resistance;
 
-                voltageInput.value = voltage;
-
-                result = voltage;
-                unit = "V";
-
-                equation =
-                    `${formatNumber(current)} A × ` +
-                    `${formatNumber(resistance)} Ω`;
-
-                message =
-                    "Voltage is calculated by multiplying current by resistance.";
+                voltageInput.value =
+                    formatNumber(voltage, 2);
             }
 
 
-            /* -------------------------------------------------
-               RESISTANCE IS BEING ADJUSTED
-               Calculate CURRENT
+            /* -----------------------------------------------
+               RESISTANCE CHANGED
+               Calculate current from V ÷ R
+            ------------------------------------------------ */
 
-               I = V / R
-               ------------------------------------------------- */
+            else if (changedField === "resistance") {
 
-            else if (activeInput === "resistance") {
-
-                if (resistance <= 0) {
-
-                    result = 0;
-                    unit = "A";
-
-                    equation =
-                        "Enter a resistance greater than 0 Ω.";
-
-                    message =
-                        "Resistance must be greater than zero.";
-
-                } else {
-
-                    current = voltage / resistance;
-
-                    currentInput.value = current;
-
-                    result = current;
-                    unit = "A";
-
-                    equation =
-                        `${formatNumber(voltage)} V ÷ ` +
-                        `${formatNumber(resistance)} Ω`;
-
-                    message =
-                        "Current is calculated from voltage divided by resistance.";
+                if (
+                    voltage === null ||
+                    resistance === null ||
+                    resistance <= 0
+                ) {
+                    return;
                 }
+
+                current = voltage / resistance;
+
+                currentInput.value =
+                    formatNumber(current, 2);
             }
 
 
-            /* -------------------------------------------------
-               UPDATE INTERFACE
-               ------------------------------------------------- */
+            /* -----------------------------------------------
+               GET FINAL VALUES
+            ------------------------------------------------ */
 
-            updateDisplays();
+            voltage = getNumber(voltageInput);
+            current = getNumber(currentInput);
+            resistance = getNumber(resistanceInput);
 
-            updateText(
-                calculatedValue,
-                formatNumber(result)
+
+            /* -----------------------------------------------
+               UPDATE EQUATION
+            ------------------------------------------------ */
+
+            updateDisplays(
+                voltage,
+                current,
+                resistance
             );
 
-            updateText(
-                calculatedUnit,
-                unit
-            );
 
-            updateText(
-                calculationText,
-                equation
-            );
+            /* -----------------------------------------------
+               UPDATE RESULT
+            ------------------------------------------------ */
 
-            updateText(
-                explanation,
-                message
-            );
+            if (
+                voltage !== null &&
+                resistance !== null &&
+                resistance > 0
+            ) {
+
+                const calculatedCurrent =
+                    voltage / resistance;
+
+                resultDisplay.textContent =
+                    formatNumber(calculatedCurrent, 2);
+
+            } else {
+
+                resultDisplay.textContent = "—";
+
+            }
+
         }
 
 
         /* =====================================================
            INPUT EVENTS
-           ===================================================== */
+        ===================================================== */
 
         voltageInput.addEventListener(
             "input",
-            () => {
+            function () {
 
-                activeInput = "voltage";
+                lastChanged = "voltage";
 
-                calculate();
+                calculate("voltage");
+
             }
         );
 
 
         currentInput.addEventListener(
             "input",
-            () => {
+            function () {
 
-                activeInput = "current";
+                lastChanged = "current";
 
-                calculate();
+                calculate("current");
+
             }
         );
 
 
         resistanceInput.addEventListener(
             "input",
-            () => {
+            function () {
 
-                activeInput = "resistance";
+                lastChanged = "resistance";
 
-                calculate();
+                calculate("resistance");
+
             }
         );
 
 
         /* =====================================================
-           INITIAL VALUES
-           ===================================================== */
+           RESET
+        ===================================================== */
 
-        /*
-         * Default example:
-         *
-         * V = 12 V
-         * R = 6 Ω
-         * I = 2 A
-         */
+        resetButton.addEventListener(
+            "click",
+            function () {
 
-        if (!voltageInput.value) {
-            voltageInput.value = "12";
-        }
+                voltageInput.value =
+                    DEFAULTS.voltage;
 
-        if (!currentInput.value) {
-            currentInput.value = "2";
-        }
+                currentInput.value =
+                    DEFAULTS.current;
 
-        if (!resistanceInput.value) {
-            resistanceInput.value = "6";
-        }
+                resistanceInput.value =
+                    DEFAULTS.resistance;
+
+                lastChanged = "voltage";
+
+                updateDisplays(
+                    DEFAULTS.voltage,
+                    DEFAULTS.current,
+                    DEFAULTS.resistance
+                );
+
+                resultDisplay.textContent =
+                    formatNumber(
+                        DEFAULTS.voltage /
+                        DEFAULTS.resistance,
+                        2
+                    );
+
+            }
+        );
 
 
         /* =====================================================
-           INITIAL DISPLAY
-           ===================================================== */
+           INITIAL CALCULATION
+        ===================================================== */
 
-        activeInput = "voltage";
+        updateDisplays(
+            DEFAULTS.voltage,
+            DEFAULTS.current,
+            DEFAULTS.resistance
+        );
 
-        calculate();
+        resultDisplay.textContent =
+            formatNumber(
+                DEFAULTS.voltage /
+                DEFAULTS.resistance,
+                2
+            );
 
-
-        /* =====================================================
-           READY MESSAGE
-           ===================================================== */
 
         console.log(
-            "Ohm's Law Interactive Calculator initialized successfully."
+            "Ohm's Law interactive calculator initialized successfully."
         );
+
     }
 
 
     /* =========================================================
-       INITIALIZE AFTER PAGE LOAD
+       DOM READY
        ========================================================= */
 
     if (document.readyState === "loading") {
@@ -388,6 +347,7 @@
     } else {
 
         initOhmsLaw();
+
     }
 
 })();
