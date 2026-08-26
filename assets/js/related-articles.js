@@ -2,27 +2,20 @@
    ELECTRICAL ENGINEERING
    RELATED ARTICLES SYSTEM
    ---------------------------------------------------------
-   Loads articles.json and automatically displays
-   relevant published articles on article pages.
+   Loads articles.json and displays relevant published
+   articles on article pages.
+
+   IMPORTANT:
+   Article URLs are used exactly as defined in articles.json.
+   No trailing slash is added to .html URLs.
    ========================================================= */
 
 "use strict";
 
 
 /* =========================================================
-   INITIALIZE
-   ========================================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    initRelatedArticles();
-
-});
-
-
-/* =========================================================
    CONFIGURATION
-   ========================================================== */
+========================================================== */
 
 const RELATED_CONFIG = {
 
@@ -36,8 +29,22 @@ const RELATED_CONFIG = {
 
 
 /* =========================================================
-   INITIALIZE RELATED ARTICLES
-   ========================================================== */
+   INITIALIZE
+========================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        initRelatedArticles();
+
+    }
+);
+
+
+/* =========================================================
+   LOAD RELATED ARTICLES
+========================================================== */
 
 async function initRelatedArticles() {
 
@@ -48,8 +55,7 @@ async function initRelatedArticles() {
 
 
     /*
-     * Nothing to do if this page does not contain
-     * the related articles container.
+     * This page does not use the related-article system.
      */
 
     if (!container) {
@@ -73,7 +79,8 @@ async function initRelatedArticles() {
         if (!response.ok) {
 
             throw new Error(
-                `Unable to load articles.json: ${response.status}`
+                "Unable to load articles.json: HTTP " +
+                response.status
             );
 
         }
@@ -84,11 +91,13 @@ async function initRelatedArticles() {
 
 
         /*
-         * Support both:
+         * Your articles.json structure is:
          *
-         * 1. [ {...}, {...} ]
-         *
-         * 2. { "articles": [ {...}, {...} ] }
+         * {
+         *   "site": {},
+         *   "categories": [],
+         *   "articles": []
+         * }
          */
 
         const articles =
@@ -109,7 +118,7 @@ async function initRelatedArticles() {
 
 
         const currentURL =
-            normalizeURL(
+            normalizeCurrentURL(
                 window.location.pathname
             );
 
@@ -137,8 +146,8 @@ async function initRelatedArticles() {
 
     } catch (error) {
 
-        console.warn(
-            "Related articles could not be loaded:",
+        console.error(
+            "Related articles failed:",
             error
         );
 
@@ -148,10 +157,13 @@ async function initRelatedArticles() {
 
 
 /* =========================================================
-   NORMALIZE URL
-   ========================================================== */
+   NORMALIZE CURRENT PAGE URL
+   ---------------------------------------------------------
+   Used ONLY for comparison.
+   Does NOT modify article href values.
+========================================================== */
 
-function normalizeURL(url) {
+function normalizeCurrentURL(url) {
 
     if (!url) {
 
@@ -161,36 +173,11 @@ function normalizeURL(url) {
 
 
     let cleanURL =
-        String(url);
+        String(url)
+            .split("?")[0]
+            .split("#")[0]
+            .replace(/\\/g, "/");
 
-
-    /*
-     * Remove query string.
-     */
-
-    cleanURL =
-        cleanURL.split("?")[0];
-
-
-    /*
-     * Remove hash.
-     */
-
-    cleanURL =
-        cleanURL.split("#")[0];
-
-
-    /*
-     * Convert backslashes.
-     */
-
-    cleanURL =
-        cleanURL.replace(/\\/g, "/");
-
-
-    /*
-     * Ensure leading slash.
-     */
 
     if (!cleanURL.startsWith("/")) {
 
@@ -200,24 +187,28 @@ function normalizeURL(url) {
     }
 
 
-    /*
-     * Remove duplicate slashes.
-     */
-
     cleanURL =
-        cleanURL.replace(/\/+/g, "/");
+        cleanURL.replace(
+            /\/+/g,
+            "/"
+        );
 
 
     /*
-     * Normalize trailing slash.
+     * Remove trailing slash except
+     * for the root page.
      */
 
     if (
         cleanURL.length > 1 &&
-        !cleanURL.endsWith("/")
+        cleanURL.endsWith("/")
     ) {
 
-        cleanURL += "/";
+        cleanURL =
+            cleanURL.slice(
+                0,
+                -1
+            );
 
     }
 
@@ -228,41 +219,62 @@ function normalizeURL(url) {
 
 
 /* =========================================================
+   GET ARTICLE URL
+   ---------------------------------------------------------
+   IMPORTANT:
+   Returns the exact URL from articles.json.
+========================================================== */
+
+function getArticleURL(article) {
+
+    if (!article) {
+
+        return "";
+
+    }
+
+
+    return String(
+        article.url ||
+        article.path ||
+        ""
+    ).trim();
+
+}
+
+
+/* =========================================================
    FIND CURRENT ARTICLE
-   ========================================================== */
+========================================================== */
 
 function findCurrentArticle(
     articles,
     currentURL
 ) {
 
-    return articles.find(function (article) {
+    return articles.find(
+        function (article) {
 
-        if (!article) {
+            const articleURL =
+                normalizeCurrentURL(
+                    getArticleURL(article)
+                );
 
-            return false;
 
-        }
-
-
-        const articleURL =
-            normalizeURL(
-                article.url ||
-                article.path ||
-                ""
+            return (
+                articleURL ===
+                currentURL
             );
 
-
-        return articleURL === currentURL;
-
-    }) || null;
+        }
+    ) || null;
 
 }
 
 
 /* =========================================================
    GET RELATED ARTICLES
-   ========================================================== */
+========================================================== */
 
 function getRelatedArticles(
     articles,
@@ -270,105 +282,125 @@ function getRelatedArticles(
     currentURL
 ) {
 
-
-    /* =====================================================
-       CURRENT DATE
-    ====================================================== */
-
     const now =
         new Date();
 
 
-    /* =====================================================
-       ONLY INCLUDE ACTUALLY PUBLISHED ARTICLES
-    ====================================================== */
+    /*
+     * Only published, dated, non-future articles.
+     */
 
-    let candidates =
-        articles.filter(function (article) {
+    const candidates =
+        articles.filter(
+            function (article) {
 
-            if (!article) {
+                if (!article) {
 
-                return false;
+                    return false;
+
+                }
+
+
+                /*
+                 * Only published articles.
+                 */
+
+                if (
+                    String(
+                        article.status || ""
+                    ).toLowerCase() !==
+                    "published"
+                ) {
+
+                    return false;
+
+                }
+
+
+                /*
+                 * Must have a valid URL.
+                 */
+
+                const articleURL =
+                    getArticleURL(
+                        article
+                    );
+
+
+                if (!articleURL) {
+
+                    return false;
+
+                }
+
+
+                /*
+                 * Must have publication date.
+                 */
+
+                if (!article.datePublished) {
+
+                    return false;
+
+                }
+
+
+                const publishedDate =
+                    parseArticleDate(
+                        article.datePublished
+                    );
+
+
+                if (!publishedDate) {
+
+                    return false;
+
+                }
+
+
+                /*
+                 * Do not show future articles.
+                 */
+
+                if (
+                    publishedDate >
+                    now
+                ) {
+
+                    return false;
+
+                }
+
+
+                /*
+                 * Remove current article.
+                 */
+
+                const normalizedArticleURL =
+                    normalizeCurrentURL(
+                        articleURL
+                    );
+
+
+                if (
+                    normalizedArticleURL ===
+                    currentURL
+                ) {
+
+                    return false;
+
+                }
+
+
+                return true;
 
             }
+        );
 
 
-            /*
-             * Must explicitly be published.
-             */
-
-            if (
-                String(article.status || "")
-                    .toLowerCase() !==
-                "published"
-            ) {
-
-                return false;
-
-            }
-
-
-            /*
-             * Must have a publication date.
-             */
-
-            if (!article.datePublished) {
-
-                return false;
-
-            }
-
-
-            const publishedDate =
-                parseArticleDate(
-                    article.datePublished
-                );
-
-
-            /*
-             * Reject invalid dates.
-             */
-
-            if (!publishedDate) {
-
-                return false;
-
-            }
-
-
-            /*
-             * Reject future articles.
-             */
-
-            if (
-                publishedDate > now
-            ) {
-
-                return false;
-
-            }
-
-
-            /*
-             * Remove current article.
-             */
-
-            const articleURL =
-                normalizeURL(
-                    article.url ||
-                    article.path ||
-                    ""
-                );
-
-
-            return articleURL !== currentURL;
-
-        });
-
-
-    /* =====================================================
-       CURRENT CATEGORY
-    ====================================================== */
+    /*
+     * Current category.
+     */
 
     const currentCategory =
         currentArticle
@@ -382,9 +414,9 @@ function getRelatedArticles(
             );
 
 
-    /* =====================================================
-       CURRENT TAGS
-    ====================================================== */
+    /*
+     * Current tags.
+     */
 
     const currentTags =
         currentArticle &&
@@ -395,209 +427,138 @@ function getRelatedArticles(
             : [];
 
 
-    /* =====================================================
-       CURRENT KEYWORDS
-    ====================================================== */
+    /*
+     * Score articles.
+     */
 
-    const currentKeywords =
-        currentArticle &&
-        Array.isArray(
-            currentArticle.keywords
-        )
-            ? currentArticle.keywords
-            : [];
+    const scored =
+        candidates.map(
+            function (article) {
+
+                let score = 0;
 
 
-    /* =====================================================
-       SCORE CANDIDATES
-    ====================================================== */
-
-    const scoredArticles =
-        candidates.map(function (article) {
-
-            let score = 0;
+                const category =
+                    normalizeText(
+                        article.category ||
+                        article.section ||
+                        ""
+                    );
 
 
-            const articleCategory =
-                normalizeText(
-                    article.category ||
-                    article.section ||
-                    ""
+                /*
+                 * Same category.
+                 */
+
+                if (
+                    currentCategory &&
+                    category &&
+                    currentCategory ===
+                    category
+                ) {
+
+                    score += 50;
+
+                }
+
+
+                /*
+                 * Tag matches.
+                 */
+
+                const tags =
+                    Array.isArray(
+                        article.tags
+                    )
+                        ? article.tags
+                        : [];
+
+
+                currentTags.forEach(
+                    function (currentTag) {
+
+                        const currentTagText =
+                            normalizeText(
+                                currentTag
+                            );
+
+
+                        tags.forEach(
+                            function (tag) {
+
+                                if (
+                                    currentTagText ===
+                                    normalizeText(tag)
+                                ) {
+
+                                    score += 15;
+
+                                }
+
+                            }
+                        );
+
+                    }
                 );
 
 
-            /* ---------------------------------------------
-               SAME CATEGORY
-            --------------------------------------------- */
+                /*
+                 * Recency bonus.
+                 */
 
-            if (
-                currentCategory &&
-                articleCategory &&
-                currentCategory ===
-                articleCategory
-            ) {
-
-                score += 50;
-
-            }
+                const date =
+                    parseArticleDate(
+                        article.datePublished
+                    );
 
 
-            /* ---------------------------------------------
-               TAG MATCHES
-            --------------------------------------------- */
+                if (date) {
 
-            const articleTags =
-                Array.isArray(article.tags)
-                    ? article.tags
-                    : [];
-
-
-            currentTags.forEach(
-                function (currentTag) {
-
-                    const normalizedCurrentTag =
-                        normalizeText(
-                            currentTag
+                    const daysOld =
+                        (
+                            Date.now() -
+                            date.getTime()
+                        ) /
+                        (
+                            1000 *
+                            60 *
+                            60 *
+                            24
                         );
 
 
-                    articleTags.forEach(
-                        function (articleTag) {
+                    if (
+                        daysOld >= 0 &&
+                        daysOld < 180
+                    ) {
 
-                            if (
-                                normalizedCurrentTag ===
-                                normalizeText(articleTag)
-                            ) {
+                        score += 3;
 
-                                score += 15;
-
-                            }
-
-                        }
-                    );
+                    }
 
                 }
-            );
 
 
-            /* ---------------------------------------------
-               KEYWORD MATCHES
-            --------------------------------------------- */
+                return {
 
-            const articleKeywords =
-                Array.isArray(
-                    article.keywords
-                )
-                    ? article.keywords
-                    : [];
+                    article: article,
 
+                    score: score
 
-            currentKeywords.forEach(
-                function (keyword) {
-
-                    const normalizedKeyword =
-                        normalizeText(
-                            keyword
-                        );
-
-
-                    articleKeywords.forEach(
-                        function (articleKeyword) {
-
-                            if (
-                                normalizedKeyword ===
-                                normalizeText(articleKeyword)
-                            ) {
-
-                                score += 8;
-
-                            }
-
-                        }
-                    );
-
-                }
-            );
-
-
-            /* ---------------------------------------------
-               SAME CATEGORY URL
-            --------------------------------------------- */
-
-            const articleURL =
-                normalizeURL(
-                    article.url ||
-                    article.path ||
-                    ""
-                );
-
-
-            if (
-                currentCategory &&
-                articleURL.includes(
-                    slugify(currentCategory)
-                )
-            ) {
-
-                score += 5;
+                };
 
             }
+        );
 
 
-            /* ---------------------------------------------
-               RECENCY BONUS
-            --------------------------------------------- */
+    /*
+     * Sort:
+     * 1. Relevance
+     * 2. Publication date
+     */
 
-            const publishedDate =
-                parseArticleDate(
-                    article.datePublished
-                );
-
-
-            if (publishedDate) {
-
-                const age =
-                    Date.now() -
-                    publishedDate.getTime();
-
-
-                const days =
-                    age /
-                    (
-                        1000 *
-                        60 *
-                        60 *
-                        24
-                    );
-
-
-                if (days < 180) {
-
-                    score += 3;
-
-                }
-
-            }
-
-
-            return {
-                article: article,
-                score: score
-            };
-
-        });
-
-
-    /* =====================================================
-       SORT
-    ====================================================== */
-
-    scoredArticles.sort(
+    scored.sort(
         function (a, b) {
-
-            /*
-             * Higher relevance first.
-             */
 
             if (
                 b.score !==
@@ -612,10 +573,6 @@ function getRelatedArticles(
             }
 
 
-            /*
-             * Newer publication first.
-             */
-
             return compareDates(
                 b.article,
                 a.article
@@ -625,12 +582,13 @@ function getRelatedArticles(
     );
 
 
-    /* =====================================================
-       MEANINGFUL RELATED ARTICLES
-    ====================================================== */
+    /*
+     * Prefer related articles with
+     * a meaningful score.
+     */
 
     const meaningful =
-        scoredArticles.filter(
+        scored.filter(
             function (item) {
 
                 return item.score > 0;
@@ -639,21 +597,13 @@ function getRelatedArticles(
         );
 
 
-    /*
-     * Prefer meaningful matches when at least
-     * three are available.
-     *
-     * Otherwise fill the cards with the
-     * latest published articles.
-     */
-
     const selected =
         meaningful.length >=
         RELATED_CONFIG.maxArticles
 
             ? meaningful
 
-            : scoredArticles;
+            : scored;
 
 
     return selected
@@ -673,8 +623,8 @@ function getRelatedArticles(
 
 
 /* =========================================================
-   PARSE ARTICLE DATE
-   ========================================================== */
+   PARSE DATE
+========================================================== */
 
 function parseArticleDate(
     value
@@ -688,7 +638,9 @@ function parseArticleDate(
 
 
     const date =
-        new Date(value);
+        new Date(
+            value
+        );
 
 
     if (
@@ -709,7 +661,7 @@ function parseArticleDate(
 
 /* =========================================================
    COMPARE DATES
-   ========================================================== */
+========================================================== */
 
 function compareDates(
     articleA,
@@ -730,44 +682,38 @@ function compareDates(
         );
 
 
-    const timestampA =
-        dateA
-            ? dateA.getTime()
-            : 0;
-
-
-    const timestampB =
-        dateB
-            ? dateB.getTime()
-            : 0;
-
-
     return (
-        timestampA -
-        timestampB
+        (
+            dateB
+                ? dateB.getTime()
+                : 0
+        ) -
+        (
+            dateA
+                ? dateA.getTime()
+                : 0
+        )
     );
 
 }
 
 
 /* =========================================================
-   GET CATEGORY FROM URL
-   ========================================================== */
+   CATEGORY FROM URL
+========================================================== */
 
 function getCategoryFromURL(
     url
 ) {
 
     const parts =
-        normalizeURL(url)
+        normalizeCurrentURL(url)
             .split("/")
             .filter(Boolean);
 
 
     /*
-     * Expected:
-     *
-     * /articles/electrical-fundamentals/ohms-law/
+     * /articles/electrical-calculations/...
      *
      * parts[0] = articles
      * parts[1] = category
@@ -790,41 +736,28 @@ function getCategoryFromURL(
 
 /* =========================================================
    NORMALIZE TEXT
-   ========================================================== */
+========================================================== */
 
 function normalizeText(
     value
 ) {
 
-    return String(value || "")
+    return String(
+        value || ""
+    )
         .trim()
         .toLowerCase()
-        .replace(/\s+/g, " ");
+        .replace(
+            /\s+/g,
+            " "
+        );
 
 }
 
 
 /* =========================================================
-   SLUGIFY
-   ========================================================== */
-
-function slugify(
-    value
-) {
-
-    return String(value || "")
-        .toLowerCase()
-        .trim()
-        .replace(/&/g, "and")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-
-}
-
-
-/* =========================================================
-   RENDER RELATED ARTICLES
-   ========================================================== */
+   RENDER
+========================================================== */
 
 function renderRelatedArticles(
     container,
@@ -832,35 +765,31 @@ function renderRelatedArticles(
 ) {
 
     /*
-     * Always clear the container.
+     * Clear existing fallback cards.
      */
 
     container.innerHTML = "";
 
-
-    /*
-     * Nothing available.
-     */
 
     if (
         !articles ||
         !articles.length
     ) {
 
-        const emptyMessage =
+        const empty =
             document.createElement("p");
 
 
-        emptyMessage.className =
+        empty.className =
             "related-empty";
 
 
-        emptyMessage.textContent =
-            "More articles will be available soon.";
+        empty.textContent =
+            "More related articles will be available soon.";
 
 
         container.appendChild(
-            emptyMessage
+            empty
         );
 
 
@@ -893,24 +822,28 @@ function renderRelatedArticles(
 
 
 /* =========================================================
-   CREATE RELATED ARTICLE CARD
-   ========================================================== */
+   CREATE RELATED CARD
+========================================================== */
 
 function createRelatedCard(
     article
 ) {
 
+    /*
+     * IMPORTANT:
+     * Use the URL EXACTLY as it appears
+     * in articles.json.
+     */
+
     const articleURL =
-        normalizeURL(
-            article.url ||
-            article.path ||
-            ""
+        getArticleURL(
+            article
         );
 
 
     if (
         !articleURL ||
-        articleURL === "/"
+        articleURL === "#"
     ) {
 
         return null;
@@ -926,24 +859,29 @@ function createRelatedCard(
         "related-card";
 
 
-    card.href =
-        articleURL;
-
-
     /*
-     * Add accessible label.
+     * DO NOT normalize this URL.
      */
 
     card.setAttribute(
-        "aria-label",
-        article.title ||
-        "Open article"
+        "href",
+        articleURL
     );
 
 
-    /* =====================================================
-       CATEGORY
-    ====================================================== */
+    card.setAttribute(
+        "aria-label",
+        "Read " +
+        (
+            article.title ||
+            "article"
+        )
+    );
+
+
+    /*
+     * Category
+     */
 
     const category =
         document.createElement("div");
@@ -956,13 +894,12 @@ function createRelatedCard(
     category.textContent =
         article.categoryName ||
         article.category ||
-        article.section ||
         "Electrical Engineering";
 
 
-    /* =====================================================
-       TITLE
-    ====================================================== */
+    /*
+     * Title
+     */
 
     const title =
         document.createElement("h3");
@@ -973,9 +910,9 @@ function createRelatedCard(
         "Electrical Engineering Article";
 
 
-    /* =====================================================
-       DESCRIPTION
-    ====================================================== */
+    /*
+     * Description
+     */
 
     const description =
         document.createElement("p");
@@ -991,40 +928,37 @@ function createRelatedCard(
         "";
 
 
-    /* =====================================================
-       OPTIONAL DATE
-    ====================================================== */
+    /*
+     * Date
+     */
 
-    const date =
+    const publishedDate =
         parseArticleDate(
             article.datePublished
         );
 
 
-    let meta = null;
+    const meta =
+        document.createElement("div");
 
 
-    if (date) {
-
-        meta =
-            document.createElement("div");
+    meta.className =
+        "related-card-meta";
 
 
-        meta.className =
-            "related-card-meta";
-
+    if (publishedDate) {
 
         meta.textContent =
             formatArticleDate(
-                date
+                publishedDate
             );
 
     }
 
 
-    /* =====================================================
-       BUILD CARD
-    ====================================================== */
+    /*
+     * Build
+     */
 
     card.appendChild(
         category
@@ -1047,7 +981,9 @@ function createRelatedCard(
     }
 
 
-    if (meta) {
+    if (
+        meta.textContent
+    ) {
 
         card.appendChild(
             meta
@@ -1063,7 +999,7 @@ function createRelatedCard(
 
 /* =========================================================
    FORMAT DATE
-   ========================================================== */
+========================================================== */
 
 function formatArticleDate(
     date
@@ -1083,7 +1019,7 @@ function formatArticleDate(
 
 /* =========================================================
    GOOGLE ANALYTICS
-   ========================================================== */
+========================================================== */
 
 document.addEventListener(
     "click",
@@ -1097,13 +1033,22 @@ document.addEventListener(
 
         if (
             !card ||
-            typeof window.gtag !== "function"
+            typeof window.gtag !==
+                "function"
         ) {
 
             return;
 
         }
 
+
+        /*
+         * Analytics only.
+         *
+         * No preventDefault().
+         * Therefore the normal link navigation
+         * continues normally.
+         */
 
         window.gtag(
             "event",
@@ -1113,8 +1058,9 @@ document.addEventListener(
                     card.href,
 
                 article_title:
-                    card.querySelector("h3")
-                        ?.textContent ||
+                    card.querySelector(
+                        "h3"
+                    )?.textContent ||
                     ""
             }
         );
