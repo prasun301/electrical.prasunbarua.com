@@ -1,39 +1,31 @@
 /* =========================================================
-   ELECTRICAL ENGINEERING BY PRASUN BARUA
-   ARTICLE APPLICATION JAVASCRIPT
+   ELECTRICAL ENGINEERING — MAIN APP
+   electrical.prasunbarua.com
 
-   Features:
+   Responsibilities:
    - Mobile navigation
-   - Article sidebar
-   - Search
-   - Dynamic homepage latest articles
-   - Dynamic article loading from articles.json
-   - Related articles
-   - Social sharing
-   - Copy article URL
-   - Native Web Share
-   - Reading progress
-   - Automatic active navigation
-   - Smooth anchors
+   - Site search
+   - Dynamic article loading
+   - Homepage latest articles
+   - Safe DOM rendering
+   - Basic error handling
+
+   Keep specialized scripts separate:
+   - related-articles.js
+   - ohms-law.js
+   - Other article-specific JavaScript
    ========================================================= */
 
 "use strict";
 
-
 /* =========================================================
-   GLOBAL CONFIGURATION
+   CONFIGURATION
    ========================================================= */
 
-const SITE_CONFIG = {
-    siteName: "Electrical Engineering by Prasun Barua",
-
-    siteUrl: window.location.origin,
-
-    articlesFile: "/articles.json",
-
-    maxLatestArticles: 4,
-
-    maxRelatedArticles: 4
+const APP_CONFIG = {
+    articlesUrl: "/articles.json",
+    articlesPage: "/articles/",
+    homepageArticleLimit: 6
 };
 
 
@@ -42,2065 +34,568 @@ const SITE_CONFIG = {
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    initializeMobileMenu();
-
-    initializeSidebar();
-
-    initializeSearch();
-
-    initializeLatestArticles();
-
-    initializeRelatedArticles();
-
-    initializeSocialSharing();
-
-    initializeCopyLink();
-
-    initializeNativeShare();
-
-    initializeReadingProgress();
-
-    initializeSmoothAnchors();
-
+    initMobileSidebar();
+    initSiteSearch();
+    initArticleLoader();
 });
 
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE SIDEBAR
    ========================================================= */
 
-function initializeMobileMenu() {
-
-    /*
-     * Support both the homepage and existing article pages.
-     */
-
-    const menuButton =
-        document.querySelector(
-            ".menu-button, .mobile-menu-button"
-        );
-
-    const sidebar =
-        document.querySelector(
-            ".sidebar, .article-sidebar"
-        );
-
-    const overlay =
-        document.querySelector(
-            ".sidebar-overlay"
-        );
-
+function initMobileSidebar() {
+    const menuButton = document.getElementById("menu-button");
+    const sidebar = document.getElementById("category-sidebar");
+    const overlay = document.querySelector(".sidebar-overlay");
 
     if (!menuButton || !sidebar) {
         return;
     }
 
-
-    function openMenu() {
-
+    const openSidebar = () => {
         sidebar.classList.add("active");
 
         if (overlay) {
             overlay.classList.add("active");
         }
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
+        document.body.style.overflow = "hidden";
 
+        menuButton.setAttribute("aria-expanded", "true");
         menuButton.setAttribute(
             "aria-label",
-            "Close article menu"
+            "Close article categories"
         );
 
-        document.body.classList.add(
-            "sidebar-open"
+        const icon = menuButton.querySelector(
+            ".material-symbols-rounded"
         );
 
-    }
+        if (icon) {
+            icon.textContent = "close";
+        }
+    };
 
-
-    function closeMenu() {
-
+    const closeSidebar = () => {
         sidebar.classList.remove("active");
 
         if (overlay) {
             overlay.classList.remove("active");
         }
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+        document.body.style.overflow = "";
 
+        menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute(
             "aria-label",
-            "Open article menu"
+            "Open article categories"
         );
 
-        document.body.classList.remove(
-            "sidebar-open"
+        const icon = menuButton.querySelector(
+            ".material-symbols-rounded"
         );
 
-    }
-
-
-    function toggleMenu() {
-
-        const isOpen =
-            sidebar.classList.contains("active");
-
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
+        if (icon) {
+            icon.textContent = "menu";
         }
-
-    }
-
-
-    /*
-     * Initialize accessibility state.
-     */
-
-    menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-    );
-
-
-    /*
-     * Connect menu button.
-     */
-
-    menuButton.addEventListener(
-        "click",
-        toggleMenu
-    );
-
-
-    /*
-     * Close when clicking overlay.
-     */
-
-    if (overlay) {
-
-        overlay.addEventListener(
-            "click",
-            closeMenu
-        );
-
-    }
-
-
-    /*
-     * Close after selecting a sidebar link
-     * on mobile.
-     */
-
-    sidebar
-        .querySelectorAll("a")
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    if (window.innerWidth <= 900) {
-                        closeMenu();
-                    }
-
-                }
-            );
-
-        });
-
-
-    /*
-     * Close with Escape.
-     */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Escape") {
-                closeMenu();
-            }
-
-        }
-    );
-
-
-    /*
-     * If the browser is resized back to desktop,
-     * remove mobile drawer state.
-     */
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            if (window.innerWidth > 900) {
-                closeMenu();
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
-
-function initializeSidebar() {
-
-    const sidebar =
-        document.querySelector(
-            ".sidebar, .article-sidebar"
-        );
-
-
-    if (!sidebar) {
-        return;
-    }
-
-
-    const currentPath =
-        normalizePath(
-            window.location.pathname
-        );
-
-
-    sidebar
-        .querySelectorAll("a")
-        .forEach(link => {
-
-            const href =
-                link.getAttribute("href");
-
-
-            if (!href) {
-                return;
-            }
-
-
-            /*
-             * Ignore hash-only links and external links.
-             */
-
-            if (
-                href.startsWith("#") ||
-                href.startsWith("mailto:") ||
-                href.startsWith("tel:")
-            ) {
-                return;
-            }
-
-
-            const linkPath =
-                normalizePath(href);
-
-
-            /*
-             * Do not mark the back link as active.
-             */
-
-            if (
-                linkPath === currentPath &&
-                !link.classList.contains("back-link")
-            ) {
-
-                link.classList.add("active");
-
-                link.setAttribute(
-                    "aria-current",
-                    "page"
-                );
-
-            } else if (
-                linkPath !== currentPath
-            ) {
-
-                link.classList.remove("active");
-
-                link.removeAttribute(
-                    "aria-current"
-                );
-
-            }
-
-        });
-
-}
-
-
-/* =========================================================
-   NORMALIZE URL PATH
-   ========================================================= */
-
-function normalizePath(path) {
-
-    if (!path) {
-        return "/";
-    }
-
-
-    try {
-
-        const url =
-            new URL(
-                path,
-                window.location.origin
-            );
-
-
-        let cleanPath =
-            url.pathname.replace(
-                /\/+/g,
-                "/"
-            );
-
-
-        /*
-         * Treat /about and /about/ as the same path.
-         */
-
-        if (
-            cleanPath.length > 1 &&
-            cleanPath.endsWith("/")
-        ) {
-
-            cleanPath =
-                cleanPath.slice(0, -1);
-
-        }
-
-
-        return cleanPath.toLowerCase();
-
-    } catch (error) {
-
-        let cleanPath =
-            String(path)
-                .replace(/\/+/g, "/");
-
-
-        if (
-            cleanPath.length > 1 &&
-            cleanPath.endsWith("/")
-        ) {
-
-            cleanPath =
-                cleanPath.slice(0, -1);
-
-        }
-
-
-        return cleanPath.toLowerCase();
-
-    }
-
-}
-
-
-/* =========================================================
-   LOAD ARTICLES JSON
-   ========================================================= */
-
-async function loadArticlesData() {
-
-    try {
-
-        const response =
-            await fetch(
-                SITE_CONFIG.articlesFile,
-                {
-                    cache: "no-store"
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                `Unable to load articles.json (${response.status})`
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (
-            !data ||
-            !Array.isArray(data.articles)
-        ) {
-
-            throw new Error(
-                "Invalid articles.json format"
-            );
-
-        }
-
-
-        return data;
-
-    } catch (error) {
-
-        console.error(
-            "Articles loading error:",
-            error
-        );
-
-        return null;
-
-    }
-
-}
-
-
-/* =========================================================
-   GET PUBLISHED ARTICLES
-   ========================================================= */
-
-function getPublishedArticles(data) {
-
-    if (
-        !data ||
-        !Array.isArray(data.articles)
-    ) {
-
-        return [];
-
-    }
-
-
-    return data.articles
-        .filter(article => {
-
-            return (
-                article &&
-                article.status === "published" &&
-                article.datePublished
-            );
-
-        })
-        .sort((a, b) => {
-
-            const dateA =
-                new Date(
-                    a.datePublished
-                ).getTime();
-
-            const dateB =
-                new Date(
-                    b.datePublished
-                ).getTime();
-
-
-            return dateB - dateA;
-
-        });
-
-}
-
-
-/* =========================================================
-   LATEST ARTICLES
-   ========================================================= */
-
-async function initializeLatestArticles() {
-
-    /*
-     * Preferred dedicated container.
-     */
-
-    let container =
-        document.querySelector(
-            "#latest-articles"
-        );
-
-
-    /*
-     * Backward compatibility with:
-     *
-     * #latest .article-list
-     */
-
-    if (!container) {
-
-        container =
-            document.querySelector(
-                "#latest .article-list"
-            );
-
-    }
-
-
-    if (!container) {
-        return;
-    }
-
-
-    const data =
-        await loadArticlesData();
-
-
-    if (!data) {
-
-        showLatestArticlesMessage(
-            container,
-            "Unable to load articles."
-        );
-
-        return;
-
-    }
-
-
-    const publishedArticles =
-        getPublishedArticles(data);
-
-
-    const latestArticles =
-        publishedArticles.slice(
-            0,
-            SITE_CONFIG.maxLatestArticles
-        );
-
-
-    renderLatestArticles(
-        container,
-        latestArticles
-    );
-
-}
-
-
-/* =========================================================
-   RENDER LATEST ARTICLES
-   ========================================================= */
-
-function renderLatestArticles(
-    container,
-    articles
-) {
-
-    container.innerHTML = "";
-
-
-    if (!articles.length) {
-
-        showLatestArticlesMessage(
-            container,
-            "No published articles available yet."
-        );
-
-        return;
-
-    }
-
-
-    articles.forEach(article => {
-
-        const item =
-            createArticleItem(article);
-
-        container.appendChild(item);
-
-    });
-
-}
-
-
-/* =========================================================
-   CREATE ARTICLE ITEM
-   ========================================================= */
-
-function createArticleItem(article) {
-
-    const item =
-        document.createElement("article");
-
-    item.className =
-        "article-item";
-
-
-    const content =
-        document.createElement("div");
-
-
-    /*
-     * TITLE
-     */
-
-    const title =
-        document.createElement("h3");
-
-
-    const titleLink =
-        document.createElement("a");
-
-
-    titleLink.href =
-        article.url || "#";
-
-
-    titleLink.textContent =
-        article.title ||
-        "Untitled Article";
-
-
-    title.appendChild(
-        titleLink
-    );
-
-
-    /*
-     * EXCERPT
-     */
-
-    const excerpt =
-        document.createElement("p");
-
-
-    excerpt.className =
-        "article-excerpt";
-
-
-    excerpt.textContent =
-        article.excerpt ||
-        article.description ||
-        "";
-
-
-    /*
-     * META
-     */
-
-    const meta =
-        document.createElement("div");
-
-
-    meta.className =
-        "article-meta";
-
-
-    const category =
-        document.createElement("span");
-
-
-    category.className =
-        "article-category";
-
-
-    category.textContent =
-        article.categoryName ||
-        "Electrical Engineering";
-
-
-    const separator =
-        document.createElement("span");
-
-
-    separator.textContent =
-        "·";
-
-
-    const readingTime =
-        document.createElement("span");
-
-
-    readingTime.textContent =
-        article.readingTime ||
-        "";
-
-
-    meta.appendChild(
-        category
-    );
-
-
-    meta.appendChild(
-        separator
-    );
-
-
-    if (readingTime.textContent) {
-
-        meta.appendChild(
-            readingTime
-        );
-
-    }
-
-
-    /*
-     * Add content.
-     */
-
-    content.appendChild(
-        title
-    );
-
-
-    content.appendChild(
-        excerpt
-    );
-
-
-    content.appendChild(
-        meta
-    );
-
-
-    /*
-     * THUMBNAIL
-     */
-
-    const thumb =
-        document.createElement("a");
-
-
-    thumb.href =
-        article.url || "#";
-
-
-    thumb.className =
-        "article-thumb";
-
-
-    thumb.setAttribute(
-        "aria-label",
-        "Read " +
-        (
-            article.title ||
-            "article"
-        )
-    );
-
-
-    const icon =
-        document.createElement("span");
-
-
-    icon.className =
-        "material-symbols-rounded";
-
-
-    icon.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    icon.textContent =
-        article.icon ||
-        "article";
-
-
-    thumb.appendChild(
-        icon
-    );
-
-
-    /*
-     * Assemble article.
-     */
-
-    item.appendChild(
-        content
-    );
-
-
-    item.appendChild(
-        thumb
-    );
-
-
-    return item;
-
-}
-
-
-/* =========================================================
-   LATEST ARTICLE MESSAGE
-   ========================================================= */
-
-function showLatestArticlesMessage(
-    container,
-    message
-) {
-
-    container.innerHTML = "";
-
-
-    const messageElement =
-        document.createElement("p");
-
-
-    messageElement.className =
-        "article-loading-message";
-
-
-    messageElement.textContent =
-        message;
-
-
-    container.appendChild(
-        messageElement
-    );
-
-}
-
-
-/* =========================================================
-   RELATED ARTICLES
-   ========================================================= */
-
-async function initializeRelatedArticles() {
-
-    const container =
-        document.querySelector(
-            ".related-articles"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    const data =
-        await loadArticlesData();
-
-
-    if (!data) {
-        return;
-    }
-
-
-    const currentPath =
-        normalizePath(
-            window.location.pathname
-        );
-
-
-    const publishedArticles =
-        getPublishedArticles(data);
-
-
-    const currentArticle =
-        publishedArticles.find(
-            article => {
-
-                return (
-                    normalizePath(
-                        article.url
-                    ) === currentPath
-                );
-
-            }
-        );
-
-
-    if (!currentArticle) {
-        return;
-    }
-
-
-    const relatedArticles =
-        publishedArticles
-            .filter(article => {
-
-                /*
-                 * Never show the current article.
-                 */
-
-                if (
-                    normalizePath(
-                        article.url
-                    ) === currentPath
-                ) {
-
-                    return false;
-
-                }
-
-
-                /*
-                 * Related articles use the same
-                 * machine-readable category slug.
-                 */
-
-                return (
-                    article.category &&
-                    currentArticle.category &&
-                    article.category ===
-                    currentArticle.category
-                );
-
-            })
-            .slice(
-                0,
-                SITE_CONFIG.maxRelatedArticles
-            );
-
-
-    if (!relatedArticles.length) {
-        return;
-    }
-
-
-    renderRelatedArticles(
-        container,
-        relatedArticles
-    );
-
-}
-
-
-/* =========================================================
-   RENDER RELATED ARTICLES
-   ========================================================= */
-
-function renderRelatedArticles(
-    container,
-    articles
-) {
-
-    container.innerHTML = "";
-
-
-    articles.forEach(article => {
-
-        const card =
-            document.createElement("article");
-
-
-        card.className =
-            "related-card";
-
-
-        const link =
-            document.createElement("a");
-
-
-        link.href =
-            article.url || "#";
-
-
-        link.textContent =
-            article.title ||
-            "Untitled Article";
-
-
-        card.appendChild(
-            link
-        );
-
-
-        container.appendChild(
-            card
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-function initializeSearch() {
-
-    const searchInputs =
-        document.querySelectorAll(
-            ".article-search input, " +
-            ".search-box input, " +
-            ".search-container input"
-        );
-
-
-    if (!searchInputs.length) {
-        return;
-    }
-
-
-    searchInputs.forEach(input => {
-
-        input.addEventListener(
-            "input",
-            () => {
-
-                const query =
-                    input.value
-                        .trim()
-                        .toLowerCase();
-
-
-                filterArticleCards(
-                    query
-                );
-
-            }
-        );
-
-    });
-
-
-    /*
-     * Handle search form submission.
-     */
-
-    const searchForms =
-        document.querySelectorAll(
-            ".search-box"
-        );
-
-
-    searchForms.forEach(form => {
-
-        form.addEventListener(
-            "submit",
-            event => {
-
-                event.preventDefault();
-
-
-                const input =
-                    form.querySelector(
-                        'input[type="search"], input[name="q"]'
-                    );
-
-
-                if (!input) {
-                    return;
-                }
-
-
-                const query =
-                    input.value.trim();
-
-
-                if (!query) {
-
-                    const message =
-                        document.querySelector(
-                            "#search-message"
-                        );
-
-
-                    if (message) {
-
-                        message.textContent =
-                            "Enter a topic to search.";
-
-                    }
-
-
-                    input.focus();
-
-                    return;
-
-                }
-
-
-                /*
-                 * Send the search to the main
-                 * articles page.
-                 */
-
-                const searchURL =
-                    "/articles/?q=" +
-                    encodeURIComponent(query);
-
-
-                window.location.href =
-                    searchURL;
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   FILTER ARTICLE CARDS
-   ========================================================= */
-
-function filterArticleCards(query) {
-
-    const cards =
-        document.querySelectorAll(
-            ".article-card, " +
-            ".related-card, " +
-            ".article-item"
-        );
-
-
-    if (!cards.length) {
-        return;
-    }
-
-
-    cards.forEach(card => {
-
-        if (!query) {
-
-            card.hidden = false;
-
-            return;
-
-        }
-
-
-        const text =
-            card.textContent
-                .toLowerCase();
-
-
-        card.hidden =
-            !text.includes(query);
-
-    });
-
-}
-
-
-/* =========================================================
-   SOCIAL SHARING
-   ========================================================= */
-
-function initializeSocialSharing() {
-
-    const buttons =
-        document.querySelectorAll(
-            ".share-icon[data-share]"
-        );
-
-
-    if (!buttons.length) {
-        return;
-    }
-
-
-    buttons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            event => {
-
-                event.preventDefault();
-
-
-                const network =
-                    button.dataset.share;
-
-
-                shareArticle(
-                    network
-                );
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   ARTICLE INFORMATION
-   ========================================================= */
-
-function getArticleInfo() {
-
-    const canonical =
-        document.querySelector(
-            'link[rel="canonical"]'
-        );
-
-
-    let url =
-        canonical
-            ? canonical.href
-            : window.location.href;
-
-
-    url =
-        url.split("#")[0];
-
-
-    const titleElement =
-        document.querySelector(
-            ".article-title"
-        );
-
-
-    const title =
-        titleElement
-            ? titleElement.textContent.trim()
-            : document.title;
-
-
-    const descriptionElement =
-        document.querySelector(
-            ".article-intro"
-        );
-
-
-    const description =
-        descriptionElement
-            ? descriptionElement.textContent.trim()
-            : "";
-
-
-    const imageElement =
-        document.querySelector(
-            ".article-feature-image img"
-        );
-
-
-    let image = "";
-
-
-    if (imageElement) {
-
-        const src =
-            imageElement.getAttribute(
-                "src"
-            );
-
-
-        if (src) {
-
-            try {
-
-                image =
-                    new URL(
-                        src,
-                        window.location.origin
-                    ).href;
-
-            } catch (error) {
-
-                image = "";
-
-            }
-
-        }
-
-    }
-
-
-    return {
-        url,
-        title,
-        description,
-        image
     };
 
-}
-
-
-/* =========================================================
-   SHARE ARTICLE
-   ========================================================= */
-
-function shareArticle(network) {
-
-    const article =
-        getArticleInfo();
-
-
-    const encodedUrl =
-        encodeURIComponent(
-            article.url
-        );
-
-
-    const encodedTitle =
-        encodeURIComponent(
-            article.title
-        );
-
-
-    let shareUrl = "";
-
-
-    switch (network) {
-
-        case "facebook":
-
-            shareUrl =
-                "https://www.facebook.com/sharer/sharer.php" +
-                "?u=" +
-                encodedUrl;
-
-            break;
-
-
-        case "x":
-
-            shareUrl =
-                "https://twitter.com/intent/tweet" +
-                "?url=" +
-                encodedUrl +
-                "&text=" +
-                encodedTitle;
-
-            break;
-
-
-        case "linkedin":
-
-            shareUrl =
-                "https://www.linkedin.com/sharing/share-offsite/" +
-                "?url=" +
-                encodedUrl;
-
-            break;
-
-
-        case "pinterest":
-
-            shareUrl =
-                "https://pinterest.com/pin/create/button/" +
-                "?url=" +
-                encodedUrl +
-                "&description=" +
-                encodedTitle;
-
-
-            if (article.image) {
-
-                shareUrl +=
-                    "&media=" +
-                    encodeURIComponent(
-                        article.image
-                    );
-
-            }
-
-            break;
-
-
-        case "whatsapp":
-
-            shareUrl =
-                "https://wa.me/?" +
-                "text=" +
-                encodeURIComponent(
-                    article.title +
-                    "\n\n" +
-                    article.url
-                );
-
-            break;
-
-
-        case "telegram":
-
-            shareUrl =
-                "https://t.me/share/url" +
-                "?url=" +
-                encodedUrl +
-                "&text=" +
-                encodedTitle;
-
-            break;
-
-
-        case "reddit":
-
-            shareUrl =
-                "https://www.reddit.com/submit" +
-                "?url=" +
-                encodedUrl +
-                "&title=" +
-                encodedTitle;
-
-            break;
-
-
-        case "email":
-
-            shareUrl =
-                "mailto:" +
-                "?subject=" +
-                encodedTitle +
-                "&body=" +
-                encodeURIComponent(
-                    article.title +
-                    "\n\n" +
-                    article.description +
-                    "\n\n" +
-                    article.url
-                );
-
-            break;
-
-
-        default:
-
-            return;
-
-    }
-
-
-    if (!shareUrl) {
-        return;
-    }
-
-
-    if (network === "email") {
-
-        window.location.href =
-            shareUrl;
-
-        return;
-
-    }
-
-
-    openSharePopup(
-        shareUrl,
-        network
-    );
-
-}
-
-
-/* =========================================================
-   SOCIAL SHARE POPUP
-   ========================================================= */
-
-function openSharePopup(
-    url,
-    network
-) {
-
-    const width = 640;
-
-    const height = 620;
-
-
-    const left =
-        Math.max(
-            0,
-            (
-                window.screen.width -
-                width
-            ) / 2
-        );
-
-
-    const top =
-        Math.max(
-            0,
-            (
-                window.screen.height -
-                height
-            ) / 2
-        );
-
-
-    const popup =
-        window.open(
-            url,
-            "share_" + network,
-            [
-                "width=" + width,
-                "height=" + height,
-                "left=" + left,
-                "top=" + top,
-                "toolbar=no",
-                "menubar=no",
-                "location=yes",
-                "status=no",
-                "resizable=yes",
-                "scrollbars=yes"
-            ].join(",")
-        );
-
-
-    if (!popup) {
-
-        window.location.href =
-            url;
-
-    } else {
-
-        try {
-
-            popup.focus();
-
-        } catch (error) {
-
-            /*
-             * Ignore focus errors.
-             */
-
+    const toggleSidebar = () => {
+        if (sidebar.classList.contains("active")) {
+            closeSidebar();
+        } else {
+            openSidebar();
         }
+    };
 
+    menuButton.addEventListener("click", toggleSidebar);
+
+    if (overlay) {
+        overlay.addEventListener("click", closeSidebar);
     }
 
-}
-
-
-/* =========================================================
-   COPY ARTICLE LINK
-   ========================================================= */
-
-function initializeCopyLink() {
-
-    const buttons =
-        document.querySelectorAll(
-            '[data-share="copy"]'
-        );
-
-
-    if (!buttons.length) {
-        return;
-    }
-
-
-    buttons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            async event => {
-
-                event.preventDefault();
-
-                await copyArticleLink(
-                    button
-                );
-
-            }
-        );
-
+    sidebar.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeSidebar);
     });
 
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeSidebar();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) {
+            closeSidebar();
+        }
+    });
 }
 
 
 /* =========================================================
-   COPY LINK
+   SITE SEARCH
    ========================================================= */
 
-async function copyArticleLink(
-    button
-) {
+function initSiteSearch() {
+    const searchForm =
+        document.getElementById("site-search-form");
 
-    const article =
-        getArticleInfo();
+    const searchInput =
+        document.getElementById("site-search");
 
+    const searchMessage =
+        document.getElementById("search-message");
 
-    const originalLabel =
-        button.getAttribute(
-            "aria-label"
-        ) ||
-        "Copy article link";
+    if (!searchForm || !searchInput) {
+        return;
+    }
 
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-    try {
+        const query = searchInput.value.trim();
 
-        if (
-            navigator.clipboard &&
-            window.isSecureContext
-        ) {
+        if (!query) {
+            if (searchMessage) {
+                searchMessage.textContent =
+                    "Enter a topic to search.";
+            }
 
-            await navigator.clipboard.writeText(
-                article.url
-            );
-
-        } else {
-
-            fallbackCopyText(
-                article.url
-            );
-
+            searchInput.focus();
+            return;
         }
 
+        const searchURL =
+            `${APP_CONFIG.articlesPage}?q=${encodeURIComponent(query)}`;
 
-        button.setAttribute(
-            "aria-label",
-            "Link copied"
-        );
+        window.location.href = searchURL;
+    });
 
-
-        button.classList.add(
-            "copied"
-        );
-
-
-        showShareToast(
-            "Article link copied"
-        );
+    searchInput.addEventListener("input", () => {
+        if (searchMessage) {
+            searchMessage.textContent = "";
+        }
+    });
+}
 
 
-        setTimeout(
-            () => {
+/* =========================================================
+   ARTICLE LOADER
+   ========================================================= */
 
-                button.setAttribute(
-                    "aria-label",
-                    originalLabel
-                );
+function initArticleLoader() {
+    const articleList =
+        document.getElementById("latest-articles");
+
+    if (!articleList) {
+        return;
+    }
+
+    loadArticles(articleList);
+}
 
 
-                button.classList.remove(
-                    "copied"
-                );
+/* =========================================================
+   FETCH ARTICLES
+   ========================================================= */
 
+async function loadArticles(container) {
+    setArticleLoadingState(container);
+
+    try {
+        const response = await fetch(APP_CONFIG.articlesUrl, {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
             },
-            1800
-        );
+            cache: "no-cache"
+        });
 
+        if (!response.ok) {
+            throw new Error(
+                `Unable to load articles: HTTP ${response.status}`
+            );
+        }
+
+        const data = await response.json();
+
+        const articles = normalizeArticles(data);
+
+        if (!articles.length) {
+            throw new Error("No valid articles found.");
+        }
+
+        const latestArticles =
+            articles
+                .sort(sortArticlesByDate)
+                .slice(0, APP_CONFIG.homepageArticleLimit);
+
+        renderArticles(container, latestArticles);
 
     } catch (error) {
-
         console.error(
-            "Copy error:",
+            "Electrical Engineering article loader:",
             error
         );
 
-
-        showShareToast(
-            "Unable to copy link"
-        );
-
+        renderArticleError(container);
     }
-
 }
 
 
 /* =========================================================
-   FALLBACK COPY
+   NORMALIZE ARTICLES
+   Supports common JSON property names.
    ========================================================= */
 
-function fallbackCopyText(text) {
+function normalizeArticles(data) {
+    let source = data;
 
-    const textarea =
-        document.createElement(
-            "textarea"
-        );
-
-
-    textarea.value =
-        text;
-
-
-    textarea.style.position =
-        "fixed";
-
-
-    textarea.style.left =
-        "-9999px";
-
-
-    textarea.style.top =
-        "0";
-
-
-    textarea.setAttribute(
-        "readonly",
-        ""
-    );
-
-
-    document.body.appendChild(
-        textarea
-    );
-
-
-    textarea.select();
-
-
-    textarea.setSelectionRange(
-        0,
-        textarea.value.length
-    );
-
-
-    const successful =
-        document.execCommand(
-            "copy"
-        );
-
-
-    document.body.removeChild(
-        textarea
-    );
-
-
-    if (!successful) {
-
-        throw new Error(
-            "Copy failed"
-        );
-
+    if (!Array.isArray(source)) {
+        if (Array.isArray(data.articles)) {
+            source = data.articles;
+        } else if (Array.isArray(data.items)) {
+            source = data.items;
+        } else {
+            source = [];
+        }
     }
 
+    return source
+        .map((article) => normalizeArticle(article))
+        .filter(Boolean);
+}
+
+
+function normalizeArticle(article) {
+    if (!article || typeof article !== "object") {
+        return null;
+    }
+
+    const title = cleanText(
+        article.title ||
+        article.name
+    );
+
+    const url = cleanUrl(
+        article.url ||
+        article.link ||
+        article.path
+    );
+
+    if (!title || !url) {
+        return null;
+    }
+
+    return {
+        title,
+        url,
+
+        excerpt: cleanText(
+            article.excerpt ||
+            article.description ||
+            ""
+        ),
+
+        category: cleanText(
+            article.category ||
+            article.categoryName ||
+            ""
+        ),
+
+        readTime: cleanText(
+            article.readTime ||
+            article.read_time ||
+            ""
+        ),
+
+        icon: cleanIcon(
+            article.icon ||
+            "article"
+        ),
+
+        date: article.date ||
+               article.published ||
+               article.publishedAt ||
+               ""
+    };
 }
 
 
 /* =========================================================
-   TOAST MESSAGE
+   SORT ARTICLES
+   Newest first.
    ========================================================= */
 
-function showShareToast(message) {
+function sortArticlesByDate(a, b) {
+    const dateA = parseDate(a.date);
+    const dateB = parseDate(b.date);
 
-    let toast =
-        document.querySelector(
-            ".share-toast"
-        );
-
-
-    if (!toast) {
-
-        toast =
-            document.createElement(
-                "div"
-            );
+    return dateB - dateA;
+}
 
 
-        toast.className =
-            "share-toast";
-
-
-        document.body.appendChild(
-            toast
-        );
-
+function parseDate(value) {
+    if (!value) {
+        return 0;
     }
 
+    const timestamp = Date.parse(value);
 
-    toast.textContent =
-        message;
-
-
-    toast.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        toast._timer
-    );
-
-
-    toast._timer =
-        setTimeout(
-            () => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            1800
-        );
-
+    return Number.isNaN(timestamp)
+        ? 0
+        : timestamp;
 }
 
 
 /* =========================================================
-   NATIVE WEB SHARE
+   RENDER ARTICLES
    ========================================================= */
 
-function initializeNativeShare() {
+function renderArticles(container, articles) {
+    container.replaceChildren();
 
-    const button =
-        document.querySelector(
-            '[data-share="native"]'
+    const fragment = document.createDocumentFragment();
+
+    articles.forEach((article) => {
+        fragment.appendChild(
+            createArticleElement(article)
         );
+    });
+
+    container.appendChild(fragment);
+}
 
 
-    if (!button) {
-        return;
+/* =========================================================
+   CREATE ARTICLE ELEMENT
+   Uses DOM APIs instead of innerHTML.
+   ========================================================= */
+
+function createArticleElement(article) {
+    const item = document.createElement("article");
+
+    item.className = "article-item";
+
+    /* ---------------------------------------------
+       ARTICLE CONTENT
+       --------------------------------------------- */
+
+    const content = document.createElement("div");
+
+    const heading = document.createElement("h3");
+
+    const articleLink = document.createElement("a");
+
+    articleLink.href = article.url;
+    articleLink.textContent = article.title;
+
+    heading.appendChild(articleLink);
+
+    content.appendChild(heading);
+
+
+    /* ---------------------------------------------
+       EXCERPT
+       --------------------------------------------- */
+
+    if (article.excerpt) {
+        const excerpt = document.createElement("p");
+
+        excerpt.className = "article-excerpt";
+        excerpt.textContent = article.excerpt;
+
+        content.appendChild(excerpt);
     }
 
+
+    /* ---------------------------------------------
+       META
+       --------------------------------------------- */
+
+    if (article.category || article.readTime) {
+        const meta = document.createElement("div");
+
+        meta.className = "article-meta";
+
+        if (article.category) {
+            const category =
+                document.createElement("span");
+
+            category.className = "article-category";
+            category.textContent = article.category;
+
+            meta.appendChild(category);
+        }
+
+        if (
+            article.category &&
+            article.readTime
+        ) {
+            const separator =
+                document.createElement("span");
+
+            separator.textContent = "·";
+
+            meta.appendChild(separator);
+        }
+
+        if (article.readTime) {
+            const readTime =
+                document.createElement("span");
+
+            readTime.textContent = article.readTime;
+
+            meta.appendChild(readTime);
+        }
+
+        content.appendChild(meta);
+    }
+
+
+    /* ---------------------------------------------
+       THUMBNAIL
+       --------------------------------------------- */
+
+    const thumb = document.createElement("a");
+
+    thumb.className = "article-thumb";
+    thumb.href = article.url;
+    thumb.setAttribute(
+        "aria-label",
+        `Read ${article.title}`
+    );
+
+    const icon = document.createElement("span");
+
+    icon.className = "material-symbols-rounded";
+    icon.textContent = article.icon;
+
+    thumb.appendChild(icon);
+
+
+    /* ---------------------------------------------
+       FINAL ARTICLE
+       --------------------------------------------- */
+
+    item.appendChild(content);
+    item.appendChild(thumb);
+
+    return item;
+}
+
+
+/* =========================================================
+   LOADING STATE
+   ========================================================= */
+
+function setArticleLoadingState(container) {
+    container.replaceChildren();
+
+    const message = document.createElement("p");
+
+    message.className = "article-loading";
+    message.textContent = "Loading latest articles…";
+
+    container.appendChild(message);
+}
+
+
+/* =========================================================
+   ERROR STATE
+   ========================================================= */
+
+function renderArticleError(container) {
+    container.replaceChildren();
+
+    const message = document.createElement("p");
+
+    message.className = "article-loading";
+
+    message.textContent =
+        "Articles are temporarily unavailable. Please try again later.";
+
+    container.appendChild(message);
+}
+
+
+/* =========================================================
+   TEXT SANITIZATION
+   ========================================================= */
+
+function cleanText(value) {
+    if (
+        typeof value !== "string" &&
+        typeof value !== "number"
+    ) {
+        return "";
+    }
+
+    return String(value).trim();
+}
+
+
+/* =========================================================
+   URL VALIDATION
+   Only allow local article URLs.
+   ========================================================= */
+
+function cleanUrl(value) {
+    const url = cleanText(value);
+
+    if (!url) {
+        return "";
+    }
+
+    /*
+     * Allow:
+     * /articles/...
+     * https://electrical.prasunbarua.com/...
+     */
+
+    if (url.startsWith("/")) {
+        return url;
+    }
+
+    try {
+        const parsed = new URL(
+            url,
+            window.location.origin
+        );
+
+        if (
+            parsed.origin === window.location.origin
+        ) {
+            return parsed.pathname +
+                parsed.search +
+                parsed.hash;
+        }
+
+        return "";
+    } catch {
+        return "";
+    }
+}
+
+
+/* =========================================================
+   ICON VALIDATION
+   ========================================================= */
+
+function cleanIcon(value) {
+    const icon = cleanText(value);
+
+    /*
+     * Material Symbols names contain letters,
+     * numbers and underscores.
+     */
 
     if (
-        typeof navigator.share !==
-        "function"
+        /^[a-zA-Z0-9_]+$/.test(icon)
     ) {
-
-        button.style.display =
-            "none";
-
-
-        return;
-
+        return icon;
     }
 
-
-    button.addEventListener(
-        "click",
-        async event => {
-
-            event.preventDefault();
-
-
-            const article =
-                getArticleInfo();
-
-
-            try {
-
-                await navigator.share({
-
-                    title:
-                        article.title,
-
-                    text:
-                        article.description,
-
-                    url:
-                        article.url
-
-                });
-
-            } catch (error) {
-
-                /*
-                 * User cancellation is normal and
-                 * should not show an error.
-                 */
-
-                if (
-                    error &&
-                    error.name !==
-                    "AbortError"
-                ) {
-
-                    showShareToast(
-                        "Unable to share article"
-                    );
-
-                }
-
-            }
-
-        }
-    );
-
+    return "article";
 }
-
-
-/* =========================================================
-   READING PROGRESS
-   ========================================================= */
-
-function initializeReadingProgress() {
-
-    const article =
-        document.querySelector(
-            ".article-content"
-        );
-
-
-    if (!article) {
-        return;
-    }
-
-
-    let progressBar =
-        document.querySelector(
-            ".reading-progress"
-        );
-
-
-    if (!progressBar) {
-
-        progressBar =
-            document.createElement(
-                "div"
-            );
-
-
-        progressBar.className =
-            "reading-progress";
-
-
-        progressBar.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-
-        document.body.appendChild(
-            progressBar
-        );
-
-    }
-
-
-    function updateProgress() {
-
-        const rect =
-            article.getBoundingClientRect();
-
-
-        const articleTop =
-            window.scrollY +
-            rect.top;
-
-
-        const articleHeight =
-            article.offsetHeight;
-
-
-        const viewportHeight =
-            window.innerHeight;
-
-
-        const current =
-            window.scrollY -
-            articleTop;
-
-
-        const total =
-            articleHeight -
-            viewportHeight;
-
-
-        let percentage = 0;
-
-
-        if (total > 0) {
-
-            percentage =
-                (
-                    current /
-                    total
-                ) * 100;
-
-        }
-
-
-        percentage =
-            Math.max(
-                0,
-                Math.min(
-                    100,
-                    percentage
-                )
-            );
-
-
-        progressBar.style.width =
-            percentage + "%";
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateProgress,
-        {
-            passive: true
-        }
-    );
-
-
-    window.addEventListener(
-        "resize",
-        updateProgress
-    );
-
-
-    updateProgress();
-
-}
-
-
-/* =========================================================
-   SMOOTH ANCHOR LINKS
-   ========================================================= */
-
-function initializeSmoothAnchors() {
-
-    document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                event => {
-
-                    const targetId =
-                        link.getAttribute(
-                            "href"
-                        );
-
-
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * Only handle simple ID anchors.
-                     */
-
-                    const id =
-                        targetId.slice(1);
-
-
-                    const target =
-                        document.getElementById(
-                            id
-                        );
-
-
-                    if (!target) {
-                        return;
-                    }
-
-
-                    event.preventDefault();
-
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-
-                    history.replaceState(
-                        null,
-                        "",
-                        targetId
-                    );
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   END OF APPLICATION
-   ========================================================= */
