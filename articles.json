@@ -5,82 +5,58 @@
     "language": "en",
     "author": "Prasun Barua"
   },
-
   "categories": [
     {
       "id": "electrical-fundamentals",
       "name": "Electrical Fundamentals",
       "description": "Learn the basic principles of electricity, including voltage, current, resistance, power, energy, AC and DC.",
       "icon": "electrical_services",
-      "url": "/articles/electrical-fundamentals/"
+      "url": "articles/electrical-fundamentals/"
     },
     {
       "id": "electrical-calculations",
       "name": "Electrical Calculations",
       "description": "Practical electrical engineering formulas, calculations, worked examples and sizing methods.",
       "icon": "calculate",
-      "url": "/articles/electrical-calculations/"
+      "url": "articles/electrical-calculations/"
     },
     {
       "id": "power-systems",
       "name": "Power Systems",
       "description": "Learn about transformers, distribution systems, power factor, protection and electrical power networks.",
       "icon": "electric_bolt",
-      "url": "/articles/power-systems/"
+      "url": "articles/power-systems/"
     },
     {
       "id": "solar-pv",
       "name": "Solar PV",
       "description": "Practical solar photovoltaic engineering guides covering PV systems, strings, inverters, losses and performance.",
       "icon": "solar_power",
-      "url": "/articles/solar-pv/"
+      "url": "articles/solar-pv/"
     },
     {
       "id": "electrical-design",
       "name": "Electrical Design",
       "description": "Practical electrical design methods covering cables, voltage drop, protection, earthing and distribution.",
       "icon": "architecture",
-      "url": "/articles/electrical-design/"
+      "url": "articles/electrical-design/"
     },
     {
       "id": "testing-commissioning",
       "name": "Testing & Commissioning",
       "description": "Electrical testing, inspection, commissioning procedures, troubleshooting and practical field methods.",
       "icon": "engineering",
-      "url": "/articles/testing-commissioning/"
+      "url": "articles/testing-commissioning/"
     }
   ],
-
   "articles": [
-    {
-      "id": "new-article",
-      "title": "My New Electrical Engineering Article",
-      "slug": "my-new-article",
-      "category": "electrical-fundamentals",
-      "categoryName": "Electrical Fundamentals",
-      "url": "/articles/electrical-fundamentals/my-new-article/",
-      "description": "A practical guide to this electrical engineering topic.",
-      "excerpt": "A practical guide to this electrical engineering topic.",
-      "icon": "electrical_services",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
-      "readingTime": "8 min read",
-      "featured": false,
-      "status": "published",
-      "tags": [
-        "electrical engineering"
-      ]
-    },
-
     {
       "id": "voltage-drop-calculation",
       "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
       "slug": "voltage-drop-calculation",
       "category": "electrical-calculations",
       "categoryName": "Electrical Calculations",
-      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
+      "url": "articles/electrical-calculations/voltage-drop-calculation.html",
       "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
       "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
       "icon": "monitoring",
@@ -100,18 +76,67 @@
         "electrical design"
       ]
     },
-
+    {
+      "id": "what-is-voltage-current-resistance",
+      "title": "What Are Voltage, Current and Resistance?",
+      "slug": "what-is-voltage-current-resistance",
+      "category": "electrical-fundamentals",
+      "categoryName": "Electrical Fundamentals",
+      "url": "articles/electrical-fundamentals/ohms-law/what-is-voltage-current-resistance.html",
+      "description": "Understand voltage, current and resistance, three fundamental electrical quantities used in electrical engineering.",
+      "excerpt": "A simple introduction to voltage, current and resistance and how these three electrical quantities are related.",
+      "icon": "electrical_services",
+      "image": "assets/images/simple-circuit-diagram.jpeg",
+      "author": "Prasun Barua",
+      "datePublished": "2026-08-10",
+      "dateModified": "2026-08-10",
+      "readingTime": "7 min read",
+      "featured": true,
+      "status": "published",
+      "tags": [
+        "voltage",
+        "current",
+        "resistance",
+        "electricity basics",
+        "electrical fundamentals",
+        "electrical engineering"
+      ]
+    },
+    {
+      "id": "electrical-energy-kwh-vs-kw",
+      "title": "Electrical Energy: kWh vs kW",
+      "slug": "electrical-energy-kwh-vs-kw",
+      "category": "electrical-fundamentals",
+      "categoryName": "Electrical Fundamentals",
+      "url": "articles/electrical-fundamentals/ohms-law/electrical-energy-kwh-vs-kw.html",
+      "description": "Understand the difference between power rating (kW) and energy consumption (kWh).",
+      "excerpt": "A clear comparison between kilowatt (kW) as power and kilowatt-hour (kWh) as energy.",
+      "icon": "electrical_services",
+      "image": "",
+      "author": "Prasun Barua",
+      "datePublished": "2026-08-05",
+      "dateModified": "2026-08-05",
+      "readingTime": "6 min read",
+      "featured": false,
+      "status": "published",
+      "tags": [
+        "kWh",
+        "kW",
+        "electrical energy",
+        "electrical fundamentals"
+      ]
+    },
     {
       "id": "ohms-law",
       "title": "What Is Ohm's Law?",
       "slug": "ohms-law",
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
-      "url": "/articles/electrical-fundamentals/ohms-law/",
+      "url": "articles/electrical-fundamentals/ohms-law/index.html",
       "description": "Learn the relationship between voltage, current and resistance using Ohm's Law with practical electrical examples.",
       "excerpt": "Ohm's Law explains the relationship between voltage, current and resistance in an electrical circuit.",
       "icon": "electrical_services",
-      "image": "/assets/images/ohms-law-power-triangle.jpeg",
+      "image": "assets/images/ohms-law-power-triangle.jpeg",
       "author": "Prasun Barua",
       "datePublished": "2026-08-01",
       "dateModified": "2026-08-01",
@@ -127,48 +152,20 @@
         "electrical engineering"
       ]
     },
-
-    {
-      "id": "what-is-voltage-current-resistance",
-      "title": "What Are Voltage, Current and Resistance?",
-      "slug": "what-is-voltage-current-resistance",
-      "category": "electrical-fundamentals",
-      "categoryName": "Electrical Fundamentals",
-      "url": "/articles/electrical-fundamentals/what-is-voltage-current-resistance.html",
-      "description": "Understand voltage, current and resistance, three fundamental electrical quantities used in electrical engineering.",
-      "excerpt": "A simple introduction to voltage, current and resistance and how these three electrical quantities are related.",
-      "icon": "electrical_services",
-      "image": "/assets/images/simple-circuit-diagram.jpeg",
-      "author": "Prasun Barua",
-      "datePublished": "2026-08-01",
-      "dateModified": "2026-08-01",
-      "readingTime": "7 min read",
-      "featured": true,
-      "status": "published",
-      "tags": [
-        "voltage",
-        "current",
-        "resistance",
-        "electricity basics",
-        "electrical fundamentals",
-        "electrical engineering"
-      ]
-    },
-
     {
       "id": "electrical-power-calculation",
       "title": "How to Calculate Electrical Power",
       "slug": "power-calculation",
       "category": "electrical-calculations",
       "categoryName": "Electrical Calculations",
-      "url": "/articles/electrical-calculations/power-calculation/",
+      "url": "articles/electrical-calculations/power-calculation/",
       "description": "Learn how to calculate electrical power in single-phase and three-phase electrical systems using practical formulas.",
       "excerpt": "Understand electrical power calculations for single-phase and three-phase systems with practical examples.",
       "icon": "bolt",
       "image": "",
       "author": "Prasun Barua",
-      "datePublished": "2026-08-01",
-      "dateModified": "2026-08-01",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
       "readingTime": "10 min read",
       "featured": false,
       "status": "published",
@@ -180,14 +177,13 @@
         "electrical calculations"
       ]
     },
-
     {
       "id": "cable-size-calculation",
       "title": "How to Calculate Electrical Cable Size",
       "slug": "cable-size-calculation",
       "category": "electrical-design",
       "categoryName": "Electrical Design",
-      "url": "/articles/electrical-design/cable-size-calculation/",
+      "url": "articles/electrical-design/cable-size-calculation/",
       "description": "Learn the basic considerations for selecting an electrical cable size based on current, voltage drop and installation conditions.",
       "excerpt": "A practical introduction to electrical cable sizing, current carrying capacity and voltage drop.",
       "icon": "cable",
@@ -204,185 +200,6 @@
         "voltage drop",
         "current carrying capacity",
         "electrical design"
-      ]
-    },
-
-    {
-      "id": "how-solar-pv-works",
-      "title": "How Does a Solar PV System Work?",
-      "slug": "how-solar-pv-works",
-      "category": "solar-pv",
-      "categoryName": "Solar PV",
-      "url": "/articles/solar-pv/how-solar-pv-works/",
-      "description": "Understand how a solar photovoltaic system converts sunlight into electrical energy and supplies power to electrical loads.",
-      "excerpt": "Learn the basic working principle of a solar PV system from sunlight and PV modules to the inverter and electrical loads.",
-      "icon": "solar_power",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "9 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "solar PV",
-        "solar energy",
-        "photovoltaic",
-        "PV system",
-        "solar inverter"
-      ]
-    },
-
-    {
-      "id": "solar-pv-string-sizing",
-      "title": "Solar PV String Sizing: A Practical Guide",
-      "slug": "solar-pv-string-sizing",
-      "category": "solar-pv",
-      "categoryName": "Solar PV",
-      "url": "/articles/solar-pv/solar-pv-string-sizing/",
-      "description": "Learn how to determine the number of solar PV modules in a string using module voltage, inverter voltage limits and temperature conditions.",
-      "excerpt": "A practical guide to solar PV string sizing and checking the string voltage against inverter operating limits.",
-      "icon": "solar_power",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "12 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "solar PV",
-        "PV string",
-        "string sizing",
-        "solar inverter",
-        "PV design"
-      ]
-    },
-
-    {
-      "id": "solar-inverter-sizing",
-      "title": "How to Size a Solar PV Inverter",
-      "slug": "solar-inverter-sizing",
-      "category": "solar-pv",
-      "categoryName": "Solar PV",
-      "url": "/articles/solar-pv/solar-inverter-sizing/",
-      "description": "Learn the basic principles of selecting and sizing an inverter for a grid-connected solar PV system.",
-      "excerpt": "Understand DC-to-AC ratio, inverter capacity and the main parameters used when selecting a solar PV inverter.",
-      "icon": "solar_power",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "11 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "solar inverter",
-        "inverter sizing",
-        "solar PV",
-        "DC AC ratio",
-        "PV design"
-      ]
-    },
-
-    {
-      "id": "transformer-basics",
-      "title": "What Is an Electrical Transformer?",
-      "slug": "transformer-basics",
-      "category": "power-systems",
-      "categoryName": "Power Systems",
-      "url": "/articles/power-systems/transformer-basics/",
-      "description": "Learn the basic working principle of electrical transformers, voltage transformation and common transformer applications.",
-      "excerpt": "Understand how transformers transfer electrical energy between circuits and change voltage levels.",
-      "icon": "electric_bolt",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "9 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "transformer",
-        "power systems",
-        "electrical transformer",
-        "voltage transformation"
-      ]
-    },
-
-    {
-      "id": "power-factor-basics",
-      "title": "What Is Power Factor?",
-      "slug": "power-factor-basics",
-      "category": "power-systems",
-      "categoryName": "Power Systems",
-      "url": "/articles/power-systems/power-factor-basics/",
-      "description": "Understand power factor, apparent power, active power and reactive power in AC electrical systems.",
-      "excerpt": "Learn what power factor means, why it matters and how it affects electrical systems.",
-      "icon": "electric_bolt",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "10 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "power factor",
-        "active power",
-        "reactive power",
-        "apparent power",
-        "AC systems"
-      ]
-    },
-
-    {
-      "id": "electrical-earthing-basics",
-      "title": "Electrical Earthing: Basic Principles",
-      "slug": "electrical-earthing-basics",
-      "category": "electrical-design",
-      "categoryName": "Electrical Design",
-      "url": "/articles/electrical-design/electrical-earthing-basics/",
-      "description": "Understand the purpose of electrical earthing, grounding systems and basic protection principles.",
-      "excerpt": "Learn why electrical earthing is important for safety and how grounding provides a path for fault current.",
-      "icon": "architecture",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "10 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "earthing",
-        "grounding",
-        "electrical safety",
-        "electrical design"
-      ]
-    },
-
-    {
-      "id": "electrical-testing-basics",
-      "title": "Basic Electrical Testing Procedures",
-      "slug": "electrical-testing-basics",
-      "category": "testing-commissioning",
-      "categoryName": "Testing & Commissioning",
-      "url": "/articles/testing-commissioning/electrical-testing-basics/",
-      "description": "Learn the purpose of common electrical testing procedures used before energization and commissioning.",
-      "excerpt": "An introduction to common electrical inspection and testing procedures used during electrical installation and commissioning.",
-      "icon": "engineering",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
-      "readingTime": "11 min read",
-      "featured": false,
-      "status": "planned",
-      "tags": [
-        "electrical testing",
-        "commissioning",
-        "insulation resistance",
-        "electrical inspection"
       ]
     }
   ]
