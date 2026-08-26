@@ -5,50 +5,52 @@
     "language": "en",
     "author": "Prasun Barua"
   },
+
   "categories": [
     {
       "id": "electrical-fundamentals",
       "name": "Electrical Fundamentals",
       "description": "Learn the basic principles of electricity, including voltage, current, resistance, power, energy, AC and DC.",
       "icon": "electrical_services",
-      "url": "articles/electrical-fundamentals/"
+      "url": "/articles/electrical-fundamentals/"
     },
     {
       "id": "electrical-calculations",
       "name": "Electrical Calculations",
       "description": "Practical electrical engineering formulas, calculations, worked examples and sizing methods.",
       "icon": "calculate",
-      "url": "articles/electrical-calculations/"
+      "url": "/articles/electrical-calculations/"
     },
     {
       "id": "power-systems",
       "name": "Power Systems",
       "description": "Learn about transformers, distribution systems, power factor, protection and electrical power networks.",
       "icon": "electric_bolt",
-      "url": "articles/power-systems/"
+      "url": "/articles/power-systems/"
     },
     {
       "id": "solar-pv",
       "name": "Solar PV",
       "description": "Practical solar photovoltaic engineering guides covering PV systems, strings, inverters, losses and performance.",
       "icon": "solar_power",
-      "url": "articles/solar-pv/"
+      "url": "/articles/solar-pv/"
     },
     {
       "id": "electrical-design",
       "name": "Electrical Design",
       "description": "Practical electrical design methods covering cables, voltage drop, protection, earthing and distribution.",
       "icon": "architecture",
-      "url": "articles/electrical-design/"
+      "url": "/articles/electrical-design/"
     },
     {
       "id": "testing-commissioning",
       "name": "Testing & Commissioning",
       "description": "Electrical testing, inspection, commissioning procedures, troubleshooting and practical field methods.",
       "icon": "engineering",
-      "url": "articles/testing-commissioning/"
+      "url": "/articles/testing-commissioning/"
     }
   ],
+
   "articles": [
     {
       "id": "voltage-drop-calculation",
@@ -56,7 +58,7 @@
       "slug": "voltage-drop-calculation",
       "category": "electrical-calculations",
       "categoryName": "Electrical Calculations",
-      "url": "articles/electrical-calculations/voltage-drop-calculation.html",
+      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
       "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
       "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
       "icon": "monitoring",
@@ -76,17 +78,18 @@
         "electrical design"
       ]
     },
+
     {
       "id": "what-is-voltage-current-resistance",
       "title": "What Are Voltage, Current and Resistance?",
       "slug": "what-is-voltage-current-resistance",
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
-      "url": "articles/electrical-fundamentals/ohms-law/what-is-voltage-current-resistance.html",
+      "url": "/articles/electrical-fundamentals/what-is-voltage-current-resistance.html",
       "description": "Understand voltage, current and resistance, three fundamental electrical quantities used in electrical engineering.",
       "excerpt": "A simple introduction to voltage, current and resistance and how these three electrical quantities are related.",
       "icon": "electrical_services",
-      "image": "assets/images/simple-circuit-diagram.jpeg",
+      "image": "/assets/images/simple-circuit-diagram.jpeg",
       "author": "Prasun Barua",
       "datePublished": "2026-08-10",
       "dateModified": "2026-08-10",
@@ -102,17 +105,18 @@
         "electrical engineering"
       ]
     },
+
     {
       "id": "electrical-energy-kwh-vs-kw",
       "title": "Electrical Energy: kWh vs kW",
       "slug": "electrical-energy-kwh-vs-kw",
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
-      "url": "articles/electrical-fundamentals/ohms-law/electrical-energy-kwh-vs-kw.html",
+      "url": "/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html",
       "description": "Understand the difference between power rating (kW) and energy consumption (kWh).",
       "excerpt": "A clear comparison between kilowatt (kW) as power and kilowatt-hour (kWh) as energy.",
       "icon": "electrical_services",
-      "image": "",
+      "image": "/assets/images/electrical-energy-kwh-vs-kw.jpeg",
       "author": "Prasun Barua",
       "datePublished": "2026-08-05",
       "dateModified": "2026-08-05",
@@ -126,17 +130,18 @@
         "electrical fundamentals"
       ]
     },
+
     {
       "id": "ohms-law",
       "title": "What Is Ohm's Law?",
       "slug": "ohms-law",
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
-      "url": "articles/electrical-fundamentals/ohms-law/index.html",
+      "url": "/articles/electrical-fundamentals/ohms-law/index.html",
       "description": "Learn the relationship between voltage, current and resistance using Ohm's Law with practical electrical examples.",
       "excerpt": "Ohm's Law explains the relationship between voltage, current and resistance in an electrical circuit.",
       "icon": "electrical_services",
-      "image": "assets/images/ohms-law-power-triangle.jpeg",
+      "image": "/assets/images/ohms-law-power-triangle.jpeg",
       "author": "Prasun Barua",
       "datePublished": "2026-08-01",
       "dateModified": "2026-08-01",
@@ -152,13 +157,14 @@
         "electrical engineering"
       ]
     },
+
     {
       "id": "electrical-power-calculation",
       "title": "How to Calculate Electrical Power",
       "slug": "power-calculation",
       "category": "electrical-calculations",
       "categoryName": "Electrical Calculations",
-      "url": "articles/electrical-calculations/power-calculation/",
+      "url": "/articles/electrical-calculations/power-calculation/",
       "description": "Learn how to calculate electrical power in single-phase and three-phase electrical systems using practical formulas.",
       "excerpt": "Understand electrical power calculations for single-phase and three-phase systems with practical examples.",
       "icon": "bolt",
@@ -177,13 +183,14 @@
         "electrical calculations"
       ]
     },
+
     {
       "id": "cable-size-calculation",
       "title": "How to Calculate Electrical Cable Size",
       "slug": "cable-size-calculation",
       "category": "electrical-design",
       "categoryName": "Electrical Design",
-      "url": "articles/electrical-design/cable-size-calculation/",
+      "url": "/articles/electrical-design/cable-size-calculation/",
       "description": "Learn the basic considerations for selecting an electrical cable size based on current, voltage drop and installation conditions.",
       "excerpt": "A practical introduction to electrical cable sizing, current carrying capacity and voltage drop.",
       "icon": "cable",
