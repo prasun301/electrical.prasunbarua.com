@@ -3,75 +3,115 @@
    RELATED ARTICLES SYSTEM
    ---------------------------------------------------------
    Loads articles.json and automatically displays
-   relevant articles on article pages.
+   relevant published articles on article pages.
    ========================================================= */
 
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
+
+/* =========================================================
+   INITIALIZE
+   ========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
     initRelatedArticles();
+
 });
 
 
 /* =========================================================
    CONFIGURATION
-   ========================================================= */
+   ========================================================== */
 
 const RELATED_CONFIG = {
+
     dataURL: "/articles.json",
+
     containerID: "related-articles",
+
     maxArticles: 3
+
 };
 
 
 /* =========================================================
-   INITIALIZE
-   ========================================================= */
+   INITIALIZE RELATED ARTICLES
+   ========================================================== */
 
 async function initRelatedArticles() {
 
-    const container = document.getElementById(
-        RELATED_CONFIG.containerID
-    );
+    const container =
+        document.getElementById(
+            RELATED_CONFIG.containerID
+        );
+
 
     /*
-     * If the current page does not contain a related
-     * articles container, there is nothing to do.
+     * Nothing to do if this page does not contain
+     * the related articles container.
      */
+
     if (!container) {
+
         return;
+
     }
 
 
     try {
 
-        const response = await fetch(
-            RELATED_CONFIG.dataURL,
-            {
-                cache: "no-cache"
-            }
-        );
+        const response =
+            await fetch(
+                RELATED_CONFIG.dataURL,
+                {
+                    cache: "no-cache"
+                }
+            );
 
 
         if (!response.ok) {
+
             throw new Error(
                 `Unable to load articles.json: ${response.status}`
             );
+
         }
 
 
-        const articles = await response.json();
+        const data =
+            await response.json();
 
 
-        if (!Array.isArray(articles)) {
+        /*
+         * Support both:
+         *
+         * 1. [ {...}, {...} ]
+         *
+         * 2. { "articles": [ {...}, {...} ] }
+         */
+
+        const articles =
+            Array.isArray(data)
+                ? data
+                : Array.isArray(data.articles)
+                    ? data.articles
+                    : [];
+
+
+        if (!articles.length) {
+
             throw new Error(
-                "articles.json must contain an array of articles."
+                "No articles found in articles.json."
             );
+
         }
 
 
         const currentURL =
-            normalizeURL(window.location.pathname);
+            normalizeURL(
+                window.location.pathname
+            );
 
 
         const currentArticle =
@@ -94,6 +134,7 @@ async function initRelatedArticles() {
             relatedArticles
         );
 
+
     } catch (error) {
 
         console.warn(
@@ -101,31 +142,32 @@ async function initRelatedArticles() {
             error
         );
 
-        /*
-         * Keep the existing static related articles
-         * if the JSON cannot be loaded.
-         */
     }
+
 }
 
 
 /* =========================================================
    NORMALIZE URL
-   ========================================================= */
+   ========================================================== */
 
 function normalizeURL(url) {
 
     if (!url) {
+
         return "/";
+
     }
 
 
-    let cleanURL = url;
+    let cleanURL =
+        String(url);
 
 
     /*
      * Remove query string.
      */
+
     cleanURL =
         cleanURL.split("?")[0];
 
@@ -133,13 +175,15 @@ function normalizeURL(url) {
     /*
      * Remove hash.
      */
+
     cleanURL =
         cleanURL.split("#")[0];
 
 
     /*
-     * Convert backslashes if any.
+     * Convert backslashes.
      */
+
     cleanURL =
         cleanURL.replace(/\\/g, "/");
 
@@ -147,14 +191,19 @@ function normalizeURL(url) {
     /*
      * Ensure leading slash.
      */
+
     if (!cleanURL.startsWith("/")) {
-        cleanURL = "/" + cleanURL;
+
+        cleanURL =
+            "/" + cleanURL;
+
     }
 
 
     /*
      * Remove duplicate slashes.
      */
+
     cleanURL =
         cleanURL.replace(/\/+/g, "/");
 
@@ -162,6 +211,7 @@ function normalizeURL(url) {
     /*
      * Normalize trailing slash.
      */
+
     if (
         cleanURL.length > 1 &&
         !cleanURL.endsWith("/")
@@ -173,22 +223,25 @@ function normalizeURL(url) {
 
 
     return cleanURL;
+
 }
 
 
 /* =========================================================
    FIND CURRENT ARTICLE
-   ========================================================= */
+   ========================================================== */
 
 function findCurrentArticle(
     articles,
     currentURL
 ) {
 
-    return articles.find(article => {
+    return articles.find(function (article) {
 
         if (!article) {
+
             return false;
+
         }
 
 
@@ -203,12 +256,13 @@ function findCurrentArticle(
         return articleURL === currentURL;
 
     }) || null;
+
 }
 
 
 /* =========================================================
    GET RELATED ARTICLES
-   ========================================================= */
+   ========================================================== */
 
 function getRelatedArticles(
     articles,
@@ -216,16 +270,88 @@ function getRelatedArticles(
     currentURL
 ) {
 
-    /*
-     * Remove current article.
-     */
+
+    /* =====================================================
+       CURRENT DATE
+    ====================================================== */
+
+    const now =
+        new Date();
+
+
+    /* =====================================================
+       ONLY INCLUDE ACTUALLY PUBLISHED ARTICLES
+    ====================================================== */
+
     let candidates =
-        articles.filter(article => {
+        articles.filter(function (article) {
 
             if (!article) {
+
                 return false;
+
             }
 
+
+            /*
+             * Must explicitly be published.
+             */
+
+            if (
+                String(article.status || "")
+                    .toLowerCase() !==
+                "published"
+            ) {
+
+                return false;
+
+            }
+
+
+            /*
+             * Must have a publication date.
+             */
+
+            if (!article.datePublished) {
+
+                return false;
+
+            }
+
+
+            const publishedDate =
+                parseArticleDate(
+                    article.datePublished
+                );
+
+
+            /*
+             * Reject invalid dates.
+             */
+
+            if (!publishedDate) {
+
+                return false;
+
+            }
+
+
+            /*
+             * Reject future articles.
+             */
+
+            if (
+                publishedDate > now
+            ) {
+
+                return false;
+
+            }
+
+
+            /*
+             * Remove current article.
+             */
 
             const articleURL =
                 normalizeURL(
@@ -240,9 +366,10 @@ function getRelatedArticles(
         });
 
 
-    /*
-     * Determine current category.
-     */
+    /* =====================================================
+       CURRENT CATEGORY
+    ====================================================== */
+
     const currentCategory =
         currentArticle
             ? normalizeText(
@@ -255,21 +382,38 @@ function getRelatedArticles(
             );
 
 
-    /*
-     * Determine current tags.
-     */
+    /* =====================================================
+       CURRENT TAGS
+    ====================================================== */
+
     const currentTags =
         currentArticle &&
-        Array.isArray(currentArticle.tags)
+        Array.isArray(
+            currentArticle.tags
+        )
             ? currentArticle.tags
             : [];
 
 
-    /*
-     * Score each candidate.
-     */
+    /* =====================================================
+       CURRENT KEYWORDS
+    ====================================================== */
+
+    const currentKeywords =
+        currentArticle &&
+        Array.isArray(
+            currentArticle.keywords
+        )
+            ? currentArticle.keywords
+            : [];
+
+
+    /* =====================================================
+       SCORE CANDIDATES
+    ====================================================== */
+
     const scoredArticles =
-        candidates.map(article => {
+        candidates.map(function (article) {
 
             let score = 0;
 
@@ -282,14 +426,15 @@ function getRelatedArticles(
                 );
 
 
-            /*
-             * Same category is the strongest
-             * basic relationship.
-             */
+            /* ---------------------------------------------
+               SAME CATEGORY
+            --------------------------------------------- */
+
             if (
                 currentCategory &&
                 articleCategory &&
-                currentCategory === articleCategory
+                currentCategory ===
+                articleCategory
             ) {
 
                 score += 50;
@@ -297,9 +442,10 @@ function getRelatedArticles(
             }
 
 
-            /*
-             * Match tags.
-             */
+            /* ---------------------------------------------
+               TAG MATCHES
+            --------------------------------------------- */
+
             const articleTags =
                 Array.isArray(article.tags)
                     ? article.tags
@@ -307,7 +453,7 @@ function getRelatedArticles(
 
 
             currentTags.forEach(
-                currentTag => {
+                function (currentTag) {
 
                     const normalizedCurrentTag =
                         normalizeText(
@@ -316,7 +462,7 @@ function getRelatedArticles(
 
 
                     articleTags.forEach(
-                        articleTag => {
+                        function (articleTag) {
 
                             if (
                                 normalizedCurrentTag ===
@@ -334,17 +480,9 @@ function getRelatedArticles(
             );
 
 
-            /*
-             * Match keywords if available.
-             */
-            const currentKeywords =
-                currentArticle &&
-                Array.isArray(
-                    currentArticle.keywords
-                )
-                    ? currentArticle.keywords
-                    : [];
-
+            /* ---------------------------------------------
+               KEYWORD MATCHES
+            --------------------------------------------- */
 
             const articleKeywords =
                 Array.isArray(
@@ -355,7 +493,7 @@ function getRelatedArticles(
 
 
             currentKeywords.forEach(
-                keyword => {
+                function (keyword) {
 
                     const normalizedKeyword =
                         normalizeText(
@@ -364,7 +502,7 @@ function getRelatedArticles(
 
 
                     articleKeywords.forEach(
-                        articleKeyword => {
+                        function (articleKeyword) {
 
                             if (
                                 normalizedKeyword ===
@@ -382,9 +520,10 @@ function getRelatedArticles(
             );
 
 
-            /*
-             * Category URL relationship.
-             */
+            /* ---------------------------------------------
+               SAME CATEGORY URL
+            --------------------------------------------- */
+
             const articleURL =
                 normalizeURL(
                     article.url ||
@@ -405,37 +544,36 @@ function getRelatedArticles(
             }
 
 
-            /*
-             * Newer articles receive a small
-             * preference.
-             */
-            if (article.date) {
+            /* ---------------------------------------------
+               RECENCY BONUS
+            --------------------------------------------- */
 
-                const articleDate =
-                    new Date(
-                        article.date
+            const publishedDate =
+                parseArticleDate(
+                    article.datePublished
+                );
+
+
+            if (publishedDate) {
+
+                const age =
+                    Date.now() -
+                    publishedDate.getTime();
+
+
+                const days =
+                    age /
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
                     );
 
 
-                if (
-                    !Number.isNaN(
-                        articleDate.getTime()
-                    )
-                ) {
+                if (days < 180) {
 
-                    const age =
-                        Date.now() -
-                        articleDate.getTime();
-
-
-                    const days =
-                        age /
-                        (1000 * 60 * 60 * 24);
-
-
-                    if (days < 180) {
-                        score += 3;
-                    }
+                    score += 3;
 
                 }
 
@@ -443,29 +581,40 @@ function getRelatedArticles(
 
 
             return {
-                article,
-                score
+                article: article,
+                score: score
             };
 
         });
 
 
-    /*
-     * Sort highest relevance first.
-     */
+    /* =====================================================
+       SORT
+    ====================================================== */
+
     scoredArticles.sort(
-        (a, b) => {
+        function (a, b) {
+
+            /*
+             * Higher relevance first.
+             */
 
             if (
                 b.score !==
                 a.score
             ) {
 
-                return b.score -
-                    a.score;
+                return (
+                    b.score -
+                    a.score
+                );
 
             }
 
+
+            /*
+             * Newer publication first.
+             */
 
             return compareDates(
                 b.article,
@@ -476,20 +625,34 @@ function getRelatedArticles(
     );
 
 
-    /*
-     * If no meaningful relationship exists,
-     * use the most recent articles instead.
-     */
+    /* =====================================================
+       MEANINGFUL RELATED ARTICLES
+    ====================================================== */
+
     const meaningful =
         scoredArticles.filter(
-            item => item.score > 0
+            function (item) {
+
+                return item.score > 0;
+
+            }
         );
 
+
+    /*
+     * Prefer meaningful matches when at least
+     * three are available.
+     *
+     * Otherwise fill the cards with the
+     * latest published articles.
+     */
 
     const selected =
         meaningful.length >=
         RELATED_CONFIG.maxArticles
+
             ? meaningful
+
             : scoredArticles;
 
 
@@ -499,14 +662,54 @@ function getRelatedArticles(
             RELATED_CONFIG.maxArticles
         )
         .map(
-            item => item.article
+            function (item) {
+
+                return item.article;
+
+            }
         );
+
+}
+
+
+/* =========================================================
+   PARSE ARTICLE DATE
+   ========================================================== */
+
+function parseArticleDate(
+    value
+) {
+
+    if (!value) {
+
+        return null;
+
+    }
+
+
+    const date =
+        new Date(value);
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return null;
+
+    }
+
+
+    return date;
+
 }
 
 
 /* =========================================================
    COMPARE DATES
-   ========================================================= */
+   ========================================================== */
 
 function compareDates(
     articleA,
@@ -514,33 +717,46 @@ function compareDates(
 ) {
 
     const dateA =
-        new Date(
-            articleA.date ||
-            articleA.published ||
-            0
-        ).getTime();
+        parseArticleDate(
+            articleA.datePublished ||
+            articleA.dateModified
+        );
 
 
     const dateB =
-        new Date(
-            articleB.date ||
-            articleB.published ||
-            0
-        ).getTime();
+        parseArticleDate(
+            articleB.datePublished ||
+            articleB.dateModified
+        );
+
+
+    const timestampA =
+        dateA
+            ? dateA.getTime()
+            : 0;
+
+
+    const timestampB =
+        dateB
+            ? dateB.getTime()
+            : 0;
 
 
     return (
-        (Number.isNaN(dateA) ? 0 : dateA) -
-        (Number.isNaN(dateB) ? 0 : dateB)
+        timestampA -
+        timestampB
     );
+
 }
 
 
 /* =========================================================
    GET CATEGORY FROM URL
-   ========================================================= */
+   ========================================================== */
 
-function getCategoryFromURL(url) {
+function getCategoryFromURL(
+    url
+) {
 
     const parts =
         normalizeURL(url)
@@ -551,7 +767,7 @@ function getCategoryFromURL(url) {
     /*
      * Expected:
      *
-     * /articles/electrical-fundamentals/...
+     * /articles/electrical-fundamentals/ohms-law/
      *
      * parts[0] = articles
      * parts[1] = category
@@ -562,21 +778,23 @@ function getCategoryFromURL(url) {
         parts[0] === "articles"
     ) {
 
-        return parts[1]
-            .replace(/-/g, " ");
+        return parts[1];
 
     }
 
 
     return "";
+
 }
 
 
 /* =========================================================
    NORMALIZE TEXT
-   ========================================================= */
+   ========================================================== */
 
-function normalizeText(value) {
+function normalizeText(
+    value
+) {
 
     return String(value || "")
         .trim()
@@ -588,9 +806,11 @@ function normalizeText(value) {
 
 /* =========================================================
    SLUGIFY
-   ========================================================= */
+   ========================================================== */
 
-function slugify(value) {
+function slugify(
+    value
+) {
 
     return String(value || "")
         .toLowerCase()
@@ -604,55 +824,81 @@ function slugify(value) {
 
 /* =========================================================
    RENDER RELATED ARTICLES
-   ========================================================= */
+   ========================================================== */
 
 function renderRelatedArticles(
     container,
     articles
 ) {
 
+    /*
+     * Always clear the container.
+     */
+
+    container.innerHTML = "";
+
+
+    /*
+     * Nothing available.
+     */
+
     if (
         !articles ||
         !articles.length
     ) {
+
+        const emptyMessage =
+            document.createElement("p");
+
+
+        emptyMessage.className =
+            "related-empty";
+
+
+        emptyMessage.textContent =
+            "More articles will be available soon.";
+
+
+        container.appendChild(
+            emptyMessage
+        );
+
 
         return;
 
     }
 
 
-    /*
-     * Clear the static fallback cards.
-     */
-    container.innerHTML = "";
+    articles.forEach(
+        function (article) {
+
+            const card =
+                createRelatedCard(
+                    article
+                );
 
 
-    articles.forEach(article => {
+            if (card) {
 
-        const card =
-            createRelatedCard(
-                article
-            );
+                container.appendChild(
+                    card
+                );
 
-
-        if (card) {
-
-            container.appendChild(
-                card
-            );
+            }
 
         }
-
-    });
+    );
 
 }
 
 
 /* =========================================================
    CREATE RELATED ARTICLE CARD
-   ========================================================= */
+   ========================================================== */
 
-function createRelatedCard(article) {
+function createRelatedCard(
+    article
+) {
 
     const articleURL =
         normalizeURL(
@@ -662,8 +908,13 @@ function createRelatedCard(article) {
         );
 
 
-    if (!articleURL || articleURL === "/") {
+    if (
+        !articleURL ||
+        articleURL === "/"
+    ) {
+
         return null;
+
     }
 
 
@@ -680,8 +931,20 @@ function createRelatedCard(article) {
 
 
     /*
-     * Category.
+     * Add accessible label.
      */
+
+    card.setAttribute(
+        "aria-label",
+        article.title ||
+        "Open article"
+    );
+
+
+    /* =====================================================
+       CATEGORY
+    ====================================================== */
+
     const category =
         document.createElement("div");
 
@@ -691,14 +954,16 @@ function createRelatedCard(article) {
 
 
     category.textContent =
+        article.categoryName ||
         article.category ||
         article.section ||
         "Electrical Engineering";
 
 
-    /*
-     * Title.
-     */
+    /* =====================================================
+       TITLE
+    ====================================================== */
+
     const title =
         document.createElement("h3");
 
@@ -708,26 +973,58 @@ function createRelatedCard(article) {
         "Electrical Engineering Article";
 
 
-    /*
-     * Optional description.
-     */
+    /* =====================================================
+       DESCRIPTION
+    ====================================================== */
+
     const description =
-        article.description
-            ? document.createElement("p")
-            : null;
+        document.createElement("p");
 
 
-    if (description) {
-
-        description.className =
-            "related-card-description";
+    description.className =
+        "related-card-description";
 
 
-        description.textContent =
-            article.description;
+    description.textContent =
+        article.excerpt ||
+        article.description ||
+        "";
+
+
+    /* =====================================================
+       OPTIONAL DATE
+    ====================================================== */
+
+    const date =
+        parseArticleDate(
+            article.datePublished
+        );
+
+
+    let meta = null;
+
+
+    if (date) {
+
+        meta =
+            document.createElement("div");
+
+
+        meta.className =
+            "related-card-meta";
+
+
+        meta.textContent =
+            formatArticleDate(
+                date
+            );
 
     }
 
+
+    /* =====================================================
+       BUILD CARD
+    ====================================================== */
 
     card.appendChild(
         category
@@ -739,7 +1036,9 @@ function createRelatedCard(article) {
     );
 
 
-    if (description) {
+    if (
+        description.textContent
+    ) {
 
         card.appendChild(
             description
@@ -748,20 +1047,47 @@ function createRelatedCard(article) {
     }
 
 
+    if (meta) {
+
+        card.appendChild(
+            meta
+        );
+
+    }
+
+
     return card;
+
 }
 
 
 /* =========================================================
-   OPTIONAL: ARTICLE VIEW TRACKING
-   ---------------------------------------------------------
-   Sends a lightweight Google Analytics event when
-   related article cards are clicked.
-   ========================================================= */
+   FORMAT DATE
+   ========================================================== */
+
+function formatArticleDate(
+    date
+) {
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GOOGLE ANALYTICS
+   ========================================================== */
 
 document.addEventListener(
     "click",
-    event => {
+    function (event) {
 
         const card =
             event.target.closest(
