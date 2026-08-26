@@ -14,7 +14,6 @@
       "icon": "electrical_services",
       "url": "/articles/electrical-fundamentals/"
     },
-
     {
       "id": "electrical-calculations",
       "name": "Electrical Calculations",
@@ -22,7 +21,6 @@
       "icon": "calculate",
       "url": "/articles/electrical-calculations/"
     },
-
     {
       "id": "power-systems",
       "name": "Power Systems",
@@ -30,7 +28,6 @@
       "icon": "electric_bolt",
       "url": "/articles/power-systems/"
     },
-
     {
       "id": "solar-pv",
       "name": "Solar PV",
@@ -38,7 +35,6 @@
       "icon": "solar_power",
       "url": "/articles/solar-pv/"
     },
-
     {
       "id": "electrical-design",
       "name": "Electrical Design",
@@ -46,7 +42,6 @@
       "icon": "architecture",
       "url": "/articles/electrical-design/"
     },
-
     {
       "id": "testing-commissioning",
       "name": "Testing & Commissioning",
@@ -57,6 +52,55 @@
   ],
 
   "articles": [
+    {
+      "id": "new-article",
+      "title": "My New Electrical Engineering Article",
+      "slug": "my-new-article",
+      "category": "electrical-fundamentals",
+      "categoryName": "Electrical Fundamentals",
+      "url": "/articles/electrical-fundamentals/my-new-article/",
+      "description": "A practical guide to this electrical engineering topic.",
+      "excerpt": "A practical guide to this electrical engineering topic.",
+      "icon": "electrical_services",
+      "image": "",
+      "author": "Prasun Barua",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "readingTime": "8 min read",
+      "featured": false,
+      "status": "published",
+      "tags": [
+        "electrical engineering"
+      ]
+    },
+
+    {
+      "id": "voltage-drop-calculation",
+      "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
+      "slug": "voltage-drop-calculation",
+      "category": "electrical-calculations",
+      "categoryName": "Electrical Calculations",
+      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
+      "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
+      "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
+      "icon": "monitoring",
+      "image": "",
+      "author": "Prasun Barua",
+      "datePublished": "2026-08-12",
+      "dateModified": "2026-08-12",
+      "readingTime": "10 min read",
+      "featured": true,
+      "status": "published",
+      "tags": [
+        "voltage drop",
+        "voltage drop calculation",
+        "cable",
+        "cable sizing",
+        "electrical calculations",
+        "electrical design"
+      ]
+    },
+
     {
       "id": "ohms-law",
       "title": "What Is Ohm's Law?",
@@ -134,33 +178,6 @@
         "single phase",
         "three phase",
         "electrical calculations"
-      ]
-    },
-
-    {
-      "id": "voltage-drop-calculation",
-      "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
-      "slug": "voltage-drop-calculation",
-      "category": "electrical-calculations",
-      "categoryName": "Electrical Calculations",
-      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
-      "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
-      "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
-      "icon": "monitoring",
-      "image": "",
-      "author": "Prasun Barua",
-      "datePublished": "2026-08-12",
-      "dateModified": "2026-08-12",
-      "readingTime": "10 min read",
-      "featured": true,
-      "status": "published",
-      "tags": [
-        "voltage drop",
-        "voltage drop calculation",
-        "cable",
-        "cable sizing",
-        "electrical calculations",
-        "electrical design"
       ]
     },
 
