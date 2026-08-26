@@ -607,37 +607,230 @@
 
 
                         <p>
-                            The three electrical quantities are:
-                        </p>
+    The three electrical quantities are:
+</p>
+
+<ul>
+    <li>
+        <strong>V</strong> = Voltage, measured in volts (V)
+    </li>
+
+    <li>
+        <strong>I</strong> = Current, measured in amperes (A)
+    </li>
+
+    <li>
+        <strong>R</strong> = Resistance, measured in ohms (Ω)
+    </li>
+</ul>
 
 
-                        <ul>
+<!-- =========================================================
+     INTERACTIVE OHM'S LAW VISUAL
+========================================================== -->
 
-                            <li>
-                                <strong>V</strong> = Voltage, measured in volts (V)
-                            </li>
+<section class="ohms-law-visual" aria-labelledby="ohms-visual-title">
 
-                            <li>
-                                <strong>I</strong> = Current, measured in amperes (A)
-                            </li>
+    <div class="ohms-visual-header">
 
-                            <li>
-                                <strong>R</strong> = Resistance, measured in ohms (Ω)
-                            </li>
+        <div>
+            <div class="ohms-visual-label">
+                INTERACTIVE LEARNING
+            </div>
 
-                        </ul>
+            <h3 id="ohms-visual-title">
+                Explore Ohm's Law
+            </h3>
+
+            <p>
+                Adjust any two values to see how voltage, current,
+                and resistance are related.
+            </p>
+        </div>
+
+    </div>
 
 
-                        <h2 id="ohms-law-formulas">
-                            Ohm's Law Formulas
-                        </h2>
+    <div class="ohms-law-layout">
+
+        <!-- VOLTAGE -->
+
+        <div class="ohms-value-card voltage-card">
+
+            <div class="ohms-value-icon">
+                V
+            </div>
+
+            <div class="ohms-value-content">
+
+                <label for="ohms-voltage">
+                    Voltage
+                </label>
+
+                <div class="ohms-input-row">
+
+                    <input
+                        type="number"
+                        id="ohms-voltage"
+                        value="12"
+                        min="0"
+                        step="0.1"
+                        aria-label="Voltage in volts"
+                    >
+
+                    <span>V</span>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
-                        <p>
-                            By rearranging the basic equation, we can
-                            calculate any one of the three quantities when
-                            the other two are known.
-                        </p>
+        <!-- CURRENT -->
+
+        <div class="ohms-value-card current-card">
+
+            <div class="ohms-value-icon">
+                I
+            </div>
+
+            <div class="ohms-value-content">
+
+                <label for="ohms-current">
+                    Current
+                </label>
+
+                <div class="ohms-input-row">
+
+                    <input
+                        type="number"
+                        id="ohms-current"
+                        value="2"
+                        min="0"
+                        step="0.01"
+                        aria-label="Current in amperes"
+                    >
+
+                    <span>A</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESISTANCE -->
+
+        <div class="ohms-value-card resistance-card">
+
+            <div class="ohms-value-icon">
+                R
+            </div>
+
+            <div class="ohms-value-content">
+
+                <label for="ohms-resistance">
+                    Resistance
+                </label>
+
+                <div class="ohms-input-row">
+
+                    <input
+                        type="number"
+                        id="ohms-resistance"
+                        value="6"
+                        min="0"
+                        step="0.1"
+                        aria-label="Resistance in ohms"
+                    >
+
+                    <span>Ω</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FORMULA -->
+
+    <div class="ohms-equation">
+
+        <span class="ohms-equation-value" id="ohms-v-display">
+            12 V
+        </span>
+
+        <span class="ohms-equation-symbol">
+            =
+        </span>
+
+        <span class="ohms-equation-value" id="ohms-i-display">
+            2 A
+        </span>
+
+        <span class="ohms-equation-symbol">
+            ×
+        </span>
+
+        <span class="ohms-equation-value" id="ohms-r-display">
+            6 Ω
+        </span>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="ohms-result">
+
+        <div class="ohms-result-label">
+            Current calculated from V ÷ R
+        </div>
+
+        <div class="ohms-result-value">
+
+            <span id="ohms-result">
+                2.00
+            </span>
+
+            A
+
+        </div>
+
+        <div class="ohms-result-description">
+            Increase the voltage or decrease the resistance
+            to increase current.
+        </div>
+
+    </div>
+
+
+    <!-- RESET -->
+
+    <button
+        type="button"
+        class="ohms-reset"
+        id="ohms-reset"
+    >
+        Reset example
+    </button>
+
+</section>
+
+<h2 id="ohms-law-formulas">
+    Ohm's Law Formulas
+</h2>
+
+<p>
+    By rearranging the basic equation, we can
+    calculate any one of the three quantities when
+    the other two are known.
+</p>
 
 
                         <div class="formula-box">
