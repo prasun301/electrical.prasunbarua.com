@@ -1972,358 +1972,254 @@
                      21. SOCIAL SHARING
                 ================================================== -->
 
+<!-- =========================================================
+     GOOGLE-STYLE ARTICLE SHARE
+========================================================== -->
+
 <section
     class="article-share"
     aria-labelledby="article-share-title"
 >
 
+    <div class="article-share-header">
 
-<div class="article-share-header">
+        <span class="article-share-title" id="article-share-title">
+            Share
+        </span>
 
-    <h2 id="article-share-title">
-        Share this article
-    </h2>
+        <span class="article-share-description">
+            Share this article with others.
+        </span>
 
-    <p>
-        Help others discover this practical electrical engineering guide.
-    </p>
-
-</div>
-
-
-<div
-    class="article-share-actions"
-    role="group"
-    aria-label="Article sharing options"
->
+    </div>
 
 
-    <!-- =================================================
-         COPY LINK
-    ================================================== -->
-
-    <button
-        type="button"
-        class="share-button copy"
-        data-share="copy"
-        aria-label="Copy article link"
-        title="Copy article link"
+    <div
+        class="article-share-actions"
+        role="group"
+        aria-label="Article sharing options"
     >
 
-        <span
-            class="share-icon"
-            aria-hidden="true"
+
+        <!-- =================================================
+             NATIVE SHARE
+        ================================================== -->
+
+        <button
+            type="button"
+            class="share-icon-button native-share"
+            data-share="native"
+            aria-label="Share this article"
+            title="Share"
+            hidden
+        >
+
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                share
+            </span>
+
+            <span class="share-tooltip">
+                Share
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             COPY LINK
+        ================================================== -->
+
+        <button
+            type="button"
+            class="share-icon-button"
+            data-share="copy"
+            aria-label="Copy article link"
+            title="Copy link"
+        >
+
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                link
+            </span>
+
+            <span class="share-tooltip">
+                Copy link
+            </span>
+
+            <span
+                class="share-status"
+                aria-live="polite"
+            ></span>
+
+        </button>
+
+
+        <!-- =================================================
+             LINKEDIN
+        ================================================== -->
+
+        <button
+            type="button"
+            class="share-icon-button"
+            data-share="linkedin"
+            aria-label="Share on LinkedIn"
+            title="Share on LinkedIn"
         >
 
             <svg
-                width="18"
-                height="18"
+                class="share-svg-icon"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            >
-
-                <rect
-                    x="9"
-                    y="9"
-                    width="13"
-                    height="13"
-                    rx="2"
-                    ry="2"
-                ></rect>
-
-                <path
-                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                ></path>
-
-            </svg>
-
-        </span>
-
-        <span class="share-button-text">
-            Copy link
-        </span>
-
-        <span
-            class="share-status"
-            aria-live="polite"
-        ></span>
-
-    </button>
-
-
-    <!-- =================================================
-         LINKEDIN
-    ================================================== -->
-
-    <button
-        type="button"
-        class="share-button linkedin"
-        data-share="linkedin"
-        aria-label="Share this article on LinkedIn"
-        title="Share on LinkedIn"
-    >
-
-        <span
-            class="share-icon"
-            aria-hidden="true"
-        >
-
-            <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+                aria-hidden="true"
             >
 
                 <path
+                    fill="currentColor"
                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                 ></path>
 
             </svg>
 
-        </span>
+            <span class="share-tooltip">
+                LinkedIn
+            </span>
 
-        <span class="share-button-text">
-            LinkedIn
-        </span>
-
-    </button>
+        </button>
 
 
-    <!-- =================================================
-         X
-    ================================================== -->
+        <!-- =================================================
+             X
+        ================================================== -->
 
-    <button
-        type="button"
-        class="share-button x"
-        data-share="x"
-        aria-label="Share this article on X"
-        title="Share on X"
-    >
-
-        <span
-            class="share-icon"
-            aria-hidden="true"
+        <button
+            type="button"
+            class="share-icon-button"
+            data-share="x"
+            aria-label="Share on X"
+            title="Share on X"
         >
 
             <svg
-                width="18"
-                height="18"
+                class="share-svg-icon"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                aria-hidden="true"
             >
 
                 <path
+                    fill="currentColor"
                     d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                 ></path>
 
             </svg>
 
-        </span>
+            <span class="share-tooltip">
+                X
+            </span>
 
-        <span class="share-button-text">
-            X
-        </span>
-
-    </button>
+        </button>
 
 
-    <!-- =================================================
-         WHATSAPP
-    ================================================== -->
+        <!-- =================================================
+             WHATSAPP
+        ================================================== -->
 
-    <button
-        type="button"
-        class="share-button whatsapp"
-        data-share="whatsapp"
-        aria-label="Share this article on WhatsApp"
-        title="Share on WhatsApp"
-    >
-
-        <span
-            class="share-icon"
-            aria-hidden="true"
+        <button
+            type="button"
+            class="share-icon-button"
+            data-share="whatsapp"
+            aria-label="Share on WhatsApp"
+            title="Share on WhatsApp"
         >
 
             <svg
-                width="18"
-                height="18"
+                class="share-svg-icon"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                aria-hidden="true"
             >
 
                 <path
+                    fill="currentColor"
                     d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.53 0 .21 5.32.21 11.85c0 2.09.55 4.13 1.6 5.93L.1 24l6.4-1.68a11.87 11.87 0 0 0 5.55 1.41h.01c6.53 0 11.84-5.32 11.84-11.85 0-3.16-1.23-6.13-3.38-8.4zM12.06 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.8 1 1.02-3.7-.23-.38a9.84 9.84 0 0 1-1.51-5.18C2.15 6.43 6.59 2 12.06 2a9.8 9.8 0 0 1 6.98 2.9 9.84 9.84 0 0 1 2.89 6.99c0 5.47-4.44 9.81-9.87 9.81zm5.4-7.35c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"
                 ></path>
 
             </svg>
 
-        </span>
+            <span class="share-tooltip">
+                WhatsApp
+            </span>
 
-        <span class="share-button-text">
-            WhatsApp
-        </span>
-
-    </button>
+        </button>
 
 
-    <!-- =================================================
-         FACEBOOK
-    ================================================== -->
+        <!-- =================================================
+             FACEBOOK
+        ================================================== -->
 
-    <button
-        type="button"
-        class="share-button facebook"
-        data-share="facebook"
-        aria-label="Share this article on Facebook"
-        title="Share on Facebook"
-    >
-
-        <span
-            class="share-icon"
-            aria-hidden="true"
+        <button
+            type="button"
+            class="share-icon-button"
+            data-share="facebook"
+            aria-label="Share on Facebook"
+            title="Share on Facebook"
         >
 
             <svg
-                width="18"
-                height="18"
+                class="share-svg-icon"
                 viewBox="0 0 24 24"
-                fill="currentColor"
+                aria-hidden="true"
             >
 
                 <path
-                    d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.43H7.08v-3.5h3.05V9.41c0-3.03 1.79-4.71 4.57-4.71 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.89v2.27h3.35l-.54 3.5h-2.81V24C19.61 23.08 24 18.09 24 12.07z"
+                    fill="currentColor"
+                    d="M24 12.073C24 5.403 18.627 0 12 0S0 5.403 0 12.073C0 18.099 4.388 23.092 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.691 4.533-4.691 1.312 0 2.686.236 2.686.236v2.953h-1.515c-1.491 0-1.956.928-1.956 1.882v2.262h3.328l-.532 3.49h-2.796V24C19.612 23.092 24 18.099 24 12.073z"
                 ></path>
 
             </svg>
 
-        </span>
+            <span class="share-tooltip">
+                Facebook
+            </span>
 
-        <span class="share-button-text">
-            Facebook
-        </span>
+        </button>
 
-    </button>
-
-
-    <!-- =================================================
-         NATIVE SHARE
-         Used when supported by the browser/device
-    ================================================== -->
-
-    <button
-        type="button"
-        class="share-button native-share"
-        data-share="native"
-        aria-label="Share this article"
-        title="Share this article"
-    >
-
-        <span
-            class="share-icon"
-            aria-hidden="true"
-        >
-
-            <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            >
-
-                <circle
-                    cx="18"
-                    cy="5"
-                    r="3"
-                ></circle>
-
-                <circle
-                    cx="6"
-                    cy="12"
-                    r="3"
-                ></circle>
-
-                <circle
-                    cx="18"
-                    cy="19"
-                    r="3"
-                ></circle>
-
-                <line
-                    x1="8.59"
-                    y1="13.51"
-                    x2="15.42"
-                    y2="17.49"
-                ></line>
-
-                <line
-                    x1="15.41"
-                    y1="6.51"
-                    x2="8.59"
-                    y2="10.49"
-                ></line>
-
-            </svg>
-
-        </span>
-
-        <span class="share-button-text">
-            Share
-        </span>
-
-    </button>
-
-</div>
-
+    </div>
 
 </section>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    const shareButtons =
+    const pageURL = window.location.href;
+    const pageTitle = document.title;
+
+    const buttons =
         document.querySelectorAll("[data-share]");
 
-    const pageURL =
-        window.location.href;
-
-    const pageTitle =
-        document.title;
-
-    const shareText =
-        "Check out this electrical engineering guide: " +
-        pageTitle;
-
-
-    /* ---------------------------------------------------------
-       NATIVE SHARE VISIBILITY
-    --------------------------------------------------------- */
-
-    const nativeShareButton =
+    const nativeButton =
         document.querySelector('[data-share="native"]');
 
-    if (
-        nativeShareButton &&
-        !navigator.share
-    ) {
-        nativeShareButton.hidden = true;
+
+    /* =========================================================
+       SHOW NATIVE SHARE ONLY WHEN SUPPORTED
+    ========================================================== */
+
+    if (nativeButton && typeof navigator.share === "function") {
+
+        nativeButton.hidden = false;
+
     }
 
 
-    /* ---------------------------------------------------------
-       BUTTON HANDLERS
-    --------------------------------------------------------- */
+    /* =========================================================
+       SHARE HANDLERS
+    ========================================================== */
 
-    shareButtons.forEach(function (button) {
+    buttons.forEach(function (button) {
 
         button.addEventListener("click", async function () {
 
@@ -2331,40 +2227,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.dataset.share;
 
 
-            /* =================================================
+            /* =====================================================
                NATIVE SHARE
-            ================================================= */
+            ====================================================== */
 
             if (
                 type === "native" &&
-                navigator.share
+                typeof navigator.share === "function"
             ) {
 
                 try {
 
                     await navigator.share({
                         title: pageTitle,
-                        text: shareText,
+                        text: pageTitle,
                         url: pageURL
                     });
 
                 } catch (error) {
 
-                    /*
-                     * User cancellation is normal and does not
-                     * need to display an error.
-                     */
-
                     if (
                         error &&
                         error.name !== "AbortError"
                     ) {
-
                         console.warn(
-                            "Native sharing failed:",
+                            "Native share failed:",
                             error
                         );
-
                     }
 
                 }
@@ -2373,9 +2262,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* =================================================
+            /* =====================================================
                COPY LINK
-            ================================================= */
+            ====================================================== */
 
             if (type === "copy") {
 
@@ -2385,119 +2274,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         pageURL
                     );
 
-                    const textElement =
-                        button.querySelector(
-                            ".share-button-text"
-                        );
-
-                    const statusElement =
-                        button.querySelector(
-                            ".share-status"
-                        );
-
-                    if (textElement) {
-                        textElement.textContent =
-                            "Copied!";
-                    }
-
-                    if (statusElement) {
-                        statusElement.textContent =
-                            "Article link copied.";
-                    }
-
-                    button.classList.add("copied");
-
-                    setTimeout(function () {
-
-                        if (textElement) {
-                            textElement.textContent =
-                                "Copy link";
-                        }
-
-                        if (statusElement) {
-                            statusElement.textContent =
-                                "";
-                        }
-
-                        button.classList.remove(
-                            "copied"
-                        );
-
-                    }, 1800);
+                    showCopiedState(button);
 
                 } catch (error) {
 
-                    /*
-                     * Fallback for browsers where the Clipboard API
-                     * is unavailable or blocked.
-                     */
-
-                    const temporaryInput =
-                        document.createElement("input");
-
-                    temporaryInput.value =
-                        pageURL;
-
-                    temporaryInput.setAttribute(
-                        "readonly",
-                        ""
-                    );
-
-                    temporaryInput.style.position =
-                        "fixed";
-
-                    temporaryInput.style.opacity =
-                        "0";
-
-                    document.body.appendChild(
-                        temporaryInput
-                    );
-
-                    temporaryInput.select();
-
-                    try {
-
-                        document.execCommand(
-                            "copy"
-                        );
-
-                        const textElement =
-                            button.querySelector(
-                                ".share-button-text"
-                            );
-
-                        if (textElement) {
-                            textElement.textContent =
-                                "Copied!";
-                        }
-
-                        button.classList.add(
-                            "copied"
-                        );
-
-                        setTimeout(function () {
-
-                            if (textElement) {
-                                textElement.textContent =
-                                    "Copy link";
-                            }
-
-                            button.classList.remove(
-                                "copied"
-                            );
-
-                        }, 1800);
-
-                    } catch (fallbackError) {
-
-                        window.prompt(
-                            "Copy this article link:",
-                            pageURL
-                        );
-
-                    }
-
-                    temporaryInput.remove();
+                    fallbackCopy(pageURL, button);
 
                 }
 
@@ -2505,76 +2286,207 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* =================================================
-               SOCIAL SHARE URLS
-            ================================================= */
+            /* =====================================================
+               SOCIAL SHARE URL
+            ====================================================== */
 
             let shareURL = "";
 
 
-            if (type === "facebook") {
+            switch (type) {
 
-                shareURL =
-                    "https://www.facebook.com/sharer/sharer.php?u=" +
-                    encodeURIComponent(pageURL);
+                case "linkedin":
 
+                    shareURL =
+                        "https://www.linkedin.com/sharing/share-offsite/?url=" +
+                        encodeURIComponent(pageURL);
+
+                    break;
+
+
+                case "x":
+
+                    shareURL =
+                        "https://twitter.com/intent/tweet?url=" +
+                        encodeURIComponent(pageURL) +
+                        "&text=" +
+                        encodeURIComponent(pageTitle);
+
+                    break;
+
+
+                case "whatsapp":
+
+                    shareURL =
+                        "https://api.whatsapp.com/send?text=" +
+                        encodeURIComponent(
+                            pageTitle + "\n\n" + pageURL
+                        );
+
+                    break;
+
+
+                case "facebook":
+
+                    shareURL =
+                        "https://www.facebook.com/sharer/sharer.php?u=" +
+                        encodeURIComponent(pageURL);
+
+                    break;
+
+            }
+
+
+            if (!shareURL) {
+                return;
             }
 
 
-            if (type === "linkedin") {
-
-                shareURL =
-                    "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                    encodeURIComponent(pageURL);
-
-            }
-
-
-            if (type === "x") {
-
-                shareURL =
-                    "https://twitter.com/intent/tweet?url=" +
-                    encodeURIComponent(pageURL) +
-                    "&text=" +
-                    encodeURIComponent(
-                        pageTitle
-                    );
-
-            }
-
-
-            if (type === "whatsapp") {
-
-                shareURL =
-                    "https://api.whatsapp.com/send?text=" +
-                    encodeURIComponent(
-                        shareText + "\n\n" + pageURL
-                    );
-
-            }
-
-
-            /* =================================================
-               OPEN SHARE WINDOW
-            ================================================= */
-
-            if (shareURL) {
-
-                window.open(
-                    shareURL,
-                    "_blank",
-                    "noopener,noreferrer,width=700,height=650"
-                );
-
-            }
+            window.open(
+                shareURL,
+                "_blank",
+                "noopener,noreferrer,width=700,height=650"
+            );
 
         });
 
     });
 
+
+    /* =========================================================
+       COPIED STATE
+    ========================================================== */
+
+    function showCopiedState(button) {
+
+        button.classList.add("copied");
+
+        const icon =
+            button.querySelector(
+                ".material-symbols-rounded"
+            );
+
+        const tooltip =
+            button.querySelector(
+                ".share-tooltip"
+            );
+
+        const originalIcon =
+            icon
+                ? icon.textContent
+                : "";
+
+        const originalTooltip =
+            tooltip
+                ? tooltip.textContent
+                : "Copy link";
+
+
+        if (icon) {
+
+            icon.textContent =
+                "check";
+
+        }
+
+
+        if (tooltip) {
+
+            tooltip.textContent =
+                "Copied!";
+
+        }
+
+
+        setTimeout(function () {
+
+            if (icon) {
+
+                icon.textContent =
+                    originalIcon;
+
+            }
+
+            if (tooltip) {
+
+                tooltip.textContent =
+                    originalTooltip;
+
+            }
+
+            button.classList.remove(
+                "copied"
+            );
+
+        }, 1800);
+
+    }
+
+
+    /* =========================================================
+       CLIPBOARD FALLBACK
+    ========================================================== */
+
+    function fallbackCopy(url, button) {
+
+        const input =
+            document.createElement("input");
+
+        input.value = url;
+
+        input.setAttribute(
+            "readonly",
+            ""
+        );
+
+        input.style.position =
+            "fixed";
+
+        input.style.opacity =
+            "0";
+
+        document.body.appendChild(
+            input
+        );
+
+        input.select();
+
+        let copied = false;
+
+        try {
+
+            copied =
+                document.execCommand(
+                    "copy"
+                );
+
+        } catch (error) {
+
+            copied = false;
+
+        }
+
+
+        input.remove();
+
+
+        if (copied) {
+
+            showCopiedState(button);
+
+        } else {
+
+            window.prompt(
+                "Copy this article link:",
+                url
+            );
+
+        }
+
+    }
+
 });
 </script>
-
 
                 <!-- =================================================
                      22. AUTHOR
