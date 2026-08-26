@@ -72,18 +72,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initializeMobileMenu() {
 
+    /*
+     * Support both the homepage and existing article pages.
+     */
+
     const menuButton =
-        document.querySelector(".mobile-menu-button");
+        document.querySelector(
+            ".menu-button, .mobile-menu-button"
+        );
 
     const sidebar =
-        document.querySelector(".article-sidebar");
+        document.querySelector(
+            ".sidebar, .article-sidebar"
+        );
 
     const overlay =
-        document.querySelector(".sidebar-overlay");
+        document.querySelector(
+            ".sidebar-overlay"
+        );
+
 
     if (!menuButton || !sidebar) {
         return;
     }
+
 
     function openMenu() {
 
@@ -96,6 +108,11 @@ function initializeMobileMenu() {
         menuButton.setAttribute(
             "aria-expanded",
             "true"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Close article menu"
         );
 
         document.body.classList.add(
@@ -118,6 +135,11 @@ function initializeMobileMenu() {
             "false"
         );
 
+        menuButton.setAttribute(
+            "aria-label",
+            "Open article menu"
+        );
+
         document.body.classList.remove(
             "sidebar-open"
         );
@@ -125,22 +147,43 @@ function initializeMobileMenu() {
     }
 
 
-    menuButton.addEventListener(
-        "click",
-        () => {
+    function toggleMenu() {
 
-            const isOpen =
-                sidebar.classList.contains("active");
+        const isOpen =
+            sidebar.classList.contains("active");
 
-            if (isOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
         }
+
+    }
+
+
+    /*
+     * Initialize accessibility state.
+     */
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        "false"
     );
 
+
+    /*
+     * Connect menu button.
+     */
+
+    menuButton.addEventListener(
+        "click",
+        toggleMenu
+    );
+
+
+    /*
+     * Close when clicking overlay.
+     */
 
     if (overlay) {
 
@@ -151,6 +194,11 @@ function initializeMobileMenu() {
 
     }
 
+
+    /*
+     * Close after selecting a sidebar link
+     * on mobile.
+     */
 
     sidebar
         .querySelectorAll("a")
@@ -170,11 +218,32 @@ function initializeMobileMenu() {
         });
 
 
+    /*
+     * Close with Escape.
+     */
+
     document.addEventListener(
         "keydown",
         event => {
 
             if (event.key === "Escape") {
+                closeMenu();
+            }
+
+        }
+    );
+
+
+    /*
+     * If the browser is resized back to desktop,
+     * remove mobile drawer state.
+     */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (window.innerWidth > 900) {
                 closeMenu();
             }
 
@@ -191,11 +260,15 @@ function initializeMobileMenu() {
 function initializeSidebar() {
 
     const sidebar =
-        document.querySelector(".article-sidebar");
+        document.querySelector(
+            ".sidebar, .article-sidebar"
+        );
+
 
     if (!sidebar) {
         return;
     }
+
 
     const currentPath =
         normalizePath(
@@ -210,13 +283,32 @@ function initializeSidebar() {
             const href =
                 link.getAttribute("href");
 
+
             if (!href) {
                 return;
             }
 
+
+            /*
+             * Ignore hash-only links and external links.
+             */
+
+            if (
+                href.startsWith("#") ||
+                href.startsWith("mailto:") ||
+                href.startsWith("tel:")
+            ) {
+                return;
+            }
+
+
             const linkPath =
                 normalizePath(href);
 
+
+            /*
+             * Do not mark the back link as active.
+             */
 
             if (
                 linkPath === currentPath &&
@@ -228,6 +320,16 @@ function initializeSidebar() {
                 link.setAttribute(
                     "aria-current",
                     "page"
+                );
+
+            } else if (
+                linkPath !== currentPath
+            ) {
+
+                link.classList.remove("active");
+
+                link.removeAttribute(
+                    "aria-current"
                 );
 
             }
@@ -247,6 +349,7 @@ function normalizePath(path) {
         return "/";
     }
 
+
     try {
 
         const url =
@@ -255,12 +358,17 @@ function normalizePath(path) {
                 window.location.origin
             );
 
+
         let cleanPath =
             url.pathname.replace(
                 /\/+/g,
                 "/"
             );
 
+
+        /*
+         * Treat /about and /about/ as the same path.
+         */
 
         if (
             cleanPath.length > 1 &&
@@ -277,10 +385,23 @@ function normalizePath(path) {
 
     } catch (error) {
 
-        return path
-            .replace(/\/+/g, "/")
-            .replace(/\/$/, "")
-            .toLowerCase();
+        let cleanPath =
+            String(path)
+                .replace(/\/+/g, "/");
+
+
+        if (
+            cleanPath.length > 1 &&
+            cleanPath.endsWith("/")
+        ) {
+
+            cleanPath =
+                cleanPath.slice(0, -1);
+
+        }
+
+
+        return cleanPath.toLowerCase();
 
     }
 
@@ -307,7 +428,7 @@ async function loadArticlesData() {
         if (!response.ok) {
 
             throw new Error(
-                "Unable to load articles.json"
+                `Unable to load articles.json (${response.status})`
             );
 
         }
@@ -398,7 +519,7 @@ function getPublishedArticles(data) {
 async function initializeLatestArticles() {
 
     /*
-     * Look for the dedicated dynamic container first.
+     * Preferred dedicated container.
      */
 
     let container =
@@ -408,12 +529,9 @@ async function initializeLatestArticles() {
 
 
     /*
-     * Also support:
+     * Backward compatibility with:
      *
      * #latest .article-list
-     *
-     * This makes the script compatible
-     * with your existing homepage structure.
      */
 
     if (!container) {
@@ -474,11 +592,6 @@ function renderLatestArticles(
     container,
     articles
 ) {
-
-    /*
-     * Remove any old hard-coded
-     * article cards.
-     */
 
     container.innerHTML = "";
 
@@ -541,7 +654,8 @@ function createArticleItem(article) {
 
 
     titleLink.textContent =
-        article.title || "Untitled Article";
+        article.title ||
+        "Untitled Article";
 
 
     title.appendChild(
@@ -619,9 +733,13 @@ function createArticleItem(article) {
     );
 
 
-    meta.appendChild(
-        readingTime
-    );
+    if (readingTime.textContent) {
+
+        meta.appendChild(
+            readingTime
+        );
+
+    }
 
 
     /*
@@ -675,6 +793,12 @@ function createArticleItem(article) {
 
     icon.className =
         "material-symbols-rounded";
+
+
+    icon.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
 
     icon.textContent =
@@ -796,6 +920,10 @@ async function initializeRelatedArticles() {
         publishedArticles
             .filter(article => {
 
+                /*
+                 * Never show the current article.
+                 */
+
                 if (
                     normalizePath(
                         article.url
@@ -807,7 +935,14 @@ async function initializeRelatedArticles() {
                 }
 
 
+                /*
+                 * Related articles use the same
+                 * machine-readable category slug.
+                 */
+
                 return (
+                    article.category &&
+                    currentArticle.category &&
                     article.category ===
                     currentArticle.category
                 );
@@ -915,6 +1050,82 @@ function initializeSearch() {
                 filterArticleCards(
                     query
                 );
+
+            }
+        );
+
+    });
+
+
+    /*
+     * Handle search form submission.
+     */
+
+    const searchForms =
+        document.querySelectorAll(
+            ".search-box"
+        );
+
+
+    searchForms.forEach(form => {
+
+        form.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                const input =
+                    form.querySelector(
+                        'input[type="search"], input[name="q"]'
+                    );
+
+
+                if (!input) {
+                    return;
+                }
+
+
+                const query =
+                    input.value.trim();
+
+
+                if (!query) {
+
+                    const message =
+                        document.querySelector(
+                            "#search-message"
+                        );
+
+
+                    if (message) {
+
+                        message.textContent =
+                            "Enter a topic to search.";
+
+                    }
+
+
+                    input.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                 * Send the search to the main
+                 * articles page.
+                 */
+
+                const searchURL =
+                    "/articles/?q=" +
+                    encodeURIComponent(query);
+
+
+                window.location.href =
+                    searchURL;
 
             }
         );
@@ -1066,13 +1277,29 @@ function getArticleInfo() {
 
     if (imageElement) {
 
-        image =
-            new URL(
-                imageElement.getAttribute(
-                    "src"
-                ),
-                window.location.origin
-            ).href;
+        const src =
+            imageElement.getAttribute(
+                "src"
+            );
+
+
+        if (src) {
+
+            try {
+
+                image =
+                    new URL(
+                        src,
+                        window.location.origin
+                    ).href;
+
+            } catch (error) {
+
+                image = "";
+
+            }
+
+        }
 
     }
 
@@ -1321,7 +1548,9 @@ function openSharePopup(
 
         } catch (error) {
 
-            /* Ignore focus errors. */
+            /*
+             * Ignore focus errors.
+             */
 
         }
 
@@ -1646,6 +1875,11 @@ function initializeNativeShare() {
 
             } catch (error) {
 
+                /*
+                 * User cancellation is normal and
+                 * should not show an error.
+                 */
+
                 if (
                     error &&
                     error.name !==
@@ -1653,7 +1887,7 @@ function initializeNativeShare() {
                 ) {
 
                     showShareToast(
-                        "Sharing was cancelled"
+                        "Unable to share article"
                     );
 
                 }
@@ -1699,6 +1933,12 @@ function initializeReadingProgress() {
 
         progressBar.className =
             "reading-progress";
+
+
+        progressBar.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
 
         document.body.appendChild(
@@ -1819,9 +2059,17 @@ function initializeSmoothAnchors() {
                     }
 
 
+                    /*
+                     * Only handle simple ID anchors.
+                     */
+
+                    const id =
+                        targetId.slice(1);
+
+
                     const target =
-                        document.querySelector(
-                            targetId
+                        document.getElementById(
+                            id
                         );
 
 
