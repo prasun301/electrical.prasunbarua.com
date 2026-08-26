@@ -1874,8 +1874,21 @@ pre {
     padding: 2rem;
     border: 1px solid #dbe3ec;
     border-radius: 18px;
-    background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    background: linear-gradient(
+        180deg,
+        #f8fbff 0%,
+        #ffffff 100%
+    );
     box-shadow: 0 8px 30px rgba(20, 50, 80, 0.08);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================== */
+
+.ohms-visual-header {
+    margin-bottom: 0;
 }
 
 .ohms-visual-label {
@@ -1889,16 +1902,25 @@ pre {
 .ohms-visual-header h3 {
     margin: 0;
     font-size: 1.45rem;
+    line-height: 1.3;
+    color: #17324d;
 }
 
 .ohms-visual-header p {
-    margin: 0.5rem 0 0;
+    max-width: 680px;
+    margin: 0.55rem 0 0;
     color: #5d6875;
+    line-height: 1.6;
 }
+
+
+/* =========================================================
+   VALUE CARDS
+   ========================================================== */
 
 .ohms-law-layout {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
@@ -1907,25 +1929,51 @@ pre {
     display: flex;
     align-items: center;
     gap: 1rem;
+    min-width: 0;
     padding: 1rem;
     border: 1px solid #dfe6ee;
     border-radius: 14px;
     background: #ffffff;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
+
+.ohms-value-card:hover {
+    border-color: #c9d7e5;
+    box-shadow: 0 5px 18px rgba(20, 50, 80, 0.07);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   VALUE ICON
+   ========================================================== */
 
 .ohms-value-icon {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 46px;
     height: 46px;
-    flex-shrink: 0;
+
+    flex: 0 0 46px;
+
     border-radius: 12px;
+
     background: #eef5fc;
     color: #0066cc;
+
     font-size: 1.25rem;
     font-weight: 700;
 }
+
+
+/* =========================================================
+   VALUE CONTENT
+   ========================================================== */
 
 .ohms-value-content {
     min-width: 0;
@@ -1934,119 +1982,340 @@ pre {
 
 .ohms-value-content label {
     display: block;
+
     margin-bottom: 0.4rem;
+
     font-size: 0.85rem;
     font-weight: 600;
+
+    color: #243444;
 }
+
+
+/* =========================================================
+   INPUT
+   ========================================================== */
 
 .ohms-input-row {
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    width: 100%;
 }
 
 .ohms-input-row input {
     width: 100%;
     min-width: 0;
+
+    box-sizing: border-box;
+
     padding: 0.55rem 0.65rem;
+
     border: 1px solid #ccd6e0;
     border-radius: 8px;
+
     background: #ffffff;
+    color: #17324d;
+
     font: inherit;
     font-weight: 600;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.ohms-input-row input:hover {
+    border-color: #b9c8d7;
 }
 
 .ohms-input-row input:focus {
-    outline: 2px solid rgba(0, 102, 204, 0.2);
+    outline: none;
+
     border-color: #0066cc;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 102, 204, 0.12);
+}
+
+.ohms-input-row input:disabled {
+    background: #f3f6f9;
+    color: #667585;
+    cursor: not-allowed;
 }
 
 .ohms-input-row span {
+    flex: 0 0 auto;
+
     font-weight: 600;
     color: #5d6875;
 }
+
+
+/* =========================================================
+   ACTIVE / CALCULATED VALUE
+   ========================================================== */
+
+.ohms-value-card.calculated {
+    border-color: #bcd7ef;
+    background: #f8fbff;
+}
+
+.ohms-value-card.calculated .ohms-value-icon {
+    background: #e5f1fc;
+    color: #0066cc;
+}
+
+
+/* =========================================================
+   EQUATION
+   ========================================================== */
 
 .ohms-equation {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+
     gap: 0.7rem;
+
     margin: 1.75rem 0;
-    padding: 1.2rem;
-    border-radius: 12px;
+    padding: 1.4rem;
+
+    border: 1px solid #dbe5ef;
+    border-radius: 14px;
+
     background: #f1f6fb;
-    font-size: 1.25rem;
-    font-weight: 700;
+
+    color: #17324d;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    line-height: 1.2;
 }
 
 .ohms-equation-value {
+    display: inline-flex;
+    align-items: center;
     color: #17324d;
 }
 
 .ohms-equation-symbol {
     color: #697887;
+    font-weight: 500;
 }
+
+
+/* =========================================================
+   MATHEMATICAL FRACTION
+   Displays:
+
+       V
+       ─
+       R
+
+   ========================================================== */
+
+.ohms-fraction {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.ohms-fraction-top,
+.ohms-fraction-bottom {
+    display: block;
+
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+
+    color: #17324d;
+}
+
+.ohms-fraction-top {
+    padding-bottom: 0.22rem;
+
+    border-bottom: 2px solid #17324d;
+}
+
+.ohms-fraction-bottom {
+    padding-top: 0.22rem;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================== */
 
 .ohms-result {
     text-align: center;
+
     padding: 1.4rem;
-    border-radius: 14px;
-    background: #ffffff;
+
     border: 1px solid #dbe3ec;
+    border-radius: 14px;
+
+    background: #ffffff;
 }
 
 .ohms-result-label {
     font-size: 0.85rem;
+    line-height: 1.5;
+
     color: #687583;
 }
 
 .ohms-result-value {
     margin-top: 0.35rem;
+
     font-size: 2rem;
+    line-height: 1.2;
+
     font-weight: 700;
+
     color: #0066cc;
 }
 
 .ohms-result-description {
-    margin-top: 0.4rem;
+    max-width: 600px;
+
+    margin: 0.45rem auto 0;
+
     font-size: 0.9rem;
+    line-height: 1.5;
+
     color: #5d6875;
 }
 
+
+/* =========================================================
+   RESET BUTTON
+   ========================================================== */
+
 .ohms-reset {
     display: block;
+
     margin: 1.2rem auto 0;
+
     padding: 0.65rem 1rem;
+
     border: 1px solid #ccd6e0;
     border-radius: 8px;
+
     background: #ffffff;
     color: #243444;
+
     font: inherit;
     font-weight: 600;
+
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
 }
 
 .ohms-reset:hover {
     background: #f5f8fb;
+    border-color: #b9c8d7;
 }
+
+.ohms-reset:active {
+    transform: translateY(1px);
+}
+
+.ohms-reset:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================== */
 
 @media (max-width: 760px) {
 
     .ohms-law-visual {
+        margin: 2rem 0;
         padding: 1.25rem;
+        border-radius: 15px;
+    }
+
+    .ohms-visual-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .ohms-visual-header p {
+        font-size: 0.92rem;
     }
 
     .ohms-law-layout {
         grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .ohms-value-card {
+        padding: 0.9rem;
     }
 
     .ohms-equation {
-        font-size: 1.05rem;
+        gap: 0.55rem;
+
+        margin: 1.4rem 0;
+        padding: 1.15rem;
+
+        font-size: 1.3rem;
     }
 
+    .ohms-result {
+        padding: 1.2rem;
+    }
+
+    .ohms-result-value {
+        font-size: 1.8rem;
+    }
 }
 
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================== */
+
+@media (max-width: 420px) {
+
+    .ohms-law-visual {
+        padding: 1rem;
+    }
+
+    .ohms-value-card {
+        gap: 0.75rem;
+    }
+
+    .ohms-value-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .ohms-equation {
+        font-size: 1.15rem;
+    }
+
+    .ohms-result-value {
+        font-size: 1.65rem;
+    }
+}
 /* =========================================================
    END OF STYLE.CSS
    ========================================================= */
