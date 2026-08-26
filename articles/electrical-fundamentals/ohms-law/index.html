@@ -630,159 +630,337 @@
                         </ul>
 
 
-                        <!-- =================================================
-                             INTERACTIVE OHM'S LAW LEARNING VISUAL
-                        ================================================== -->
+                       <!-- =================================================
+     INTERACTIVE OHM'S LAW LEARNING TOOL
+================================================== -->
 
-                        <section
-                            class="ohms-law-visual"
-                            aria-labelledby="ohms-visual-title"
-                        >
+<section
+    class="ohms-law-visual"
+    aria-labelledby="ohms-visual-title"
+>
 
-                            <div class="ohms-visual-header">
+    <div class="ohms-visual-header">
 
-                                <div class="ohms-visual-label">
-                                    INTERACTIVE LEARNING
-                                </div>
+        <div class="ohms-visual-label">
+            INTERACTIVE LEARNING
+        </div>
 
-                                <h3 id="ohms-visual-title">
-                                    Explore Ohm's Law
-                                </h3>
+        <h3 id="ohms-visual-title">
+            Explore Ohm's Law
+        </h3>
 
-                                <p>
-                                    Explore how voltage, current, and resistance
-                                    are related by Ohm's Law.
-                                </p>
+        <p>
+            Change the voltage, current, or resistance to see how
+            the three quantities are related by Ohm's Law.
+        </p>
 
-                            </div>
-
-
-                            <!--
-                                The interactive Ohm's Law visualization
-                                is rendered by the learning component.
-                            -->
-
-                            <div class="ohms-learning-visual">
-
-                                <div class="ohms-learning-equation">
-
-                                    <span class="ohms-learning-current">
-                                        I
-                                    </span>
-
-                                    <span class="ohms-learning-equals">
-                                        =
-                                    </span>
-
-                                    <span class="ohms-learning-fraction">
-
-                                        <span class="ohms-learning-numerator">
-                                            V
-                                        </span>
-
-                                        <span class="ohms-learning-line"></span>
-
-                                        <span class="ohms-learning-denominator">
-                                            R
-                                        </span>
-
-                                    </span>
-
-                                </div>
+    </div>
 
 
-                                <div class="ohms-learning-description">
+    <!-- =================================================
+         INTERACTIVE CALCULATOR
+    ================================================== -->
 
-                                    <p>
-                                        Current is equal to voltage divided
-                                        by resistance.
-                                    </p>
-
-                                </div>
+    <div class="ohms-calculator">
 
 
-                                <div class="ohms-learning-values">
+        <!-- EQUATION -->
 
-                                    <div class="ohms-learning-value">
+        <div class="ohms-equation" aria-label="Ohm's Law equation">
 
-                                        <span class="ohms-learning-symbol">
-                                            V
-                                        </span>
+            <div class="ohms-equation-item">
 
-                                        <div>
-                                            <strong>
-                                                Voltage
-                                            </strong>
+                <span
+                    id="ohms-v-display"
+                    class="ohms-equation-value"
+                >
+                    12.00 V
+                </span>
 
-                                            <small>
-                                                Electrical potential difference
-                                            </small>
-                                        </div>
+                <span class="ohms-equation-label">
+                    Voltage
+                </span>
 
-                                    </div>
-
-
-                                    <div class="ohms-learning-value">
-
-                                        <span class="ohms-learning-symbol">
-                                            I
-                                        </span>
-
-                                        <div>
-                                            <strong>
-                                                Current
-                                            </strong>
-
-                                            <small>
-                                                Flow of electric charge
-                                            </small>
-                                        </div>
-
-                                    </div>
+            </div>
 
 
-                                    <div class="ohms-learning-value">
-
-                                        <span class="ohms-learning-symbol">
-                                            R
-                                        </span>
-
-                                        <div>
-                                            <strong>
-                                                Resistance
-                                            </strong>
-
-                                            <small>
-                                                Opposition to current flow
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+            <span
+                class="ohms-equation-symbol"
+                aria-hidden="true"
+            >
+                =
+            </span>
 
 
-                                <div class="ohms-learning-example">
+            <div class="ohms-equation-item">
 
-                                    <div class="ohms-learning-example-label">
-                                        Example
-                                    </div>
+                <span
+                    id="ohms-i-display"
+                    class="ohms-equation-value"
+                >
+                    2.00 A
+                </span>
 
-                                    <div class="ohms-learning-example-equation">
-                                        I = 12 V ÷ 6 Ω = 2 A
-                                    </div>
+                <span class="ohms-equation-label">
+                    Current
+                </span>
 
-                                    <p>
-                                        If the voltage is 12 V and the
-                                        resistance is 6 Ω, the resulting
-                                        current is 2 A.
-                                    </p>
+            </div>
 
-                                </div>
 
-                            </div>
+            <span
+                class="ohms-equation-symbol"
+                aria-hidden="true"
+            >
+                ×
+            </span>
 
-                        </section>
+
+            <div class="ohms-equation-item">
+
+                <span
+                    id="ohms-r-display"
+                    class="ohms-equation-value"
+                >
+                    6.00 Ω
+                </span>
+
+                <span class="ohms-equation-label">
+                    Resistance
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="ohms-learning-description">
+
+            <p>
+                <strong>Ohm's Law:</strong>
+                V = I × R
+            </p>
+
+            <p>
+                Voltage equals current multiplied by resistance.
+                Change any value below to calculate the related value.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             INPUT CONTROLS
+        ================================================== -->
+
+        <div class="ohms-input-grid">
+
+
+            <!-- VOLTAGE -->
+
+            <div class="ohms-input-card">
+
+                <label for="ohms-voltage">
+
+                    <span class="ohms-input-symbol">
+                        V
+                    </span>
+
+                    <span>
+                        Voltage
+                    </span>
+
+                </label>
+
+                <div class="ohms-input-wrapper">
+
+                    <input
+                        type="number"
+                        id="ohms-voltage"
+                        name="voltage"
+                        value="12"
+                        min="0"
+                        step="0.01"
+                        inputmode="decimal"
+                        aria-describedby="ohms-voltage-unit"
+                    >
+
+                    <span
+                        id="ohms-voltage-unit"
+                        class="ohms-input-unit"
+                    >
+                        V
+                    </span>
+
+                </div>
+
+                <small>
+                    Electrical potential difference
+                </small>
+
+            </div>
+
+
+            <!-- CURRENT -->
+
+            <div class="ohms-input-card">
+
+                <label for="ohms-current">
+
+                    <span class="ohms-input-symbol">
+                        I
+                    </span>
+
+                    <span>
+                        Current
+                    </span>
+
+                </label>
+
+                <div class="ohms-input-wrapper">
+
+                    <input
+                        type="number"
+                        id="ohms-current"
+                        name="current"
+                        value="2"
+                        min="0"
+                        step="0.01"
+                        inputmode="decimal"
+                        aria-describedby="ohms-current-unit"
+                    >
+
+                    <span
+                        id="ohms-current-unit"
+                        class="ohms-input-unit"
+                    >
+                        A
+                    </span>
+
+                </div>
+
+                <small>
+                    Flow of electric charge
+                </small>
+
+            </div>
+
+
+            <!-- RESISTANCE -->
+
+            <div class="ohms-input-card">
+
+                <label for="ohms-resistance">
+
+                    <span class="ohms-input-symbol">
+                        R
+                    </span>
+
+                    <span>
+                        Resistance
+                    </span>
+
+                </label>
+
+                <div class="ohms-input-wrapper">
+
+                    <input
+                        type="number"
+                        id="ohms-resistance"
+                        name="resistance"
+                        value="6"
+                        min="0.01"
+                        step="0.01"
+                        inputmode="decimal"
+                        aria-describedby="ohms-resistance-unit"
+                    >
+
+                    <span
+                        id="ohms-resistance-unit"
+                        class="ohms-input-unit"
+                    >
+                        Ω
+                    </span>
+
+                </div>
+
+                <small>
+                    Opposition to current flow
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RESULT
+        ================================================== -->
+
+        <div class="ohms-result-box">
+
+            <div class="ohms-result-label">
+                Calculated Current
+            </div>
+
+            <div class="ohms-result-value">
+
+                <span id="ohms-result">
+                    2.00
+                </span>
+
+                <span>
+                    A
+                </span>
+
+            </div>
+
+            <p>
+                Current = Voltage ÷ Resistance
+            </p>
+
+        </div>
+
+
+        <!-- RESET -->
+
+        <div class="ohms-calculator-actions">
+
+            <button
+                type="button"
+                id="ohms-reset"
+                class="ohms-reset-button"
+            >
+                Reset to Example
+            </button>
+
+        </div>
+
+
+        <!-- EXAMPLE -->
+
+        <div class="ohms-learning-example">
+
+            <div class="ohms-learning-example-label">
+                Example
+            </div>
+
+            <div class="ohms-learning-example-equation">
+                I = 12 V ÷ 6 Ω = 2 A
+            </div>
+
+            <p>
+                If the voltage is 12 V and the resistance is 6 Ω,
+                the resulting current is 2 A.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
                         <h2 id="ohms-law-formulas">
