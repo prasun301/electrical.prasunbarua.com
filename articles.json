@@ -65,7 +65,7 @@
       "image": "",
       "author": "Prasun Barua",
       "datePublished": "2026-08-12",
-      "dateModified": "2026-08-12",
+      "dateModified": "2026-08-28",
       "readingTime": "10 min read",
       "featured": true,
       "status": "published",
@@ -93,7 +93,7 @@
       "author": "Prasun Barua",
       "datePublished": "2026-08-10",
       "dateModified": "2026-08-28",
-      "readingTime": "7 min read",
+      "readingTime": "10 min read",
       "featured": true,
       "status": "published",
       "tags": [
@@ -102,7 +102,8 @@
         "resistance",
         "electricity basics",
         "electrical fundamentals",
-        "electrical engineering"
+        "electrical engineering",
+        "Ohm's Law"
       ]
     },
 
@@ -113,13 +114,13 @@
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
       "url": "/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html",
-      "description": "Understand the difference between power rating (kW) and energy consumption (kWh).",
+      "description": "Understand the difference between electrical power in kilowatts (kW) and electrical energy in kilowatt-hours (kWh).",
       "excerpt": "A clear comparison between kilowatt (kW) as power and kilowatt-hour (kWh) as energy.",
       "icon": "electrical_services",
       "image": "/assets/images/electrical-energy-kwh-vs-kw.jpeg",
       "author": "Prasun Barua",
       "datePublished": "2026-08-05",
-      "dateModified": "2026-08-05",
+      "dateModified": "2026-08-28",
       "readingTime": "6 min read",
       "featured": false,
       "status": "published",
@@ -127,6 +128,8 @@
         "kWh",
         "kW",
         "electrical energy",
+        "electrical power",
+        "electricity consumption",
         "electrical fundamentals"
       ]
     },
@@ -138,8 +141,8 @@
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
       "url": "/articles/electrical-fundamentals/ohms-law/index.html",
-      "description": "Learn the relationship between voltage, current and resistance using Ohm's Law with practical electrical examples.",
-      "excerpt": "Ohm's Law explains the relationship between voltage, current and resistance in an electrical circuit.",
+      "description": "Learn the relationship between voltage, current and resistance using Ohm's Law with practical electrical examples and an interactive calculator.",
+      "excerpt": "Understand Ohm's Law with formulas, practical examples, electrical relationships and an interactive calculator.",
       "icon": "electrical_services",
       "image": "/assets/images/ohms-law-power-triangle.jpeg",
       "author": "Prasun Barua",
@@ -154,7 +157,8 @@
         "current",
         "resistance",
         "electrical fundamentals",
-        "electrical engineering"
+        "electrical engineering",
+        "Ohm's Law calculator"
       ]
     },
 
@@ -165,13 +169,13 @@
       "category": "electrical-calculations",
       "categoryName": "Electrical Calculations",
       "url": "/articles/electrical-calculations/power-calculation/",
-      "description": "Learn how to calculate electrical power in single-phase and three-phase electrical systems using practical formulas.",
+      "description": "Learn how to calculate electrical power in single-phase and three-phase electrical systems using practical formulas and examples.",
       "excerpt": "Understand electrical power calculations for single-phase and three-phase systems with practical examples.",
       "icon": "bolt",
       "image": "",
       "author": "Prasun Barua",
       "datePublished": "2026-07-28",
-      "dateModified": "2026-07-28",
+      "dateModified": "2026-08-28",
       "readingTime": "10 min read",
       "featured": false,
       "status": "published",
@@ -180,6 +184,7 @@
         "power calculation",
         "single phase",
         "three phase",
+        "active power",
         "electrical calculations"
       ]
     },
