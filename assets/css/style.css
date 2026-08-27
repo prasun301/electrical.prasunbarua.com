@@ -6069,7 +6069,46 @@ pre {
         auto;
 }
 
+/* =========================================================
+   ARTICLE INLINE IMAGES
+========================================================= */
 
+.article-inline-image {
+    width: 100%;
+    margin: 36px 0;
+}
+
+.article-inline-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-soft);
+    box-shadow: var(--shadow-sm);
+}
+
+.article-inline-image .image-caption {
+    margin-top: 9px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    .article-inline-image {
+        margin: 28px 0;
+    }
+
+    .article-inline-image img {
+        border-radius: 12px;
+    }
+
+}
 /* =========================================================
    75. END OF STYLE.CSS
 ========================================================= */
