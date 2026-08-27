@@ -1,498 +1,625 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
+    <!-- =========================================================
+         1. CORE DOCUMENT
+    ========================================================== -->
 
-<!-- =========================================================
-     1. CORE DOCUMENT
-========================================================== -->
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="referrer"
+        content="strict-origin-when-cross-origin"
+    >
 
-<meta
-    name="referrer"
-    content="strict-origin-when-cross-origin"
->
+    <meta
+        name="theme-color"
+        content="#0066cc"
+    >
 
-<meta
-    name="theme-color"
-    content="#0066cc"
->
+    <meta
+        name="color-scheme"
+        content="light"
+    >
 
-<meta
-    name="color-scheme"
-    content="light"
->
+    <title>
+        Electrical Energy Explained: kWh vs kW | Prasun Barua
+    </title>
 
-<title>
-    Electrical Energy Explained: kWh vs kW | Prasun Barua
-</title>
+    <meta
+        name="description"
+        content="Learn what electrical energy means, understand the difference between kW and kWh, and calculate electrical energy with practical electrical engineering examples."
+    >
 
-<meta
-    name="description"
-    content="Learn what electrical energy means, understand the difference between kW and kWh, and calculate electrical energy with practical electrical engineering examples."
->
+    <meta
+        name="author"
+        content="Prasun Barua"
+    >
 
-<meta
-    name="author"
-    content="Prasun Barua"
->
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
 
-<meta
-    name="robots"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
->
+    <meta
+        name="googlebot"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
 
-<meta
-    name="googlebot"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
->
-
-<link
-    rel="canonical"
-    href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
->
-
-
-<!-- =========================================================
-     2. PERFORMANCE / RESOURCE HINTS
-========================================================== -->
-
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
-
-<link
-    rel="dns-prefetch"
-    href="//pagead2.googlesyndication.com"
->
-
-<link
-    rel="dns-prefetch"
-    href="//www.googletagmanager.com"
->
+    <link
+        rel="canonical"
+        href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
+    >
 
 
-<!-- =========================================================
-     3. OPEN GRAPH
-========================================================== -->
+    <!-- =========================================================
+         2. PERFORMANCE / RESOURCE HINTS
+    ========================================================== -->
 
-<meta
-    property="og:type"
-    content="article"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-<meta
-    property="og:url"
-    content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-<meta
-    property="og:title"
-    content="Electrical Energy Explained: kWh vs kW"
->
+    <link
+        rel="dns-prefetch"
+        href="//pagead2.googlesyndication.com"
+    >
 
-<meta
-    property="og:description"
-    content="Understand electrical energy, power, kW and kWh with simple formulas, clear explanations, and practical electrical engineering examples."
->
-
-<meta
-    property="og:site_name"
-    content="Electrical Engineering by Prasun Barua"
->
-
-<meta
-    property="og:locale"
-    content="en_US"
->
-
-<meta
-    property="og:image"
-    content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
->
-
-<meta
-    property="og:image:secure_url"
-    content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
->
-
-<meta
-    property="og:image:type"
-    content="image/jpeg"
->
-
-<meta
-    property="og:image:width"
-    content="1200"
->
-
-<meta
-    property="og:image:height"
-    content="675"
->
-
-<meta
-    property="og:image:alt"
-    content="Electrical energy diagram explaining the difference between kW and kWh"
->
-
-<meta
-    property="article:section"
-    content="Electrical Fundamentals"
->
-
-<meta
-    property="article:author"
-    content="Prasun Barua"
->
-
-<meta
-    property="article:published_time"
-    content="2026-08-24T00:00:00+06:00"
->
-
-<meta
-    property="article:modified_time"
-    content="2026-08-26T00:00:00+06:00"
->
+    <link
+        rel="dns-prefetch"
+        href="//www.googletagmanager.com"
+    >
 
 
-<!-- =========================================================
-     4. X / TWITTER
-========================================================== -->
+    <!-- =========================================================
+         3. OPEN GRAPH
+    ========================================================== -->
 
-<meta
-    name="twitter:card"
-    content="summary_large_image"
->
+    <meta
+        property="og:type"
+        content="article"
+    >
 
-<meta
-    name="twitter:title"
-    content="Electrical Energy Explained: kWh vs kW"
->
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
+    >
 
-<meta
-    name="twitter:description"
-    content="Learn the difference between kW and kWh and how to calculate electrical energy consumption."
->
+    <meta
+        property="og:title"
+        content="Electrical Energy Explained: kWh vs kW"
+    >
 
-<meta
-    name="twitter:image"
-    content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
->
+    <meta
+        property="og:description"
+        content="Understand electrical energy, power, kW and kWh with simple formulas, clear explanations, and practical electrical engineering examples."
+    >
 
-<meta
-    name="twitter:image:alt"
-    content="Electrical energy explained showing the difference between kW and kWh"
->
+    <meta
+        property="og:site_name"
+        content="Electrical Engineering by Prasun Barua"
+    >
+
+    <meta
+        property="og:locale"
+        content="en_US"
+    >
+
+    <meta
+        property="og:image"
+        content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
+    >
+
+    <meta
+        property="og:image:secure_url"
+        content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
+    >
+
+    <meta
+        property="og:image:type"
+        content="image/jpeg"
+    >
+
+    <meta
+        property="og:image:width"
+        content="1200"
+    >
+
+    <meta
+        property="og:image:height"
+        content="675"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Electrical energy diagram explaining the difference between kW and kWh"
+    >
+
+    <meta
+        property="article:section"
+        content="Electrical Fundamentals"
+    >
+
+    <meta
+        property="article:author"
+        content="Prasun Barua"
+    >
+
+    <!--
+        Static fallback.
+        The script near the end of the document updates this value
+        from document.lastModified when the server provides it.
+    -->
+    <meta
+        id="article-published-time"
+        property="article:published_time"
+        content="2026-08-24T00:00:00+06:00"
+    >
+
+    <meta
+        id="article-modified-time"
+        property="article:modified_time"
+        content="2026-08-28T00:00:00+06:00"
+    >
 
 
-<!-- =========================================================
-     5. FAVICON
-========================================================== -->
+    <!-- =========================================================
+         4. X / TWITTER
+    ========================================================== -->
 
-<link
-    rel="icon"
-    type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
->
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
 
-<link
-    rel="apple-touch-icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
->
+    <meta
+        name="twitter:title"
+        content="Electrical Energy Explained: kWh vs kW"
+    >
 
+    <meta
+        name="twitter:description"
+        content="Learn the difference between kW and kWh and how to calculate electrical energy consumption."
+    >
 
-<!-- =========================================================
-     6. GOOGLE FONTS
-========================================================== -->
+    <meta
+        name="twitter:image"
+        content="https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
+    >
 
-<link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
->
-
-
-<!-- =========================================================
-     7. GOOGLE ADSENSE
-========================================================== -->
-
-<script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-    crossorigin="anonymous"
-></script>
+    <meta
+        name="twitter:image:alt"
+        content="Electrical energy explained showing the difference between kW and kWh"
+    >
 
 
-<!-- =========================================================
-     8. GOOGLE ANALYTICS
-========================================================== -->
+    <!-- =========================================================
+         5. FAVICON
+    ========================================================== -->
 
-<script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
-></script>
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
 
-<script>
+    <link
+        rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
 
-    window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
+    <!-- =========================================================
+         6. GOOGLE FONTS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+    >
+
+
+    <!-- =========================================================
+         7. GOOGLE ADSENSE
+    ========================================================== -->
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =========================================================
+         8. GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+    ></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag("config", "G-XY335VGVGJ", {
+            anonymize_ip: true,
+            send_page_view: true
+        });
+
+    </script>
+
+
+    <!-- =========================================================
+         9. MAIN STYLESHEET
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="/assets/css/style.css"
+    >
+
+
+    <!-- =========================================================
+         10. INLINE ARTICLE IMAGE STYLING
+    ========================================================== -->
+
+    <style>
+
+        .article-inline-image {
+            width: 100%;
+            margin: 36px 0;
+        }
+
+        .article-inline-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--bg-soft);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-inline-image .image-caption {
+            margin-top: 9px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+
+            .article-inline-image {
+                margin: 28px 0;
+            }
+
+            .article-inline-image img {
+                border-radius: 12px;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- =========================================================
+         11. ARTICLE STRUCTURED DATA
+    ========================================================== -->
+
+    <script
+        id="article-schema"
+        type="application/ld+json"
+    >
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#article",
+
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html",
+
+        "headline": "Electrical Energy Explained: kWh vs kW",
+
+        "description": "Learn what electrical energy means, understand the difference between kW and kWh, and calculate electrical energy with practical electrical engineering examples.",
+
+        "image": [
+            "https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg",
+            "https://electrical.prasunbarua.com/assets/images/kw-vs-kwh-comparison.jpeg",
+            "https://electrical.prasunbarua.com/assets/images/solar-pv-kw-kwh-generation.jpeg"
+        ],
+
+        "datePublished": "2026-08-24T00:00:00+06:00",
+
+        "dateModified": "2026-08-28T00:00:00+06:00",
+
+        "inLanguage": "en",
+
+        "isAccessibleForFree": true,
+
+        "articleSection": "Electrical Fundamentals",
+
+        "keywords": [
+            "electrical energy",
+            "kWh",
+            "kW",
+            "kilowatt hour",
+            "electrical power",
+            "energy consumption",
+            "electrical engineering",
+            "solar PV"
+        ],
+
+        "author": {
+            "@type": "Person",
+            "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
+            "name": "Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/about.html",
+            "jobTitle": "Senior Electrical Engineer"
+        },
+
+        "publisher": {
+            "@type": "Organization",
+            "@id": "https://electrical.prasunbarua.com/#organization",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/"
+        },
+
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#webpage"
+        }
+
     }
-
-    gtag("js", new Date());
-
-    gtag("config", "G-XY335VGVGJ", {
-        anonymize_ip: true,
-        send_page_view: true
-    });
-
-</script>
+    </script>
 
 
-<!-- =========================================================
-     9. MAIN STYLESHEET
-========================================================== -->
+    <!-- =========================================================
+         12. WEB PAGE STRUCTURED DATA
+    ========================================================== -->
 
-<link
-    rel="stylesheet"
-    href="/assets/css/style.css"
->
-
-
-<!-- =========================================================
-     10. ARTICLE STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#article",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html",
-    "headline": "Electrical Energy Explained: kWh vs kW",
-    "description": "Learn what electrical energy means, understand the difference between kW and kWh, and calculate electrical energy with practical electrical engineering examples.",
-    "image": [
-        "https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg"
-    ],
-    "datePublished": "2026-08-24T00:00:00+06:00",
-    "dateModified": "2026-08-26T00:00:00+06:00",
-    "inLanguage": "en",
-    "isAccessibleForFree": true,
-    "articleSection": "Electrical Fundamentals",
-    "keywords": [
-        "electrical energy",
-        "kWh",
-        "kW",
-        "kilowatt hour",
-        "electrical power",
-        "energy consumption",
-        "electrical engineering",
-        "solar PV"
-    ],
-    "author": {
-        "@type": "Person",
-        "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
-        "name": "Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/about.html",
-        "jobTitle": "Senior Electrical Engineer"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "@id": "https://electrical.prasunbarua.com/#organization",
-        "name": "Electrical Engineering by Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/"
-    },
-    "mainEntityOfPage": {
+    <script
+        id="webpage-schema"
+        type="application/ld+json"
+    >
+    {
+        "@context": "https://schema.org",
         "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#webpage"
+
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#webpage",
+
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html",
+
+        "name": "Electrical Energy Explained: kWh vs kW",
+
+        "description": "Learn what electrical energy means, understand the difference between kW and kWh, and calculate electrical energy with practical electrical engineering examples.",
+
+        "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://electrical.prasunbarua.com/#website"
+        },
+
+        "about": {
+            "@type": "Thing",
+            "name": "Electrical Energy, kW and kWh"
+        },
+
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg",
+            "width": 1200,
+            "height": 675
+        },
+
+        "breadcrumb": {
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#breadcrumb"
+        },
+
+        "inLanguage": "en",
+
+        "isAccessibleForFree": true,
+
+        "datePublished": "2026-08-24T00:00:00+06:00",
+
+        "dateModified": "2026-08-28T00:00:00+06:00"
+
     }
-}
-</script>
+    </script>
 
 
-<!-- =========================================================
-     11. WEB PAGE STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         13. WEBSITE STRUCTURED DATA
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#webpage",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html",
-    "name": "Electrical Energy Explained: kWh vs kW",
-    "description": "Learn what electrical energy means, understand the difference between kW and kWh, and calculate electrical energy with practical electrical engineering examples.",
-    "isPartOf": {
+    <script
+        type="application/ld+json"
+    >
+    {
+        "@context": "https://schema.org",
         "@type": "WebSite",
-        "@id": "https://electrical.prasunbarua.com/#website"
-    },
-    "about": {
-        "@type": "Thing",
-        "name": "Electrical Energy, kW and kWh"
-    },
-    "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://electrical.prasunbarua.com/assets/images/electrical-energy-kwh-vs-kw.jpeg",
-        "width": 1200,
-        "height": 675
-    },
-    "breadcrumb": {
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#breadcrumb"
-    },
-    "inLanguage": "en",
-    "isAccessibleForFree": true,
-    "datePublished": "2026-08-24T00:00:00+06:00",
-    "dateModified": "2026-08-26T00:00:00+06:00"
-}
-</script>
 
+        "@id": "https://electrical.prasunbarua.com/#website",
 
-<!-- =========================================================
-     12. WEBSITE STRUCTURED DATA
-========================================================== -->
+        "url": "https://electrical.prasunbarua.com/",
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://electrical.prasunbarua.com/#website",
-    "url": "https://electrical.prasunbarua.com/",
-    "name": "Electrical Engineering by Prasun Barua",
-    "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
-    "inLanguage": "en",
-    "publisher": {
-        "@id": "https://electrical.prasunbarua.com/#organization"
+        "name": "Electrical Engineering by Prasun Barua",
+
+        "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
+
+        "inLanguage": "en",
+
+        "publisher": {
+            "@id": "https://electrical.prasunbarua.com/#organization"
+        }
+
     }
-}
-</script>
+    </script>
 
 
-<!-- =========================================================
-     13. ORGANIZATION STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         14. ORGANIZATION STRUCTURED DATA
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://electrical.prasunbarua.com/#organization",
-    "name": "Electrical Engineering by Prasun Barua",
-    "url": "https://electrical.prasunbarua.com/"
-}
-</script>
+    <script
+        type="application/ld+json"
+    >
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
 
+        "@id": "https://electrical.prasunbarua.com/#organization",
 
-<!-- =========================================================
-     14. BREADCRUMB STRUCTURED DATA
-========================================================== -->
+        "name": "Electrical Engineering by Prasun Barua",
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#breadcrumb",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://electrical.prasunbarua.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Electrical Fundamentals",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Electrical Energy: kWh vs kW",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
-        }
-    ]
-}
-</script>
+        "url": "https://electrical.prasunbarua.com/"
+
+    }
+    </script>
 
 
-<!-- =========================================================
-     15. FAQ STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         15. BREADCRUMB STRUCTURED DATA
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is the difference between kW and kWh?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Kilowatt (kW) is a unit of power and describes the rate at which electrical energy is used or produced. Kilowatt-hour (kWh) is a unit of energy and represents the amount of energy used or produced over time."
+    <script
+        type="application/ld+json"
+    >
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html#breadcrumb",
+
+        "itemListElement": [
+
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Electrical Fundamentals",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+            },
+
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Electrical Energy: kWh vs kW",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/electrical-energy-kwh-vs-kw.html"
             }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you calculate electrical energy?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Electrical energy can be calculated by multiplying power by operating time. When power is expressed in kilowatts and time in hours, the result is kilowatt-hours: Energy (kWh) = Power (kW) × Time (h)."
+
+        ]
+
+    }
+    </script>
+
+
+    <!-- =========================================================
+         16. FAQ STRUCTURED DATA
+    ========================================================== -->
+
+    <script
+        type="application/ld+json"
+    >
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+
+        "mainEntity": [
+
+            {
+                "@type": "Question",
+                "name": "What is the difference between kW and kWh?",
+
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kilowatt (kW) is a unit of power and describes the rate at which electrical energy is used or produced. Kilowatt-hour (kWh) is a unit of energy and represents the amount of energy used or produced over time."
+                }
+            },
+
+            {
+                "@type": "Question",
+                "name": "How do you calculate electrical energy?",
+
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Electrical energy can be calculated by multiplying power by operating time. When power is expressed in kilowatts and time in hours, the result is kilowatt-hours: Energy (kWh) = Power (kW) × Time (h)."
+                }
+            },
+
+            {
+                "@type": "Question",
+                "name": "Is kW the same as kWh?",
+
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. kW measures power, while kWh measures energy. A 5 kW load operating for 2 hours consumes 10 kWh of energy."
+                }
+            },
+
+            {
+                "@type": "Question",
+                "name": "What does kWh mean on an electricity bill?",
+
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "kWh on an electricity bill represents the amount of electrical energy consumed during the billing period."
+                }
+            },
+
+            {
+                "@type": "Question",
+                "name": "Is kWp the same as kWh?",
+
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. kWp is commonly used to describe the rated peak capacity of a solar PV system, while kWh describes electrical energy generated or consumed over time."
+                }
             }
-        },
-        {
-            "@type": "Question",
-            "name": "Is kW the same as kWh?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. kW measures power, while kWh measures energy. A 5 kW load operating for 2 hours consumes 10 kWh of energy."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What does kWh mean on an electricity bill?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "kWh on an electricity bill represents the amount of electrical energy consumed during the billing period."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Is kWp the same as kWh?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. kWp is commonly used to describe the rated peak capacity of a solar PV system, while kWh describes electrical energy generated or consumed over time."
-            }
-        }
-    ]
-}
-</script>
+
+        ]
+
+    }
+    </script>
 
 
 </head>
+
 
 <body>
 
 
 <!-- =========================================================
-     16. SITE HEADER
+     17. SITE HEADER
 ========================================================== -->
 
 <header class="site-header">
@@ -559,16 +686,13 @@
             <ul>
 
                 <li>
-
                     <a href="/">
                         Home
                     </a>
-
                 </li>
 
 
                 <li>
-
                     <a
                         href="/articles/electrical-fundamentals/"
                         class="active"
@@ -576,16 +700,13 @@
                     >
                         Articles
                     </a>
-
                 </li>
 
 
                 <li>
-
                     <a href="/about.html">
                         About
                     </a>
-
                 </li>
 
             </ul>
@@ -598,7 +719,7 @@
 
 
 <!-- =========================================================
-     17. MOBILE SIDEBAR OVERLAY
+     18. MOBILE SIDEBAR OVERLAY
 ========================================================== -->
 
 <div
@@ -609,7 +730,7 @@
 
 
 <!-- =========================================================
-     18. MAIN ARTICLE
+     19. MAIN ARTICLE
 ========================================================== -->
 
 <main class="article-page">
@@ -620,7 +741,7 @@
 
 
             <!-- =================================================
-                 19. ARTICLE SIDEBAR
+                 20. ARTICLE SIDEBAR
             ================================================== -->
 
             <aside
@@ -719,7 +840,7 @@
 
 
             <!-- =================================================
-                 20. ARTICLE
+                 21. ARTICLE
             ================================================== -->
 
             <article
@@ -799,7 +920,6 @@
                     <div class="article-meta">
 
                         <span>
-
                             By
 
                             <a
@@ -808,7 +928,6 @@
                             >
                                 Prasun Barua
                             </a>
-
                         </span>
 
 
@@ -821,6 +940,7 @@
 
 
                         <time
+                            id="published-date"
                             datetime="2026-08-24"
                             itemprop="datePublished"
                         >
@@ -837,10 +957,11 @@
 
 
                         <time
-                            datetime="2026-08-26"
+                            id="modified-date"
+                            datetime="2026-08-28"
                             itemprop="dateModified"
                         >
-                            Updated August 26, 2026
+                            Updated August 28, 2026
                         </time>
 
 
@@ -880,10 +1001,8 @@
 
 
                     <figcaption class="image-caption">
-
                         Understanding the relationship between electrical
                         power, kW, time and electrical energy in kWh.
-
                     </figcaption>
 
                 </figure>
@@ -903,8 +1022,8 @@
                         Electrical energy is one of the most important
                         concepts in electrical engineering. It describes
                         the amount of electrical work performed or energy
-                        consumed by an electrical device over a period of
-                        time.
+                        transferred or consumed by an electrical device
+                        over a period of time.
                     </p>
 
 
@@ -921,7 +1040,7 @@
 
                     <p>
                         Understanding the difference between kW and kWh is
-                        essential when working with electrical loads,
+                        important when working with electrical loads,
                         generators, batteries, solar PV systems and
                         electricity bills.
                     </p>
@@ -962,8 +1081,8 @@
 
                     <p>
                         Electrical energy is the energy transferred when
-                        electric current flows through an electrical
-                        circuit or device.
+                        electrical systems deliver, consume or convert
+                        electrical power over time.
                     </p>
 
 
@@ -1006,7 +1125,7 @@
 
                     <p>
                         Power and energy are closely related, but they are
-                        not the same quantity.
+                        not the same physical quantity.
                     </p>
 
 
@@ -1015,7 +1134,8 @@
                         <table class="article-table">
 
                             <caption>
-                                Difference between electrical power and electrical energy
+                                Difference between electrical power and
+                                electrical energy
                             </caption>
 
 
@@ -1027,11 +1147,9 @@
                                         Quantity
                                     </th>
 
-
                                     <th scope="col">
                                         Meaning
                                     </th>
-
 
                                     <th scope="col">
                                         Common Unit
@@ -1050,12 +1168,10 @@
                                         Power
                                     </td>
 
-
                                     <td>
                                         Rate at which electrical energy
                                         is transferred or used
                                     </td>
-
 
                                     <td>
                                         W or kW
@@ -1070,12 +1186,10 @@
                                         Energy
                                     </td>
 
-
                                     <td>
                                         Total electrical energy transferred
                                         or consumed over time
                                     </td>
-
 
                                     <td>
                                         Wh or kWh
@@ -1093,7 +1207,7 @@
                     <p>
                         A simple way to understand the difference is to
                         think of <strong>power as the rate</strong> and
-                        <strong>energy as the total amount</strong>.
+                        <strong>energy as the accumulated amount</strong>.
                     </p>
 
 
@@ -1274,6 +1388,31 @@
                         </table>
 
                     </div>
+
+
+                    <!-- =================================================
+                         INLINE DIAGRAM 1
+                    ================================================== -->
+
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/kw-vs-kwh-comparison.jpeg"
+                            alt="Technical diagram comparing kilowatt power with kilowatt-hour energy using a 5 kW load operating for 4 hours to produce 20 kWh"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+
+                        <figcaption class="image-caption">
+                            kW describes the power level, while kWh represents
+                            energy accumulated over time:
+                            5 kW × 4 h = 20 kWh.
+                        </figcaption>
+
+                    </figure>
 
 
                     <p>
@@ -1571,18 +1710,12 @@
 
                     <p>
                         Solar PV system capacity is commonly expressed in
-                        <strong>
-                            kW
-                        </strong>
+                        <strong>kW</strong>
                         or
-                        <strong>
-                            kWp
-                        </strong>,
+                        <strong>kWp</strong>,
                         while the electrical energy generated by the
                         system is commonly expressed in
-                        <strong>
-                            kWh
-                        </strong>.
+                        <strong>kWh</strong>.
                     </p>
 
 
@@ -1596,10 +1729,35 @@
 
                     <p>
                         Actual solar energy production depends on factors
-                        such as solar irradiance, temperature, system
-                        losses, inverter operation, shading and the number
-                        of effective sunlight hours.
+                        such as solar irradiance, module temperature, system
+                        losses, inverter operation, shading and the available
+                        solar resource.
                     </p>
+
+
+                    <!-- =================================================
+                         INLINE DIAGRAM 2
+                    ================================================== -->
+
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/solar-pv-kw-kwh-generation.jpeg"
+                            alt="Solar PV diagram showing a 10 kWp system producing daily energy in kWh through variable solar power generation"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+
+                        <figcaption class="image-caption">
+                            A solar PV system's rated capacity is expressed
+                            in kWp or kW, while its energy production over
+                            time is measured in kWh.
+                        </figcaption>
+
+                    </figure>
 
 
                     <div class="example-box">
@@ -1640,9 +1798,9 @@
 
 
                     <p>
-                        In a three-phase system, electrical power can be
-                        calculated from line voltage, line current and
-                        power factor.
+                        In a balanced three-phase system, active electrical
+                        power can be calculated from line voltage, line
+                        current and power factor.
                     </p>
 
 
@@ -1663,7 +1821,7 @@
 
                     <p>
                         When voltage and current are expressed in volts and
-                        amperes, the calculated power is in watts.
+                        amperes, the calculated active power is in watts.
                         Dividing by 1,000 converts watts to kilowatts.
                     </p>
 
@@ -1711,14 +1869,14 @@
 
 
                         <li>
-                            Calculating energy without considering operating
-                            time.
+                            Calculating energy without considering
+                            operating time.
                         </li>
 
 
                         <li>
-                            Assuming a solar PV system operates at its rated
-                            power throughout the entire day.
+                            Assuming a solar PV system operates at its
+                            rated power throughout the entire day.
                         </li>
 
 
@@ -2012,7 +2170,7 @@
 
 
                 <!-- =================================================
-                     21. SOCIAL SHARING
+                     22. SOCIAL SHARING
                 ================================================== -->
 
                 <section
@@ -2025,7 +2183,7 @@
                     </span>
 
 
-                    <!-- 1. Copy Link -->
+                    <!-- COPY LINK -->
 
                     <button
                         type="button"
@@ -2053,7 +2211,6 @@
 
                         </svg>
 
-
                         <span>
                             Copy link
                         </span>
@@ -2061,7 +2218,7 @@
                     </button>
 
 
-                    <!-- 2. LinkedIn -->
+                    <!-- LINKEDIN -->
 
                     <button
                         type="button"
@@ -2079,10 +2236,9 @@
                             aria-hidden="true"
                         >
 
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
 
                         </svg>
-
 
                         <span>
                             LinkedIn
@@ -2091,7 +2247,7 @@
                     </button>
 
 
-                    <!-- 3. X -->
+                    <!-- X -->
 
                     <button
                         type="button"
@@ -2113,7 +2269,6 @@
 
                         </svg>
 
-
                         <span>
                             X
                         </span>
@@ -2121,7 +2276,7 @@
                     </button>
 
 
-                    <!-- 4. WhatsApp -->
+                    <!-- WHATSAPP -->
 
                     <button
                         type="button"
@@ -2143,7 +2298,6 @@
 
                         </svg>
 
-
                         <span>
                             WhatsApp
                         </span>
@@ -2151,7 +2305,7 @@
                     </button>
 
 
-                    <!-- 5. Facebook -->
+                    <!-- FACEBOOK -->
 
                     <button
                         type="button"
@@ -2173,7 +2327,6 @@
 
                         </svg>
 
-
                         <span>
                             Facebook
                         </span>
@@ -2184,7 +2337,7 @@
 
 
                 <!-- =================================================
-                     22. AUTHOR
+                     23. AUTHOR
                 ================================================== -->
 
                 <footer class="article-footer">
@@ -2206,7 +2359,7 @@
                         <div>
 
                             <div class="article-author-label">
-                               Written by
+                                Written by
                             </div>
 
 
@@ -2238,7 +2391,7 @@
 
 
                 <!-- =================================================
-                     23. RELATED ARTICLES
+                     24. RELATED ARTICLES
                 ================================================== -->
 
                 <section
@@ -2258,7 +2411,7 @@
 
                         <!--
                             Dynamic related articles are inserted
-                            here by related-articles.js.
+                            here by related-articles.js
                         -->
 
                     </div>
@@ -2276,7 +2429,7 @@
 
 
 <!-- =========================================================
-     24. SITE FOOTER
+     25. SITE FOOTER
 ========================================================== -->
 
 <footer class="site-footer">
@@ -2297,12 +2450,14 @@
 
 
 <!-- =========================================================
-     25. SHARE SCRIPT
+     26. SHARE SCRIPT
 ========================================================== -->
 
 <script>
 
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
         const pageURL =
             window.location.href;
@@ -2313,176 +2468,175 @@
 
         document
             .querySelectorAll("[data-share]")
-            .forEach(function (button) {
+            .forEach(
+                function (button) {
 
-                button.addEventListener(
-                    "click",
-                    async function () {
+                    button.addEventListener(
+                        "click",
+                        async function () {
 
-                        const type =
-                            button.dataset.share;
-
-
-                        /* -------------------------------------------------
-                           COPY LINK
-                        ------------------------------------------------- */
-
-                        if (type === "copy") {
-
-                            try {
-
-                                await navigator.clipboard.writeText(
-                                    pageURL
-                                );
+                            const type =
+                                button.dataset.share;
 
 
-                                const label =
-                                    button.querySelector(
-                                        "span:last-child"
+                            /* COPY LINK */
+
+                            if (type === "copy") {
+
+                                try {
+
+                                    await navigator.clipboard.writeText(
+                                        pageURL
                                     );
 
 
-                                const originalText =
-                                    label
-                                        ? label.textContent
-                                        : "Copy link";
+                                    const label =
+                                        button.querySelector(
+                                            "span:last-child"
+                                        );
 
 
-                                if (label) {
+                                    const originalText =
+                                        label
+                                            ? label.textContent
+                                            : "Copy link";
 
-                                    label.textContent =
-                                        "Copied!";
+
+                                    if (label) {
+
+                                        label.textContent =
+                                            "Copied!";
+
+                                    }
+
+
+                                    button.classList.add(
+                                        "copied"
+                                    );
+
+
+                                    setTimeout(
+                                        function () {
+
+                                            if (label) {
+
+                                                label.textContent =
+                                                    originalText;
+
+                                            }
+
+
+                                            button.classList.remove(
+                                                "copied"
+                                            );
+
+                                        },
+                                        1500
+                                    );
+
+
+                                } catch (error) {
+
+                                    window.prompt(
+                                        "Copy this article link:",
+                                        pageURL
+                                    );
 
                                 }
 
+                                return;
 
-                                button.classList.add(
-                                    "copied"
-                                );
-
-
-                                setTimeout(
-                                    function () {
-
-                                        if (label) {
-
-                                            label.textContent =
-                                                originalText;
-
-                                        }
+                            }
 
 
-                                        button.classList.remove(
-                                            "copied"
-                                        );
-
-                                    },
-                                    1500
-                                );
+                            let shareURL =
+                                "";
 
 
-                            } catch (error) {
+                            /* FACEBOOK */
 
-                                window.prompt(
-                                    "Copy this article link:",
-                                    pageURL
+                            if (type === "facebook") {
+
+                                shareURL =
+                                    "https://www.facebook.com/sharer/sharer.php?u=" +
+                                    encodeURIComponent(
+                                        pageURL
+                                    );
+
+                            }
+
+
+                            /* LINKEDIN */
+
+                            if (type === "linkedin") {
+
+                                shareURL =
+                                    "https://www.linkedin.com/sharing/share-offsite/?url=" +
+                                    encodeURIComponent(
+                                        pageURL
+                                    );
+
+                            }
+
+
+                            /* X */
+
+                            if (type === "x") {
+
+                                shareURL =
+                                    "https://twitter.com/intent/tweet?url=" +
+                                    encodeURIComponent(
+                                        pageURL
+                                    ) +
+                                    "&text=" +
+                                    encodeURIComponent(
+                                        pageTitle
+                                    );
+
+                            }
+
+
+                            /* WHATSAPP */
+
+                            if (type === "whatsapp") {
+
+                                shareURL =
+                                    "https://api.whatsapp.com/send?text=" +
+                                    encodeURIComponent(
+                                        pageTitle +
+                                        " " +
+                                        pageURL
+                                    );
+
+                            }
+
+
+                            /* OPEN */
+
+                            if (shareURL) {
+
+                                window.open(
+                                    shareURL,
+                                    "_blank",
+                                    "noopener,noreferrer,width=700,height=600"
                                 );
 
                             }
 
-                            return;
-
                         }
+                    );
 
+                }
+            );
 
-                        let shareURL =
-                            "";
-
-
-                        /* -------------------------------------------------
-                           FACEBOOK
-                        ------------------------------------------------- */
-
-                        if (type === "facebook") {
-
-                            shareURL =
-                                "https://www.facebook.com/sharer/sharer.php?u=" +
-                                encodeURIComponent(pageURL);
-
-                        }
-
-
-                        /* -------------------------------------------------
-                           LINKEDIN
-                        ------------------------------------------------- */
-
-                        if (type === "linkedin") {
-
-                            shareURL =
-                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                encodeURIComponent(pageURL);
-
-                        }
-
-
-                        /* -------------------------------------------------
-                           X
-                        ------------------------------------------------- */
-
-                        if (type === "x") {
-
-                            shareURL =
-                                "https://twitter.com/intent/tweet?url=" +
-                                encodeURIComponent(pageURL) +
-                                "&text=" +
-                                encodeURIComponent(pageTitle);
-
-                        }
-
-
-                        /* -------------------------------------------------
-                           WHATSAPP
-                        ------------------------------------------------- */
-
-                        if (type === "whatsapp") {
-
-                            shareURL =
-                                "https://api.whatsapp.com/send?text=" +
-                                encodeURIComponent(
-                                    pageTitle +
-                                    " " +
-                                    pageURL
-                                );
-
-                        }
-
-
-                        /* -------------------------------------------------
-                           OPEN SHARE WINDOW
-                        ------------------------------------------------- */
-
-                        if (shareURL) {
-
-                            window.open(
-                                shareURL,
-                                "_blank",
-                                "noopener,noreferrer,width=700,height=600"
-                            );
-
-                        }
-
-                    }
-                );
-
-            });
-
-    });
+    }
+);
 
 </script>
 
 
 <!-- =========================================================
-     26. RELATED ARTICLES
+     27. RELATED ARTICLES
 ========================================================== -->
 
 <script
@@ -2492,13 +2646,292 @@
 
 
 <!-- =========================================================
-     27. MAIN SITE JAVASCRIPT
+     28. MAIN SITE JAVASCRIPT
 ========================================================== -->
 
 <script
     src="/assets/js/app.js"
     defer
 ></script>
+
+
+<!-- =========================================================
+     29. AUTOMATIC MODIFIED TIMESTAMP
+========================================================== -->
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    /*
+     * IMPORTANT:
+     *
+     * document.lastModified represents the modification time
+     * supplied by the server/browser for this document.
+     *
+     * It is useful for automatically updating the visible
+     * "Updated" date without manually editing the HTML.
+     *
+     * It is NOT a guarantee that your CDN/server will expose
+     * the Git commit or source-file modification timestamp.
+     *
+     * The fallback remains August 28, 2026.
+     */
+
+
+    const fallbackModifiedDate =
+        "2026-08-28T00:00:00+06:00";
+
+
+    const lastModified =
+        document.lastModified;
+
+
+    function isUsableDate(value) {
+
+        if (!value) {
+
+            return false;
+
+        }
+
+
+        const parsed =
+            new Date(value);
+
+
+        return !Number.isNaN(
+            parsed.getTime()
+        );
+
+    }
+
+
+    let modifiedDate =
+        fallbackModifiedDate;
+
+
+    if (
+        isUsableDate(
+            lastModified
+        )
+    ) {
+
+        const parsed =
+            new Date(
+                lastModified
+            );
+
+
+        /*
+         * Convert the server date to
+         * ISO format with Bangladesh
+         * timezone (+06:00).
+         */
+
+        const year =
+            parsed.getFullYear();
+
+
+        const month =
+            String(
+                parsed.getMonth() + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const day =
+            String(
+                parsed.getDate()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const hours =
+            String(
+                parsed.getHours()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const minutes =
+            String(
+                parsed.getMinutes()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const seconds =
+            String(
+                parsed.getSeconds()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        modifiedDate =
+            `${year}-${month}-${day}T${hours}:${minutes}:${seconds}+06:00`;
+
+    }
+
+
+    /*
+     * Display date.
+     */
+
+    const modifiedTimeElement =
+        document.getElementById(
+            "modified-date"
+        );
+
+
+    if (
+        modifiedTimeElement &&
+        isUsableDate(
+            modifiedDate
+        )
+    ) {
+
+        const modifiedDateObject =
+            new Date(
+                modifiedDate
+            );
+
+
+        modifiedTimeElement.dateTime =
+            modifiedDate;
+
+
+        modifiedTimeElement.textContent =
+            "Updated " +
+            modifiedDateObject.toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+
+    }
+
+
+    /*
+     * Update meta tag.
+     */
+
+    const modifiedMeta =
+        document.getElementById(
+            "article-modified-time"
+        );
+
+
+    if (modifiedMeta) {
+
+        modifiedMeta.setAttribute(
+            "content",
+            modifiedDate
+        );
+
+    }
+
+
+    /*
+     * Update Article JSON-LD.
+     */
+
+    const articleSchema =
+        document.getElementById(
+            "article-schema"
+        );
+
+
+    if (articleSchema) {
+
+        try {
+
+            const schema =
+                JSON.parse(
+                    articleSchema.textContent
+                );
+
+
+            schema.dateModified =
+                modifiedDate;
+
+
+            articleSchema.textContent =
+                JSON.stringify(
+                    schema
+                );
+
+        } catch (error) {
+
+            console.warn(
+                "Unable to update Article structured data:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /*
+     * Update WebPage JSON-LD.
+     */
+
+    const webpageSchema =
+        document.getElementById(
+            "webpage-schema"
+        );
+
+
+    if (webpageSchema) {
+
+        try {
+
+            const schema =
+                JSON.parse(
+                    webpageSchema.textContent
+                );
+
+
+            schema.dateModified =
+                modifiedDate;
+
+
+            webpageSchema.textContent =
+                JSON.stringify(
+                    schema
+                );
+
+        } catch (error) {
+
+            console.warn(
+                "Unable to update WebPage structured data:",
+                error
+            );
+
+        }
+
+    }
+
+})();
+
+</script>
 
 
 </body>
