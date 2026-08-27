@@ -1134,7 +1134,137 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+/* =========================================================
+   FOOTER
+========================================================= */
 
+.site-footer {
+    margin-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    background: #fafafa;
+}
+
+
+.footer-inner {
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+
+    padding: 22px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-copy {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.footer-links a {
+    color: var(--text-muted);
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    transition: color 0.15s ease;
+}
+
+
+.footer-links a:hover {
+    color: var(--blue);
+}
+
+
+.footer-separator {
+    color: #b8b8bd;
+
+    font-size: 12px;
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .footer-inner {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 24px 16px;
+
+        gap: 9px;
+    }
+
+
+    .footer-links {
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .footer-inner {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+
+    .footer-copy,
+    .footer-links a,
+    .footer-separator {
+        font-size: 11px;
+    }
+
+}
 
         /* =====================================================
            MOBILE
