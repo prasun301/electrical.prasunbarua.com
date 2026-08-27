@@ -2,12 +2,14 @@
    ELECTRICAL ENGINEERING
    RELATED ARTICLES SYSTEM
    ---------------------------------------------------------
-   Loads articles.json and displays relevant published
+   Loads /articles.json and displays relevant published
    articles on article pages.
 
-   IMPORTANT:
-   Article URLs are used exactly as defined in articles.json.
-   No trailing slash is added to .html URLs.
+   URL handling:
+   - Relative URLs from articles.json are converted to
+     root-relative URLs for reliable navigation.
+   - Absolute http/https URLs are preserved.
+   - URL normalization is used only for comparison.
    ========================================================= */
 
 "use strict";
@@ -54,10 +56,6 @@ async function initRelatedArticles() {
         );
 
 
-    /*
-     * This page does not use the related-article system.
-     */
-
     if (!container) {
 
         return;
@@ -71,7 +69,11 @@ async function initRelatedArticles() {
             await fetch(
                 RELATED_CONFIG.dataURL,
                 {
-                    cache: "no-cache"
+                    method: "GET",
+                    cache: "no-cache",
+                    headers: {
+                        "Accept": "application/json"
+                    }
                 }
             );
 
@@ -91,12 +93,17 @@ async function initRelatedArticles() {
 
 
         /*
-         * Your articles.json structure is:
+         * Support:
+         *
+         * [
+         *   {...},
+         *   {...}
+         * ]
+         *
+         * OR
          *
          * {
-         *   "site": {},
-         *   "categories": [],
-         *   "articles": []
+         *   "articles": [...]
          * }
          */
 
@@ -157,10 +164,103 @@ async function initRelatedArticles() {
 
 
 /* =========================================================
-   NORMALIZE CURRENT PAGE URL
+   GET ARTICLE URL
    ---------------------------------------------------------
-   Used ONLY for comparison.
-   Does NOT modify article href values.
+   Converts relative URLs into root-relative URLs.
+   Keeps absolute URLs unchanged.
+========================================================== */
+
+function getArticleURL(article) {
+
+    if (!article) {
+
+        return "";
+
+    }
+
+
+    const rawURL =
+        String(
+            article.url ||
+            article.path ||
+            ""
+        ).trim();
+
+
+    if (!rawURL) {
+
+        return "";
+
+    }
+
+
+    /*
+     * Absolute URL:
+     *
+     * https://example.com/article/
+     * http://example.com/article/
+     */
+
+    if (
+        /^https?:\/\//i.test(
+            rawURL
+        )
+    ) {
+
+        return rawURL;
+
+    }
+
+
+    /*
+     * Protocol-relative URL:
+     *
+     * //example.com/article/
+     */
+
+    if (
+        rawURL.startsWith("//")
+    ) {
+
+        return rawURL;
+
+    }
+
+
+    /*
+     * Root-relative URL:
+     *
+     * /articles/example/
+     */
+
+    if (
+        rawURL.startsWith("/")
+    ) {
+
+        return rawURL;
+
+    }
+
+
+    /*
+     * Relative URL:
+     *
+     * articles/example/
+     *
+     * Convert to:
+     *
+     * /articles/example/
+     */
+
+    return "/" + rawURL;
+
+}
+
+
+/* =========================================================
+   NORMALIZE URL FOR COMPARISON
+   ---------------------------------------------------------
+   This function does NOT control href values.
 ========================================================== */
 
 function normalizeCurrentURL(url) {
@@ -174,18 +274,60 @@ function normalizeCurrentURL(url) {
 
     let cleanURL =
         String(url)
+            .trim()
             .split("?")[0]
             .split("#")[0]
             .replace(/\\/g, "/");
 
 
-    if (!cleanURL.startsWith("/")) {
+    /*
+     * Remove domain if a full URL is supplied.
+     */
+
+    try {
+
+        if (
+            /^https?:\/\//i.test(
+                cleanURL
+            )
+        ) {
+
+            const parsed =
+                new URL(cleanURL);
+
+
+            cleanURL =
+                parsed.pathname;
+
+        }
+
+    } catch (error) {
+
+        /*
+         * Ignore invalid URL and continue
+         * with the original string.
+         */
+
+    }
+
+
+    /*
+     * Ensure leading slash.
+     */
+
+    if (
+        !cleanURL.startsWith("/")
+    ) {
 
         cleanURL =
             "/" + cleanURL;
 
     }
 
+
+    /*
+     * Remove duplicate slashes.
+     */
 
     cleanURL =
         cleanURL.replace(
@@ -195,8 +337,7 @@ function normalizeCurrentURL(url) {
 
 
     /*
-     * Remove trailing slash except
-     * for the root page.
+     * Remove trailing slash except root.
      */
 
     if (
@@ -219,31 +360,6 @@ function normalizeCurrentURL(url) {
 
 
 /* =========================================================
-   GET ARTICLE URL
-   ---------------------------------------------------------
-   IMPORTANT:
-   Returns the exact URL from articles.json.
-========================================================== */
-
-function getArticleURL(article) {
-
-    if (!article) {
-
-        return "";
-
-    }
-
-
-    return String(
-        article.url ||
-        article.path ||
-        ""
-    ).trim();
-
-}
-
-
-/* =========================================================
    FIND CURRENT ARTICLE
 ========================================================== */
 
@@ -257,7 +373,9 @@ function findCurrentArticle(
 
             const articleURL =
                 normalizeCurrentURL(
-                    getArticleURL(article)
+                    getArticleURL(
+                        article
+                    )
                 );
 
 
@@ -287,14 +405,22 @@ function getRelatedArticles(
 
 
     /*
-     * Only published, dated, non-future articles.
+     * Only:
+     * - published
+     * - valid date
+     * - non-future
+     * - valid URL
+     * - not current article
      */
 
     const candidates =
         articles.filter(
             function (article) {
 
-                if (!article) {
+                if (
+                    !article ||
+                    typeof article !== "object"
+                ) {
 
                     return false;
 
@@ -302,13 +428,15 @@ function getRelatedArticles(
 
 
                 /*
-                 * Only published articles.
+                 * Status
                  */
 
                 if (
                     String(
                         article.status || ""
-                    ).toLowerCase() !==
+                    )
+                        .trim()
+                        .toLowerCase() !==
                     "published"
                 ) {
 
@@ -318,7 +446,7 @@ function getRelatedArticles(
 
 
                 /*
-                 * Must have a valid URL.
+                 * URL
                  */
 
                 const articleURL =
@@ -335,10 +463,12 @@ function getRelatedArticles(
 
 
                 /*
-                 * Must have publication date.
+                 * Publication date
                  */
 
-                if (!article.datePublished) {
+                if (
+                    !article.datePublished
+                ) {
 
                     return false;
 
@@ -359,7 +489,7 @@ function getRelatedArticles(
 
 
                 /*
-                 * Do not show future articles.
+                 * Never show future articles.
                  */
 
                 if (
@@ -398,9 +528,9 @@ function getRelatedArticles(
         );
 
 
-    /*
-     * Current category.
-     */
+    /* =====================================================
+       CURRENT CATEGORY
+    ====================================================== */
 
     const currentCategory =
         currentArticle
@@ -414,9 +544,9 @@ function getRelatedArticles(
             );
 
 
-    /*
-     * Current tags.
-     */
+    /* =====================================================
+       CURRENT TAGS
+    ====================================================== */
 
     const currentTags =
         currentArticle &&
@@ -427,9 +557,9 @@ function getRelatedArticles(
             : [];
 
 
-    /*
-     * Score articles.
-     */
+    /* =====================================================
+       SCORE
+    ====================================================== */
 
     const scored =
         candidates.map(
@@ -438,7 +568,7 @@ function getRelatedArticles(
                 let score = 0;
 
 
-                const category =
+                const articleCategory =
                     normalizeText(
                         article.category ||
                         article.section ||
@@ -447,14 +577,14 @@ function getRelatedArticles(
 
 
                 /*
-                 * Same category.
+                 * Same category
                  */
 
                 if (
                     currentCategory &&
-                    category &&
+                    articleCategory &&
                     currentCategory ===
-                    category
+                    articleCategory
                 ) {
 
                     score += 50;
@@ -463,10 +593,10 @@ function getRelatedArticles(
 
 
                 /*
-                 * Tag matches.
+                 * Matching tags
                  */
 
-                const tags =
+                const articleTags =
                     Array.isArray(
                         article.tags
                     )
@@ -477,18 +607,20 @@ function getRelatedArticles(
                 currentTags.forEach(
                     function (currentTag) {
 
-                        const currentTagText =
+                        const currentTagNormalized =
                             normalizeText(
                                 currentTag
                             );
 
 
-                        tags.forEach(
-                            function (tag) {
+                        articleTags.forEach(
+                            function (articleTag) {
 
                                 if (
-                                    currentTagText ===
-                                    normalizeText(tag)
+                                    currentTagNormalized ===
+                                    normalizeText(
+                                        articleTag
+                                    )
                                 ) {
 
                                     score += 15;
@@ -503,21 +635,21 @@ function getRelatedArticles(
 
 
                 /*
-                 * Recency bonus.
+                 * Recency bonus
                  */
 
-                const date =
+                const articleDate =
                     parseArticleDate(
                         article.datePublished
                     );
 
 
-                if (date) {
+                if (articleDate) {
 
-                    const daysOld =
+                    const ageInDays =
                         (
                             Date.now() -
-                            date.getTime()
+                            articleDate.getTime()
                         ) /
                         (
                             1000 *
@@ -528,8 +660,8 @@ function getRelatedArticles(
 
 
                     if (
-                        daysOld >= 0 &&
-                        daysOld < 180
+                        ageInDays >= 0 &&
+                        ageInDays < 180
                     ) {
 
                         score += 3;
@@ -551,14 +683,17 @@ function getRelatedArticles(
         );
 
 
-    /*
-     * Sort:
-     * 1. Relevance
-     * 2. Publication date
-     */
+    /* =====================================================
+       SORT
+    ====================================================== */
 
     scored.sort(
         function (a, b) {
+
+            /*
+             * First:
+             * relevance score
+             */
 
             if (
                 b.score !==
@@ -573,6 +708,11 @@ function getRelatedArticles(
             }
 
 
+            /*
+             * Then:
+             * newest publication date
+             */
+
             return compareDates(
                 b.article,
                 a.article
@@ -582,20 +722,30 @@ function getRelatedArticles(
     );
 
 
-    /*
-     * Prefer related articles with
-     * a meaningful score.
-     */
+    /* =====================================================
+       MEANINGFUL ARTICLES
+    ====================================================== */
 
     const meaningful =
         scored.filter(
             function (item) {
 
-                return item.score > 0;
+                return (
+                    item.score >
+                    0
+                );
 
             }
         );
 
+
+    /*
+     * Use meaningful matches when
+     * at least three are available.
+     *
+     * Otherwise use the best available
+     * published articles.
+     */
 
     const selected =
         meaningful.length >=
@@ -637,9 +787,67 @@ function parseArticleDate(
     }
 
 
+    /*
+     * YYYY-MM-DD is interpreted as
+     * local midnight rather than depending
+     * on browser UTC parsing behavior.
+     */
+
+    const stringValue =
+        String(value).trim();
+
+
+    const match =
+        /^(\d{4})-(\d{2})-(\d{2})$/
+            .exec(
+                stringValue
+            );
+
+
+    if (match) {
+
+        const year =
+            Number(
+                match[1]
+            );
+
+
+        const month =
+            Number(
+                match[2]
+            );
+
+
+        const day =
+            Number(
+                match[3]
+            );
+
+
+        const localDate =
+            new Date(
+                year,
+                month - 1,
+                day
+            );
+
+
+        if (
+            !Number.isNaN(
+                localDate.getTime()
+            )
+        ) {
+
+            return localDate;
+
+        }
+
+    }
+
+
     const date =
         new Date(
-            value
+            stringValue
         );
 
 
@@ -682,17 +890,21 @@ function compareDates(
         );
 
 
+    const timeA =
+        dateA
+            ? dateA.getTime()
+            : 0;
+
+
+    const timeB =
+        dateB
+            ? dateB.getTime()
+            : 0;
+
+
     return (
-        (
-            dateB
-                ? dateB.getTime()
-                : 0
-        ) -
-        (
-            dateA
-                ? dateA.getTime()
-                : 0
-        )
+        timeA -
+        timeB
     );
 
 }
@@ -707,16 +919,20 @@ function getCategoryFromURL(
 ) {
 
     const parts =
-        normalizeCurrentURL(url)
+        normalizeCurrentURL(
+            url
+        )
             .split("/")
             .filter(Boolean);
 
 
     /*
-     * /articles/electrical-calculations/...
+     * Example:
+     *
+     * /articles/electrical-fundamentals/ohms-law/
      *
      * parts[0] = articles
-     * parts[1] = category
+     * parts[1] = electrical-fundamentals
      */
 
     if (
@@ -756,7 +972,7 @@ function normalizeText(
 
 
 /* =========================================================
-   RENDER
+   RENDER RELATED ARTICLES
 ========================================================== */
 
 function renderRelatedArticles(
@@ -765,7 +981,7 @@ function renderRelatedArticles(
 ) {
 
     /*
-     * Clear existing fallback cards.
+     * Remove static fallback cards.
      */
 
     container.innerHTML = "";
@@ -777,7 +993,9 @@ function renderRelatedArticles(
     ) {
 
         const empty =
-            document.createElement("p");
+            document.createElement(
+                "p"
+            );
 
 
         empty.className =
@@ -822,7 +1040,7 @@ function renderRelatedArticles(
 
 
 /* =========================================================
-   CREATE RELATED CARD
+   CREATE RELATED ARTICLE CARD
 ========================================================== */
 
 function createRelatedCard(
@@ -830,9 +1048,7 @@ function createRelatedCard(
 ) {
 
     /*
-     * IMPORTANT:
-     * Use the URL EXACTLY as it appears
-     * in articles.json.
+     * Get the corrected navigation URL.
      */
 
     const articleURL =
@@ -851,22 +1067,22 @@ function createRelatedCard(
     }
 
 
+    /*
+     * Create actual link element.
+     */
+
     const card =
-        document.createElement("a");
+        document.createElement(
+            "a"
+        );
 
 
     card.className =
         "related-card";
 
 
-    /*
-     * DO NOT normalize this URL.
-     */
-
-    card.setAttribute(
-        "href",
-        articleURL
-    );
+    card.href =
+        articleURL;
 
 
     card.setAttribute(
@@ -879,12 +1095,14 @@ function createRelatedCard(
     );
 
 
-    /*
-     * Category
-     */
+    /* =====================================================
+       CATEGORY
+    ====================================================== */
 
     const category =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     category.className =
@@ -894,15 +1112,18 @@ function createRelatedCard(
     category.textContent =
         article.categoryName ||
         article.category ||
+        article.section ||
         "Electrical Engineering";
 
 
-    /*
-     * Title
-     */
+    /* =====================================================
+       TITLE
+    ====================================================== */
 
     const title =
-        document.createElement("h3");
+        document.createElement(
+            "h3"
+        );
 
 
     title.textContent =
@@ -910,12 +1131,14 @@ function createRelatedCard(
         "Electrical Engineering Article";
 
 
-    /*
-     * Description
-     */
+    /* =====================================================
+       DESCRIPTION
+    ====================================================== */
 
     const description =
-        document.createElement("p");
+        document.createElement(
+            "p"
+        );
 
 
     description.className =
@@ -928,9 +1151,9 @@ function createRelatedCard(
         "";
 
 
-    /*
-     * Date
-     */
+    /* =====================================================
+       DATE
+    ====================================================== */
 
     const publishedDate =
         parseArticleDate(
@@ -938,15 +1161,21 @@ function createRelatedCard(
         );
 
 
-    const meta =
-        document.createElement("div");
-
-
-    meta.className =
-        "related-card-meta";
+    let meta =
+        null;
 
 
     if (publishedDate) {
+
+        meta =
+            document.createElement(
+                "div"
+            );
+
+
+        meta.className =
+            "related-card-meta";
+
 
         meta.textContent =
             formatArticleDate(
@@ -956,9 +1185,9 @@ function createRelatedCard(
     }
 
 
-    /*
-     * Build
-     */
+    /* =====================================================
+       BUILD CARD
+    ====================================================== */
 
     card.appendChild(
         category
@@ -981,9 +1210,7 @@ function createRelatedCard(
     }
 
 
-    if (
-        meta.textContent
-    ) {
+    if (meta) {
 
         card.appendChild(
             meta
@@ -1045,9 +1272,9 @@ document.addEventListener(
         /*
          * Analytics only.
          *
-         * No preventDefault().
-         * Therefore the normal link navigation
-         * continues normally.
+         * We deliberately do NOT call
+         * preventDefault(), so normal
+         * browser navigation continues.
          */
 
         window.gtag(
