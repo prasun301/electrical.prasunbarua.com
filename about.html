@@ -3,27 +3,9 @@
 
 <head>
 
-    <!-- =====================================================
-         GOOGLE ANALYTICS
-    ====================================================== -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"></script>
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-XY335VGVGJ');
-    </script>
-
-
-    <!-- =====================================================
-         BASIC META
-    ====================================================== -->
+    <!-- =========================================================
+         1. CORE DOCUMENT
+    ========================================================== -->
 
     <meta charset="UTF-8">
 
@@ -32,13 +14,28 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="referrer"
+        content="strict-origin-when-cross-origin"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0066cc"
+    >
+
+    <meta
+        name="color-scheme"
+        content="light"
+    >
+
     <title>
         About | Electrical Engineering by Prasun Barua
     </title>
 
     <meta
         name="description"
-        content="Learn about Electrical Engineering by Prasun Barua, a practical educational resource covering electrical engineering fundamentals, calculations, solar PV systems, design concepts and engineering guides."
+        content="Learn about Electrical Engineering by Prasun Barua, an independent educational resource covering electrical engineering fundamentals, calculations, solar PV, electrical design and practical engineering guides."
     >
 
     <meta
@@ -48,7 +45,12 @@
 
     <meta
         name="robots"
-        content="index, follow"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
+
+    <meta
+        name="googlebot"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     >
 
     <link
@@ -57,13 +59,18 @@
     >
 
 
-    <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
+    <!-- =========================================================
+         2. OPEN GRAPH
+    ========================================================== -->
 
     <meta
         property="og:type"
         content="website"
+    >
+
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/about.html"
     >
 
     <meta
@@ -77,19 +84,86 @@
     >
 
     <meta
-        property="og:url"
-        content="https://electrical.prasunbarua.com/about.html"
-    >
-
-    <meta
         property="og:site_name"
         content="Electrical Engineering by Prasun Barua"
     >
 
+    <meta
+        property="og:locale"
+        content="en_US"
+    >
 
-    <!-- =====================================================
-         FAVICON
-    ====================================================== -->
+    <meta
+        property="og:image"
+        content="https://electrical.prasunbarua.com/assets/images/og-cover.png"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Electrical Engineering by Prasun Barua"
+    >
+
+
+    <!-- =========================================================
+         3. X / TWITTER
+    ========================================================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="About | Electrical Engineering by Prasun Barua"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Learn about Electrical Engineering by Prasun Barua and the purpose behind this practical engineering resource."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://electrical.prasunbarua.com/assets/images/og-cover.png"
+    >
+
+    <meta
+        name="twitter:image:alt"
+        content="Electrical Engineering by Prasun Barua"
+    >
+
+
+    <!-- =========================================================
+         4. GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+    ></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag("config", "G-XY335VGVGJ", {
+            anonymize_ip: true,
+            send_page_view: true
+        });
+
+    </script>
+
+
+    <!-- =========================================================
+         5. FAVICON
+    ========================================================== -->
 
     <link
         rel="icon"
@@ -103,9 +177,9 @@
     >
 
 
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
+    <!-- =========================================================
+         6. GOOGLE FONTS
+    ========================================================== -->
 
     <link
         rel="preconnect"
@@ -119,36 +193,738 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
-    >
-
-    <!-- Material Symbols -->
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
-        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
     >
 
 
-    <!-- =====================================================
-         GLOBAL WEBSITE CSS
-    ====================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
-
-
-    <!-- =====================================================
-         GOOGLE ADSENSE
-    ====================================================== -->
+    <!-- =========================================================
+         7. GOOGLE ADSENSE
+    ========================================================== -->
 
     <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-        crossorigin="anonymous">
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =========================================================
+         8. MAIN STYLESHEET
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="/assets/css/style.css"
+    >
+
+
+    <!-- =========================================================
+         9. PAGE-SPECIFIC STYLE
+    ========================================================== -->
+
+    <style>
+
+        /* =====================================================
+           ABOUT PAGE
+        ===================================================== */
+
+        .about-page {
+            padding-bottom: 70px;
+        }
+
+
+        .about-hero {
+            padding: 72px 0 56px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .about-hero-content {
+            max-width: 780px;
+        }
+
+
+        .about-eyebrow {
+            display: inline-block;
+
+            margin-bottom: 14px;
+
+            color: var(--blue);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+
+        .about-hero h1 {
+            margin: 0 0 18px;
+
+            font-size: clamp(34px, 5vw, 52px);
+
+            line-height: 1.08;
+
+            letter-spacing: -.04em;
+
+            font-weight: 700;
+        }
+
+
+        .about-hero p {
+            margin: 0;
+
+            max-width: 720px;
+
+            color: var(--text-secondary);
+
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .about-content {
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            padding-top: 58px;
+        }
+
+
+        .about-section {
+            padding: 0 0 54px;
+
+            margin-bottom: 54px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .about-section:last-child {
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+
+
+        .about-section h2 {
+            margin: 0 0 16px;
+
+            font-size: 27px;
+
+            line-height: 1.25;
+
+            letter-spacing: -.025em;
+        }
+
+
+        .about-section h3 {
+            margin: 28px 0 8px;
+
+            font-size: 19px;
+
+            line-height: 1.35;
+
+            letter-spacing: -.015em;
+        }
+
+
+        .about-section p {
+            margin: 0 0 16px;
+
+            color: var(--text-secondary);
+
+            font-size: 16px;
+
+            line-height: 1.75;
+        }
+
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           CATEGORY GRID
+        ===================================================== */
+
+        .about-category-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+
+            margin-top: 28px;
+        }
+
+
+        .about-category-card {
+            display: block;
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background: var(--surface);
+
+            transition:
+                border-color .15s ease,
+                background .15s ease,
+                transform .15s ease;
+        }
+
+
+        .about-category-card:hover {
+            border-color: #cbd9e8;
+
+            background: #fafcff;
+
+            transform: translateY(-1px);
+        }
+
+
+        .about-category-card h3 {
+            margin: 0 0 8px;
+
+            color: var(--text);
+
+            font-size: 17px;
+
+            line-height: 1.35;
+        }
+
+
+        .about-category-card p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           AUDIENCE GRID
+        ===================================================== */
+
+        .about-audience-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+
+            margin-top: 28px;
+        }
+
+
+        .about-audience-card {
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background: var(--surface);
+        }
+
+
+        .about-audience-label {
+            margin-bottom: 8px;
+
+            color: var(--blue);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+        }
+
+
+        .about-audience-card h3 {
+            margin: 0 0 8px;
+
+            font-size: 17px;
+        }
+
+
+        .about-audience-card p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           AUTHOR CARD
+        ===================================================== */
+
+        .about-author-card {
+            padding: 28px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: var(--surface-soft);
+        }
+
+
+        .about-author-header {
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .about-author-avatar {
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            background: #eef5fc;
+
+            color: var(--blue);
+
+            font-size: 15px;
+
+            font-weight: 700;
+        }
+
+
+        .about-author-name {
+            margin: 0;
+
+            font-size: 20px;
+
+            line-height: 1.3;
+        }
+
+
+        .about-author-role {
+            margin-top: 3px;
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+        }
+
+
+        .about-author-card p {
+            margin-bottom: 14px;
+        }
+
+
+        /* =====================================================
+           RESPONSIBILITY NOTE
+        ===================================================== */
+
+        .about-note {
+            padding: 22px 24px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: #fafafa;
+        }
+
+
+        .about-note strong {
+            color: var(--text);
+        }
+
+
+        .about-note p {
+            margin: 8px 0 0;
+        }
+
+
+        /* =====================================================
+           CONTACT CARD
+        ===================================================== */
+
+        .about-contact-card {
+            padding: 30px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: var(--surface);
+        }
+
+
+        .about-contact-icon {
+            width: 50px;
+            height: 50px;
+
+            margin: 0 auto 16px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #eef5fc;
+
+            color: var(--blue);
+        }
+
+
+        .about-contact-icon .material-symbols-rounded {
+            font-size: 25px;
+        }
+
+
+        .about-contact-card h2 {
+            margin: 0 0 10px;
+        }
+
+
+        .about-contact-card p {
+            max-width: 620px;
+
+            margin: 0 auto 20px;
+
+            color: var(--text-secondary);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        .about-contact-card .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .site-footer {
+            margin-top: 20px;
+
+            border-top: 1px solid var(--border);
+
+            background: #fafafa;
+        }
+
+
+        .footer-inner {
+            max-width: var(--content-width);
+
+            margin: 0 auto;
+
+            padding: 22px 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        .footer-copy {
+            margin: 0;
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        .footer-copy a {
+            color: inherit;
+
+            text-decoration: none;
+
+            transition: color .15s ease;
+        }
+
+
+        .footer-copy a:hover {
+            color: var(--blue);
+        }
+
+
+        .footer-links {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        .footer-links a {
+            color: var(--text-muted);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            text-decoration: none;
+
+            transition: color .15s ease;
+        }
+
+
+        .footer-links a:hover {
+            color: var(--blue);
+        }
+
+
+        .footer-separator {
+            color: #b8b8bd;
+
+            font-size: 12px;
+
+            user-select: none;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .about-hero {
+                padding: 52px 0 42px;
+            }
+
+
+            .about-hero h1 {
+                font-size: 36px;
+            }
+
+
+            .about-hero p {
+                font-size: 16px;
+            }
+
+
+            .about-content {
+                padding-top: 42px;
+            }
+
+
+            .about-section {
+                padding-bottom: 42px;
+
+                margin-bottom: 42px;
+            }
+
+
+            .about-section h2 {
+                font-size: 24px;
+            }
+
+
+            .about-category-grid,
+            .about-audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-author-card,
+            .about-contact-card {
+                padding: 22px;
+            }
+
+
+            .footer-inner {
+                flex-direction: column;
+
+                justify-content: center;
+
+                align-items: center;
+
+                text-align: center;
+
+                padding: 24px 16px;
+
+                gap: 9px;
+            }
+
+
+            .footer-links {
+                justify-content: center;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 430px) {
+
+            .about-hero {
+                padding-top: 44px;
+            }
+
+
+            .about-hero h1 {
+                font-size: 31px;
+            }
+
+
+            .about-section h2 {
+                font-size: 22px;
+            }
+
+
+            .footer-copy,
+            .footer-links a,
+            .footer-separator {
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- =========================================================
+         10. STRUCTURED DATA — WEBPAGE
+    ========================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+
+        "@id": "https://electrical.prasunbarua.com/about.html#webpage",
+
+        "url": "https://electrical.prasunbarua.com/about.html",
+
+        "name": "About | Electrical Engineering by Prasun Barua",
+
+        "description": "Learn about Electrical Engineering by Prasun Barua, an independent educational resource covering electrical engineering fundamentals, calculations, solar PV, electrical design and practical engineering guides.",
+
+        "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://electrical.prasunbarua.com/#website"
+        },
+
+        "about": {
+            "@type": "Person",
+            "@id": "https://electrical.prasunbarua.com/#person"
+        },
+
+        "inLanguage": "en"
+    }
+
+    </script>
+
+
+    <!-- =========================================================
+         11. STRUCTURED DATA — WEBSITE
+    ========================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+
+        "@id": "https://electrical.prasunbarua.com/#website",
+
+        "name": "Electrical Engineering by Prasun Barua",
+
+        "alternateName": "Electrical Engineering Knowledge Hub",
+
+        "url": "https://electrical.prasunbarua.com/",
+
+        "description": "Electrical engineering tutorials, calculations, solar PV, electrical design and practical engineering guides.",
+
+        "inLanguage": "en",
+
+        "publisher": {
+            "@id": "https://electrical.prasunbarua.com/#person"
+        }
+    }
+
+    </script>
+
+
+    <!-- =========================================================
+         12. STRUCTURED DATA — PERSON
+    ========================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+
+        "@id": "https://electrical.prasunbarua.com/#person",
+
+        "name": "Prasun Barua",
+
+        "url": "https://www.prasunbarua.com/",
+
+        "jobTitle": "Senior Electrical Engineer"
+
+    }
+
     </script>
 
 </head>
@@ -157,9 +933,9 @@
 <body>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          SITE HEADER
-    ====================================================== -->
+    ========================================================== -->
 
     <header class="site-header">
 
@@ -169,9 +945,9 @@
             <!-- LOGO -->
 
             <a
-                href="index.html"
+                href="/"
                 class="logo"
-                aria-label="Electrical Engineering home"
+                aria-label="Electrical Engineering by Prasun Barua home"
             >
 
                 <span
@@ -186,7 +962,7 @@
                 </span>
 
 
-                <span>
+                <span class="logo-text">
 
                     <strong>
                         Electrical Engineering
@@ -211,32 +987,22 @@
                 <ul>
 
                     <li>
-                        <a href="index.html">
+                        <a href="/">
                             Home
                         </a>
                     </li>
 
+
                     <li>
-                        <a href="index.html#tutorials">
-                            Tutorials
+                        <a href="/articles/">
+                            Articles
                         </a>
                     </li>
 
-                    <li>
-                        <a href="index.html#calculations">
-                            Calculations
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="index.html#solar">
-                            Solar PV
-                        </a>
-                    </li>
 
                     <li>
                         <a
-                            href="about.html"
+                            href="/about.html"
                             class="active"
                             aria-current="page"
                         >
@@ -244,8 +1010,9 @@
                         </a>
                     </li>
 
+
                     <li>
-                        <a href="contact.html">
+                        <a href="/contact.html">
                             Contact
                         </a>
                     </li>
@@ -275,25 +1042,24 @@
     </header>
 
 
-
-    <!-- =====================================================
+    <!-- =========================================================
          MAIN CONTENT
-    ====================================================== -->
+    ========================================================== -->
 
-    <main>
+    <main class="about-page">
 
 
-        <!-- =================================================
-             PAGE INTRO
-        ================================================== -->
+        <!-- =====================================================
+             HERO
+        ========================================================== -->
 
-        <section class="hero">
+        <section class="about-hero">
 
             <div class="container">
 
-                <div class="hero-content">
+                <div class="about-hero-content">
 
-                    <span class="hero-eyebrow">
+                    <span class="about-eyebrow">
                         ABOUT THIS SITE
                     </span>
 
@@ -305,11 +1071,10 @@
 
 
                     <p>
-                        Electrical Engineering by Prasun Barua is
-                        an independent educational resource created
-                        to make electrical engineering concepts,
-                        calculations and renewable-energy topics
-                        easier to understand and apply.
+                        Electrical Engineering by Prasun Barua is an
+                        independent educational resource focused on
+                        practical electrical engineering concepts,
+                        calculations, solar PV and technical guides.
                     </p>
 
                 </div>
@@ -319,17 +1084,20 @@
         </section>
 
 
+        <!-- =====================================================
+             CONTENT
+        ========================================================== -->
 
-        <!-- =================================================
-             ABOUT INTRODUCTION
-        ================================================== -->
+        <div class="container">
 
-        <section class="page-section">
+            <div class="about-content">
 
-            <div class="container">
 
-                <div class="article-content">
+                <!-- =================================================
+                     ABOUT
+                ================================================== -->
 
+                <section class="about-section">
 
                     <h2>
                         About Electrical Engineering by Prasun Barua
@@ -337,11 +1105,10 @@
 
 
                     <p>
-                        Electrical engineering is a field where
-                        theoretical knowledge and practical
-                        application are closely connected. Understanding
-                        a formula is important, but knowing when,
-                        why and how to apply it is equally important.
+                        Electrical engineering connects theoretical
+                        knowledge with practical application. A formula
+                        is useful only when you understand where,
+                        why and how to apply it.
                     </p>
 
 
@@ -349,172 +1116,126 @@
                         <strong>
                             Electrical Engineering by Prasun Barua
                         </strong>
-                        was created with this idea in mind. The site
-                        provides practical explanations, engineering
-                        calculations, technical guides and educational
-                        resources designed to help students,
-                        technicians, engineers and anyone interested
-                        in electrical technology build a stronger
-                        understanding of the subject.
+                        was created to provide clear explanations,
+                        engineering calculations, technical guides
+                        and educational resources for people interested
+                        in electrical technology.
                     </p>
 
 
                     <p>
-                        The goal is not simply to present formulas or
-                        technical definitions. Instead, the content
-                        aims to explain engineering concepts in a
-                        straightforward way, show how calculations
-                        work and provide useful context for real-world
-                        applications.
+                        The goal is to explain engineering concepts
+                        clearly, demonstrate calculations step by step
+                        and provide practical context for real-world
+                        electrical systems.
                     </p>
 
-
-                </div>
-
-            </div>
-
-        </section>
+                </section>
 
 
+                <!-- =================================================
+                     AREAS COVERED
+                ================================================== -->
 
-        <!-- =================================================
-             WHAT YOU WILL FIND
-        ================================================== -->
+                <section class="about-section">
 
-        <section class="page-section">
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-                    <span class="hero-eyebrow">
-                        WHAT YOU WILL FIND
-                    </span>
-
-                    <h2 class="page-title">
-                        Engineering knowledge with a
-                        practical focus.
+                    <h2>
+                        What You Will Find
                     </h2>
 
-                    <p class="page-description">
+
+                    <p>
                         The site brings together several areas of
                         electrical engineering and renewable-energy
-                        knowledge in one place.
+                        knowledge.
                     </p>
 
-                </div>
+
+                    <div class="about-category-grid">
 
 
+                        <a
+                            href="/articles/electrical-fundamentals/"
+                            class="about-category-card"
+                        >
 
-                <div class="category-grid">
+                            <h3>
+                                Electrical Fundamentals
+                            </h3>
 
+                            <p>
+                                Voltage, current, resistance, power,
+                                energy, circuits and other essential
+                                electrical concepts.
+                            </p>
 
-                    <!-- CARD 1 -->
-
-                    <a
-                        href="index.html#tutorials"
-                        class="category-card"
-                    >
-
-                        <h3>
-                            Electrical Fundamentals
-                        </h3>
-
-                        <p>
-                            Clear explanations of essential
-                            electrical concepts including voltage,
-                            current, resistance, power, energy,
-                            circuits and fundamental electrical
-                            principles.
-                        </p>
-
-                    </a>
+                        </a>
 
 
+                        <a
+                            href="/articles/electrical-calculations/"
+                            class="about-category-card"
+                        >
 
-                    <!-- CARD 2 -->
+                            <h3>
+                                Electrical Calculations
+                            </h3>
 
-                    <a
-                        href="index.html#calculations"
-                        class="category-card"
-                    >
+                            <p>
+                                Practical formulas, worked examples,
+                                voltage drop, power calculations and
+                                other engineering calculations.
+                            </p>
 
-                        <h3>
-                            Electrical Calculations
-                        </h3>
-
-                        <p>
-                            Step-by-step engineering calculations
-                            covering electrical quantities, power,
-                            current, voltage drop, cable sizing and
-                            other commonly used engineering
-                            calculations.
-                        </p>
-
-                    </a>
+                        </a>
 
 
+                        <a
+                            href="/articles/solar-pv/"
+                            class="about-category-card"
+                        >
 
-                    <!-- CARD 3 -->
+                            <h3>
+                                Solar PV Engineering
+                            </h3>
 
-                    <a
-                        href="index.html#solar"
-                        class="category-card"
-                    >
+                            <p>
+                                Solar photovoltaic fundamentals,
+                                system concepts, energy estimation
+                                and practical engineering topics.
+                            </p>
 
-                        <h3>
-                            Solar PV Engineering
-                        </h3>
-
-                        <p>
-                            Practical resources related to solar
-                            photovoltaic systems, including PV
-                            fundamentals, system design concepts,
-                            energy estimation and common engineering
-                            considerations.
-                        </p>
-
-                    </a>
+                        </a>
 
 
+                        <a
+                            href="/articles/electrical-design/"
+                            class="about-category-card"
+                        >
 
-                    <!-- CARD 4 -->
+                            <h3>
+                                Electrical Design
+                            </h3>
 
-                    <div class="category-card">
+                            <p>
+                                Cables, protection, earthing,
+                                distribution and practical electrical
+                                design considerations.
+                            </p>
 
-                        <h3>
-                            Engineering Guides
-                        </h3>
+                        </a>
 
-                        <p>
-                            Technical articles and practical guides
-                            intended to connect engineering theory
-                            with real-world applications and
-                            engineering decision-making.
-                        </p>
 
                     </div>
 
-
-                </div>
-
-            </div>
-
-        </section>
+                </section>
 
 
+                <!-- =================================================
+                     APPROACH
+                ================================================== -->
 
-        <!-- =================================================
-             OUR APPROACH
-        ================================================== -->
-
-        <section class="page-section">
-
-            <div class="container">
-
-
-                <div class="article-content">
+                <section class="about-section">
 
                     <h2>
                         Our Approach
@@ -522,83 +1243,207 @@
 
 
                     <p>
-                        Good engineering education should be
-                        understandable without becoming oversimplified.
-                        This site therefore aims to maintain a balance
-                        between technical accuracy and clear
-                        communication.
+                        Good engineering education should be technically
+                        accurate without becoming unnecessarily difficult
+                        to understand.
                     </p>
 
 
                     <p>
                         Where appropriate, articles use equations,
-                        examples, tables and step-by-step calculations
-                        to explain a subject. The intention is to help
-                        readers understand the reasoning behind a
-                        calculation rather than simply providing a
-                        final number.
+                        tables, diagrams, practical examples and
+                        step-by-step calculations to explain not only
+                        the result, but also the reasoning behind it.
                     </p>
 
 
                     <p>
-                        Engineering practice also requires professional
-                        judgement. Actual projects may involve
-                        applicable standards, manufacturer requirements,
-                        site conditions, environmental factors,
+                        Real engineering projects can involve standards,
+                        manufacturer requirements, installation conditions,
                         protection coordination, utility requirements
-                        and other project-specific considerations.
+                        and project-specific constraints.
                     </p>
 
 
                     <p>
-                        For that reason, information published on this
-                        website should be treated as educational and
-                        reference material rather than a substitute for
-                        project-specific engineering design,
-                        verification or professional review.
+                        Information published on this site is therefore
+                        intended as educational and reference material.
+                        Project-specific engineering work should be
+                        independently verified by appropriately qualified
+                        professionals.
                     </p>
 
-                </div>
-
-            </div>
-
-        </section>
+                </section>
 
 
+                <!-- =================================================
+                     AUTHOR
+                ================================================== -->
 
-        <!-- =================================================
-             ABOUT THE AUTHOR
-        ================================================== -->
+                <section class="about-section">
 
-        <section class="page-section">
-
-            <div class="container">
-
-
-                <div class="card">
+                    <h2>
+                        About the Author
+                    </h2>
 
 
-                    <div class="article-author">
+                    <div class="about-author-card">
+
+                        <div class="about-author-header">
+
+                            <div
+                                class="about-author-avatar"
+                                aria-hidden="true"
+                            >
+                                PB
+                            </div>
 
 
-                        <div
-                            class="author-mini-avatar"
-                            aria-hidden="true"
-                        >
-                            PB
+                            <div>
+
+                                <h3 class="about-author-name">
+                                    Prasun Barua
+                                </h3>
+
+
+                                <div class="about-author-role">
+                                    Senior Electrical Engineer
+                                </div>
+
+                            </div>
+
                         </div>
 
 
-                        <div>
+                        <p>
+                            Prasun Barua is an electrical engineer with
+                            professional experience in electrical
+                            engineering, renewable energy, solar
+                            photovoltaic projects, electrical design,
+                            testing and commissioning.
+                        </p>
+
+
+                        <p>
+                            Through this website, he shares practical
+                            engineering knowledge and educational
+                            resources developed through engineering
+                            study, professional experience and
+                            continued learning.
+                        </p>
+
+
+                        <p>
+                            The site is intended to provide useful
+                            reference material for students, engineers,
+                            technicians, renewable-energy professionals
+                            and anyone interested in electrical
+                            engineering.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     AUDIENCE
+                ================================================== -->
+
+                <section class="about-section">
+
+                    <h2>
+                        Who Can Benefit
+                    </h2>
+
+
+                    <p>
+                        The content is designed for readers at different
+                        stages of learning and professional practice.
+                    </p>
+
+
+                    <div class="about-audience-grid">
+
+
+                        <div class="about-audience-card">
+
+                            <div class="about-audience-label">
+                                Students
+                            </div>
+
 
                             <h3>
-                                Prasun Barua
+                                Build a strong foundation
                             </h3>
 
 
                             <p>
-                                Electrical Engineer &amp;
-                                Engineering Content Creator
+                                Use clear explanations and worked
+                                examples to connect electrical theory
+                                with practical applications.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-audience-card">
+
+                            <div class="about-audience-label">
+                                Engineers
+                            </div>
+
+
+                            <h3>
+                                Review practical concepts
+                            </h3>
+
+
+                            <p>
+                                Use the site as a convenient reference
+                                for common electrical concepts and
+                                engineering calculations.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-audience-card">
+
+                            <div class="about-audience-label">
+                                Technicians
+                            </div>
+
+
+                            <h3>
+                                Understand the principles
+                            </h3>
+
+
+                            <p>
+                                Build a stronger understanding of the
+                                electrical principles behind equipment
+                                and systems.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-audience-card">
+
+                            <div class="about-audience-label">
+                                Learners
+                            </div>
+
+
+                            <h3>
+                                Explore electrical engineering
+                            </h3>
+
+
+                            <p>
+                                Explore electrical engineering and
+                                renewable energy at your own pace.
                             </p>
 
                         </div>
@@ -606,251 +1451,84 @@
 
                     </div>
 
+                </section>
 
-                    <div
-                        class="article-content"
-                        style="margin-top: 24px;"
-                    >
 
-                        <p>
-                            Prasun Barua is an electrical engineer
-                            with professional experience in
-                            electrical engineering, renewable energy,
-                            solar photovoltaic projects, electrical
-                            design, testing and commissioning.
-                        </p>
+                <!-- =================================================
+                     RESPONSIBILITY
+                ================================================== -->
 
-
-                        <p>
-                            Through this website, he shares practical
-                            engineering knowledge and educational
-                            material developed from engineering study,
-                            professional experience and continued
-                            learning.
-                        </p>
-
-
-                        <p>
-                            The website is intended to serve as a
-                            useful knowledge resource for students,
-                            engineers, technicians, renewable-energy
-                            professionals and curious learners.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             WHO THIS SITE IS FOR
-        ================================================== -->
-
-        <section class="page-section">
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-                    <span class="hero-eyebrow">
-                        WHO CAN BENEFIT
-                    </span>
-
-                    <h2 class="page-title">
-                        Built for learners and
-                        practicing professionals.
-                    </h2>
-
-                </div>
-
-
-                <div class="related-grid">
-
-
-                    <div class="related-card">
-
-                        <div class="related-card-category">
-                            STUDENTS
-                        </div>
-
-                        <h3>
-                            Build a strong foundation
-                        </h3>
-
-                        <p>
-                            Useful explanations and worked examples
-                            can help students connect classroom
-                            theory with practical engineering
-                            applications.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="related-card">
-
-                        <div class="related-card-category">
-                            ENGINEERS
-                        </div>
-
-                        <h3>
-                            Review practical concepts
-                        </h3>
-
-                        <p>
-                            Engineers and technical professionals can
-                            use the site as a convenient reference for
-                            commonly encountered electrical concepts
-                            and calculations.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="related-card">
-
-                        <div class="related-card-category">
-                            TECHNICIANS
-                        </div>
-
-                        <h3>
-                            Understand the principles
-                        </h3>
-
-                        <p>
-                            Practical explanations can help technicians
-                            better understand the electrical principles
-                            behind equipment and systems.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="related-card">
-
-                        <div class="related-card-category">
-                            LEARNERS
-                        </div>
-
-                        <h3>
-                            Explore electrical engineering
-                        </h3>
-
-                        <p>
-                            Anyone with an interest in electricity,
-                            engineering or renewable energy can use
-                            the resources to explore the subject at
-                            their own pace.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ACCURACY & RESPONSIBILITY
-        ================================================== -->
-
-        <section class="page-section">
-
-            <div class="container">
-
-
-                <div class="article-note">
-
-                    <strong>
-                        A note about technical information:
-                    </strong>
-
-                    <br>
-
-                    Engineering information can depend heavily on
-                    the specific application, equipment, standards,
-                    installation conditions and local requirements.
-                    Readers should independently verify calculations,
-                    specifications and design decisions before using
-                    information in an actual project.
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             CONTACT CTA
-        ================================================== -->
-
-        <section class="page-section">
-
-            <div class="container">
-
-
-                <div class="card"
-                     style="text-align: center;">
-
-
-                    <span
-                        class="material-symbols-rounded"
-                        aria-hidden="true"
-                        style="
-                            display:inline-flex;
-                            align-items:center;
-                            justify-content:center;
-                            width:52px;
-                            height:52px;
-                            margin-bottom:16px;
-                            border-radius:14px;
-                            background:var(--blue-soft);
-                            color:var(--blue);
-                            font-size:26px;
-                        "
-                    >
-                        mail
-                    </span>
-
+                <section class="about-section">
 
                     <h2>
-                        Have a question or suggestion?
+                        Technical Accuracy &amp; Responsibility
                     </h2>
 
 
-                    <p>
-                        If you have a technical question, notice an
-                        error, have a suggestion for an article or
-                        would simply like to get in touch, we welcome
-                        your feedback.
-                    </p>
+                    <div class="about-note">
+
+                        <strong>
+                            Important:
+                        </strong>
 
 
-                    <p>
+                        <p>
+                            Engineering information can depend on the
+                            specific equipment, installation,
+                            operating conditions, standards and local
+                            requirements. Readers should independently
+                            verify calculations, specifications and
+                            design decisions before using information
+                            in an actual project.
+                        </p>
 
-                        <a
-                            href="contact.html"
-                            class="btn btn-primary"
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     CONTACT
+                ================================================== -->
+
+                <section class="about-section">
+
+                    <div class="about-contact-card">
+
+
+                        <div
+                            class="about-contact-icon"
+                            aria-hidden="true"
                         >
 
                             <span class="material-symbols-rounded">
+                                mail
+                            </span>
+
+                        </div>
+
+
+                        <h2>
+                            Have a Question or Suggestion?
+                        </h2>
+
+
+                        <p>
+                            Have a technical question, noticed an error,
+                            or have a suggestion for a future article?
+                            You are welcome to get in touch.
+                        </p>
+
+
+                        <a
+                            href="/contact.html"
+                            class="btn btn-primary"
+                        >
+
+                            <span
+                                class="material-symbols-rounded"
+                                aria-hidden="true"
+                            >
                                 mail
                             </span>
 
@@ -858,78 +1536,97 @@
 
                         </a>
 
-                    </p>
+                    </div>
 
+                </section>
 
-                </div>
 
             </div>
 
-        </section>
-
+        </div>
 
     </main>
 
 
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
-    <!-- =====================================================
-         SITE FOOTER
-    ====================================================== -->
+    <footer class="site-footer">
 
-   <!-- =========================================================
-     FOOTER
-========================================================== -->
+        <div class="footer-inner">
 
-<footer class="site-footer">
-
-    <div class="footer-inner">
-
-        <p class="footer-copy">
-            © 2026
-            <a href="https://www.prasunbarua.com/">
-                Prasun Barua
-            </a>.
-            All rights reserved.
-        </p>
-
-        <nav
-            class="footer-links"
-            aria-label="Footer navigation"
-        >
-
-            <a href="/privacy-policy.html">
-                Privacy
-            </a>
-
-            <span class="footer-separator" aria-hidden="true">·</span>
-
-            <a href="/disclaimer.html">
-                Disclaimer
-            </a>
-
-            <span class="footer-separator" aria-hidden="true">·</span>
-
-            <a href="/terms.html">
-                Terms
-            </a>
-
-            <span class="footer-separator" aria-hidden="true">·</span>
-
-            <a href="/contact.html">
-                Contact
-            </a>
-
-        </nav>
-
-    </div>
-
-</footer>
+            <p class="footer-copy">
+                © 2026
+                <a
+                    href="https://www.prasunbarua.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Prasun Barua
+                </a>.
+                All rights reserved.
+            </p>
 
 
+            <nav
+                class="footer-links"
+                aria-label="Footer navigation"
+            >
 
-    <!-- =====================================================
-         MOBILE NAVIGATION SCRIPT
-    ====================================================== -->
+                <a href="/privacy-policy.html">
+                    Privacy
+                </a>
+
+
+                <span
+                    class="footer-separator"
+                    aria-hidden="true"
+                >
+                    ·
+                </span>
+
+
+                <a href="/disclaimer.html">
+                    Disclaimer
+                </a>
+
+
+                <span
+                    class="footer-separator"
+                    aria-hidden="true"
+                >
+                    ·
+                </span>
+
+
+                <a href="/terms.html">
+                    Terms
+                </a>
+
+
+                <span
+                    class="footer-separator"
+                    aria-hidden="true"
+                >
+                    ·
+                </span>
+
+
+                <a href="/contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
 
     <script>
 
@@ -942,13 +1639,17 @@
                         ".mobile-menu-button"
                     );
 
+
                 const navigation =
                     document.querySelector(
                         ".main-nav"
                     );
 
 
-                if (!menuButton || !navigation) {
+                if (
+                    !menuButton ||
+                    !navigation
+                ) {
                     return;
                 }
 
@@ -965,7 +1666,15 @@
 
                         menuButton.setAttribute(
                             "aria-expanded",
+                            String(isOpen)
+                        );
+
+
+                        menuButton.setAttribute(
+                            "aria-label",
                             isOpen
+                                ? "Close navigation menu"
+                                : "Open navigation menu"
                         );
 
 
@@ -990,36 +1699,48 @@
 
                 navigation
                     .querySelectorAll("a")
-                    .forEach(function (link) {
+                    .forEach(
+                        function (link) {
 
-                        link.addEventListener(
-                            "click",
-                            function () {
+                            link.addEventListener(
+                                "click",
+                                function () {
 
-                                navigation.classList.remove(
-                                    "mobile-open"
-                                );
-
-                                menuButton.setAttribute(
-                                    "aria-expanded",
-                                    "false"
-                                );
-
-
-                                const icon =
-                                    menuButton.querySelector(
-                                        ".material-symbols-rounded"
+                                    navigation.classList.remove(
+                                        "mobile-open"
                                     );
 
 
-                                if (icon) {
-                                    icon.textContent = "menu";
+                                    menuButton.setAttribute(
+                                        "aria-expanded",
+                                        "false"
+                                    );
+
+
+                                    menuButton.setAttribute(
+                                        "aria-label",
+                                        "Open navigation menu"
+                                    );
+
+
+                                    const icon =
+                                        menuButton.querySelector(
+                                            ".material-symbols-rounded"
+                                        );
+
+
+                                    if (icon) {
+
+                                        icon.textContent =
+                                            "menu";
+
+                                    }
+
                                 }
+                            );
 
-                            }
-                        );
-
-                    });
+                        }
+                    );
 
             }
         );
