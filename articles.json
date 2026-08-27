@@ -170,33 +170,33 @@
     },
 
     {
-  "id": "electrical-power-calculation",
-  "title": "How to Calculate Electrical Power",
-  "slug": "power-calculation",
-  "category": "electrical-calculations",
-  "categoryName": "Electrical Calculations",
-  "url": "/articles/electrical-calculations/power-calculation/",
-  "description": "Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, power factor and worked engineering examples.",
-  "excerpt": "Understand electrical power calculations for DC, single-phase and three-phase systems with practical formulas and worked examples.",
-  "icon": "bolt",
-  "image": "/assets/images/electrical-power-formulas.jpeg",
-  "author": "Prasun Barua",
-  "datePublished": "2026-08-27",
-  "dateModified": "2026-08-27",
-  "readingTime": "12 min read",
-  "featured": true,
-  "status": "published",
-  "tags": [
-    "electrical power",
-    "power calculation",
-    "electrical power formula",
-    "single phase power",
-    "three phase power",
-    "power factor",
-    "active power",
-    "electrical calculations"
-  ]
-}
+      "id": "electrical-power-calculation",
+      "title": "How to Calculate Electrical Power",
+      "slug": "power-calculation",
+      "category": "electrical-calculations",
+      "categoryName": "Electrical Calculations",
+      "url": "/articles/electrical-calculations/power-calculation/",
+      "description": "Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, power factor and worked engineering examples.",
+      "excerpt": "Understand electrical power calculations for DC, single-phase and three-phase systems with practical formulas and worked examples.",
+      "icon": "bolt",
+      "image": "/assets/images/electrical-power-formulas.jpeg",
+      "author": "Prasun Barua",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "readingTime": "12 min read",
+      "featured": true,
+      "status": "published",
+      "tags": [
+        "electrical power",
+        "power calculation",
+        "electrical power formula",
+        "single phase power",
+        "three phase power",
+        "power factor",
+        "active power",
+        "electrical calculations"
+      ]
+    },
 
     {
       "id": "cable-size-calculation",
