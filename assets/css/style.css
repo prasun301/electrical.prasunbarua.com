@@ -3212,125 +3212,135 @@ main {
    44. SITE FOOTER
 ========================================================= */
 
+/* =========================================================
+   MINIMAL FOOTER
+========================================================= */
+
 .site-footer {
+    margin-top: 20px;
 
-    width:
-        100%;
+    border-top: 1px solid var(--border);
 
-    margin-top:
-        72px;
-
-    padding:
-        42px 0 28px;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    background:
-        var(--bg-subtle);
-
-    color:
-        var(--text-secondary);
+    background: #fafafa;
 }
 
-.site-footer a {
-    color:
-        var(--text-secondary);
-}
-
-.site-footer a:hover {
-    color:
-        var(--blue);
-}
 
 .footer-inner {
+    max-width: var(--content-width);
 
-    display:
-        flex;
+    margin: 0 auto;
 
-    align-items:
-        center;
+    padding: 22px 24px;
 
-    justify-content:
-        space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    gap:
-        25px;
+    gap: 20px;
 }
 
-.footer-bottom {
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
-
-    padding-top:
-        20px;
-
-    border-top:
-        1px solid
-        var(--border);
-}
+/* =========================================================
+   COPYRIGHT
+========================================================= */
 
 .footer-copy {
+    margin: 0;
 
-    color:
-        var(--text-muted);
+    color: var(--text-muted);
 
-    font-size:
-        12px;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-.footer-bottom p {
 
-    margin:
-        0;
-
-    color:
-        var(--text-muted);
-
-    font-size:
-        13px;
-
-    line-height:
-        1.5;
-}
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
 
 .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-    display:
-        flex;
+    flex-wrap: wrap;
 
-    flex-wrap:
-        wrap;
-
-    gap:
-        18px;
+    gap: 9px;
 }
+
 
 .footer-links a {
+    color: var(--text-muted);
 
-    color:
-        var(--text-muted);
+    font-size: 12px;
+    line-height: 1.5;
 
-    font-size:
-        12px;
+    text-decoration: none;
+
+    transition: color 0.15s ease;
 }
+
 
 .footer-links a:hover {
-    color:
-        var(--blue);
+    color: var(--blue);
 }
 
+
+.footer-separator {
+    color: #b8b8bd;
+
+    font-size: 12px;
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .footer-inner {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 24px 16px;
+
+        gap: 9px;
+    }
+
+
+    .footer-links {
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .footer-inner {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+
+    .footer-copy,
+    .footer-links a,
+    .footer-separator {
+        font-size: 11px;
+    }
+
+}
 
 /* =========================================================
    45. SCREEN READER
