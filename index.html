@@ -1087,54 +1087,136 @@
            FOOTER
            ===================================================== */
 
-        .site-footer {
-            border-top: 1px solid var(--border);
+        /* =========================================================
+   MINIMAL FOOTER
+========================================================= */
 
-            background: #fafafa;
+.site-footer {
+    margin-top: 20px;
 
-            padding: 36px 0;
-        }
+    border-top: 1px solid var(--border);
 
-        .footer-inner {
-            max-width: var(--content-width);
+    background: #fafafa;
+}
 
-            margin: auto;
 
-            padding: 0 24px;
+.footer-inner {
+    max-width: var(--content-width);
 
-            display: flex;
+    margin: 0 auto;
 
-            justify-content: space-between;
+    padding: 22px 24px;
 
-            align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            gap: 25px;
-        }
+    gap: 20px;
+}
 
-        .footer-copy {
-            color: var(--text-muted);
 
-            font-size: 12px;
-        }
+/* =========================================================
+   COPYRIGHT
+========================================================= */
 
-        .footer-links {
-            display: flex;
+.footer-copy {
+    margin: 0;
 
-            flex-wrap: wrap;
+    color: var(--text-muted);
 
-            gap: 18px;
-        }
+    font-size: 12px;
+    line-height: 1.5;
+}
 
-        .footer-links a {
-            color: var(--text-muted);
 
-            font-size: 12px;
-        }
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
 
-        .footer-links a:hover {
-            color: var(--blue);
-        }
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.footer-links a {
+    color: var(--text-muted);
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    transition: color 0.15s ease;
+}
+
+
+.footer-links a:hover {
+    color: var(--blue);
+}
+
+
+.footer-separator {
+    color: #b8b8bd;
+
+    font-size: 12px;
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .footer-inner {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 24px 16px;
+
+        gap: 9px;
+    }
+
+
+    .footer-links {
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .footer-inner {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+
+    .footer-copy,
+    .footer-links a,
+    .footer-separator {
+        font-size: 11px;
+    }
+
+}
 
         /* =====================================================
            SCREEN READER
@@ -2033,59 +2115,40 @@
 
 <footer class="site-footer">
 
-    <div class="container">
+    <div class="footer-inner">
 
-        <div class="footer-bottom">
+        <p class="footer-copy">
+            © 2026 Prasun Barua. All rights reserved.
+        </p>
 
-            <p class="footer-copyright">
-                © 2026 Prasun Barua. All rights reserved.
-            </p>
+        <nav
+            class="footer-links"
+            aria-label="Footer navigation"
+        >
 
-            <nav
-                class="footer-legal"
-                aria-label="Legal and site links"
-            >
+            <a href="/privacy-policy.html">
+                Privacy
+            </a>
 
-                <a href="/privacy-policy.html">
-                    Privacy Policy
-                </a>
+            <span class="footer-separator" aria-hidden="true">·</span>
 
-                <span
-                    class="footer-separator"
-                    aria-hidden="true"
-                >
-                    •
-                </span>
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
 
-                <a href="/disclaimer.html">
-                    Disclaimer
-                </a>
+            <span class="footer-separator" aria-hidden="true">·</span>
 
-                <span
-                    class="footer-separator"
-                    aria-hidden="true"
-                >
-                    •
-                </span>
+            <a href="/terms.html">
+                Terms
+            </a>
 
-                <a href="/terms.html">
-                    Terms of Use
-                </a>
+            <span class="footer-separator" aria-hidden="true">·</span>
 
-                <span
-                    class="footer-separator"
-                    aria-hidden="true"
-                >
-                    •
-                </span>
+            <a href="/contact.html">
+                Contact
+            </a>
 
-                <a href="/contact.html">
-                    Contact
-                </a>
-
-            </nav>
-
-        </div>
+        </nav>
 
     </div>
 
