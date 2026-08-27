@@ -58,36 +58,32 @@
     }
   ],
 
-  "articles": [
-    {
-      "id": "voltage-drop-calculation",
-      "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
-      "slug": "voltage-drop-calculation",
-      "category": "electrical-calculations",
-      "categoryName": "Electrical Calculations",
-      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
-      "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
-      "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
-      "icon": "monitoring",
-      "image": "",
-      "author": "Prasun Barua",
-
-      "datePublished": "2026-08-12",
-      "dateModified": null,
-
-      "readingTime": "10 min read",
-      "featured": true,
-      "status": "published",
-
-      "tags": [
-        "voltage drop",
-        "voltage drop calculation",
-        "cable",
-        "cable sizing",
-        "electrical calculations",
-        "electrical design"
-      ]
-    },
+  {
+  "id": "voltage-drop-calculation",
+  "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
+  "slug": "voltage-drop-calculation",
+  "category": "electrical-calculations",
+  "categoryName": "Electrical Calculations",
+  "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
+  "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
+  "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
+  "icon": "monitoring",
+  "image": "/assets/images/voltage-drop-calculation.jpeg",
+  "author": "Prasun Barua",
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-08-28",
+  "readingTime": "10 min read",
+  "featured": true,
+  "status": "published",
+  "tags": [
+    "voltage drop",
+    "voltage drop calculation",
+    "cable",
+    "cable sizing",
+    "electrical calculations",
+    "electrical design"
+  ]
+}
 
     {
       "id": "what-is-voltage-current-resistance",
