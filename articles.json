@@ -9,7 +9,7 @@
   "dateSettings": {
     "timezone": "Asia/Dhaka",
     "dateFormat": "YYYY-MM-DD",
-    "automaticModificationDate": true,
+    "automaticModificationDate": false,
     "automaticPublicationDate": false
   },
 
@@ -58,32 +58,33 @@
     }
   ],
 
-  {
-  "id": "voltage-drop-calculation",
-  "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
-  "slug": "voltage-drop-calculation",
-  "category": "electrical-calculations",
-  "categoryName": "Electrical Calculations",
-  "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
-  "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
-  "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
-  "icon": "monitoring",
-  "image": "/assets/images/voltage-drop-calculation.jpeg",
-  "author": "Prasun Barua",
-  "datePublished": "2026-08-12",
-  "dateModified": "2026-08-28",
-  "readingTime": "10 min read",
-  "featured": true,
-  "status": "published",
-  "tags": [
-    "voltage drop",
-    "voltage drop calculation",
-    "cable",
-    "cable sizing",
-    "electrical calculations",
-    "electrical design"
-  ]
-}
+  "articles": [
+    {
+      "id": "voltage-drop-calculation",
+      "title": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
+      "slug": "voltage-drop-calculation",
+      "category": "electrical-calculations",
+      "categoryName": "Electrical Calculations",
+      "url": "/articles/electrical-calculations/voltage-drop-calculation.html",
+      "description": "Learn how to calculate voltage drop in electrical cables using practical formulas, worked examples and engineering methods.",
+      "excerpt": "Understand voltage drop calculations, formulas and practical examples for electrical cable selection and design.",
+      "icon": "monitoring",
+      "image": "/assets/images/voltage-drop-calculation.jpeg",
+      "author": "Prasun Barua",
+      "datePublished": "2026-08-12",
+      "dateModified": "2026-08-28",
+      "readingTime": "10 min read",
+      "featured": true,
+      "status": "published",
+      "tags": [
+        "voltage drop",
+        "voltage drop calculation",
+        "cable",
+        "cable sizing",
+        "electrical calculations",
+        "electrical design"
+      ]
+    },
 
     {
       "id": "what-is-voltage-current-resistance",
@@ -97,14 +98,11 @@
       "icon": "electrical_services",
       "image": "/assets/images/simple-circuit-diagram.jpeg",
       "author": "Prasun Barua",
-
       "datePublished": "2026-08-10",
-      "dateModified": null,
-
+      "dateModified": "2026-08-28",
       "readingTime": "10 min read",
       "featured": true,
       "status": "published",
-
       "tags": [
         "voltage",
         "current",
@@ -128,14 +126,11 @@
       "icon": "electrical_services",
       "image": "/assets/images/electrical-energy-kwh-vs-kw.jpeg",
       "author": "Prasun Barua",
-
       "datePublished": "2026-08-05",
-      "dateModified": null,
-
+      "dateModified": "2026-08-28",
       "readingTime": "6 min read",
       "featured": false,
       "status": "published",
-
       "tags": [
         "kWh",
         "kW",
@@ -158,14 +153,11 @@
       "icon": "electrical_services",
       "image": "/assets/images/ohms-law-power-triangle.jpeg",
       "author": "Prasun Barua",
-
       "datePublished": "2026-08-01",
-      "dateModified": null,
-
+      "dateModified": "2026-08-28",
       "readingTime": "8 min read",
       "featured": true,
       "status": "published",
-
       "tags": [
         "Ohm's Law",
         "voltage",
@@ -189,14 +181,11 @@
       "icon": "bolt",
       "image": "",
       "author": "Prasun Barua",
-
       "datePublished": "2026-07-28",
-      "dateModified": null,
-
+      "dateModified": "2026-08-28",
       "readingTime": "10 min read",
       "featured": false,
       "status": "published",
-
       "tags": [
         "electrical power",
         "power calculation",
@@ -219,14 +208,11 @@
       "icon": "cable",
       "image": "",
       "author": "Prasun Barua",
-
       "datePublished": null,
       "dateModified": null,
-
       "readingTime": "12 min read",
       "featured": false,
       "status": "planned",
-
       "tags": [
         "cable sizing",
         "cable size",
