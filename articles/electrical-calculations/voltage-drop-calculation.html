@@ -4,487 +4,535 @@
 
 <head>
 
+    <!-- =========================================================
+         1. CORE DOCUMENT
+    ========================================================== -->
 
-<!-- =========================================================
-     1. CORE DOCUMENT
-========================================================== -->
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="referrer"
+        content="strict-origin-when-cross-origin"
+    >
 
-<meta
-    name="referrer"
-    content="strict-origin-when-cross-origin"
->
+    <meta
+        name="theme-color"
+        content="#0066cc"
+    >
 
-<meta
-    name="theme-color"
-    content="#0066cc"
->
+    <meta
+        name="color-scheme"
+        content="light"
+    >
 
-<meta
-    name="color-scheme"
-    content="light"
->
+    <title>
+        Voltage Drop Calculation: Formula, Examples and Practical Guide | Electrical Engineering
+    </title>
 
-<title>
-    Voltage Drop Calculation: Formula, Examples and Practical Guide | Electrical Engineering
-</title>
+    <meta
+        name="description"
+        content="Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length, conductor size and worked engineering examples."
+    >
 
-<meta
-    name="description"
-    content="Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length, conductor size and worked engineering examples."
->
+    <meta
+        name="author"
+        content="Prasun Barua"
+    >
 
-<meta
-    name="author"
-    content="Prasun Barua"
->
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
 
-<meta
-    name="robots"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
->
+    <meta
+        name="googlebot"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
 
-<meta
-    name="googlebot"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
->
-
-<link
-    rel="canonical"
-    href="https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html"
->
-
-
-<!-- =========================================================
-     2. PERFORMANCE / RESOURCE HINTS
-========================================================== -->
-
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
-
-<link
-    rel="dns-prefetch"
-    href="//pagead2.googlesyndication.com"
->
-
-<link
-    rel="dns-prefetch"
-    href="//www.googletagmanager.com"
->
+    <link
+        rel="canonical"
+        href="https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html"
+    >
 
 
-<!-- =========================================================
-     3. OPEN GRAPH
-========================================================== -->
+    <!-- =========================================================
+         2. PERFORMANCE / RESOURCE HINTS
+    ========================================================== -->
 
-<meta
-    property="og:type"
-    content="article"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-<meta
-    property="og:url"
-    content="https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-<meta
-    property="og:title"
-    content="Voltage Drop Calculation: Formula, Examples and Practical Guide"
->
+    <link
+        rel="dns-prefetch"
+        href="//pagead2.googlesyndication.com"
+    >
 
-<meta
-    property="og:description"
-    content="Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length and worked engineering examples."
->
-
-<meta
-    property="og:site_name"
-    content="Electrical Engineering by Prasun Barua"
->
-
-<meta
-    property="og:locale"
-    content="en_US"
->
-
-<meta
-    property="og:image"
-    content="https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
->
-
-<meta
-    property="og:image:secure_url"
-    content="https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
->
-
-<meta
-    property="og:image:type"
-    content="image/jpeg"
->
-
-<meta
-    property="og:image:width"
-    content="1200"
->
-
-<meta
-    property="og:image:height"
-    content="675"
->
-
-<meta
-    property="og:image:alt"
-    content="Voltage drop calculation in an electrical cable"
->
-
-<meta
-    property="article:section"
-    content="Electrical Calculations"
->
-
-<meta
-    property="article:author"
-    content="Prasun Barua"
->
-
-<meta
-    property="article:published_time"
-    content="2026-08-12T00:00:00+06:00"
->
-
-<meta
-    property="article:modified_time"
-    content="2026-08-26T00:00:00+06:00"
->
+    <link
+        rel="dns-prefetch"
+        href="//www.googletagmanager.com"
+    >
 
 
-<!-- =========================================================
-     4. X / TWITTER
-========================================================== -->
+    <!-- =========================================================
+         3. OPEN GRAPH
+    ========================================================== -->
 
-<meta
-    name="twitter:card"
-    content="summary_large_image"
->
+    <meta
+        property="og:type"
+        content="article"
+    >
 
-<meta
-    name="twitter:title"
-    content="Voltage Drop Calculation: Formula, Examples and Practical Guide"
->
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html"
+    >
 
-<meta
-    name="twitter:description"
-    content="Learn voltage drop calculation with practical formulas, cable examples and electrical engineering guidance."
->
+    <meta
+        property="og:title"
+        content="Voltage Drop Calculation: Formula, Examples and Practical Guide"
+    >
 
-<meta
-    name="twitter:image"
-    content="https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
->
+    <meta
+        property="og:description"
+        content="Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length and worked engineering examples."
+    >
 
-<meta
-    name="twitter:image:alt"
-    content="Voltage drop calculation in an electrical cable"
->
+    <meta
+        property="og:site_name"
+        content="Electrical Engineering by Prasun Barua"
+    >
+
+    <meta
+        property="og:locale"
+        content="en_US"
+    >
+
+    <meta
+        property="og:image"
+        content="https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
+    >
+
+    <meta
+        property="og:image:secure_url"
+        content="https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
+    >
+
+    <meta
+        property="og:image:type"
+        content="image/jpeg"
+    >
+
+    <meta
+        property="og:image:width"
+        content="1200"
+    >
+
+    <meta
+        property="og:image:height"
+        content="675"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Voltage drop calculation in an electrical cable"
+    >
+
+    <meta
+        property="article:section"
+        content="Electrical Calculations"
+    >
+
+    <meta
+        property="article:author"
+        content="Prasun Barua"
+    >
+
+    <meta
+        property="article:published_time"
+        content="2026-08-12T00:00:00+06:00"
+    >
+
+    <meta
+        property="article:modified_time"
+        content="2026-08-26T00:00:00+06:00"
+    >
 
 
-<!-- =========================================================
-     5. FAVICON
-========================================================== -->
+    <!-- =========================================================
+         4. X / TWITTER
+    ========================================================== -->
 
-<link
-    rel="icon"
-    type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
->
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
 
-<link
-    rel="apple-touch-icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
->
+    <meta
+        name="twitter:title"
+        content="Voltage Drop Calculation: Formula, Examples and Practical Guide"
+    >
 
+    <meta
+        name="twitter:description"
+        content="Learn voltage drop calculation with practical formulas, cable examples and electrical engineering guidance."
+    >
 
-<!-- =========================================================
-     6. GOOGLE FONTS
-========================================================== -->
+    <meta
+        name="twitter:image"
+        content="https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
+    >
 
-<link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
->
-
-
-<!-- =========================================================
-     7. GOOGLE ADSENSE
-========================================================== -->
-
-<script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-    crossorigin="anonymous"
-></script>
+    <meta
+        name="twitter:image:alt"
+        content="Voltage drop calculation in an electrical cable"
+    >
 
 
-<!-- =========================================================
-     8. GOOGLE ANALYTICS
-========================================================== -->
+    <!-- =========================================================
+         5. FAVICON
+    ========================================================== -->
 
-<script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
-></script>
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
 
-<script>
+    <link
+        rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
 
-    window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
+    <!-- =========================================================
+         6. GOOGLE FONTS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+    >
+
+
+    <!-- =========================================================
+         7. GOOGLE ADSENSE
+    ========================================================== -->
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =========================================================
+         8. GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+    ></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag("config", "G-XY335VGVGJ", {
+            anonymize_ip: true,
+            send_page_view: true
+        });
+
+    </script>
+
+
+    <!-- =========================================================
+         9. MAIN STYLESHEET
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="/assets/css/style.css"
+    >
+
+
+    <!-- =========================================================
+         10. ARTICLE INLINE IMAGE SUPPORT
+    ========================================================== -->
+
+    <style>
+
+        .article-inline-image {
+            width: 100%;
+            margin: 36px 0;
+        }
+
+        .article-inline-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--bg-soft);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-inline-image .image-caption {
+            margin-top: 9px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+
+            .article-inline-image {
+                margin: 28px 0;
+            }
+
+            .article-inline-image img {
+                border-radius: 12px;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- =========================================================
+         11. ARTICLE STRUCTURED DATA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#article",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html",
+        "headline": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
+        "description": "Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length, conductor size and worked engineering examples.",
+        "image": [
+            "https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg",
+            "https://electrical.prasunbarua.com/assets/images/single-phase-voltage-drop-diagram.jpeg",
+            "https://electrical.prasunbarua.com/assets/images/three-phase-voltage-drop-diagram.jpeg"
+        ],
+        "datePublished": "2026-08-12T00:00:00+06:00",
+        "dateModified": "2026-08-26T00:00:00+06:00",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "articleSection": "Electrical Calculations",
+        "keywords": [
+            "voltage drop",
+            "voltage drop calculation",
+            "voltage drop formula",
+            "cable voltage drop",
+            "cable sizing",
+            "single phase voltage drop",
+            "three phase voltage drop",
+            "electrical calculations",
+            "electrical design",
+            "electrical engineering"
+        ],
+        "author": {
+            "@type": "Person",
+            "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
+            "name": "Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/about.html",
+            "jobTitle": "Senior Electrical Engineer"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "@id": "https://electrical.prasunbarua.com/#organization",
+            "name": "Electrical Engineering by Prasun Barua",
+            "url": "https://electrical.prasunbarua.com/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#webpage"
+        }
     }
-
-    gtag("js", new Date());
-
-    gtag("config", "G-XY335VGVGJ", {
-        anonymize_ip: true,
-        send_page_view: true
-    });
-
-</script>
+    </script>
 
 
-<!-- =========================================================
-     9. MAIN STYLESHEET
-========================================================== -->
+    <!-- =========================================================
+         12. WEB PAGE STRUCTURED DATA
+    ========================================================== -->
 
-<link
-    rel="stylesheet"
-    href="/assets/css/style.css"
->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#webpage",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html",
+        "name": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
+        "description": "Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length, conductor size and worked engineering examples.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://electrical.prasunbarua.com/#website"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Voltage Drop Calculation"
+        },
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg",
+            "width": 1200,
+            "height": 675
+        },
+        "breadcrumb": {
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#breadcrumb"
+        },
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "datePublished": "2026-08-12T00:00:00+06:00",
+        "dateModified": "2026-08-26T00:00:00+06:00"
+    }
+    </script>
 
 
-<!-- =========================================================
-     10. ARTICLE STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         13. WEBSITE STRUCTURED DATA
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#article",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html",
-    "headline": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
-    "description": "Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length, conductor size and worked engineering examples.",
-    "image": [
-        "https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg"
-    ],
-    "datePublished": "2026-08-12T00:00:00+06:00",
-    "dateModified": "2026-08-26T00:00:00+06:00",
-    "inLanguage": "en",
-    "isAccessibleForFree": true,
-    "articleSection": "Electrical Calculations",
-    "keywords": [
-        "voltage drop",
-        "voltage drop calculation",
-        "cable",
-        "cable sizing",
-        "electrical calculations",
-        "electrical design",
-        "voltage drop formula",
-        "electrical engineering"
-    ],
-    "author": {
-        "@type": "Person",
-        "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
-        "name": "Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/about.html",
-        "jobTitle": "Senior Electrical Engineer"
-    },
-    "publisher": {
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://electrical.prasunbarua.com/#website",
+        "url": "https://electrical.prasunbarua.com/",
+        "name": "Electrical Engineering by Prasun Barua",
+        "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
+        "inLanguage": "en",
+        "publisher": {
+            "@id": "https://electrical.prasunbarua.com/#organization"
+        }
+    }
+    </script>
+
+
+    <!-- =========================================================
+         14. ORGANIZATION STRUCTURED DATA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "Organization",
         "@id": "https://electrical.prasunbarua.com/#organization",
         "name": "Electrical Engineering by Prasun Barua",
         "url": "https://electrical.prasunbarua.com/"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#webpage"
     }
-}
-</script>
+    </script>
 
 
-<!-- =========================================================
-     11. WEB PAGE STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         15. BREADCRUMB STRUCTURED DATA
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#webpage",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html",
-    "name": "Voltage Drop Calculation: Formula, Examples and Practical Guide",
-    "description": "Learn how to calculate voltage drop in electrical circuits using practical formulas, cable resistance, current, conductor length, conductor size and worked engineering examples.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://electrical.prasunbarua.com/#website"
-    },
-    "about": {
-        "@type": "Thing",
-        "name": "Voltage Drop Calculation"
-    },
-    "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://electrical.prasunbarua.com/assets/images/voltage-drop-calculation.jpeg",
-        "width": 1200,
-        "height": 675
-    },
-    "breadcrumb": {
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#breadcrumb"
-    },
-    "inLanguage": "en",
-    "isAccessibleForFree": true,
-    "datePublished": "2026-08-12T00:00:00+06:00",
-    "dateModified": "2026-08-26T00:00:00+06:00"
-}
-</script>
-
-
-<!-- =========================================================
-     12. WEBSITE STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://electrical.prasunbarua.com/#website",
-    "url": "https://electrical.prasunbarua.com/",
-    "name": "Electrical Engineering by Prasun Barua",
-    "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
-    "inLanguage": "en",
-    "publisher": {
-        "@id": "https://electrical.prasunbarua.com/#organization"
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#breadcrumb",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Electrical Calculations",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Voltage Drop Calculation",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html"
+            }
+        ]
     }
-}
-</script>
+    </script>
 
 
-<!-- =========================================================
-     13. ORGANIZATION STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         16. FAQ STRUCTURED DATA
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://electrical.prasunbarua.com/#organization",
-    "name": "Electrical Engineering by Prasun Barua",
-    "url": "https://electrical.prasunbarua.com/"
-}
-</script>
-
-
-<!-- =========================================================
-     14. BREADCRUMB STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html#breadcrumb",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://electrical.prasunbarua.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Electrical Calculations",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Voltage Drop Calculation",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/voltage-drop-calculation.html"
-        }
-    ]
-}
-</script>
-
-
-<!-- =========================================================
-     15. FAQ STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is voltage drop?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Voltage drop is the reduction in voltage that occurs as electrical current flows through a conductor, cable or other circuit component."
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is voltage drop?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voltage drop is the reduction in voltage that occurs as electrical current flows through a conductor, cable or other circuit component."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the basic voltage drop formula?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For a simple resistive circuit, voltage drop can be calculated using Vd = I × R, where Vd is voltage drop, I is current and R is resistance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What factors affect voltage drop?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voltage drop is affected by load current, cable length, conductor cross-sectional area, conductor material, temperature and, in AC systems, impedance and power factor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you calculate percentage voltage drop?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Percentage voltage drop can be calculated as (voltage drop ÷ nominal voltage) × 100."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How can voltage drop be reduced?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Voltage drop can generally be reduced by increasing conductor size, reducing cable length, using a suitable conductor material, reducing unnecessary connection resistance, improving power factor where appropriate, or modifying the circuit design."
+                }
             }
-        },
-        {
-            "@type": "Question",
-            "name": "What is the basic voltage drop formula?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "For a simple resistive circuit, voltage drop can be calculated using Vd = I × R, where Vd is voltage drop, I is current and R is resistance."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What factors affect voltage drop?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Voltage drop is affected by load current, cable length, conductor cross-sectional area, conductor material, temperature and, in AC systems, impedance and power factor."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you calculate percentage voltage drop?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Percentage voltage drop can be calculated as (voltage drop ÷ nominal voltage) × 100."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How can voltage drop be reduced?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Voltage drop can generally be reduced by increasing conductor size, reducing cable length, using a suitable conductor material, reducing unnecessary connection resistance, improving power factor where appropriate, or modifying the circuit design."
-            }
-        }
-    ]
-}
-</script>
-
+        ]
+    }
+    </script>
 
 </head>
 
@@ -493,7 +541,7 @@
 
 
 <!-- =========================================================
-     16. SITE HEADER
+     17. SITE HEADER
 ========================================================== -->
 
 <header class="site-header">
@@ -593,7 +641,7 @@
 
 
 <!-- =========================================================
-     17. MOBILE SIDEBAR OVERLAY
+     18. MOBILE SIDEBAR OVERLAY
 ========================================================== -->
 
 <div
@@ -604,7 +652,7 @@
 
 
 <!-- =========================================================
-     18. MAIN ARTICLE
+     19. MAIN ARTICLE
 ========================================================== -->
 
 <main class="article-page">
@@ -615,7 +663,7 @@
 
 
             <!-- =================================================
-                 19. ARTICLE SIDEBAR
+                 20. ARTICLE SIDEBAR
             ================================================== -->
 
             <aside
@@ -684,6 +732,11 @@
                     </a>
 
 
+                    <a href="#load-voltage">
+                        Load Voltage
+                    </a>
+
+
                     <a href="#ac-voltage-drop">
                         AC Voltage Drop
                     </a>
@@ -701,6 +754,11 @@
 
                     <a href="#voltage-drop-cable-sizing">
                         Cable Sizing
+                    </a>
+
+
+                    <a href="#cable-size-comparison">
+                        Cable Size Comparison
                     </a>
 
 
@@ -724,7 +782,7 @@
 
 
             <!-- =================================================
-                 20. ARTICLE
+                 21. ARTICLE
             ================================================== -->
 
             <article
@@ -734,9 +792,7 @@
             >
 
 
-                <!-- =================================================
-                     BREADCRUMBS
-                ================================================== -->
+                <!-- BREADCRUMBS -->
 
                 <nav
                     class="breadcrumbs"
@@ -747,21 +803,17 @@
                         Home
                     </a>
 
-
                     <span aria-hidden="true">
                         /
                     </span>
-
 
                     <a href="/articles/electrical-calculations/">
                         Electrical Calculations
                     </a>
 
-
                     <span aria-hidden="true">
                         /
                     </span>
-
 
                     <span aria-current="page">
                         Voltage Drop Calculation
@@ -770,9 +822,7 @@
                 </nav>
 
 
-                <!-- =================================================
-                     ARTICLE HEADER
-                ================================================== -->
+                <!-- ARTICLE HEADER -->
 
                 <header class="article-header">
 
@@ -823,7 +873,7 @@
 
 
                         <time
-                            datetime="2026-08-12"
+                            datetime="2026-08-12T00:00:00+06:00"
                             itemprop="datePublished"
                         >
                             Published August 12, 2026
@@ -839,7 +889,7 @@
 
 
                         <time
-                            datetime="2026-08-26"
+                            datetime="2026-08-26T00:00:00+06:00"
                             itemprop="dateModified"
                         >
                             Updated August 26, 2026
@@ -855,7 +905,7 @@
 
 
                         <span>
-                            10 min read
+                            12 min read
                         </span>
 
                     </div>
@@ -863,15 +913,13 @@
                 </header>
 
 
-                <!-- =================================================
-                     FEATURE IMAGE
-                ================================================== -->
+                <!-- FEATURE IMAGE -->
 
                 <figure class="article-feature-image">
 
                     <img
                         src="/assets/images/voltage-drop-calculation.jpeg"
-                        alt="Voltage drop calculation in an electrical cable"
+                        alt="Voltage drop calculation in an electrical cable showing current, cable resistance and voltage loss"
                         width="1200"
                         height="675"
                         fetchpriority="high"
@@ -882,18 +930,14 @@
 
 
                     <figcaption class="image-caption">
-
                         Voltage drop occurs as current flows through the
                         resistance and impedance of an electrical cable.
-
                     </figcaption>
 
                 </figure>
 
 
-                <!-- =================================================
-                     ARTICLE CONTENT
-                ================================================== -->
+                <!-- ARTICLE CONTENT -->
 
                 <div
                     class="article-content"
@@ -927,6 +971,31 @@
                     </p>
 
 
+                    <aside
+                        class="article-note"
+                        aria-label="Quick engineering answer"
+                    >
+
+                        <strong>
+                            Quick engineering answer:
+                        </strong>
+
+                        Voltage drop is commonly calculated from circuit
+                        current and conductor impedance. For a simple
+                        resistive circuit:
+
+                        <strong>
+                            V<sub>d</sub> = I × R
+                        </strong>
+
+                        The final design should also consider circuit
+                        configuration, conductor temperature, installation
+                        method, power factor, reactance and applicable
+                        electrical standards.
+
+                    </aside>
+
+
                     <!-- =================================================
                          WHAT IS VOLTAGE DROP
                     ================================================== -->
@@ -938,9 +1007,9 @@
 
                     <p>
                         Voltage drop is the difference between the voltage
-                        available at the beginning of a circuit and the
-                        voltage available at the load after current has
-                        passed through the circuit conductors.
+                        available at the source and the voltage available
+                        at the load after current has passed through the
+                        circuit conductors and other series impedances.
                     </p>
 
 
@@ -1002,7 +1071,7 @@
 
 
                     <p>
-                        Excessive voltage drop can result in:
+                        Excessive voltage drop can contribute to:
                     </p>
 
 
@@ -1019,22 +1088,12 @@
 
 
                         <li>
-                            Increased current in some electrical loads
-                        </li>
-
-
-                        <li>
-                            Excessive cable heating
-                        </li>
-
-
-                        <li>
                             Reduced lighting performance
                         </li>
 
 
                         <li>
-                            Additional electrical losses
+                            Additional conductor losses
                         </li>
 
 
@@ -1042,15 +1101,21 @@
                             Poor system voltage regulation
                         </li>
 
+
+                        <li>
+                            Increased stress on equipment in applications
+                            sensitive to supply voltage
+                        </li>
+
                     </ul>
 
 
                     <p>
-                        For this reason, voltage drop should be considered
+                        Voltage drop should therefore be considered
                         together with current-carrying capacity,
-                        short-circuit requirements, installation method
-                        and applicable electrical standards when selecting
-                        conductors.
+                        short-circuit requirements, installation method,
+                        equipment requirements and applicable electrical
+                        standards when selecting conductors.
                     </p>
 
 
@@ -1111,9 +1176,9 @@
 
 
                     <p>
-                        This equation is particularly useful for
-                        understanding the fundamental relationship between
-                        current, conductor resistance and voltage drop.
+                        This equation is useful for understanding the
+                        fundamental relationship between current,
+                        conductor resistance and voltage drop.
                     </p>
 
 
@@ -1179,7 +1244,7 @@
 
 
                     <p>
-                        This relationship shows why longer cables
+                        This relationship shows why longer conductors
                         generally have greater resistance, while larger
                         conductor cross-sectional areas generally have
                         lower resistance.
@@ -1195,10 +1260,10 @@
                             Engineering note:
                         </strong>
 
-                        Conductor resistance also changes with temperature.
-                        For detailed design calculations, use the conductor
-                        data and temperature conditions applicable to the
-                        actual installation.
+                        Conductor resistance changes with temperature.
+                        For detailed design work, use the conductor data,
+                        operating temperature and installation conditions
+                        applicable to the actual project.
 
                     </aside>
 
@@ -1214,16 +1279,32 @@
 
                     <p>
                         For a simple single-phase two-conductor circuit,
-                        the current travels through the outgoing conductor
-                        and returns through the other conductor.
+                        current travels through the outgoing conductor and
+                        returns through the other conductor. Therefore,
+                        when conductor resistance is expressed per unit
+                        length and the cable length is the one-way distance,
+                        the outgoing and return paths must both be included.
                     </p>
 
 
-                    <p>
-                        Therefore, when using conductor resistance per unit
-                        length, the total circuit length is normally the
-                        outgoing and return path combined.
-                    </p>
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/single-phase-voltage-drop-diagram.jpeg"
+                            alt="Single-phase voltage drop diagram showing source, outgoing conductor, load, return conductor and one-way cable length"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+                        <figcaption class="image-caption">
+                            Single-phase voltage-drop path showing the
+                            outgoing and return conductor lengths used in
+                            the simplified calculation.
+                        </figcaption>
+
+                    </figure>
 
 
                     <div class="formula-box">
@@ -1234,9 +1315,9 @@
 
 
                         <div class="formula-description">
-                            Simplified single-phase voltage drop
-                            relationship when R is expressed per unit
-                            length
+                            Simplified single-phase voltage drop when
+                            R is the resistance per unit length of one
+                            conductor and L is the one-way length
                         </div>
 
                     </div>
@@ -1263,6 +1344,14 @@
                     </div>
 
 
+                    <p>
+                        These formulas assume a simple two-conductor
+                        circuit and do not by themselves account for
+                        inductive reactance or other installation-specific
+                        effects.
+                    </p>
+
+
                     <!-- =================================================
                          THREE PHASE
                     ================================================== -->
@@ -1273,9 +1362,28 @@
 
 
                     <p>
-                        For a balanced three-phase circuit, a commonly used
-                        simplified resistive voltage-drop relationship is:
+                        For a balanced three-phase circuit, a commonly
+                        used simplified resistive relationship is:
                     </p>
+
+
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/three-phase-voltage-drop-diagram.jpeg"
+                            alt="Three-phase voltage drop diagram showing a three-phase source, three conductors, cable length, load and voltage drop"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+                        <figcaption class="image-caption">
+                            Three-phase voltage-drop concept showing the
+                            three conductors between the source and load.
+                        </figcaption>
+
+                    </figure>
 
 
                     <div class="formula-box">
@@ -1286,7 +1394,9 @@
 
 
                         <div class="formula-description">
-                            Simplified three-phase voltage drop
+                            Simplified three-phase resistive voltage drop
+                            when R is resistance per unit length and L is
+                            the one-way route length
                         </div>
 
                     </div>
@@ -1314,10 +1424,10 @@
 
 
                     <p>
-                        In practical AC systems, cable reactance and the
-                        load power factor can also affect voltage drop.
-                        Therefore, detailed AC calculations should consider
-                        both resistance and reactance where appropriate.
+                        In practical AC systems, cable reactance and load
+                        power factor can also affect voltage drop.
+                        Detailed calculations should therefore use both
+                        resistance and reactance where appropriate.
                     </p>
 
 
@@ -1332,7 +1442,7 @@
 
                     <p>
                         Voltage drop is often expressed as a percentage of
-                        the nominal or source voltage.
+                        the nominal or reference system voltage.
                     </p>
 
 
@@ -1359,10 +1469,9 @@
 
                     <div class="calculation">
 
-                        Voltage Drop (%) =
-                        (6.9 ÷ 230) × 100
-                        <br>
-                        Voltage Drop (%) = 3%
+Voltage Drop (%) =
+(6.9 ÷ 230) × 100
+Voltage Drop (%) = 3%
 
                     </div>
 
@@ -1385,7 +1494,8 @@
                     <p>
                         Consider a 230 V single-phase load drawing 20 A.
                         The one-way cable length is 30 m and the cable
-                        resistance is assumed to be 0.012 Ω/m.
+                        resistance is assumed to be 0.012 Ω/m for one
+                        conductor.
                     </p>
 
 
@@ -1414,7 +1524,7 @@
 
 
                             <li>
-                                Cable resistance = 0.012 Ω/m
+                                Conductor resistance = 0.012 Ω/m
                             </li>
 
                         </ul>
@@ -1423,30 +1533,28 @@
 
 
                     <p>
-                        Because the circuit has an outgoing and return
-                        conductor, the total conductor length is:
+                        Because the circuit has outgoing and return
+                        conductors, the total conductor length is:
                     </p>
 
 
                     <div class="calculation">
 
-                        Total length = 2 × 30
-                        <br>
-                        Total length = 60 m
+Total length = 2 × 30
+Total length = 60 m
 
                     </div>
 
 
                     <p>
-                        The total resistance is:
+                        The total conductor resistance is:
                     </p>
 
 
                     <div class="calculation">
 
-                        R = 0.012 × 60
-                        <br>
-                        R = 0.72 Ω
+R = 0.012 × 60
+R = 0.72 Ω
 
                     </div>
 
@@ -1458,11 +1566,9 @@
 
                     <div class="calculation">
 
-                        V<sub>d</sub> = I × R
-                        <br>
-                        V<sub>d</sub> = 20 × 0.72
-                        <br>
-                        V<sub>d</sub> = 14.4 V
+V<sub>d</sub> = I × R
+V<sub>d</sub> = 20 × 0.72
+V<sub>d</sub> = 14.4 V
 
                     </div>
 
@@ -1474,10 +1580,9 @@
 
                     <div class="calculation">
 
-                        Voltage Drop (%) =
-                        (14.4 ÷ 230) × 100
-                        <br>
-                        Voltage Drop (%) ≈ 6.26%
+Voltage Drop (%) =
+(14.4 ÷ 230) × 100
+Voltage Drop (%) ≈ 6.26%
 
                     </div>
 
@@ -1487,23 +1592,6 @@
                         <strong>14.4 V</strong>, or approximately
                         <strong>6.26%</strong>.
                     </p>
-
-
-                    <aside
-                        class="article-note"
-                        aria-label="Design note"
-                    >
-
-                        <strong>
-                            Design note:
-                        </strong>
-
-                        Whether this voltage drop is acceptable depends on
-                        the applicable design requirements, equipment
-                        characteristics and electrical standards for the
-                        installation.
-
-                    </aside>
 
 
                     <!-- =================================================
@@ -1518,7 +1606,8 @@
                     <p>
                         Consider a balanced three-phase 400 V load drawing
                         50 A. The one-way cable length is 50 m and the
-                        cable resistance is assumed to be 0.0005 Ω/m.
+                        conductor resistance is assumed to be
+                        0.0005 Ω/m.
                     </p>
 
 
@@ -1547,7 +1636,7 @@
 
 
                             <li>
-                                Resistance = 0.0005 Ω/m
+                                Conductor resistance = 0.0005 Ω/m
                             </li>
 
                         </ul>
@@ -1562,13 +1651,13 @@
 
                     <div class="calculation">
 
-                        V<sub>d</sub> =
-                        √3 × I × R × L
-                        <br>
-                        V<sub>d</sub> =
-                        1.732 × 50 × 0.0005 × 50
-                        <br>
-                        V<sub>d</sub> ≈ 2.17 V
+V<sub>d</sub> =
+√3 × I × R × L
+
+V<sub>d</sub> =
+1.732 × 50 × 0.0005 × 50
+
+V<sub>d</sub> ≈ 2.17 V
 
                     </div>
 
@@ -1580,10 +1669,10 @@
 
                     <div class="calculation">
 
-                        Voltage Drop (%) =
-                        (2.17 ÷ 400) × 100
-                        <br>
-                        Voltage Drop (%) ≈ 0.54%
+Voltage Drop (%) =
+(2.17 ÷ 400) × 100
+
+Voltage Drop (%) ≈ 0.54%
 
                     </div>
 
@@ -1593,6 +1682,73 @@
                         is approximately <strong>2.17 V</strong>, or
                         <strong>0.54%</strong>.
                     </p>
+
+
+                    <!-- =================================================
+                         LOAD VOLTAGE
+                    ================================================== -->
+
+                    <h2 id="load-voltage">
+                        How to Calculate the Voltage at the Load
+                    </h2>
+
+
+                    <p>
+                        Once the voltage drop has been calculated, the
+                        approximate load voltage can be found by subtracting
+                        the voltage drop from the source voltage.
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            V<sub>load</sub> =
+                            V<sub>source</sub> − V<sub>d</sub>
+                        </div>
+
+
+                        <div class="formula-description">
+                            Load voltage = Source voltage − Voltage drop
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        Using the earlier 230 V example:
+                    </p>
+
+
+                    <div class="calculation">
+
+V<sub>load</sub> = 230 − 14.4
+V<sub>load</sub> = 215.6 V
+
+                    </div>
+
+
+                    <p>
+                        Therefore, the approximate voltage available at
+                        the load is <strong>215.6 V</strong>, based on the
+                        simplified voltage-drop calculation.
+                    </p>
+
+
+                    <aside
+                        class="article-note"
+                        aria-label="Load voltage note"
+                    >
+
+                        <strong>
+                            Note:
+                        </strong>
+
+                        The actual load voltage can also be affected by
+                        upstream system impedance, supply-voltage variation,
+                        connections and other circuit conditions.
+
+                    </aside>
 
 
                     <!-- =================================================
@@ -1614,13 +1770,15 @@
 
                     <p>
                         For an AC circuit, the voltage-drop calculation may
-                        therefore require the conductor resistance,
-                        reactance and load power factor.
+                        therefore require conductor resistance, reactance
+                        and load power factor.
                     </p>
 
 
                     <p>
-                        A commonly used three-phase relationship is:
+                        A commonly used approximate relationship for a
+                        balanced three-phase circuit using line-to-line
+                        voltage is:
                     </p>
 
 
@@ -1683,9 +1841,10 @@
 
 
                     <p>
-                        The exact method and sign convention can vary
-                        depending on the circuit configuration, conductor
-                        arrangement and engineering standard being used.
+                        The exact calculation method and sign convention
+                        can vary depending on the circuit arrangement,
+                        conductor configuration, load characteristics and
+                        engineering standard being used.
                     </p>
 
 
@@ -1710,8 +1869,8 @@
 
 
                     <p>
-                        Voltage drop generally increases as current
-                        increases. For a resistive conductor:
+                        For a resistive conductor, voltage drop increases
+                        with current:
                     </p>
 
 
@@ -1730,9 +1889,9 @@
 
 
                     <p>
-                        Longer conductors have greater resistance.
-                        Therefore, increasing the cable length generally
-                        increases voltage drop.
+                        Longer conductors generally have greater
+                        resistance. Therefore, increasing cable length
+                        generally increases voltage drop.
                     </p>
 
 
@@ -1743,7 +1902,7 @@
 
                     <p>
                         Increasing the conductor cross-sectional area
-                        reduces conductor resistance and therefore reduces
+                        reduces resistance and therefore generally reduces
                         voltage drop.
                     </p>
 
@@ -1755,8 +1914,8 @@
 
                     <p>
                         Copper and aluminium have different electrical
-                        resistivities. The selected conductor material
-                        therefore affects voltage drop.
+                        resistivities. The conductor material therefore
+                        affects resistance and voltage drop.
                     </p>
 
 
@@ -1774,19 +1933,19 @@
 
 
                     <h3>
-                        6. Power Factor
+                        6. Power Factor and Reactance
                     </h3>
 
 
                     <p>
-                        In AC circuits, power factor affects the
-                        relationship between current, resistance and
-                        reactance components of voltage drop.
+                        In AC circuits, the load power factor and conductor
+                        reactance affect the relationship between current
+                        and voltage drop.
                     </p>
 
 
                     <!-- =================================================
-                         REDUCING VOLTAGE DROP
+                         REDUCING
                     ================================================== -->
 
                     <h2 id="reducing-voltage-drop">
@@ -1819,7 +1978,7 @@
 
 
                         <li>
-                            Reduce unnecessary connections and contact
+                            Reduce unnecessary connection and contact
                             resistance
                         </li>
 
@@ -1853,18 +2012,17 @@
 
                     <p>
                         Cable sizing should not be based only on ampacity.
-                        A conductor that can safely carry the design current
-                        may still produce excessive voltage drop if the
-                        circuit is long.
+                        A conductor that can safely carry the design
+                        current may still produce excessive voltage drop
+                        if the circuit is long.
                     </p>
 
 
                     <p>
                         A practical cable-selection process should consider
-                        the design current, installation conditions,
-                        conductor ampacity, voltage drop, short-circuit
-                        withstand capability and other applicable
-                        requirements.
+                        design current, installation conditions, conductor
+                        ampacity, voltage drop, short-circuit withstand
+                        capability and other applicable requirements.
                     </p>
 
 
@@ -1884,6 +2042,180 @@
                         equipment and governing standard.
 
                     </aside>
+
+
+                    <!-- =================================================
+                         CABLE SIZE COMPARISON
+                    ================================================== -->
+
+                    <h2 id="cable-size-comparison">
+                        Cable Size Comparison Example
+                    </h2>
+
+
+                    <p>
+                        Increasing conductor size generally reduces
+                        resistance and therefore reduces voltage drop.
+                        The following simplified comparison illustrates
+                        the effect.
+                    </p>
+
+
+                    <div class="example-box">
+
+                        <h3>
+                            Example comparison
+                        </h3>
+
+
+                        <p>
+                            Assume the same circuit current, cable length
+                            and conductor material are used, but the
+                            conductor cross-sectional area is increased.
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                <strong>Option A:</strong>
+                                Smaller conductor with higher resistance
+                            </li>
+
+
+                            <li>
+                                <strong>Option B:</strong>
+                                Larger conductor with lower resistance
+                            </li>
+
+                        </ul>
+
+
+                        <p>
+                            Because:
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                R = ρL ÷ A
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            increasing the conductor area
+                            <strong>A</strong> reduces resistance.
+                            With current held approximately constant,
+                            the resulting voltage drop also decreases.
+                        </p>
+
+                    </div>
+
+
+                    <div class="article-table-wrapper">
+
+                        <table class="article-table">
+
+                            <caption>
+                                Simplified effect of increasing conductor size
+                            </caption>
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Parameter
+                                    </th>
+
+
+                                    <th scope="col">
+                                        Smaller Conductor
+                                    </th>
+
+
+                                    <th scope="col">
+                                        Larger Conductor
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Cross-sectional area
+                                    </td>
+
+
+                                    <td>
+                                        Lower
+                                    </td>
+
+
+                                    <td>
+                                        Higher
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Resistance
+                                    </td>
+
+
+                                    <td>
+                                        Higher
+                                    </td>
+
+
+                                    <td>
+                                        Lower
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Voltage drop
+                                    </td>
+
+
+                                    <td>
+                                        Generally higher
+                                    </td>
+
+
+                                    <td>
+                                        Generally lower
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <p>
+                        In an actual project, the selected cable must still
+                        satisfy ampacity, temperature correction,
+                        installation method, short-circuit withstand,
+                        protection and applicable voltage-drop requirements.
+                    </p>
 
 
                     <!-- =================================================
@@ -2028,6 +2360,25 @@
 
                                 </tr>
 
+
+                                <tr>
+
+                                    <td>
+                                        Power factor
+                                    </td>
+
+
+                                    <td>
+                                        Affects AC impedance-related drop
+                                    </td>
+
+
+                                    <td>
+                                        Can affect total AC voltage drop
+                                    </td>
+
+                                </tr>
+
                             </tbody>
 
                         </table>
@@ -2070,13 +2421,14 @@
 
 
                         <li>
-                            Ignoring cable temperature
+                            Ignoring conductor temperature
                         </li>
 
 
                         <li>
-                            Using a DC formula for an AC system without
-                            considering reactance where required
+                            Using a simplified resistive formula for an AC
+                            system without considering reactance where
+                            required
                         </li>
 
 
@@ -2131,13 +2483,20 @@
 
 
                         <li>
-                            Determine the cable length.
+                            Determine the cable length and the relevant
+                            current path.
                         </li>
 
 
                         <li>
-                            Obtain the conductor resistance and, where
+                            Obtain conductor resistance and, where
                             required, reactance from appropriate data.
+                        </li>
+
+
+                        <li>
+                            Account for conductor temperature and
+                            installation conditions where required.
                         </li>
 
 
@@ -2148,6 +2507,11 @@
 
                         <li>
                             Calculate the percentage voltage drop.
+                        </li>
+
+
+                        <li>
+                            Calculate the expected load voltage.
                         </li>
 
 
@@ -2199,8 +2563,7 @@
                     <p>
                         For single-phase and three-phase systems, the
                         appropriate circuit configuration must be
-                        considered when determining the total voltage
-                        drop.
+                        considered when determining the voltage-drop path.
                     </p>
 
 
@@ -2212,6 +2575,21 @@
 
 
                     <p>
+                        The load voltage can be approximated from:
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            V<sub>load</sub> =
+                            V<sub>source</sub> − V<sub>d</sub>
+                        </div>
+
+                    </div>
+
+
+                    <p>
                         A proper electrical design should therefore check
                         voltage drop together with ampacity, short-circuit
                         performance, installation conditions and applicable
@@ -2219,11 +2597,28 @@
                     </p>
 
 
+                    <aside
+                        class="article-note"
+                        aria-label="Final engineering note"
+                    >
+
+                        <strong>
+                            Final engineering note:
+                        </strong>
+
+                        Simplified voltage-drop equations are useful for
+                        learning and preliminary calculations. Final design
+                        calculations should use appropriate manufacturer
+                        data, system parameters, installation conditions
+                        and the governing electrical standard.
+
+                    </aside>
+
                 </div>
 
 
                 <!-- =================================================
-                     21. SOCIAL SHARING
+                     SOCIAL SHARING
                 ================================================== -->
 
                 <section
@@ -2295,7 +2690,7 @@
                         >
 
                             <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.764 1.75 1.764-.783 1.764-1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                             />
 
                         </svg>
@@ -2359,7 +2754,7 @@
                         >
 
                             <path
-                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.272-.099-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
                             />
 
                         </svg>
@@ -2407,7 +2802,7 @@
 
 
                 <!-- =================================================
-                     22. AUTHOR
+                     AUTHOR
                 ================================================== -->
 
                 <footer class="article-footer">
@@ -2461,7 +2856,7 @@
 
 
                 <!-- =================================================
-                     23. RELATED ARTICLES
+                     RELATED ARTICLES
                 ================================================== -->
 
                 <section
@@ -2480,8 +2875,8 @@
                     >
 
                         <!--
-                            Dynamic related articles are inserted
-                            here by related-articles.js.
+                            Dynamic related articles loaded by
+                            /assets/js/related-articles.js.
                         -->
 
                     </div>
@@ -2499,7 +2894,7 @@
 
 
 <!-- =========================================================
-     24. SITE FOOTER
+     SITE FOOTER
 ========================================================== -->
 
 <footer class="site-footer">
@@ -2520,7 +2915,7 @@
 
 
 <!-- =========================================================
-     25. SHARE SCRIPT
+     SHARE SCRIPT
 ========================================================== -->
 
 <script>
@@ -2626,7 +3021,9 @@
 
                             shareURL =
                                 "https://www.facebook.com/sharer/sharer.php?u=" +
-                                encodeURIComponent(pageURL);
+                                encodeURIComponent(
+                                    pageURL
+                                );
 
                         }
 
@@ -2637,7 +3034,9 @@
 
                             shareURL =
                                 "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                encodeURIComponent(pageURL);
+                                encodeURIComponent(
+                                    pageURL
+                                );
 
                         }
 
@@ -2648,9 +3047,13 @@
 
                             shareURL =
                                 "https://twitter.com/intent/tweet?url=" +
-                                encodeURIComponent(pageURL) +
+                                encodeURIComponent(
+                                    pageURL
+                                ) +
                                 "&text=" +
-                                encodeURIComponent(pageTitle);
+                                encodeURIComponent(
+                                    pageTitle
+                                );
 
                         }
 
@@ -2669,6 +3072,8 @@
 
                         }
 
+
+                        /* OPEN */
 
                         if (shareURL) {
 
@@ -2691,7 +3096,7 @@
 
 
 <!-- =========================================================
-     26. RELATED ARTICLES
+     RELATED ARTICLES
 ========================================================== -->
 
 <script
@@ -2701,7 +3106,7 @@
 
 
 <!-- =========================================================
-     27. MAIN SITE JAVASCRIPT
+     MAIN SITE JAVASCRIPT
 ========================================================== -->
 
 <script
