@@ -6,6 +6,13 @@
     "author": "Prasun Barua"
   },
 
+  "dateSettings": {
+    "timezone": "Asia/Dhaka",
+    "dateFormat": "YYYY-MM-DD",
+    "automaticModificationDate": true,
+    "automaticPublicationDate": false
+  },
+
   "categories": [
     {
       "id": "electrical-fundamentals",
@@ -64,11 +71,14 @@
       "icon": "monitoring",
       "image": "",
       "author": "Prasun Barua",
+
       "datePublished": "2026-08-12",
-      "dateModified": "2026-08-27",
+      "dateModified": null,
+
       "readingTime": "10 min read",
       "featured": true,
       "status": "published",
+
       "tags": [
         "voltage drop",
         "voltage drop calculation",
@@ -91,11 +101,14 @@
       "icon": "electrical_services",
       "image": "/assets/images/simple-circuit-diagram.jpeg",
       "author": "Prasun Barua",
+
       "datePublished": "2026-08-10",
-      "dateModified": "2026-08-27",
+      "dateModified": null,
+
       "readingTime": "10 min read",
       "featured": true,
       "status": "published",
+
       "tags": [
         "voltage",
         "current",
@@ -119,11 +132,14 @@
       "icon": "electrical_services",
       "image": "/assets/images/electrical-energy-kwh-vs-kw.jpeg",
       "author": "Prasun Barua",
+
       "datePublished": "2026-08-05",
-      "dateModified": "2026-08-27",
+      "dateModified": null,
+
       "readingTime": "6 min read",
       "featured": false,
       "status": "published",
+
       "tags": [
         "kWh",
         "kW",
@@ -146,11 +162,14 @@
       "icon": "electrical_services",
       "image": "/assets/images/ohms-law-power-triangle.jpeg",
       "author": "Prasun Barua",
+
       "datePublished": "2026-08-01",
-      "dateModified": "2026-08-27",
+      "dateModified": null,
+
       "readingTime": "8 min read",
       "featured": true,
       "status": "published",
+
       "tags": [
         "Ohm's Law",
         "voltage",
@@ -174,11 +193,14 @@
       "icon": "bolt",
       "image": "",
       "author": "Prasun Barua",
+
       "datePublished": "2026-07-28",
-      "dateModified": "2026-08-27",
+      "dateModified": null,
+
       "readingTime": "10 min read",
       "featured": false,
       "status": "published",
+
       "tags": [
         "electrical power",
         "power calculation",
@@ -201,11 +223,14 @@
       "icon": "cable",
       "image": "",
       "author": "Prasun Barua",
-      "datePublished": "",
-      "dateModified": "",
+
+      "datePublished": null,
+      "dateModified": null,
+
       "readingTime": "12 min read",
       "featured": false,
       "status": "planned",
+
       "tags": [
         "cable sizing",
         "cable size",
