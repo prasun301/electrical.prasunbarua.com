@@ -108,7 +108,7 @@
 
 <meta
     property="og:description"
-    content="Learn Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), including formulas, sign conventions, worked examples and practical circuit analysis."
+    content="Learn KCL and KVL with formulas, sign conventions, worked examples and practical circuit analysis."
 >
 
 <meta
@@ -317,14 +317,13 @@
         font-size: 18px;
         line-height: 1.6;
         text-align: center;
+        white-space: nowrap;
 
-        /* Prevents vertical scrollbar while allowing horizontal scroll on mobile */
         overflow-x: auto;
         overflow-y: hidden;
         scrollbar-width: thin;
     }
 
-    /* Fix subscript alignment so it doesn't inflate line height */
     .calculation sub,
     .formula sub {
         font-size: 0.75em;
@@ -1248,9 +1247,7 @@
 
 
                 <div class="calculation">
-                    I<sub>1</sub> + I<sub>2</sub>
-                    =
-                    I<sub>3</sub> + I<sub>4</sub>
+                    I<sub>1</sub> + I<sub>2</sub> = I<sub>3</sub> + I<sub>4</sub>
                 </div>
 
 
@@ -1308,9 +1305,7 @@
 
 
                 <div class="calculation">
-                    I<sub>1</sub> + I<sub>2</sub>
-                    =
-                    I<sub>3</sub> + I<sub>4</sub>
+                    I<sub>1</sub> + I<sub>2</sub> = I<sub>3</sub> + I<sub>4</sub>
                 </div>
 
 
@@ -1510,11 +1505,7 @@
 
 
                 <div class="calculation">
-                    V<sub>s</sub>
-                    − V<sub>R1</sub>
-                    − V<sub>R2</sub>
-                    − V<sub>R3</sub>
-                    = 0
+                    V<sub>s</sub> − V<sub>R1</sub> − V<sub>R2</sub> − V<sub>R3</sub> = 0
                 </div>
 
 
@@ -1524,13 +1515,7 @@
 
 
                 <div class="calculation">
-                    V<sub>s</sub>
-                    =
-                    V<sub>R1</sub>
-                    +
-                    V<sub>R2</sub>
-                    +
-                    V<sub>R3</sub>
+                    V<sub>s</sub> = V<sub>R1</sub> + V<sub>R2</sub> + V<sub>R3</sub>
                 </div>
 
 
@@ -2719,8 +2704,7 @@
 
 
                                 <td>
-                                    ΣI<sub>in</sub> =
-                                    ΣI<sub>out</sub>
+                                    ΣI<sub>in</sub> = ΣI<sub>out</sub>
                                 </td>
 
 
@@ -2758,8 +2742,7 @@
 
 
                                 <td>
-                                    ΣV<sub>rise</sub> =
-                                    ΣV<sub>drop</sub>
+                                    ΣV<sub>rise</sub> = ΣV<sub>drop</sub>
                                 </td>
 
 
