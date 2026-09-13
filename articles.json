@@ -115,6 +115,36 @@
     },
 
     {
+  "id": "kirchhoffs-laws-kcl-kvl",
+  "title": "Kirchhoff's Laws: KCL and KVL Explained with Examples",
+  "slug": "kirchhoffs-laws-kcl-kvl",
+  "category": "electrical-fundamentals",
+  "categoryName": "Electrical Fundamentals",
+  "url": "/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html",
+  "description": "Learn Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), including their principles, formulas, sign conventions and worked electrical circuit examples.",
+  "excerpt": "Understand KCL and KVL, the two fundamental Kirchhoff's laws used to analyze electrical circuits that cannot be solved easily using Ohm's Law alone.",
+  "icon": "electrical_services",
+  "image": "/assets/images/kirchhoffs-laws-kcl-kvl.jpeg",
+  "author": "Prasun Barua",
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "readingTime": "12 min read",
+  "featured": true,
+  "status": "published",
+  "tags": [
+    "Kirchhoff's Laws",
+    "KCL",
+    "KVL",
+    "Kirchhoff's Current Law",
+    "Kirchhoff's Voltage Law",
+    "DC circuit analysis",
+    "electrical circuit analysis",
+    "electrical fundamentals",
+    "electrical engineering"
+  ]
+},
+
+    {
       "id": "electrical-energy-kwh-vs-kw",
       "title": "Electrical Energy: kWh vs kW",
       "slug": "electrical-energy-kwh-vs-kw",
