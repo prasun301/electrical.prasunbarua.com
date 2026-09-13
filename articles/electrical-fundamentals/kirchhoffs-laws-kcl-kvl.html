@@ -231,12 +231,14 @@ select {
 .article-page {
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     overflow-x: clip;
 }
 
 .article-page > .container {
     width: 100%;
     max-width: 1100px;
+    min-width: 0;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -244,6 +246,7 @@ select {
 .article-layout {
     display: block;
     width: 100%;
+    max-width: 100%;
     min-width: 0;
 }
 
@@ -261,8 +264,10 @@ select {
 
 .site-header {
     width: 100%;
+    max-width: 100%;
     position: relative;
     z-index: 10;
+    overflow-x: clip;
 }
 
 .header-inner {
@@ -279,6 +284,8 @@ select {
     flex-wrap: wrap;
     align-items: center;
     gap: 7px;
+    width: 100%;
+    max-width: 100%;
     margin: 28px 0 22px;
     font-size: 13px;
     line-height: 1.5;
@@ -295,7 +302,9 @@ select {
 }
 
 .breadcrumbs span {
+    max-width: 100%;
     overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 
@@ -304,6 +313,8 @@ select {
 ---------------------------------------------------------- */
 
 .article-header {
+    width: 100%;
+    max-width: 100%;
     margin-bottom: 34px;
 }
 
@@ -325,6 +336,7 @@ select {
     letter-spacing: -0.035em;
     font-weight: 800;
     overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .article-intro {
@@ -333,6 +345,7 @@ select {
     color: #4b5563;
     font-size: 18px;
     line-height: 1.7;
+    overflow-wrap: break-word;
 }
 
 .article-meta {
@@ -340,6 +353,7 @@ select {
     flex-wrap: wrap;
     align-items: center;
     gap: 7px 10px;
+    max-width: 100%;
     color: #6b7280;
     font-size: 13px;
     line-height: 1.6;
@@ -362,6 +376,7 @@ select {
 
 .article-feature-image {
     width: 100%;
+    max-width: 100%;
     margin: 0 0 42px;
 }
 
@@ -376,12 +391,14 @@ select {
 }
 
 .image-caption {
-    margin: 10px auto 0;
+    width: 100%;
     max-width: 700px;
+    margin: 10px auto 0;
     color: #6b7280;
     font-size: 13px;
     line-height: 1.55;
     text-align: center;
+    overflow-wrap: break-word;
 }
 
 
@@ -391,6 +408,7 @@ select {
 
 .article-content {
     width: 100%;
+    max-width: 100%;
     min-width: 0;
     color: #1f2937;
     font-size: 17px;
@@ -400,17 +418,21 @@ select {
 }
 
 .article-content p {
+    max-width: 100%;
     margin: 0 0 20px;
 }
 
 .article-content ul,
 .article-content ol {
+    max-width: 100%;
     margin: 0 0 24px;
     padding-left: 24px;
 }
 
 .article-content li {
+    max-width: 100%;
     margin-bottom: 8px;
+    overflow-wrap: break-word;
 }
 
 .article-content strong {
@@ -418,6 +440,7 @@ select {
 }
 
 .article-content h2 {
+    max-width: 100%;
     margin: 56px 0 18px;
     padding-top: 4px;
     color: #111827;
@@ -425,15 +448,20 @@ select {
     line-height: 1.25;
     letter-spacing: -0.02em;
     font-weight: 750;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     scroll-margin-top: 30px;
 }
 
 .article-content h3 {
+    max-width: 100%;
     margin: 34px 0 12px;
     color: #111827;
     font-size: 21px;
     line-height: 1.35;
     font-weight: 700;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     scroll-margin-top: 30px;
 }
 
@@ -443,6 +471,9 @@ select {
 ---------------------------------------------------------- */
 
 .article-note {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin: 28px 0;
     padding: 18px 20px;
     border-left: 3px solid #0066cc;
@@ -451,6 +482,8 @@ select {
     font-size: 15px;
     line-height: 1.7;
     border-radius: 0 8px 8px 0;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
 }
 
 .article-note strong {
@@ -459,13 +492,23 @@ select {
 
 
 /* ---------------------------------------------------------
-   FORMULAS
+   FORMULA BOX
 ---------------------------------------------------------- */
 
-<style>
+/*
+   Important:
+   Do NOT put another <style> tag here.
+
+   The formula box is deliberately set to overflow:hidden
+   so a long equation can never create a page-level
+   horizontal scrollbar.
+*/
+
 .formula-box {
+    display: block;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     margin: 25px 0;
     padding: 18px 20px;
     background: #f7f9fc;
@@ -473,24 +516,33 @@ select {
     border-radius: 10px;
     text-align: center;
 
-    /* Prevent the formula box itself from creating page overflow */
-    overflow: hidden;
-    min-width: 0;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    /* Allow the box to shrink inside its parent */
+    box-sizing: border-box;
 }
 
 .formula {
+    display: block;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
 
     color: #111827;
     font-family: "Times New Roman", Georgia, serif;
     font-size: 24px;
     line-height: 1.5;
+    text-align: center;
 
     /* Critical overflow protection */
     white-space: normal;
     overflow-wrap: anywhere;
-    word-break: normal;
+    word-break: break-word;
+
+    /* Prevent intrinsic width from expanding parent */
+    box-sizing: border-box;
 }
 
 .formula sub,
@@ -500,20 +552,526 @@ select {
 }
 
 .formula-description {
+    display: block;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
 
     margin-top: 7px;
     color: #6b7280;
     font-family: Inter, Arial, sans-serif;
     font-size: 13px;
     line-height: 1.5;
+    text-align: center;
 
-    /* Prevent long descriptions from expanding the page */
     white-space: normal;
     overflow-wrap: anywhere;
-    word-break: normal;
+    word-break: break-word;
 }
+
+
+/* ---------------------------------------------------------
+   CALCULATIONS
+---------------------------------------------------------- */
+
+.calculation {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 24px 0;
+    padding: 16px 18px;
+
+    background: #fafafa;
+    border-left: 3px solid #d1d5db;
+
+    color: #111827;
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 21px;
+    line-height: 1.7;
+    text-align: center;
+
+    /* Prevent horizontal page overflow */
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    /* Allow equation to wrap */
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    box-sizing: border-box;
+}
+
+.calculation sub,
+.calculation sup {
+    font-size: .65em;
+    line-height: 0;
+}
+
+
+/* ---------------------------------------------------------
+   INLINE IMAGES
+---------------------------------------------------------- */
+
+.article-inline-image {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 36px 0;
+}
+
+.article-inline-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f7f9fc;
+}
+
+
+/* ---------------------------------------------------------
+   EXAMPLE BOX
+---------------------------------------------------------- */
+
+.example-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 26px 0;
+    padding: 20px;
+    background: #f7f9fc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    overflow-x: hidden;
+}
+
+.example-box h3 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.example-box ul {
+    margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   TABLE
+---------------------------------------------------------- */
+
+.article-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 28px 0;
+
+    /*
+       Tables are intentionally allowed to scroll horizontally.
+       This is different from equations.
+    */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.article-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.article-table caption {
+    margin-bottom: 10px;
+    color: #6b7280;
+    font-size: 13px;
+    text-align: left;
+}
+
+.article-table th,
+.article-table td {
+    padding: 12px 14px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: top;
+}
+
+.article-table th {
+    background: #f7f9fc;
+    color: #111827;
+    font-weight: 700;
+}
+
+.article-table td {
+    color: #374151;
+}
+
+
+/* ---------------------------------------------------------
+   SHARE
+---------------------------------------------------------- */
+
+.article-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    margin: 55px 0 40px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.article-share-label {
+    width: 100%;
+    margin-bottom: 4px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 38px;
+    max-width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    background: #fff;
+    color: #374151;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background .15s ease, border-color .15s ease;
+}
+
+.share-button:hover {
+    background: #f7f9fc;
+    border-color: #d1d5db;
+}
+
+.share-button svg {
+    flex: 0 0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   AUTHOR
+---------------------------------------------------------- */
+
+.article-footer {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 45px;
+    padding: 28px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.article-author {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.author-mini-avatar {
+    display: flex;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f0f6ff;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.article-author-label {
+    margin-bottom: 2px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.article-author h3 {
+    margin: 0 0 5px;
+    font-size: 17px;
+}
+
+.article-author p {
+    max-width: 650px;
+    margin: 0 0 8px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+.article-author a {
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   RELATED ARTICLES
+---------------------------------------------------------- */
+
+.related-section {
+    width: 100%;
+    max-width: 100%;
+    margin: 50px 0 20px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.related-section h2 {
+    margin: 0 0 20px;
+    color: #111827;
+    font-size: 24px;
+}
+
+.related-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .article-page > .container {
+        padding: 0 17px;
+    }
+
+    .breadcrumbs {
+        margin-top: 20px;
+        margin-bottom: 18px;
+        font-size: 12px;
+    }
+
+    .article-header {
+        margin-bottom: 26px;
+    }
+
+    .article-title {
+        font-size: 31px;
+        line-height: 1.15;
+    }
+
+    .article-intro {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .article-meta {
+        font-size: 12px;
+    }
+
+    .article-feature-image {
+        margin-bottom: 30px;
+    }
+
+    .article-feature-image img {
+        border-radius: 10px;
+    }
+
+    .article-content {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .article-content h2 {
+        margin-top: 44px;
+        font-size: 25px;
+    }
+
+    .article-content h3 {
+        margin-top: 28px;
+        font-size: 19px;
+    }
+
+
+    /* -------------------------
+       MOBILE FORMULA
+    ------------------------- */
+
+    .formula-box {
+        margin: 22px 0;
+        padding: 14px 12px;
+        border-radius: 9px;
+    }
+
+    .formula {
+        font-size: 21px;
+        line-height: 1.45;
+    }
+
+    .formula-description {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+
+    /* -------------------------
+       MOBILE CALCULATION
+    ------------------------- */
+
+    .calculation {
+        margin: 20px 0;
+        padding: 13px 10px;
+        font-size: 19px;
+        line-height: 1.6;
+    }
+
+
+    .article-note {
+        padding: 15px 16px;
+    }
+
+    .example-box {
+        padding: 16px;
+    }
+
+    .article-table {
+        min-width: 570px;
+        font-size: 14px;
+    }
+
+    .article-share {
+        margin-top: 42px;
+    }
+
+    .share-button {
+        min-height: 36px;
+        padding: 7px 10px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL SCREENS
+---------------------------------------------------------- */
+
+@media (max-width: 380px) {
+
+    .article-page > .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .article-title {
+        font-size: 28px;
+    }
+
+    .article-content {
+        font-size: 15.5px;
+    }
+
+    .formula-box {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .formula {
+        font-size: 19px;
+    }
+
+    .calculation {
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 18px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY
+---------------------------------------------------------- */
+
+:focus-visible {
+    outline: 3px solid rgba(0, 102, 204, .25);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   FINAL OVERFLOW PROTECTION
+---------------------------------------------------------- */
+
+/*
+   Prevent normal article elements from expanding the viewport.
+   Tables are excluded because they intentionally use their
+   own horizontal scrolling container.
+*/
+
+.article-page,
+.article-main,
+.article-content {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.article-content > * {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.article-content pre {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.article-content code {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* Explicitly prevent equations from producing a scrollbar */
+
+.formula-box,
+.formula,
+.calculation {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
 </style>
     
 /* ---------------------------------------------------------
