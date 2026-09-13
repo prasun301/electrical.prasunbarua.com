@@ -462,6 +462,7 @@ select {
    FORMULAS
 ---------------------------------------------------------- */
 
+<style>
 .formula-box {
     width: 100%;
     max-width: 100%;
@@ -471,35 +472,50 @@ select {
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     text-align: center;
+
+    /* Prevent the formula box itself from creating page overflow */
     overflow: hidden;
+    min-width: 0;
 }
 
 .formula {
+    width: 100%;
     max-width: 100%;
+
     color: #111827;
     font-family: "Times New Roman", Georgia, serif;
     font-size: 24px;
     line-height: 1.5;
+
+    /* Critical overflow protection */
+    white-space: normal;
     overflow-wrap: anywhere;
     word-break: normal;
 }
 
 .formula sub,
-.calculation sub {
+.formula sup {
     font-size: .65em;
     line-height: 0;
-    vertical-align: sub;
 }
 
 .formula-description {
+    width: 100%;
+    max-width: 100%;
+
     margin-top: 7px;
     color: #6b7280;
-    font-family: Inter, sans-serif;
+    font-family: Inter, Arial, sans-serif;
     font-size: 13px;
     line-height: 1.5;
+
+    /* Prevent long descriptions from expanding the page */
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
-
-
+</style>
+    
 /* ---------------------------------------------------------
    CALCULATIONS
 ---------------------------------------------------------- */
