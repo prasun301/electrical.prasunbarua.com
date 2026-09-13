@@ -1,2162 +1,2567 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <!-- =========================================================
+         1. CORE DOCUMENT
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="referrer"
+        content="strict-origin-when-cross-origin"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0066cc"
+    >
+
+    <meta
+        name="color-scheme"
+        content="light"
+    >
+
+    <title>
+        Kirchhoff's Laws: KCL and KVL Explained with Examples | Electrical Engineering
+    </title>
+
+    <meta
+        name="description"
+        content="Learn Kirchhoff's Laws of electrical circuits, including Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), with formulas, sign conventions, worked examples, applications, and practical engineering guidance."
+    >
+
+    <meta
+        name="author"
+        content="Prasun Barua"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large"
+    >
+
+
+    <!-- =========================================================
+         2. CANONICAL
+    ========================================================== -->
+
+    <link
+        rel="canonical"
+        href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
+    >
+
+
+    <!-- =========================================================
+         3. OPEN GRAPH
+    ========================================================== -->
+
+    <meta
+        property="og:type"
+        content="article"
+    >
+
+    <meta
+        property="og:title"
+        content="Kirchhoff's Laws: KCL and KVL Explained with Examples"
+    >
+
+    <meta
+        property="og:description"
+        content="A practical explanation of Kirchhoff's Current Law and Kirchhoff's Voltage Law with formulas, sign conventions, worked examples, and engineering applications."
+    >
+
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
+    >
+
+    <meta
+        property="og:image"
+        content="https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Kirchhoff's Laws KCL and KVL electrical circuit illustration"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Electrical Engineering"
+    >
+
+    <meta
+        property="article:author"
+        content="Prasun Barua"
+    >
+
+    <meta
+        property="article:section"
+        content="Electrical Fundamentals"
+    >
+
+    <meta
+        property="article:published_time"
+        content="2026-09-13"
+    >
+
+    <meta
+        property="article:modified_time"
+        content="2026-09-13"
+    >
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- =========================================================
+         4. TWITTER / X
+    ========================================================== -->
 
-<meta name="theme-color" content="#0066cc">
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
 
-<meta name="color-scheme" content="light">
+    <meta
+        name="twitter:title"
+        content="Kirchhoff's Laws: KCL and KVL Explained with Examples"
+    >
 
-<title>Kirchhoff's Laws: KCL and KVL Explained with Examples | Electrical Engineering</title>
+    <meta
+        name="twitter:description"
+        content="Learn KCL and KVL with clear formulas, worked circuit examples, sign conventions, and practical electrical engineering applications."
+    >
 
-<meta
-name="description"
-content="Learn Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), including their principles, formulas, sign conventions, worked circuit examples and practical applications."
->
+    <meta
+        name="twitter:image"
+        content="https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
+    >
 
-<meta name="author" content="Prasun Barua">
+    <meta
+        name="twitter:image:alt"
+        content="Kirchhoff's Laws KCL and KVL electrical engineering diagram"
+    >
 
-<meta
-name="robots"
-content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
->
 
-<link
-rel="canonical"
-href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
->
+    <!-- =========================================================
+         5. FAVICON
+    ========================================================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230066cc'/%3E%3Cpath d='M17 16h30v7H25v9h19v7H25v15h-8V16z' fill='white'/%3E%3C/svg%3E"
+    >
 
-<!-- Open Graph -->
 
-<meta property="og:type" content="article">
+    <!-- =========================================================
+         6. FONTS
+    ========================================================== -->
 
-<meta
-property="og:url"
-content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-<meta
-property="og:title"
-content="Kirchhoff's Laws: KCL and KVL Explained with Examples"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-<meta
-property="og:description"
-content="Learn Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), including formulas, sign conventions, worked examples and practical circuit analysis."
->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-<meta
-property="og:site_name"
-content="Electrical Engineering by Prasun Barua"
->
 
-<meta property="og:locale" content="en_US">
+    <!-- =========================================================
+         7. GOOGLE ADSENSE
+    ========================================================== -->
 
-<meta
-property="og:image"
-content="https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
->
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous">
+    </script>
 
-<meta
-property="og:image:secure_url"
-content="https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
->
 
-<meta property="og:image:type" content="image/jpeg">
+    <!-- =========================================================
+         8. GOOGLE ANALYTICS
+    ========================================================== -->
 
-<meta property="og:image:width" content="1200">
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ">
+    </script>
 
-<meta property="og:image:height" content="675">
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<meta
-property="og:image:alt"
-content="Kirchhoff's Current Law and Kirchhoff's Voltage Law circuit analysis"
->
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-<meta property="article:section" content="Electrical Fundamentals">
+        gtag('js', new Date());
 
-<meta property="article:author" content="Prasun Barua">
+        gtag('config', 'G-XY335VGVGJ');
+    </script>
 
-<meta
-property="article:published_time"
-content="2026-09-13T00:00:00+06:00"
->
 
-<meta
-property="article:modified_time"
-content="2026-09-13T00:00:00+06:00"
->
+    <!-- =========================================================
+         9. GLOBAL WEBSITE CSS
+    ========================================================== -->
 
-<!-- X -->
+    <link
+        rel="stylesheet"
+        href="/assets/css/style.css"
+    >
 
-<meta name="twitter:card" content="summary_large_image">
 
-<meta
-name="twitter:title"
-content="Kirchhoff's Laws: KCL and KVL Explained with Examples"
->
+    <!-- =========================================================
+         10. ARTICLE PAGE CSS
+         
+         IMPORTANT:
+         All article CSS is intentionally contained inside this
+         ONE style block. Do not place raw CSS outside it.
+    ========================================================== -->
 
-<meta
-name="twitter:description"
-content="Learn KCL and KVL with formulas, sign conventions, worked examples and practical electrical circuit analysis."
->
-
-<meta
-name="twitter:image"
-content="https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
->
-
-<meta
-name="twitter:image:alt"
-content="Kirchhoff's Laws circuit analysis"
->
-
-<!-- Favicon -->
-
-<link
-rel="icon"
-type="image/svg+xml"
-href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
->
-
-<!-- Fonts -->
-
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com"
->
-
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin
->
-
-<link
-rel="stylesheet"
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
->
-
-<!-- AdSense -->
-
-<script
-async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
-crossorigin="anonymous"
-></script>
-
-<!-- Google Analytics -->
-
-<script
-async
-src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
-></script>
-
-<script>
-window.dataLayer = window.dataLayer || [];
-
-function gtag() {
-    dataLayer.push(arguments);
-}
-
-gtag("js", new Date());
-
-gtag("config", "G-XY335VGVGJ", {
-    anonymize_ip: true,
-    send_page_view: true
-});
-</script>
-
-<!-- Global stylesheet -->
-
-<link rel="stylesheet" href="/assets/css/style.css">
-
-<!-- =========================================================
-     ARTICLE-ONLY CSS
-========================================================== -->
-
-<style>
-
-/* ---------------------------------------------------------
-   RESET
----------------------------------------------------------- */
-
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-img,
-svg,
-video,
-iframe {
-    max-width: 100%;
-}
-
-img {
-    height: auto;
-}
-
-button,
-input,
-textarea,
-select {
-    font: inherit;
-}
-
-
-/* ---------------------------------------------------------
-   ARTICLE PAGE
----------------------------------------------------------- */
-
-.article-page {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip;
-}
-
-.article-page > .container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-.article-layout {
-    display: block;
-    width: 100%;
-    min-width: 0;
-}
-
-.article-main {
-    width: 100%;
-    max-width: 820px;
-    min-width: 0;
-    margin: 0 auto;
-}
-
-
-/* ---------------------------------------------------------
-   HEADER
----------------------------------------------------------- */
-
-.site-header {
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-
-.header-inner {
-    min-width: 0;
-}
-
-
-/* ---------------------------------------------------------
-   BREADCRUMBS
----------------------------------------------------------- */
-
-.breadcrumbs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 7px;
-    margin: 28px 0 22px;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #6b7280;
-}
-
-.breadcrumbs a {
-    color: #6b7280;
-    text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-    color: #0066cc;
-}
-
-.breadcrumbs span {
-    overflow-wrap: anywhere;
-}
-
-
-/* ---------------------------------------------------------
-   ARTICLE HEADER
----------------------------------------------------------- */
-
-.article-header {
-    margin-bottom: 34px;
-}
-
-.article-category-label {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: #0066cc;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .02em;
-}
-
-.article-title {
-    margin: 0;
-    max-width: 800px;
-    color: #111827;
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.12;
-    letter-spacing: -0.035em;
-    font-weight: 800;
-    overflow-wrap: anywhere;
-}
-
-.article-intro {
-    max-width: 760px;
-    margin: 20px 0 18px;
-    color: #4b5563;
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 7px 10px;
-    color: #6b7280;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.article-meta a {
-    color: #374151;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.article-meta a:hover {
-    color: #0066cc;
-}
-
-
-/* ---------------------------------------------------------
-   FEATURE IMAGE
----------------------------------------------------------- */
-
-.article-feature-image {
-    width: 100%;
-    margin: 0 0 42px;
-}
-
-.article-feature-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 14px;
-}
-
-.image-caption {
-    margin: 10px auto 0;
-    max-width: 700px;
-    color: #6b7280;
-    font-size: 13px;
-    line-height: 1.55;
-    text-align: center;
-}
-
-
-/* ---------------------------------------------------------
-   ARTICLE CONTENT
----------------------------------------------------------- */
-
-.article-content {
-    width: 100%;
-    min-width: 0;
-    color: #1f2937;
-    font-size: 17px;
-    line-height: 1.8;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
-.article-content p {
-    margin: 0 0 20px;
-}
-
-.article-content ul,
-.article-content ol {
-    margin: 0 0 24px;
-    padding-left: 24px;
-}
-
-.article-content li {
-    margin-bottom: 8px;
-}
-
-.article-content strong {
-    color: #111827;
-}
-
-.article-content h2 {
-    margin: 56px 0 18px;
-    padding-top: 4px;
-    color: #111827;
-    font-size: clamp(25px, 4vw, 32px);
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    font-weight: 750;
-    scroll-margin-top: 30px;
-}
-
-.article-content h3 {
-    margin: 34px 0 12px;
-    color: #111827;
-    font-size: 21px;
-    line-height: 1.35;
-    font-weight: 700;
-    scroll-margin-top: 30px;
-}
-
-
-/* ---------------------------------------------------------
-   NOTE
----------------------------------------------------------- */
-
-.article-note {
-    margin: 28px 0;
-    padding: 18px 20px;
-    border-left: 3px solid #0066cc;
-    background: #f7f9fc;
-    color: #374151;
-    font-size: 15px;
-    line-height: 1.7;
-    border-radius: 0 8px 8px 0;
-}
-
-.article-note strong {
-    color: #111827;
-}
-
-
-/* ---------------------------------------------------------
-   FORMULAS
----------------------------------------------------------- */
-
-.formula-box {
-    width: 100%;
-    max-width: 100%;
-    margin: 25px 0;
-    padding: 18px 20px;
-    background: #f7f9fc;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    text-align: center;
-    overflow: hidden;
-}
-
-.formula {
-    max-width: 100%;
-    color: #111827;
-    font-family: "Times New Roman", Georgia, serif;
-    font-size: 24px;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-    word-break: normal;
-}
-
-.formula sub,
-.calculation sub {
-    font-size: .65em;
-    line-height: 0;
-    vertical-align: sub;
-}
-
-.formula-description {
-    margin-top: 7px;
-    color: #6b7280;
-    font-family: Inter, sans-serif;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
-/* ---------------------------------------------------------
-   CALCULATIONS
----------------------------------------------------------- */
-
-.calculation {
-    width: 100%;
-    max-width: 100%;
-    margin: 24px 0;
-    padding: 16px 18px;
-    background: #fafafa;
-    border-left: 3px solid #d1d5db;
-    color: #111827;
-    font-family: "Times New Roman", Georgia, serif;
-    font-size: 21px;
-    line-height: 1.7;
-    text-align: center;
-    overflow: hidden;
-    overflow-wrap: anywhere;
-}
-
-
-/* ---------------------------------------------------------
-   INLINE IMAGES
----------------------------------------------------------- */
-
-.article-inline-image {
-    width: 100%;
-    max-width: 100%;
-    margin: 36px 0;
-}
-
-.article-inline-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    background: #f7f9fc;
-}
-
-
-/* ---------------------------------------------------------
-   EXAMPLE BOX
----------------------------------------------------------- */
-
-.example-box {
-    width: 100%;
-    max-width: 100%;
-    margin: 26px 0;
-    padding: 20px;
-    background: #f7f9fc;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-}
-
-.example-box h3 {
-    margin: 0 0 12px;
-    font-size: 17px;
-}
-
-.example-box ul {
-    margin: 0;
-}
-
-
-/* ---------------------------------------------------------
-   TABLE
----------------------------------------------------------- */
-
-.article-table-wrapper {
-    width: 100%;
-    max-width: 100%;
-    margin: 28px 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-}
-
-.article-table {
-    width: 100%;
-    min-width: 620px;
-    border-collapse: collapse;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.article-table caption {
-    margin-bottom: 10px;
-    color: #6b7280;
-    font-size: 13px;
-    text-align: left;
-}
-
-.article-table th,
-.article-table td {
-    padding: 12px 14px;
-    border: 1px solid #e5e7eb;
-    text-align: left;
-    vertical-align: top;
-}
-
-.article-table th {
-    background: #f7f9fc;
-    color: #111827;
-    font-weight: 700;
-}
-
-.article-table td {
-    color: #374151;
-}
-
-
-/* ---------------------------------------------------------
-   SHARE
----------------------------------------------------------- */
-
-.article-share {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin: 55px 0 40px;
-    padding-top: 25px;
-    border-top: 1px solid #e5e7eb;
-}
-
-.article-share-label {
-    width: 100%;
-    margin-bottom: 4px;
-    color: #6b7280;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.share-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    min-height: 38px;
-    padding: 8px 12px;
-    border: 1px solid #e5e7eb;
-    border-radius: 7px;
-    background: #fff;
-    color: #374151;
-    cursor: pointer;
-    font-size: 13px;
-    transition: background .15s ease, border-color .15s ease;
-}
-
-.share-button:hover {
-    background: #f7f9fc;
-    border-color: #d1d5db;
-}
-
-.share-button svg {
-    flex: 0 0 auto;
-}
-
-
-/* ---------------------------------------------------------
-   AUTHOR
----------------------------------------------------------- */
-
-.article-footer {
-    margin-top: 45px;
-    padding: 28px 0;
-    border-top: 1px solid #e5e7eb;
-}
-
-.article-author {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-}
-
-.author-mini-avatar {
-    display: flex;
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #f0f6ff;
-    color: #0066cc;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.article-author-label {
-    margin-bottom: 2px;
-    color: #6b7280;
-    font-size: 12px;
-}
-
-.article-author h3 {
-    margin: 0 0 5px;
-    font-size: 17px;
-}
-
-.article-author p {
-    max-width: 650px;
-    margin: 0 0 8px;
-    color: #6b7280;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.article-author a {
-    color: #0066cc;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-
-/* ---------------------------------------------------------
-   RELATED ARTICLES
----------------------------------------------------------- */
-
-.related-section {
-    margin: 50px 0 20px;
-    padding-top: 30px;
-    border-top: 1px solid #e5e7eb;
-}
-
-.related-section h2 {
-    margin: 0 0 20px;
-    color: #111827;
-    font-size: 24px;
-}
-
-.related-grid {
-    width: 100%;
-    min-width: 0;
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE
----------------------------------------------------------- */
-
-@media (max-width: 700px) {
-
-    .article-page > .container {
-        padding: 0 17px;
+    <style>
+
+        /* =====================================================
+           RESET / BOX SIZING
+        ====================================================== */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+
+        html {
+            min-height: 100%;
+        }
+
+
+        body {
+            min-width: 0;
+        }
+
+
+        img,
+        svg,
+        video,
+        iframe {
+            max-width: 100%;
+        }
+
+
+        img {
+            height: auto;
+        }
+
+
+        /* =====================================================
+           SITE HEADER SAFETY
+        ====================================================== */
+
+        .site-header {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            overflow-x: clip;
+        }
+
+
+        .site-header .container {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+
+        .site-header .header-inner {
+            min-width: 0;
+        }
+
+
+        /* =====================================================
+           ARTICLE PAGE CONTAINER
+        ====================================================== */
+
+        .article-page {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            overflow-x: clip;
+        }
+
+
+        .article-page > .container {
+            width: 100%;
+            max-width: 1100px;
+            min-width: 0;
+            margin: 0 auto;
+            padding-left: 24px;
+            padding-right: 24px;
+            box-sizing: border-box;
+        }
+
+
+        .article-layout {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+
+        .article-main {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+
+        .article-content {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+
+        /* =====================================================
+           BREADCRUMBS
+        ====================================================== */
+
+        .breadcrumbs {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #6b7280;
+        }
+
+
+        .breadcrumbs a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           ARTICLE HEADER
+        ====================================================== */
+
+        .article-header {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-bottom: 28px;
+        }
+
+
+        .article-category {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #0066cc;
+            letter-spacing: 0.02em;
+        }
+
+
+        .article-title {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 0;
+            color: #111827;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            overflow-wrap: anywhere;
+        }
+
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 16px;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           FEATURE IMAGE
+        ====================================================== */
+
+        .article-featured-image {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 28px 0 34px;
+            border-radius: 12px;
+        }
+
+
+        /* =====================================================
+           ARTICLE CONTENT BASE
+        ====================================================== */
+
+        .article-content > * {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+
+        .article-content p {
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+
+        .article-content h2 {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 42px;
+            margin-bottom: 18px;
+            color: #111827;
+            font-size: clamp(1.55rem, 3vw, 2rem);
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            overflow-wrap: anywhere;
+        }
+
+
+        .article-content h3 {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 32px;
+            margin-bottom: 14px;
+            color: #111827;
+            font-size: clamp(1.2rem, 2vw, 1.45rem);
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+
+        .article-content ul,
+        .article-content ol {
+            max-width: 100%;
+            margin-top: 0;
+            margin-bottom: 22px;
+            padding-left: 24px;
+            color: #374151;
+        }
+
+
+        .article-content li {
+            margin-bottom: 9px;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+
+        .article-content a {
+            color: #0066cc;
+            overflow-wrap: anywhere;
+        }
+
+
+        .article-content strong {
+            color: #111827;
+        }
+
+
+        .article-content em {
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           INTRO / IMPORTANT NOTE
+        ====================================================== */
+
+        .intro-note {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 0 0 28px;
+            padding: 18px 20px;
+            border-left: 4px solid #0066cc;
+            border-radius: 8px;
+            background: #f4f8fc;
+            color: #1f2937;
+            overflow-wrap: anywhere;
+        }
+
+
+        .intro-note p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           QUICK ANSWER / HIGHLIGHT BOX
+        ====================================================== */
+
+        .quick-answer {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 26px 0;
+            padding: 20px;
+            border: 1px solid #dbe5f0;
+            border-radius: 10px;
+            background: #f8fbff;
+            overflow: clip;
+        }
+
+
+        .quick-answer strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #0055a5;
+        }
+
+
+        /* =====================================================
+           FORMULA BOX
+           
+           overflow: clip prevents accidental inner scrollbars.
+        ====================================================== */
+
+        .formula-box {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 25px 0;
+            padding: 18px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #f7f9fc;
+            text-align: center;
+            overflow: clip;
+        }
+
+
+        .formula {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+            margin: 0;
+            color: #111827;
+            font-family:
+                "Times New Roman",
+                Georgia,
+                serif;
+            font-size: clamp(20px, 3vw, 27px);
+            line-height: 1.6;
+            font-weight: 600;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+
+        .formula-note {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           CALCULATIONS
+        ====================================================== */
+
+        .calculation {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+            margin: 20px 0;
+            padding: 18px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafafa;
+            overflow: clip;
+            overflow-wrap: anywhere;
+            white-space: normal;
+        }
+
+
+        .calculation p {
+            margin-bottom: 8px;
+        }
+
+
+        .calculation p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .calculation .equation-line {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            font-family:
+                "Times New Roman",
+                Georgia,
+                serif;
+            font-size: 19px;
+            line-height: 1.8;
+            color: #111827;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           KCL / KVL EXPLANATION BOXES
+        ====================================================== */
+
+        .law-box {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 28px 0;
+            padding: 22px;
+            border: 1px solid #dfe7f0;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(17, 24, 39, 0.04);
+            overflow: clip;
+        }
+
+
+        .law-box h3 {
+            margin-top: 0;
+        }
+
+
+        /* =====================================================
+           SIGN CONVENTION BOX
+        ====================================================== */
+
+        .sign-convention {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 24px 0;
+            padding: 18px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fcfcfd;
+            overflow: clip;
+        }
+
+
+        .sign-convention ul {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           TABLES
+           
+           Horizontal scrolling is intentionally allowed only
+           inside the table wrapper.
+        ====================================================== */
+
+        .article-table-wrapper {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 24px 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+
+        .article-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+
+        .article-table th,
+        .article-table td {
+            padding: 13px 14px;
+            border: 1px solid #dfe3e8;
+            text-align: left;
+            vertical-align: top;
+            color: #374151;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+
+        .article-table th {
+            background: #f3f6f9;
+            color: #111827;
+            font-weight: 700;
+        }
+
+
+        .article-table tr:nth-child(even) td {
+            background: #fafafa;
+        }
+
+
+        /* =====================================================
+           CODE / PRE
+        ====================================================== */
+
+        .article-content pre {
+            max-width: 100%;
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+
+        .article-content code {
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+
+        /* =====================================================
+           FIGURES / IMAGE CAPTIONS
+        ====================================================== */
+
+        .article-content figure {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 28px 0;
+        }
+
+
+        .article-content figure img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+
+        .article-content figcaption {
+            margin-top: 9px;
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
+
+        .faq-section {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 44px;
+        }
+
+
+        .faq-item {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e7eb;
+            overflow-wrap: anywhere;
+        }
+
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+
+        .faq-question {
+            margin: 0 0 8px;
+            color: #111827;
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+
+        .faq-answer {
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           TAKEAWAYS
+        ====================================================== */
+
+        .takeaways {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin: 32px 0;
+            padding: 22px;
+            border-radius: 10px;
+            background: #f7f9fc;
+            border: 1px solid #e5e7eb;
+            overflow: clip;
+        }
+
+
+        .takeaways ul {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           SHARE SECTION
+        ====================================================== */
+
+        .article-share {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 45px;
+            padding: 22px;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            overflow: clip;
+        }
+
+
+        .article-share-title {
+            margin: 0 0 14px;
+            color: #111827;
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 9px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #111827;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-decoration: none;
+            cursor: pointer;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .share-btn:hover {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+        }
+
+
+        .share-btn:active {
+            transform: translateY(1px);
+        }
+
+
+        /* =====================================================
+           AUTHOR FOOTER
+        ====================================================== */
+
+        .article-author {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            margin-top: 30px;
+            padding: 22px 0 10px;
+            overflow: clip;
+        }
+
+
+        .article-author-info {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+
+        .article-author-name {
+            margin: 0 0 4px;
+            color: #111827;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+
+        .article-author-description {
+            margin: 0;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 768px) {
+
+            .article-page > .container {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+
+            .article-content p,
+            .article-content li {
+                font-size: 16px;
+            }
+
+
+            .law-box,
+            .quick-answer,
+            .sign-convention,
+            .takeaways,
+            .calculation,
+            .formula-box,
+            .article-share {
+                padding: 16px;
+            }
+
+
+            .article-meta {
+                gap: 6px 12px;
+            }
+
+
+            .formula {
+                font-size: 21px;
+            }
+
+
+            .calculation .equation-line {
+                font-size: 17px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .article-page > .container {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+
+            .breadcrumbs {
+                font-size: 13px;
+            }
+
+
+            .article-content p,
+            .article-content li {
+                font-size: 15.5px;
+                line-height: 1.75;
+            }
+
+
+            .formula {
+                font-size: 19px;
+                line-height: 1.55;
+            }
+
+
+            .calculation .equation-line {
+                font-size: 16px;
+            }
+
+
+            .article-table {
+                min-width: 560px;
+            }
+
+
+            .share-buttons {
+                width: 100%;
+            }
+
+
+            .share-btn {
+                flex: 1 1 auto;
+            }
+
+        }
+
+
+        /* =====================================================
+           DEFENSIVE OVERFLOW RULES
+           
+           These prevent long URLs/text/Math-like content from
+           widening the page.
+        ====================================================== */
+
+        .article-content p,
+        .article-content li,
+        .article-content h2,
+        .article-content h3,
+        .article-content aside,
+        .article-content section,
+        .article-content div,
+        .article-content blockquote {
+            min-width: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* Keep intentionally scrollable tables working. */
+        .article-content .article-table-wrapper {
+            overflow-x: auto;
+        }
+
+
+        .article-content .article-table-wrapper .article-table {
+            max-width: none;
+        }
+
+
+        /* =====================================================
+           ACCESSIBILITY
+        ====================================================== */
+
+        .share-btn:focus-visible,
+        .article-content a:focus-visible,
+        .breadcrumbs a:focus-visible {
+            outline: 3px solid rgba(0, 102, 204, 0.25);
+            outline-offset: 2px;
+        }
+
+    </style>
+
+
+    <!-- =========================================================
+         11. STRUCTURED DATA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Kirchhoff's Laws: KCL and KVL Explained with Examples",
+        "description": "Learn Kirchhoff's Current Law and Kirchhoff's Voltage Law with formulas, sign conventions, worked examples, and practical electrical engineering applications.",
+        "image": [
+            "https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Prasun Barua",
+            "url": "https://prasunbarua.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prasun Barua",
+            "url": "https://prasunbarua.com/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
+        },
+        "datePublished": "2026-09-13",
+        "dateModified": "2026-09-13",
+        "articleSection": "Electrical Fundamentals",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
     }
-
-    .breadcrumbs {
-        margin-top: 20px;
-        margin-bottom: 18px;
-        font-size: 12px;
-    }
-
-    .article-header {
-        margin-bottom: 26px;
-    }
-
-    .article-title {
-        font-size: 31px;
-        line-height: 1.15;
-    }
-
-    .article-intro {
-        margin-top: 16px;
-        font-size: 16px;
-        line-height: 1.65;
-    }
-
-    .article-meta {
-        font-size: 12px;
-    }
-
-    .article-feature-image {
-        margin-bottom: 30px;
-    }
-
-    .article-feature-image img {
-        border-radius: 10px;
-    }
-
-    .article-content {
-        font-size: 16px;
-        line-height: 1.75;
-    }
-
-    .article-content h2 {
-        margin-top: 44px;
-        font-size: 25px;
-    }
-
-    .article-content h3 {
-        margin-top: 28px;
-        font-size: 19px;
-    }
-
-    .formula-box {
-        padding: 15px 12px;
-    }
-
-    .formula {
-        font-size: 21px;
-    }
-
-    .calculation {
-        padding: 14px 10px;
-        font-size: 19px;
-    }
-
-    .article-note {
-        padding: 15px 16px;
-    }
-
-    .example-box {
-        padding: 16px;
-    }
-
-    .article-table {
-        min-width: 570px;
-        font-size: 14px;
-    }
-
-    .article-share {
-        margin-top: 42px;
-    }
-
-    .share-button {
-        min-height: 36px;
-        padding: 7px 10px;
-    }
-
-}
+    </script>
 
 
-/* ---------------------------------------------------------
-   VERY SMALL SCREENS
----------------------------------------------------------- */
-
-@media (max-width: 380px) {
-
-    .article-page > .container {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .article-title {
-        font-size: 28px;
-    }
-
-    .article-content {
-        font-size: 15.5px;
-    }
-
-    .formula {
-        font-size: 19px;
-    }
-
-    .calculation {
-        font-size: 18px;
-    }
-
-}
-
-
-/* ---------------------------------------------------------
-   ACCESSIBILITY
----------------------------------------------------------- */
-
-:focus-visible {
-    outline: 3px solid rgba(0, 102, 204, .25);
-    outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-}
-
-
-/* ---------------------------------------------------------
-   IMPORTANT OVERFLOW PROTECTION
----------------------------------------------------------- */
-
-.article-page,
-.article-page *,
-.article-main,
-.article-content {
-    max-width: 100%;
-}
-
-.article-content pre,
-.article-content code {
-    max-width: 100%;
-}
-
-.article-content pre {
-    overflow-x: auto;
-}
-
-</style>
-
-<!-- =========================================================
-     STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html#article",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html",
-    "headline": "Kirchhoff's Laws: KCL and KVL Explained with Examples",
-    "description": "Learn Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), including their principles, formulas, sign conventions, worked circuit examples and practical applications.",
-    "image": [
-        "https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
-    ],
-    "datePublished": "2026-09-13T00:00:00+06:00",
-    "dateModified": "2026-09-13T00:00:00+06:00",
-    "inLanguage": "en",
-    "isAccessibleForFree": true,
-    "articleSection": "Electrical Fundamentals",
-    "keywords": [
-        "Kirchhoff's laws",
-        "Kirchhoff's Current Law",
-        "KCL",
-        "Kirchhoff's Voltage Law",
-        "KVL",
-        "KCL and KVL",
-        "Kirchhoff law formula",
-        "circuit analysis",
-        "electrical circuits",
-        "electrical engineering"
-    ],
-    "author": {
-        "@type": "Person",
-        "@id": "https://electrical.prasunbarua.com/about.html#prasun-barua",
-        "name": "Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/about.html",
-        "jobTitle": "Senior Electrical Engineer"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "@id": "https://electrical.prasunbarua.com/#organization",
-        "name": "Electrical Engineering by Prasun Barua",
-        "url": "https://electrical.prasunbarua.com/"
-    },
-    "mainEntityOfPage": {
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html#webpage"
+        "name": "Kirchhoff's Laws: KCL and KVL Explained with Examples",
+        "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html",
+        "description": "A practical guide to Kirchhoff's Current Law and Kirchhoff's Voltage Law."
     }
-}
-</script>
+    </script>
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html#webpage",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html",
-    "name": "Kirchhoff's Laws: KCL and KVL Explained with Examples",
-    "description": "Learn Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL), including formulas, sign conventions, worked examples and practical circuit analysis.",
-    "isPartOf": {
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "WebSite",
-        "@id": "https://electrical.prasunbarua.com/#website"
-    },
-    "about": {
-        "@type": "Thing",
-        "name": "Kirchhoff's Laws"
-    },
-    "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://electrical.prasunbarua.com/assets/images/kirchhoffs-laws-kcl-kvl.jpeg",
-        "width": 1200,
-        "height": 675
-    },
-    "breadcrumb": {
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html#breadcrumb"
-    },
-    "inLanguage": "en",
-    "isAccessibleForFree": true,
-    "datePublished": "2026-09-13T00:00:00+06:00",
-    "dateModified": "2026-09-13T00:00:00+06:00"
-}
-</script>
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://electrical.prasunbarua.com/#website",
-    "url": "https://electrical.prasunbarua.com/",
-    "name": "Electrical Engineering by Prasun Barua",
-    "description": "Practical electrical engineering, renewable energy and solar PV knowledge by Prasun Barua.",
-    "inLanguage": "en",
-    "publisher": {
-        "@id": "https://electrical.prasunbarua.com/#organization"
+        "name": "Electrical Engineering",
+        "url": "https://electrical.prasunbarua.com/"
     }
-}
-</script>
+    </script>
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://electrical.prasunbarua.com/#organization",
-    "name": "Electrical Engineering by Prasun Barua",
-    "url": "https://electrical.prasunbarua.com/"
-}
-</script>
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html#breadcrumb",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://electrical.prasunbarua.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Electrical Fundamentals",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Kirchhoff's Laws: KCL and KVL",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
-        }
-    ]
-}
-</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Prasun Barua",
+        "url": "https://prasunbarua.com/"
+    }
+    </script>
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is Kirchhoff's Current Law (KCL)?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Kirchhoff's Current Law states that the algebraic sum of currents at a circuit node is zero. Equivalently, the total current entering a node equals the total current leaving the node."
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://electrical.prasunbarua.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Articles",
+                "item": "https://electrical.prasunbarua.com/articles/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Electrical Fundamentals",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Kirchhoff's Laws",
+                "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/kirchhoffs-laws-kcl-kvl.html"
             }
-        },
-        {
-            "@type": "Question",
-            "name": "What is Kirchhoff's Voltage Law (KVL)?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Kirchhoff's Voltage Law states that the algebraic sum of all voltage changes around any closed circuit loop is zero."
+        ]
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Kirchhoff's Current Law?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kirchhoff's Current Law states that the algebraic sum of currents at a node is zero. Equivalently, the total current entering a node equals the total current leaving the node."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Kirchhoff's Voltage Law?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kirchhoff's Voltage Law states that the algebraic sum of all voltage rises and voltage drops around a closed loop is zero."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between KCL and KVL?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "KCL applies to currents at a circuit node, while KVL applies to voltages around a closed circuit loop."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can KCL and KVL be used together?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. KCL and KVL are commonly used together with Ohm's law to solve complex electrical circuits using methods such as nodal analysis and mesh analysis."
+                }
             }
-        },
-        {
-            "@type": "Question",
-            "name": "What is the difference between KCL and KVL?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "KCL deals with current at circuit nodes and is based on conservation of charge. KVL deals with voltage around closed loops and is based on conservation of energy."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Can Kirchhoff's Laws be used with Ohm's Law?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Kirchhoff's Laws and Ohm's Law are commonly used together to determine unknown currents and voltages in electrical circuits."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What happens if a calculated Kirchhoff current is negative?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A negative current normally means that the actual current flows in the direction opposite to the assumed reference direction."
-            }
-        }
-    ]
-}
-</script>
+        ]
+    }
+    </script>
 
 </head>
 
+
 <body>
 
-<!-- =========================================================
-     HEADER
-========================================================== -->
+    <!-- =========================================================
+         SITE HEADER
+    ========================================================== -->
 
-<header class="site-header">
+    <header class="site-header">
 
-<div class="container header-inner">
+        <div class="container header-inner">
 
-    <a
-        href="/"
-        class="logo"
-        aria-label="Electrical Engineering by Prasun Barua home"
-    >
+            <a
+                href="/"
+                class="site-logo"
+                aria-label="Electrical Engineering Home"
+            >
+                Electrical Engineering
+            </a>
 
-        <span
-            class="logo-icon"
-            aria-hidden="true"
-        >
-            <span class="material-symbols-rounded">bolt</span>
-        </span>
-
-        <span class="logo-text">
-
-            <strong>Electrical Engineering</strong>
-
-            <small>by Prasun Barua</small>
-
-        </span>
-
-    </a>
-
-    <nav
-        class="main-nav"
-        aria-label="Main navigation"
-    >
-
-        <ul>
-
-            <li>
-                <a href="/">Home</a>
-            </li>
-
-            <li>
-                <a
-                    href="/articles/electrical-fundamentals/"
-                    class="active"
-                    aria-current="page"
-                >
-                    Articles
-                </a>
-            </li>
-
-            <li>
-                <a href="/about.html">About</a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</div>
-
-</header>
-
-<!-- =========================================================
-     MAIN ARTICLE
-========================================================== -->
-
-<main class="article-page">
-
-<div class="container">
-
-    <div class="article-layout">
-
-        <article
-            class="article-main"
-            itemscope
-            itemtype="https://schema.org/Article"
-        >
-
-            <!-- Breadcrumbs -->
 
             <nav
-                class="breadcrumbs"
-                aria-label="Breadcrumb"
+                class="main-nav"
+                aria-label="Main navigation"
             >
 
-                <a href="/">Home</a>
+                <ul>
 
-                <span aria-hidden="true">/</span>
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
 
-                <a href="/articles/electrical-fundamentals/">
-                    Electrical Fundamentals
-                </a>
+                    <li>
+                        <a href="/articles/">
+                            Articles
+                        </a>
+                    </li>
 
-                <span aria-hidden="true">/</span>
+                    <li>
+                        <a href="/about/">
+                            About
+                        </a>
+                    </li>
 
-                <span aria-current="page">
-                    Kirchhoff's Laws: KCL and KVL
-                </span>
+                </ul>
 
             </nav>
 
-            <!-- Article Header -->
+        </div>
 
-            <header class="article-header">
+    </header>
 
-                <div class="article-category-label">
-                    Electrical Fundamentals
-                </div>
 
-                <h1
-                    class="article-title"
-                    itemprop="headline"
-                >
-                    Kirchhoff's Laws:
-                    KCL and KVL Explained with Examples
-                </h1>
+    <!-- =========================================================
+         MAIN ARTICLE
+    ========================================================== -->
 
-                <p
-                    class="article-intro"
-                    itemprop="description"
-                >
-                    Learn Kirchhoff's Current Law (KCL) and
-                    Kirchhoff's Voltage Law (KVL), understand their
-                    connection to conservation laws, and apply them
-                    to electrical circuit analysis using practical
-                    worked examples.
-                </p>
+    <main class="article-page">
 
-                <div class="article-meta">
+        <div class="container">
 
-                    <span>
-                        By
-                        <a
-                            href="/about.html"
-                            itemprop="author"
-                        >
-                            Prasun Barua
+            <div class="article-layout">
+
+                <article class="article-main">
+
+
+                    <!-- =====================================================
+                         BREADCRUMBS
+                    ====================================================== -->
+
+                    <nav
+                        class="breadcrumbs"
+                        aria-label="Breadcrumb"
+                    >
+
+                        <a href="/">
+                            Home
                         </a>
-                    </span>
 
-                    <span aria-hidden="true">•</span>
+                        <span aria-hidden="true">
+                            /
+                        </span>
 
-                    <time
-                        datetime="2026-09-13T00:00:00+06:00"
-                        itemprop="datePublished"
-                    >
-                        Published September 13, 2026
-                    </time>
+                        <a href="/articles/">
+                            Articles
+                        </a>
 
-                    <span aria-hidden="true">•</span>
+                        <span aria-hidden="true">
+                            /
+                        </span>
 
-                    <time
-                        datetime="2026-09-13T00:00:00+06:00"
-                        itemprop="dateModified"
-                    >
-                        Updated September 13, 2026
-                    </time>
+                        <a href="/articles/electrical-fundamentals/">
+                            Electrical Fundamentals
+                        </a>
 
-                    <span aria-hidden="true">•</span>
+                        <span aria-hidden="true">
+                            /
+                        </span>
 
-                    <span>12 min read</span>
+                        <span aria-current="page">
+                            Kirchhoff's Laws
+                        </span>
 
-                </div>
+                    </nav>
 
-            </header>
 
-            <!-- Feature Image -->
+                    <!-- =====================================================
+                         ARTICLE HEADER
+                    ====================================================== -->
 
-            <figure class="article-feature-image">
+                    <header class="article-header">
 
-                <img
-                    src="/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
-                    alt="Kirchhoff's Current Law and Kirchhoff's Voltage Law used to analyze an electrical circuit"
-                    width="1200"
-                    height="675"
-                    fetchpriority="high"
-                    decoding="async"
-                    loading="eager"
-                    itemprop="image"
-                >
-
-                <figcaption class="image-caption">
-                    Kirchhoff's Laws provide fundamental
-                    relationships between currents at circuit
-                    nodes and voltages around closed loops.
-                </figcaption>
-
-            </figure>
-
-            <!-- =================================================
-                 ARTICLE CONTENT
-            ================================================== -->
-
-            <div
-                class="article-content"
-                itemprop="articleBody"
-            >
-
-                <p>
-                    <strong>Kirchhoff's Laws</strong> are
-                    fundamental principles used to analyze
-                    electrical circuits. They are especially useful
-                    when a circuit contains multiple branches,
-                    nodes, voltage sources or loops that cannot be
-                    analyzed conveniently using only Ohm's Law.
-                </p>
-
-                <p>
-                    The two laws are:
-                </p>
-
-                <ul>
-
-                    <li>
-                        <strong>Kirchhoff's Current Law (KCL)</strong>
-                        — applies to currents at a circuit node or
-                        junction.
-                    </li>
-
-                    <li>
-                        <strong>Kirchhoff's Voltage Law (KVL)</strong>
-                        — applies to voltage changes around a closed
-                        circuit loop.
-                    </li>
-
-                </ul>
-
-                <p>
-                    KCL is based on the conservation of electric
-                    charge, while KVL is based on the conservation
-                    of energy. Together with Ohm's Law, they provide
-                    a foundation for systematic electrical circuit
-                    analysis.
-                </p>
-
-                <aside
-                    class="article-note"
-                    aria-label="Quick engineering answer"
-                >
-                    <strong>Quick engineering answer:</strong>
-                    KCL states that the total current entering a
-                    node equals the total current leaving the node.
-                    KVL states that the algebraic sum of voltage
-                    changes around a closed loop is zero.
-                </aside>
-
-                <h2 id="what-are-kirchhoffs-laws">
-                    What Are Kirchhoff's Laws?
-                </h2>
-
-                <p>
-                    Kirchhoff's Laws were formulated by German
-                    physicist <strong>Gustav Kirchhoff</strong> and
-                    became fundamental tools for electrical circuit
-                    analysis.
-                </p>
-
-                <p>
-                    They are particularly useful for circuits that
-                    contain several branches and loops and cannot be
-                    reduced easily into simple series and parallel
-                    combinations.
-                </p>
-
-                <p>
-                    Kirchhoff's first law is the
-                    <strong>junction rule</strong>, now commonly
-                    called KCL. It relates the currents entering and
-                    leaving a node.
-                </p>
-
-                <p>
-                    Kirchhoff's second law is the
-                    <strong>loop rule</strong>, now commonly called
-                    KVL. It relates the voltage changes encountered
-                    while travelling around a closed path.
-                </p>
-
-                <p>
-                    These rules are applications of two fundamental
-                    conservation principles:
-                </p>
-
-                <ul>
-
-                    <li>
-                        Conservation of electric charge
-                    </li>
-
-                    <li>
-                        Conservation of energy
-                    </li>
-
-                </ul>
-
-                <h2 id="kirchhoffs-current-law">
-                    Kirchhoff's Current Law (KCL)
-                </h2>
-
-                <p>
-                    Kirchhoff's Current Law states that the algebraic
-                    sum of all currents at a circuit node is zero.
-                </p>
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        ∑ I = 0
-                    </div>
-
-                    <div class="formula-description">
-                        Algebraic sum of currents at a node
-                    </div>
-
-                </div>
-
-                <p>
-                    Equivalently, the total current entering a node
-                    must equal the total current leaving the node.
-                </p>
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        Σ I<sub>in</sub> = Σ I<sub>out</sub>
-                    </div>
-
-                    <div class="formula-description">
-                        Total current entering = total current leaving
-                    </div>
-
-                </div>
-
-                <h3>
-                    Physical basis of KCL
-                </h3>
-
-                <p>
-                    KCL follows from the conservation of electric
-                    charge. Charge cannot accumulate indefinitely at
-                    an ideal circuit node. Therefore, the amount of
-                    charge entering a junction must equal the amount
-                    leaving it.
-                </p>
-
-                <h3>
-                    KCL sign convention
-                </h3>
-
-                <p>
-                    A convenient convention is to consider currents
-                    entering the node as positive and currents
-                    leaving the node as negative.
-                </p>
-
-                <p>
-                    For example, if two currents enter a node and
-                    two currents leave it:
-                </p>
-
-                <div class="calculation">
-                    I<sub>1</sub> + I<sub>2</sub>
-                    − I<sub>3</sub> − I<sub>4</sub> = 0
-                </div>
-
-                <p>
-                    Therefore:
-                </p>
-
-                <div class="calculation">
-                    I<sub>1</sub> + I<sub>2</sub>
-                    = I<sub>3</sub> + I<sub>4</sub>
-                </div>
-
-                <h3>
-                    KCL worked example
-                </h3>
-
-                <div class="example-box">
-
-                    <h3>Example 1: Finding an unknown current</h3>
-
-                    <p>
-                        Suppose 5 A and 3 A enter a node, while
-                        4 A and an unknown current I leave the node.
-                        Determine I.
-                    </p>
-
-                    <div class="calculation">
-                        5 + 3 = 4 + I
-                    </div>
-
-                    <div class="calculation">
-                        I = 8 − 4
-                    </div>
-
-                    <div class="calculation">
-                        <strong>I = 4 A</strong>
-                    </div>
-
-                </div>
-
-                <h2 id="kirchhoffs-voltage-law">
-                    Kirchhoff's Voltage Law (KVL)
-                </h2>
-
-                <p>
-                    Kirchhoff's Voltage Law states that the algebraic
-                    sum of all voltage changes around any closed
-                    circuit loop is zero.
-                </p>
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        ∑ V = 0
-                    </div>
-
-                    <div class="formula-description">
-                        Algebraic sum of voltage changes around a closed loop
-                    </div>
-
-                </div>
-
-                <p>
-                    KVL is based on the conservation of energy. When
-                    a charge moves around a complete closed loop, the
-                    net change in electrical potential energy must be
-                    zero.
-                </p>
-
-                <h3>
-                    KVL sign convention
-                </h3>
-
-                <p>
-                    When applying KVL, choose a direction around the
-                    loop and keep the same direction throughout the
-                    calculation.
-                </p>
-
-                <p>
-                    A common passive sign convention is:
-                </p>
-
-                <ul>
-
-                    <li>
-                        Moving from negative to positive through a
-                        voltage source gives a voltage rise.
-                    </li>
-
-                    <li>
-                        Moving from positive to negative through a
-                        voltage source gives a voltage drop.
-                    </li>
-
-                    <li>
-                        Moving through a resistor in the direction of
-                        current gives a voltage drop of IR.
-                    </li>
-
-                    <li>
-                        Moving through a resistor opposite to the
-                        current direction gives a voltage rise of IR.
-                    </li>
-
-                </ul>
-
-                <h3>
-                    KVL worked example
-                </h3>
-
-                <div class="example-box">
-
-                    <h3>Example 2: Simple series circuit</h3>
-
-                    <p>
-                        Consider a circuit containing a 12 V source
-                        and two series resistors of 2 Ω and 4 Ω.
-                        Determine the circuit current.
-                    </p>
-
-                    <p>
-                        First calculate the total resistance:
-                    </p>
-
-                    <div class="calculation">
-                        R<sub>T</sub> = 2 + 4 = 6 Ω
-                    </div>
-
-                    <p>
-                        Using Ohm's Law:
-                    </p>
-
-                    <div class="calculation">
-                        I = V / R
-                    </div>
-
-                    <div class="calculation">
-                        I = 12 / 6 = 2 A
-                    </div>
-
-                    <p>
-                        Applying KVL around the loop:
-                    </p>
-
-                    <div class="calculation">
-                        +12 − (2 × 2) − (2 × 4) = 0
-                    </div>
-
-                    <div class="calculation">
-                        12 − 4 − 8 = 0
-                    </div>
-
-                    <div class="calculation">
-                        <strong>0 = 0 ✓</strong>
-                    </div>
-
-                </div>
-
-                <h2 id="kcl-vs-kvl">
-                    KCL vs KVL
-                </h2>
-
-                <div class="article-table-wrapper">
-
-                    <table class="article-table">
-
-                        <caption>
-                            Comparison of Kirchhoff's Current Law and
-                            Kirchhoff's Voltage Law
-                        </caption>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Feature</th>
-
-                                <th>KCL</th>
-
-                                <th>KVL</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>Full name</td>
-
-                                <td>Kirchhoff's Current Law</td>
-
-                                <td>Kirchhoff's Voltage Law</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Applies to</td>
-
-                                <td>Nodes or junctions</td>
-
-                                <td>Closed loops</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Primary quantity</td>
-
-                                <td>Current</td>
-
-                                <td>Voltage</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Conservation principle</td>
-
-                                <td>Conservation of charge</td>
-
-                                <td>Conservation of energy</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Basic equation</td>
-
-                                <td>ΣI = 0</td>
-
-                                <td>ΣV = 0</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Common use</td>
-
-                                <td>
-                                    Finding unknown branch currents
-                                </td>
-
-                                <td>
-                                    Finding unknown voltages and currents
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <h2 id="using-kcl-and-kvl-together">
-                    Using KCL and KVL Together
-                </h2>
-
-                <p>
-                    Many practical electrical circuits require both
-                    Kirchhoff's Laws. KCL can establish relationships
-                    between branch currents, while KVL provides
-                    relationships between voltages around individual
-                    loops.
-                </p>
-
-                <p>
-                    Ohm's Law is then used to relate voltage,
-                    resistance and current:
-                </p>
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        V = IR
-                    </div>
-
-                    <div class="formula-description">
-                        Ohm's Law
-                    </div>
-
-                </div>
-
-                <p>
-                    The three principles can therefore be combined
-                    to solve complex electrical networks
-                    systematically.
-                </p>
-
-                <h2 id="mesh-and-node-analysis">
-                    Relationship to Mesh and Node Analysis
-                </h2>
-
-                <p>
-                    Kirchhoff's Laws form the theoretical foundation
-                    of several circuit-analysis techniques.
-                </p>
-
-                <h3>
-                    Node-voltage analysis
-                </h3>
-
-                <p>
-                    Node-voltage analysis primarily applies KCL to
-                    determine unknown node voltages. Ohm's Law is
-                    used to express branch currents in terms of node
-                    voltages.
-                </p>
-
-                <h3>
-                    Mesh-current analysis
-                </h3>
-
-                <p>
-                    Mesh analysis primarily applies KVL to determine
-                    unknown mesh currents in planar circuits.
-                </p>
-
-                <p>
-                    These techniques are widely used in electrical
-                    engineering, electronics, power systems and
-                    control circuits.
-                </p>
-
-                <h2 id="practical-applications">
-                    Practical Applications of Kirchhoff's Laws
-                </h2>
-
-                <p>
-                    Kirchhoff's Laws are used in many areas of
-                    electrical and electronic engineering, including:
-                </p>
-
-                <ul>
-
-                    <li>
-                        DC circuit analysis
-                    </li>
-
-                    <li>
-                        AC circuit analysis
-                    </li>
-
-                    <li>
-                        Electronic circuit design
-                    </li>
-
-                    <li>
-                        Power-system analysis
-                    </li>
-
-                    <li>
-                        Solar PV system analysis
-                    </li>
-
-                    <li>
-                        Battery and energy-storage systems
-                    </li>
-
-                    <li>
-                        Control systems
-                    </li>
-
-                    <li>
-                        Electrical network modelling
-                    </li>
-
-                    <li>
-                        Fault and troubleshooting analysis
-                    </li>
-
-                </ul>
-
-                <h2 id="common-mistakes">
-                    Common Mistakes When Applying Kirchhoff's Laws
-                </h2>
-
-                <p>
-                    Several mistakes can lead to incorrect circuit
-                    equations. The most common include:
-                </p>
-
-                <ul>
-
-                    <li>
-                        Changing the assumed current direction during
-                        the calculation.
-                    </li>
-
-                    <li>
-                        Mixing voltage-rise and voltage-drop
-                        conventions.
-                    </li>
-
-                    <li>
-                        Forgetting the polarity of voltage sources.
-                    </li>
-
-                    <li>
-                        Applying KVL to a path that is not a closed
-                        loop.
-                    </li>
-
-                    <li>
-                        Writing KCL without maintaining a consistent
-                        current sign convention.
-                    </li>
-
-                    <li>
-                        Forgetting that a negative calculated current
-                        simply indicates the actual direction is
-                        opposite to the assumed direction.
-                    </li>
-
-                </ul>
-
-                <aside
-                    class="article-note"
-                    aria-label="Engineering tip"
-                >
-                    <strong>Engineering tip:</strong>
-                    Choose current directions and loop directions
-                    arbitrarily at the beginning, but keep your
-                    assumptions and sign conventions consistent
-                    throughout the calculation.
-                </aside>
-
-                <h2 id="key-takeaways">
-                    Key Takeaways
-                </h2>
-
-                <ul>
-
-                    <li>
-                        <strong>KCL:</strong>
-                        The algebraic sum of currents at a node is
-                        zero.
-                    </li>
-
-                    <li>
-                        <strong>KVL:</strong>
-                        The algebraic sum of voltage changes around a
-                        closed loop is zero.
-                    </li>
-
-                    <li>
-                        KCL follows from conservation of electric
-                        charge.
-                    </li>
-
-                    <li>
-                        KVL follows from conservation of energy.
-                    </li>
-
-                    <li>
-                        Kirchhoff's Laws are often used together with
-                        Ohm's Law.
-                    </li>
-
-                    <li>
-                        Negative calculated currents indicate that the
-                        actual current direction is opposite to the
-                        assumed reference direction.
-                    </li>
-
-                </ul>
-
-                <h2 id="faq">
-                    Frequently Asked Questions
-                </h2>
-
-                <h3>
-                    What is Kirchhoff's Current Law (KCL)?
-                </h3>
-
-                <p>
-                    Kirchhoff's Current Law states that the algebraic
-                    sum of currents at a circuit node is zero.
-                    Equivalently, the total current entering a node
-                    equals the total current leaving the node.
-                </p>
-
-                <h3>
-                    What is Kirchhoff's Voltage Law (KVL)?
-                </h3>
-
-                <p>
-                    Kirchhoff's Voltage Law states that the algebraic
-                    sum of all voltage changes around any closed
-                    circuit loop is zero.
-                </p>
-
-                <h3>
-                    What is the difference between KCL and KVL?
-                </h3>
-
-                <p>
-                    KCL deals with current at circuit nodes and is
-                    based on conservation of charge. KVL deals with
-                    voltage around closed loops and is based on
-                    conservation of energy.
-                </p>
-
-                <h3>
-                    Can Kirchhoff's Laws be used with Ohm's Law?
-                </h3>
-
-                <p>
-                    Yes. Kirchhoff's Laws and Ohm's Law are commonly
-                    used together to determine unknown currents and
-                    voltages in electrical circuits.
-                </p>
-
-                <h3>
-                    What happens if a calculated Kirchhoff current is
-                    negative?
-                </h3>
-
-                <p>
-                    A negative current normally means that the actual
-                    current flows in the direction opposite to the
-                    assumed reference direction.
-                </p>
-
-            </div>
-
-            <!-- SHARE -->
-
-            <section
-                class="article-share"
-                aria-label="Share this article"
-            >
-
-                <div class="article-share-label">
-                    Share this article
-                </div>
-
-                <button
-                    type="button"
-                    class="share-button"
-                    onclick="shareArticle()"
-                    aria-label="Share this article"
-                >
-                    Share
-                </button>
-
-                <button
-                    type="button"
-                    class="share-button"
-                    onclick="copyArticleLink()"
-                    aria-label="Copy article link"
-                >
-                    Copy link
-                </button>
-
-            </section>
-
-            <!-- AUTHOR -->
-
-            <footer class="article-footer">
-
-                <div class="article-author">
-
-                    <div
-                        class="author-mini-avatar"
-                        aria-hidden="true"
-                    >
-                        PB
-                    </div>
-
-                    <div>
-
-                        <div class="article-author-label">
-                            Written by
+                        <div class="article-category">
+                            Electrical Fundamentals
                         </div>
 
-                        <h3>
-                            Prasun Barua
-                        </h3>
+                        <h1 class="article-title">
+                            Kirchhoff's Laws: KCL and KVL Explained with Examples
+                        </h1>
+
+                        <div class="article-meta">
+
+                            <span>
+                                By Prasun Barua
+                            </span>
+
+                            <span>
+                                Published September 13, 2026
+                            </span>
+
+                            <span>
+                                Updated September 13, 2026
+                            </span>
+
+                        </div>
+
+                    </header>
+
+
+                    <!-- =====================================================
+                         FEATURE IMAGE
+                    ====================================================== -->
+
+                    <img
+                        class="article-featured-image"
+                        src="/assets/images/kirchhoffs-laws-kcl-kvl.jpeg"
+                        alt="Kirchhoff's Laws showing Kirchhoff's Current Law KCL and Kirchhoff's Voltage Law KVL in electrical circuits"
+                        width="1200"
+                        height="675"
+                        loading="eager"
+                        decoding="async"
+                    >
+
+
+                    <!-- =====================================================
+                         ARTICLE CONTENT
+                    ====================================================== -->
+
+                    <div class="article-content">
+
+
+                        <!-- =================================================
+                             INTRODUCTION
+                        ================================================== -->
 
                         <p>
-                            Senior Electrical Engineer specializing
-                            in electrical engineering, solar PV
-                            systems, renewable energy and practical
-                            engineering applications.
+                            Kirchhoff's Laws are two of the most important principles
+                            used to analyze electrical circuits. They provide a
+                            systematic way to determine unknown currents and voltages
+                            in circuits ranging from simple resistor networks to
+                            complex power and electronic systems.
                         </p>
 
-                        <a href="/about.html">
-                            About Prasun Barua →
-                        </a>
+
+                        <p>
+                            The two laws are known as
+                            <strong>Kirchhoff's Current Law (KCL)</strong> and
+                            <strong>Kirchhoff's Voltage Law (KVL)</strong>.
+                            KCL is based on the conservation of electric charge,
+                            while KVL is based on the conservation of energy.
+                        </p>
+
+
+                        <!-- =================================================
+                             QUICK ANSWER
+                        ================================================== -->
+
+                        <div class="quick-answer">
+
+                            <strong>
+                                Quick answer
+                            </strong>
+
+                            <p>
+                                <strong>KCL:</strong>
+                                The total current entering a node equals the total
+                                current leaving the node.
+                            </p>
+
+                            <p>
+                                <strong>KVL:</strong>
+                                The algebraic sum of all voltage rises and voltage
+                                drops around a closed loop is zero.
+                            </p>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             WHAT ARE KIRCHHOFF'S LAWS?
+                        ================================================== -->
+
+                        <h2>
+                            What Are Kirchhoff's Laws?
+                        </h2>
+
+
+                        <p>
+                            German physicist Gustav Kirchhoff developed the circuit
+                            laws in the nineteenth century. Today, the laws are
+                            fundamental tools in electrical engineering because they
+                            remain valid for a broad range of lumped electrical
+                            circuits.
+                        </p>
+
+
+                        <p>
+                            Together with <strong>Ohm's law</strong>,
+                            Kirchhoff's Laws allow engineers and students to solve
+                            circuits whose current and voltage relationships cannot
+                            be determined using a single resistor equation.
+                        </p>
+
+
+                        <!-- =================================================
+                             KCL
+                        ================================================== -->
+
+                        <h2>
+                            Kirchhoff's Current Law (KCL)
+                        </h2>
+
+
+                        <p>
+                            Kirchhoff's Current Law states that the algebraic sum of
+                            all currents at a circuit node is zero.
+                        </p>
+
+
+                        <div class="formula-box">
+
+                            <div class="formula">
+                                ∑ I = 0
+                            </div>
+
+                            <div class="formula-note">
+                                Algebraic sum of currents at a node
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            An equivalent and often more intuitive form is:
+                        </p>
+
+
+                        <div class="formula-box">
+
+                            <div class="formula">
+                                Σ I<sub>in</sub> = Σ I<sub>out</sub>
+                            </div>
+
+                            <div class="formula-note">
+                                Total current entering a node equals total current leaving it
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Why Does KCL Work?
+                        </h3>
+
+
+                        <p>
+                            KCL follows from the principle of conservation of electric
+                            charge. Charge cannot accumulate indefinitely at an ideal
+                            circuit node, so the current flowing into the node must be
+                            balanced by the current flowing out.
+                        </p>
+
+
+                        <div class="sign-convention">
+
+                            <h3>
+                                KCL Sign Convention
+                            </h3>
+
+                            <p>
+                                When applying KCL, choose a current sign convention and
+                                use it consistently. A common convention is:
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Currents entering the node are positive.
+                                </li>
+
+                                <li>
+                                    Currents leaving the node are negative.
+                                </li>
+                            </ul>
+
+                            <p>
+                                The reverse convention is also valid. The important
+                                point is consistency.
+                            </p>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             KCL EXAMPLE
+                        ================================================== -->
+
+                        <h3>
+                            KCL Worked Example
+                        </h3>
+
+
+                        <p>
+                            Suppose a node has two currents entering the node:
+                            5 A and 3 A. One current of 4 A leaves the node, while
+                            the remaining current is unknown.
+                        </p>
+
+
+                        <div class="calculation">
+
+                            <p class="equation-line">
+                                I<sub>in</sub> = I<sub>out</sub>
+                            </p>
+
+                            <p class="equation-line">
+                                5 + 3 = 4 + I
+                            </p>
+
+                            <p class="equation-line">
+                                8 = 4 + I
+                            </p>
+
+                            <p class="equation-line">
+                                I = 4 A
+                            </p>
+
+                        </div>
+
+
+                        <p>
+                            Therefore, the unknown current leaving the node is
+                            <strong>4 A</strong>.
+                        </p>
+
+
+                        <!-- =================================================
+                             PRACTICAL KCL
+                        ================================================== -->
+
+                        <h3>
+                            Practical Meaning of KCL
+                        </h3>
+
+
+                        <p>
+                            In practical electrical networks, KCL is used whenever
+                            current splits between branches. It is particularly useful
+                            for parallel circuits, distribution networks, electronic
+                            circuits, power converters, and nodal analysis.
+                        </p>
+
+
+                        <!-- =================================================
+                             KVL
+                        ================================================== -->
+
+                        <h2>
+                            Kirchhoff's Voltage Law (KVL)
+                        </h2>
+
+
+                        <p>
+                            Kirchhoff's Voltage Law states that the algebraic sum of
+                            all voltage rises and voltage drops around any closed loop
+                            is zero.
+                        </p>
+
+
+                        <div class="formula-box">
+
+                            <div class="formula">
+                                ∑ V = 0
+                            </div>
+
+                            <div class="formula-note">
+                                Algebraic sum of voltages around a closed loop
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            In other words, the total voltage rise supplied by sources
+                            must equal the total voltage drop across the circuit
+                            elements in a closed loop.
+                        </p>
+
+
+                        <h3>
+                            Why Does KVL Work?
+                        </h3>
+
+
+                        <p>
+                            KVL is based on conservation of energy. When a charge
+                            travels around a complete closed path and returns to its
+                            starting point, its net change in electrical potential
+                            energy must be zero.
+                        </p>
+
+
+                        <div class="sign-convention">
+
+                            <h3>
+                                KVL Sign Convention
+                            </h3>
+
+                            <p>
+                                A voltage source or component can be treated as a
+                                voltage rise or a voltage drop depending on the
+                                direction in which the loop is traversed.
+                            </p>
+
+                            <ul>
+
+                                <li>
+                                    Going from negative to positive across a source
+                                    is commonly treated as a positive voltage rise.
+                                </li>
+
+                                <li>
+                                    Going from positive to negative across a source
+                                    is commonly treated as a voltage drop.
+                                </li>
+
+                                <li>
+                                    Across a resistor in the direction of current,
+                                    the voltage change is commonly treated as a drop.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             KVL EXAMPLE
+                        ================================================== -->
+
+                        <h3>
+                            KVL Worked Example
+                        </h3>
+
+
+                        <p>
+                            Consider a simple loop containing a 12 V source and two
+                            series resistors of 2 Ω and 4 Ω.
+                        </p>
+
+
+                        <h3>
+                            Step 1: Find the Total Resistance
+                        </h3>
+
+
+                        <div class="calculation">
+
+                            <p class="equation-line">
+                                R<sub>T</sub> = R<sub>1</sub> + R<sub>2</sub>
+                            </p>
+
+                            <p class="equation-line">
+                                R<sub>T</sub> = 2 + 4
+                            </p>
+
+                            <p class="equation-line">
+                                R<sub>T</sub> = 6 Ω
+                            </p>
+
+                        </div>
+
+
+                        <h3>
+                            Step 2: Calculate the Circuit Current
+                        </h3>
+
+
+                        <p>
+                            Using Ohm's law:
+                        </p>
+
+
+                        <div class="formula-box">
+
+                            <div class="formula">
+                                V = IR
+                            </div>
+
+                        </div>
+
+
+                        <div class="calculation">
+
+                            <p class="equation-line">
+                                I = V / R
+                            </p>
+
+                            <p class="equation-line">
+                                I = 12 / 6
+                            </p>
+
+                            <p class="equation-line">
+                                I = 2 A
+                            </p>
+
+                        </div>
+
+
+                        <h3>
+                            Step 3: Apply KVL
+                        </h3>
+
+
+                        <p>
+                            Going around the loop, the source voltage must equal the
+                            sum of the resistor voltage drops:
+                        </p>
+
+
+                        <div class="calculation">
+
+                            <p class="equation-line">
+                                +12 − (2 × 2) − (2 × 4) = 0
+                            </p>
+
+                            <p class="equation-line">
+                                +12 − 4 − 8 = 0
+                            </p>
+
+                            <p class="equation-line">
+                                0 = 0
+                            </p>
+
+                        </div>
+
+
+                        <p>
+                            The result confirms Kirchhoff's Voltage Law for the loop.
+                        </p>
+
+
+                        <!-- =================================================
+                             KCL VS KVL
+                        ================================================== -->
+
+                        <h2>
+                            KCL vs KVL
+                        </h2>
+
+
+                        <div class="article-table-wrapper">
+
+                            <table class="article-table">
+
+                                <thead>
+
+                                    <tr>
+                                        <th>
+                                            Feature
+                                        </th>
+
+                                        <th>
+                                            KCL
+                                        </th>
+
+                                        <th>
+                                            KVL
+                                        </th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td>
+                                            Full name
+                                        </td>
+
+                                        <td>
+                                            Kirchhoff's Current Law
+                                        </td>
+
+                                        <td>
+                                            Kirchhoff's Voltage Law
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            Main quantity
+                                        </td>
+
+                                        <td>
+                                            Current
+                                        </td>
+
+                                        <td>
+                                            Voltage
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            Applied to
+                                        </td>
+
+                                        <td>
+                                            A node or junction
+                                        </td>
+
+                                        <td>
+                                            A closed loop
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            Fundamental principle
+                                        </td>
+
+                                        <td>
+                                            Conservation of charge
+                                        </td>
+
+                                        <td>
+                                            Conservation of energy
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            Basic equation
+                                        </td>
+
+                                        <td>
+                                            ΣI = 0
+                                        </td>
+
+                                        <td>
+                                            ΣV = 0
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            Common analysis method
+                                        </td>
+
+                                        <td>
+                                            Nodal analysis
+                                        </td>
+
+                                        <td>
+                                            Mesh analysis
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             USING KCL AND KVL TOGETHER
+                        ================================================== -->
+
+                        <h2>
+                            Using KCL and KVL Together
+                        </h2>
+
+
+                        <p>
+                            KCL and KVL are not competing methods. In many practical
+                            circuit problems they are used together.
+                        </p>
+
+
+                        <p>
+                            For example, KCL can be used to establish the relationships
+                            between branch currents at circuit nodes, while KVL can be
+                            used to establish voltage relationships around loops.
+                        </p>
+
+
+                        <p>
+                            With Ohm's law, these relationships can be converted into
+                            simultaneous equations and solved for the unknown circuit
+                            quantities.
+                        </p>
+
+
+                        <div class="formula-box">
+
+                            <div class="formula">
+                                V = IR
+                            </div>
+
+                            <div class="formula-note">
+                                Ohm's law links voltage, current, and resistance
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             NODAL ANALYSIS
+                        ================================================== -->
+
+                        <h2>
+                            Relationship to Nodal Analysis
+                        </h2>
+
+
+                        <p>
+                            <strong>Nodal analysis</strong> primarily uses KCL.
+                            The voltage at each important circuit node is selected as
+                            an unknown, and current equations are written according to
+                            KCL.
+                        </p>
+
+
+                        <p>
+                            The current in each branch can then be expressed using
+                            Ohm's law.
+                        </p>
+
+
+                        <p>
+                            For example, if a resistor connects two nodes with voltages
+                            V<sub>1</sub> and V<sub>2</sub>, its current can be written
+                            as:
+                        </p>
+
+
+                        <div class="formula-box">
+
+                            <div class="formula">
+                                I = (V<sub>1</sub> − V<sub>2</sub>) / R
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             MESH ANALYSIS
+                        ================================================== -->
+
+                        <h2>
+                            Relationship to Mesh Analysis
+                        </h2>
+
+
+                        <p>
+                            <strong>Mesh analysis</strong> primarily uses KVL.
+                            A current is assigned to each independent mesh, and
+                            voltage equations are written around each mesh.
+                        </p>
+
+
+                        <p>
+                            The resulting simultaneous equations can be solved for
+                            the unknown mesh currents.
+                        </p>
+
+
+                        <!-- =================================================
+                             PRACTICAL APPLICATIONS
+                        ================================================== -->
+
+                        <h2>
+                            Practical Applications of Kirchhoff's Laws
+                        </h2>
+
+
+                        <p>
+                            Kirchhoff's Laws are used throughout electrical and
+                            electronic engineering. Typical applications include:
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                Analysis of DC resistor circuits.
+                            </li>
+
+                            <li>
+                                AC circuit analysis.
+                            </li>
+
+                            <li>
+                                Power distribution networks.
+                            </li>
+
+                            <li>
+                                Transformer and equivalent-circuit analysis.
+                            </li>
+
+                            <li>
+                                Electronic amplifier circuits.
+                            </li>
+
+                            <li>
+                                Analog and digital circuit design.
+                            </li>
+
+                            <li>
+                                Solar PV and battery systems.
+                            </li>
+
+                            <li>
+                                Electrical control systems.
+                            </li>
+
+                            <li>
+                                Power converters and inverter circuits.
+                            </li>
+
+                            <li>
+                                Network and communication circuits.
+                            </li>
+
+                        </ul>
+
+
+                        <!-- =================================================
+                             COMMON MISTAKES
+                        ================================================== -->
+
+                        <h2>
+                            Common Mistakes When Applying KCL and KVL
+                        </h2>
+
+
+                        <h3>
+                            1. Mixing Sign Conventions
+                        </h3>
+
+
+                        <p>
+                            One of the most common errors is changing the sign
+                            convention halfway through the calculation. Select a
+                            current or loop direction and maintain it consistently.
+                        </p>
+
+
+                        <h3>
+                            2. Forgetting Voltage Polarity
+                        </h3>
+
+
+                        <p>
+                            When applying KVL, carefully identify the polarity of each
+                            voltage source and the voltage drop across each component.
+                        </p>
+
+
+                        <h3>
+                            3. Incorrect Current Direction
+                        </h3>
+
+
+                        <p>
+                            The assumed current direction does not have to be correct
+                            initially. If the calculated current is negative, it simply
+                            means that the actual current flows opposite to the assumed
+                            direction.
+                        </p>
+
+
+                        <h3>
+                            4. Applying KCL to the Wrong Point
+                        </h3>
+
+
+                        <p>
+                            KCL is applied at a node or junction. Be careful not to
+                            treat an entire branch or loop as a single node unless
+                            the circuit topology justifies it.
+                        </p>
+
+
+                        <h3>
+                            5. Algebra Errors
+                        </h3>
+
+
+                        <p>
+                            Many circuit-analysis mistakes are actually algebraic
+                            mistakes. After obtaining a solution, substitute the
+                            values back into the original KCL or KVL equation to
+                            verify the result.
+                        </p>
+
+
+                        <!-- =================================================
+                             KEY TAKEAWAYS
+                        ================================================== -->
+
+                        <h2>
+                            Key Takeaways
+                        </h2>
+
+
+                        <div class="takeaways">
+
+                            <ul>
+
+                                <li>
+                                    <strong>KCL</strong> states that the algebraic sum
+                                    of currents at a node is zero.
+                                </li>
+
+                                <li>
+                                    <strong>KVL</strong> states that the algebraic sum
+                                    of voltages around a closed loop is zero.
+                                </li>
+
+                                <li>
+                                    KCL is based on conservation of electric charge.
+                                </li>
+
+                                <li>
+                                    KVL is based on conservation of energy.
+                                </li>
+
+                                <li>
+                                    Both laws are commonly used with Ohm's law.
+                                </li>
+
+                                <li>
+                                    KCL is fundamental to nodal analysis.
+                                </li>
+
+                                <li>
+                                    KVL is fundamental to mesh analysis.
+                                </li>
+
+                                <li>
+                                    Correct sign conventions are essential for
+                                    obtaining the correct result.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             FAQ
+                        ================================================== -->
+
+                        <section class="faq-section">
+
+                            <h2>
+                                Frequently Asked Questions
+                            </h2>
+
+
+                            <div class="faq-item">
+
+                                <h3 class="faq-question">
+                                    What is Kirchhoff's Current Law?
+                                </h3>
+
+                                <p class="faq-answer">
+                                    Kirchhoff's Current Law states that the algebraic
+                                    sum of currents at a node is zero. Equivalently,
+                                    the total current entering a node equals the total
+                                    current leaving the node.
+                                </p>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <h3 class="faq-question">
+                                    What is Kirchhoff's Voltage Law?
+                                </h3>
+
+                                <p class="faq-answer">
+                                    Kirchhoff's Voltage Law states that the algebraic
+                                    sum of all voltage rises and voltage drops around
+                                    a closed loop is zero.
+                                </p>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <h3 class="faq-question">
+                                    What is the difference between KCL and KVL?
+                                </h3>
+
+                                <p class="faq-answer">
+                                    KCL applies to currents at a circuit node, while
+                                    KVL applies to voltages around a closed circuit
+                                    loop.
+                                </p>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <h3 class="faq-question">
+                                    Can KCL and KVL be used together?
+                                </h3>
+
+                                <p class="faq-answer">
+                                    Yes. KCL and KVL are commonly used together with
+                                    Ohm's law to solve complex electrical circuits
+                                    using methods such as nodal analysis and mesh
+                                    analysis.
+                                </p>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <h3 class="faq-question">
+                                    What happens if a calculated current is negative?
+                                </h3>
+
+                                <p class="faq-answer">
+                                    A negative current normally means that the actual
+                                    current flows in the opposite direction from the
+                                    direction initially assumed during the analysis.
+                                </p>
+
+                            </div>
+
+
+                        </section>
+
+
+                        <!-- =================================================
+                             SHARE
+                        ================================================== -->
+
+                        <section class="article-share">
+
+                            <h2 class="article-share-title">
+                                Share this article
+                            </h2>
+
+
+                            <div class="share-buttons">
+
+                                <button
+                                    type="button"
+                                    class="share-btn"
+                                    onclick="shareArticle()"
+                                >
+                                    Share
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="share-btn"
+                                    onclick="copyArticleLink()"
+                                >
+                                    Copy Link
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             AUTHOR
+                        ================================================== -->
+
+                        <footer class="article-author">
+
+                            <div class="article-author-info">
+
+                                <p class="article-author-name">
+                                    Prasun Barua
+                                </p>
+
+                                <p class="article-author-description">
+                                    Electrical Engineer and Solar PV Specialist with
+                                    professional experience in electrical design,
+                                    renewable energy systems, project engineering,
+                                    and power systems.
+                                </p>
+
+                            </div>
+
+                        </footer>
+
 
                     </div>
-
-                </div>
-
-            </footer>
-
-        </article>
-
-    </div>
-
-</div>
-
-</main>
-
-<script>
-
-function shareArticle() {
-
-    const shareData = {
-        title: document.title,
-        text: "Kirchhoff's Laws: KCL and KVL Explained with Examples",
-        url: window.location.href
-    };
-
-    if (
-        navigator.share &&
-        typeof navigator.share === "function"
-    ) {
-
-        navigator.share(shareData).catch(function () {});
-
-    } else {
-
-        copyArticleLink();
-
-    }
-
-}
+                    <!-- /.article-content -->
 
 
-function copyArticleLink() {
+                </article>
+                <!-- /.article-main -->
 
-    const url = window.location.href;
 
-    if (
-        navigator.clipboard &&
-        typeof navigator.clipboard.writeText === "function"
-    ) {
+            </div>
+            <!-- /.article-layout -->
 
-        navigator.clipboard.writeText(url).then(function () {
 
-            alert("Article link copied.");
+        </div>
+        <!-- /.container -->
 
-        }).catch(function () {
+
+    </main>
+
+
+    <!-- =========================================================
+         SHARE / COPY JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        function shareArticle() {
+
+            const shareData = {
+                title: document.title,
+                text: "Kirchhoff's Laws: KCL and KVL Explained with Examples",
+                url: window.location.href
+            };
+
+
+            if (
+                navigator.share &&
+                typeof navigator.share === "function"
+            ) {
+
+                navigator.share(shareData)
+                    .catch(function () {
+                        /* User cancelled the share dialog. */
+                    });
+
+                return;
+            }
+
+
+            copyArticleLink();
+
+        }
+
+
+        function copyArticleLink() {
+
+            const url = window.location.href;
+
+
+            if (
+                navigator.clipboard &&
+                typeof navigator.clipboard.writeText === "function"
+            ) {
+
+                navigator.clipboard.writeText(url)
+                    .then(function () {
+
+                        showCopyMessage();
+
+                    })
+                    .catch(function () {
+
+                        fallbackCopy(url);
+
+                    });
+
+                return;
+            }
+
 
             fallbackCopy(url);
 
-        });
-
-    } else {
-
-        fallbackCopy(url);
-
-    }
-
-}
+        }
 
 
-function fallbackCopy(text) {
+        function fallbackCopy(text) {
 
-    const textarea = document.createElement("textarea");
+            const textArea = document.createElement("textarea");
 
-    textarea.value = text;
+            textArea.value = text;
 
-    textarea.setAttribute("readonly", "");
+            textArea.setAttribute("readonly", "");
 
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
+            textArea.style.position = "fixed";
+            textArea.style.top = "0";
+            textArea.style.left = "-9999px";
 
-    document.body.appendChild(textarea);
+            document.body.appendChild(textArea);
 
-    textarea.select();
+            textArea.focus();
+            textArea.select();
 
-    try {
 
-        document.execCommand("copy");
+            try {
 
-        alert("Article link copied.");
+                document.execCommand("copy");
 
-    } catch (error) {
+                showCopyMessage();
 
-        alert("Unable to copy the link.");
+            } catch (error) {
 
-    }
+                window.prompt(
+                    "Copy this page URL:",
+                    text
+                );
 
-    document.body.removeChild(textarea);
+            }
 
-}
 
-</script>
+            document.body.removeChild(textArea);
+
+        }
+
+
+        function showCopyMessage() {
+
+            const button = document.querySelector(
+                ".article-share .share-btn:last-child"
+            );
+
+
+            if (!button) {
+                return;
+            }
+
+
+            const originalText = button.textContent;
+
+            button.textContent = "Copied!";
+
+
+            window.setTimeout(function () {
+
+                button.textContent = originalText;
+
+            }, 1800);
+
+        }
+
+    </script>
+
 
 </body>
 
