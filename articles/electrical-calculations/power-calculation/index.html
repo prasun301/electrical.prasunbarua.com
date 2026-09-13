@@ -1,463 +1,329 @@
-<!-- =========================================================
-     1. CORE DOCUMENT
-========================================================== -->
-
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="referrer"
-    content="strict-origin-when-cross-origin"
->
-
-<meta
-    name="robots"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
->
-
-<meta
-    name="author"
-    content="Prasun Barua"
->
-
-<meta
-    name="description"
-    content="Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, worked examples, power factor and engineering applications."
->
-
-<meta
-    name="keywords"
-    content="electrical power calculation, electrical power formula, power calculation formula, calculate electrical power, P=VI, single phase power, three phase power, power factor, electrical engineering"
->
-
-<meta
-    name="theme-color"
-    content="#0b5ed7"
->
-
-
-<!-- =========================================================
-     2. TITLE
-========================================================== -->
-
-<title>
-    How to Calculate Electrical Power: Formulas, Examples &amp; Guide | Electrical Engineering
-</title>
-
-
-<!-- =========================================================
-     3. CANONICAL
-========================================================== -->
-
-<link
-    rel="canonical"
-    href="https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
->
-
-
-<!-- =========================================================
-     4. OPEN GRAPH
-========================================================== -->
-
-<meta
-    property="og:type"
-    content="article"
->
-
-<meta
-    property="og:title"
-    content="How to Calculate Electrical Power: Formulas, Examples &amp; Guide"
->
-
-<meta
-    property="og:description"
-    content="Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, worked examples, power factor and engineering applications."
->
-
-<meta
-    property="og:url"
-    content="https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
->
-
-<meta
-    property="og:site_name"
-    content="Electrical Engineering"
->
-
-<meta
-    property="og:locale"
-    content="en_US"
->
-
-<meta
-    property="og:image"
-    content="https://electrical.prasunbarua.com/assets/images/electrical-power-calculation-overview.jpeg"
->
-
-<meta
-    property="og:image:width"
-    content="1200"
->
-
-<meta
-    property="og:image:height"
-    content="675"
->
-
-<meta
-    property="og:image:alt"
-    content="Electrical power calculation formulas for DC, single-phase and three-phase systems"
->
-
-<meta
-    property="article:published_time"
-    content="2026-08-27T00:00:00+06:00"
->
-
-<meta
-    property="article:modified_time"
-    content="2026-09-13T00:00:00+06:00"
->
-
-<meta
-    property="article:section"
-    content="Electrical Calculations"
->
-
-<meta
-    property="article:author"
-    content="Prasun Barua"
->
-
-
-<!-- =========================================================
-     5. TWITTER / X
-========================================================== -->
-
-<meta
-    name="twitter:card"
-    content="summary_large_image"
->
-
-<meta
-    name="twitter:title"
-    content="How to Calculate Electrical Power: Formulas, Examples &amp; Guide"
->
-
-<meta
-    name="twitter:description"
-    content="Learn practical electrical power calculation formulas for DC, single-phase and three-phase AC systems with worked engineering examples."
->
-
-<meta
-    name="twitter:image"
-    content="https://electrical.prasunbarua.com/assets/images/electrical-power-calculation-overview.jpeg"
->
-
-<meta
-    name="twitter:image:alt"
-    content="Electrical power calculation formulas and engineering examples"
->
-
-
-<!-- =========================================================
-     6. STYLESHEET
-========================================================== -->
-
-<link
-    rel="stylesheet"
-    href="/assets/css/style.css"
->
-
-
-<!-- =========================================================
-     7. ARTICLE IMAGE STYLES
-========================================================== -->
-
-<style>
-
-    .article-inline-image {
-        margin: 2rem auto;
-        max-width: 1200px;
-        text-align: center;
-    }
-
-    .article-inline-image img {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-width: 1200px;
-        margin: 0 auto;
-        border-radius: 8px;
-    }
-
-    .image-caption {
-        margin-top: 0.75rem;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        color: #666;
-        text-align: center;
-    }
-
-    .formula-box {
-        margin: 1.5rem 0;
-        padding: 1.25rem;
-        background: #f5f8fc;
-        border-left: 4px solid #0b5ed7;
-        border-radius: 6px;
-        overflow-x: auto;
-    }
-
-    .formula {
-        font-size: 1.15rem;
-        font-weight: 600;
-        text-align: center;
-        margin: 0.75rem 0;
-    }
-
-    .calculation-box {
-        margin: 1.5rem 0;
-        padding: 1.25rem;
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-    }
-
-    .table-responsive {
-        width: 100%;
-        overflow-x: auto;
-        margin: 1.5rem 0;
-    }
-
-    .table-responsive table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .table-responsive th,
-    .table-responsive td {
-        padding: 0.75rem;
-        border: 1px solid #dee2e6;
-        text-align: left;
-        vertical-align: top;
-    }
-
-    .table-responsive th {
-        background: #f1f5f9;
-        font-weight: 600;
-    }
-
-    .article-note {
-        margin: 1.5rem 0;
-        padding: 1rem 1.25rem;
-        background: #eef6ff;
-        border-left: 4px solid #0b5ed7;
-        border-radius: 5px;
-    }
-
-</style>
-
-
-<!-- =========================================================
-     8. ARTICLE STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/#article",
-    "headline": "How to Calculate Electrical Power: Formulas, Examples & Guide",
-    "description": "Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, worked examples, power factor and engineering applications.",
-    "image": [
-        "https://electrical.prasunbarua.com/assets/images/electrical-power-calculation-overview.jpeg",
-        "https://electrical.prasunbarua.com/assets/images/basic-electrical-power-formula-pvi.jpeg",
-        "https://electrical.prasunbarua.com/assets/images/single-phase-ac-power-calculation.jpeg",
-        "https://electrical.prasunbarua.com/assets/images/three-phase-ac-power-calculation.jpeg"
-    ],
-    "author": {
-        "@type": "Person",
-        "name": "Prasun Barua",
-        "url": "https://prasunbarua.com/"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Electrical Engineering",
-        "url": "https://electrical.prasunbarua.com/"
-    },
-    "datePublished": "2026-08-27T00:00:00+06:00",
-    "dateModified": "2026-09-13T00:00:00+06:00",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
-    },
-    "articleSection": "Electrical Calculations",
-    "keywords": [
-        "electrical power calculation",
-        "electrical power formula",
-        "calculate electrical power",
-        "P=VI",
-        "single phase power",
-        "three phase power",
-        "power factor"
-    ]
-}
-</script>
-
-
-<!-- =========================================================
-     9. WEBPAGE STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/",
-    "name": "How to Calculate Electrical Power: Formulas, Examples & Guide",
-    "description": "Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, worked examples, power factor and engineering applications.",
-    "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://electrical.prasunbarua.com/#website"
-    },
-    "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://electrical.prasunbarua.com/assets/images/electrical-power-calculation-overview.jpeg"
-    },
-    "datePublished": "2026-08-27T00:00:00+06:00",
-    "dateModified": "2026-09-13T00:00:00+06:00"
-}
-</script>
-
-
-<!-- =========================================================
-     10. WEBSITE STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://electrical.prasunbarua.com/#website",
-    "url": "https://electrical.prasunbarua.com/",
-    "name": "Electrical Engineering",
-    "description": "Practical electrical engineering articles, calculations, design guidance and solar PV resources.",
-    "publisher": {
-        "@type": "Organization",
-        "@id": "https://electrical.prasunbarua.com/#organization"
-    }
-}
-</script>
-
-
-<!-- =========================================================
-     11. ORGANIZATION STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://electrical.prasunbarua.com/#organization",
-    "name": "Electrical Engineering",
-    "url": "https://electrical.prasunbarua.com/",
-    "logo": {
-        "@type": "ImageObject",
-        "url": "https://electrical.prasunbarua.com/assets/images/electrical-power-calculation-overview.jpeg"
-    }
-}
-</script>
-
-
-<!-- =========================================================
-     12. BREADCRUMB STRUCTURED DATA
-========================================================== -->
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://electrical.prasunbarua.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Electrical Calculations",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "How to Calculate Electrical Power",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <!-- =========================================================
+         1. CORE DOCUMENT
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="referrer"
+        content="strict-origin-when-cross-origin"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0066cc"
+    >
+
+    <meta
+        name="color-scheme"
+        content="light"
+    >
+
+    <title>
+        How to Calculate Electrical Power: Formulas, Examples &amp; Practical Guide | Electrical Engineering
+    </title>
+
+    <meta
+        name="description"
+        content="Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, power factor, worked examples and engineering applications."
+    >
+
+    <meta
+        name="author"
+        content="Prasun Barua"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
+
+    <meta
+        name="googlebot"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
+
+    <link
+        rel="canonical"
+        href="https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
+    >
+
+
+    <!-- =========================================================
+         2. PERFORMANCE / RESOURCE HINTS
+    ========================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        rel="dns-prefetch"
+        href="//pagead2.googlesyndication.com"
+    >
+
+    <link
+        rel="dns-prefetch"
+        href="//www.googletagmanager.com"
+    >
+
+
+    <!-- =========================================================
+         3. OPEN GRAPH
+    ========================================================== -->
+
+    <meta
+        property="og:type"
+        content="article"
+    >
+
+    <meta
+        property="og:url"
+        content="https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
+    >
+
+    <meta
+        property="og:title"
+        content="How to Calculate Electrical Power: Formulas, Examples &amp; Practical Guide"
+    >
+
+    <meta
+        property="og:description"
+        content="Learn electrical power calculations for DC, single-phase and three-phase systems with practical formulas, power factor and worked engineering examples."
+    >
+
+    <meta
+        property="og:site_name"
+        content="Electrical Engineering by Prasun Barua"
+    >
+
+    <meta
+        property="og:locale"
+        content="en_US"
+    >
+
+    <meta
+        property="og:image"
+        content="https://electrical.prasunbarua.com/assets/images/electrical-power-formulas.jpeg"
+    >
+
+    <meta
+        property="og:image:secure_url"
+        content="https://electrical.prasunbarua.com/assets/images/electrical-power-formulas.jpeg"
+    >
+
+    <meta
+        property="og:image:type"
+        content="image/jpeg"
+    >
+
+    <meta
+        property="og:image:width"
+        content="1200"
+    >
+
+    <meta
+        property="og:image:height"
+        content="675"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Electrical power calculation formulas for DC, single-phase and three-phase systems"
+    >
+
+    <meta
+        property="article:section"
+        content="Electrical Calculations"
+    >
+
+    <meta
+        property="article:author"
+        content="Prasun Barua"
+    >
+
+    <meta
+        property="article:published_time"
+        content="2026-08-27T00:00:00+06:00"
+    >
+
+    <meta
+        property="article:modified_time"
+        content="2026-08-27T00:00:00+06:00"
+    >
+
+
+    <!-- =========================================================
+         4. X / TWITTER
+    ========================================================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="How to Calculate Electrical Power: Formulas, Examples &amp; Practical Guide"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Learn electrical power calculations for DC, single-phase and three-phase systems with practical formulas, power factor and worked engineering examples."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://electrical.prasunbarua.com/assets/images/electrical-power-formulas.jpeg"
+    >
+
+    <meta
+        name="twitter:image:alt"
+        content="Electrical power calculation formulas for DC, single-phase and three-phase systems"
+    >
+
+
+    <!-- =========================================================
+         5. FAVICON
+    ========================================================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
+    >
+
+
+    <!-- =========================================================
+         6. GOOGLE FONTS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
+    >
+
+
+    <!-- =========================================================
+         7. GOOGLE ADSENSE
+    ========================================================== -->
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =========================================================
+         8. GOOGLE ANALYTICS
+    ========================================================== -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XY335VGVGJ"
+    ></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
         }
-    ]
-}
-</script>
+
+        gtag("js", new Date());
+
+        gtag("config", "G-XY335VGVGJ", {
+            anonymize_ip: true,
+            send_page_view: true
+        });
+
+    </script>
 
 
-<!-- =========================================================
-     13. FAQ STRUCTURED DATA
-========================================================== -->
+    <!-- =========================================================
+         9. MAIN STYLESHEET
+    ========================================================== -->
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What is the basic electrical power formula?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The basic electrical power formula is P = V × I, where P is power in watts, V is voltage in volts, and I is current in amperes."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you calculate single-phase AC power?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "For a single-phase AC load, real power can be calculated using P = V × I × PF, where PF is the power factor."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How do you calculate three-phase power?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "For a balanced three-phase system, real power can be calculated using P = √3 × VL × IL × PF, where VL is line-to-line voltage and IL is line current."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What is the difference between kW, kVA and kVAR?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "kW represents real power, kVA represents apparent power, and kVAR represents reactive power. Their relationship is described by the power triangle and power factor."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Why is power factor important when calculating electrical power?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Power factor is important because AC systems with lower power factor require more current to deliver the same real power, affecting equipment loading, voltage drop and system capacity."
-            }
+    <link
+        rel="stylesheet"
+        href="/assets/css/style.css"
+    >
+
+
+    <!-- =========================================================
+         10. ARTICLE INLINE IMAGE SUPPORT
+    ========================================================== -->
+
+    <style>
+
+        .article-inline-image {
+            width: 100%;
+            margin: 36px 0;
         }
-    ]
-}
-</script>
+
+        .article-inline-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--bg-soft);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-inline-image .image-caption {
+            margin-top: 9px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+
+            .article-inline-image {
+                margin: 28px 0;
+            }
+
+            .article-inline-image img {
+                border-radius: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
 
 
 <!-- =========================================================
@@ -466,52 +332,89 @@
 
 <header class="site-header">
 
-    <div class="container">
+    <div class="container header-inner">
 
-        <div class="site-branding">
+        <a
+            href="/"
+            class="logo"
+            aria-label="Electrical Engineering by Prasun Barua home"
+        >
 
-            <a
-                href="/"
-                class="site-title"
+            <span
+                class="logo-icon"
+                aria-hidden="true"
             >
-                Electrical Engineering
-            </a>
 
-            <p class="site-tagline">
-                Practical Electrical Engineering Knowledge
-            </p>
+                <span class="material-symbols-rounded">
+                    bolt
+                </span>
 
-        </div>
+            </span>
+
+            <span class="logo-text">
+
+                <strong>
+                    Electrical Engineering
+                </strong>
+
+                <small>
+                    by Prasun Barua
+                </small>
+
+            </span>
+
+        </a>
 
 
         <button
-            class="menu-toggle"
             type="button"
-            aria-label="Open navigation menu"
+            id="mobile-menu-button"
+            class="mobile-menu-button"
+            aria-label="Open article navigation"
             aria-expanded="false"
+            aria-controls="article-sidebar"
         >
-            <span></span>
-            <span></span>
-            <span></span>
+
+            <span
+                class="material-symbols-rounded"
+                aria-hidden="true"
+            >
+                menu
+            </span>
+
         </button>
 
 
         <nav
-            class="main-navigation"
-            aria-label="Primary navigation"
+            class="main-nav"
+            aria-label="Main navigation"
         >
 
-            <a href="/">
-                Home
-            </a>
+            <ul>
 
-            <a href="/articles/">
-                Articles
-            </a>
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
 
-            <a href="/about.html">
-                About
-            </a>
+                <li>
+                    <a
+                        href="/articles/electrical-calculations/"
+                        class="active"
+                        aria-current="page"
+                    >
+                        Articles
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/about.html">
+                        About
+                    </a>
+                </li>
+
+            </ul>
 
         </nav>
 
@@ -521,1505 +424,1653 @@
 
 
 <!-- =========================================================
-     PAGE LAYOUT
+     MOBILE SIDEBAR OVERLAY
 ========================================================== -->
 
-<div class="page-layout">
-
-    <!-- =====================================================
-         SIDEBAR
-    ====================================================== -->
-
-    <aside class="article-sidebar">
-
-        <div class="sidebar-inner">
-
-            <h2>
-                On this page
-            </h2>
-
-            <nav aria-label="Article sections">
-
-                <ul>
-
-                    <li>
-                        <a href="#what-is-power">
-                            What Is Electrical Power?
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#basic-formula">
-                            Basic Power Formula
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#dc-power">
-                            DC Power
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#ac-power">
-                            AC Power
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#single-phase-power">
-                            Single-Phase Power
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#three-phase-power">
-                            Three-Phase Power
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#power-factor">
-                            Power Factor
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#apparent-reactive-active">
-                            kW, kVA and kVAR
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#examples">
-                            Worked Examples
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#motor-example">
-                            Motor Example
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#solar-example">
-                            Solar PV Example
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#kw-vs-kwh">
-                            kW vs kWh
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#measurement">
-                            Measuring Power
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#common-mistakes">
-                            Common Mistakes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#design-procedure">
-                            Practical Procedure
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#summary">
-                            Summary
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#faq">
-                            FAQ
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-    </aside>
+<div
+    id="sidebar-overlay"
+    class="sidebar-overlay"
+    aria-hidden="true"
+></div>
 
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
+<!-- =========================================================
+     MAIN ARTICLE
+========================================================== -->
 
-    <main class="main-content">
+<main class="article-page">
 
-        <article
-            class="article"
-            itemscope
-            itemtype="https://schema.org/Article"
-        >
+    <div class="container">
+
+        <div class="article-layout">
 
 
             <!-- =================================================
-                 BREADCRUMBS
+                 ARTICLE SIDEBAR
             ================================================== -->
 
-            <nav
-                class="breadcrumbs"
-                aria-label="Breadcrumb"
+            <aside
+                class="article-sidebar site-sidebar"
+                id="article-sidebar"
+                aria-label="Article navigation"
             >
 
-                <a href="/">
-                    Home
-                </a>
-
-                <span aria-hidden="true">
-                    /
-                </span>
-
-                <a href="/articles/">
-                    Articles
-                </a>
-
-                <span aria-hidden="true">
-                    /
-                </span>
-
-                <a href="/articles/electrical-calculations/">
-                    Electrical Calculations
-                </a>
-
-                <span aria-hidden="true">
-                    /
-                </span>
-
-                <span>
-                    How to Calculate Electrical Power
-                </span>
-
-            </nav>
-
-
-            <!-- =================================================
-                 ARTICLE HEADER
-            ================================================== -->
-
-            <header class="article-header">
-
-                <p class="article-category">
-                    Electrical Calculations
-                </p>
-
-                <h1 itemprop="headline">
-                    How to Calculate Electrical Power: Formulas, Examples &amp; Guide
-                </h1>
-
-                <p
-                    class="article-excerpt"
-                    itemprop="description"
-                >
-                    Learn how to calculate electrical power in DC, single-phase and three-phase systems using practical formulas, worked examples, power factor and engineering applications.
-                </p>
-
-                <div class="article-meta">
-
-                    <span>
-                        By
-                        <strong itemprop="author">
-                            Prasun Barua
-                        </strong>
-                    </span>
-
-                    <span>
-                        Published
-                        <time
-                            datetime="2026-08-27"
-                            itemprop="datePublished"
-                        >
-                            August 27, 2026
-                        </time>
-                    </span>
-
-                    <span>
-                        Updated
-                        <time
-                            datetime="2026-09-13"
-                            itemprop="dateModified"
-                        >
-                            September 13, 2026
-                        </time>
-                    </span>
-
+                <div class="article-sidebar-title">
+                    Electrical Engineering
                 </div>
 
-            </header>
+
+                <nav aria-label="Article sections">
+
+                    <a
+                        href="/articles/electrical-calculations/"
+                        class="back-link"
+                    >
+                        ← All Electrical Calculations
+                    </a>
+
+                    <a href="#what-is-power">
+                        What Is Electrical Power?
+                    </a>
+
+                    <a href="#basic-formula">
+                        Basic Power Formula
+                    </a>
+
+                    <a href="#dc-power">
+                        DC Power
+                    </a>
+
+                    <a href="#ac-power">
+                        AC Power
+                    </a>
+
+                    <a href="#single-phase-power">
+                        Single-Phase Power
+                    </a>
+
+                    <a href="#three-phase-power">
+                        Three-Phase Power
+                    </a>
+
+                    <a href="#power-factor">
+                        Power Factor
+                    </a>
+
+                    <a href="#apparent-reactive-active">
+                        Active, Reactive &amp; Apparent Power
+                    </a>
+
+                    <a href="#examples">
+                        Worked Examples
+                    </a>
+
+                    <a href="#motor-example">
+                        Motor Example
+                    </a>
+
+                    <a href="#solar-example">
+                        Solar PV Example
+                    </a>
+
+                    <a href="#kw-vs-kwh">
+                        kW vs kWh
+                    </a>
+
+                    <a href="#measurement">
+                        Measuring Electrical Power
+                    </a>
+
+                    <a href="#common-mistakes">
+                        Common Mistakes
+                    </a>
+
+                    <a href="#design-procedure">
+                        Calculation Procedure
+                    </a>
+
+                    <a href="#summary">
+                        Summary
+                    </a>
+
+                    <a href="#faq">
+                        FAQ
+                    </a>
+
+                </nav>
+
+            </aside>
 
 
             <!-- =================================================
-                 FEATURE IMAGE
+                 ARTICLE
             ================================================== -->
 
-            <figure class="article-feature-image">
-
-                <img
-                    src="/assets/images/electrical-power-calculation-overview.jpeg"
-                    alt="Electrical power calculation overview showing DC, single-phase and three-phase power formulas"
-                    width="1200"
-                    height="675"
-                    loading="eager"
-                    decoding="async"
-                    fetchpriority="high"
-                    itemprop="image"
-                >
-
-                <figcaption class="image-caption">
-                    Electrical power calculation methods for DC, single-phase AC and three-phase AC systems.
-                </figcaption>
-
-            </figure>
-
-
-            <!-- =================================================
-                 ARTICLE INTRODUCTION
-            ================================================== -->
-
-            <div
-                class="article-content"
-                itemprop="articleBody"
+            <article
+                class="article-main"
+                itemscope
+                itemtype="https://schema.org/Article"
             >
 
-                <p>
-                    Electrical power is one of the most important quantities used in electrical engineering. It tells us how quickly electrical energy is being transferred or consumed by a circuit, machine or electrical system.
-                </p>
+                <!-- BREADCRUMBS -->
 
-                <p>
-                    The correct power calculation depends on the type of electrical system. For simple DC circuits, power is commonly calculated from voltage and current. For AC systems, power factor must often be considered, while balanced three-phase systems use a different form of the power equation.
-                </p>
+                <nav
+                    class="breadcrumbs"
+                    aria-label="Breadcrumb"
+                >
 
-                <p>
-                    This guide explains the main electrical power formulas, shows practical examples and explains how the calculations are applied in electrical design, equipment selection, motors, solar PV systems and power-system engineering.
-                </p>
+                    <a href="/">
+                        Home
+                    </a>
 
+                    <span aria-hidden="true">
+                        /
+                    </span>
 
-                <!-- =================================================
-                     WHAT IS ELECTRICAL POWER
-                ================================================== -->
+                    <a href="/articles/electrical-calculations/">
+                        Electrical Calculations
+                    </a>
 
-                <h2 id="what-is-power">
-                    What Is Electrical Power?
-                </h2>
+                    <span aria-hidden="true">
+                        /
+                    </span>
 
-                <p>
-                    Electrical power is the rate at which electrical energy is transferred, converted or consumed. It is measured in watts (W).
-                </p>
+                    <span aria-current="page">
+                        Electrical Power Calculation
+                    </span>
 
-                <p>
-                    A higher electrical power means that electrical energy is being transferred or consumed at a higher rate.
-                </p>
-
-                <p>
-                    In practical electrical systems, power may be expressed in watts (W), kilowatts (kW), megawatts (MW), volt-amperes (VA), kilovolt-amperes (kVA), or kilovolt-amperes reactive (kVAR), depending on the type of power being discussed.
-                </p>
+                </nav>
 
 
-                <!-- =================================================
-                     BASIC FORMULA
-                ================================================== -->
+                <!-- ARTICLE HEADER -->
 
-                <h2 id="basic-formula">
-                    Basic Electrical Power Formula
-                </h2>
+                <header class="article-header">
 
-                <p>
-                    The basic electrical power relationship is:
-                </p>
+                    <div class="article-category-label">
+                        Electrical Calculations
+                    </div>
 
-                <div class="formula-box">
+                    <h1
+                        class="article-title"
+                        itemprop="headline"
+                    >
+                        How to Calculate Electrical Power:
+                        Formulas, Examples &amp; Practical Guide
+                    </h1>
 
-                    <p class="formula">
-                        P = V × I
+                    <p
+                        class="article-intro"
+                        itemprop="description"
+                    >
+                        Learn how to calculate electrical power in DC,
+                        single-phase and three-phase systems using practical
+                        formulas, power factor, worked examples and
+                        engineering applications.
                     </p>
+
+                    <div class="article-meta">
+
+                        <span>
+                            By
+                            <a
+                                href="/about.html"
+                                itemprop="author"
+                            >
+                                Prasun Barua
+                            </a>
+                        </span>
+
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
+                        >
+                            •
+                        </span>
+
+                        <time
+                            datetime="2026-08-27T00:00:00+06:00"
+                            itemprop="datePublished"
+                        >
+                            Published August 27, 2026
+                        </time>
+
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
+                        >
+                            •
+                        </span>
+
+                        <time
+                            datetime="2026-08-27T00:00:00+06:00"
+                            itemprop="dateModified"
+                        >
+                            Updated August 27, 2026
+                        </time>
+
+                        <span
+                            class="article-meta-separator"
+                            aria-hidden="true"
+                        >
+                            •
+                        </span>
+
+                        <span>
+                            12 min read
+                        </span>
+
+                    </div>
+
+                </header>
+
+
+                <!-- FEATURE IMAGE -->
+
+                <figure class="article-feature-image">
+
+                    <img
+                        src="/assets/images/electrical-power-formulas.jpeg"
+                        alt="Electrical power calculation formulas for DC, single-phase and three-phase electrical systems"
+                        width="1200"
+                        height="675"
+                        fetchpriority="high"
+                        decoding="async"
+                        loading="eager"
+                        itemprop="image"
+                    >
+
+                    <figcaption class="image-caption">
+                        Electrical power can be calculated using different
+                        formulas depending on whether the system is DC,
+                        single-phase AC or three-phase AC.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- =================================================
+                     ARTICLE CONTENT
+                ================================================== -->
+
+                <div
+                    class="article-content"
+                    itemprop="articleBody"
+                >
+
+                    <p>
+                        <strong>Electrical power</strong> is the rate at
+                        which electrical energy is transferred or consumed
+                        by an electrical circuit or device.
+                    </p>
+
+                    <p>
+                        Power calculation is fundamental to electrical
+                        engineering because it is used for equipment
+                        selection, cable sizing, protection, load
+                        assessment, transformer sizing, generator
+                        selection, solar PV system design and energy
+                        analysis.
+                    </p>
+
+                    <aside
+                        class="article-note"
+                        aria-label="Quick engineering answer"
+                    >
+
+                        <strong>
+                            Quick engineering answer:
+                        </strong>
+
+                        For a basic DC or resistive circuit:
+
+                        <strong>
+                            P = V × I
+                        </strong>
+
+                        For a balanced three-phase AC system:
+
+                        <strong>
+                            P = √3 × V × I × PF
+                        </strong>
+
+                        where PF is the power factor.
+
+                    </aside>
+
+
+                    <!-- =================================================
+                         WHAT IS POWER
+                    ================================================== -->
+
+                    <h2 id="what-is-power">
+                        What Is Electrical Power?
+                    </h2>
+
+                    <p>
+                        Electrical power describes how quickly electrical
+                        energy is transferred from a source to a load.
+                        It is normally measured in watts (W), kilowatts
+                        (kW) or megawatts (MW).
+                    </p>
+
+                    <p>
+                        The correct power equation depends on the type of
+                        electrical system and the information available,
+                        such as voltage, current, resistance, power factor
+                        and phase configuration.
+                    </p>
+
+
+                    <!-- =================================================
+                         BASIC FORMULA
+                    ================================================== -->
+
+                    <h2 id="basic-formula">
+                        Basic Electrical Power Formula
+                    </h2>
+
+                    <p>
+                        The most basic electrical power relationship is:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = V × I
+                        </div>
+
+                        <div class="formula-description">
+                            Electrical power = Voltage × Current
+                        </div>
+
+                    </div>
 
                     <p>
                         Where:
                     </p>
 
                     <ul>
+
                         <li>
-                            <strong>P</strong> = electrical power in watts (W)
+                            <strong>P</strong> = Power in watts (W)
                         </li>
 
                         <li>
-                            <strong>V</strong> = voltage in volts (V)
+                            <strong>V</strong> = Voltage in volts (V)
                         </li>
 
                         <li>
-                            <strong>I</strong> = current in amperes (A)
+                            <strong>I</strong> = Current in amperes (A)
                         </li>
+
                     </ul>
 
-                </div>
+
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/electrical-power-basic-formula.jpeg"
+                            alt="Basic electrical power formula P equals V times I showing voltage current and power relationship"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+                        <figcaption class="image-caption">
+                            The basic electrical power relationship is
+                            P = V × I.
+                        </figcaption>
+
+                    </figure>
 
 
-                <figure class="article-inline-image">
+                    <!-- =================================================
+                         DC POWER
+                    ================================================== -->
 
-                    <img
-                        src="/assets/images/basic-electrical-power-formula-pvi.jpeg"
-                        alt="Basic electrical power formula P equals V times I showing voltage current and electrical load"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        The basic electrical power relationship: P = V × I.
-                    </figcaption>
-
-                </figure>
-
-
-                <p>
-                    For example, if a load operates at 230 V and draws 5 A:
-                </p>
-
-                <div class="calculation-box">
-
-                    <p>
-                        <strong>P = 230 × 5</strong>
-                    </p>
+                    <h2 id="dc-power">
+                        DC Electrical Power
+                    </h2>
 
                     <p>
-                        <strong>P = 1,150 W</strong>
+                        In a DC circuit, electrical power can be calculated
+                        directly from voltage and current:
                     </p>
 
-                    <p>
-                        Therefore, the load consumes 1.15 kW of electrical power.
-                    </p>
+                    <div class="formula-box">
 
-                </div>
-
-
-                <!-- =================================================
-                     DC POWER
-                ================================================== -->
-
-                <h2 id="dc-power">
-                    How to Calculate DC Power
-                </h2>
-
-                <p>
-                    In a DC circuit, electrical power can normally be calculated directly from voltage and current:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        P = V × I
-                    </p>
-
-                </div>
-
-                <p>
-                    When resistance is known, two additional forms of the power equation are useful:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        P = I²R
-                    </p>
-
-                    <p class="formula">
-                        P = V²/R
-                    </p>
-
-                </div>
-
-                <p>
-                    These equations are derived from Ohm's law and are particularly useful when voltage, current or resistance is the known quantity in a circuit.
-                </p>
-
-                <p>
-                    For a detailed explanation of voltage, current and resistance relationships, see the
-                    <a href="/articles/electrical-fundamentals/ohms-law/">
-                        Ohm's Law guide
-                    </a>.
-                </p>
-
-
-                <!-- =================================================
-                     AC POWER
-                ================================================== -->
-
-                <h2 id="ac-power">
-                    How to Calculate AC Power
-                </h2>
-
-                <p>
-                    AC power calculations require additional consideration because voltage and current can have a phase difference, particularly when the load contains inductive or capacitive components.
-                </p>
-
-                <p>
-                    This phase relationship is represented by the power factor (PF).
-                </p>
-
-                <p>
-                    For AC systems, it is useful to distinguish between real power, apparent power and reactive power.
-                </p>
-
-
-                <!-- =================================================
-                     SINGLE PHASE
-                ================================================== -->
-
-                <h2 id="single-phase-power">
-                    Single-Phase AC Power Calculation
-                </h2>
-
-                <p>
-                    For a single-phase AC load, real power can be calculated using:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        P = V × I × PF
-                    </p>
-
-                </div>
-
-                <p>
-                    Since power factor is commonly expressed as:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        PF = cos φ
-                    </p>
-
-                </div>
-
-                <p>
-                    the equation may also be written as:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        P = V × I × cos φ
-                    </p>
-
-                </div>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/single-phase-ac-power-calculation.jpeg"
-                        alt="Single-phase AC power calculation showing P equals V times I times power factor"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Single-phase AC power calculation using voltage, current and power factor.
-                    </figcaption>
-
-                </figure>
-
-
-                <h3>
-                    Single-Phase Example
-                </h3>
-
-                <p>
-                    Consider a single-phase load operating at 230 V, drawing 10 A, with a power factor of 0.80.
-                </p>
-
-                <div class="calculation-box">
-
-                    <p>
-                        P = V × I × PF
-                    </p>
-
-                    <p>
-                        P = 230 × 10 × 0.80
-                    </p>
-
-                    <p>
-                        P = 1,840 W
-                    </p>
-
-                    <p>
-                        <strong>P = 1.84 kW</strong>
-                    </p>
-
-                </div>
-
-                <p>
-                    The corresponding apparent power is:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        S = V × I
-                    </p>
-
-                    <p class="formula">
-                        S = 230 × 10 = 2.30 kVA
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     THREE PHASE
-                ================================================== -->
-
-                <h2 id="three-phase-power">
-                    Three-Phase AC Power Calculation
-                </h2>
-
-                <p>
-                    For a balanced three-phase AC system, real power can be calculated using:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        P = √3 × V<sub>L</sub> × I<sub>L</sub> × PF
-                    </p>
-
-                </div>
-
-                <p>
-                    Where:
-                </p>
-
-                <ul>
-
-                    <li>
-                        <strong>V<sub>L</sub></strong> = line-to-line voltage
-                    </li>
-
-                    <li>
-                        <strong>I<sub>L</sub></strong> = line current
-                    </li>
-
-                    <li>
-                        <strong>PF</strong> = power factor
-                    </li>
-
-                </ul>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/three-phase-ac-power-calculation.jpeg"
-                        alt="Three-phase AC power calculation showing the formula square root of three times line voltage times line current times power factor"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Three-phase AC power calculation using line voltage, line current and power factor.
-                    </figcaption>
-
-                </figure>
-
-
-                <h3>
-                    Three-Phase Example
-                </h3>
-
-                <p>
-                    Consider a balanced three-phase load operating at 400 V line-to-line, drawing 20 A, with a power factor of 0.90.
-                </p>
-
-                <div class="calculation-box">
-
-                    <p>
-                        P = √3 × V<sub>L</sub> × I<sub>L</sub> × PF
-                    </p>
-
-                    <p>
-                        P = √3 × 400 × 20 × 0.90
-                    </p>
-
-                    <p>
-                        P ≈ 12,470 W
-                    </p>
-
-                    <p>
-                        <strong>P ≈ 12.47 kW</strong>
-                    </p>
-
-                </div>
-
-                <p>
-                    The apparent power is:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        S = √3 × V<sub>L</sub> × I<sub>L</sub>
-                    </p>
-
-                    <p class="formula">
-                        S = √3 × 400 × 20
-                    </p>
-
-                    <p class="formula">
-                        S ≈ 13.86 kVA
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     POWER FACTOR
-                ================================================== -->
-
-                <h2 id="power-factor">
-                    Power Factor and Electrical Power
-                </h2>
-
-                <p>
-                    Power factor describes the relationship between real power and apparent power in an AC electrical system.
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        PF = P / S
-                    </p>
-
-                </div>
-
-                <p>
-                    A power factor of 1.0 means that real power and apparent power are equal. Lower power factor means that more apparent power is required to deliver the same amount of real power.
-                </p>
-
-                <div class="article-note">
-
-                    <strong>Engineering note:</strong>
-                    Power factor is especially important when sizing transformers, generators, UPS systems, cables, switchgear and other electrical equipment.
-                    For a detailed explanation of kW, kVA, kVAR and power-factor relationships, see
-                    <a href="/articles/electrical-calculations/power-factor-kva-kw/">
-                        kW vs kVA vs kVAR: Power Factor Explained
-                    </a>.
-
-                </div>
-
-
-                <!-- =================================================
-                     ACTIVE / APPARENT / REACTIVE
-                ================================================== -->
-
-                <h2 id="apparent-reactive-active">
-                    Active Power, Apparent Power and Reactive Power
-                </h2>
-
-                <p>
-                    AC electrical systems commonly involve three related power quantities.
-                </p>
-
-                <div class="table-responsive">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-                                <th>
-                                    Quantity
-                                </th>
-
-                                <th>
-                                    Symbol
-                                </th>
-
-                                <th>
-                                    Unit
-                                </th>
-
-                                <th>
-                                    Meaning
-                                </th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    Real or active power
-                                </td>
-
-                                <td>
-                                    P
-                                </td>
-
-                                <td>
-                                    W / kW
-                                </td>
-
-                                <td>
-                                    Power that performs useful work or is converted into heat, mechanical output, light and other forms of useful energy.
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Apparent power
-                                </td>
-
-                                <td>
-                                    S
-                                </td>
-
-                                <td>
-                                    VA / kVA
-                                </td>
-
-                                <td>
-                                    Combined electrical loading represented by voltage and current.
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Reactive power
-                                </td>
-
-                                <td>
-                                    Q
-                                </td>
-
-                                <td>
-                                    VAR / kVAR
-                                </td>
-
-                                <td>
-                                    Power associated with energy storage and return in inductive and capacitive components.
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <p>
-                    The relationship between these quantities can be expressed as:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        S² = P² + Q²
-                    </p>
-
-                    <p class="formula">
-                        S = P / PF
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     EXAMPLES
-                ================================================== -->
-
-                <h2 id="examples">
-                    Electrical Power Calculation Examples
-                </h2>
-
-                <p>
-                    The following examples demonstrate how the formulas are applied to common electrical engineering situations.
-                </p>
-
-
-                <!-- =================================================
-                     MOTOR
-                ================================================== -->
-
-                <h2 id="motor-example">
-                    Motor Power Calculation Example
-                </h2>
-
-                <p>
-                    Consider a three-phase motor operating at 400 V, drawing 15 A, with a power factor of 0.85.
-                </p>
-
-                <div class="calculation-box">
-
-                    <p>
-                        P = √3 × V × I × PF
-                    </p>
-
-                    <p>
-                        P = √3 × 400 × 15 × 0.85
-                    </p>
-
-                    <p>
-                        P ≈ 8,833 W
-                    </p>
-
-                    <p>
-                        <strong>P ≈ 8.83 kW</strong>
-                    </p>
-
-                </div>
-
-                <p>
-                    This is the electrical real input power based on the stated operating conditions. The mechanical output power of the motor will be lower after accounting for motor efficiency and other losses.
-                </p>
-
-
-                <!-- =================================================
-                     SOLAR
-                ================================================== -->
-
-                <h2 id="solar-example">
-                    Solar PV Power Calculation Example
-                </h2>
-
-                <p>
-                    For a simple DC solar PV example, suppose a PV string or array is operating at 500 V and producing 20 A.
-                </p>
-
-                <div class="calculation-box">
-
-                    <p>
-                        P = V × I
-                    </p>
-
-                    <p>
-                        P = 500 × 20
-                    </p>
-
-                    <p>
-                        <strong>P = 10,000 W = 10 kW</strong>
-                    </p>
-
-                </div>
-
-                <p>
-                    In an actual solar PV system, the operating power changes with irradiance, temperature, module characteristics, MPPT operation and other system conditions.
-                </p>
-
-
-                <!-- =================================================
-                     KW VS KWH
-                ================================================== -->
-
-                <h2 id="kw-vs-kwh">
-                    kW vs kWh
-                </h2>
-
-                <p>
-                    Power and energy are related but they are not the same quantity.
-                </p>
-
-                <div class="table-responsive">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-                                <th>
-                                    Quantity
-                                </th>
-
-                                <th>
-                                    Unit
-                                </th>
-
-                                <th>
-                                    Meaning
-                                </th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    Power
-                                </td>
-
-                                <td>
-                                    kW
-                                </td>
-
-                                <td>
-                                    Rate of electrical energy transfer or consumption.
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Energy
-                                </td>
-
-                                <td>
-                                    kWh
-                                </td>
-
-                                <td>
-                                    Electrical energy consumed or generated over time.
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <p>
-                    For example, a 5 kW load operating continuously for 4 hours consumes:
-                </p>
-
-                <div class="formula-box">
-
-                    <p class="formula">
-                        Energy = Power × Time
-                    </p>
-
-                    <p class="formula">
-                        Energy = 5 × 4 = 20 kWh
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     MEASUREMENT
-                ================================================== -->
-
-                <h2 id="measurement">
-                    Measuring Electrical Power
-                </h2>
-
-                <p>
-                    Electrical power can be measured directly using suitable electrical measurement instruments.
-                </p>
-
-                <p>
-                    Common instruments include:
-                </p>
-
-                <ul>
-
-                    <li>
-                        Digital power meters
-                    </li>
-
-                    <li>
-                        Power-quality analyzers
-                    </li>
-
-                    <li>
-                        Energy meters
-                    </li>
-
-                    <li>
-                        Clamp meters with power measurement functions
-                    </li>
-
-                    <li>
-                        Multifunction electrical meters
-                    </li>
-
-                </ul>
-
-                <p>
-                    For three-phase systems, the measurement equipment and connection method should be appropriate for the system configuration and voltage level.
-                </p>
-
-
-                <!-- =================================================
-                     COMMON MISTAKES
-                ================================================== -->
-
-                <h2 id="common-mistakes">
-                    Common Electrical Power Calculation Mistakes
-                </h2>
-
-                <p>
-                    Several common mistakes can lead to incorrect power calculations.
-                </p>
-
-                <ul>
-
-                    <li>
-                        Forgetting power factor when calculating real AC power.
-                    </li>
-
-                    <li>
-                        Using line-to-neutral voltage when a three-phase line-to-line voltage is required.
-                    </li>
-
-                    <li>
-                        Confusing kW with kWh.
-                    </li>
-
-                    <li>
-                        Confusing real power with apparent power.
-                    </li>
-
-                    <li>
-                        Using the three-phase equation for a single-phase circuit.
-                    </li>
-
-                    <li>
-                        Ignoring equipment efficiency when estimating useful mechanical output.
-                    </li>
-
-                    <li>
-                        Mixing watts and kilowatts without converting units.
-                    </li>
-
-                </ul>
-
-
-                <!-- =================================================
-                     PRACTICAL PROCEDURE
-                ================================================== -->
-
-                <h2 id="design-procedure">
-                    Practical Electrical Power Calculation Procedure
-                </h2>
-
-                <p>
-                    A practical engineering workflow can be summarized as follows:
-                </p>
-
-                <ol>
-
-                    <li>
-                        Identify whether the system is DC, single-phase AC or three-phase AC.
-                    </li>
-
-                    <li>
-                        Determine the operating voltage.
-                    </li>
-
-                    <li>
-                        Determine the operating current or load rating.
-                    </li>
-
-                    <li>
-                        Determine the power factor for AC loads when required.
-                    </li>
-
-                    <li>
-                        Select the appropriate power formula.
-                    </li>
-
-                    <li>
-                        Perform the calculation using consistent units.
-                    </li>
-
-                    <li>
-                        Convert the result into W, kW, VA or kVA as appropriate.
-                    </li>
-
-                    <li>
-                        Consider efficiency, demand, operating conditions and design margin when using the result for equipment selection.
-                    </li>
-
-                </ol>
-
-
-                <!-- =================================================
-                     QUICK REFERENCE
-                ================================================== -->
-
-                <h2>
-                    Electrical Power Formula Quick Reference
-                </h2>
-
-                <div class="table-responsive">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-                                <th>
-                                    System
-                                </th>
-
-                                <th>
-                                    Formula
-                                </th>
-
-                                <th>
-                                    Main Parameters
-                                </th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    DC
-                                </td>
-
-                                <td>
-                                    P = V × I
-                                </td>
-
-                                <td>
-                                    Voltage and current
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Resistive load
-                                </td>
-
-                                <td>
-                                    P = I²R
-                                </td>
-
-                                <td>
-                                    Current and resistance
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Resistive load
-                                </td>
-
-                                <td>
-                                    P = V²/R
-                                </td>
-
-                                <td>
-                                    Voltage and resistance
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Single-phase AC
-                                </td>
-
-                                <td>
-                                    P = V × I × PF
-                                </td>
-
-                                <td>
-                                    Voltage, current and power factor
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Three-phase AC
-                                </td>
-
-                                <td>
-                                    P = √3 × V<sub>L</sub> × I<sub>L</sub> × PF
-                                </td>
-
-                                <td>
-                                    Line voltage, line current and power factor
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-
-                <!-- =================================================
-                     RELATED TOPIC
-                ================================================== -->
-
-                <div class="article-note">
-
-                    <strong>Related topic:</strong>
-                    If your main question is how real power, apparent power and reactive power are related, continue with
-                    <a href="/articles/electrical-calculations/power-factor-kva-kw/">
-                        kW vs kVA vs kVAR: Power Factor Explained
-                    </a>.
-
-                </div>
-
-
-                <!-- =================================================
-                     SUMMARY
-                ================================================== -->
-
-                <h2 id="summary">
-                    Summary
-                </h2>
-
-                <p>
-                    Electrical power calculation begins with identifying the electrical system and selecting the correct formula.
-                </p>
-
-                <ul>
-
-                    <li>
-                        DC power:
-                        <strong>
+                        <div class="formula">
                             P = V × I
-                        </strong>
-                    </li>
+                        </div>
 
-                    <li>
-                        Resistive power:
-                        <strong>
+                    </div>
+
+                    <p>
+                        For example, if a DC circuit operates at 24 V and
+                        draws 5 A:
+                    </p>
+
+                    <div class="calculation">
+                        P = V × I<br>
+                        P = 24 × 5<br>
+                        P = 120 W
+                    </div>
+
+                    <p>
+                        Therefore, the electrical load consumes
+                        <strong>120 W</strong>.
+                    </p>
+
+                    <h3>
+                        DC Power Using Resistance
+                    </h3>
+
+                    <p>
+                        Using Ohm's Law, electrical power can also be
+                        expressed as:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
                             P = I²R
-                        </strong>
-                        or
-                        <strong>
-                            P = V²/R
-                        </strong>
-                    </li>
+                        </div>
 
-                    <li>
-                        Single-phase AC real power:
-                        <strong>
-                            P = V × I × PF
-                        </strong>
-                    </li>
+                    </div>
 
-                    <li>
-                        Three-phase AC real power:
-                        <strong>
-                            P = √3 × V<sub>L</sub> × I<sub>L</sub> × PF
-                        </strong>
-                    </li>
+                    <p>
+                        Or:
+                    </p>
 
-                </ul>
+                    <div class="formula-box">
 
-                <p>
-                    For practical electrical design, power factor, equipment efficiency, system voltage, operating current and the distinction between kW, kVA, kVAR and kWh should all be considered appropriately.
-                </p>
+                        <div class="formula">
+                            P = V² ÷ R
+                        </div>
+
+                    </div>
 
 
-                <!-- =================================================
-                     FAQ
-                ================================================== -->
+                    <!-- =================================================
+                         AC POWER
+                    ================================================== -->
 
-                <section
-                    id="faq"
-                    class="faq-section"
-                >
+                    <h2 id="ac-power">
+                        AC Electrical Power
+                    </h2>
 
-                    <h2>
-                        Frequently Asked Questions
+                    <p>
+                        In AC systems, power calculation depends on the
+                        relationship between voltage and current. For
+                        practical AC loads, power factor must often be
+                        considered.
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = S × PF
+                        </div>
+
+                        <div class="formula-description">
+                            Active power = Apparent power × Power factor
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Here:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>P</strong> = Active power in watts (W)
+                        </li>
+
+                        <li>
+                            <strong>S</strong> = Apparent power in volt-amperes (VA)
+                        </li>
+
+                        <li>
+                            <strong>PF</strong> = Power factor
+                        </li>
+
+                    </ul>
+
+
+                    <!-- =================================================
+                         SINGLE PHASE
+                    ================================================== -->
+
+                    <h2 id="single-phase-power">
+                        Single-Phase AC Power
+                    </h2>
+
+                    <p>
+                        For a single-phase AC load, active power can be
+                        calculated using:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = V × I × cosφ
+                        </div>
+
+                        <div class="formula-description">
+                            Single-phase active power
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Where:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>V</strong> = RMS voltage
+                        </li>
+
+                        <li>
+                            <strong>I</strong> = RMS current
+                        </li>
+
+                        <li>
+                            <strong>cosφ</strong> = Power factor
+                        </li>
+
+                    </ul>
+
+
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/single-phase-power-calculation.jpeg"
+                            alt="Single-phase electrical power calculation showing voltage current and power factor"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+                        <figcaption class="image-caption">
+                            Single-phase AC power depends on voltage,
+                            current and power factor.
+                        </figcaption>
+
+                    </figure>
+
+
+                    <h3>
+                        Single-Phase Example
+                    </h3>
+
+                    <p>
+                        Consider a 230 V single-phase load drawing 10 A
+                        at a power factor of 0.8.
+                    </p>
+
+                    <div class="calculation">
+                        P = V × I × PF<br>
+                        P = 230 × 10 × 0.8<br>
+                        P = 1840 W<br>
+                        P = 1.84 kW
+                    </div>
+
+                    <p>
+                        Therefore, the load consumes approximately
+                        <strong>1.84 kW</strong> of active power.
+                    </p>
+
+
+                    <!-- =================================================
+                         THREE PHASE
+                    ================================================== -->
+
+                    <h2 id="three-phase-power">
+                        Three-Phase AC Power
+                    </h2>
+
+                    <p>
+                        For a balanced three-phase AC system using
+                        line-to-line voltage, active power is commonly
+                        calculated using:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = √3 × V × I × PF
+                        </div>
+
+                        <div class="formula-description">
+                            Three-phase active power
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Where:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>V</strong> = Line-to-line voltage
+                        </li>
+
+                        <li>
+                            <strong>I</strong> = Line current
+                        </li>
+
+                        <li>
+                            <strong>PF</strong> = Power factor
+                        </li>
+
+                    </ul>
+
+
+                    <figure class="article-inline-image">
+
+                        <img
+                            src="/assets/images/three-phase-power-calculation.jpeg"
+                            alt="Three-phase electrical power calculation using line voltage current and power factor"
+                            width="1200"
+                            height="675"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
+                        <figcaption class="image-caption">
+                            Three-phase power calculation using line voltage,
+                            line current and power factor.
+                        </figcaption>
+
+                    </figure>
+
+
+                    <h3>
+                        Three-Phase Example
+                    </h3>
+
+                    <p>
+                        Consider a balanced three-phase load operating at
+                        400 V, drawing 20 A at a power factor of 0.9.
+                    </p>
+
+                    <div class="calculation">
+                        P = √3 × V × I × PF<br>
+                        P = 1.732 × 400 × 20 × 0.9<br>
+                        P ≈ 12,470 W<br>
+                        P ≈ 12.47 kW
+                    </div>
+
+                    <p>
+                        Therefore, the active power is approximately
+                        <strong>12.47 kW</strong>.
+                    </p>
+
+
+                    <!-- =================================================
+                         POWER FACTOR
+                    ================================================== -->
+
+                    <h2 id="power-factor">
+                        Power Factor
+                    </h2>
+
+                    <p>
+                        Power factor represents the relationship between
+                        active power and apparent power in an AC system.
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            PF = P ÷ S
+                        </div>
+
+                    </div>
+
+                    <p>
+                        A lower power factor means that more apparent power
+                        is required to deliver the same amount of active
+                        power.
+                    </p>
+
+
+                    <!-- =================================================
+                         ACTIVE REACTIVE APPARENT
+                    ================================================== -->
+
+                    <h2 id="apparent-reactive-active">
+                        Active, Reactive and Apparent Power
+                    </h2>
+
+                    <div class="article-table-wrapper">
+
+                        <table class="article-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Quantity
+                                    </th>
+
+                                    <th scope="col">
+                                        Symbol
+                                    </th>
+
+                                    <th scope="col">
+                                        Unit
+                                    </th>
+
+                                    <th scope="col">
+                                        Description
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Active power
+                                    </td>
+
+                                    <td>
+                                        P
+                                    </td>
+
+                                    <td>
+                                        W / kW
+                                    </td>
+
+                                    <td>
+                                        Useful or real power consumed by the load
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Reactive power
+                                    </td>
+
+                                    <td>
+                                        Q
+                                    </td>
+
+                                    <td>
+                                        var / kvar
+                                    </td>
+
+                                    <td>
+                                        Power associated with reactive energy exchange
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Apparent power
+                                    </td>
+
+                                    <td>
+                                        S
+                                    </td>
+
+                                    <td>
+                                        VA / kVA
+                                    </td>
+
+                                    <td>
+                                        Combined apparent electrical loading
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        Apparent power can be related to active power and
+                        power factor by:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            S = P ÷ PF
+                        </div>
+
+                    </div>
+
+                    <p>
+                        For an ideal sinusoidal system:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            S² = P² + Q²
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         WORKED EXAMPLES
+                    ================================================== -->
+
+                    <h2 id="examples">
+                        Worked Examples
                     </h2>
 
 
-                    <div class="faq-item">
+                    <!-- MOTOR -->
 
-                        <h3>
+                    <h3 id="motor-example">
+                        Motor Power Calculation Example
+                    </h3>
+
+                    <p>
+                        Consider a three-phase motor operating at 400 V,
+                        drawing 15 A with a power factor of 0.85.
+                    </p>
+
+                    <div class="calculation">
+                        P = √3 × V × I × PF<br>
+                        P = 1.732 × 400 × 15 × 0.85<br>
+                        P ≈ 8,833 W<br>
+                        P ≈ 8.83 kW
+                    </div>
+
+                    <p>
+                        The motor input active power is approximately
+                        <strong>8.83 kW</strong>.
+                    </p>
+
+                    <p>
+                        If the motor efficiency is 90%, the approximate
+                        mechanical output power is:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            η = P<sub>out</sub> ÷ P<sub>in</sub>
+                        </div>
+
+                    </div>
+
+                    <div class="calculation">
+                        P<sub>out</sub> = 8.83 × 0.90<br>
+                        P<sub>out</sub> ≈ 7.95 kW
+                    </div>
+
+
+                    <!-- SOLAR -->
+
+                    <h3 id="solar-example">
+                        Solar PV Power Calculation Example
+                    </h3>
+
+                    <p>
+                        For a DC solar PV string operating at 500 V and
+                        producing 20 A:
+                    </p>
+
+                    <div class="calculation">
+                        P = V × I<br>
+                        P = 500 × 20<br>
+                        P = 10,000 W<br>
+                        P = 10 kW
+                    </div>
+
+                    <p>
+                        Therefore, the instantaneous DC electrical power
+                        is approximately <strong>10 kW</strong>.
+                    </p>
+
+
+                    <!-- =================================================
+                         KW VS KWH
+                    ================================================== -->
+
+                    <h2 id="kw-vs-kwh">
+                        kW vs kWh: Power and Energy
+                    </h2>
+
+                    <p>
+                        Power and energy are related but represent
+                        different quantities.
+                    </p>
+
+                    <div class="article-table-wrapper">
+
+                        <table class="article-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Quantity
+                                    </th>
+
+                                    <th scope="col">
+                                        Unit
+                                    </th>
+
+                                    <th scope="col">
+                                        Meaning
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Power
+                                    </td>
+
+                                    <td>
+                                        kW
+                                    </td>
+
+                                    <td>
+                                        Rate of energy transfer
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Energy
+                                    </td>
+
+                                    <td>
+                                        kWh
+                                    </td>
+
+                                    <td>
+                                        Amount of energy consumed or produced
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        Energy can be calculated from power and operating
+                        time:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            E = P × t
+                        </div>
+
+                        <div class="formula-description">
+                            Energy = Power × Time
+                        </div>
+
+                    </div>
+
+                    <p>
+                        For example, a 5 kW load operating for 4 hours
+                        consumes:
+                    </p>
+
+                    <div class="calculation">
+                        E = 5 × 4<br>
+                        E = 20 kWh
+                    </div>
+
+
+                    <!-- =================================================
+                         MEASUREMENT
+                    ================================================== -->
+
+                    <h2 id="measurement">
+                        Measuring Electrical Power
+                    </h2>
+
+                    <p>
+                        Electrical power can be measured or determined
+                        using different instruments depending on the
+                        application.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <strong>Wattmeter:</strong>
+                            directly measures electrical power.
+                        </li>
+
+                        <li>
+                            <strong>Power analyzer:</strong>
+                            measures voltage, current, power factor,
+                            active power, reactive power and other
+                            electrical parameters.
+                        </li>
+
+                        <li>
+                            <strong>Multimeter and clamp meter:</strong>
+                            can be used to measure voltage and current,
+                            after which power can be calculated.
+                        </li>
+
+                        <li>
+                            <strong>Smart meter:</strong>
+                            can provide electrical energy and, depending
+                            on the device, power and other electrical
+                            parameters.
+                        </li>
+
+                    </ul>
+
+
+                    <!-- =================================================
+                         COMMON MISTAKES
+                    ================================================== -->
+
+                    <h2 id="common-mistakes">
+                        Common Electrical Power Calculation Mistakes
+                    </h2>
+
+                    <p>
+                        Some common mistakes in electrical power
+                        calculations include:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Using line voltage incorrectly in a
+                            three-phase formula
+                        </li>
+
+                        <li>
+                            Ignoring power factor in AC calculations
+                        </li>
+
+                        <li>
+                            Confusing kW with kWh
+                        </li>
+
+                        <li>
+                            Mixing RMS and peak values
+                        </li>
+
+                        <li>
+                            Using phase voltage where line-to-line voltage
+                            is required
+                        </li>
+
+                        <li>
+                            Ignoring system efficiency when calculating
+                            useful output power
+                        </li>
+
+                        <li>
+                            Using a DC formula directly for an AC load
+                            without considering power factor
+                        </li>
+
+                    </ul>
+
+
+                    <!-- =================================================
+                         DESIGN PROCEDURE
+                    ================================================== -->
+
+                    <h2 id="design-procedure">
+                        Practical Electrical Power Calculation Procedure
+                    </h2>
+
+                    <p>
+                        A practical engineering calculation can generally
+                        follow these steps:
+                    </p>
+
+                    <ol>
+
+                        <li>
+                            Identify whether the system is DC,
+                            single-phase AC or three-phase AC.
+                        </li>
+
+                        <li>
+                            Determine the system voltage.
+                        </li>
+
+                        <li>
+                            Determine the load current.
+                        </li>
+
+                        <li>
+                            Determine the power factor for AC loads where
+                            applicable.
+                        </li>
+
+                        <li>
+                            Select the appropriate power equation.
+                        </li>
+
+                        <li>
+                            Calculate active, reactive or apparent power
+                            as required.
+                        </li>
+
+                        <li>
+                            Apply equipment efficiency where output power
+                            is required.
+                        </li>
+
+                        <li>
+                            Convert the result into W, kW, VA, kVA, var
+                            or kvar as appropriate.
+                        </li>
+
+                        <li>
+                            Compare the calculated result with equipment
+                            ratings and design requirements.
+                        </li>
+
+                    </ol>
+
+
+                    <!-- =================================================
+                         QUICK REFERENCE
+                    ================================================== -->
+
+                    <h2 id="quick-reference">
+                        Electrical Power Formula Quick Reference
+                    </h2>
+
+                    <div class="article-table-wrapper">
+
+                        <table class="article-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        System / Quantity
+                                    </th>
+
+                                    <th scope="col">
+                                        Formula
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        DC / resistive power
+                                    </td>
+
+                                    <td>
+                                        P = V × I
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Power using current and resistance
+                                    </td>
+
+                                    <td>
+                                        P = I²R
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Power using voltage and resistance
+                                    </td>
+
+                                    <td>
+                                        P = V² ÷ R
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Single-phase AC
+                                    </td>
+
+                                    <td>
+                                        P = V × I × PF
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Three-phase AC
+                                    </td>
+
+                                    <td>
+                                        P = √3 × V × I × PF
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Apparent power
+                                    </td>
+
+                                    <td>
+                                        S = P ÷ PF
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        Energy
+                                    </td>
+
+                                    <td>
+                                        E = P × t
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         RELATED TOPICS
+                    ================================================== -->
+
+                    <aside
+                        class="article-note"
+                        aria-label="Related electrical engineering topics"
+                    >
+
+                        <strong>
+                            Related topics:
+                        </strong>
+
+                        <a
+                            href="/articles/electrical-fundamentals/what-is-voltage-current-resistance.html"
+                        >
+                            Voltage, Current and Resistance
+                        </a>
+
+                        and
+
+                        <a
+                            href="/articles/electrical-fundamentals/ohms-law/"
+                        >
+                            Ohm's Law
+                        </a>
+
+                    </aside>
+
+
+                    <!-- =================================================
+                         SUMMARY
+                    ================================================== -->
+
+                    <h2 id="summary">
+                        Summary
+                    </h2>
+
+                    <p>
+                        Electrical power is the rate of electrical energy
+                        transfer. The appropriate calculation depends on
+                        whether the system is DC, single-phase AC or
+                        three-phase AC.
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = V × I
+                        </div>
+
+                        <div class="formula-description">
+                            Basic DC or resistive power
+                        </div>
+
+                    </div>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = V × I × PF
+                        </div>
+
+                        <div class="formula-description">
+                            Single-phase AC active power
+                        </div>
+
+                    </div>
+
+                    <div class="formula-box">
+
+                        <div class="formula">
+                            P = √3 × V × I × PF
+                        </div>
+
+                        <div class="formula-description">
+                            Balanced three-phase AC active power
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Power factor, efficiency and system configuration
+                        should be considered when performing practical
+                        electrical engineering calculations.
+                    </p>
+
+
+                    <!-- =================================================
+                         FAQ
+                    ================================================== -->
+
+                    <h2 id="faq">
+                        Frequently Asked Questions
+                    </h2>
+
+                    <details>
+
+                        <summary>
                             What is the basic electrical power formula?
-                        </h3>
+                        </summary>
 
                         <p>
-                            The basic electrical power formula is P = V × I, where P is power in watts, V is voltage in volts and I is current in amperes.
+                            The basic electrical power formula is
+                            P = V × I, where P is power in watts, V is
+                            voltage in volts and I is current in amperes.
                         </p>
 
-                    </div>
+                    </details>
 
+                    <details>
 
-                    <div class="faq-item">
-
-                        <h3>
+                        <summary>
                             How do you calculate single-phase AC power?
-                        </h3>
+                        </summary>
 
                         <p>
-                            Single-phase AC real power can be calculated using P = V × I × PF, where V is voltage, I is current and PF is power factor.
+                            For a single-phase AC load, active power can
+                            be calculated using P = V × I × cosφ, where
+                            V is voltage, I is current and cosφ is the
+                            power factor.
                         </p>
 
-                    </div>
+                    </details>
 
+                    <details>
 
-                    <div class="faq-item">
-
-                        <h3>
+                        <summary>
                             How do you calculate three-phase power?
-                        </h3>
+                        </summary>
 
                         <p>
-                            For a balanced three-phase system, real power can be calculated using P = √3 × V<sub>L</sub> × I<sub>L</sub> × PF.
+                            For a balanced three-phase system using
+                            line-to-line voltage, active power can be
+                            calculated using
+                            P = √3 × V × I × PF.
                         </p>
 
-                    </div>
+                    </details>
 
+                    <details>
 
-                    <div class="faq-item">
-
-                        <h3>
-                            What is the difference between kW, kVA and kVAR?
-                        </h3>
+                        <summary>
+                            What is the difference between kW and kWh?
+                        </summary>
 
                         <p>
-                            kW represents real power, kVA represents apparent power and kVAR represents reactive power. Their relationship is explained using the power triangle and power factor.
+                            kW is a unit of power, while kWh is a unit of
+                            energy. Power describes the rate of energy
+                            transfer, whereas energy represents the amount
+                            transferred over time.
                         </p>
+
+                    </details>
+
+                    <details>
+
+                        <summary>
+                            What is power factor?
+                        </summary>
 
                         <p>
-                            See the dedicated guide:
-                            <a href="/articles/electrical-calculations/power-factor-kva-kw/">
-                                kW vs kVA vs kVAR: Power Factor Explained
-                            </a>.
+                            Power factor is the ratio of active power to
+                            apparent power in an AC electrical system. In
+                            a simplified sinusoidal system, it is commonly
+                            represented by cosφ.
                         </p>
 
-                    </div>
+                    </details>
 
-
-                    <div class="faq-item">
-
-                        <h3>
-                            Why is power factor important?
-                        </h3>
-
-                        <p>
-                            Power factor is important because a lower power factor generally requires higher current to deliver the same real power. This can increase electrical equipment loading, losses and voltage-drop considerations.
-                        </p>
-
-                    </div>
-
-                </section>
+                </div>
 
 
                 <!-- =================================================
                      SOCIAL SHARING
                 ================================================== -->
 
-                <section class="article-sharing">
+                <section
+                    class="article-share"
+                    aria-label="Share this article"
+                >
 
-                    <h2>
-                        Share This Article
+                    <span class="article-share-label">
+                        Share this article:
+                    </span>
+
+                    <button
+                        type="button"
+                        class="share-button copy"
+                        data-share="copy"
+                        aria-label="Copy article link"
+                        title="Copy Link"
+                    >
+
+                        <span>
+                            Copy link
+                        </span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="share-button linkedin"
+                        data-share="linkedin"
+                        aria-label="Share on LinkedIn"
+                        title="Share on LinkedIn"
+                    >
+
+                        <span>
+                            LinkedIn
+                        </span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="share-button x"
+                        data-share="x"
+                        aria-label="Share on X"
+                        title="Share on X"
+                    >
+
+                        <span>
+                            X
+                        </span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="share-button whatsapp"
+                        data-share="whatsapp"
+                        aria-label="Share on WhatsApp"
+                        title="Share on WhatsApp"
+                    >
+
+                        <span>
+                            WhatsApp
+                        </span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="share-button facebook"
+                        data-share="facebook"
+                        aria-label="Share on Facebook"
+                        title="Share on Facebook"
+                    >
+
+                        <span>
+                            Facebook
+                        </span>
+
+                    </button>
+
+                </section>
+
+
+                <!-- =================================================
+                     AUTHOR
+                ================================================== -->
+
+                <footer class="article-footer">
+
+                    <div
+                        class="article-author"
+                        itemscope
+                        itemtype="https://schema.org/Person"
+                    >
+
+                        <div
+                            class="author-mini-avatar"
+                            aria-hidden="true"
+                        >
+                            PB
+                        </div>
+
+                        <div>
+
+                            <div class="article-author-label">
+                                Written by
+                            </div>
+
+                            <h3 itemprop="name">
+                                Prasun Barua
+                            </h3>
+
+                            <p>
+                                Senior Electrical Engineer sharing
+                                practical knowledge in electrical
+                                engineering, renewable energy, solar PV,
+                                design, testing and commissioning.
+                            </p>
+
+                            <a
+                                href="/about.html"
+                                itemprop="url"
+                            >
+                                About the author →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </footer>
+
+
+                <!-- =================================================
+                     RELATED ARTICLES
+                ================================================== -->
+
+                <section
+                    class="related-section"
+                    aria-labelledby="related-title"
+                >
+
+                    <h2 id="related-title">
+                        Related Articles
                     </h2>
 
-                    <div class="share-buttons">
+                    <div
+                        class="related-grid"
+                        id="related-articles"
+                    >
 
-                        <a
-                            href="https://www.facebook.com/sharer/sharer.php?u=https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Share on Facebook"
-                        >
-                            Facebook
-                        </a>
-
-                        <a
-                            href="https://www.linkedin.com/sharing/share-offsite/?url=https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Share on LinkedIn"
-                        >
-                            LinkedIn
-                        </a>
-
-                        <a
-                            href="https://twitter.com/intent/tweet?url=https://electrical.prasunbarua.com/articles/electrical-calculations/power-calculation/&text=How%20to%20Calculate%20Electrical%20Power"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Share on X"
-                        >
-                            X
-                        </a>
+                        <!--
+                            Dynamic related articles loaded by
+                            /assets/js/related-articles.js.
+                        -->
 
                     </div>
 
                 </section>
 
-            </div>
+            </article>
 
+        </div>
 
-            <!-- =================================================
-                 AUTHOR FOOTER
-            ================================================== -->
+    </div>
 
-            <footer class="article-author">
-
-                <div class="author-content">
-
-                    <h2>
-                        About the Author
-                    </h2>
-
-                    <p>
-                        <strong>
-                            Prasun Barua
-                        </strong>
-                        is an electrical engineer and solar PV specialist with extensive international experience in electrical engineering, renewable energy, PV system design, electrical calculations and project coordination.
-                    </p>
-
-                    <p>
-                        He shares practical electrical engineering knowledge covering electrical fundamentals, calculations, power systems, solar PV, electrical design and testing and commissioning.
-                    </p>
-
-                </div>
-
-            </footer>
-
-
-            <!-- =================================================
-                 RELATED ARTICLES
-            ================================================== -->
-
-            <section
-                class="related-articles"
-                aria-labelledby="related-articles-heading"
-            >
-
-                <h2 id="related-articles-heading">
-                    Related Articles
-                </h2>
-
-                <div
-                    id="related-articles-container"
-                    data-category="electrical-calculations"
-                    data-current-slug="power-calculation"
-                >
-                </div>
-
-            </section>
-
-
-        </article>
-
-    </main>
-
-</div>
+</main>
 
 
 <!-- =========================================================
@@ -2028,24 +2079,60 @@
 
 <footer class="site-footer">
 
-    <div class="container">
+    <div class="footer-inner">
 
-        <p>
-            &copy; 2026 Electrical Engineering. All rights reserved.
+        <p class="footer-copy">
+
+            © 2026
+
+            <a href="https://www.prasunbarua.com/">
+                Prasun Barua
+            </a>.
+
+            All rights reserved.
+
         </p>
 
-        <nav aria-label="Footer navigation">
+        <nav
+            class="footer-links"
+            aria-label="Footer navigation"
+        >
 
-            <a href="/">
-                Home
+            <a href="/privacy-policy.html">
+                Privacy
             </a>
 
-            <a href="/articles/">
-                Articles
+            <span
+                class="footer-separator"
+                aria-hidden="true"
+            >
+                ·
+            </span>
+
+            <a href="/disclaimer.html">
+                Disclaimer
             </a>
 
-            <a href="/about.html">
-                About
+            <span
+                class="footer-separator"
+                aria-hidden="true"
+            >
+                ·
+            </span>
+
+            <a href="/terms.html">
+                Terms
+            </a>
+
+            <span
+                class="footer-separator"
+                aria-hidden="true"
+            >
+                ·
+            </span>
+
+            <a href="/contact.html">
+                Contact
             </a>
 
         </nav>
@@ -2056,7 +2143,135 @@
 
 
 <!-- =========================================================
-     JAVASCRIPT
+     SHARE SCRIPT
+========================================================== -->
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const pageURL = window.location.href;
+
+        const pageTitle = document.title;
+
+
+        document
+            .querySelectorAll("[data-share]")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    async function () {
+
+                        const type = button.dataset.share;
+
+
+                        if (type === "copy") {
+
+                            try {
+
+                                await navigator.clipboard.writeText(
+                                    pageURL
+                                );
+
+                                const label =
+                                    button.querySelector("span");
+
+                                if (label) {
+                                    label.textContent = "Copied!";
+                                }
+
+                                setTimeout(
+                                    function () {
+
+                                        if (label) {
+                                            label.textContent =
+                                                "Copy link";
+                                        }
+
+                                    },
+                                    1500
+                                );
+
+                            } catch (error) {
+
+                                window.prompt(
+                                    "Copy this article link:",
+                                    pageURL
+                                );
+
+                            }
+
+                            return;
+
+                        }
+
+
+                        let shareURL = "";
+
+
+                        if (type === "facebook") {
+
+                            shareURL =
+                                "https://www.facebook.com/sharer/sharer.php?u=" +
+                                encodeURIComponent(pageURL);
+
+                        }
+
+
+                        if (type === "linkedin") {
+
+                            shareURL =
+                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
+                                encodeURIComponent(pageURL);
+
+                        }
+
+
+                        if (type === "x") {
+
+                            shareURL =
+                                "https://twitter.com/intent/tweet?url=" +
+                                encodeURIComponent(pageURL) +
+                                "&text=" +
+                                encodeURIComponent(pageTitle);
+
+                        }
+
+
+                        if (type === "whatsapp") {
+
+                            shareURL =
+                                "https://api.whatsapp.com/send?text=" +
+                                encodeURIComponent(
+                                    pageTitle + " " + pageURL
+                                );
+
+                        }
+
+
+                        if (shareURL) {
+
+                            window.open(
+                                shareURL,
+                                "_blank",
+                                "noopener,noreferrer,width=700,height=600"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+    });
+
+</script>
+
+
+<!-- =========================================================
+     RELATED ARTICLES
 ========================================================== -->
 
 <script
@@ -2064,7 +2279,17 @@
     defer
 ></script>
 
+
+<!-- =========================================================
+     MAIN SITE JAVASCRIPT
+========================================================== -->
+
 <script
     src="/assets/js/app.js"
     defer
 ></script>
+
+
+</body>
+
+</html>
