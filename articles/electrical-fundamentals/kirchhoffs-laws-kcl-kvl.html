@@ -308,29 +308,35 @@
     }
 
     .calculation {
-    margin: 24px 0;
-    padding: 18px 20px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    line-height: 1.9;
-    text-align: center;
+        margin: 24px 0;
+        padding: 18px 20px;
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: center;
 
-    overflow-x: auto;
-    overflow-y: hidden;
-}
+        /* Prevents vertical scrollbar while allowing horizontal scroll on mobile */
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+    }
 
+    /* Fix subscript alignment so it doesn't inflate line height */
     .calculation sub,
     .formula sub {
-        font-size: 0.7em;
+        font-size: 0.75em;
         line-height: 0;
-        vertical-align: sub;
+        vertical-align: baseline;
+        position: relative;
+        bottom: -0.2em;
     }
 
     .formula {
         overflow-x: auto;
+        overflow-y: hidden;
     }
 
     @media (max-width: 600px) {
@@ -346,7 +352,7 @@
         .calculation {
             padding: 16px 12px;
             font-size: 16px;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
     }
