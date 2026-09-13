@@ -1321,7 +1321,11 @@ main {
 
     box-shadow: var(--shadow-xs);
 
-    overflow: hidden;
+    /* Allows side-scrolling on narrow screens instead of clipping content */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+
     box-sizing: border-box;
 }
 
@@ -1337,9 +1341,9 @@ main {
     color: var(--text);
 
     font-size: clamp(
-        20px,
-        4vw,
-        34px
+        18px,
+        3.8vw,
+        32px
     );
 
     line-height: 1.4;
@@ -1348,10 +1352,17 @@ main {
 
     letter-spacing: -0.02em;
 
-    white-space: normal;
+    /* Keeps equations intact on one horizontal line */
+    white-space: nowrap;
+}
 
-    overflow-wrap: break-word;
-    word-break: normal;
+/* Fixes subscript alignment so sub-tags don't distort line height */
+.formula sub {
+    font-size: 0.75em;
+    line-height: 0;
+    vertical-align: baseline;
+    position: relative;
+    bottom: -0.2em;
 }
 
 .formula-description {
@@ -1361,8 +1372,7 @@ main {
     max-width: 100%;
     min-width: 0;
 
-    margin:
-        8px auto 0;
+    margin: 8px auto 0;
 
     color: var(--text-muted);
 
@@ -1370,9 +1380,18 @@ main {
 
     line-height: 1.5;
 
+    /* Description text should still wrap normally */
     white-space: normal;
 
     overflow-wrap: break-word;
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    .formula-box {
+        padding: 16px 14px;
+        margin: 20px 0;
+    }
 }
 
 /* =========================================================
