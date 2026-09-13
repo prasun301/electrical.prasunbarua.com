@@ -198,17 +198,17 @@
       ]
     },
 
-    {
+   {
   "id": "power-factor-kva-kw",
-  "title": "Power Factor, kVA and kW: Understanding the Relationship",
+  "title": "kW vs kVA vs kVAR: Power Factor Explained",
   "slug": "power-factor-kva-kw",
   "category": "electrical-calculations",
   "categoryName": "Electrical Calculations",
   "url": "/articles/electrical-calculations/power-factor-kva-kw/",
-  "description": "Learn the relationship between power factor, apparent power in kVA and real power in kW with practical electrical engineering formulas and examples.",
-  "excerpt": "Understand power factor, kVA and kW, including their formulas, relationship and practical applications in electrical systems.",
-  "icon": "power",
-  "image": "",
+  "description": "Learn the difference between kW, kVA and kVAR, understand power factor, use single-phase and three-phase formulas, and solve practical electrical power calculations.",
+  "excerpt": "Understand kW, kVA, kVAR and power factor with practical formulas, examples and electrical engineering applications.",
+  "icon": "bolt",
+  "image": "/assets/images/electrical-power-formulas.jpeg",
   "author": "Prasun Barua",
   "datePublished": "2026-09-13",
   "dateModified": "2026-09-13",
@@ -216,11 +216,12 @@
   "featured": false,
   "status": "published",
   "tags": [
-    "power factor",
-    "kVA",
     "kW",
+    "kVA",
+    "kVAR",
+    "power factor",
+    "real power",
     "apparent power",
-    "active power",
     "reactive power",
     "electrical calculations",
     "electrical engineering"
