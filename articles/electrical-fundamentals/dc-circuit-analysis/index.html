@@ -4,7 +4,6 @@
 
 <head>
 
-
 <!-- =========================================================
      1. CORE DOCUMENT
 ========================================================== -->
@@ -12,23 +11,27 @@
 <meta charset="UTF-8">
 
 <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
 >
 
 <meta
-    name="referrer"
-    content="strict-origin-when-cross-origin"
+name="referrer"
+content="strict-origin-when-cross-origin"
+
 >
 
 <meta
-    name="theme-color"
-    content="#0066cc"
+name="theme-color"
+content="#0066cc"
+
 >
 
 <meta
-    name="color-scheme"
-    content="light"
+name="color-scheme"
+content="light"
+
 >
 
 <title>
@@ -36,30 +39,39 @@
 </title>
 
 <meta
-    name="description"
-    content="Master DC circuit analysis for series, parallel, and combination circuits. Learn equivalent resistance, voltage division, current division, formulas, worked examples, and practical engineering applications."
+name="description"
+content="Master DC circuit analysis for series, parallel, and combination circuits. Learn equivalent resistance, voltage division, current division, formulas, worked examples, and practical engineering applications."
+
 >
 
 <meta
-    name="author"
-    content="Prasun Barua"
+name="author"
+content="Prasun Barua"
+
 >
 
 <meta
-    name="robots"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+name="robots"
+content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+
 >
 
 <meta
-    name="googlebot"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+name="googlebot"
+content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+
 >
+
+<!-- IMPORTANT:
+     This article uses the clean directory URL.
+     The GitHub file should therefore be:
+     /articles/electrical-fundamentals/dc-circuit-analysis/index.html
+-->
 
 <link
     rel="canonical"
-    href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html"
+    href="https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/"
 >
-
 
 <!-- =========================================================
      2. PERFORMANCE / RESOURCE HINTS
@@ -86,121 +98,139 @@
     href="//www.googletagmanager.com"
 >
 
-
 <!-- =========================================================
      3. OPEN GRAPH
 ========================================================== -->
 
 <meta
-    property="og:type"
-    content="article"
+property="og:type"
+content="article"
+
 >
 
 <meta
-    property="og:url"
-    content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html"
+property="og:url"
+content="https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/"
+
 >
 
 <meta
-    property="og:title"
-    content="DC Circuit Analysis: Series and Parallel Circuits Explained"
+property="og:title"
+content="DC Circuit Analysis: Series and Parallel Circuits Explained"
+
 >
 
 <meta
-    property="og:description"
-    content="Learn series and parallel DC circuit analysis with equivalent resistance formulas, voltage and current divider rules, worked examples, and practical applications."
+property="og:description"
+content="Learn series and parallel DC circuit analysis with equivalent resistance formulas, voltage and current divider rules, worked examples, and practical applications."
+
 >
 
 <meta
-    property="og:site_name"
-    content="Electrical Engineering by Prasun Barua"
+property="og:site_name"
+content="Electrical Engineering by Prasun Barua"
+
 >
 
 <meta
-    property="og:locale"
-    content="en_US"
+property="og:locale"
+content="en_US"
+
 >
 
 <meta
-    property="og:image"
-    content="https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+property="og:image"
+content="https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+
 >
 
 <meta
-    property="og:image:secure_url"
-    content="https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+property="og:image:secure_url"
+content="https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+
 >
 
 <meta
-    property="og:image:type"
-    content="image/jpeg"
+property="og:image:type"
+content="image/jpeg"
+
 >
 
 <meta
-    property="og:image:width"
-    content="1200"
+property="og:image:width"
+content="1200"
+
 >
 
 <meta
-    property="og:image:height"
-    content="675"
+property="og:image:height"
+content="675"
+
 >
 
 <meta
-    property="og:image:alt"
-    content="DC Circuit Analysis showing series and parallel resistor combinations"
+property="og:image:alt"
+content="DC Circuit Analysis showing series and parallel resistor combinations"
+
 >
 
 <meta
-    property="article:section"
-    content="Electrical Fundamentals"
+property="article:section"
+content="Electrical Fundamentals"
+
 >
 
 <meta
-    property="article:author"
-    content="Prasun Barua"
+property="article:author"
+content="Prasun Barua"
+
 >
 
 <meta
-    property="article:published_time"
-    content="2026-09-13T00:00:00+06:00"
+property="article:published_time"
+content="2026-09-13T00:00:00+06:00"
+
 >
 
 <meta
-    property="article:modified_time"
-    content="2026-09-13T00:00:00+06:00"
->
+property="article:modified_time"
+content="2026-09-23T00:00:00+06:00"
 
+>
 
 <!-- =========================================================
      4. X / TWITTER
 ========================================================== -->
 
 <meta
-    name="twitter:card"
-    content="summary_large_image"
+name="twitter:card"
+content="summary_large_image"
+
 >
 
 <meta
-    name="twitter:title"
-    content="DC Circuit Analysis: Series and Parallel Circuits Explained"
+name="twitter:title"
+content="DC Circuit Analysis: Series and Parallel Circuits Explained"
+
 >
 
 <meta
-    name="twitter:description"
-    content="Learn series and parallel DC circuit analysis with equivalent resistance formulas, voltage and current divider rules, and step-by-step worked examples."
+name="twitter:description"
+content="Learn series and parallel DC circuit analysis with equivalent resistance formulas, voltage and current divider rules, and step-by-step worked examples."
+
 >
 
 <meta
-    name="twitter:image"
-    content="https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+name="twitter:image"
+content="https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+
 >
 
 <meta
-    name="twitter:image:alt"
-    content="DC Circuit Analysis showing series and parallel connections"
->
+name="twitter:image:alt"
+content="DC Circuit Analysis showing series and parallel connections"
 
+>
 
 <!-- =========================================================
      5. FAVICON
@@ -217,7 +247,6 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230066cc' d='M13 2L4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E"
 >
 
-
 <!-- =========================================================
      6. GOOGLE FONTS
 ========================================================== -->
@@ -226,7 +255,6 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap"
 >
-
 
 <!-- =========================================================
      7. GOOGLE ADSENSE
@@ -237,7 +265,6 @@
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8736637194399168"
     crossorigin="anonymous"
 ></script>
-
 
 <!-- =========================================================
      8. GOOGLE ANALYTICS
@@ -265,7 +292,6 @@
 
 </script>
 
-
 <!-- =========================================================
      9. MAIN STYLESHEET
 ========================================================== -->
@@ -274,7 +300,6 @@
     rel="stylesheet"
     href="/assets/css/style.css"
 >
-
 
 <!-- =========================================================
      10. ARTICLE INLINE IMAGE + EQUATION SUPPORT
@@ -318,7 +343,6 @@
         line-height: 1.6;
         text-align: center;
         white-space: nowrap;
-
         overflow-x: auto;
         overflow-y: hidden;
         scrollbar-width: thin;
@@ -358,7 +382,6 @@
 
 </style>
 
-
 <!-- =========================================================
      11. ARTICLE STRUCTURED DATA
 ========================================================== -->
@@ -367,15 +390,15 @@
 {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html#article",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/#article",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/",
     "headline": "DC Circuit Analysis: Series and Parallel Circuits Explained",
     "description": "Master DC circuit analysis for series, parallel, and combination circuits. Learn equivalent resistance, voltage division, current division, formulas, worked examples, and practical engineering applications.",
     "image": [
         "https://electrical.prasunbarua.com/assets/images/dc-circuit-analysis-series-parallel.jpeg"
     ],
     "datePublished": "2026-09-13T00:00:00+06:00",
-    "dateModified": "2026-09-13T00:00:00+06:00",
+    "dateModified": "2026-09-23T00:00:00+06:00",
     "inLanguage": "en",
     "isAccessibleForFree": true,
     "articleSection": "Electrical Fundamentals",
@@ -406,11 +429,10 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html#webpage"
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/#webpage"
     }
 }
 </script>
-
 
 <!-- =========================================================
      12. WEB PAGE STRUCTURED DATA
@@ -420,8 +442,8 @@
 {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html#webpage",
-    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/#webpage",
+    "url": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/",
     "name": "DC Circuit Analysis: Series and Parallel Circuits Explained",
     "description": "Learn series and parallel DC circuit analysis with equivalent resistance formulas, voltage and current divider rules, worked examples, and practical applications.",
     "isPartOf": {
@@ -439,15 +461,14 @@
         "height": 675
     },
     "breadcrumb": {
-        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html#breadcrumb"
+        "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/#breadcrumb"
     },
     "inLanguage": "en",
     "isAccessibleForFree": true,
     "datePublished": "2026-09-13T00:00:00+06:00",
-    "dateModified": "2026-09-13T00:00:00+06:00"
+    "dateModified": "2026-09-23T00:00:00+06:00"
 }
 </script>
-
 
 <!-- =========================================================
      13. WEBSITE STRUCTURED DATA
@@ -468,7 +489,6 @@
 }
 </script>
 
-
 <!-- =========================================================
      14. ORGANIZATION STRUCTURED DATA
 ========================================================== -->
@@ -483,7 +503,6 @@
 }
 </script>
 
-
 <!-- =========================================================
      15. BREADCRUMB STRUCTURED DATA
 ========================================================== -->
@@ -492,7 +511,7 @@
 {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html#breadcrumb",
+    "@id": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/#breadcrumb",
     "itemListElement": [
         {
             "@type": "ListItem",
@@ -510,12 +529,11 @@
             "@type": "ListItem",
             "position": 3,
             "name": "DC Circuit Analysis: Series and Parallel",
-            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html"
+            "item": "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/"
         }
     ]
 }
 </script>
-
 
 <!-- =========================================================
      16. FAQ STRUCTURED DATA
@@ -570,7 +588,6 @@
 }
 </script>
 
-
 </head>
 
 <body>
@@ -581,98 +598,95 @@
 
 <header class="site-header">
 
-
 <div class="container header-inner">
 
-    <a
-        href="/"
-        class="logo"
-        aria-label="Electrical Engineering by Prasun Barua home"
+```
+<a
+    href="/"
+    class="logo"
+    aria-label="Electrical Engineering by Prasun Barua home"
+>
+
+    <span
+        class="logo-icon"
+        aria-hidden="true"
     >
 
-        <span
-            class="logo-icon"
-            aria-hidden="true"
-        >
-
-            <span class="material-symbols-rounded">
-                bolt
-            </span>
-
+        <span class="material-symbols-rounded">
+            bolt
         </span>
 
+    </span>
 
-        <span class="logo-text">
+    <span class="logo-text">
 
-            <strong>
-                Electrical Engineering
-            </strong>
+        <strong>
+            Electrical Engineering
+        </strong>
 
-            <small>
-                by Prasun Barua
-            </small>
+        <small>
+            by Prasun Barua
+        </small>
 
-        </span>
+    </span>
 
-    </a>
+</a>
 
 
-    <button
-        type="button"
-        id="mobile-menu-button"
-        class="mobile-menu-button"
-        aria-label="Open article navigation"
-        aria-expanded="false"
-        aria-controls="article-sidebar"
+<button
+    type="button"
+    id="mobile-menu-button"
+    class="mobile-menu-button"
+    aria-label="Open article navigation"
+    aria-expanded="false"
+    aria-controls="article-sidebar"
+>
+
+    <span
+        class="material-symbols-rounded"
+        aria-hidden="true"
     >
+        menu
+    </span>
 
-        <span
-            class="material-symbols-rounded"
-            aria-hidden="true"
-        >
-            menu
-        </span>
-
-    </button>
+</button>
 
 
-    <nav
-        class="main-nav"
-        aria-label="Main navigation"
-    >
+<nav
+    class="main-nav"
+    aria-label="Main navigation"
+>
 
-        <ul>
+    <ul>
 
-            <li>
-                <a href="/">
-                    Home
-                </a>
-            </li>
+        <li>
+            <a href="/">
+                Home
+            </a>
+        </li>
 
+        <li>
+            <a
+                href="/articles/electrical-fundamentals/"
+                class="active"
+                aria-current="page"
+            >
+                Articles
+            </a>
+        </li>
 
-            <li>
-                <a
-                    href="/articles/electrical-fundamentals/"
-                    class="active"
-                    aria-current="page"
-                >
-                    Articles
-                </a>
-            </li>
+        <li>
+            <a href="/about.html">
+                About
+            </a>
+        </li>
 
+    </ul>
 
-            <li>
-                <a href="/about.html">
-                    About
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
+</nav>
+```
 
 </div>
-
 
 </header>
 
@@ -692,2190 +706,2071 @@
 
 <main class="article-page">
 
-
 <div class="container">
 
-    <div class="article-layout">
+```
+<div class="article-layout">
 
 
-        <!-- =================================================
-             20. ARTICLE SIDEBAR
-        ================================================== -->
+    <!-- =================================================
+         20. ARTICLE SIDEBAR
+    ================================================== -->
 
-        <aside
-            class="article-sidebar site-sidebar"
-            id="article-sidebar"
-            aria-label="Article navigation"
+    <aside
+        class="article-sidebar site-sidebar"
+        id="article-sidebar"
+        aria-label="Article navigation"
+    >
+
+        <div class="article-sidebar-title">
+            Electrical Engineering
+        </div>
+
+
+        <nav aria-label="Article sections">
+
+            <a
+                href="/articles/electrical-fundamentals/"
+                class="back-link"
+            >
+                ← All Electrical Fundamentals
+            </a>
+
+            <a href="#what-is-dc-circuit-analysis">
+                What Is DC Circuit Analysis?
+            </a>
+
+            <a href="#series-circuits">
+                Series Circuits Explained
+            </a>
+
+            <a href="#series-formulas">
+                Series Circuit Formulas
+            </a>
+
+            <a href="#voltage-divider-rule">
+                Voltage Divider Rule
+            </a>
+
+            <a href="#series-example">
+                Series Circuit Example
+            </a>
+
+            <a href="#parallel-circuits">
+                Parallel Circuits Explained
+            </a>
+
+            <a href="#parallel-formulas">
+                Parallel Circuit Formulas
+            </a>
+
+            <a href="#current-divider-rule">
+                Current Divider Rule
+            </a>
+
+            <a href="#parallel-example">
+                Parallel Circuit Example
+            </a>
+
+            <a href="#series-vs-parallel">
+                Series vs Parallel Comparison
+            </a>
+
+            <a href="#combination-circuits">
+                Series-Parallel Combinations
+            </a>
+
+            <a href="#combination-example">
+                Combination Circuit Example
+            </a>
+
+            <a href="#common-mistakes">
+                Common Mistakes
+            </a>
+
+            <a href="#applications">
+                Practical Applications
+            </a>
+
+            <a href="#quick-reference">
+                Quick Reference
+            </a>
+
+            <a href="#summary">
+                Summary
+            </a>
+
+            <a href="#faq">
+                Frequently Asked Questions
+            </a>
+
+            <a href="#what-comes-next">
+                What Comes Next?
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =================================================
+         21. ARTICLE
+    ================================================== -->
+
+    <article
+        class="article-main"
+        itemscope
+        itemtype="https://schema.org/Article"
+    >
+
+
+        <!-- BREADCRUMBS -->
+
+        <nav
+            class="breadcrumbs"
+            aria-label="Breadcrumb"
         >
 
-            <div class="article-sidebar-title">
-                Electrical Engineering
+            <a href="/">
+                Home
+            </a>
+
+            <span aria-hidden="true">
+                /
+            </span>
+
+            <a href="/articles/electrical-fundamentals/">
+                Electrical Fundamentals
+            </a>
+
+            <span aria-hidden="true">
+                /
+            </span>
+
+            <span aria-current="page">
+                DC Circuit Analysis: Series and Parallel
+            </span>
+
+        </nav>
+
+
+        <!-- ARTICLE HEADER -->
+
+        <header class="article-header">
+
+            <div class="article-category-label">
+                Electrical Fundamentals
             </div>
 
 
-            <nav aria-label="Article sections">
+            <h1
+                class="article-title"
+                itemprop="headline"
+            >
+                DC Circuit Analysis:
+                Series and Parallel Circuits Explained
+            </h1>
 
-                <a
-                    href="/articles/electrical-fundamentals/"
-                    class="back-link"
+
+            <p
+                class="article-intro"
+                itemprop="description"
+            >
+                Master the principles of Direct Current (DC) circuit
+                analysis. Learn how components behave in series, parallel,
+                and combination networks, apply equivalent resistance
+                formulas, and utilize voltage and current divider rules
+                to solve practical engineering problems.
+            </p>
+
+
+            <div class="article-meta">
+
+                <span>
+                    By
+                    <a
+                        href="/about.html"
+                        itemprop="author"
+                    >
+                        Prasun Barua
+                    </a>
+                </span>
+
+                <span
+                    class="article-meta-separator"
+                    aria-hidden="true"
                 >
-                    ← All Electrical Fundamentals
-                </a>
+                    •
+                </span>
+
+                <time
+                    datetime="2026-09-13T00:00:00+06:00"
+                    itemprop="datePublished"
+                >
+                    Published September 13, 2026
+                </time>
+
+                <span
+                    class="article-meta-separator"
+                    aria-hidden="true"
+                >
+                    •
+                </span>
+
+                <time
+                    datetime="2026-09-23T00:00:00+06:00"
+                    itemprop="dateModified"
+                >
+                    Updated September 23, 2026
+                </time>
+
+                <span
+                    class="article-meta-separator"
+                    aria-hidden="true"
+                >
+                    •
+                </span>
+
+                <span>
+                    14 min read
+                </span>
+
+            </div>
+
+        </header>
 
 
-                <a href="#what-is-dc-circuit-analysis">
-                    What Is DC Circuit Analysis?
-                </a>
+        <!-- FEATURE IMAGE -->
 
+        <figure class="article-feature-image">
 
-                <a href="#series-circuits">
-                    Series Circuits Explained
-                </a>
-
-
-                <a href="#series-formulas">
-                    Series Circuit Formulas
-                </a>
-
-
-                <a href="#voltage-divider-rule">
-                    Voltage Divider Rule
-                </a>
-
-
-                <a href="#series-example">
-                    Series Circuit Example
-                </a>
-
-
-                <a href="#parallel-circuits">
-                    Parallel Circuits Explained
-                </a>
-
-
-                <a href="#parallel-formulas">
-                    Parallel Circuit Formulas
-                </a>
-
-
-                <a href="#current-divider-rule">
-                    Current Divider Rule
-                </a>
-
-
-                <a href="#parallel-example">
-                    Parallel Circuit Example
-                </a>
-
-
-                <a href="#series-vs-parallel">
-                    Series vs Parallel Comparison
-                </a>
-
-
-                <a href="#combination-circuits">
-                    Series-Parallel Combinations
-                </a>
-
-
-                <a href="#combination-example">
-                    Combination Circuit Example
-                </a>
-
-
-                <a href="#common-mistakes">
-                    Common Mistakes
-                </a>
-
-
-                <a href="#applications">
-                    Practical Applications
-                </a>
-
-
-                <a href="#quick-reference">
-                    Quick Reference
-                </a>
-
-
-                <a href="#summary">
-                    Summary
-                </a>
-
-
-                <a href="#faq">
-                    Frequently Asked Questions
-                </a>
-
-
-                <a href="#what-comes-next">
-                    What Comes Next?
-                </a>
-
-            </nav>
-
-        </aside>
-
-
-        <!-- =================================================
-             21. ARTICLE
-        ================================================== -->
-
-        <article
-            class="article-main"
-            itemscope
-            itemtype="https://schema.org/Article"
-        >
-
-
-            <!-- BREADCRUMBS -->
-
-            <nav
-                class="breadcrumbs"
-                aria-label="Breadcrumb"
+            <img
+                src="/assets/images/dc-circuit-analysis-series-parallel.jpeg"
+                alt="DC Circuit Analysis illustrating series and parallel resistor networks connected to a DC power source"
+                width="1200"
+                height="675"
+                fetchpriority="high"
+                decoding="async"
+                loading="eager"
+                itemprop="image"
             >
 
-                <a href="/">
-                    Home
-                </a>
+            <figcaption class="image-caption">
+                DC circuit analysis relies on determining equivalent resistance
+                and applying branch relationships for series and parallel configurations.
+            </figcaption>
 
-                <span aria-hidden="true">
-                    /
-                </span>
-
-                <a href="/articles/electrical-fundamentals/">
-                    Electrical Fundamentals
-                </a>
-
-                <span aria-hidden="true">
-                    /
-                </span>
-
-                <span aria-current="page">
-                    DC Circuit Analysis: Series and Parallel
-                </span>
-
-            </nav>
+        </figure>
 
 
-            <!-- ARTICLE HEADER -->
+        <!-- ARTICLE CONTENT -->
 
-            <header class="article-header">
+        <div
+            class="article-content"
+            itemprop="articleBody"
+        >
 
-                <div class="article-category-label">
-                    Electrical Fundamentals
-                </div>
-
-
-                <h1
-                    class="article-title"
-                    itemprop="headline"
-                >
-                    DC Circuit Analysis:
-                    Series and Parallel Circuits Explained
-                </h1>
-
-
-                <p
-                    class="article-intro"
-                    itemprop="description"
-                >
-                    Master the principles of Direct Current (DC) circuit
-                    analysis. Learn how components behave in series, parallel,
-                    and combination networks, apply equivalent resistance
-                    formulas, and utilize voltage and current divider rules
-                    to solve practical engineering problems.
-                </p>
+            <p>
+                <strong>DC circuit analysis</strong> is the process of calculating
+                unknown voltages, currents, and power levels within a direct
+                current electrical network. Whether designing microelectronic sensors,
+                industrial control loops, or photovoltaic DC combiners, understanding how
+                resistors and loads behave in <strong>series</strong> and
+                <strong>parallel</strong> configuration is essential.
+            </p>
 
 
-                <div class="article-meta">
-
-                    <span>
-                        By
-                        <a
-                            href="/about.html"
-                            itemprop="author"
-                        >
-                            Prasun Barua
-                        </a>
-                    </span>
+            <p>
+                All DC circuit reduction relies on combining basic component arrangements:
+            </p>
 
 
-                    <span
-                        class="article-meta-separator"
-                        aria-hidden="true"
-                    >
-                        •
-                    </span>
+            <ul>
+
+                <li>
+                    <strong>Series Connections</strong> — components connected end-to-end
+                    along a single continuous path.
+                </li>
+
+                <li>
+                    <strong>Parallel Connections</strong> — components connected across
+                    common voltage nodes to provide multiple current paths.
+                </li>
+
+                <li>
+                    <strong>Series-Parallel Combinations</strong> — complex networks
+                    combining both series and parallel subnetworks.
+                </li>
+
+            </ul>
 
 
-                    <time
-                        datetime="2026-09-13T00:00:00+06:00"
-                        itemprop="datePublished"
-                    >
-                        Published September 13, 2026
-                    </time>
+            <p>
+                By applying Ohm's Law along with Kirchhoff's Current Law (KCL) and
+                Kirchhoff's Voltage Law (KVL), complex DC networks can be systematically
+                reduced into simple, manageable equivalent circuits.
+            </p>
 
 
-                    <span
-                        class="article-meta-separator"
-                        aria-hidden="true"
-                    >
-                        •
-                    </span>
+            <aside
+                class="article-note"
+                aria-label="Quick engineering answer"
+            >
+
+                <strong>
+                    Quick engineering answer:
+                </strong>
+
+                In a series circuit, current is identical through every component, while total
+                voltage drops sum up across components. In a parallel circuit, voltage is identical
+                across every branch, while total current divides among branches.
+                Equivalent resistance is additive in series (R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ...)
+                and inverse-additive in parallel (1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ...).
+
+            </aside>
 
 
-                    <time
-                        datetime="2026-09-13T00:00:00+06:00"
-                        itemprop="dateModified"
-                    >
-                        Updated September 13, 2026
-                    </time>
+            <!-- =================================================
+                 WHAT IS DC CIRCUIT ANALYSIS
+            ================================================== -->
+
+            <h2 id="what-is-dc-circuit-analysis">
+                What Is DC Circuit Analysis?
+            </h2>
 
 
-                    <span
-                        class="article-meta-separator"
-                        aria-hidden="true"
-                    >
-                        •
-                    </span>
+            <p>
+                Direct Current (DC) flows in a constant direction over time, driven by
+                steady voltage sources such as batteries, DC power supplies, or solar PV strings.
+                <strong>DC circuit analysis</strong> evaluates these networks under
+                steady-state conditions where voltages and currents are constant.
+            </p>
 
 
-                    <span>
-                        14 min read
-                    </span>
-
-                </div>
-
-            </header>
+            <p>
+                Analyzing a circuit means determining the complete state of the network,
+                including:
+            </p>
 
 
-            <!-- FEATURE IMAGE -->
+            <ul>
 
-            <figure class="article-feature-image">
+                <li>
+                    Total current supplied by the voltage or current sources
+                </li>
+
+                <li>
+                    Equivalent resistance seen by the power source
+                </li>
+
+                <li>
+                    Individual branch currents across every circuit leg
+                </li>
+
+                <li>
+                    Voltage drops across each individual component or resistor
+                </li>
+
+                <li>
+                    Power dissipated by loads or delivered by power sources
+                </li>
+
+            </ul>
+
+
+            <p>
+                Before tackling complex network theorems like Thevenin's or Norton's theorems,
+                mastering basic series and parallel reduction techniques is mandatory.
+            </p>
+
+
+            <!-- =================================================
+                 SERIES CIRCUITS
+            ================================================== -->
+
+            <h2 id="series-circuits">
+                Series Circuits Explained
+            </h2>
+
+
+            <p>
+                A <strong>series circuit</strong> exists when circuit elements are joined sequentially,
+                forming a single closed path for electrical charge to flow.
+            </p>
+
+
+            <p>
+                Because there is only one continuous loop, charge cannot accumulate or branch off.
+                Consequently, the current passing through every series element is exactly equal.
+            </p>
+
+
+            <figure class="article-inline-image">
 
                 <img
-                    src="/assets/images/dc-circuit-analysis-series-parallel.jpeg"
-                    alt="DC Circuit Analysis illustrating series and parallel resistor networks connected to a DC power source"
+                    src="/assets/images/series-circuit-diagram.jpeg"
+                    alt="Series circuit diagram with three resistors in a single loop"
                     width="1200"
                     height="675"
-                    fetchpriority="high"
+                    loading="lazy"
                     decoding="async"
-                    loading="eager"
-                    itemprop="image"
                 >
 
-
                 <figcaption class="image-caption">
-                    DC circuit analysis relies on determining equivalent resistance
-                    and applying branch relationships for series and parallel configurations.
+                    Series circuit configuration: current flows sequentially through each component
+                    along a single continuous path.
                 </figcaption>
 
             </figure>
 
 
-            <!-- ARTICLE CONTENT -->
+            <p>
+                Key properties of series circuits include:
+            </p>
 
-            <div
-                class="article-content"
-                itemprop="articleBody"
-            >
 
+            <ul>
 
-                <p>
-                    <strong>DC circuit analysis</strong> is the process of calculating
-                    unknown voltages, currents, and power levels within a direct
-                    current electrical network. Whether designing microelectronic sensors,
-                    industrial control loops, or photovoltaic DC combiners, understanding how
-                    resistors and loads behave in <strong>series</strong> and
-                    <strong>parallel</strong> configuration is essential.
-                </p>
+                <li>
+                    <strong>Current is constant:</strong> The same current I flows through all components.
+                </li>
 
+                <li>
+                    <strong>Voltages add up:</strong> The total source voltage equals the sum of individual
+                    voltage drops across each component.
+                </li>
 
-                <p>
-                    All DC circuit reduction relies on combining basic component arrangements:
-                </p>
+                <li>
+                    <strong>Resistance increases:</strong> Adding more resistors in series increases the
+                    overall opposition to current flow.
+                </li>
 
+                <li>
+                    <strong>Single point of failure:</strong> If one component opens (burns out), current stops
+                    flowing through the entire loop.
+                </li>
 
-                <ul>
+            </ul>
 
-                    <li>
-                        <strong>Series Connections</strong> — components connected end-to-end
-                        along a single continuous path.
-                    </li>
 
+            <!-- =================================================
+                 SERIES FORMULAS
+            ================================================== -->
 
-                    <li>
-                        <strong>Parallel Connections</strong> — components connected across
-                        common voltage nodes to provide multiple current paths.
-                    </li>
+            <h2 id="series-formulas">
+                Series Circuit Formulas
+            </h2>
 
 
-                    <li>
-                        <strong>Series-Parallel Combinations</strong> — complex networks
-                        combining both series and parallel subnetworks.
-                    </li>
+            <p>
+                The fundamental governing equations for a series circuit containing N resistors are:
+            </p>
 
-                </ul>
 
+            <h3>
+                1. Current Relationship
+            </h3>
 
-                <p>
-                    By applying Ohm's Law along with Kirchhoff's Current Law (KCL) and
-                    Kirchhoff's Voltage Law (KVL), complex DC networks can be systematically
-                    reduced into simple, manageable equivalent circuits.
-                </p>
 
+            <div class="formula-box">
 
-                <aside
-                    class="article-note"
-                    aria-label="Quick engineering answer"
-                >
-
-                    <strong>
-                        Quick engineering answer:
-                    </strong>
-
-                    In a series circuit, current is identical through every component, while total
-                    voltage drops sum up across components. In a parallel circuit, voltage is identical
-                    across every branch, while total current divides among branches.
-                    Equivalent resistance is additive in series (R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ...)
-                    and inverse-additive in parallel (1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ...).
-
-                </aside>
-
-
-                <!-- =================================================
-                     WHAT IS DC CIRCUIT ANALYSIS
-                ================================================== -->
-
-                <h2 id="what-is-dc-circuit-analysis">
-                    What Is DC Circuit Analysis?
-                </h2>
-
-
-                <p>
-                    Direct Current (DC) flows in a constant direction over time, driven by
-                    steady voltage sources such as batteries, DC power supplies, or solar PV strings.
-                    <strong>DC circuit analysis</strong> evaluates these networks under
-                    steady-state conditions where voltages and currents are constant.
-                </p>
-
-
-                <p>
-                    Analyzing a circuit means determining the complete state of the network,
-                    including:
-                </p>
-
-
-                <ul>
-
-                    <li>
-                        Total current supplied by the voltage or current sources
-                    </li>
-
-
-                    <li>
-                        Equivalent resistance seen by the power source
-                    </li>
-
-
-                    <li>
-                        Individual branch currents across every circuit leg
-                    </li>
-
-
-                    <li>
-                        Voltage drops across each individual component or resistor
-                    </li>
-
-
-                    <li>
-                        Power dissipated by loads or delivered by power sources
-                    </li>
-
-                </ul>
-
-
-                <p>
-                    Before tackling complex network theorems like Thevenin's or Norton's theorems,
-                    mastering basic series and parallel reduction techniques is mandatory.
-                </p>
-
-
-                <!-- =================================================
-                     SERIES CIRCUITS
-                ================================================== -->
-
-                <h2 id="series-circuits">
-                    Series Circuits Explained
-                </h2>
-
-
-                <p>
-                    A <strong>series circuit</strong> exists when circuit elements are joined sequentially,
-                    forming a single closed path for electrical charge to flow.
-                </p>
-
-
-                <p>
-                    Because there is only one continuous loop, charge cannot accumulate or branch off.
-                    Consequently, the current passing through every series element is exactly equal.
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/series-circuit-diagram.jpeg"
-                        alt="Series circuit diagram with three resistors in a single loop"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Series circuit configuration: current flows sequentially through each component
-                        along a single continuous path.
-                    </figcaption>
-
-                </figure>
-
-
-                <p>
-                    Key properties of series circuits include:
-                </p>
-
-
-                <ul>
-
-                    <li>
-                        <strong>Current is constant:</strong> The same current I flows through all components.
-                    </li>
-
-
-                    <li>
-                        <strong>Voltages add up:</strong> The total source voltage equals the sum of individual
-                        voltage drops across each component.
-                    </li>
-
-
-                    <li>
-                        <strong>Resistance increases:</strong> Adding more resistors in series increases the
-                        overall opposition to current flow.
-                    </li>
-
-
-                    <li>
-                        <strong>Single point of failure:</strong> If one component opens (burns out), current stops
-                        flowing through the entire loop.
-                    </li>
-
-                </ul>
-
-
-                <!-- =================================================
-                     SERIES FORMULAS
-                ================================================== -->
-
-                <h2 id="series-formulas">
-                    Series Circuit Formulas
-                </h2>
-
-
-                <p>
-                    The fundamental governing equations for a series circuit containing N resistors are:
-                </p>
-
-
-                <h3>
-                    1. Current Relationship
-                </h3>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        I<sub>T</sub> = I<sub>1</sub> = I<sub>2</sub> = I<sub>3</sub> = ... = I<sub>N</sub>
-                    </div>
-
-
-                    <div class="formula-description">
-                        Total circuit current equals the current through every series element
-                    </div>
-
+                <div class="formula">
+                    I<sub>T</sub> = I<sub>1</sub> = I<sub>2</sub> = I<sub>3</sub> = ... = I<sub>N</sub>
                 </div>
 
-
-                <h3>
-                    2. Equivalent Resistance
-                </h3>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ... + R<sub>N</sub>
-                    </div>
-
-
-                    <div class="formula-description">
-                        Total equivalent resistance is the direct sum of individual resistances
-                    </div>
-
+                <div class="formula-description">
+                    Total circuit current equals the current through every series element
                 </div>
 
-
-                <h3>
-                    3. Voltage Drop Summation (KVL)
-                </h3>
+            </div>
 
 
-                <div class="formula-box">
-
-                    <div class="formula">
-                        V<sub>S</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub> + ... + V<sub>N</sub>
-                    </div>
+            <h3>
+                2. Equivalent Resistance
+            </h3>
 
 
-                    <div class="formula-description">
-                        Source voltage equals the sum of all individual resistor voltage drops
-                    </div>
+            <div class="formula-box">
 
+                <div class="formula">
+                    R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ... + R<sub>N</sub>
                 </div>
 
-
-                <!-- =================================================
-                     VOLTAGE DIVIDER RULE
-                ================================================== -->
-
-                <h2 id="voltage-divider-rule">
-                    The Voltage Divider Rule (VDR)
-                </h2>
-
-
-                <p>
-                    In a series circuit, source voltage divides across resistors in direct proportion
-                    to their resistance values. The <strong>Voltage Divider Rule (VDR)</strong> allows you
-                    to calculate the voltage across any specific resistor without calculating total current first.
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/voltage-divider-circuit-diagram.jpeg"
-                        alt="Voltage divider circuit diagram showing two series resistors dividing an input voltage"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Voltage divider circuit schematic: input voltage Vin divides proportionally across series resistors R1 and R2 to yield output voltage Vout.
-                    </figcaption>
-
-                </figure>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        V<sub>x</sub> = V<sub>S</sub> × ( R<sub>x</sub> / R<sub>eq</sub> )
-                    </div>
-
-
-                    <div class="formula-description">
-                        Voltage across resistor x equals source voltage multiplied by the ratio of R<sub>x</sub> to total series resistance
-                    </div>
-
+                <div class="formula-description">
+                    Total equivalent resistance is the direct sum of individual resistances
                 </div>
 
-
-                <p>
-                    For a two-resistor series circuit, the voltage drop V<sub>1</sub> across R<sub>1</sub> is:
-                </p>
+            </div>
 
 
-                <div class="calculation">
-                    V<sub>1</sub> = V<sub>S</sub> × [ R<sub>1</sub> / (R<sub>1</sub> + R<sub>2</sub>) ]
+            <h3>
+                3. Voltage Drop Summation (KVL)
+            </h3>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    V<sub>S</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub> + ... + V<sub>N</sub>
                 </div>
 
-
-                <!-- =================================================
-                     SERIES EXAMPLE
-                ================================================== -->
-
-                <h2 id="series-example">
-                    Series Circuit Worked Example
-                </h2>
-
-
-                <p>
-                    Consider a 24 V DC power source connected in series with three resistors:
-                    R<sub>1</sub> = 10 Ω, R<sub>2</sub> = 20 Ω, and R<sub>3</sub> = 30 Ω.
-                </p>
-
-
-                <div class="example-box">
-
-                    <h3>
-                        Given
-                    </h3>
-
-
-                    <ul>
-
-                        <li>
-                            V<sub>S</sub> = 24 V DC
-                        </li>
-
-
-                        <li>
-                            R<sub>1</sub> = 10 Ω
-                        </li>
-
-
-                        <li>
-                            R<sub>2</sub> = 20 Ω
-                        </li>
-
-
-                        <li>
-                            R<sub>3</sub> = 30 Ω
-                        </li>
-
-                    </ul>
-
+                <div class="formula-description">
+                    Source voltage equals the sum of all individual resistor voltage drops
                 </div>
-
-
-                <p>
-                    <strong>Step 1: Calculate total equivalent resistance (R<sub>eq</sub>)</strong>
-                </p>
-
-
-                <div class="calculation">
-                    R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub><br>
-                    R<sub>eq</sub> = 10 + 20 + 30 = 60 Ω
-                </div>
-
-
-                <p>
-                    <strong>Step 2: Calculate total circuit current (I<sub>T</sub>)</strong>
-                </p>
-
-
-                <div class="calculation">
-                    I<sub>T</sub> = V<sub>S</sub> / R<sub>eq</sub><br>
-                    I<sub>T</sub> = 24 / 60 = 0.4 A (400 mA)
-                </div>
-
-
-                <p>
-                    <strong>Step 3: Calculate individual voltage drops using Ohm's Law or VDR</strong>
-                </p>
-
-
-                <div class="calculation">
-                    V<sub>1</sub> = I<sub>T</sub> × R<sub>1</sub> = 0.4 × 10 = 4 V<br>
-                    V<sub>2</sub> = I<sub>T</sub> × R<sub>2</sub> = 0.4 × 20 = 8 V<br>
-                    V<sub>3</sub> = I<sub>T</sub> × R<sub>3</sub> = 0.4 × 30 = 12 V
-                </div>
-
-
-                <p>
-                    <strong>Step 4: Verify with Kirchhoff's Voltage Law</strong>
-                </p>
-
-
-                <div class="calculation">
-                    V<sub>S</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub><br>
-                    24 = 4 + 8 + 12 = 24 V (Verified)
-                </div>
-
-
-                <!-- =================================================
-                     PARALLEL CIRCUITS
-                ================================================== -->
-
-                <h2 id="parallel-circuits">
-                    Parallel Circuits Explained
-                </h2>
-
-
-                <p>
-                    A <strong>parallel circuit</strong> occurs when components are connected across the
-                    same two electrical nodes, providing multiple independent paths for current flow.
-                </p>
-
-
-                <p>
-                    Because all branches share identical node terminals, the voltage across every parallel branch
-                    is identical. Total current entering the parallel node splits among branches in inverse proportion
-                    to branch resistance.
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/parallel-circuit-diagram.jpeg"
-                        alt="Parallel circuit diagram showing three resistor branches connected across a common DC source"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Parallel circuit configuration: each branch shares identical node voltage and provides
-                        an independent path for current flow.
-                    </figcaption>
-
-                </figure>
-
-
-                <p>
-                    Key properties of parallel circuits include:
-                </p>
-
-
-                <ul>
-
-                    <li>
-                        <strong>Voltage is constant:</strong> The full supply voltage appears across every branch.
-                    </li>
-
-
-                    <li>
-                        <strong>Currents add up:</strong> Total supply current equals the sum of individual branch currents (KCL).
-                    </li>
-
-
-                    <li>
-                        <strong>Resistance decreases:</strong> Adding parallel branches provides additional current channels,
-                        reducing overall equivalent resistance below that of the smallest branch resistor.
-                    </li>
-
-
-                    <li>
-                        <strong>Independent operation:</strong> Opening one parallel branch does not interrupt current
-                        flow through other branches (standard for household wiring).
-                    </li>
-
-                </ul>
-
-
-                <!-- =================================================
-                     PARALLEL FORMULAS
-                ================================================== -->
-
-                <h2 id="parallel-formulas">
-                    Parallel Circuit Formulas
-                </h2>
-
-
-                <p>
-                    The fundamental equations governing parallel networks with N branches are:
-                </p>
-
-
-                <h3>
-                    1. Voltage Relationship
-                </h3>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        V<sub>S</sub> = V<sub>1</sub> = V<sub>2</sub> = V<sub>3</sub> = ... = V<sub>N</sub>
-                    </div>
-
-
-                    <div class="formula-description">
-                        Source voltage appears uniformly across every parallel branch
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    2. Equivalent Resistance General Formula
-                </h3>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        ( 1 / R<sub>eq</sub> ) = ( 1 / R<sub>1</sub> ) + ( 1 / R<sub>2</sub> ) + ... + ( 1 / R<sub>N</sub> )
-                    </div>
-
-
-                    <div class="formula-description">
-                        Reciprocal of total resistance equals the sum of reciprocals of each branch resistance
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    3. Special Case: Two Resistors in Parallel
-                </h3>
-
-
-                <p>
-                    When dealing with exactly two parallel resistors, the product-over-sum shortcut is highly convenient:
-                </p>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        R<sub>eq</sub> = ( R<sub>1</sub> × R<sub>2</sub> ) / ( R<sub>1</sub> + R<sub>2</sub> )
-                    </div>
-
-
-                    <div class="formula-description">
-                        Product of resistances divided by sum of resistances
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    4. Special Case: N Equal Resistors in Parallel
-                </h3>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        R<sub>eq</sub> = R / N
-                    </div>
-
-
-                    <div class="formula-description">
-                        Single resistor value divided by total number of identical parallel branches
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    5. Total Current Summation (KCL)
-                </h3>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        I<sub>T</sub> = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> + ... + I<sub>N</sub>
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     CURRENT DIVIDER RULE
-                ================================================== -->
-
-                <h2 id="current-divider-rule">
-                    The Current Divider Rule (CDR)
-                </h2>
-
-
-                <p>
-                    In parallel networks, current divides inversely proportional to resistance; more current flows
-                    through paths of lower resistance.
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/current-divider-circuit-diagram.jpeg"
-                        alt="Current divider circuit diagram showing total entering current splitting into two parallel branches"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Current divider circuit schematic: total entering current It splits into branch currents I1 and I2 inversely proportional to branch resistance.
-                    </figcaption>
-
-                </figure>
-
-
-                <p>
-                    For a two-branch parallel network, the <strong>Current Divider Rule (CDR)</strong> calculates branch current
-                    directly from total entering current I<sub>T</sub>:
-                </p>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        I<sub>1</sub> = I<sub>T</sub> × [ R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>) ]
-                    </div>
-
-
-                    <div class="formula-description">
-                        Current through branch 1 uses the OPPOSITE resistor (R<sub>2</sub>) in the numerator
-                    </div>
-
-                </div>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        I<sub>2</sub> = I<sub>T</sub> × [ R<sub>1</sub> / (R<sub>1</sub> + R<sub>2</sub>) ]
-                    </div>
-
-                </div>
-
-
-                <aside
-                    class="article-note"
-                    aria-label="CDR numerator tip"
-                >
-
-                    <strong>
-                        Engineering tip:
-                    </strong>
-
-                    Notice that for two parallel resistors, the current through branch 1 depends on R<sub>2</sub> in the numerator.
-                    Lower resistance in branch 1 means a larger fraction of total current flows through it.
-
-                </aside>
-
-
-                <!-- =================================================
-                     PARALLEL EXAMPLE
-                ================================================== -->
-
-                <h2 id="parallel-example">
-                    Parallel Circuit Worked Example
-                </h2>
-
-
-                <p>
-                    A 12 V DC supply is connected across three parallel resistors:
-                    R<sub>1</sub> = 10 Ω, R<sub>2</sub> = 20 Ω, and R<sub>3</sub> = 60 Ω.
-                </p>
-
-
-                <div class="example-box">
-
-                    <h3>
-                        Given
-                    </h3>
-
-
-                    <ul>
-
-                        <li>
-                            V<sub>S</sub> = 12 V DC
-                        </li>
-
-
-                        <li>
-                            R<sub>1</sub> = 10 Ω
-                        </li>
-
-
-                        <li>
-                            R<sub>2</sub> = 20 Ω
-                        </li>
-
-
-                        <li>
-                            R<sub>3</sub> = 60 Ω
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <p>
-                    <strong>Step 1: Calculate total equivalent resistance (R<sub>eq</sub>)</strong>
-                </p>
-
-
-                <div class="calculation">
-                    1 / R<sub>eq</sub> = (1 / 10) + (1 / 20) + (1 / 60)<br>
-                    1 / R<sub>eq</sub> = (6 / 60) + (3 / 60) + (1 / 60) = 10 / 60<br>
-                    R<sub>eq</sub> = 60 / 10 = 6 Ω
-                </div>
-
-
-                <p>
-                    Note that R<sub>eq</sub> (6 Ω) is smaller than the smallest single branch resistor (10 Ω).
-                </p>
-
-
-                <p>
-                    <strong>Step 2: Calculate branch currents using Ohm's Law</strong>
-                </p>
-
-
-                <div class="calculation">
-                    I<sub>1</sub> = V<sub>S</sub> / R<sub>1</sub> = 12 / 10 = 1.2 A<br>
-                    I<sub>2</sub> = V<sub>S</sub> / R<sub>2</sub> = 12 / 20 = 0.6 A<br>
-                    I<sub>3</sub> = V<sub>S</sub> / R<sub>3</sub> = 12 / 60 = 0.2 A
-                </div>
-
-
-                <p>
-                    <strong>Step 3: Calculate total current (I<sub>T</sub>) and verify with KCL</strong>
-                </p>
-
-
-                <div class="calculation">
-                    I<sub>T</sub> = V<sub>S</sub> / R<sub>eq</sub> = 12 / 6 = 2.0 A<br>
-                    I<sub>T</sub> = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> = 1.2 + 0.6 + 0.2 = 2.0 A (Verified)
-                </div>
-
-
-                <!-- =================================================
-                     SERIES VS PARALLEL
-                ================================================== -->
-
-                <h2 id="series-vs-parallel">
-                    Series vs Parallel Circuits Comparison
-                </h2>
-
-
-                <p>
-                    Understanding structural differences simplifies identifying components in complex schematics:
-                </p>
-
-
-                <div class="article-table-wrapper">
-
-                    <table class="article-table">
-
-                        <caption>
-                            Comparison of Series and Parallel DC Circuits
-                        </caption>
-
-
-                        <thead>
-
-                            <tr>
-
-                                <th scope="col">
-                                    Parameter
-                                </th>
-
-
-                                <th scope="col">
-                                    Series Circuit
-                                </th>
-
-
-                                <th scope="col">
-                                    Parallel Circuit
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>
-                                    Current Path
-                                </td>
-
-
-                                <td>
-                                    Single continuous path
-                                </td>
-
-
-                                <td>
-                                    Multiple branching paths
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Current Behavior
-                                </td>
-
-
-                                <td>
-                                    Same through all components
-                                </td>
-
-
-                                <td>
-                                    Divides across branches (KCL)
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Voltage Behavior
-                                </td>
-
-
-                                <td>
-                                    Divides across resistors (KVL)
-                                </td>
-
-
-                                <td>
-                                    Same across all branches
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Equivalent Resistance
-                                </td>
-
-
-                                <td>
-                                    R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ...
-                                </td>
-
-
-                                <td>
-                                    1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ...
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Effect of Adding Resistor
-                                </td>
-
-
-                                <td>
-                                    Increases total resistance
-                                </td>
-
-
-                                <td>
-                                    Decreases total resistance
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Component Open Failure
-                                </td>
-
-
-                                <td>
-                                    Stops all current flow
-                                </td>
-
-
-                                <td>
-                                    Other branches keep operating
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Primary Analysis Rule
-                                </td>
-
-
-                                <td>
-                                    Voltage Divider Rule (VDR)
-                                </td>
-
-
-                                <td>
-                                    Current Divider Rule (CDR)
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-
-                <!-- =================================================
-                     COMBINATION CIRCUITS
-                ================================================== -->
-
-                <h2 id="combination-circuits">
-                    Series-Parallel Combination Circuits
-                </h2>
-
-
-                <p>
-                    Practical engineering schematics rarely consist solely of pure series or pure parallel connections.
-                    Instead, they feature <strong>series-parallel combinations</strong>.
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/series-parallel-combination-circuit-diagram.jpeg"
-                        alt="Series-parallel combination circuit diagram with a 30V source, series resistor R1, and parallel pair R2 and R3"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Series-parallel combination schematic: resistor R1 is connected in series with the parallel pair of R2 and R3.
-                    </figcaption>
-
-                </figure>
-
-
-                <p>
-                    To analyze a combination circuit, apply the <strong>Block Reduction Method</strong>:
-                </p>
-
-
-                <ol>
-
-                    <li>
-                        <strong>Identify purest sub-blocks:</strong> Look for pairs of resistors clearly connected in
-                        pure series or pure parallel without interfering node taps.
-                    </li>
-
-
-                    <li>
-                        <strong>Replace with equivalent resistance:</strong> Calculate R<sub>eq</sub> for that sub-block
-                        and redraw the schematic replacing the block with a single equivalent resistor.
-                    </li>
-
-
-                    <li>
-                        <strong>Repeat systematically:</strong> Continue reducing parallel and series blocks inward
-                        until a single global equivalent resistance (R<sub>eq, total</sub>) remains.
-                    </li>
-
-
-                    <li>
-                        <strong>Work backward (Expansion):</strong> Calculate total source current, then expand
-                        step-by-step outward to find individual node voltages and branch currents using VDR, CDR, and Ohm's Law.
-                    </li>
-
-                </ol>
-
-
-                <!-- =================================================
-                     COMBINATION EXAMPLE
-                ================================================== -->
-
-                <h2 id="combination-example">
-                    Series-Parallel Combination Worked Example
-                </h2>
-
-
-                <p>
-                    Analyze the circuit below: A 30 V DC source is connected to resistor R<sub>1</sub> = 4 Ω in series with a
-                    parallel block consisting of R<sub>2</sub> = 12 Ω and R<sub>3</sub> = 6 Ω.
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/series-parallel-worked-example-circuit-diagram.jpeg"
-                        alt="Circuit schematic diagram for worked example showing a 30V DC source connected in series with R1 equal to 4 ohms and parallel branch resistors R2 equal to 12 ohms and R3 equal to 6 ohms"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Worked example schematic: 30 V DC voltage source (VS) driving series resistor R1 (4 Ω) connected to parallel branch resistors R2 (12 Ω) and R3 (6 Ω).
-                    </figcaption>
-
-                </figure>
-
-
-                <div class="example-box">
-
-                    <h3>
-                        Given
-                    </h3>
-
-
-                    <ul>
-
-                        <li>
-                            V<sub>S</sub> = 30 V DC
-                        </li>
-
-
-                        <li>
-                            R<sub>1</sub> = 4 Ω (in series with parallel pair R<sub>2</sub> || R<sub>3</sub>)
-                        </li>
-
-
-                        <li>
-                            R<sub>2</sub> = 12 Ω
-                        </li>
-
-
-                        <li>
-                            R<sub>3</sub> = 6 Ω
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <p>
-                    <strong>Step 1: Reduce parallel sub-block (R<sub>2</sub> || R<sub>3</sub>)</strong>
-                </p>
-
-
-                <div class="calculation">
-                    R<sub>p</sub> = (R<sub>2</sub> × R<sub>3</sub>) / (R<sub>2</sub> + R<sub>3</sub>)<br>
-                    R<sub>p</sub> = (12 × 6) / (12 + 6) = 72 / 18 = 4 Ω
-                </div>
-
-
-                <p>
-                    <strong>Step 2: Calculate total circuit equivalent resistance (R<sub>eq</sub>)</strong>
-                </p>
-
-
-                <p>
-                    The circuit now simplifies to R<sub>1</sub> in series with R<sub>p</sub>:
-                </p>
-
-
-                <div class="calculation">
-                    R<sub>eq</sub> = R<sub>1</sub> + R<sub>p</sub><br>
-                    R<sub>eq</sub> = 4 + 4 = 8 Ω
-                </div>
-
-
-                <p>
-                    <strong>Step 3: Calculate total supply current (I<sub>T</sub>)</strong>
-                </p>
-
-
-                <div class="calculation">
-                    I<sub>T</sub> = V<sub>S</sub> / R<sub>eq</sub> = 30 / 8 = 3.75 A
-                </div>
-
-
-                <p>
-                    <strong>Step 4: Calculate voltage across R<sub>1</sub> and across parallel block R<sub>p</sub></strong>
-                </p>
-
-
-                <div class="calculation">
-                    V<sub>R1</sub> = I<sub>T</sub> × R<sub>1</sub> = 3.75 × 4 = 15 V<br>
-                    V<sub>Rp</sub> = I<sub>T</sub> × R<sub>p</sub> = 3.75 × 4 = 15 V
-                </div>
-
-
-                <p>
-                    <strong>Step 5: Calculate individual currents through parallel branches R<sub>2</sub> and R<sub>3</sub></strong>
-                </p>
-
-
-                <p>
-                    Using Ohm's Law across the parallel block voltage (15 V):
-                </p>
-
-
-                <div class="calculation">
-                    I<sub>2</sub> = V<sub>Rp</sub> / R<sub>2</sub> = 15 / 12 = 1.25 A<br>
-                    I<sub>3</sub> = V<sub>Rp</sub> / R<sub>3</sub> = 15 / 6 = 2.50 A
-                </div>
-
-
-                <p>
-                    Alternatively, using Current Divider Rule on parallel pair:
-                </p>
-
-
-                <div class="calculation">
-                    I<sub>3</sub> = I<sub>T</sub> × [ R<sub>2</sub> / (R<sub>2</sub> + R<sub>3</sub>) ]<br>
-                    I<sub>3</sub> = 3.75 × (12 / 18) = 2.50 A
-                </div>
-
-
-                <p>
-                    Verification (KCL at parallel junction node): I<sub>T</sub> = I<sub>2</sub> + I<sub>3</sub> → 3.75 = 1.25 + 2.50 = 3.75 A.
-                </p>
-
-
-                <!-- =================================================
-                     COMMON MISTAKES
-                ================================================== -->
-
-                <h2 id="common-mistakes">
-                    Common Mistakes in DC Circuit Analysis
-                </h2>
-
-
-                <p>
-                    Avoid these standard pitfalls when performing network calculations:
-                </p>
-
-
-                <h3>
-                    1. Misidentifying Series Components
-                </h3>
-
-
-                <p>
-                    Assuming two components are in series when a third branch attaches at the junction node.
-                    Components are strictly in series ONLY if no intermediate connections extract or inject current.
-                </p>
-
-
-                <h3>
-                    2. Misapplying the Two-Resistor Parallel Formula
-                </h3>
-
-
-                <p>
-                    Attempting to use (R<sub>1</sub> × R<sub>2</sub> × R<sub>3</sub>) / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)
-                    for three parallel resistors. This is mathematically invalid! Use 1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub>.
-                </p>
-
-
-                <h3>
-                    3. Swapping Resistors in the Current Divider Formula
-                </h3>
-
-
-                <p>
-                    Putting branch 1's resistor in the numerator when calculating I<sub>1</sub> across two parallel branches.
-                    Remember that CDR requires the opposite resistor in the numerator for a two-resistor parallel block.
-                </p>
-
-
-                <h3>
-                    4. Forgetting to Reciprocate Parallel Calculations
-                </h3>
-
-
-                <p>
-                    Summing fractions (1/R<sub>1</sub> + 1/R<sub>2</sub>) and forgetting to invert the final answer to obtain R<sub>eq</sub>.
-                </p>
-
-
-                <!-- =================================================
-                     APPLICATIONS
-                ================================================== -->
-
-                <h2 id="applications">
-                    Practical Engineering Applications
-                </h2>
-
-
-                <p>
-                    Series and parallel concepts underpin real-world power and electronic system designs:
-                </p>
-
-
-                <figure class="article-inline-image">
-
-                    <img
-                        src="/assets/images/dc-circuit-practical-applications-pv-battery.jpeg"
-                        alt="Practical engineering applications of series and parallel circuits in solar PV strings and battery energy storage banks"
-                        width="1200"
-                        height="675"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <figcaption class="image-caption">
-                        Real-world DC architecture: Solar PV panel strings and battery energy storage systems (BESS) leverage series-parallel topologies to scale voltage and current capacity.
-                    </figcaption>
-
-                </figure>
-
-
-                <ul>
-
-                    <li>
-                        <strong>Solar Photovoltaic (PV) Arrays:</strong> Solar cells and modules are connected in
-                        <strong>series</strong> into strings to build system voltage (e.g., 1000 V DC), and strings
-                        are wired in <strong>parallel</strong> inside combiner boxes to increase total current output.
-                    </li>
-
-
-                    <li>
-                        <strong>Battery Banks:</strong> Cells are wired in series to step up nominal voltage
-                        (e.g., 4 x 12 V batteries in series = 48 V DC bank) and parallel to increase total amp-hour (Ah) capacity.
-                    </li>
-
-
-                    <li>
-                        <strong>Sensor Voltage Scaling:</strong> Microcontroller ADC inputs (typically 0–3.3 V or 0–5 V)
-                        use resistor voltage dividers to measure higher system voltages safely.
-                    </li>
-
-
-                    <li>
-                        <strong>Building Electrical Distribution:</strong> Household appliances are connected in parallel
-                        so each device operates independently at supply voltage (120 V / 230 V).
-                    </li>
-
-
-                    <li>
-                        <strong>Current Shunts:</strong> Low-resistance precision shunts are placed in series with motor drives or inverter
-                        lines to convert high line currents into small measurable voltages.
-                    </li>
-
-                </ul>
-
-
-                <!-- =================================================
-                     QUICK REFERENCE
-                ================================================== -->
-
-                <h2 id="quick-reference">
-                    DC Circuit Analysis Quick Reference
-                </h2>
-
-
-                <div class="article-table-wrapper">
-
-                    <table class="article-table">
-
-                        <caption>
-                            Essential DC Circuit Analysis Formulas
-                        </caption>
-
-
-                        <thead>
-
-                            <tr>
-
-                                <th scope="col">
-                                    Concept
-                                </th>
-
-
-                                <th scope="col">
-                                    Formula
-                                </th>
-
-
-                                <th scope="col">
-                                    Description
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>
-                                    Ohm's Law
-                                </td>
-
-
-                                <td>
-                                    V = I × R
-                                </td>
-
-
-                                <td>
-                                    Relates voltage, current, and resistance
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Series Resistance
-                                </td>
-
-
-                                <td>
-                                    R<sub>eq</sub> = Σ R<sub>n</sub>
-                                </td>
-
-
-                                <td>
-                                    Sum of all series resistances
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Parallel Resistance
-                                </td>
-
-
-                                <td>
-                                    1 / R<sub>eq</sub> = Σ (1 / R<sub>n</sub>)
-                                </td>
-
-
-                                <td>
-                                    Sum of inverse branch resistances
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Two Parallel Resistors
-                                </td>
-
-
-                                <td>
-                                    R<sub>eq</sub> = (R<sub>1</sub> × R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>)
-                                </td>
-
-
-                                <td>
-                                    Product over sum shortcut
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Voltage Divider
-                                </td>
-
-
-                                <td>
-                                    V<sub>x</sub> = V<sub>S</sub> × (R<sub>x</sub> / R<sub>eq</sub>)
-                                </td>
-
-
-                                <td>
-                                    Finds voltage across series resistor x
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    Current Divider (2 parallel)
-                                </td>
-
-
-                                <td>
-                                    I<sub>1</sub> = I<sub>T</sub> × [R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)]
-                                </td>
-
-
-                                <td>
-                                    Finds current in parallel branch 1
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    DC Electrical Power
-                                </td>
-
-
-                                <td>
-                                    P = V × I = I<sup>2</sup>R = V<sup>2</sup> / R
-                                </td>
-
-
-                                <td>
-                                    Power dissipated by circuit element
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-
-                <!-- =================================================
-                     SUMMARY
-                ================================================== -->
-
-                <h2 id="summary">
-                    Summary
-                </h2>
-
-
-                <p>
-                    DC circuit analysis provides the foundation for evaluating complex electrical networks.
-                </p>
-
-
-                <p>
-                    In <strong>series circuits</strong>, current is uniform throughout, voltage drops sum to match the source (KVL),
-                    and resistances add directly:
-                </p>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ... + R<sub>N</sub>
-                    </div>
-
-                </div>
-
-
-                <p>
-                    In <strong>parallel circuits</strong>, voltage across branches is uniform, current divides among branches (KCL),
-                    and equivalent resistance is found via the inverse sum rule:
-                </p>
-
-
-                <div class="formula-box">
-
-                    <div class="formula">
-                        1 / R<sub>eq</sub> = 1 / R<sub>1</sub> + 1 / R<sub>2</sub> + ... + 1 / R<sub>N</sub>
-                    </div>
-
-                </div>
-
-
-                <p>
-                    By breaking combination networks into series and parallel blocks, applying VDR and CDR, and verifying with
-                    Kirchhoff's laws, any resistive DC network can be systematically solved.
-                </p>
-
-
-                <aside
-                    class="article-note"
-                    aria-label="Final engineering note"
-                >
-
-                    <strong>
-                        Final engineering note:
-                    </strong>
-
-                    When analyzing real-world high-power DC systems (such as solar farms or battery energy storage systems),
-                    always account for conductor wire resistance, thermal coefficients of resistors, and source internal resistance.
-
-                </aside>
-
-
-                <!-- =================================================
-                     FAQ
-                ================================================== -->
-
-                <h2 id="faq">
-                    Frequently Asked Questions
-                </h2>
-
-
-                <h3>
-                    What is the primary difference between a series and parallel circuit?
-                </h3>
-
-
-                <p>
-                    In a series circuit, components are connected sequentially along a single path, meaning the exact same current
-                    flows through every component. In a parallel circuit, components share common voltage nodes, creating multiple
-                    independent current paths operating at identical branch voltages.
-                </p>
-
-
-                <h3>
-                    How do you calculate total equivalent resistance in a series circuit?
-                </h3>
-
-
-                <p>
-                    In a series circuit, total equivalent resistance is simply the sum of all individual resistances:
-                    R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ... + R<sub>N</sub>.
-                </p>
-
-
-                <h3>
-                    How do you calculate total equivalent resistance in a parallel circuit?
-                </h3>
-
-
-                <p>
-                    In a parallel circuit, the reciprocal of total resistance equals the sum of reciprocals of each individual branch:
-                    1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ... + 1/R<sub>N</sub>. For two resistors, use
-                    R<sub>eq</sub> = (R<sub>1</sub> × R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>).
-                </p>
-
-
-                <h3>
-                    What is the Voltage Divider Rule?
-                </h3>
-
-
-                <p>
-                    The Voltage Divider Rule (VDR) is a formula used to calculate the voltage drop across a specific resistor
-                    in a series loop directly without determining total circuit current first:
-                    V<sub>x</sub> = V<sub>S</sub> × (R<sub>x</sub> / R<sub>eq</sub>).
-                </p>
-
-
-                <h3>
-                    What is the Current Divider Rule?
-                </h3>
-
-
-                <p>
-                    The Current Divider Rule (CDR) calculates how entering total current splits between parallel branches.
-                    For two parallel resistors R<sub>1</sub> and R<sub>2</sub>, branch current I<sub>1</sub> = I<sub>T</sub> × [R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)].
-                </p>
-
-
-                <!-- =================================================
-                     WHAT COMES NEXT
-                ================================================== -->
-
-                <h2 id="what-comes-next">
-                    What Comes Next?
-                </h2>
-
-
-                <p>
-                    Now that you have mastered basic DC circuit reduction for series, parallel, and combination networks,
-                    the next step is exploring advanced circuit analysis techniques.
-                </p>
-
-
-                <p>
-                    Subsequent articles cover <strong>Nodal Voltage Analysis</strong>, <strong>Mesh Current Analysis</strong>,
-                    and linear circuit theorems including <strong>Thevenin's and Norton's Theorems</strong> for solving multi-source networks.
-                </p>
-
 
             </div>
 
 
             <!-- =================================================
-                 SOCIAL SHARING
+                 VOLTAGE DIVIDER RULE
             ================================================== -->
 
-            <section
-                class="article-share"
-                aria-label="Share this article"
+            <h2 id="voltage-divider-rule">
+                The Voltage Divider Rule (VDR)
+            </h2>
+
+
+            <p>
+                In a series circuit, source voltage divides across resistors in direct proportion
+                to their resistance values. The <strong>Voltage Divider Rule (VDR)</strong> allows you
+                to calculate the voltage across any specific resistor without calculating total current first.
+            </p>
+
+
+            <figure class="article-inline-image">
+
+                <img
+                    src="/assets/images/voltage-divider-circuit-diagram.jpeg"
+                    alt="Voltage divider circuit diagram showing two series resistors dividing an input voltage"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <figcaption class="image-caption">
+                    Voltage divider circuit schematic: input voltage Vin divides proportionally across series resistors R1 and R2 to yield output voltage Vout.
+                </figcaption>
+
+            </figure>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    V<sub>x</sub> = V<sub>S</sub> × ( R<sub>x</sub> / R<sub>eq</sub> )
+                </div>
+
+                <div class="formula-description">
+                    Voltage across resistor x equals source voltage multiplied by the ratio of R<sub>x</sub> to total series resistance
+                </div>
+
+            </div>
+
+
+            <p>
+                For a two-resistor series circuit, the voltage drop V<sub>1</sub> across R<sub>1</sub> is:
+            </p>
+
+
+            <div class="calculation">
+                V<sub>1</sub> = V<sub>S</sub> × [ R<sub>1</sub> / (R<sub>1</sub> + R<sub>2</sub>) ]
+            </div>
+
+
+            <!-- =================================================
+                 SERIES EXAMPLE
+            ================================================== -->
+
+            <h2 id="series-example">
+                Series Circuit Worked Example
+            </h2>
+
+
+            <p>
+                Consider a 24 V DC power source connected in series with three resistors:
+                R<sub>1</sub> = 10 Ω, R<sub>2</sub> = 20 Ω, and R<sub>3</sub> = 30 Ω.
+            </p>
+
+
+            <div class="example-box">
+
+                <h3>
+                    Given
+                </h3>
+
+                <ul>
+
+                    <li>
+                        V<sub>S</sub> = 24 V DC
+                    </li>
+
+                    <li>
+                        R<sub>1</sub> = 10 Ω
+                    </li>
+
+                    <li>
+                        R<sub>2</sub> = 20 Ω
+                    </li>
+
+                    <li>
+                        R<sub>3</sub> = 30 Ω
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <p>
+                <strong>Step 1: Calculate total equivalent resistance (R<sub>eq</sub>)</strong>
+            </p>
+
+
+            <div class="calculation">
+                R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub><br>
+                R<sub>eq</sub> = 10 + 20 + 30 = 60 Ω
+            </div>
+
+
+            <p>
+                <strong>Step 2: Calculate total circuit current (I<sub>T</sub>)</strong>
+            </p>
+
+
+            <div class="calculation">
+                I<sub>T</sub> = V<sub>S</sub> / R<sub>eq</sub><br>
+                I<sub>T</sub> = 24 / 60 = 0.4 A (400 mA)
+            </div>
+
+
+            <p>
+                <strong>Step 3: Calculate individual voltage drops using Ohm's Law or VDR</strong>
+            </p>
+
+
+            <div class="calculation">
+                V<sub>1</sub> = I<sub>T</sub> × R<sub>1</sub> = 0.4 × 10 = 4 V<br>
+                V<sub>2</sub> = I<sub>T</sub> × R<sub>2</sub> = 0.4 × 20 = 8 V<br>
+                V<sub>3</sub> = I<sub>T</sub> × R<sub>3</sub> = 0.4 × 30 = 12 V
+            </div>
+
+
+            <p>
+                <strong>Step 4: Verify with Kirchhoff's Voltage Law</strong>
+            </p>
+
+
+            <div class="calculation">
+                V<sub>S</sub> = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub><br>
+                24 = 4 + 8 + 12 = 24 V (Verified)
+            </div>
+
+
+            <!-- =================================================
+                 PARALLEL CIRCUITS
+            ================================================== -->
+
+            <h2 id="parallel-circuits">
+                Parallel Circuits Explained
+            </h2>
+
+
+            <p>
+                A <strong>parallel circuit</strong> occurs when components are connected across the
+                same two electrical nodes, providing multiple independent paths for current flow.
+            </p>
+
+
+            <p>
+                Because all branches share identical node terminals, the voltage across every parallel branch
+                is identical. Total current entering the parallel node splits among branches in inverse proportion
+                to branch resistance.
+            </p>
+
+
+            <figure class="article-inline-image">
+
+                <img
+                    src="/assets/images/parallel-circuit-diagram.jpeg"
+                    alt="Parallel circuit diagram showing three resistor branches connected across a common DC source"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <figcaption class="image-caption">
+                    Parallel circuit configuration: each branch shares identical node voltage and provides
+                    an independent path for current flow.
+                </figcaption>
+
+            </figure>
+
+
+            <p>
+                Key properties of parallel circuits include:
+            </p>
+
+
+            <ul>
+
+                <li>
+                    <strong>Voltage is constant:</strong> The full supply voltage appears across every branch.
+                </li>
+
+                <li>
+                    <strong>Currents add up:</strong> Total supply current equals the sum of individual branch currents (KCL).
+                </li>
+
+                <li>
+                    <strong>Resistance decreases:</strong> Adding parallel branches provides additional current channels,
+                    reducing overall equivalent resistance below that of the smallest branch resistor.
+                </li>
+
+                <li>
+                    <strong>Independent operation:</strong> Opening one parallel branch does not interrupt current
+                    flow through other branches (standard for household wiring).
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 PARALLEL FORMULAS
+            ================================================== -->
+
+            <h2 id="parallel-formulas">
+                Parallel Circuit Formulas
+            </h2>
+
+
+            <p>
+                The fundamental equations governing parallel networks with N branches are:
+            </p>
+
+
+            <h3>
+                1. Voltage Relationship
+            </h3>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    V<sub>S</sub> = V<sub>1</sub> = V<sub>2</sub> = V<sub>3</sub> = ... = V<sub>N</sub>
+                </div>
+
+                <div class="formula-description">
+                    Source voltage appears uniformly across every parallel branch
+                </div>
+
+            </div>
+
+
+            <h3>
+                2. Equivalent Resistance General Formula
+            </h3>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    ( 1 / R<sub>eq</sub> ) = ( 1 / R<sub>1</sub> ) + ( 1 / R<sub>2</sub> ) + ... + ( 1 / R<sub>N</sub> )
+                </div>
+
+                <div class="formula-description">
+                    Reciprocal of total resistance equals the sum of reciprocals of each branch resistance
+                </div>
+
+            </div>
+
+
+            <h3>
+                3. Special Case: Two Resistors in Parallel
+            </h3>
+
+
+            <p>
+                When dealing with exactly two parallel resistors, the product-over-sum shortcut is highly convenient:
+            </p>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    R<sub>eq</sub> = ( R<sub>1</sub> × R<sub>2</sub> ) / ( R<sub>1</sub> + R<sub>2</sub> )
+                </div>
+
+                <div class="formula-description">
+                    Product of resistances divided by sum of resistances
+                </div>
+
+            </div>
+
+
+            <h3>
+                4. Special Case: N Equal Resistors in Parallel
+            </h3>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    R<sub>eq</sub> = R / N
+                </div>
+
+                <div class="formula-description">
+                    Single resistor value divided by total number of identical parallel branches
+                </div>
+
+            </div>
+
+
+            <h3>
+                5. Total Current Summation (KCL)
+            </h3>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    I<sub>T</sub> = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> + ... + I<sub>N</sub>
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CURRENT DIVIDER RULE
+            ================================================== -->
+
+            <h2 id="current-divider-rule">
+                The Current Divider Rule (CDR)
+            </h2>
+
+
+            <p>
+                In parallel networks, current divides inversely proportional to resistance; more current flows
+                through paths of lower resistance.
+            </p>
+
+
+            <figure class="article-inline-image">
+
+                <img
+                    src="/assets/images/current-divider-circuit-diagram.jpeg"
+                    alt="Current divider circuit diagram showing total entering current splitting into two parallel branches"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <figcaption class="image-caption">
+                    Current divider circuit schematic: total entering current It splits into branch currents I1 and I2 inversely proportional to branch resistance.
+                </figcaption>
+
+            </figure>
+
+
+            <p>
+                For a two-branch parallel network, the <strong>Current Divider Rule (CDR)</strong> calculates branch current
+                directly from total entering current I<sub>T</sub>:
+            </p>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    I<sub>1</sub> = I<sub>T</sub> × [ R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>) ]
+                </div>
+
+                <div class="formula-description">
+                    Current through branch 1 uses the OPPOSITE resistor (R<sub>2</sub>) in the numerator
+                </div>
+
+            </div>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    I<sub>2</sub> = I<sub>T</sub> × [ R<sub>1</sub> / (R<sub>1</sub> + R<sub>2</sub>) ]
+                </div>
+
+            </div>
+
+
+            <aside
+                class="article-note"
+                aria-label="CDR numerator tip"
             >
 
-                <span class="article-share-label">
-                    Share this article:
+                <strong>
+                    Engineering tip:
+                </strong>
+
+                Notice that for two parallel resistors, the current through branch 1 depends on R<sub>2</sub> in the numerator.
+                Lower resistance in branch 1 means a larger fraction of total current flows through it.
+
+            </aside>
+
+
+            <!-- =================================================
+                 PARALLEL EXAMPLE
+            ================================================== -->
+
+            <h2 id="parallel-example">
+                Parallel Circuit Worked Example
+            </h2>
+
+
+            <p>
+                A 12 V DC supply is connected across three parallel resistors:
+                R<sub>1</sub> = 10 Ω, R<sub>2</sub> = 20 Ω, and R<sub>3</sub> = 60 Ω.
+            </p>
+
+
+            <div class="example-box">
+
+                <h3>
+                    Given
+                </h3>
+
+                <ul>
+
+                    <li>
+                        V<sub>S</sub> = 12 V DC
+                    </li>
+
+                    <li>
+                        R<sub>1</sub> = 10 Ω
+                    </li>
+
+                    <li>
+                        R<sub>2</sub> = 20 Ω
+                    </li>
+
+                    <li>
+                        R<sub>3</sub> = 60 Ω
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <p>
+                <strong>Step 1: Calculate total equivalent resistance (R<sub>eq</sub>)</strong>
+            </p>
+
+
+            <div class="calculation">
+                1 / R<sub>eq</sub> = (1 / 10) + (1 / 20) + (1 / 60)<br>
+                1 / R<sub>eq</sub> = (6 / 60) + (3 / 60) + (1 / 60) = 10 / 60<br>
+                R<sub>eq</sub> = 60 / 10 = 6 Ω
+            </div>
+
+
+            <p>
+                Note that R<sub>eq</sub> (6 Ω) is smaller than the smallest single branch resistor (10 Ω).
+            </p>
+
+
+            <p>
+                <strong>Step 2: Calculate branch currents using Ohm's Law</strong>
+            </p>
+
+
+            <div class="calculation">
+                I<sub>1</sub> = V<sub>S</sub> / R<sub>1</sub> = 12 / 10 = 1.2 A<br>
+                I<sub>2</sub> = V<sub>S</sub> / R<sub>2</sub> = 12 / 20 = 0.6 A<br>
+                I<sub>3</sub> = V<sub>S</sub> / R<sub>3</sub> = 12 / 60 = 0.2 A
+            </div>
+
+
+            <p>
+                <strong>Step 3: Calculate total current (I<sub>T</sub>) and verify with KCL</strong>
+            </p>
+
+
+            <div class="calculation">
+                I<sub>T</sub> = V<sub>S</sub> / R<sub>eq</sub> = 12 / 6 = 2.0 A<br>
+                I<sub>T</sub> = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> = 1.2 + 0.6 + 0.2 = 2.0 A (Verified)
+            </div>
+
+
+            <!-- =================================================
+                 SERIES VS PARALLEL
+            ================================================== -->
+
+            <h2 id="series-vs-parallel">
+                Series vs Parallel Circuits Comparison
+            </h2>
+
+
+            <p>
+                Understanding structural differences simplifies identifying components in complex schematics:
+            </p>
+
+
+            <div class="article-table-wrapper">
+
+                <table class="article-table">
+
+                    <caption>
+                        Comparison of Series and Parallel DC Circuits
+                    </caption>
+
+                    <thead>
+
+                        <tr>
+
+                            <th scope="col">
+                                Parameter
+                            </th>
+
+                            <th scope="col">
+                                Series Circuit
+                            </th>
+
+                            <th scope="col">
+                                Parallel Circuit
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Current Path
+                            </td>
+
+                            <td>
+                                Single continuous path
+                            </td>
+
+                            <td>
+                                Multiple branching paths
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Current Behavior
+                            </td>
+
+                            <td>
+                                Same through all components
+                            </td>
+
+                            <td>
+                                Divides across branches (KCL)
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Voltage Behavior
+                            </td>
+
+                            <td>
+                                Divides across resistors (KVL)
+                            </td>
+
+                            <td>
+                                Same across all branches
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Equivalent Resistance
+                            </td>
+
+                            <td>
+                                R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ...
+                            </td>
+
+                            <td>
+                                1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ...
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Effect of Adding Resistor
+                            </td>
+
+                            <td>
+                                Increases total resistance
+                            </td>
+
+                            <td>
+                                Decreases total resistance
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Component Open Failure
+                            </td>
+
+                            <td>
+                                Stops all current flow
+                            </td>
+
+                            <td>
+                                Other branches keep operating
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Primary Analysis Rule
+                            </td>
+
+                            <td>
+                                Voltage Divider Rule (VDR)
+                            </td>
+
+                            <td>
+                                Current Divider Rule (CDR)
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMBINATION CIRCUITS
+            ================================================== -->
+
+            <h2 id="combination-circuits">
+                Series-Parallel Combination Circuits
+            </h2>
+
+
+            <p>
+                Practical engineering schematics rarely consist solely of pure series or pure parallel connections.
+                Instead, they feature <strong>series-parallel combinations</strong>.
+            </p>
+
+
+            <figure class="article-inline-image">
+
+                <img
+                    src="/assets/images/series-parallel-combination-circuit-diagram.jpeg"
+                    alt="Series-parallel combination circuit diagram with a 30V source, series resistor R1, and parallel pair R2 and R3"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <figcaption class="image-caption">
+                    Series-parallel combination schematic: resistor R1 is connected in series with the parallel pair of R2 and R3.
+                </figcaption>
+
+            </figure>
+
+
+            <p>
+                To analyze a combination circuit, apply the <strong>Block Reduction Method</strong>:
+            </p>
+
+
+            <ol>
+
+                <li>
+                    <strong>Identify purest sub-blocks:</strong> Look for pairs of resistors clearly connected in
+                    pure series or pure parallel without interfering node taps.
+                </li>
+
+                <li>
+                    <strong>Replace with equivalent resistance:</strong> Calculate R<sub>eq</sub> for that sub-block
+                    and redraw the schematic replacing the block with a single equivalent resistor.
+                </li>
+
+                <li>
+                    <strong>Repeat systematically:</strong> Continue reducing parallel and series blocks inward
+                    until a single global equivalent resistance (R<sub>eq, total</sub>) remains.
+                </li>
+
+                <li>
+                    <strong>Work backward (Expansion):</strong> Calculate total source current, then expand
+                    step-by-step outward to find individual node voltages and branch currents using VDR, CDR, and Ohm's Law.
+                </li>
+
+            </ol>
+
+
+            <!-- =================================================
+                 COMBINATION EXAMPLE
+            ================================================== -->
+
+            <h2 id="combination-example">
+                Series-Parallel Combination Worked Example
+            </h2>
+
+
+            <p>
+                Analyze the circuit below: A 30 V DC source is connected to resistor R<sub>1</sub> = 4 Ω in series with a
+                parallel block consisting of R<sub>2</sub> = 12 Ω and R<sub>3</sub> = 6 Ω.
+            </p>
+
+
+            <figure class="article-inline-image">
+
+                <img
+                    src="/assets/images/series-parallel-worked-example-circuit-diagram.jpeg"
+                    alt="Circuit schematic diagram for worked example showing a 30V DC source connected in series with R1 equal to 4 ohms and parallel branch resistors R2 equal to 12 ohms and R3 equal to 6 ohms"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <figcaption class="image-caption">
+                    Worked example schematic: 30 V DC voltage source (VS) driving series resistor R1 (4 Ω) connected to parallel branch resistors R2 (12 Ω) and R3 (6 Ω).
+                </figcaption>
+
+            </figure>
+
+
+            <div class="example-box">
+
+                <h3>
+                    Given
+                </h3>
+
+                <ul>
+
+                    <li>
+                        V<sub>S</sub> = 30 V DC
+                    </li>
+
+                    <li>
+                        R<sub>1</sub> = 4 Ω (in series with parallel pair R<sub>2</sub> || R<sub>3</sub>)
+                    </li>
+
+                    <li>
+                        R<sub>2</sub> = 12 Ω
+                    </li>
+
+                    <li>
+                        R<sub>3</sub> = 6 Ω
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <p>
+                <strong>Step 1: Reduce parallel sub-block (R<sub>2</sub> || R<sub>3</sub>)</strong>
+            </p>
+
+
+            <div class="calculation">
+                R<sub>p</sub> = (R<sub>2</sub> × R<sub>3</sub>) / (R<sub>2</sub> + R<sub>3</sub>)<br>
+                R<sub>p</sub> = (12 × 6) / (12 + 6) = 72 / 18 = 4 Ω
+            </div>
+
+
+            <p>
+                <strong>Step 2: Calculate total circuit equivalent resistance (R<sub>eq</sub>)</strong>
+            </p>
+
+
+            <p>
+                The circuit now simplifies to R<sub>1</sub> in series with R<sub>p</sub>:
+            </p>
+
+
+            <div class="calculation">
+                R<sub>eq</sub> = R<sub>1</sub> + R<sub>p</sub><br>
+                R<sub>eq</sub> = 4 + 4 = 8 Ω
+            </div>
+
+
+            <p>
+                <strong>Step 3: Calculate total supply current (I<sub>T</sub>)</strong>
+            </p>
+
+
+            <div class="calculation">
+                I<sub>T</sub> = V<sub>S</sub> / R<sub>eq</sub> = 30 / 8 = 3.75 A
+            </div>
+
+
+            <p>
+                <strong>Step 4: Calculate voltage across R<sub>1</sub> and across parallel block R<sub>p</sub></strong>
+            </p>
+
+
+            <div class="calculation">
+                V<sub>R1</sub> = I<sub>T</sub> × R<sub>1</sub> = 3.75 × 4 = 15 V<br>
+                V<sub>Rp</sub> = I<sub>T</sub> × R<sub>p</sub> = 3.75 × 4 = 15 V
+            </div>
+
+
+            <p>
+                <strong>Step 5: Calculate individual currents through parallel branches R<sub>2</sub> and R<sub>3</sub></strong>
+            </p>
+
+
+            <p>
+                Using Ohm's Law across the parallel block voltage (15 V):
+            </p>
+
+
+            <div class="calculation">
+                I<sub>2</sub> = V<sub>Rp</sub> / R<sub>2</sub> = 15 / 12 = 1.25 A<br>
+                I<sub>3</sub> = V<sub>Rp</sub> / R<sub>3</sub> = 15 / 6 = 2.50 A
+            </div>
+
+
+            <p>
+                Alternatively, using Current Divider Rule on parallel pair:
+            </p>
+
+
+            <div class="calculation">
+                I<sub>3</sub> = I<sub>T</sub> × [ R<sub>2</sub> / (R<sub>2</sub> + R<sub>3</sub>) ]<br>
+                I<sub>3</sub> = 3.75 × (12 / 18) = 2.50 A
+            </div>
+
+
+            <p>
+                Verification (KCL at parallel junction node): I<sub>T</sub> = I<sub>2</sub> + I<sub>3</sub> → 3.75 = 1.25 + 2.50 = 3.75 A.
+            </p>
+
+
+            <!-- =================================================
+                 COMMON MISTAKES
+            ================================================== -->
+
+            <h2 id="common-mistakes">
+                Common Mistakes in DC Circuit Analysis
+            </h2>
+
+
+            <p>
+                Avoid these standard pitfalls when performing network calculations:
+            </p>
+
+
+            <h3>
+                1. Misidentifying Series Components
+            </h3>
+
+
+            <p>
+                Assuming two components are in series when a third branch attaches at the junction node.
+                Components are strictly in series ONLY if no intermediate connections extract or inject current.
+            </p>
+
+
+            <h3>
+                2. Misapplying the Two-Resistor Parallel Formula
+            </h3>
+
+
+            <p>
+                Attempting to use (R<sub>1</sub> × R<sub>2</sub> × R<sub>3</sub>) / (R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>)
+                for three parallel resistors. This is mathematically invalid! Use 1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub>.
+            </p>
+
+
+            <h3>
+                3. Swapping Resistors in the Current Divider Formula
+            </h3>
+
+
+            <p>
+                Putting branch 1's resistor in the numerator when calculating I<sub>1</sub> across two parallel branches.
+                Remember that CDR requires the opposite resistor in the numerator for a two-resistor parallel block.
+            </p>
+
+
+            <h3>
+                4. Forgetting to Reciprocate Parallel Calculations
+            </h3>
+
+
+            <p>
+                Summing fractions (1/R<sub>1</sub> + 1/R<sub>2</sub>) and forgetting to invert the final answer to obtain R<sub>eq</sub>.
+            </p>
+
+
+            <!-- =================================================
+                 APPLICATIONS
+            ================================================== -->
+
+            <h2 id="applications">
+                Practical Engineering Applications
+            </h2>
+
+
+            <p>
+                Series and parallel concepts underpin real-world power and electronic system designs:
+            </p>
+
+
+            <figure class="article-inline-image">
+
+                <img
+                    src="/assets/images/dc-circuit-practical-applications-pv-battery.jpeg"
+                    alt="Practical engineering applications of series and parallel circuits in solar PV strings and battery energy storage banks"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <figcaption class="image-caption">
+                    Real-world DC architecture: Solar PV panel strings and battery energy storage systems (BESS) leverage series-parallel topologies to scale voltage and current capacity.
+                </figcaption>
+
+            </figure>
+
+
+            <ul>
+
+                <li>
+                    <strong>Solar Photovoltaic (PV) Arrays:</strong> Solar cells and modules are connected in
+                    <strong>series</strong> into strings to build system voltage (e.g., 1000 V DC), and strings
+                    are wired in <strong>parallel</strong> inside combiner boxes to increase total current output.
+                </li>
+
+                <li>
+                    <strong>Battery Banks:</strong> Cells are wired in series to step up nominal voltage
+                    (e.g., 4 × 12 V batteries in series = 48 V DC bank) and parallel to increase total amp-hour (Ah) capacity.
+                </li>
+
+                <li>
+                    <strong>Sensor Voltage Scaling:</strong> Microcontroller ADC inputs (typically 0–3.3 V or 0–5 V)
+                    use resistor voltage dividers to measure higher system voltages safely.
+                </li>
+
+                <li>
+                    <strong>Building Electrical Distribution:</strong> Household appliances are connected in parallel
+                    so each device operates independently at supply voltage (120 V / 230 V).
+                </li>
+
+                <li>
+                    <strong>Current Shunts:</strong> Low-resistance precision shunts are placed in series with motor drives or inverter
+                    lines to convert high line currents into small measurable voltages.
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================== -->
+
+            <h2 id="quick-reference">
+                DC Circuit Analysis Quick Reference
+            </h2>
+
+
+            <div class="article-table-wrapper">
+
+                <table class="article-table">
+
+                    <caption>
+                        Essential DC Circuit Analysis Formulas
+                    </caption>
+
+                    <thead>
+
+                        <tr>
+
+                            <th scope="col">
+                                Concept
+                            </th>
+
+                            <th scope="col">
+                                Formula
+                            </th>
+
+                            <th scope="col">
+                                Description
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Ohm's Law
+                            </td>
+
+                            <td>
+                                V = I × R
+                            </td>
+
+                            <td>
+                                Relates voltage, current, and resistance
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Series Resistance
+                            </td>
+
+                            <td>
+                                R<sub>eq</sub> = Σ R<sub>n</sub>
+                            </td>
+
+                            <td>
+                                Sum of all series resistances
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Parallel Resistance
+                            </td>
+
+                            <td>
+                                1 / R<sub>eq</sub> = Σ (1 / R<sub>n</sub>)
+                            </td>
+
+                            <td>
+                                Sum of inverse branch resistances
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Two Parallel Resistors
+                            </td>
+
+                            <td>
+                                R<sub>eq</sub> = (R<sub>1</sub> × R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>)
+                            </td>
+
+                            <td>
+                                Product over sum shortcut
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Voltage Divider
+                            </td>
+
+                            <td>
+                                V<sub>x</sub> = V<sub>S</sub> × (R<sub>x</sub> / R<sub>eq</sub>)
+                            </td>
+
+                            <td>
+                                Finds voltage across series resistor x
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Current Divider (2 parallel)
+                            </td>
+
+                            <td>
+                                I<sub>1</sub> = I<sub>T</sub> × [R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)]
+                            </td>
+
+                            <td>
+                                Finds current in parallel branch 1
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                DC Electrical Power
+                            </td>
+
+                            <td>
+                                P = V × I = I<sup>2</sup>R = V<sup>2</sup> / R
+                            </td>
+
+                            <td>
+                                Power dissipated by circuit element
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUMMARY
+            ================================================== -->
+
+            <h2 id="summary">
+                Summary
+            </h2>
+
+
+            <p>
+                DC circuit analysis provides the foundation for evaluating complex electrical networks.
+            </p>
+
+
+            <p>
+                In <strong>series circuits</strong>, current is uniform throughout, voltage drops sum to match the source (KVL),
+                and resistances add directly:
+            </p>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + ... + R<sub>N</sub>
+                </div>
+
+            </div>
+
+
+            <p>
+                In <strong>parallel circuits</strong>, voltage across branches is uniform, current divides among branches (KCL),
+                and equivalent resistance is found via the inverse sum rule:
+            </p>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    1 / R<sub>eq</sub> = 1 / R<sub>1</sub> + 1 / R<sub>2</sub> + ... + 1 / R<sub>N</sub>
+                </div>
+
+            </div>
+
+
+            <p>
+                By breaking combination networks into series and parallel blocks, applying VDR and CDR, and verifying with
+                Kirchhoff's laws, any resistive DC network can be systematically solved.
+            </p>
+
+
+            <aside
+                class="article-note"
+                aria-label="Final engineering note"
+            >
+
+                <strong>
+                    Final engineering note:
+                </strong>
+
+                When analyzing real-world high-power DC systems (such as solar farms or battery energy storage systems),
+                always account for conductor wire resistance, thermal coefficients of resistors, and source internal resistance.
+
+            </aside>
+
+
+            <!-- =================================================
+                 FAQ
+            ================================================== -->
+
+            <h2 id="faq">
+                Frequently Asked Questions
+            </h2>
+
+
+            <h3>
+                What is the primary difference between a series and parallel circuit?
+            </h3>
+
+
+            <p>
+                In a series circuit, components are connected sequentially along a single path, meaning the exact same current
+                flows through every component. In a parallel circuit, components share common voltage nodes, creating multiple
+                independent current paths operating at identical branch voltages.
+            </p>
+
+
+            <h3>
+                How do you calculate total equivalent resistance in a series circuit?
+            </h3>
+
+
+            <p>
+                In a series circuit, total equivalent resistance is simply the sum of all individual resistances:
+                R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ... + R<sub>N</sub>.
+            </p>
+
+
+            <h3>
+                How do you calculate total equivalent resistance in a parallel circuit?
+            </h3>
+
+
+            <p>
+                In a parallel circuit, the reciprocal of total resistance equals the sum of reciprocals of each individual branch:
+                1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + ... + 1/R<sub>N</sub>. For two resistors, use
+                R<sub>eq</sub> = (R<sub>1</sub> × R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>).
+            </p>
+
+
+            <h3>
+                What is the Voltage Divider Rule?
+            </h3>
+
+
+            <p>
+                The Voltage Divider Rule (VDR) is a formula used to calculate the voltage drop across a specific resistor
+                in a series loop directly without determining total circuit current first:
+                V<sub>x</sub> = V<sub>S</sub> × (R<sub>x</sub> / R<sub>eq</sub>).
+            </p>
+
+
+            <h3>
+                What is the Current Divider Rule?
+            </h3>
+
+
+            <p>
+                The Current Divider Rule (CDR) calculates how entering total current splits between parallel branches.
+                For two parallel resistors R<sub>1</sub> and R<sub>2</sub>, branch current I<sub>1</sub> = I<sub>T</sub> × [R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)].
+            </p>
+
+
+            <!-- =================================================
+                 WHAT COMES NEXT
+            ================================================== -->
+
+            <h2 id="what-comes-next">
+                What Comes Next?
+            </h2>
+
+
+            <p>
+                Now that you have mastered basic DC circuit reduction for series, parallel, and combination networks,
+                the next step is exploring advanced circuit analysis techniques.
+            </p>
+
+
+            <p>
+                Subsequent articles cover <strong>Nodal Voltage Analysis</strong>, <strong>Mesh Current Analysis</strong>,
+                and linear circuit theorems including <strong>Thevenin's and Norton's Theorems</strong> for solving multi-source networks.
+            </p>
+
+
+        </div>
+
+
+        <!-- =================================================
+             SOCIAL SHARING
+        ================================================== -->
+
+        <section
+            class="article-share"
+            aria-label="Share this article"
+        >
+
+            <span class="article-share-label">
+                Share this article:
+            </span>
+
+
+            <!-- COPY LINK -->
+
+            <button
+                type="button"
+                class="share-button copy"
+                data-share="copy"
+                aria-label="Copy article link"
+                title="Copy Link"
+            >
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    ></path>
+
+                    <path
+                        d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    ></path>
+
+                </svg>
+
+                <span>
+                    Copy link
                 </span>
 
+            </button>
 
-                <!-- COPY LINK -->
 
-                <button
-                    type="button"
-                    class="share-button copy"
-                    data-share="copy"
-                    aria-label="Copy article link"
-                    title="Copy Link"
-                >
+            <!-- LINKEDIN -->
 
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                    >
-
-                        <path
-                            d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                        ></path>
-
-                        <path
-                            d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                        ></path>
-
-                    </svg>
-
-
-                    <span>
-                        Copy link
-                    </span>
-
-                </button>
-
-
-                <!-- LINKEDIN -->
-
-                <button
-                    type="button"
-                    class="share-button linkedin"
-                    data-share="linkedin"
-                    aria-label="Share on LinkedIn"
-                    title="Share on LinkedIn"
-                >
-
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-
-                        <path
-                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.764.79 1.764 1.75-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                        />
-
-                    </svg>
-
-
-                    <span>
-                        LinkedIn
-                    </span>
-
-                </button>
-
-
-                <!-- X -->
-
-                <button
-                    type="button"
-                    class="share-button x"
-                    data-share="x"
-                    aria-label="Share on X"
-                    title="Share on X"
-                >
-
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-
-                        <path
-                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                        />
-
-                    </svg>
-
-
-                    <span>
-                        X
-                    </span>
-
-                </button>
-
-
-                <!-- WHATSAPP -->
-
-                <button
-                    type="button"
-                    class="share-button whatsapp"
-                    data-share="whatsapp"
-                    aria-label="Share on WhatsApp"
-                    title="Share on WhatsApp"
-                >
-
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-
-                        <path
-                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.272-.099-.47-.149-.669-.05-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
-                        />
-
-                    </svg>
-
-
-                    <span>
-                        WhatsApp
-                    </span>
-
-                </button>
-
-
-                <!-- FACEBOOK -->
-
-                <button
-                    type="button"
-                    class="share-button facebook"
-                    data-share="facebook"
-                    aria-label="Share on Facebook"
-                    title="Share on Facebook"
-                >
-
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-
-                        <path
-                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                        />
-
-                    </svg>
-
-
-                    <span>
-                        Facebook
-                    </span>
-
-                </button>
-
-            </section>
-
-
-            <!-- =================================================
-                 AUTHOR
-            ================================================== -->
-
-            <footer class="article-footer">
-
-                <div
-                    class="article-author"
-                    itemscope
-                    itemtype="https://schema.org/Person"
-                >
-
-                    <div
-                        class="author-mini-avatar"
-                        aria-hidden="true"
-                    >
-                        PB
-                    </div>
-
-
-                    <div>
-
-                        <div class="article-author-label">
-                            Written by
-                        </div>
-
-
-                        <h3 itemprop="name">
-                            Prasun Barua
-                        </h3>
-
-
-                        <p>
-                            Senior Electrical Engineer sharing
-                            practical knowledge in electrical
-                            engineering, renewable energy, solar PV,
-                            design, testing and commissioning.
-                        </p>
-
-
-                        <a
-                            href="/about.html"
-                            itemprop="url"
-                        >
-                            About the author →
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </footer>
-
-
-            <!-- =================================================
-                 RELATED ARTICLES
-            ================================================== -->
-
-            <section
-                class="related-section"
-                aria-labelledby="related-title"
+            <button
+                type="button"
+                class="share-button linkedin"
+                data-share="linkedin"
+                aria-label="Share on LinkedIn"
+                title="Share on LinkedIn"
             >
 
-                <h2 id="related-title">
-                    Related Articles
-                </h2>
-
-
-                <div
-                    class="related-grid"
-                    id="related-articles"
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
                 >
 
-                    <!--
-                        Dynamic related articles loaded by
-                        /assets/js/related-articles.js.
-                    -->
+                    <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.764.79 1.764 1.75-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+
+                </svg>
+
+                <span>
+                    LinkedIn
+                </span>
+
+            </button>
+
+
+            <!-- X -->
+
+            <button
+                type="button"
+                class="share-button x"
+                data-share="x"
+                aria-label="Share on X"
+                title="Share on X"
+            >
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    />
+
+                </svg>
+
+                <span>
+                    X
+                </span>
+
+            </button>
+
+
+            <!-- WHATSAPP -->
+
+            <button
+                type="button"
+                class="share-button whatsapp"
+                data-share="whatsapp"
+                aria-label="Share on WhatsApp"
+                title="Share on WhatsApp"
+            >
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.272-.099-.47-.149-.669-.05-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                    />
+
+                </svg>
+
+                <span>
+                    WhatsApp
+                </span>
+
+            </button>
+
+
+            <!-- FACEBOOK -->
+
+            <button
+                type="button"
+                class="share-button facebook"
+                data-share="facebook"
+                aria-label="Share on Facebook"
+                title="Share on Facebook"
+            >
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+
+                </svg>
+
+                <span>
+                    Facebook
+                </span>
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             AUTHOR
+        ================================================== -->
+
+        <footer class="article-footer">
+
+            <div
+                class="article-author"
+                itemscope
+                itemtype="https://schema.org/Person"
+            >
+
+                <div
+                    class="author-mini-avatar"
+                    aria-hidden="true"
+                >
+                    PB
+                </div>
+
+
+                <div>
+
+                    <div class="article-author-label">
+                        Written by
+                    </div>
+
+
+                    <h3 itemprop="name">
+                        Prasun Barua
+                    </h3>
+
+
+                    <p>
+                        Senior Electrical Engineer sharing
+                        practical knowledge in electrical
+                        engineering, renewable energy, solar PV,
+                        design, testing and commissioning.
+                    </p>
+
+
+                    <a
+                        href="/about.html"
+                        itemprop="url"
+                    >
+                        About the author →
+                    </a>
 
                 </div>
 
-            </section>
+            </div>
+
+        </footer>
 
 
-        </article>
+        <!-- =================================================
+             RELATED ARTICLES
+        ================================================== -->
 
-    </div>
+        <section
+            class="related-section"
+            aria-labelledby="related-title"
+        >
+
+            <h2 id="related-title">
+                Related Articles
+            </h2>
+
+
+            <div
+                class="related-grid"
+                id="related-articles"
+            >
+
+                <!--
+                    Dynamic related articles loaded by
+                    /assets/js/related-articles.js.
+                -->
+
+            </div>
+
+        </section>
+
+
+    </article>
 
 </div>
+```
 
+</div>
 
 </main>
 
@@ -2885,61 +2780,72 @@
 
 <footer class="site-footer">
 
-
 <div class="footer-inner">
 
-    <p class="footer-copy">
-        © 2026 Electrical Engineering by
-        <a href="https://www.prasunbarua.com/">
-            Prasun Barua
-        </a>.
-        All rights reserved.
-    </p>
+```
+<p class="footer-copy">
+    © 2026 Electrical Engineering by
+    <a href="https://www.prasunbarua.com/">
+        Prasun Barua
+    </a>.
+    All rights reserved.
+</p>
 
-    <nav
-        class="footer-links"
-        aria-label="Footer navigation"
-    >
+<nav
+    class="footer-links"
+    aria-label="Footer navigation"
+>
 
-        <a href="/privacy-policy.html">
-            Privacy
-        </a>
+    <a href="/privacy-policy.html">
+        Privacy
+    </a>
 
-        <span class="footer-separator" aria-hidden="true">·</span>
+    <span class="footer-separator" aria-hidden="true">·</span>
 
-        <a href="/disclaimer.html">
-            Disclaimer
-        </a>
+    <a href="/disclaimer.html">
+        Disclaimer
+    </a>
 
-        <span class="footer-separator" aria-hidden="true">·</span>
+    <span class="footer-separator" aria-hidden="true">·</span>
 
-        <a href="/terms.html">
-            Terms
-        </a>
+    <a href="/terms.html">
+        Terms
+    </a>
 
-        <span class="footer-separator" aria-hidden="true">·</span>
+    <span class="footer-separator" aria-hidden="true">·</span>
 
-        <a href="/contact.html">
-            Contact
-        </a>
+    <a href="/contact.html">
+        Contact
+    </a>
 
-    </nav>
+</nav>
+```
 
 </div>
-
 
 </footer>
 
 <!-- =========================================================
      SHARE SCRIPT
+     
+     IMPORTANT:
+     The article URL is explicitly defined below.
+     This prevents the share buttons from accidentally
+     sharing a redirected/home-page URL.
 ========================================================== -->
 
 <script>
 
     document.addEventListener("DOMContentLoaded", function () {
 
+        /*
+         * IMPORTANT:
+         * Always share the canonical clean article URL.
+         * Do NOT use window.location.href here.
+         */
         const pageURL =
-            window.location.href;
+            "https://electrical.prasunbarua.com/articles/electrical-fundamentals/dc-circuit-analysis/";
+
 
         const pageTitle =
             document.title;
@@ -2957,7 +2863,9 @@
                             button.dataset.share;
 
 
-                        /* COPY LINK */
+                        /* =================================================
+                           COPY LINK
+                        ================================================== */
 
                         if (type === "copy") {
 
@@ -3031,7 +2939,9 @@
                             "";
 
 
-                        /* FACEBOOK */
+                        /* =================================================
+                           FACEBOOK
+                        ================================================== */
 
                         if (type === "facebook") {
 
@@ -3044,7 +2954,9 @@
                         }
 
 
-                        /* LINKEDIN */
+                        /* =================================================
+                           LINKEDIN
+                        ================================================== */
 
                         if (type === "linkedin") {
 
@@ -3057,7 +2969,9 @@
                         }
 
 
-                        /* X */
+                        /* =================================================
+                           X
+                        ================================================== */
 
                         if (type === "x") {
 
@@ -3074,7 +2988,9 @@
                         }
 
 
-                        /* WHATSAPP */
+                        /* =================================================
+                           WHATSAPP
+                        ================================================== */
 
                         if (type === "whatsapp") {
 
@@ -3089,7 +3005,9 @@
                         }
 
 
-                        /* OPEN */
+                        /* =================================================
+                           OPEN SHARE WINDOW
+                        ================================================== */
 
                         if (shareURL) {
 
