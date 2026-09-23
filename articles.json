@@ -120,7 +120,7 @@
       "slug": "series-and-parallel-circuits",
       "category": "electrical-fundamentals",
       "categoryName": "Electrical Fundamentals",
-      "url": "/articles/electrical-fundamentals/dc-circuit-analysis-series-parallel.html",
+      "url": "articles/electrical-fundamentals/dc-circuit-analysis/index.html",
       "description": "Master DC circuit analysis for series, parallel, and combination circuits. Learn equivalent resistance, voltage division, current division, formulas, worked examples, and practical engineering applications.",
       "excerpt": "A comprehensive guide to DC circuit analysis covering series and parallel circuit configurations, formulas, rules, and practical examples.",
       "icon": "electrical_services",
