@@ -6,45 +6,56 @@
     /* =========================================================
        PRASUN BARUA
        AMAZON RECOMMENDATION ENGINE
-       FOR ELECTRICAL ENGINEERING ARTICLES
+       ELECTRICAL ENGINEERING SITE
        ========================================================= */
 
 
     /* =========================================================
-       1. CONFIGURATION
+       1. AMAZON CONFIGURATION
        ========================================================= */
 
-    const AMAZON_TAG = "prasunbaru0d7-20";
+    const AMAZON_TAG =
+        "prasunbaru0d7-20";
 
+
+    /*
+       Your main Amazon SiteStripe / Associate short link.
+       Used as the final fallback.
+    */
     const AMAZON_FALLBACK_LINK =
         "https://link.amazon/B08F9UQ6O";
 
+
+    /*
+       Widget ID.
+    */
     const WIDGET_ID =
         "prasun-amazon-auto";
 
 
     /*
-     * Your article URLs use /articles/
-     * The engine will not render on your homepage
-     * or normal non-article pages.
-     */
-
+       Your article URL structure.
+    */
     const ARTICLE_URL_PATTERN =
         /\/articles\//i;
 
 
     /* =========================================================
-       2. ENGINEERING RECOMMENDATION CATALOG
+       2. ELECTRICAL ENGINEERING CATALOG
        ========================================================= */
 
     const CATALOG = [
 
-        /* -----------------------------------------------------
+        /* =====================================================
            ELECTRICAL FUNDAMENTALS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "electrical-fundamentals",
+
+            folders: [
+                "electrical-fundamentals"
+            ],
 
             keywords: [
                 "ohm's law",
@@ -70,84 +81,124 @@
                 "Electrical Engineering Books & Resources",
 
             description:
-                "Explore practical books and learning resources covering circuits, electrical fundamentals, calculations and engineering principles.",
+                "Explore practical books and learning resources covering circuits, electrical fundamentals and engineering principles.",
 
             query:
                 "electrical engineering circuits fundamentals book"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            ELECTRICAL CALCULATIONS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "electrical-calculations",
 
+            folders: [
+                "electrical-calculations",
+                "electrical-calculation"
+            ],
+
             keywords: [
                 "electrical calculation",
+                "electrical calculations",
                 "power calculation",
-                "electrical power",
+                "electrical power calculation",
+                "power formula",
                 "energy calculation",
-                "voltage drop",
-                "cable sizing",
-                "cable size",
-                "wire size",
-                "conductor sizing",
                 "current calculation",
-                "short circuit calculation"
+                "electrical engineering calculation"
             ],
 
             title:
-                "Electrical Calculation Resources",
+                "Electrical Engineering Calculation Resources",
 
             description:
-                "Explore engineering references and practical tools for electrical calculations, cable sizing, voltage drop and system design.",
+                "Explore practical references, handbooks and tools for electrical power, energy, current and engineering calculations.",
 
             query:
-                "electrical engineering calculations cable sizing voltage drop book"
+                "electrical engineering calculations handbook power calculations"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
+           VOLTAGE DROP
+        ====================================================== */
+
+        {
+            id: "voltage-drop",
+
+            folders: [
+                "voltage-drop"
+            ],
+
+            keywords: [
+                "voltage drop",
+                "voltage-drop calculation",
+                "voltage drop calculation",
+                "voltage loss"
+            ],
+
+            title:
+                "Voltage Drop & Cable Sizing Resources",
+
+            description:
+                "Explore practical references and tools for voltage-drop calculations, cable selection and electrical design.",
+
+            query:
+                "electrical voltage drop cable sizing engineering book"
+        },
+
+
+        /* =====================================================
            CABLES / WIRING
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "cables",
 
-            keywords: [
-                "cable",
+            folders: [
                 "cables",
-                "wire",
-                "wiring",
+                "cable-sizing",
+                "wire-sizing"
+            ],
+
+            keywords: [
                 "cable sizing",
                 "cable size",
-                "conductor",
+                "wire size",
+                "wire sizing",
                 "conductor sizing",
                 "ampacity",
                 "cable selection",
                 "cable calculation",
-                "wire sizing"
+                "electrical cable",
+                "wiring"
             ],
 
             title:
                 "Electrical Cable Tools & Resources",
 
             description:
-                "Explore practical tools, accessories and references for cable selection, preparation, sizing and electrical installation.",
+                "Explore practical tools, accessories and references for cable selection, sizing and electrical installation.",
 
             query:
-                "electrical cable crimper stripper wire tools"
+                "electrical cable sizing tools wire crimper engineering"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            POWER SYSTEMS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "power-systems",
+
+            folders: [
+                "power-systems",
+                "power-system"
+            ],
 
             keywords: [
                 "power system",
@@ -167,19 +218,25 @@
                 "Power Systems Engineering Resources",
 
             description:
-                "Explore engineering references covering power-system analysis, load flow, grid integration, generation and distribution.",
+                "Explore engineering references covering power-system analysis, load flow, grid integration and electrical networks.",
 
             query:
                 "electrical power systems engineering analysis book"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            PROTECTION
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "protection",
+
+            folders: [
+                "protection",
+                "power-system-protection",
+                "relay"
+            ],
 
             keywords: [
                 "short circuit",
@@ -205,12 +262,19 @@
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            CIRCUIT BREAKERS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "breakers",
+
+            folders: [
+                "circuit-breakers",
+                "circuit-breaker",
+                "mcb",
+                "mccb"
+            ],
 
             keywords: [
                 "circuit breaker",
@@ -235,12 +299,17 @@
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            EARTHING / GROUNDING
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "grounding",
+
+            folders: [
+                "earthing",
+                "grounding"
+            ],
 
             keywords: [
                 "earthing",
@@ -259,19 +328,24 @@
                 "Grounding & Earthing Resources",
 
             description:
-                "Explore practical references and tools for grounding, earthing-system design, resistance testing and electrical safety.",
+                "Explore practical references and tools for grounding, earthing-system design, testing and electrical safety.",
 
             query:
                 "electrical grounding earthing engineering book"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            TRANSFORMERS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "transformers",
+
+            folders: [
+                "transformers",
+                "transformer"
+            ],
 
             keywords: [
                 "transformer",
@@ -288,19 +362,24 @@
                 "Transformer Engineering Resources",
 
             description:
-                "Explore practical references covering transformer selection, design, testing, protection and application.",
+                "Explore practical references covering transformer selection, design, testing, protection and applications.",
 
             query:
                 "electrical transformer engineering design book"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            SWITCHGEAR / SUBSTATION
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "switchgear",
+
+            folders: [
+                "switchgear",
+                "substation"
+            ],
 
             keywords: [
                 "switchgear",
@@ -318,19 +397,25 @@
                 "Switchgear & Substation Resources",
 
             description:
-                "Explore engineering references covering switchgear, substations, busbars, medium-voltage and high-voltage systems.",
+                "Explore engineering references covering switchgear, substations, busbars and medium- and high-voltage systems.",
 
             query:
                 "electrical switchgear substation engineering book"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            SOLAR PV
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "solar-pv",
+
+            folders: [
+                "solar-pv",
+                "solar",
+                "photovoltaic"
+            ],
 
             keywords: [
                 "solar pv",
@@ -350,19 +435,25 @@
                 "Solar PV Engineering Resources",
 
             description:
-                "Explore practical references for photovoltaic system design, installation, sizing, analysis and performance.",
+                "Explore practical references for photovoltaic design, installation, sizing, analysis and system optimization.",
 
             query:
                 "solar photovoltaic engineering design installation book"
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            BESS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "bess",
+
+            folders: [
+                "bess",
+                "battery-energy-storage",
+                "energy-storage"
+            ],
 
             keywords: [
                 "bess",
@@ -388,12 +479,16 @@
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            POWER ELECTRONICS
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "power-electronics",
+
+            folders: [
+                "power-electronics"
+            ],
 
             keywords: [
                 "power electronics",
@@ -420,12 +515,18 @@
         },
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            TESTING / COMMISSIONING
-        ----------------------------------------------------- */
+        ====================================================== */
 
         {
             id: "testing",
+
+            folders: [
+                "testing-commissioning",
+                "testing",
+                "commissioning"
+            ],
 
             keywords: [
                 "testing",
@@ -452,12 +553,18 @@
         },
 
 
-        /* -----------------------------------------------------
-           DATA CENTERS / UPS
-        ----------------------------------------------------- */
+        /* =====================================================
+           DATA CENTER / UPS
+        ====================================================== */
 
         {
             id: "data-center",
+
+            folders: [
+                "data-center",
+                "data-centre",
+                "ups"
+            ],
 
             keywords: [
                 "data center",
@@ -475,7 +582,7 @@
                 "Critical Power & UPS Resources",
 
             description:
-                "Explore engineering references covering UPS systems, critical power, backup systems and electrical infrastructure.",
+                "Explore engineering references covering UPS systems, critical power and electrical infrastructure.",
 
             query:
                 "UPS critical power data center electrical engineering book"
@@ -485,24 +592,24 @@
 
 
     /* =========================================================
-       3. SHARED CSS
+       3. STYLES
        ========================================================= */
 
     const CSS = `
 
         :host {
 
-            display: block;
+            display: block !important;
 
-            width: 100%;
+            width: 100% !important;
 
-            max-width: 100%;
+            max-width: 100% !important;
 
-            margin: 34px 0;
+            margin: 34px 0 !important;
 
-            padding: 0;
+            padding: 0 !important;
 
-            background: transparent;
+            background: transparent !important;
 
             font-family:
                 -apple-system,
@@ -514,7 +621,6 @@
                 sans-serif;
 
             color-scheme: light;
-
         }
 
 
@@ -523,9 +629,12 @@
         *::after {
 
             box-sizing: border-box;
-
         }
 
+
+        /* =====================================================
+           CARD
+        ====================================================== */
 
         .amz-card {
 
@@ -535,34 +644,27 @@
 
             margin: 0 auto;
 
-            padding:
-                19px 20px 14px;
+            padding: 19px 20px 14px;
 
-            background:
-                #ffffff;
+            background: #ffffff;
 
             border:
                 1px solid #e3e6e8;
 
-            border-radius:
-                14px;
+            border-radius: 14px;
 
-            color:
-                #1d1d1f;
+            color: #1d1d1f;
 
             box-shadow:
-                0 2px 12px
-                rgba(15,17,17,.055);
+                0 2px 12px rgba(15,17,17,.055);
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
             transition:
                 background-color .25s ease,
                 border-color .25s ease,
                 color .25s ease,
                 box-shadow .25s ease;
-
         }
 
 
@@ -572,9 +674,7 @@
                 #cfd3d6;
 
             box-shadow:
-                0 5px 19px
-                rgba(15,17,17,.085);
-
+                0 5px 19px rgba(15,17,17,.085);
         }
 
 
@@ -584,154 +684,112 @@
 
         .amz-header {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
 
-            gap:
-                14px;
+            gap: 14px;
 
-            margin-bottom:
-                17px;
-
+            margin-bottom: 17px;
         }
 
 
         .amz-brand {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                9px;
+            gap: 9px;
 
-            color:
-                #1d1d1f;
-
+            color: #1d1d1f;
         }
 
 
         .amz-icon {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            width:
-                31px;
+            width: 31px;
 
-            height:
-                31px;
+            height: 31px;
 
-            flex:
-                0 0 31px;
+            flex: 0 0 31px;
 
-            border-radius:
-                8px;
+            border-radius: 8px;
 
-            background:
-                #fff7df;
+            background: #fff7df;
 
-            color:
-                #33383b;
-
+            color: #34393c;
         }
 
 
         .amz-brand-text {
 
-            font-size:
-                14px;
+            font-size: 14px;
 
-            line-height:
-                1;
+            line-height: 1;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            letter-spacing:
-                -.01em;
-
+            letter-spacing: -.01em;
         }
 
 
         .amz-available {
 
-            padding:
-                6px 9px;
+            padding: 6px 9px;
 
             border:
                 1px solid #e2e5e7;
 
-            border-radius:
-                999px;
+            border-radius: 999px;
 
-            background:
-                #f7f8f8;
+            background: #f7f8f8;
 
-            color:
-                #62676b;
+            color: #62676b;
 
-            font-size:
-                9px;
+            font-size: 9px;
 
-            line-height:
-                1;
+            line-height: 1;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            letter-spacing:
-                .045em;
+            letter-spacing: .045em;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            white-space:
-                nowrap;
-
+            white-space: nowrap;
         }
 
 
         /* =====================================================
-           MAIN CONTENT
+           MAIN
         ====================================================== */
 
         .amz-main {
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
-                minmax(0,1fr) auto;
+                minmax(0,1fr)
+                auto;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                24px;
-
+            gap: 24px;
         }
 
 
         .amz-copy {
 
-            min-width:
-                0;
-
+            min-width: 0;
         }
 
 
@@ -740,27 +798,19 @@
             margin:
                 0 0 5px;
 
-            padding:
-                0;
+            padding: 0;
 
-            color:
-                #e47911;
+            color: #e47911;
 
-            font-size:
-                10px;
+            font-size: 10px;
 
-            line-height:
-                1.3;
+            line-height: 1.3;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            letter-spacing:
-                .06em;
+            letter-spacing: .06em;
 
-            text-transform:
-                uppercase;
-
+            text-transform: uppercase;
         }
 
 
@@ -769,101 +819,73 @@
             margin:
                 0 0 6px;
 
-            padding:
-                0;
+            padding: 0;
 
-            color:
-                #1d1d1f;
+            color: #1d1d1f;
 
-            font-size:
-                17px;
+            font-size: 17px;
 
-            line-height:
-                1.35;
+            line-height: 1.35;
 
-            font-weight:
-                650;
+            font-weight: 650;
 
-            letter-spacing:
-                -.015em;
-
+            letter-spacing: -.015em;
         }
 
 
         .amz-description {
 
-            margin:
-                0;
+            margin: 0;
 
-            padding:
-                0;
+            padding: 0;
 
-            max-width:
-                580px;
+            max-width: 580px;
 
-            color:
-                #5f6367;
+            color: #5f6367;
 
-            font-size:
-                12.5px;
+            font-size: 12.5px;
 
-            line-height:
-                1.55;
-
+            line-height: 1.55;
         }
 
 
         /* =====================================================
-           BUTTON
+           ACTION
         ====================================================== */
 
         .amz-action {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            flex-shrink:
-                0;
-
+            flex-shrink: 0;
         }
 
 
         .amz-action-wrap {
 
-            display:
-                flex;
+            display: flex;
 
-            flex-direction:
-                column;
+            flex-direction: column;
 
-            align-items:
-                center;
-
+            align-items: center;
         }
 
 
         .amz-button {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            gap:
-                8px;
+            gap: 8px;
 
-            min-height:
-                41px;
+            min-height: 41px;
 
             padding:
                 10px 17px;
@@ -895,19 +917,17 @@
             white-space:
                 nowrap;
 
-            box-shadow:
-                0 1px 2px
-                rgba(15,17,17,.10);
-
             cursor:
                 pointer;
+
+            box-shadow:
+                0 1px 2px rgba(15,17,17,.10);
 
             transition:
                 background-color .18s ease,
                 border-color .18s ease,
                 transform .16s ease,
                 box-shadow .18s ease;
-
         }
 
 
@@ -929,9 +949,7 @@
                 translateY(-1px);
 
             box-shadow:
-                0 3px 8px
-                rgba(15,17,17,.14);
-
+                0 3px 8px rgba(15,17,17,.14);
         }
 
 
@@ -939,7 +957,6 @@
 
             transform:
                 translateY(0);
-
         }
 
 
@@ -947,7 +964,6 @@
 
             transition:
                 transform .18s ease;
-
         }
 
 
@@ -956,9 +972,12 @@
 
             transform:
                 translateX(2px);
-
         }
 
+
+        /* =====================================================
+           DISCLOSURE
+        ====================================================== */
 
         .amz-paid {
 
@@ -976,13 +995,8 @@
 
             white-space:
                 nowrap;
-
         }
 
-
-        /* =====================================================
-           DISCLOSURE
-        ====================================================== */
 
         .amz-disclosure {
 
@@ -1006,12 +1020,12 @@
 
             text-align:
                 right;
-
         }
 
 
         /* =====================================================
            DARK MODE
+           SYSTEM PREFERENCE
         ====================================================== */
 
         @media (prefers-color-scheme: dark) {
@@ -1020,7 +1034,6 @@
 
                 color-scheme:
                     dark;
-
             }
 
 
@@ -1036,9 +1049,7 @@
                     #f2f4f5;
 
                 box-shadow:
-                    0 4px 16px
-                    rgba(0,0,0,.30);
-
+                    0 4px 16px rgba(0,0,0,.30);
             }
 
 
@@ -1048,9 +1059,7 @@
                     #3b4651;
 
                 box-shadow:
-                    0 6px 22px
-                    rgba(0,0,0,.38);
-
+                    0 6px 22px rgba(0,0,0,.38);
             }
 
 
@@ -1061,7 +1070,6 @@
 
                 color:
                     #f2f4f5;
-
             }
 
 
@@ -1069,7 +1077,6 @@
 
                 color:
                     #f2f4f5;
-
             }
 
 
@@ -1083,7 +1090,6 @@
 
                 color:
                     #c1c8ce;
-
             }
 
 
@@ -1091,7 +1097,6 @@
 
                 color:
                     #ffad36;
-
             }
 
 
@@ -1099,7 +1104,6 @@
 
                 color:
                     #f2f4f5;
-
             }
 
 
@@ -1107,7 +1111,6 @@
 
                 color:
                     #c4cbd1;
-
             }
 
 
@@ -1115,7 +1118,6 @@
 
                 color:
                     #9aa3aa;
-
             }
 
 
@@ -1126,14 +1128,13 @@
 
                 color:
                     #929ba5;
-
             }
 
         }
 
 
         /* =====================================================
-           RESPONSIVE
+           MOBILE
         ====================================================== */
 
         @media (max-width: 620px) {
@@ -1141,8 +1142,7 @@
             :host {
 
                 margin:
-                    26px 0;
-
+                    26px 0 !important;
             }
 
 
@@ -1153,7 +1153,6 @@
 
                 border-radius:
                     12px;
-
             }
 
 
@@ -1170,7 +1169,6 @@
 
                 margin-bottom:
                     15px;
-
             }
 
 
@@ -1181,7 +1179,6 @@
 
                 gap:
                     15px;
-
             }
 
 
@@ -1189,7 +1186,6 @@
 
                 max-width:
                     none;
-
             }
 
 
@@ -1197,7 +1193,6 @@
 
                 width:
                     100%;
-
             }
 
 
@@ -1205,7 +1200,6 @@
 
                 width:
                     100%;
-
             }
 
 
@@ -1216,7 +1210,6 @@
 
                 min-height:
                     44px;
-
             }
 
 
@@ -1224,7 +1217,6 @@
 
                 text-align:
                     center;
-
             }
 
 
@@ -1232,7 +1224,6 @@
 
                 text-align:
                     left;
-
             }
 
         }
@@ -1240,19 +1231,10 @@
 
         @media (max-width: 380px) {
 
-            .amz-brand-text {
-
-                font-size:
-                    13px;
-
-            }
-
-
             .amz-title {
 
                 font-size:
                     16px;
-
             }
 
 
@@ -1260,7 +1242,6 @@
 
                 font-size:
                     12px;
-
             }
 
         }
@@ -1269,7 +1250,7 @@
 
 
     /* =========================================================
-       4. GENERIC SHOPPING ICON
+       4. SHOPPING ICON
        ========================================================= */
 
     const SHOPPING_ICON = `
@@ -1338,21 +1319,27 @@
 
 
     /* =========================================================
-       6. TEXT NORMALIZATION
+       6. NORMALIZE TEXT
        ========================================================= */
 
-    function normalizeText(value) {
+    function normalizeText(
+        value
+    ) {
 
-        return String(value || "")
-            .toLowerCase()
-            .replace(/\s+/g, " ")
-            .trim();
+        return String(
+            value || ""
+        )
+        .toLowerCase()
+        .replace(/[-_/]+/g, " ")
+        .replace(/[^\w\s'.&]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
 
     }
 
 
     /* =========================================================
-       7. GET ARTICLE PAGE
+       7. ARTICLE PAGE CHECK
        ========================================================= */
 
     function isArticlePage() {
@@ -1360,10 +1347,6 @@
         const path =
             window.location.pathname || "";
 
-
-        /*
-         * Your articles use /articles/
-         */
 
         if (
             ARTICLE_URL_PATTERN.test(
@@ -1376,30 +1359,26 @@
         }
 
 
-        /*
-         * Fallback for an article page
-         * that may not use /articles/
-         */
-
         return !!(
-            document.querySelector(
-                "article"
-            ) ||
-
             document.querySelector(
                 ".article-content"
             ) ||
 
             document.querySelector(
-                ".post-content"
+                "article.article-main"
+            ) ||
+
+            document.querySelector(
+                "article"
             )
+
         );
 
     }
 
 
     /* =========================================================
-       8. FIND ARTICLE CONTAINER
+       8. FIND ARTICLE
        ========================================================= */
 
     function getArticleElement() {
@@ -1408,14 +1387,39 @@
 
             document.querySelector(
                 ".article-content"
-            ) ||
+            )?.closest("article") ||
 
             document.querySelector(
-                "article.article"
+                "article.article-main"
             ) ||
 
             document.querySelector(
                 "article"
+            ) ||
+
+            document.querySelector(
+                ".article-content"
+            )
+
+        );
+
+    }
+
+
+    /* =========================================================
+       9. FIND ARTICLE BODY
+       ========================================================= */
+
+    function getArticleBodyElement() {
+
+        return (
+
+            document.querySelector(
+                ".article-content"
+            ) ||
+
+            document.querySelector(
+                "article .article-content"
             ) ||
 
             document.querySelector(
@@ -1432,24 +1436,23 @@
 
 
     /* =========================================================
-       9. GET ARTICLE TITLE
+       10. ARTICLE TITLE
        ========================================================= */
 
-    function getArticleTitle(
-        article
-    ) {
-
-        if (!article) {
-
-            return "";
-
-        }
-
+    function getArticleTitle() {
 
         const titleElement =
 
-            article.querySelector(
-                "h1"
+            document.querySelector(
+                ".article-content h1"
+            ) ||
+
+            document.querySelector(
+                ".article-main h1"
+            ) ||
+
+            document.querySelector(
+                "article h1"
             ) ||
 
             document.querySelector(
@@ -1479,21 +1482,26 @@
         return (
             document.title || ""
         )
-        .replace(/\s*\|.*$/, "")
+        .replace(
+            /\s*\|.*$/,
+            ""
+        )
         .trim();
 
     }
 
 
     /* =========================================================
-       10. GET ARTICLE TEXT
+       11. ARTICLE BODY TEXT
        ========================================================= */
 
-    function getArticleText(
-        article
-    ) {
+    function getArticleText() {
 
-        if (!article) {
+        const body =
+            getArticleBodyElement();
+
+
+        if (!body) {
 
             return "";
 
@@ -1501,8 +1509,8 @@
 
 
         return (
-            article.textContent ||
-            article.innerText ||
+            body.textContent ||
+            body.innerText ||
             ""
         );
 
@@ -1510,37 +1518,61 @@
 
 
     /* =========================================================
-       11. GET OPTIONAL CATEGORY
+       12. ARTICLE CATEGORY
        ========================================================= */
 
-    function getCategoryHint() {
+    function getArticleCategory() {
 
-        const metaCategory =
+        /*
+         * Your actual article uses:
+         *
+         * <meta property="article:section"
+         * content="Electrical Calculations">
+         */
+
+        const propertyMeta =
+            document.querySelector(
+                'meta[property="article:section"]'
+            );
+
+
+        if (
+            propertyMeta &&
+            propertyMeta.content
+        ) {
+
+            return normalizeText(
+                propertyMeta.content
+            );
+
+        }
+
+
+        /*
+         * Additional support.
+         */
+
+        const nameMeta =
             document.querySelector(
                 'meta[name="article:section"]'
             );
 
 
         if (
-            metaCategory &&
-            metaCategory.content
+            nameMeta &&
+            nameMeta.content
         ) {
 
             return normalizeText(
-                metaCategory.content
+                nameMeta.content
             );
 
         }
 
 
         const categoryElement =
-
             document.querySelector(
-                ".article-category"
-            ) ||
-
-            document.querySelector(
-                "[data-category]"
+                ".article-category-label"
             );
 
 
@@ -1549,7 +1581,6 @@
         ) {
 
             return normalizeText(
-                categoryElement.dataset.category ||
                 categoryElement.textContent
             );
 
@@ -1562,10 +1593,10 @@
 
 
     /* =========================================================
-       12. GET URL HINT
+       13. URL / FOLDER SIGNAL
        ========================================================= */
 
-    function getURLHint() {
+    function getURLText() {
 
         return normalizeText(
             window.location.pathname
@@ -1575,49 +1606,261 @@
 
 
     /* =========================================================
-       13. FIND RECOMMENDATION
+       14. GET ARTICLE HEADINGS
        ========================================================= */
 
-    function findRecommendation() {
+    function getHeadingText() {
 
-        const article =
-            getArticleElement();
+        const body =
+            getArticleBodyElement();
 
 
-        if (!article) {
+        if (!body) {
 
-            return null;
+            return "";
 
         }
 
 
-        const title =
-            normalizeText(
-                getArticleTitle(
-                    article
-                )
+        const headings =
+            body.querySelectorAll(
+                "h2, h3"
             );
 
 
-        const articleText =
-            normalizeText(
-                getArticleText(
-                    article
-                )
+        let text =
+            "";
+
+
+        headings.forEach(
+            function (
+                heading
+            ) {
+
+                text +=
+                    " " +
+                    (
+                        heading.textContent ||
+                        heading.innerText ||
+                        ""
+                    );
+
+            }
+        );
+
+
+        return normalizeText(
+            text
+        );
+
+    }
+
+
+    /* =========================================================
+       15. SCORE A CATALOG ITEM
+       ========================================================= */
+
+    function scoreRecommendation(
+        item,
+        signals
+    ) {
+
+        let score =
+            0;
+
+
+        /*
+         * -----------------------------------------------------
+         * CATEGORY
+         * Strong signal.
+         * -----------------------------------------------------
+         */
+
+        if (
+            signals.category
+        ) {
+
+            const category =
+                signals.category;
+
+
+            item.keywords.forEach(
+                function (
+                    keyword
+                ) {
+
+                    const key =
+                        normalizeText(
+                            keyword
+                        );
+
+
+                    if (
+                        category === key
+                    ) {
+
+                        score +=
+                            30;
+
+                    }
+
+
+                    if (
+                        category.includes(
+                            key
+                        )
+                    ) {
+
+                        score +=
+                            12;
+
+                    }
+
+                }
             );
 
-
-        const category =
-            getCategoryHint();
+        }
 
 
-        const url =
-            getURLHint();
+        /*
+         * -----------------------------------------------------
+         * URL / FOLDER
+         * Very strong signal.
+         * -----------------------------------------------------
+         */
+
+        if (
+            signals.url
+        ) {
+
+            item.folders.forEach(
+                function (
+                    folder
+                ) {
+
+                    const normalizedFolder =
+                        normalizeText(
+                            folder
+                        );
+
+
+                    if (
+                        signals.url.includes(
+                            normalizedFolder
+                        )
+                    ) {
+
+                        score +=
+                            22;
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /*
+         * -----------------------------------------------------
+         * TITLE
+         * Strongest textual signal.
+         * -----------------------------------------------------
+         */
+
+        item.keywords.forEach(
+            function (
+                keyword
+            ) {
+
+                const key =
+                    normalizeText(
+                        keyword
+                    );
+
+
+                if (
+                    signals.title.includes(
+                        key
+                    )
+                ) {
+
+                    score +=
+                        18;
+
+                }
+
+
+                if (
+                    signals.headings.includes(
+                        key
+                    )
+                ) {
+
+                    score +=
+                        7;
+
+                }
+
+
+                /*
+                 * Body is deliberately given
+                 * much less weight.
+                 */
+
+                if (
+                    signals.body.includes(
+                        key
+                    )
+                ) {
+
+                    score +=
+                        1;
+
+                }
+
+            }
+        );
+
+
+        return score;
+
+    }
+
+
+    /* =========================================================
+       16. FIND BEST RECOMMENDATION
+       ========================================================= */
+
+    function findRecommendation() {
+
+        const signals = {
+
+            title:
+                normalizeText(
+                    getArticleTitle()
+                ),
+
+            category:
+                getArticleCategory(),
+
+            url:
+                getURLText(),
+
+            headings:
+                getHeadingText(),
+
+            body:
+                normalizeText(
+                    getArticleText()
+                )
+
+        };
 
 
         if (
-            !title &&
-            !articleText
+            !signals.title &&
+            !signals.body
         ) {
 
             return null;
@@ -1625,7 +1868,7 @@
         }
 
 
-        let best =
+        let bestItem =
             null;
 
 
@@ -1638,82 +1881,11 @@
                 item
             ) {
 
-                let score =
-                    0;
-
-
-                item.keywords.forEach(
-                    function (
-                        keyword
-                    ) {
-
-                        const key =
-                            normalizeText(
-                                keyword
-                            );
-
-
-                        /*
-                         * TITLE = strongest signal
-                         */
-
-                        if (
-                            title.includes(
-                                key
-                            )
-                        ) {
-
-                            score += 12;
-
-                        }
-
-
-                        /*
-                         * URL = strong supporting signal
-                         */
-
-                        if (
-                            url.includes(
-                                key
-                            )
-                        ) {
-
-                            score += 9;
-
-                        }
-
-
-                        /*
-                         * CATEGORY = strong supporting signal
-                         */
-
-                        if (
-                            category.includes(
-                                key
-                            )
-                        ) {
-
-                            score += 9;
-
-                        }
-
-
-                        /*
-                         * BODY = weaker signal
-                         */
-
-                        if (
-                            articleText.includes(
-                                key
-                            )
-                        ) {
-
-                            score += 1;
-
-                        }
-
-                    }
-                );
+                const score =
+                    scoreRecommendation(
+                        item,
+                        signals
+                    );
 
 
                 if (
@@ -1723,7 +1895,7 @@
                     bestScore =
                         score;
 
-                    best =
+                    bestItem =
                         item;
 
                 }
@@ -1733,13 +1905,12 @@
 
 
         /*
-         * Avoid showing a misleading
-         * recommendation if the topic
-         * does not match sufficiently.
+         * Generic electrical-engineering
+         * fallback.
          */
 
         if (
-            !best ||
+            !bestItem ||
             bestScore < 3
         ) {
 
@@ -1762,35 +1933,38 @@
         }
 
 
-        return best;
+        return bestItem;
 
     }
 
 
     /* =========================================================
-       14. AMAZON LINK
+       17. AMAZON URL
        ========================================================= */
 
-    function buildAmazonLink(
+    function buildAmazonURL(
         recommendation,
         container
     ) {
 
         /*
-         * OPTIONAL DIRECT ASIN
+         * Optional direct ASIN.
 
-         * You can later use:
+         * Example:
          *
          * <div
-         *   id="prasun-amazon-auto"
-         *   data-amazon-asin="B0XXXXXXXX">
-         * </div>
+         *     id="prasun-amazon-auto"
+         *     data-amazon-asin="B0XXXXXXXX"
+         * ></div>
          */
 
         const asin =
             container &&
             container.dataset
-                ? container.dataset.amazonAsin
+                ? (
+                    container.dataset.amazonAsin ||
+                    ""
+                ).trim()
                 : "";
 
 
@@ -1813,7 +1987,7 @@
 
 
         /*
-         * Topic-specific search link.
+         * Topic-specific Amazon search.
          */
 
         if (
@@ -1836,8 +2010,7 @@
 
 
         /*
-         * Final fallback:
-         * supplied SiteStripe link.
+         * Final fallback.
          */
 
         return AMAZON_FALLBACK_LINK;
@@ -1846,48 +2019,104 @@
 
 
     /* =========================================================
-       15. CREATE WIDGET CONTAINER
+       18. ESCAPE HTML
+       ========================================================= */
+
+    function escapeHTML(
+        value
+    ) {
+
+        return String(
+            value || ""
+        )
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+    }
+
+
+    /* =========================================================
+       19. ESCAPE ATTRIBUTE
+       ========================================================= */
+
+    function escapeAttribute(
+        value
+    ) {
+
+        return escapeHTML(
+            value
+        );
+
+    }
+
+
+    /* =========================================================
+       20. FIND OR CREATE WIDGET
        ========================================================= */
 
     function getWidgetContainer() {
 
         /*
-         * First look for an explicitly
-         * placed placeholder.
+         * Explicit placeholder first.
          */
 
-        let container =
+        const existing =
             document.getElementById(
                 WIDGET_ID
             );
 
 
         if (
-            container
+            existing
         ) {
 
-            return container;
+            return existing;
 
         }
 
 
         /*
-         * Otherwise insert automatically
-         * after the article.
+         * Automatic placement after
+         * .article-content.
          */
 
-        const article =
-            getArticleElement();
+        const articleBody =
+            getArticleBodyElement();
 
 
-        if (!article) {
+        if (
+            !articleBody
+        ) {
 
             return null;
 
         }
 
 
-        container =
+        const container =
             document.createElement(
                 "div"
             );
@@ -1897,7 +2126,12 @@
             WIDGET_ID;
 
 
-        article.insertAdjacentElement(
+        /*
+         * Insert immediately after
+         * the complete article content.
+         */
+
+        articleBody.insertAdjacentElement(
             "afterend",
             container
         );
@@ -1909,7 +2143,7 @@
 
 
     /* =========================================================
-       16. RENDER
+       21. RENDER WIDGET
        ========================================================= */
 
     function render() {
@@ -1937,7 +2171,7 @@
 
 
         /*
-         * Prevent duplicate widgets.
+         * Prevent duplicates.
          */
 
         if (
@@ -1964,11 +2198,8 @@
 
 
         /*
-         * Create Shadow DOM.
-         *
-         * This prevents your site's
-         * existing CSS/theme from
-         * overriding the Amazon card.
+         * Shadow DOM isolates this widget
+         * from the site's normal CSS.
          */
 
         if (
@@ -1980,12 +2211,12 @@
         }
 
 
-        let shadow;
+        let shadowRoot;
 
 
         try {
 
-            shadow =
+            shadowRoot =
                 container.attachShadow({
                     mode: "open"
                 });
@@ -2000,35 +2231,7 @@
 
 
         /* =====================================================
-           SYSTEM THEME
-        ====================================================== */
-
-        const mediaQuery =
-            window.matchMedia
-                ? window.matchMedia(
-                    "(prefers-color-scheme: dark)"
-                )
-                : null;
-
-
-        if (
-            mediaQuery &&
-            mediaQuery.matches
-        ) {
-
-            container.dataset.theme =
-                "dark";
-
-        } else {
-
-            container.dataset.theme =
-                "light";
-
-        }
-
-
-        /* =====================================================
-           STYLE
+           CSS
         ====================================================== */
 
         const style =
@@ -2041,7 +2244,7 @@
             CSS;
 
 
-        shadow.appendChild(
+        shadowRoot.appendChild(
             style
         );
 
@@ -2061,7 +2264,7 @@
 
 
         const amazonURL =
-            buildAmazonLink(
+            buildAmazonURL(
                 recommendation,
                 container
             );
@@ -2078,6 +2281,7 @@
                         ${SHOPPING_ICON}
 
                     </span>
+
 
                     <span class="amz-brand-text">
                         Amazon
@@ -2160,10 +2364,14 @@
         `;
 
 
-        shadow.appendChild(
+        shadowRoot.appendChild(
             card
         );
 
+
+        /*
+         * Mark rendered.
+         */
 
         container.dataset.amazonRendered =
             "true";
@@ -2174,27 +2382,39 @@
         ====================================================== */
 
         if (
-            mediaQuery
+            window.matchMedia
         ) {
+
+            const mediaQuery =
+                window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                );
+
 
             const updateTheme =
                 function () {
 
-                    if (
+                    /*
+                     * The actual colors are controlled
+                     * by CSS @media inside the Shadow DOM.
+                     *
+                     * This listener forces a repaint by
+                     * touching the host property and also
+                     * provides compatibility with browsers
+                     * that need a DOM update.
+                     */
+
+                    container.setAttribute(
+                        "data-system-theme",
                         mediaQuery.matches
-                    ) {
-
-                        container.dataset.theme =
-                            "dark";
-
-                    } else {
-
-                        container.dataset.theme =
-                            "light";
-
-                    }
+                            ? "dark"
+                            : "light"
+                    );
 
                 };
+
+
+            updateTheme();
 
 
             if (
@@ -2224,58 +2444,7 @@
 
 
     /* =========================================================
-       17. HTML ESCAPING
-       ========================================================= */
-
-    function escapeHTML(
-        value
-    ) {
-
-        return String(
-            value || ""
-        )
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-    }
-
-
-    function escapeAttribute(
-        value
-    ) {
-
-        return escapeHTML(
-            value
-        );
-
-    }
-
-
-    /* =========================================================
-       18. INITIALIZE
+       22. INITIALIZATION
        ========================================================= */
 
     function initialize() {
@@ -2300,5 +2469,6 @@
         initialize();
 
     }
+
 
 })();
